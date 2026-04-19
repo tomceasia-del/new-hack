@@ -17,6 +17,9 @@
 ├── editor/                        ← Video Editor v2 (ชื่อโฟลเดอร์ไม่มีช่องว่าง)
 │   ├── index.html
 │   └── src/...
+├── api/
+│   ├── gemini.js                  ← Serverless: เรียก Gemini (ใช้ GEMINI_API_KEY)
+│   └── gemini-verify.js           ← GET: ตรวจว่า key ตั้งบน Vercel แล้ว
 ├── vercel.json                    ← routes + headers
 ├── .vercelignore                  ← กันไฟล์/โฟลเดอร์ภายในไม่ให้ขึ้น
 └── README-deploy.md
@@ -62,13 +65,18 @@ npx vercel --prod    # production
 ```
 **ระวัง:** WebCodecs + mp4box อาจต้องการ `blob:` ใน `worker-src` / `media-src`
 
-## API key (ถ้าจะ production จริง)
+## Gemini API key (Production)
 
-ตอนนี้ CS เรียก Gemini ฝั่ง client ด้วย key ใน `localStorage` — เหมาะเป็น prototype เท่านั้น
-ทางที่ปลอดภัย:
-1. เพิ่ม **Vercel Serverless Function** (เช่น `/api/gemini.js`)
-2. เก็บ key ใน **Environment Variables** (Vercel Dashboard → Settings → Environment Variables)
-3. แก้ `storymode-mock-gemini-core.js` ให้ fetch ไปที่ `/api/gemini` แทน Google URL โดยตรง
+บน **Vercel** (ไม่ใช่ `localhost`):
+
+1. Project → **Settings → Environment Variables**
+2. เพิ่ม **`GEMINI_API_KEY`** = ค่าจาก [Google AI Studio](https://aistudio.google.com/apikey) (เลือก Environment: Production + Preview ตามต้องการ)
+3. **Redeploy** โปรเจกต์หนึ่งครั้ง (หรือ push commit ใหม่)
+4. เปิดหน้า CS — ถ้า `/api/gemini-verify` ตอบ **ok** จะขึ้นข้อความ **โหมดเซิร์ฟเวอร์** และไม่ต้องใส่ API key ในช่อง
+
+**Local dev** (`localhost` / `127.0.0.1`): ยังใส่ API key ในหน้าและบันทึกใน `localStorage` ได้ตามเดิม (ไม่มี Serverless จาก `python3 serve_story_mock.py`)
+
+**ทดบนเครื่องแบบมี API:** ใช้ `npx vercel dev` แล้วตั้ง `.env.local` หรือ env ของ Vercel CLI
 
 ## โดเมนจริง
 

@@ -488,6 +488,65 @@
     'gemini-2.5-pro'
   ];
 
+  /** Post-process Gemini text (same rules as direct client path). */
+  function applyStorymodeSafetyToText(text) {
+    var safetyReport = { sanitized: false, overclaimHits: [] };
+    if (typeof sanitizePromptForFlow === 'function') {
+      var cleaned = sanitizePromptForFlow(text);
+      if (cleaned !== text) {
+        safetyReport.sanitized = true;
+        text = cleaned;
+      }
+    }
+    if (typeof stripHardBannedPhrases === 'function') {
+      text = stripHardBannedPhrases(text);
+    }
+    if (typeof stripForbiddenMarketing === 'function') {
+      var marketing = stripForbiddenMarketing(text);
+      safetyReport.overclaimHits = marketing.hits || [];
+      if (safetyReport.overclaimHits.length > 0) {
+        try {
+          console.warn(
+            '[Storymode Safety] Overclaim phrases detected in output:',
+            safetyReport.overclaimHits
+          );
+        } catch (e) { /* ignore */ }
+      }
+    }
+    return { text: text, safety: safetyReport };
+  }
+
+  /**
+   * เมื่อ deploy บน Vercel + ตั้ง GEMINI_API_KEY — เรียก /api/gemini (ไม่ส่ง key ไป client)
+   */
+  async function mockFetchGeminiViaServer(systemPrompt, userText, images) {
+    var r = await fetch('/api/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        systemPrompt: systemPrompt,
+        userText: userText,
+        images: images || []
+      })
+    });
+    var data = await r.json().catch(function () {
+      return {};
+    });
+    if (!r.ok) {
+      throw new Error(data.error || 'HTTP ' + r.status);
+    }
+    var rawText = data.text;
+    var model = data.model;
+    var truncated = !!data.truncated;
+    var applied = applyStorymodeSafetyToText(rawText);
+    return {
+      text: applied.text,
+      model: model,
+      truncated: truncated,
+      safety: applied.safety
+    };
+  }
+
   /**
    * @param {string} apiKey
    * @param {string} systemPrompt
@@ -495,6 +554,9 @@
    * @param {Array<{mimeType:string,data:string}>} [images] raw base64 (no "data:..." prefix); product first, then character refs
    */
   async function mockFetchGeminiStorymode(apiKey, systemPrompt, userText, images) {
+    if (typeof window !== 'undefined' && window.__GEMINI_SERVER_MODE__) {
+      return mockFetchGeminiViaServer(systemPrompt, userText, images);
+    }
     const parts = [];
     if (Array.isArray(images) && images.length) {
       for (var ii = 0; ii < images.length; ii++) {
@@ -580,32 +642,10 @@
           throw new Error('Gemini ไม่ตอบกลับ (' + fr + ')');
         }
 
-        /* Phase 3 — Safety Layer post-processing.
-         * Applies the same sanitizers the shipped extension uses at paste-time,
-         * as a safety net for when Gemini ignores the Director prompt's rules. */
-        var safetyReport = { sanitized: false, overclaimHits: [] };
-        if (typeof sanitizePromptForFlow === 'function') {
-          var cleaned = sanitizePromptForFlow(text);
-          if (cleaned !== text) {
-            safetyReport.sanitized = true;
-            text = cleaned;
-          }
-        }
-        if (typeof stripHardBannedPhrases === 'function') {
-          text = stripHardBannedPhrases(text);
-        }
-        if (typeof stripForbiddenMarketing === 'function') {
-          var marketing = stripForbiddenMarketing(text);
-          safetyReport.overclaimHits = marketing.hits || [];
-          if (safetyReport.overclaimHits.length > 0) {
-            try {
-              console.warn(
-                '[Storymode Safety] Overclaim phrases detected in output:',
-                safetyReport.overclaimHits
-              );
-            } catch (e) { /* ignore */ }
-          }
-        }
+        /* Phase 3 — Safety Layer post-processing */
+        var applied = applyStorymodeSafetyToText(text);
+        text = applied.text;
+        var safetyReport = applied.safety;
 
         return {
           text: text,

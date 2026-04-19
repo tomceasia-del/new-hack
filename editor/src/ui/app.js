@@ -2143,6 +2143,14 @@ function bindCaptionUiOnce() {
         : `เตรียมไฟล์ · โดยประมาณ ${etaSec} วินาที · ${width}×${height}`,
     )
 
+    // Hard cap: ถ้าเกิน 2 นาที → abort อัตโนมัติ ป้องกันค้างยาวจนแบตหมด/แท็บเด้ง
+    const RENDER_TIMEOUT_MS = 120_000
+    let renderTimedOut = false
+    const renderTimeoutId = setTimeout(() => {
+      renderTimedOut = true
+      try { _renderAbort?.abort() } catch {}
+    }, RENDER_TIMEOUT_MS)
+
     try {
       const result = await renderProjectToMp4(payload, {
         playbackSpeed: trimPreviewPlaybackSpeed,
@@ -2182,12 +2190,19 @@ function bindCaptionUiOnce() {
       )
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e)
-      if (msg === 'ยกเลิก') {
+      if (renderTimedOut) {
+        showToast(
+          'Render หยุดอัตโนมัติ (เกิน 2 นาที) — ลองตัดให้สั้นลง หรือใช้ Chrome บนคอมพิวเตอร์',
+          'error',
+          8000,
+        )
+      } else if (msg === 'ยกเลิก') {
         showToast('ยกเลิกการเรนเดอร์แล้ว', 'warn')
       } else {
         showToast(`Render ไม่สำเร็จ: ${msg}`, 'error', 6000)
       }
     } finally {
+      clearTimeout(renderTimeoutId)
       _renderAbort = null
       hideRenderOverlay()
       _captionExporting = false
