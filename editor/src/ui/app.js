@@ -18,6 +18,18 @@ import {
   uploadVideoForShareLink,
 } from '../engine/shareUploadPhaseC.js'
 
+/** มือถือ / แท็บเล็ต — ลดภาระ encode (MediaRecorder ทำงานหนักมากที่ 1080p30) */
+function isMobileLikeDevice() {
+  if (typeof navigator === 'undefined' || typeof window === 'undefined') return false
+  const ua = navigator.userAgent || ''
+  if (/iPhone|iPad|iPod|Android/i.test(ua)) return true
+  try {
+    return window.matchMedia('(pointer: coarse)').matches && window.matchMedia('(max-width: 900px)').matches
+  } catch {
+    return false
+  }
+}
+
 /**
  * @typedef {{
  *   id: string,
@@ -2083,6 +2095,16 @@ function bindCaptionUiOnce() {
       )
       if (!ok) return
     }
+    // มือถือ: การเรนเดอร์ใช้เวลาประมาณเท่าความยาวคลิป (real-time) — คลิปยาวมากอาจค้างหรือช้ามาก
+    if (isMobileLikeDevice() && totalOutputSec > 90) {
+      const ok = window.confirm(
+        `บนมือถือ การ Render จะใช้เวลาประมาณ ${Math.ceil(totalOutputSec)} วินาทีขึ้นไป\n` +
+          '(ระบบเล่นวิดีโอจริงขณะบันทึก — ไม่ใช่การเร่งแบบพีซี)\n\n' +
+          'แนะนำตัดให้สั้นกว่า 60–90 วินาที หรือใช้คอมพิวเตอร์ Chrome\n\n' +
+          'ต้องการเรนเดอร์ต่อหรือไม่?',
+      )
+      if (!ok) return
+    }
 
     // เล็งไฟล์ ≈ 14 MB (เผื่อโอเวอร์เฮดไม่เกิน ~15 MB) + พื้นบิตเรตสูงขึ้นเล็กน้อยลดสะดุดจาก encode
     const TARGET_BYTES = 14 * 1024 * 1024
@@ -2093,24 +2115,40 @@ function bindCaptionUiOnce() {
     )
     // auto-downgrade: ถ้าบิตเรตต่ำเกินไป ย่อเหลือ 720x1280
     const MIN_1080_BITRATE = 3_500_000
-    const use720 = rawVideoBitrate < MIN_1080_BITRATE
+    let use720 = rawVideoBitrate < MIN_1080_BITRATE
+    // มือถือ: บังคับ 720p + fps ต่ำลง — 1080p30+MediaRecorder บน Safari มักช้ามากหรือค้างนาน
+    const mobile = isMobileLikeDevice()
+    if (mobile) {
+      use720 = true
+    }
     const width = use720 ? 720 : 1080
     const height = use720 ? 1280 : 1920
     // เพดานคุณภาพต่อความละเอียด
     const capBitrate = use720 ? 7_000_000 : 14_000_000
     const floorBitrate = use720 ? 2_000_000 : 3_000_000
-    const videoBitrate = Math.max(floorBitrate, Math.min(rawVideoBitrate, capBitrate))
+    let videoBitrate = Math.max(floorBitrate, Math.min(rawVideoBitrate, capBitrate))
+    if (mobile) {
+      videoBitrate = Math.min(videoBitrate, 5_000_000)
+    }
+    /** เรนเดอร์แบบเล่นจริงตามเวลา — ใช้เวลาไม่ต่ำกว่าความยาวหลังเร่งความเร็วโดยประมาณ */
+    const fps = mobile ? 24 : 30
 
     _captionExporting = true
     syncCaptionStep4Buttons()
     _renderAbort = new AbortController()
-    showRenderOverlay('เตรียมไฟล์')
+    const etaSec = Math.max(1, Math.ceil(totalOutputSec))
+    showRenderOverlay(
+      mobile
+        ? `เตรียมไฟล์ · โดยประมาณ ${etaSec} วินาที (ตามความยาวคลิป) · ${width}×${height}@${fps}`
+        : `เตรียมไฟล์ · โดยประมาณ ${etaSec} วินาที · ${width}×${height}`,
+    )
 
     try {
       const result = await renderProjectToMp4(payload, {
         playbackSpeed: trimPreviewPlaybackSpeed,
         width,
         height,
+        fps,
         videoBitrate,
         audioBitrate,
         folderHandle: renderFolderHandle,
