@@ -698,15 +698,7 @@
       align-items: center;
       gap: 4px;
     }
-    .narrative-chip-caption {
-      font-size: calc(0.68rem * var(--btn-scale));
-      font-weight: 700;
-      color: var(--muted);
-      line-height: 1.2;
-      text-align: center;
-      max-width: 100%;
-      word-break: break-word;
-    }
+    .narrative-chip-caption { display: none; }
     .chip.narrative-chip .narrative-chip-inner {
       display: flex;
       flex-direction: column;
@@ -734,12 +726,13 @@
       flex-shrink: 0;
     }
     .chip.narrative-chip .narrative-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
       min-width: 0;
       width: 100%;
-      align-items: center;
       font-size: calc(0.68rem * var(--btn-scale));
       font-weight: 600;
       line-height: 1.2;
@@ -1669,9 +1662,6 @@
       const inputId = "narrative-chips-" + o.id;
       const label = document.createElement("label");
       label.className = "chip narrative-chip";
-      const cap = document.createElement("span");
-      cap.className = "narrative-chip-caption";
-      cap.textContent = o.name || "";
       const input = document.createElement("input");
       input.type = "checkbox";
       input.value = String(o.id);
@@ -1686,10 +1676,9 @@
       ico.textContent = o.icon || "📌";
       const text = document.createElement("span");
       text.className = "narrative-text";
-      text.setAttribute("aria-hidden", "true");
+      text.textContent = o.name || "";
       inner.appendChild(ico);
       inner.appendChild(text);
-      label.appendChild(cap);
       label.appendChild(input);
       label.appendChild(inner);
       return label;
@@ -1812,9 +1801,6 @@
         items.forEach(function(m) {
           const label = document.createElement("label");
           label.className = "chip narrative-chip";
-          const cap = document.createElement("span");
-          cap.className = "narrative-chip-caption";
-          cap.textContent = m.thai || m.key;
           const input = document.createElement("input");
           input.type = "checkbox";
           input.value = m.key;
@@ -1828,10 +1814,9 @@
           ico.textContent = m.icon;
           const text = document.createElement("span");
           text.className = "narrative-text";
-          text.setAttribute("aria-hidden", "true");
+          text.textContent = m.thai || m.key;
           inner.appendChild(ico);
           inner.appendChild(text);
-          label.appendChild(cap);
           label.appendChild(input);
           label.appendChild(inner);
           wrap.appendChild(label);
