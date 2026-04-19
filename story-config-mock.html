@@ -488,6 +488,11 @@
       padding-right: 6px;
       align-content: flex-start;
     }
+    /* inside full-screen overlay → no height limit */
+    .narrative-step-detail .chip-grid.narrative-scroll {
+      max-height: none;
+      overflow-y: visible;
+    }
     /* Hook: โหมด AI / เลือกเอง + กล่อง 4 สายฮุค */
     .hook-chips-wrap {
       position: relative;
@@ -940,6 +945,26 @@
       flex-direction: column;
       gap: 0;
     }
+    .narrative-step-detail:not([hidden]) {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: var(--bg);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      padding: 80px 16px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    /* close button fixed top-right while overlay is open */
+    .narrative-step-detail .narrative-close-btn {
+      position: fixed !important;
+      top: calc(12px * var(--btn-scale));
+      right: calc(12px * var(--btn-scale));
+      z-index: 1001;
+    }
     .narrative-group-chips {
       display: none;
       width: 100%;
@@ -1277,7 +1302,6 @@
     <section data-section="visual">
       <div class="sec-head">
         <p class="sec-title">Style ตัวละคร</p>
-        <button type="button" class="narrative-close-btn" id="visual-icon-back" hidden aria-label="ปิด">×</button>
       </div>
       <div id="visual-selected-box" class="sel-summary-box"><span class="sel-no-pick">เลือก Style ตัวละคร 1 รายการ (ข้อ 7)</span></div>
       <div class="narrative-picker" id="visual-picker">
@@ -1285,6 +1309,7 @@
           <div class="narrative-group-grid" id="visual-group-cards"></div>
         </div>
         <div class="narrative-step narrative-step-detail" id="visual-step-detail" hidden>
+          <button type="button" class="narrative-close-btn" id="visual-icon-back" hidden aria-label="ปิด">×</button>
           <div class="chip-grid narrative-scroll" id="visual-chips"></div>
         </div>
       </div>
@@ -1303,7 +1328,6 @@
     <section data-section="narrative">
       <div class="sec-head">
         <p class="sec-title" style="display:inline-flex;align-items:center;gap:0;flex-wrap:wrap;">กลยุทธ์เล่าเรื่อง<span id="narrative-selected-icon" class="narrative-title-icon" role="button" aria-label="ยกเลิกการเลือก" title="กดเพื่อยกเลิก"></span></p>
-        <button type="button" class="narrative-close-btn" id="narrative-icon-back" hidden aria-label="ปิด">×</button>
       </div>
       <div id="narrative-selected-box"></div>
       <div class="narrative-picker" id="narrative-picker">
@@ -1311,6 +1335,7 @@
           <div class="narrative-group-grid" id="narrative-group-cards"></div>
         </div>
         <div class="narrative-step narrative-step-detail" id="narrative-step-detail" hidden>
+          <button type="button" class="narrative-close-btn" id="narrative-icon-back" hidden aria-label="ปิด">×</button>
           <div class="chip-grid narrative-scroll" id="narrative-chips"></div>
         </div>
       </div>
@@ -1320,7 +1345,6 @@
     <section data-section="mood">
       <div class="sec-head">
         <p class="sec-title">บรรยากาศ</p>
-        <button type="button" class="narrative-close-btn" id="mood-icon-back" hidden aria-label="ปิด">×</button>
       </div>
       <div id="mood-selected-box" class="sel-summary-box"></div>
       <div class="narrative-picker" id="mood-picker">
@@ -1328,6 +1352,7 @@
           <div class="narrative-group-grid" id="mood-group-cards"></div>
         </div>
         <div class="narrative-step narrative-step-detail" id="mood-step-detail" hidden>
+          <button type="button" class="narrative-close-btn" id="mood-icon-back" hidden aria-label="ปิด">×</button>
           <div class="chip-grid narrative-scroll" id="mood-chips"></div>
         </div>
       </div>
