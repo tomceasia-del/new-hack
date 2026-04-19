@@ -1623,15 +1623,22 @@ function bindFolderTargetOnce() {
     syncFolderTargetUI()
     showToast('ล้างโฟลเดอร์ปลายทางแล้ว — จะใช้โฟลเดอร์ดาวน์โหลด', 'ok', 2500)
   })
-  el.renderOverlayCancel?.addEventListener('click', () => {
-    if (_renderAbort) {
-      try {
-        _renderAbort.abort()
-      } catch {
-        /* ignore */
-      }
-      updateRenderOverlay('กำลังยกเลิก…')
+  const abortRenderFromUser = () => {
+    if (!_renderAbort) return
+    try {
+      _renderAbort.abort()
+    } catch {
+      /* ignore */
     }
+    updateRenderOverlay('กำลังยกเลิก…')
+  }
+  el.renderOverlayCancel?.addEventListener('click', abortRenderFromUser)
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return
+    if (!el.renderOverlay || el.renderOverlay.classList.contains('hidden')) return
+    if (!_renderAbort) return
+    e.preventDefault()
+    abortRenderFromUser()
   })
 }
 

@@ -1262,6 +1262,31 @@ code {
 .render-overlay .btn {
   margin-top: 4px;
   min-width: 140px;
+  min-height: 44px;
+  width: 100%;
+  max-width: 280px;
+  touch-action: manipulation;
+}
+
+.render-overlay-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.render-overlay-hint .kbd-hint {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-size: 0.7rem;
+  font-family: inherit;
+}
+
+@media (max-width: 600px) {
+  .render-overlay-hint {
+    display: none;
+  }
 }
 
 /* ── Toast ─────────────────────────────────────────────────────────────── */

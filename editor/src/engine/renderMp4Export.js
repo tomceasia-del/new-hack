@@ -115,6 +115,39 @@ function waitMediaEvent(media, evt, timeoutMs, errMsg) {
   })
 }
 
+/** ถ้า signal abort ก่อน promise เสร็จ → reject('ยกเลิก') — ให้กดยกเลิกได้ทันทีแม้รอ metadata/seek */
+function raceWithAbort(promise, signal) {
+  if (!signal) return promise
+  return new Promise((resolve, reject) => {
+    const onAbort = () => {
+      signal.removeEventListener('abort', onAbort)
+      reject(new Error('ยกเลิก'))
+    }
+    if (signal.aborted) {
+      reject(new Error('ยกเลิก'))
+      return
+    }
+    signal.addEventListener('abort', onAbort)
+    Promise.resolve(promise).then(
+      (v) => {
+        signal.removeEventListener('abort', onAbort)
+        resolve(v)
+      },
+      (e) => {
+        signal.removeEventListener('abort', onAbort)
+        reject(e)
+      },
+    )
+  })
+}
+
+function delayMs(ms, signal) {
+  return raceWithAbort(
+    new Promise((r) => setTimeout(r, ms)),
+    signal,
+  )
+}
+
 /** รอ promise พร้อม timeout — ถ้าเกินเวลาจะ resolve(undefined) (ใช้กับ cleanup) */
 function withTimeout(promise, ms) {
   return new Promise((resolve) => {
@@ -143,8 +176,9 @@ function withTimeout(promise, ms) {
 }
 
 /** Chrome บางเคส AudioContext suspend หลัง await — ต้อง resume ก่อนเล่นเสียง */
-async function ensureAudioContextRunning(ctx) {
+async function ensureAudioContextRunning(ctx, signal) {
   for (let i = 0; i < 30; i += 1) {
+    if (signal?.aborted) throw new Error('ยกเลิก')
     if (ctx.state === 'closed') return
     if (ctx.state === 'running') return
     try {
@@ -153,7 +187,7 @@ async function ensureAudioContextRunning(ctx) {
       /* ignore */
     }
     if (ctx.state === 'running') return
-    await new Promise((r) => setTimeout(r, 40))
+    await delayMs(40, signal)
   }
 }
 
@@ -225,7 +259,7 @@ export async function renderProjectToMp4(clips, opts = {}) {
   audioSrc.connect(silentSink)
   silentSink.connect(audioCtx.destination)
 
-  await ensureAudioContextRunning(audioCtx)
+  await ensureAudioContextRunning(audioCtx, signal)
 
   // ── รวม stream: canvas video + audio dest ─────────────────────────────
   const canvasStream = canvas.captureStream(fps)
@@ -349,9 +383,9 @@ export async function renderProjectToMp4(clips, opts = {}) {
   try {
     recorder.start(500)
     drawPumpTick()
-    await ensureAudioContextRunning(audioCtx)
+    await ensureAudioContextRunning(audioCtx, signal)
     // ให้ recorder + audio graph เริ่ม pump ก่อน
-    await new Promise((r) => setTimeout(r, 120))
+    await delayMs(120, signal)
 
     for (let i = 0; i < clips.length; i += 1) {
       if (aborted) throw new Error('ยกเลิก')
@@ -362,7 +396,10 @@ export async function renderProjectToMp4(clips, opts = {}) {
       const url = URL.createObjectURL(clip.file)
       urls.push(url)
       video.src = url
-      await waitMediaEvent(video, 'loadedmetadata', 20_000, 'โหลด metadata หมดเวลา')
+      await raceWithAbort(
+        waitMediaEvent(video, 'loadedmetadata', 20_000, 'โหลด metadata หมดเวลา'),
+        signal,
+      )
       drawPumpTick()
 
       const t0 = Math.max(0, Number(clip.trimInSec) || 0)
@@ -373,8 +410,11 @@ export async function renderProjectToMp4(clips, opts = {}) {
       } catch {
         /* ignore */
       }
-      await waitMediaEvent(video, 'seeked', 10_000, 'seek ไม่สำเร็จ')
-      await new Promise((r) => setTimeout(r, POST_SEEK_SETTLE_MS))
+      await raceWithAbort(
+        waitMediaEvent(video, 'seeked', 10_000, 'seek ไม่สำเร็จ'),
+        signal,
+      )
+      await delayMs(POST_SEEK_SETTLE_MS, signal)
       try {
         video.playbackRate = speed
       } catch {
@@ -382,13 +422,15 @@ export async function renderProjectToMp4(clips, opts = {}) {
       }
 
       onProgress?.({ clipIndex: i, clipCount: clips.length, phase: 'recording' })
-      await ensureAudioContextRunning(audioCtx)
+      await ensureAudioContextRunning(audioCtx, signal)
       try {
-        await video.play()
+        await raceWithAbort(video.play(), signal)
       } catch (e) {
-        throw new Error(`เล่นวิดีโอไม่สำเร็จ: ${e instanceof Error ? e.message : e}`)
+        const m = e instanceof Error ? e.message : String(e)
+        if (m === 'ยกเลิก') throw e
+        throw new Error(`เล่นวิดีโอไม่สำเร็จ: ${m}`)
       }
-      await ensureAudioContextRunning(audioCtx)
+      await ensureAudioContextRunning(audioCtx, signal)
 
       await new Promise((resolve, reject) => {
         let iv = /** @type {ReturnType<typeof setInterval> | null} */ (null)
@@ -424,7 +466,7 @@ export async function renderProjectToMp4(clips, opts = {}) {
     }
 
     onProgress?.({ clipIndex: clips.length, clipCount: clips.length, phase: 'finalizing' })
-    await new Promise((r) => setTimeout(r, 250))
+    await delayMs(250, signal)
   } finally {
     drawing = false
     stopDrawPump()
