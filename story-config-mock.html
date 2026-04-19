@@ -34,35 +34,36 @@
       margin: 0 auto;
       padding: 28px 18px 48px;
     }
-    .app-nav {
+    .page-header {
       display: flex;
       align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
       margin: 0 0 18px;
     }
-    .app-nav__link {
+    .page-header h1 {
+      margin: 0;
+    }
+    .app-switch-btn {
+      flex-shrink: 0;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 12px;
+      padding: 7px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--muted);
       text-decoration: none;
       font-size: 0.82rem;
-      font-weight: 500;
+      font-weight: 600;
+      white-space: nowrap;
       transition: color 0.15s, border-color 0.15s, background 0.15s;
     }
-    .app-nav__link:hover {
+    .app-switch-btn:hover {
       color: var(--text);
-      border-color: rgba(255, 255, 255, 0.18);
-    }
-    .app-nav__link--active {
-      background: var(--accent-dim);
       border-color: var(--accent);
-      color: var(--text);
+      background: var(--accent-dim);
     }
     h1 {
       font-size: 1.35rem;
@@ -1160,11 +1161,10 @@
     }
   </script>
   <div class="wrap">
-    <nav class="app-nav" aria-label="แอปในชุด">
-      <a class="app-nav__link app-nav__link--active" href="/" aria-current="page">Project CS</a>
-      <a class="app-nav__link" href="/editor/">Video Editor v2 →</a>
-    </nav>
-    <h1>Project CS</h1>
+    <header class="page-header">
+      <h1>Project CS</h1>
+      <a class="app-switch-btn" href="/editor/">Video Editor v2 →</a>
+    </header>
 
     <!-- ── แท็บหลัก ── -->
     <div class="main-panel-tabs" role="tablist" aria-label="ส่วนหลัก">
@@ -2663,6 +2663,33 @@
 
     const GEMINI_API_STORAGE_KEY = "storymodeMockGeminiApiKeyV1";
 
+    /** Vercel + GEMINI_API_KEY — เรียก Gemini ผ่าน /api/gemini (ไม่เก็บ key ในเบราว์เซอร์) */
+    async function tryInitGeminiServerMode() {
+      try {
+        if (location.protocol === "file:") return;
+        const h = location.hostname;
+        if (h === "localhost" || h === "127.0.0.1") return;
+        const r = await fetch("/api/gemini-verify");
+        if (!r.ok) return;
+        const j = await r.json().catch(() => ({}));
+        if (!j.ok) return;
+        window.__GEMINI_SERVER_MODE__ = true;
+        const keyEl = document.getElementById("gemini-api-key");
+        const btnSave = document.getElementById("btn-save-api");
+        if (keyEl) {
+          keyEl.disabled = true;
+          keyEl.placeholder = "(ไม่จำเป็น — ใช้ GEMINI_API_KEY บนเซิร์ฟเวอร์)";
+        }
+        if (btnSave) btnSave.disabled = true;
+        setApiKeyStatus(
+          "โหมดเซิร์ฟเวอร์: API key อยู่ที่ Vercel เท่านั้น — ไม่ต้องใส่ที่นี่",
+          "ok"
+        );
+      } catch (_) {
+        /* ไม่มี Serverless / ยัง dev แบบ static — ใช้ client key ตามเดิม */
+      }
+    }
+
     function setApiGoogleLed(state) {
       const led = document.getElementById("api-google-led");
       if (!led) return;
@@ -2705,6 +2732,10 @@
     }
 
     document.getElementById("btn-save-api").addEventListener("click", async () => {
+      if (window.__GEMINI_SERVER_MODE__) {
+        setApiKeyStatus("โหมดเซิร์ฟเวอร์ — ไม่ต้องบันทึก API key ที่นี่ (ตั้งใน Vercel)");
+        return;
+      }
       const keyEl = document.getElementById("gemini-api-key");
       const btn = document.getElementById("btn-save-api");
       const apiKey = keyEl && keyEl.value ? keyEl.value.trim() : "";
@@ -2743,6 +2774,10 @@
     });
 
     (async function restoreGeminiApiKeyFromStorage() {
+      await tryInitGeminiServerMode();
+      if (window.__GEMINI_SERVER_MODE__) {
+        return;
+      }
       try {
         const k = localStorage.getItem(GEMINI_API_STORAGE_KEY);
         const keyEl = document.getElementById("gemini-api-key");
@@ -2795,7 +2830,7 @@
         if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
       }
-      if (!apiKey) {
+      if (!apiKey && !window.__GEMINI_SERVER_MODE__) {
         status.textContent = "กรอกค่าจาก Google AI Studio ก่อน (ลิงก์ด้านบน)";
         setApiGoogleLed("fail");
         return;
