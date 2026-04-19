@@ -1,22 +1,25 @@
 /**
- * Render project → MP4 ไฟล์เดียว (9:16) — เงียบเบื้องหลัง
+ * Render project → MP4 ไฟล์เดียว (9:16)
  *
- * ตรงกับหน้า Trim: ลำดับคลิปตาม arrange, ตัด trimIn–trimOut, ใช้ playbackSpeed, มีเสียง
- *
- * เวลา render (สำคัญ):
- *   - โหมดนี้เล่นวิดีโอจริงทีละคลิปขณะบันทึก (MediaRecorder) — เวลาโดยประมาณ ≈ ความยาวรวมหลังหารด้วย playbackSpeed
- *   - จึงไม่สามารถบีบให้เหลือไม่กี่วินาทีได้ถ้าคลิปยาวหลายนาที (ไม่ใช่ FFmpeg แบบเร็วกว่าเวลาจริง)
- *   - มือถือ Safari/iOS: encode + canvas หนักมาก — ใช้ 720p และ fps ต่ำช่วยได้
+ * Target envelope (ระบบออกแบบสำหรับ Chrome desktop):
+ *   - Input: คลิปละ ≤ 1.5 นาที / ≤ 50 MB — MP4/H.264
+ *   - Output: หลัง trim ~15 วินาที
+ *   - Render: MediaRecorder + canvas captureStream แบบ near real-time
+ *     ≈ ความยาว output หาร playbackSpeed + โอเวอร์เฮดประมาณ 0.5 วินาทีต่อคลิป
  *
  * ข้อจำกัด:
- *   - Desktop Chrome ทำงานได้ดีที่สุด; Safari มือถืออาจช้าหรือค้าง
+ *   - Safari/iOS ไม่ถูก tune — อาจช้ามากหรือค้าง (pipeline ถือว่าไม่รองรับ)
  *   - ถ้า MediaRecorder ไม่รองรับ MP4 → fallback เป็น WebM
- *   - แท็บต้องเปิดอยู่ระหว่าง render (ซ่อนแท็บอาจทำให้ pump หยุด)
+ *   - แท็บต้องเปิดอยู่ระหว่าง render (ซ่อนแท็บทำให้ pump หยุด)
  */
 
 const DEFAULT_FPS = 30
-/** หลัง seek ให้ decoder นิ่งก่อนเล่น — ลดเฟรมแรกเพี้ยน/บล็อกระหว่างคลิป */
-const POST_SEEK_SETTLE_MS = 120
+/** หลัง seek ให้ decoder นิ่งก่อนเล่น — Chrome desktop ต้องการน้อยมาก */
+const POST_SEEK_SETTLE_MS = 40
+/** รอ recorder + audio graph pump ก่อนเริ่มคลิปแรก */
+const PRE_ROLL_MS = 40
+/** ส่วนท้าย: ให้ encoder flush tail sample ก่อน stop */
+const FINALIZE_MS = 120
 
 function pickMp4Mime() {
   const candidates = [
@@ -347,11 +350,10 @@ export async function renderProjectToMp4(clips, opts = {}) {
   signal?.addEventListener('abort', onAbort, { once: true })
 
   try {
-    recorder.start(500)
+    recorder.start(250)
     drawPumpTick()
     await ensureAudioContextRunning(audioCtx)
-    // ให้ recorder + audio graph เริ่ม pump ก่อน
-    await new Promise((r) => setTimeout(r, 120))
+    await new Promise((r) => setTimeout(r, PRE_ROLL_MS))
 
     for (let i = 0; i < clips.length; i += 1) {
       if (aborted) throw new Error('ยกเลิก')
@@ -424,7 +426,7 @@ export async function renderProjectToMp4(clips, opts = {}) {
     }
 
     onProgress?.({ clipIndex: clips.length, clipCount: clips.length, phase: 'finalizing' })
-    await new Promise((r) => setTimeout(r, 250))
+    await new Promise((r) => setTimeout(r, FINALIZE_MS))
   } finally {
     drawing = false
     stopDrawPump()

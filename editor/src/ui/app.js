@@ -18,16 +18,24 @@ import {
   uploadVideoForShareLink,
 } from '../engine/shareUploadPhaseC.js'
 
-/** มือถือ / แท็บเล็ต — ลดภาระ encode (MediaRecorder ทำงานหนักมากที่ 1080p30) */
-function isMobileLikeDevice() {
-  if (typeof navigator === 'undefined' || typeof window === 'undefined') return false
+/* ── Design envelope (ออกแบบให้ Chrome desktop เท่านั้น) ──────────────────
+ * - คลิป input: ≤ 1.5 นาที, ≤ 50 MB
+ * - Output หลัง trim: เฉลี่ย ~15 วินาที
+ * - Render pipeline: MediaRecorder แบบ near-real-time บน Chrome desktop
+ */
+const MAX_CLIP_DURATION_SEC = 90
+const MAX_CLIP_BYTES = 50 * 1024 * 1024
+const TYPICAL_OUTPUT_SEC = 15
+
+/** Chrome / Chromium desktop (ไม่ใช่ iOS/Android/Safari) — pipeline ถูก tune สำหรับโหมดนี้ */
+function isChromeDesktop() {
+  if (typeof navigator === 'undefined') return false
   const ua = navigator.userAgent || ''
-  if (/iPhone|iPad|iPod|Android/i.test(ua)) return true
-  try {
-    return window.matchMedia('(pointer: coarse)').matches && window.matchMedia('(max-width: 900px)').matches
-  } catch {
-    return false
-  }
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(ua)
+  if (isMobile) return false
+  const isChromium = /Chrome\/\d+/.test(ua) && !/Edg\/|OPR\//.test(ua)
+  const isSafari = /Safari/.test(ua) && !/Chrome/.test(ua)
+  return isChromium && !isSafari
 }
 
 /**
@@ -257,8 +265,19 @@ function filterVideoFiles(fileList) {
   })
 }
 
+/** ตรวจขนาดไฟล์ (≤ 50 MB ต่อคลิปตามดีไซน์) */
+function checkFileSizeLimit(file) {
+  if (file.size > MAX_CLIP_BYTES) {
+    const mb = (file.size / (1024 * 1024)).toFixed(1)
+    showToast(`ไฟล์ "${file.name}" ใหญ่ ${mb} MB — จำกัด 50 MB/คลิป`, 'error', 5000)
+    return false
+  }
+  return true
+}
+
 async function addFiles(fileList) {
-  const files = filterVideoFiles(fileList)
+  const allVideos = filterVideoFiles(fileList)
+  const files = allVideos.filter(checkFileSizeLimit)
   if (!files.length) return
 
   const placeholders = files.map((file) => {
@@ -291,6 +310,16 @@ async function addFiles(fileList) {
       ensureClipTrim(clip)
     }),
   )
+
+  /* ตัดคลิปที่ยาวเกิน 1.5 นาทีออก (ตามดีไซน์) */
+  const overLimit = clips.filter(
+    (c) => c.durationSec > MAX_CLIP_DURATION_SEC + 0.5 && placeholders.includes(c),
+  )
+  if (overLimit.length) {
+    const names = overLimit.map((c) => `${c.name} (${c.durationSec.toFixed(1)}s)`).join(', ')
+    showToast(`คลิปเกิน 1.5 นาที ถูกตัดออก: ${names}`, 'error', 6000)
+    clips = clips.filter((c) => !overLimit.includes(c))
+  }
 
   renderClipArrangeGrid()
   syncButtons()
@@ -2086,21 +2115,22 @@ function bindCaptionUiOnce() {
     )
     const totalOutputSec = totalSelectedSec / speed
 
-    // เตือนถ้าเกิน 60 วินาที (แต่ยังให้เรนเดอร์ต่อได้)
-    if (totalOutputSec > 60) {
+    // ── Chrome-desktop gate: ระบบนี้ออกแบบสำหรับ Chrome desktop
+    if (!isChromeDesktop()) {
       const ok = window.confirm(
-        `ความยาวรวมหลังเร่งความเร็ว ≈ ${totalOutputSec.toFixed(1)} วินาที — เกิน 60 วินาที\n` +
-          'อาจไม่เหมาะกับข้อจำกัดของแพลตฟอร์ม (และไฟล์อาจใหญ่/คุณภาพลด)\n\n' +
-          'ต้องการเรนเดอร์ต่อหรือไม่?',
+        'ระบบนี้ออกแบบให้ใช้ Chrome บนคอมพิวเตอร์\n' +
+          'ถ้าใช้เบราว์เซอร์อื่น (เช่น Safari บน iPhone) การ Render อาจช้ามากหรือค้าง\n\n' +
+          'แนะนำเปิดหน้านี้บน Chrome Mac/PC\n\n' +
+          'ต้องการเรนเดอร์ต่อไปหรือไม่?',
       )
       if (!ok) return
     }
-    // มือถือ: การเรนเดอร์ใช้เวลาประมาณเท่าความยาวคลิป (real-time) — คลิปยาวมากอาจค้างหรือช้ามาก
-    if (isMobileLikeDevice() && totalOutputSec > 90) {
+
+    // เตือนถ้ายาวเกินจาก envelope ของระบบ (target ~15s, 1 คลิป ≤ 90s)
+    if (totalOutputSec > 60) {
       const ok = window.confirm(
-        `บนมือถือ การ Render จะใช้เวลาประมาณ ${Math.ceil(totalOutputSec)} วินาทีขึ้นไป\n` +
-          '(ระบบเล่นวิดีโอจริงขณะบันทึก — ไม่ใช่การเร่งแบบพีซี)\n\n' +
-          'แนะนำตัดให้สั้นกว่า 60–90 วินาที หรือใช้คอมพิวเตอร์ Chrome\n\n' +
+        `ผลลัพธ์ยาว ≈ ${totalOutputSec.toFixed(1)} วินาที — เกินจากเป้าหมายระบบ (ประมาณ 15 วินาที)\n` +
+          'การ Render จะใช้เวลาประมาณเท่ากัน (MediaRecorder near real-time)\n\n' +
           'ต้องการเรนเดอร์ต่อหรือไม่?',
       )
       if (!ok) return
@@ -2113,34 +2143,23 @@ function bindCaptionUiOnce() {
     const rawVideoBitrate = Math.floor(
       (TARGET_BYTES * 8) / secForSize - audioBitrate,
     )
-    // auto-downgrade: ถ้าบิตเรตต่ำเกินไป ย่อเหลือ 720x1280
+    // auto-downgrade: ถ้าบิตเรตต่ำเกินไป ย่อเหลือ 720x1280 (เฉพาะผลเกิน envelope ปกติ)
     const MIN_1080_BITRATE = 3_500_000
-    let use720 = rawVideoBitrate < MIN_1080_BITRATE
-    // มือถือ: บังคับ 720p + fps ต่ำลง — 1080p30+MediaRecorder บน Safari มักช้ามากหรือค้างนาน
-    const mobile = isMobileLikeDevice()
-    if (mobile) {
-      use720 = true
-    }
+    const use720 = rawVideoBitrate < MIN_1080_BITRATE
     const width = use720 ? 720 : 1080
     const height = use720 ? 1280 : 1920
-    // เพดานคุณภาพต่อความละเอียด
     const capBitrate = use720 ? 7_000_000 : 14_000_000
     const floorBitrate = use720 ? 2_000_000 : 3_000_000
-    let videoBitrate = Math.max(floorBitrate, Math.min(rawVideoBitrate, capBitrate))
-    if (mobile) {
-      videoBitrate = Math.min(videoBitrate, 5_000_000)
-    }
-    /** เรนเดอร์แบบเล่นจริงตามเวลา — ใช้เวลาไม่ต่ำกว่าความยาวหลังเร่งความเร็วโดยประมาณ */
-    const fps = mobile ? 24 : 30
+    const videoBitrate = Math.max(floorBitrate, Math.min(rawVideoBitrate, capBitrate))
+    const fps = 30
 
     _captionExporting = true
     syncCaptionStep4Buttons()
     _renderAbort = new AbortController()
-    const etaSec = Math.max(1, Math.ceil(totalOutputSec))
+    /* ETA ≈ ความยาว output + โอเวอร์เฮด ~2s ต่อคลิป (seek/load) */
+    const etaSec = Math.max(1, Math.ceil(totalOutputSec + payload.length * 1.2))
     showRenderOverlay(
-      mobile
-        ? `เตรียมไฟล์ · โดยประมาณ ${etaSec} วินาที (ตามความยาวคลิป) · ${width}×${height}@${fps}`
-        : `เตรียมไฟล์ · โดยประมาณ ${etaSec} วินาที · ${width}×${height}`,
+      `เตรียมไฟล์ · ประมาณ ${etaSec} วินาที · ${width}×${height}@${fps}`,
     )
 
     try {
