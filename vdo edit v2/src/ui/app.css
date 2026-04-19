@@ -1,0 +1,1325 @@
+/* Video Editor v2 — mobile-first, Upload + Arrange grid */
+
+:root {
+  --bg: #07070c;
+  --surface: #101018;
+  --card: #16161f;
+  --border: #2a2a38;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --cyan: #38bdf8;
+  --danger: #ef4444;
+  --danger-bg: rgba(239, 68, 68, 0.12);
+  --ok: #22c55e;
+  --warn: #fbbf24;
+  --radius: 14px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --tap: 44px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: var(--cyan);
+}
+
+.app {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: max(12px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right))
+    max(28px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+}
+
+@media (min-width: 768px) {
+  .app {
+    max-width: 720px;
+    padding-top: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app {
+    max-width: 960px;
+  }
+}
+
+.app-header {
+  margin-bottom: 16px;
+}
+
+.app-title {
+  font-size: clamp(1.2rem, 4.5vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Step rail — readable on narrow screens */
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 16px 0 14px;
+}
+
+.step-pill {
+  font: inherit;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 7px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--surface);
+  cursor: pointer;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.step-pill:disabled {
+  cursor: not-allowed;
+}
+
+@media (min-width: 400px) {
+  .step-pill {
+    font-size: 0.6875rem;
+    padding: 6px 10px;
+  }
+}
+
+.step-pill.done {
+  border-color: rgba(34, 197, 94, 0.35);
+  color: var(--ok);
+}
+
+.step-pill.active {
+  border-color: var(--cyan);
+  color: var(--text);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.step-pill.disabled {
+  opacity: 0.38;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 14px;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 768px) {
+  .panel {
+    padding: 20px 18px;
+  }
+}
+
+.panel h2 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.section-label {
+  margin: 18px 0 10px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Drop zone — โลโก้ + นำเข้า VDO แบบกะทัดรัด ไม่มีกรอบใหญ่ */
+.dropzone {
+  border: none;
+  border-radius: 10px;
+  padding: 6px 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+  background: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  align-self: center;
+}
+
+.dropzone:hover,
+.dropzone.dragover {
+  background: rgba(56, 189, 248, 0.06);
+}
+
+.dropzone input {
+  display: none;
+}
+
+.dropzone-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dropzone-logo {
+  width: 36px;
+  height: 36px;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.2));
+}
+
+.dropzone-title {
+  font-size: clamp(0.55rem, 2.1vw, 0.6875rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  background: linear-gradient(105deg, #e0f2fe 0%, #38bdf8 45%, #a78bfa 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#panel-import .dropzone {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Trim panel (step 2) ───────────────────────────────────────────────────── */
+
+.trim-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trim-viewer {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: min(52vh, 420px);
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+/* เต็มพื้นที่คลิกเล่น/หยุด (ใต้ปุ่มปิดเสียง) */
+.trim-preview-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trim-preview-mute {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(7, 7, 12, 0.55);
+  color: #f8fafc;
+  font-size: 0.9375rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trim-preview-mute:hover {
+  background: rgba(7, 7, 12, 0.72);
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.trim-preview-mute-icon {
+  display: block;
+  transform: translateY(0.5px);
+}
+
+.trim-preview-fullscreen {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(7, 7, 12, 0.55);
+  color: #f8fafc;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trim-preview-fullscreen:hover {
+  background: rgba(7, 7, 12, 0.72);
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.trim-preview-fs-icon {
+  display: block;
+  transform: translateY(-0.5px);
+}
+
+.trim-viewer:fullscreen {
+  max-height: none;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  aspect-ratio: unset;
+  margin: 0;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.trim-viewer:fullscreen video {
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+.trim-viewer:-webkit-full-screen {
+  max-height: none;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  aspect-ratio: unset;
+  margin: 0;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.trim-viewer:-webkit-full-screen video {
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+.trim-viewer video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.trim-per-clip-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trim-clip-index-tray {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.trim-clip-index-btn {
+  flex: 0 0 auto;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trim-clip-index-btn:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.trim-clip-index-btn.is-active {
+  border-color: var(--cyan);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+/* Global preview timeline (concat order = arrange order) */
+.trim-global-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trim-global-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.trim-global-wrap {
+  padding: 2px 0;
+}
+
+.trim-global-wrap.is-global-scrub {
+  touch-action: none;
+}
+
+.trim-global-rail {
+  position: relative;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.trim-global-playhead {
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  left: 0%;
+  width: 28px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: ew-grab;
+  transform: translateX(-50%);
+  z-index: 3;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+.trim-global-playhead:active {
+  cursor: ew-grabbing;
+}
+
+/* Triangles + vertical line (playhead) */
+.trim-global-playhead::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 1px;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #f8fafc;
+}
+
+.trim-global-playhead::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #f8fafc;
+}
+
+.trim-global-playhead > .trim-global-playhead-line {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  transform: translateX(-50%);
+  background: #f8fafc;
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.trim-global-readout {
+  margin-top: 4px;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  text-align: center;
+}
+
+.trim-speed-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 10px 0 4px;
+  border-top: 1px solid var(--border);
+}
+
+.trim-speed-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.trim-speed-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trim-preview-speed {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  accent-color: var(--cyan);
+}
+
+.trim-speed-value {
+  flex: 0 0 auto;
+  min-width: 3.25rem;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text);
+  text-align: right;
+}
+
+.trim-timeline-wrap {
+  padding: 4px 0 2px;
+}
+
+.trim-timeline-wrap.is-trimming .trim-rail {
+  touch-action: none;
+}
+
+.trim-rail {
+  position: relative;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border);
+  touch-action: manipulation;
+}
+
+.trim-range {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0%;
+  width: 100%;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.28);
+  pointer-events: none;
+}
+
+.trim-handle {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: ew-resize;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+.trim-handle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 22px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #38bdf8, #818cf8);
+  box-shadow: 0 0 0 2px rgba(7, 7, 12, 0.85);
+}
+
+.trim-time-readout {
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ซ่อนไทม์ไลน์ต่อคลิป (rail + in/out) / readout / ความเร็ว / เลขคลิป เฉพาะขั้น Caption */
+.trim-timeline-wrap.trim-readout--caption-hidden,
+.trim-global-readout.trim-readout--caption-hidden,
+.trim-speed-block.trim-readout--caption-hidden,
+.trim-clip-index-tray.trim-readout--caption-hidden {
+  display: none !important;
+}
+
+.trim-toolbar {
+  display: block;
+  margin-top: 4px;
+}
+
+.trim-toolbar--caption-actions .caption-action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.trim-toolbar--caption-actions .caption-action-row .btn {
+  width: 100%;
+}
+
+.trim-toolbar--caption-actions .share-export-video-btn {
+  margin-top: 8px;
+}
+
+/* Phase C — endpoint อัปโหลดชั่วคราว (optional) */
+.share-phase-c-details {
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 10px 10px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.share-phase-c-summary {
+  cursor: pointer;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  list-style-position: outside;
+  user-select: none;
+}
+
+.share-phase-c-summary::-webkit-details-marker {
+  color: var(--cyan);
+}
+
+.share-phase-c-details[open] .share-phase-c-summary {
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.share-phase-c-hint {
+  margin: 6px 0 0;
+}
+
+.share-phase-c-hint code {
+  font-size: 0.68rem;
+  word-break: break-all;
+}
+
+.share-upload-endpoint-input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.share-upload-endpoint-input::placeholder {
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.share-phase-c-save {
+  margin-top: 8px;
+}
+
+/* Caption (Step 4) — ใช้พรีวิวเดียวกับ Trim */
+.caption-workspace {
+  margin-top: 16px;
+  padding: 14px 0 4px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.caption-brand-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 6px;
+}
+
+.caption-brand-mark {
+  flex: 0 0 auto;
+}
+
+.caption-brand-svg {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.caption-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.caption-draft {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.caption-draft:focus {
+  outline: none;
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+}
+
+.caption-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.caption-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 4px 0 8px;
+}
+
+.share-icon-btn {
+  width: var(--tap);
+  height: var(--tap);
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.share-icon-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.share-icon-btn:not(:disabled) {
+  opacity: 1;
+  color: var(--text);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.share-icon-btn:not(:disabled):hover {
+  border-color: rgba(56, 189, 248, 0.55);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.share-icon {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+/* Arrange grid — 3 columns (mobile-first), matches narrow portrait thumb feel */
+.clip-arrange-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 4px;
+  min-height: 48px;
+}
+
+.grid-empty {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.arrange-card {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.arrange-card.dragging {
+  opacity: 0.55;
+  /* After long-press: let touchmove drive reorder without browser scroll stealing */
+  touch-action: none;
+}
+
+/* Insert-before / insert-after hint (half-card hit from pointer) */
+.arrange-card.drop-slot-before {
+  box-shadow: inset 4px 0 0 0 var(--cyan);
+}
+
+.arrange-card.drop-slot-after {
+  box-shadow: inset -4px 0 0 0 var(--cyan);
+}
+
+/* Floated clone under cursor / finger (PC + touch) */
+.arrange-drag-ghost {
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  margin: 0;
+  pointer-events: none;
+  opacity: 0.92;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  transform: scale(1.03);
+  will-change: left, top;
+}
+
+/* Drag handle only — separates scroll (card) vs reorder (handle) for the browser */
+.arrange-drag-handle {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 30px;
+  min-height: 52px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  background: rgba(15, 23, 42, 0.55);
+  color: rgba(248, 250, 252, 0.85);
+  cursor: grab;
+  touch-action: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 1px 0 6px rgba(0, 0, 0, 0.25);
+}
+
+.arrange-drag-handle::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow:
+    6px 0 0 currentColor,
+    0 6px 0 currentColor,
+    6px 6px 0 currentColor,
+    0 12px 0 currentColor,
+    6px 12px 0 currentColor;
+}
+
+.arrange-drag-handle:active {
+  cursor: grabbing;
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.arrange-card-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Corner remove — visible circle is small; transparent padding keeps tap target ~44px */
+.btn-remove-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  /* transparent tap region */
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* inner circle — what the user sees */
+.btn-remove-corner::after {
+  content: '✕';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.92);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn-remove-corner:active::after {
+  transform: scale(0.92);
+}
+
+.thumb-916 {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  background: #000;
+  position: relative;
+}
+
+.thumb-916 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* prevent browser from starting a native "drag image" that hijacks the card drag */
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+.thumb-916 .thumb-skel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 4px;
+}
+
+.arrange-card-body {
+  padding: 8px 6px 10px;
+  flex: 1;
+  min-height: 0;
+}
+
+.clip-name {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  word-break: break-word;
+}
+
+.clip-meta {
+  margin-top: 4px;
+  font-size: 0.625rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.warn-text {
+  color: var(--warn);
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: stretch;
+  margin-top: 18px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 12px 18px;
+  min-height: var(--tap);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  touch-action: manipulation;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--cyan);
+  color: #020617;
+}
+
+.btn-primary:active:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.coming-soon {
+  text-align: center;
+  padding: 24px 10px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.hint {
+  color: var(--muted);
+}
+
+code {
+  font-size: 0.75em;
+  color: var(--cyan);
+}
+
+/* ── Folder target (เล็ก ๆ ใต้ Render/Save) ───────────────────────────── */
+.folder-target-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.btn-folder-target {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, color 0.15s;
+  min-height: 32px;
+}
+
+.btn-folder-target:hover,
+.btn-folder-target:focus-visible {
+  border-color: var(--cyan);
+  color: var(--text);
+  outline: none;
+}
+
+.btn-folder-target[data-set='true'] {
+  border-style: solid;
+  border-color: rgba(34, 197, 94, 0.5);
+  color: var(--text);
+}
+
+.folder-target-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.folder-target-label {
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-folder-clear {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.btn-folder-clear:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn-folder-clear.hidden {
+  display: none;
+}
+
+/* ── Render overlay (modal กลางจอขณะประมวลผล) ─────────────────────────── */
+.render-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(4, 6, 12, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: render-overlay-in 160ms ease-out;
+}
+
+.render-overlay.hidden {
+  display: none;
+}
+
+@keyframes render-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.render-overlay-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 24px 20px;
+  width: min(360px, 100%);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.render-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid rgba(148, 163, 184, 0.25);
+  border-top-color: var(--cyan);
+  animation: render-spin 900ms linear infinite;
+}
+
+@keyframes render-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.render-overlay-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.render-overlay-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  min-height: 1.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.render-overlay .btn {
+  margin-top: 4px;
+  min-width: 140px;
+}
+
+/* ── Toast ─────────────────────────────────────────────────────────────── */
+.toast-stack {
+  position: fixed;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 210;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
+  width: min(420px, calc(100% - 32px));
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(16, 16, 24, 0.96);
+  color: var(--text);
+  font-size: 0.875rem;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  animation: toast-in 180ms ease-out;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.35;
+}
+
+.toast.is-leaving {
+  animation: toast-out 220ms ease-in forwards;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.toast--ok {
+  border-color: rgba(34, 197, 94, 0.45);
+}
+.toast--ok .toast-icon {
+  color: var(--ok);
+}
+
+.toast--warn {
+  border-color: rgba(251, 191, 36, 0.45);
+}
+.toast--warn .toast-icon {
+  color: var(--warn);
+}
+
+.toast--error {
+  border-color: rgba(239, 68, 68, 0.45);
+  background: rgba(32, 10, 14, 0.96);
+}
+.toast--error .toast-icon {
+  color: var(--danger);
+}
+
+.toast-icon {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.toast-body {
+  flex: 1;
+}

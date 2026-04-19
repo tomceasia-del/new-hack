@@ -1,0 +1,12 @@
+mock1-server.url
+story-mock-server.url
+.DS_Store
+.env
+.env.*
+.env.local
+
+# Nested clone (would break as submodule)
+.cursor/skills/ui-design-brain/
+
+**/__pycache__/
+*.pyc

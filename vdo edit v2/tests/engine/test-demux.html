@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test: demux.js</title>
+<style>
+  :root {
+    --bg: #0A0A0F; --surface: #12121A; --card: #1A1A25;
+    --border: #2A2A3A; --cyan: #38BDF8; --ok: #22C55E;
+    --warn: #F59E0B; --err: #EF4444; --text: #F8FAFC; --muted: #94A3B8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; padding: 24px 16px 48px; font-size: 14px;
+  }
+  h1 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .sub { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+
+  .drop-zone {
+    border: 2px dashed var(--border); border-radius: 12px;
+    padding: 28px 16px; text-align: center; cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+    background: var(--card); margin-bottom: 16px;
+  }
+  .drop-zone:hover, .drop-zone.over {
+    border-color: var(--cyan); background: rgba(56,189,248,.06);
+  }
+  .drop-zone input { display: none; }
+  .drop-icon { font-size: 32px; margin-bottom: 8px; opacity: .55; }
+  .drop-label { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .drop-hint { font-size: 12px; color: var(--muted); }
+
+  .status-bar {
+    padding: 10px 14px; border-radius: 8px; font-size: 13px;
+    font-weight: 600; margin-bottom: 16px; display: none;
+  }
+  .status-bar.running { display: block; background: rgba(56,189,248,.12); color: var(--cyan); border: 1px solid rgba(56,189,248,.25); }
+  .status-bar.ok      { display: block; background: rgba(34,197,94,.12);  color: var(--ok);   border: 1px solid rgba(34,197,94,.25); }
+  .status-bar.error   { display: block; background: rgba(239,68,68,.12);  color: var(--err);  border: 1px solid rgba(239,68,68,.25); }
+
+  /* ── Main player (9:16) ───────────────────────────────────────── */
+  .stage { display: none; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .stage.visible { display: flex; }
+
+  .clip-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    max-width: min(100%, 420px);
+  }
+  .clip-tab {
+    font-size: 12px; padding: 6px 10px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--muted); cursor: pointer; max-width: 200px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .clip-tab.active { border-color: var(--cyan); color: var(--text); background: rgba(56,189,248,.1); }
+
+  .frame-916 {
+    aspect-ratio: 9 / 16;
+    width: min(100%, calc(78vh * 9 / 16));
+    max-height: 78vh;
+    background: #000;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 40px rgba(0,0,0,.45);
+  }
+  .frame-916 video {
+    display: block; width: 100%; height: 100%;
+    object-fit: contain;
+  }
+
+  /* Timeline + keyframe markers (custom; sync with video) */
+  .timeline-wrap {
+    width: min(100%, calc(78vh * 9 / 16));
+    max-width: 420px;
+  }
+  .timeline-label {
+    font-size: 11px; color: var(--muted); margin-bottom: 6px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .timeline-label span { font-variant-numeric: tabular-nums; }
+  .timeline-track {
+    position: relative; height: 28px; border-radius: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    cursor: pointer; user-select: none;
+  }
+  .timeline-fill {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 0%; border-radius: 7px 0 0 7px;
+    background: linear-gradient(90deg, rgba(56,189,248,.35), rgba(56,189,248,.08));
+    pointer-events: none;
+  }
+  .timeline-kf {
+    position: absolute; top: 2px; bottom: 2px; width: 2px;
+    margin-left: -1px; border-radius: 1px;
+    background: var(--ok); opacity: .9; pointer-events: none;
+    box-shadow: 0 0 6px rgba(34,197,94,.5);
+  }
+  .timeline-playhead {
+    position: absolute; top: -2px; bottom: -2px; width: 3px;
+    margin-left: -1.5px; background: var(--cyan); border-radius: 2px;
+    pointer-events: none; box-shadow: 0 0 8px rgba(56,189,248,.6);
+  }
+
+  .transport {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    justify-content: center; margin-top: 4px;
+  }
+  .btn {
+    padding: 8px 18px; border-radius: 8px; border: none; cursor: pointer;
+    font-size: 13px; font-weight: 600; background: var(--cyan); color: #000;
+  }
+  .btn:hover { opacity: .88; }
+  .btn-ghost {
+    background: var(--surface); color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  /* Collapsed report at bottom */
+  .report-details {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; margin-top: 8px;
+  }
+  .report-details summary {
+    list-style: none; cursor: pointer; padding: 12px 14px;
+    font-size: 13px; font-weight: 600; color: var(--muted);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .report-details summary::-webkit-details-marker { display: none; }
+  .report-details summary::after {
+    content: '▼'; font-size: 10px; color: var(--muted); transition: transform .15s;
+  }
+  .report-details[open] summary::after { transform: rotate(-180deg); }
+  .report-body {
+    padding: 0 14px 14px; font-size: 12px; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+  .report-line { font-family: ui-monospace, monospace; line-height: 1.55; margin-top: 10px; }
+  .report-grid {
+    display: grid; grid-template-columns: auto 1fr; gap: 4px 14px;
+    margin-top: 10px; font-size: 12px;
+  }
+  .report-k { color: var(--muted); }
+  .report-v { color: var(--text); font-weight: 600; }
+
+  .seek-mini { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .seek-mini input {
+    width: 88px; padding: 6px 8px; border-radius: 6px;
+    border: 1px solid var(--border); background: var(--card); color: var(--text);
+    font-size: 13px;
+  }
+
+  .error-log {
+    background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.3);
+    border-radius: 8px; padding: 14px; font-family: ui-monospace, monospace;
+    font-size: 12px; color: var(--err); white-space: pre-wrap;
+    display: none; margin-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<h1>🧪 Test: demux.js</h1>
+<p class="sub">Phase 1 — Step 1 | เล่นวิดีโอ 9:16 + keyframe บน timeline หลัง demux สำเร็จ</p>
+
+<div class="drop-zone" id="dropZone">
+  <div class="drop-icon">🎬</div>
+  <div class="drop-label">เลือกหรือลาก MP4 ได้หลายไฟล์พร้อมกัน</div>
+  <div class="drop-hint">รองรับหลายคลิป — แต่ละไฟล์จะ demux แล้วสลับดูได้จากแท็บด้านบนเครื่องเล่น</div>
+  <input type="file" id="fileInput" accept="video/mp4,video/*" multiple>
+</div>
+
+<div class="status-bar" id="statusBar"></div>
+
+<!-- Shown only after at least one file demuxes OK -->
+<div class="stage" id="stage">
+  <div class="clip-tabs" id="clipTabs"></div>
+
+  <div class="frame-916">
+    <video id="previewVideo" controls playsinline preload="metadata"></video>
+  </div>
+
+  <div class="timeline-wrap">
+    <div class="timeline-label">
+      <span>Keyframe markers <span style="color:var(--ok)">■</span> · playhead <span style="color:var(--cyan)">■</span></span>
+      <span id="timeLabel">0:00 / 0:00</span>
+    </div>
+    <div class="timeline-track" id="timelineTrack" role="slider" aria-label="Seek timeline">
+      <div class="timeline-fill" id="timelineFill"></div>
+      <div id="kfMarkers"></div>
+      <div class="timeline-playhead" id="playhead" style="left:0%"></div>
+    </div>
+  </div>
+
+  <div class="transport">
+    <button type="button" class="btn" id="btnPlay">เล่น / หยุด</button>
+    <button type="button" class="btn btn-ghost" id="btnPrevKf">Keyframe ก่อนหน้า</button>
+    <button type="button" class="btn btn-ghost" id="btnNextKf">Keyframe ถัดไป</button>
+  </div>
+</div>
+
+<div class="report-details" id="reportDetails" style="display:none">
+  <details id="detailsInner">
+    <summary id="reportSummary">รายงาน demux</summary>
+    <div class="report-body" id="reportBody"></div>
+  </details>
+</div>
+
+<div class="error-log" id="errorLog"></div>
+
+<script type="module">
+async function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script')
+    s.src = src
+    s.onload = resolve
+    s.onerror = reject
+    document.head.appendChild(s)
+  })
+}
+
+try {
+  await loadScript('https://unpkg.com/mp4box@0.5.2/dist/mp4box.all.min.js')
+} catch {
+  try {
+    await loadScript('https://cdn.jsdelivr.net/npm/mp4box@0.5.2/dist/mp4box.all.min.js')
+  } catch {
+    document.getElementById('statusBar').className = 'status-bar error'
+    document.getElementById('statusBar').textContent = '❌ โหลด MP4Box ไม่ได้'
+    document.getElementById('statusBar').style.display = 'block'
+    throw new Error('MP4Box CDN load failed')
+  }
+}
+if (!window.MP4Box) throw new Error('MP4Box not found')
+
+const _cb = Date.now()
+const { demuxClip, nearestKeyframeBefore } = await import(`../../src/engine/demux.js?cb=${_cb}`)
+
+const dropZone   = document.getElementById('dropZone')
+const fileInput  = document.getElementById('fileInput')
+const statusBar  = document.getElementById('statusBar')
+const stage      = document.getElementById('stage')
+const clipTabs   = document.getElementById('clipTabs')
+const previewVideo = document.getElementById('previewVideo')
+const timelineTrack = document.getElementById('timelineTrack')
+const timelineFill  = document.getElementById('timelineFill')
+const kfMarkers     = document.getElementById('kfMarkers')
+const playhead      = document.getElementById('playhead')
+const timeLabel     = document.getElementById('timeLabel')
+const btnPlay       = document.getElementById('btnPlay')
+const btnPrevKf     = document.getElementById('btnPrevKf')
+const btnNextKf     = document.getElementById('btnNextKf')
+const reportDetails = document.getElementById('reportDetails')
+const reportSummary = document.getElementById('reportSummary')
+const reportBody    = document.getElementById('reportBody')
+const detailsInner  = document.getElementById('detailsInner')
+const errorLog      = document.getElementById('errorLog')
+
+/** @type {{ file: File, result: Awaited<ReturnType<typeof demuxClip>>, url: string, ms: number }[]} */
+let clips = []
+let activeIndex = 0
+
+function setStatus(type, msg) {
+  statusBar.className = `status-bar ${type}`
+  statusBar.textContent = msg
+  statusBar.style.display = 'block'
+}
+
+function revokeAllUrls() {
+  for (const c of clips) URL.revokeObjectURL(c.url)
+  clips = []
+}
+
+function fmtClock(sec) {
+  if (!Number.isFinite(sec) || sec < 0) return '0:00'
+  const m = Math.floor(sec / 60)
+  const s = Math.floor(sec % 60)
+  return `${m}:${String(s).padStart(2, '0')}`
+}
+
+function getDurationSec(clip) {
+  const info = clip.result.info
+  return info.duration / info.timescale
+}
+
+/** Prefer &lt;video&gt; duration after metadata; else demux-reported length. */
+function activeDurationSec() {
+  const clip = clips[activeIndex]
+  if (!clip) return 0
+  const vd = previewVideo.duration
+  if (Number.isFinite(vd) && vd > 0) return vd
+  return getDurationSec(clip)
+}
+
+function renderKfMarkers(clip) {
+  kfMarkers.innerHTML = ''
+  const dur = activeDurationSec()
+  if (!(dur > 0)) return
+  const kfs = clip.result.keyframeTimes
+  for (const t of kfs) {
+    if (t < 0 || t > dur * 1.02) continue
+    const el = document.createElement('div')
+    el.className = 'timeline-kf'
+    el.style.left = `${(t / dur) * 100}%`
+    el.title = `Keyframe ${t.toFixed(3)}s`
+    kfMarkers.appendChild(el)
+  }
+}
+
+function updatePlayhead() {
+  if (!clips[activeIndex]) return
+  const dur = activeDurationSec()
+  const t = previewVideo.currentTime || 0
+  const p = dur > 0 ? Math.min(1, Math.max(0, t / dur)) : 0
+  playhead.style.left = `${p * 100}%`
+  timelineFill.style.width = `${p * 100}%`
+  timeLabel.textContent = `${fmtClock(t)} / ${fmtClock(dur)}`
+}
+
+function seekToRatio(ratio) {
+  if (!clips[activeIndex]) return
+  const dur = activeDurationSec()
+  previewVideo.currentTime = Math.min(dur, Math.max(0, ratio * dur))
+  updatePlayhead()
+}
+
+function timelineClick(e) {
+  const rect = timelineTrack.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  seekToRatio(x / rect.width)
+}
+
+function selectClip(i) {
+  if (i < 0 || i >= clips.length) return
+  activeIndex = i
+  const clip = clips[i]
+  previewVideo.src = clip.url
+  previewVideo.load()
+
+  clipTabs.querySelectorAll('.clip-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === activeIndex)
+  })
+
+  const onMeta = () => {
+    renderKfMarkers(clip)
+    updatePlayhead()
+  }
+  previewVideo.addEventListener('loadedmetadata', onMeta, { once: true })
+  if (previewVideo.readyState >= 1) queueMicrotask(onMeta)
+
+  buildReportForActive()
+  renderKfMarkers(clip)
+  updatePlayhead()
+}
+
+function buildReportForActive() {
+  const clip = clips[activeIndex]
+  if (!clip) return
+  const { file, result, ms } = clip
+  const { videoSamples, audioSamples, info, keyframeTimes, audioElstOffset } = result
+  const v = info.videoTracks[0]
+  const a = info.audioTracks[0]
+  const dur = info.duration / info.timescale
+
+  const oneLine = [
+    file.name.length > 42 ? file.name.slice(0, 39) + '…' : file.name,
+    v ? `${v.track_width}×${v.track_height}` : '—',
+    `${videoSamples.length}V / ${audioSamples.length}A`,
+    `${keyframeTimes.length} kf`,
+    `${ms} ms`,
+  ].join(' · ')
+
+  reportSummary.textContent = `รายงาน demux · ${oneLine}`
+  reportBody.innerHTML = `
+    <div class="report-line">${escapeHtml(file.name)} · ${(file.size / 1024 / 1024).toFixed(2)} MB</div>
+    <div class="report-grid">
+      <span class="report-k">demux</span><span class="report-v">${ms} ms</span>
+      <span class="report-k">ความยาว</span><span class="report-v">${dur.toFixed(3)} s</span>
+      <span class="report-k">วิดีโอ</span><span class="report-v">${v ? v.codec + ' · ' + v.timescale + ' ts' : '—'}</span>
+      <span class="report-k">เสียง</span><span class="report-v">${a ? a.codec + ' · ' + (a.audio?.sample_rate ?? '—') + ' Hz' : 'ไม่มี'}</span>
+      <span class="report-k">samples</span><span class="report-v">${videoSamples.length} video / ${audioSamples.length} audio</span>
+      <span class="report-k">keyframes</span><span class="report-v">${keyframeTimes.length}</span>
+      <span class="report-k">elst (audio)</span><span class="report-v">${audioElstOffset} ticks</span>
+    </div>
+    <div class="seek-mini">
+      <span class="report-k">nearestKeyframeBefore(s)</span>
+      <input type="number" id="seekInput" value="3.5" step="0.1" min="0">
+      <button type="button" class="btn" id="seekBtn" style="padding:6px 12px;font-size:12px">ทดสอบ</button>
+      <span id="seekResult" class="report-v" style="font-size:12px"></span>
+    </div>
+  `
+
+  const seekBtn = document.getElementById('seekBtn')
+  const seekInput = document.getElementById('seekInput')
+  const seekResult = document.getElementById('seekResult')
+  seekInput.max = String(Math.ceil(dur))
+  seekBtn.onclick = () => {
+    const target = parseFloat(seekInput.value)
+    const kf = nearestKeyframeBefore(keyframeTimes, target)
+    seekResult.textContent = `→ ${kf.toFixed(4)}s (เป้า ${target}s)`
+  }
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+async function runBatch(files) {
+  const list = [...files].filter(f =>
+    f.type.startsWith('video/') || /\.mp4$/i.test(f.name)
+  )
+  if (!list.length) {
+    setStatus('error', 'ไม่พบไฟล์วิดีโอ')
+    return
+  }
+
+  errorLog.style.display = 'none'
+  stage.classList.remove('visible')
+  reportDetails.style.display = 'none'
+  revokeAllUrls()
+  clipTabs.innerHTML = ''
+
+  setStatus('running', `⏳ กำลัง demux ${list.length} ไฟล์…`)
+
+  const newClips = []
+  const errors = []
+
+  for (let i = 0; i < list.length; i++) {
+    const file = list[i]
+    setStatus('running', `⏳ demux (${i + 1}/${list.length}) "${file.name}" …`)
+    const t0 = performance.now()
+    try {
+      const result = await demuxClip(file)
+      const ms = Math.round(performance.now() - t0)
+      const url = URL.createObjectURL(file)
+      newClips.push({ file, result, url, ms })
+    } catch (e) {
+      errors.push(`${file.name}: ${e.message}`)
+    }
+  }
+
+  clips = newClips
+
+  if (!clips.length) {
+    setStatus('error', 'demux ไม่สำเร็จทุกไฟล์')
+    errorLog.textContent = errors.join('\n')
+    errorLog.style.display = 'block'
+    return
+  }
+
+  clips.forEach((c, idx) => {
+    const tab = document.createElement('button')
+    tab.type = 'button'
+    tab.className = 'clip-tab' + (idx === 0 ? ' active' : '')
+    tab.textContent = c.file.name.length > 28 ? c.file.name.slice(0, 25) + '…' : c.file.name
+    tab.title = c.file.name
+    tab.addEventListener('click', () => selectClip(idx))
+    clipTabs.appendChild(tab)
+  })
+
+  stage.classList.add('visible')
+  reportDetails.style.display = 'block'
+  detailsInner.open = false
+
+  activeIndex = 0
+  selectClip(0)
+
+  const okMsg = errors.length
+    ? `✓ demux สำเร็จ ${clips.length}/${list.length} ไฟล์ (${errors.length} error — ดู console)`
+    : `✓ demux สำเร็จ ${clips.length} ไฟล์`
+  setStatus('ok', okMsg)
+  if (errors.length) console.warn(errors.join('\n'))
+}
+
+previewVideo.addEventListener('timeupdate', updatePlayhead)
+previewVideo.addEventListener('play', updatePlayhead)
+previewVideo.addEventListener('pause', updatePlayhead)
+
+btnPlay.addEventListener('click', () => {
+  if (previewVideo.paused) previewVideo.play().catch(() => {})
+  else previewVideo.pause()
+})
+
+function stepKeyframe(dir) {
+  const clip = clips[activeIndex]
+  if (!clip) return
+  const kfs = clip.result.keyframeTimes
+  const t = previewVideo.currentTime
+  const dur = activeDurationSec()
+  if (dir < 0) {
+    const k = nearestKeyframeBefore(kfs, t - 0.001)
+    previewVideo.currentTime = Math.max(0, k)
+  } else {
+    let next = dur
+    for (const k of kfs) {
+      if (k > t + 0.0005) { next = k; break }
+    }
+    previewVideo.currentTime = Math.min(dur, next)
+  }
+  updatePlayhead()
+}
+
+btnPrevKf.addEventListener('click', () => stepKeyframe(-1))
+btnNextKf.addEventListener('click', () => stepKeyframe(1))
+
+timelineTrack.addEventListener('click', timelineClick)
+
+dropZone.addEventListener('click', () => fileInput.click())
+fileInput.addEventListener('change', (e) => {
+  if (e.target.files?.length) runBatch(e.target.files)
+  e.target.value = ''
+})
+
+dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('over') })
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'))
+dropZone.addEventListener('drop', (e) => {
+  e.preventDefault()
+  dropZone.classList.remove('over')
+  if (e.dataTransfer.files?.length) runBatch(e.dataTransfer.files)
+})
+</script>
+</body>
+</html>

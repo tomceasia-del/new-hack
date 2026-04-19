@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library — Video Editor</title>
+<style>
+:root {
+  --bg: #0A0A0F; --surface: #12121A; --card: #1A1A25; --border: #2A2A3A;
+  --cyan: #38BDF8; --purple: #A78BFA; --pink: #F472B6; --orange: #FB923C;
+  --grad: linear-gradient(135deg, #38BDF8 0%, #A78BFA 35%, #F472B6 65%, #FB923C 100%);
+  --text: #FFFFFF; --muted: #A0A0B0; --dim: #666680;
+  --ok: #22C55E; --warn: #F59E0B; --err: #EF4444;
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px;
+  --shadow: 0 4px 12px rgba(0,0,0,.5);
+  --shadow-lift: 0 8px 24px rgba(0,0,0,.65), 0 0 0 1px rgba(56,189,248,.12);
+  --dur: 180ms; --ease: cubic-bezier(.4,0,.2,1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter',-apple-system,sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.5; padding: 20px 16px 60px; }
+
+/* breadcrumb */
+.breadcrumb { font-size: 11px; color: var(--dim); margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+.breadcrumb a { color: var(--muted); text-decoration: none; transition: color var(--dur); }
+.breadcrumb a:hover { color: var(--cyan); }
+.breadcrumb-sep { opacity: .4; }
+.breadcrumb-cur { color: var(--cyan); font-weight: 600; }
+
+/* header */
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.logo { width: 32px; height: 32px; border-radius: 8px; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.title { font-size: 18px; font-weight: 700; }
+.title span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { font-size: 11px; color: var(--muted); }
+.header-right { margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* toolbar */
+.toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.count { font-size: 12px; color: var(--muted); flex-shrink: 0; }
+.count span { color: var(--cyan); font-weight: 600; }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid var(--border); background: var(--card); color: var(--muted); cursor: pointer; transition: all var(--dur); }
+.chip:hover, .chip.active { border-color: var(--cyan); color: var(--cyan); background: rgba(56,189,248,.1); }
+.search { margin-left: auto; padding: 6px 10px; background: var(--card); border: 1px solid var(--border); border-radius: var(--r-sm); color: var(--text); font-family: inherit; font-size: 12px; width: 180px; outline: none; }
+.search:focus { border-color: var(--cyan); }
+.search::placeholder { color: var(--dim); }
+
+/* stats bar */
+.stats-bar { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding: 8px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); margin-bottom: 16px; font-size: 11px; color: var(--muted); min-height: 36px; }
+.stat-dot { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; white-space: nowrap; }
+.dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dot-facebook  { background: #3B82F6; }
+.dot-youtube   { background: #EF4444; }
+.dot-tiktok    { background: #FB7185; }
+.dot-instagram { background: #F472B6; }
+.dot-save      { background: #4ADE80; }
+
+/* warning */
+.warn-box { background: rgba(245,158,11,.10); border: 1px solid rgba(245,158,11,.35); border-radius: var(--r-md); padding: 11px 14px; font-size: 11.5px; font-weight: 500; color: #FCD34D; line-height: 1.6; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+/* bulk action bar */
+.bulk-bar { display: none; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(56,189,248,.06); border: 1px solid rgba(56,189,248,.2); border-radius: var(--r-md); margin-bottom: 12px; font-size: 12px; color: var(--cyan); }
+.bulk-bar.visible { display: flex; }
+.bulk-count { flex: 1; font-weight: 600; }
+
+/* buttons */
+.btn { padding: 5px 12px; border-radius: var(--r-sm); border: 1px solid var(--border); background: var(--card); color: var(--muted); font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer; transition: all var(--dur); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.btn:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-back { padding: 5px 12px; border-radius: var(--r-sm); border: 1px solid var(--border); background: var(--card); color: var(--muted); font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer; transition: all var(--dur); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.btn-back:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-clear { padding: 5px 12px; border-radius: var(--r-sm); border: 1px solid rgba(239,68,68,.35); background: transparent; color: var(--err); font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer; transition: all var(--dur); }
+.btn-clear:hover { background: rgba(239,68,68,.1); }
+.btn-export { padding: 5px 12px; border-radius: var(--r-sm); border: 1px solid rgba(56,189,248,.35); background: rgba(56,189,248,.07); color: var(--cyan); font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer; transition: all var(--dur); display: inline-flex; align-items: center; gap: 4px; }
+.btn-export:hover { background: rgba(56,189,248,.15); border-color: var(--cyan); }
+.btn-select { padding: 5px 12px; border-radius: var(--r-sm); border: 1px solid rgba(167,139,250,.35); background: rgba(167,139,250,.07); color: var(--purple); font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer; transition: all var(--dur); }
+.btn-select:hover { background: rgba(167,139,250,.15); border-color: var(--purple); }
+.btn-select.active { background: rgba(167,139,250,.18); border-color: var(--purple); }
+.btn-del-bulk { padding: 5px 12px; border-radius: var(--r-sm); border: 1px solid rgba(239,68,68,.35); background: transparent; color: var(--err); font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer; transition: all var(--dur); }
+.btn-del-bulk:hover { background: rgba(239,68,68,.1); }
+.btn-cancel-sel { padding: 5px 10px; border-radius: var(--r-sm); border: 1px solid var(--border); background: transparent; color: var(--muted); font-family: inherit; font-size: 11px; cursor: pointer; transition: all var(--dur); }
+.btn-cancel-sel:hover { color: var(--text); }
+
+/* grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 14px; display: flex; flex-direction: column; gap: 10px; transition: border-color var(--dur), box-shadow var(--dur), transform var(--dur); position: relative; }
+.card:hover { border-color: rgba(56,189,248,.3); box-shadow: var(--shadow-lift); transform: translateY(-2px); }
+
+/* checkbox */
+.card-cb-wrap { position: absolute; top: 12px; left: 12px; display: none; z-index: 2; }
+.card-cb-wrap.visible { display: flex; }
+.card-cb { width: 16px; height: 16px; accent-color: var(--cyan); cursor: pointer; }
+.card.select-mode .card-head { padding-left: 26px; }
+
+.card-head { display: flex; align-items: flex-start; gap: 10px; }
+.plat-badge { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.pb-facebook  { background: rgba(24,119,242,.15); border: 1px solid rgba(24,119,242,.3); }
+.pb-youtube   { background: rgba(255,0,0,.12);    border: 1px solid rgba(255,0,0,.3); }
+.pb-tiktok    { background: rgba(254,44,85,.12);  border: 1px solid rgba(254,44,85,.3); }
+.pb-instagram { background: rgba(225,48,108,.12); border: 1px solid rgba(225,48,108,.3); }
+.pb-save      { background: rgba(34,197,94,.12);  border: 1px solid rgba(34,197,94,.3); }
+.pb-default   { background: var(--card);          border: 1px solid var(--border); }
+
+.card-meta { flex: 1; min-width: 0; }
+.card-product { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-time { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+.plat-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 2px 8px; border-radius: 999px; flex-shrink: 0; }
+.pl-facebook  { background: rgba(24,119,242,.15);  color: #60A5FA; }
+.pl-youtube   { background: rgba(255,0,0,.12);     color: #F87171; }
+.pl-tiktok    { background: rgba(254,44,85,.12);   color: #FB7185; }
+.pl-instagram { background: rgba(225,48,108,.12);  color: #F472B6; }
+.pl-save      { background: rgba(34,197,94,.12);   color: #4ADE80; }
+.pl-default   { background: var(--card);           color: var(--muted); }
+
+.prompts { display: flex; flex-direction: column; gap: 6px; }
+.prompt-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 7px 9px; }
+.prompt-lbl { font-size: 9px; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
+.prompt-txt { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.prompt-txt.empty { font-style: italic; opacity: .5; }
+
+/* video files tag list */
+.video-files { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.vf-tag { font-size: 10px; padding: 2px 7px; border-radius: 999px; background: rgba(56,189,248,.08); border: 1px solid rgba(56,189,248,.18); color: var(--cyan); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+
+.card-foot { display: flex; justify-content: flex-end; padding-top: 4px; border-top: 1px solid var(--border); }
+.btn-del { padding: 4px 10px; border-radius: var(--r-sm); border: 1px solid rgba(239,68,68,.25); background: transparent; color: rgba(239,68,68,.7); font-family: inherit; font-size: 11px; cursor: pointer; transition: all var(--dur); }
+.btn-del:hover { background: rgba(239,68,68,.1); color: var(--err); }
+
+/* empty */
+.empty { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 72px 20px; color: var(--muted); text-align: center; }
+.empty-icon { font-size: 56px; line-height: 1; }
+.empty-title { font-size: 17px; font-weight: 700; color: var(--text); }
+.empty-sub { font-size: 12.5px; line-height: 1.7; max-width: 280px; }
+.empty-cta { margin-top: 4px; padding: 8px 20px; border-radius: var(--r-md); border: 1px solid rgba(56,189,248,.35); background: rgba(56,189,248,.07); color: var(--cyan); font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; transition: all var(--dur); display: inline-flex; align-items: center; gap: 6px; }
+.empty-cta:hover { background: rgba(56,189,248,.15); border-color: var(--cyan); }
+
+/* loading */
+.loading { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 40px; color: var(--muted); font-size: 13px; }
+.spin { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--cyan); border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* toast */
+#toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--card); border: 1px solid var(--border); border-radius: var(--r-md); padding: 10px 18px; font-size: 12px; color: var(--text); opacity: 0; pointer-events: none; transition: all .25s var(--ease); z-index: 100; white-space: nowrap; }
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="http://localhost:8766/">Video Editor</a>
+  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-cur">Library</span>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <div class="logo">1C</div>
+  <div>
+    <div class="title"><span>Library</span></div>
+    <div class="subtitle">ประวัติการแชร์ผลงาน (เก็บบนอุปกรณ์นี้เท่านั้น)</div>
+  </div>
+  <div class="header-right">
+    <a href="http://localhost:8766/" class="btn-back">← กลับ Editor</a>
+    <button class="btn-export" id="btn-export">📤 Export JSON</button>
+    <button class="btn-select" id="btn-select">☑️ เลือก</button>
+    <button class="btn-clear" id="btn-clear">🗑️ ล้างทั้งหมด</button>
+  </div>
+</div>
+
+<!-- Warning -->
+<div class="warn-box">
+  💾 ข้อมูลถูกเก็บบน Browser นี้เท่านั้น · ล้าง Cache = ข้อมูลหาย · แนะนำให้ Export ก่อนล้าง
+</div>
+
+<!-- Toolbar -->
+<div class="toolbar">
+  <div class="count">ทั้งหมด <span id="total">0</span> รายการ</div>
+  <div class="filters" id="filters">
+    <button class="chip active" data-p="all">ทั้งหมด</button>
+    <button class="chip" data-p="tiktok">🎵 TikTok</button>
+    <button class="chip" data-p="facebook">📘 Facebook</button>
+    <button class="chip" data-p="youtube">▶️ YouTube</button>
+    <button class="chip" data-p="instagram">📷 Instagram</button>
+    <button class="chip" data-p="save">💾 Save</button>
+  </div>
+  <input type="search" class="search" id="search" placeholder="ค้นหาชื่อสินค้า...">
+</div>
+
+<!-- Stats bar -->
+<div class="stats-bar" id="stats-bar">
+  <span style="color:var(--dim);font-size:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;">แยกตามแพลตฟอร์ม</span>
+</div>
+
+<!-- Bulk action bar -->
+<div class="bulk-bar" id="bulk-bar">
+  <span class="bulk-count" id="bulk-count">0 รายการที่เลือก</span>
+  <button class="btn-del-bulk" id="btn-del-bulk">🗑️ ลบที่เลือก</button>
+  <button class="btn-cancel-sel" id="btn-cancel-sel">ยกเลิก</button>
+</div>
+
+<div id="content"><div class="loading"><div class="spin"></div><span>กำลังโหลด...</span></div></div>
+<div id="toast"></div>
+
+<script>
+const DB='ShareSheetDB', VER=1, ST='posts';
+const ICONS={facebook:'📘',youtube:'▶️',tiktok:'🎵',instagram:'📷',save:'💾'};
+const PLAT_NAMES={facebook:'Facebook',youtube:'YouTube',tiktok:'TikTok',instagram:'Instagram',save:'Save'};
+
+let all=[], filter='all', q='', selectMode=false, selected=new Set();
+
+/* ── IndexedDB helpers ── */
+function openDB(){
+  return new Promise((res,rej)=>{
+    const r=indexedDB.open(DB,VER);
+    r.onupgradeneeded=e=>{
+      const db=e.target.result;
+      if(!db.objectStoreNames.contains(ST)){
+        const s=db.createObjectStore(ST,{keyPath:'id',autoIncrement:true});
+        s.createIndex('platform','platform',{unique:false});
+        s.createIndex('timestamp','timestamp',{unique:false});
+      }
+    };
+    r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error);
+  });
+}
+async function load(){
+  const db=await openDB();
+  return new Promise((res,rej)=>{
+    const r=db.transaction(ST,'readonly').objectStore(ST).getAll();
+    r.onsuccess=()=>res(r.result.reverse()); r.onerror=()=>rej(r.error);
+  });
+}
+async function del(id){
+  const db=await openDB();
+  return new Promise((res,rej)=>{
+    const tx=db.transaction(ST,'readwrite');
+    tx.objectStore(ST).delete(id);
+    tx.oncomplete=res; tx.onerror=()=>rej(tx.error);
+  });
+}
+async function delMany(ids){
+  const db=await openDB();
+  return new Promise((res,rej)=>{
+    const tx=db.transaction(ST,'readwrite');
+    const store=tx.objectStore(ST);
+    ids.forEach(id=>store.delete(id));
+    tx.oncomplete=res; tx.onerror=()=>rej(tx.error);
+  });
+}
+async function clearAll(){
+  const db=await openDB();
+  return new Promise((res,rej)=>{
+    const tx=db.transaction(ST,'readwrite');
+    tx.objectStore(ST).clear();
+    tx.oncomplete=res; tx.onerror=()=>rej(tx.error);
+  });
+}
+
+/* ── Time helpers ── */
+function relativeTime(iso){
+  if(!iso)return'—';
+  const d=new Date(iso), now=new Date();
+  const diffMs=now-d, diffSec=Math.floor(diffMs/1000);
+  if(diffSec<60) return'เมื่อกี้';
+  const diffMin=Math.floor(diffSec/60);
+  if(diffMin<60) return`${diffMin} นาทีที่แล้ว`;
+  const diffH=Math.floor(diffMin/60);
+  if(diffH<24) return`${diffH} ชั่วโมงที่แล้ว`;
+  const diffD=Math.floor(diffH/24);
+  if(diffD===1) return'เมื่อวาน';
+  if(diffD<7) return`${diffD} วันที่แล้ว`;
+  return d.toLocaleString('th-TH',{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+}
+
+function trunc(s,n){return s&&s.length>n?s.slice(0,n)+'…':s||'';}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+/* ── Video files parser ── */
+function parseVideoFiles(vp){
+  if(!vp)return[];
+  return vp.split(/[,\n]+/).map(s=>s.trim()).filter(Boolean);
+}
+
+/* ── Stats bar ── */
+function renderStats(){
+  const bar=document.getElementById('stats-bar');
+  const counts={};
+  all.forEach(r=>{const p=(r.platform||'').toLowerCase(); counts[p]=(counts[p]||0)+1;});
+  const order=['facebook','tiktok','youtube','instagram','save'];
+  let html='<span style="color:var(--dim);font-size:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;">แยกตามแพลตฟอร์ม</span>';
+  let hasAny=false;
+  order.forEach(p=>{
+    if(!counts[p])return;
+    hasAny=true;
+    const icon=ICONS[p]||'📦';
+    const name=PLAT_NAMES[p]||p;
+    html+=`<span class="stat-dot"><span class="dot dot-${p}"></span>${icon} ${name}: <strong style="color:var(--text)">${counts[p]}</strong></span>`;
+  });
+  if(!hasAny) html+='<span style="color:var(--dim);font-size:11px;">—</span>';
+  bar.innerHTML=html;
+}
+
+/* ── Filtered list ── */
+function filtered(){
+  return all.filter(r=>{
+    if(filter!=='all'&&r.platform!==filter)return false;
+    if(q){const ql=q.toLowerCase();return(r.productName||'').toLowerCase().includes(ql)||(r.platform||'').toLowerCase().includes(ql);}
+    return true;
+  });
+}
+
+/* ── Bulk UI sync ── */
+function updateBulkBar(){
+  const bar=document.getElementById('bulk-bar');
+  const cnt=document.getElementById('bulk-count');
+  if(selectMode){
+    bar.classList.add('visible');
+    cnt.textContent=`${selected.size} รายการที่เลือก`;
+    document.getElementById('btn-del-bulk').style.display=selected.size>0?'inline-flex':'none';
+  } else {
+    bar.classList.remove('visible');
+  }
+}
+
+/* ── Render ── */
+function render(){
+  const rows=filtered();
+  document.getElementById('total').textContent=all.length;
+  renderStats();
+  const el=document.getElementById('content');
+
+  if(rows.length===0){
+    if(all.length===0){
+      el.innerHTML=`
+        <div class="empty">
+          <div class="empty-icon">📭</div>
+          <div class="empty-title">ยังไม่มีประวัติ</div>
+          <div class="empty-sub">เมื่อคุณกด Save หรือโพสต์ใน Step 6 ของ Editor<br>ข้อมูลจะถูกบันทึกไว้ที่นี่</div>
+          <a href="http://localhost:8766/" class="empty-cta">✏️ เปิด Editor</a>
+        </div>`;
+    } else {
+      el.innerHTML=`
+        <div class="empty">
+          <div class="empty-icon" style="font-size:40px;opacity:.5">🔍</div>
+          <div class="empty-title">ไม่พบรายการ</div>
+          <div class="empty-sub">ลองเปลี่ยน filter หรือคำค้นหา</div>
+        </div>`;
+    }
+    updateBulkBar();
+    return;
+  }
+
+  const grid=document.createElement('div'); grid.className='grid';
+
+  rows.forEach(r=>{
+    const p=(r.platform||'').toLowerCase();
+    const icon=ICONS[p]||'📦';
+    const videoFiles=parseVideoFiles(r.videoPrompt);
+    const card=document.createElement('div');
+    card.className='card'+(selectMode?' select-mode':'');
+    card.dataset.id=r.id;
+
+    /* checkbox */
+    const cbWrap=document.createElement('div');
+    cbWrap.className='card-cb-wrap'+(selectMode?' visible':'');
+    const cb=document.createElement('input');
+    cb.type='checkbox'; cb.className='card-cb'; cb.checked=selected.has(r.id);
+    cb.addEventListener('change',()=>{
+      if(cb.checked) selected.add(r.id); else selected.delete(r.id);
+      updateBulkBar();
+    });
+    cbWrap.appendChild(cb);
+    card.appendChild(cbWrap);
+
+    /* video files tags HTML */
+    let vfHtml='';
+    if(videoFiles.length>0){
+      const tags=videoFiles.slice(0,4).map(f=>`<span class="vf-tag" title="${esc(f)}">${esc(trunc(f,22))}</span>`).join('');
+      const more=videoFiles.length>4?`<span class="vf-tag" style="opacity:.6">+${videoFiles.length-4}</span>`:'';
+      vfHtml=`<div class="video-files">${tags}${more}</div>`;
+    }
+
+    card.insertAdjacentHTML('beforeend',`
+      <div class="card-head">
+        <div class="plat-badge ${p in ICONS?'pb-'+p:'pb-default'}">${icon}</div>
+        <div class="card-meta">
+          <div class="card-product">${esc(r.productName||'(ไม่ระบุชื่อสินค้า)')}</div>
+          <div class="card-time">${relativeTime(r.timestamp)}</div>
+        </div>
+        <span class="plat-label ${p in ICONS?'pl-'+p:'pl-default'}">${r.platform||'—'}</span>
+      </div>
+      <div class="prompts">
+        <div class="prompt-box">
+          <div class="prompt-lbl">🎬 Video Files</div>
+          ${videoFiles.length>0
+            ? vfHtml
+            : '<div class="prompt-txt empty">ไม่มีข้อมูล</div>'}
+        </div>
+      </div>
+      <div class="card-foot">
+        <button class="btn-del" data-id="${r.id}">🗑️ ลบ</button>
+      </div>`);
+
+    card.querySelector('.btn-del').addEventListener('click',async()=>{
+      await del(r.id); all=all.filter(x=>x.id!==r.id); selected.delete(r.id); render(); toast('ลบรายการแล้ว');
+    });
+
+    grid.appendChild(card);
+  });
+
+  el.innerHTML=''; el.appendChild(grid);
+  updateBulkBar();
+}
+
+/* ── Toast ── */
+function toast(msg,d=2500){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),d);
+}
+
+/* ── Clear all ── */
+document.getElementById('btn-clear').addEventListener('click',async()=>{
+  if(!confirm('ลบประวัติทั้งหมด? ไม่สามารถกู้คืนได้'))return;
+  await clearAll(); all=[]; selected.clear(); render(); toast('ล้างข้อมูลแล้ว');
+});
+
+/* ── Filters ── */
+document.getElementById('filters').addEventListener('click',e=>{
+  const c=e.target.closest('.chip'); if(!c)return;
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active'); filter=c.dataset.p; render();
+});
+
+/* ── Search ── */
+document.getElementById('search').addEventListener('input',e=>{q=e.target.value.trim();render();});
+
+/* ── Select mode toggle ── */
+document.getElementById('btn-select').addEventListener('click',()=>{
+  selectMode=!selectMode;
+  if(!selectMode) selected.clear();
+  document.getElementById('btn-select').classList.toggle('active',selectMode);
+  render();
+});
+
+/* ── Cancel selection ── */
+document.getElementById('btn-cancel-sel').addEventListener('click',()=>{
+  selectMode=false; selected.clear();
+  document.getElementById('btn-select').classList.remove('active');
+  render();
+});
+
+/* ── Bulk delete ── */
+document.getElementById('btn-del-bulk').addEventListener('click',async()=>{
+  if(selected.size===0)return;
+  if(!confirm(`ลบ ${selected.size} รายการที่เลือก?`))return;
+  const ids=[...selected];
+  await delMany(ids);
+  all=all.filter(r=>!ids.includes(r.id));
+  selected.clear(); selectMode=false;
+  document.getElementById('btn-select').classList.remove('active');
+  render(); toast(`ลบ ${ids.length} รายการแล้ว`);
+});
+
+/* ── Export JSON ── */
+document.getElementById('btn-export').addEventListener('click',()=>{
+  if(all.length===0){toast('ยังไม่มีข้อมูลให้ Export');return;}
+  const data=all.map(r=>({
+    productName: r.productName||'',
+    videoFiles: parseVideoFiles(r.videoPrompt),
+    platform: r.platform||'',
+    timestamp: r.timestamp||''
+  }));
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download=`library-export-${new Date().toISOString().slice(0,10)}.json`;
+  a.click(); URL.revokeObjectURL(url);
+  toast('Export เสร็จแล้ว 📥');
+});
+
+/* ── Init ── */
+(async()=>{ try{all=await load();}catch{all=[];} render(); })();
+</script>
+</body>
+</html>

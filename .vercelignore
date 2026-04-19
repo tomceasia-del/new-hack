@@ -1,0 +1,47 @@
+# ไม่ต้อง build อะไร — static ทั้งหมด
+# ไฟล์/โฟลเดอร์ที่ไม่ต้องขึ้น Vercel (เอกสารภายใน + dev tools)
+.vercel
+node_modules
+.DS_Store
+
+# โฟลเดอร์ docs/content ภายใน — ไม่ต้องอยู่บน CDN
+CONTENT_CORE
+CONTENT_INBOX
+GEM_PACK_TIKTOK
+docs
+.agents
+.claude
+.cursor
+
+# Dev scripts / planning / reports (เก็บใน Git แต่ไม่ต้องแจก)
+1CLICK_AUTOMATIC_SYSTEM_SPEC.md
+CONTENT_EXTRACTION_QUEUE.md
+EXTRACTION_FINAL_REPORT.md
+HOOK_LIBRARY_AND_PROMPT_COPY.txt
+MISSION-A-DISCOVERY-INVENTORY.md
+MOOD_KEYWORDS_38-pairing.md
+PIPELINE-EVIDENCE-MAP.md
+PIPELINE-WORKFLOW-DISCOVERY.md
+mock-hack-1.md
+skills-lock.json
+*.command
+serve_*.py
+serve.py
+mock_http_assets.py
+start-mock1-server.command
+open-*.command
+story-mock-server.url
+mock1-server.url
+project cs.zip
+
+# โฟลเดอร์พี่น้องที่ไม่ใช่เป้าหมาย production
+1click-full-v3.40 (2)
+1click-web-app
+vdo edit
+vdo edit v2
+
+# ไฟล์ planning ภายใน editor/
+editor/DECISIONS.md
+editor/CAPTION-STEP-UI.md
+editor/serve.py
+editor/tests

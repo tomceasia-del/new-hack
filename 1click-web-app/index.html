@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="color-scheme" content="dark" />
+  <title>1CLICK — Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="app-shell app-shell--mockup">
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <span class="mockup-pill" aria-hidden="true">Mockup</span>
+    <header class="brand-row" id="global-header">
+      <div class="brand-logo-wrap">
+        <img src="images/logo.svg" alt="" width="44" height="44" class="brand-logo" aria-hidden="true" />
+      </div>
+      <div class="brand-text">
+        <h1><span class="brand-one">1</span>CLICK <span class="badge">Web UI</span></h1>
+        <p class="sub">ต้นแบบหน้าจอ — ไม่ต่อ API / License จริง</p>
+      </div>
+    </header>
+
+    <div id="license-screen" class="screen screen--license active">
+      <div class="screen-scroll">
+        <section class="card card--hero">
+          <div class="card-kicker">ขั้นตอนที่ 1</div>
+          <h2 class="card-title">เปิดใช้งาน License</h2>
+          <p class="hint">หน้าจอจำลอง — ติ๊กโหมดทดสอบหรือใส่ key อะไรก็ได้แล้วกดเปิดใช้งาน</p>
+          <div class="inset-box inset-box--soft">
+            <div class="checkbox-row">
+              <input type="checkbox" id="skip-license" checked />
+              <label for="skip-license" class="checkbox-label">โหมดทดสอบ (แนะนำสำหรับดู UI)</label>
+            </div>
+          </div>
+          <label for="license-key-input">License Key</label>
+          <input type="text" id="license-key-input" class="input-tap" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19" autocomplete="off" inputmode="text" />
+          <div class="device-box">
+            <span class="device-label">Device ID (เว็บ)</span>
+            <code id="display-device-id">…</code>
+          </div>
+        </section>
+        <section class="card card--compact" aria-labelledby="license-tips-title">
+          <h2 id="license-tips-title" class="card-title card-title--sm">เคล็ดลับสั้นๆ</h2>
+          <ul class="tip-list">
+            <li>ใช้โหมดทดสอบเพื่อข้ามไปหน้าหลักได้ทันที</li>
+            <li>Key จำลองใส่อะไรก็ได้ — ไม่มีการตรวจจริง</li>
+          </ul>
+        </section>
+        <p class="footer-note footer-note--in-scroll">ตัวทำงานจริงอยู่ที่ <a href="app.html" class="footer-link">app.html</a></p>
+      </div>
+      <footer class="screen-footer screen-footer--license">
+        <div id="license-status-msg" class="msg msg--dock" style="display:none"></div>
+        <button type="button" class="btn btn-primary btn-block btn-tap" id="activate-license-btn">เปิดใช้งาน</button>
+      </footer>
+    </div>
+
+    <div id="main-app" class="screen screen--main" data-active-tab="script">
+      <div class="screen-scroll screen-scroll--main">
+        <div id="tab-script" class="tab-panel active">
+          <section class="card card--hero">
+            <div class="card-kicker">ขั้นตอนที่ 2</div>
+            <h2 class="card-title">สร้างบท</h2>
+            <p class="hint">กดสร้างบทจะได้ข้อความตัวอย่าง (ไม่เรียก AI)</p>
+            <ol class="pipe-strip" aria-label="ลำดับงานจำลอง">
+              <li class="pipe-strip__step pipe-strip__step--done"><span>1</span> บรีฟ</li>
+              <li class="pipe-strip__step" aria-current="step"><span>2</span> สร้าง</li>
+              <li class="pipe-strip__step"><span>3</span> ผลลัพธ์</li>
+            </ol>
+            <div class="field">
+              <label for="ai-provider">ผู้ให้บริการ</label>
+              <select id="ai-provider" class="input-tap">
+                <option value="google">Google Gemini</option>
+                <option value="openai">OpenAI GPT-4 Turbo</option>
+              </select>
+            </div>
+            <label for="user-prompt">คำสั่ง / ข้อมูลสินค้า</label>
+            <textarea id="user-prompt" class="input-tap" rows="6" placeholder="พิมพ์อะไรสั้นๆ เพื่อจำลองการสร้างบท…">ครีมกันแดด SPF50 เนื้อบางเบา</textarea>
+            <div id="gen-status" class="msg" style="display:none" role="status"></div>
+          </section>
+          <section class="card card--output">
+            <div class="output-head">
+              <h2 class="card-title card-title--sm">ผลลัพธ์</h2>
+              <button type="button" class="btn btn-mini btn-ghost" id="copy-output-btn" disabled>คัดลอก</button>
+            </div>
+            <pre id="output" class="output" aria-live="polite">ยังไม่มีผลลัพธ์</pre>
+          </section>
+          <section class="card card--compact" aria-labelledby="script-meta-title">
+            <h2 id="script-meta-title" class="card-title card-title--sm">สถานะจำลอง</h2>
+            <div class="meta-grid">
+              <div class="meta-cell">
+                <span class="meta-label">โหมด</span>
+                <span class="meta-value">Mockup</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">API</span>
+                <span class="meta-value">ปิด</span>
+              </div>
+            </div>
+          </section>
+          <p class="footer-note footer-note--in-scroll">ตัวทำงานจริงอยู่ที่ <a href="app.html" class="footer-link">app.html</a></p>
+        </div>
+
+        <div id="tab-settings" class="tab-panel">
+          <section class="card card--hero">
+            <div class="card-kicker">การเชื่อมต่อ</div>
+            <h2 class="card-title">ตั้งค่า API</h2>
+            <p class="hint">ช่องนี้สำหรับดูเลย์เอาต์เท่านั้น</p>
+            <label for="key-google">Gemini API Key</label>
+            <input type="password" id="key-google" class="input-tap" placeholder="AIza…" autocomplete="off" />
+            <label for="key-openai">OpenAI API Key</label>
+            <input type="password" id="key-openai" class="input-tap" placeholder="sk-…" autocomplete="off" />
+            <div id="keys-status" class="msg" style="display:none" role="status"></div>
+          </section>
+          <section class="card card--compact" aria-labelledby="sec-note-title">
+            <h2 id="sec-note-title" class="card-title card-title--sm">ความปลอดภัย</h2>
+            <p class="inset-note">หน้านี้ไม่บันทึกคีย์ลงดิสก์ — ข้อมูลในช่องอยู่เฉพาะในเบราว์เซอร์ของคุณ</p>
+          </section>
+          <button type="button" class="btn btn-ghost btn-block btn-tap btn-logout" id="logout-btn">ออกจาก License</button>
+        </div>
+      </div>
+
+      <div class="action-dock" id="action-dock-script" data-for-tab="script">
+        <button type="button" class="btn btn-primary btn-block btn-tap" id="generate-btn">สร้างบท</button>
+      </div>
+      <div class="action-dock" id="action-dock-settings" data-for-tab="settings" hidden>
+        <button type="button" class="btn btn-primary btn-block btn-tap" id="save-keys-btn">บันทึกคีย์</button>
+      </div>
+
+      <nav class="bottom-nav" aria-label="เมนูหลัก">
+        <button type="button" class="bottom-nav-item active" data-tab="script">
+          <span class="bottom-nav-icon" aria-hidden="true">✎</span>
+          <span class="bottom-nav-label">สร้างบท</span>
+        </button>
+        <button type="button" class="bottom-nav-item" data-tab="settings">
+          <span class="bottom-nav-icon" aria-hidden="true">⚙</span>
+          <span class="bottom-nav-label">ตั้งค่า</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/mockup.js"></script>
+</body>
+</html>

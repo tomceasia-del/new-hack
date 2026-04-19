@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ผลเจน — Storymode mock</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --card: #181c26;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f0f2f7;
+      --muted: rgba(240, 242, 247, 0.55);
+      --accent: #94a3b8;
+      --err: #ff6b6b;
+      --ok: #7dd3a8;
+      --tab-bg: #12151c;
+      --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 28px 18px 48px; }
+    h1 { font-size: 1.25rem; margin: 0 0 8px; }
+    .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 16px; }
+    .err { color: var(--err); white-space: pre-wrap; margin-bottom: 16px; }
+
+    .processing-panel {
+      display: none;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 18px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .processing-panel.is-visible { display: flex; }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid rgba(148, 163, 184, 0.25);
+      border-top-color: var(--accent);
+      animation: spin 0.85s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .processing-text strong { display: block; font-size: 1rem; margin-bottom: 4px; color: var(--text); }
+    .processing-text span { color: var(--muted); font-size: 0.88rem; }
+    .result-body { display: block; }
+    .result-body.is-hidden { display: none; }
+
+    /* —— Structured result —— */
+    #structured-root { display: flex; flex-direction: column; gap: 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .card-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+    .story-block {
+      border-left: 2px solid var(--border);
+      padding-left: 12px;
+      margin-bottom: 12px;
+    }
+    .story-block:last-child { margin-bottom: 0; }
+    .story-scene-head {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .story-dialogue {
+      font-size: 0.88rem;
+      color: rgba(240, 242, 247, 0.92);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .story-empty { color: var(--muted); font-size: 0.85rem; font-style: italic; }
+    .story-plain-block {
+      margin: 0 0 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+    }
+    .story-plain-block .story-dialogue { margin: 0 0 10px; }
+    .story-plain-block .story-dialogue:last-child { margin-bottom: 0; }
+    .video-dlg-plain {
+      margin: 0 0 10px;
+      padding: 8px 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.88rem;
+      color: rgba(240, 242, 247, 0.95);
+      white-space: pre-wrap;
+    }
+
+    .scene-card { padding: 18px; }
+    .scene-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px 14px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .scene-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .scene-title { font-size: 1.05rem; font-weight: 700; }
+    .scene-prompt-kind {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--tab-bg);
+      border: 1px solid var(--border);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 0;
+    }
+    .tab {
+      flex: 1;
+      max-width: 200px;
+      padding: 10px 14px;
+      border-radius: 10px 10px 0 0;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      background: var(--tab-bg);
+      color: var(--muted);
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+      outline: none;
+      box-shadow: none;
+    }
+    .tab:hover { color: var(--text); }
+    .tab:focus-visible {
+      outline: 1px solid rgba(255, 255, 255, 0.2);
+      outline-offset: 2px;
+    }
+    .tab[aria-selected="true"] {
+      background: #000;
+      color: var(--text);
+      border-color: var(--border);
+      position: relative;
+      z-index: 1;
+    }
+    .tab-panels {
+      border: 1px solid var(--border);
+      border-radius: 0 12px 12px 12px;
+      background: #07080a;
+      margin-top: -1px;
+    }
+    .tab-panel { display: none; padding: 14px 16px 16px; }
+    .tab-panel.is-active { display: block; }
+
+    /* Main tabs: JSON / Thai (ครอบ "2 · แต่ละฉาก") */
+    .mode-tabs {
+      display: flex;
+      gap: 6px;
+      margin: 10px 0 14px;
+    }
+    .mode-tab {
+      padding: 10px 22px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--tab-bg);
+      color: var(--muted);
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .mode-tab:hover { color: var(--text); }
+    .mode-tab[aria-selected="true"] {
+      background: #000;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    #structured-root.is-mode-json .view-thai { display: none; }
+    #structured-root.is-mode-thai .view-json { display: none; }
+
+    pre.thai-pre {
+      margin: 0;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #050608;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: min(48vh, 520px);
+      overflow: auto;
+    }
+
+    .prompt-block-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .prompt-label {
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; background: rgba(148, 163, 184, 0.55); }
+
+    .json-block-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+
+    pre.prompt-pre {
+      margin: 0;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #050608;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: min(48vh, 520px);
+      overflow: auto;
+    }
+    pre.json-prompt {
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+
+    .copy-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      margin-top: 12px;
+    }
+    .btn {
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: none;
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary { background: #334155; color: #f1f5f9; border: 1px solid var(--border); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-copy-prompt {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-copy-prompt:hover { background: rgba(255, 255, 255, 0.08); }
+
+    .copy-feedback {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+      min-height: 1.2em;
+      opacity: 0;
+      transition: opacity 0.15s, color 0.15s;
+    }
+    .copy-feedback.is-on {
+      opacity: 1;
+      color: var(--ok);
+    }
+
+    .preamble-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; align-items: center; }
+    .raw-toggle { margin-top: 12px; }
+    pre.out-raw {
+      margin: 10px 0 0;
+      padding: 14px;
+      border-radius: 12px;
+      background: #07080a;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      max-height: min(40vh, 400px);
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 id="page-title">ผลเจนสคริปต์ฉาก (Gemini)</h1>
+    <p class="meta" id="meta"></p>
+    <div class="processing-panel" id="processing" aria-live="polite">
+      <div class="spinner" role="status" aria-label="กำลังโหลด"></div>
+      <div class="processing-text">
+        <strong>กำลังประมวลผล</strong>
+        <span id="processing-msg">รอข้อมูลจากหน้า mock…</span>
+      </div>
+    </div>
+    <div class="result-body" id="result-body">
+      <div class="err" id="err" style="display:none;"></div>
+      <div id="structured-root" hidden></div>
+      <div class="raw-toggle">
+        <button type="button" class="btn btn-ghost" id="btn-toggle-raw" aria-expanded="false">แสดงข้อความดิบ</button>
+      </div>
+      <pre class="out-raw" id="out-raw" hidden></pre>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="btn-copy">คัดลอกผลลัพธ์ทั้งหมด</button>
+        <a class="btn btn-ghost" href="story-config-mock.html">← กลับ mock</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var KEY = "storymodeMockGeminiResultV1";
+      var EMBED =
+        typeof location !== "undefined" &&
+        /(?:^|[?&])embed=1(?:&|$)/.test(location.search || "");
+      if (EMBED) {
+        var pt0 = document.getElementById("page-title");
+        if (pt0) pt0.style.display = "none";
+        var back0 = document.querySelector('.actions a[href="story-config-mock.html"]');
+        if (back0) back0.style.display = "none";
+        var w0 = document.querySelector(".wrap");
+        if (w0) w0.style.paddingTop = "8px";
+      }
+      var meta = document.getElementById("meta");
+      var errEl = document.getElementById("err");
+      var structuredRoot = document.getElementById("structured-root");
+      var outRaw = document.getElementById("out-raw");
+      var processing = document.getElementById("processing");
+      var processingMsg = document.getElementById("processing-msg");
+      var resultBody = document.getElementById("result-body");
+      var pageTitle = document.getElementById("page-title");
+      var pollTimer = null;
+      var lastRawText = "";
+
+      function readData() {
+        try {
+          var raw = localStorage.getItem(KEY);
+          if (!raw) return null;
+          return JSON.parse(raw);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function isProcessing(d) {
+        return d && d.status === "processing";
+      }
+
+      /* —— Parse Gemini output —— */
+      function stripOuterCodeFence(text) {
+        var t = (text || "").trim();
+        var fenced = t.match(/^```[^\n]*\n?([\s\S]*?)\n?```$/);
+        return fenced ? fenced[1].trim() : t;
+      }
+
+      function extractCharacterSection(fullText) {
+        var i = fullText.search(/CHARACTER CARD/i);
+        if (i === -1) return { raw: "", fields: {} };
+        var slice = fullText.slice(i);
+        var candidates = [];
+        var hookIdx = slice.search(/\bHook Reference:/i);
+        var sceneIdx = slice.search(/===\s*SCENE\s+\d+\s*:/i);
+        var imgIdx = slice.search(/(?:🔴\s*)?IMAGE\s+PROMPT/i);
+        var vdoIdx = slice.search(/(?:🟢\s*)?VIDEO\s+PROMPT/i);
+        [hookIdx, sceneIdx, imgIdx, vdoIdx].forEach(function (n) {
+          if (n > 0) candidates.push(n);
+        });
+        var end = candidates.length ? Math.min.apply(Math, candidates) : slice.length;
+        var raw = stripOuterCodeFence(slice.slice(0, end).trim());
+        return { raw: raw, fields: parseCardFields(raw) };
+      }
+
+      function parseCardFields(block) {
+        var o = {
+          name: "",
+          gender: "",
+          age: "",
+          appearance: "",
+          outfit: "",
+          voice: "",
+          char_line: "",
+          voice_line: ""
+        };
+        if (!block) return o;
+        var lines = block.split(/\r?\n/);
+        var current = null;
+        var buf = [];
+        function flush() {
+          if (!current) return;
+          var v = buf.join(" ").trim();
+          if (current === "name") o.name = v;
+          else if (current === "gender") o.gender = v;
+          else if (current === "age") o.age = v;
+          else if (current === "appearance") o.appearance = v;
+          else if (current === "outfit") o.outfit = v;
+          else if (current === "voice") o.voice = v;
+          buf = [];
+        }
+        for (var li = 0; li < lines.length; li++) {
+          var line = lines[li];
+          var charM = line.match(/^CHAR\s*:\s*(.+)$/i);
+          if (charM) {
+            flush();
+            current = null;
+            o.char_line = charM[1].trim();
+            continue;
+          }
+          var voiceM = line.match(/^VOICE\s*:\s*(.+)$/i);
+          if (voiceM) {
+            flush();
+            current = null;
+            o.voice_line = voiceM[1].trim();
+            if (!o.voice) o.voice = o.voice_line;
+            continue;
+          }
+          var m = line.match(/^(Name|Gender|Age|Appearance|Outfit|Voice)\s*:\s*(.*)$/i);
+          if (m) {
+            flush();
+            current = m[1].toLowerCase();
+            buf.push(m[2].trim());
+          } else if (
+            current &&
+            !/Hook Reference:|===\s*SCENE\s+\d+\s*:|(?:🔴\s*)?IMAGE\s+PROMPT|(?:🟢\s*)?VIDEO\s+PROMPT/i.test(line) &&
+            line.trim() !== "```"
+          ) {
+            buf.push(line.trim());
+          }
+        }
+        flush();
+        return o;
+      }
+
+      /** Pull CHAR:/VOICE: from image/video body when card block used compact format */
+      function enrichFieldsFromPrompts(fields, imageRaw, videoRaw) {
+        var f = {};
+        var k;
+        for (k in fields) {
+          if (Object.prototype.hasOwnProperty.call(fields, k)) f[k] = fields[k];
+        }
+        var src = (imageRaw || "") + "\n" + (videoRaw || "");
+        if (!f.char_line && src) {
+          var cm = src.match(/CHAR\s*:\s*([^\n]+)/i);
+          if (cm) f.char_line = cm[1].trim();
+        }
+        if (!f.voice_line && src) {
+          var vm = src.match(/VOICE\s*:\s*([^\n]+)/i);
+          if (vm) f.voice_line = vm[1].trim();
+        }
+        if (!f.voice && f.voice_line) f.voice = f.voice_line;
+        return f;
+      }
+
+      function characterFieldsToJson(f) {
+        return {
+          type: "character_card",
+          name: f.name || null,
+          gender: f.gender || null,
+          age: f.age || null,
+          appearance: f.appearance || null,
+          outfit: f.outfit || null,
+          voice: f.voice || f.voice_line || null,
+          compact_char: f.char_line || null
+        };
+      }
+
+      function stringifyJson(obj) {
+        try {
+          return JSON.stringify(obj, null, 2);
+        } catch (e) {
+          return "{}";
+        }
+      }
+
+      function extractPreamble(fullText, firstSceneIndex) {
+        if (firstSceneIndex <= 0) return "";
+        return fullText.slice(0, firstSceneIndex).trim();
+      }
+
+      function findScenes(fullText) {
+        var re = /===\s*SCENE\s+(\d+)\s*:\s*([^=\n]+?)\s*===/gi;
+        var matches = [];
+        var m;
+        while ((m = re.exec(fullText)) !== null) {
+          matches.push({
+            index: m.index,
+            len: m[0].length,
+            num: m[1],
+            title: m[2].trim()
+          });
+        }
+        return matches;
+      }
+
+      var RE_IMAGE = /(?:🔴\s*)?IMAGE\s+PROMPT/i;
+      var RE_VIDEO = /(?:🟢\s*)?VIDEO\s+PROMPT/i;
+
+      function cleanPromptChunk(text) {
+        var t = (text || "").trim();
+        if (!t) return "";
+        var fenced = t.match(/```[^\n]*\n?([\s\S]*?)\n?```/);
+        if (fenced) return fenced[1].trim();
+        return t
+          .replace(/^```[^\n]*\n?/, "")
+          .replace(/\n?```$/, "")
+          .trim();
+      }
+
+      function extractPromptChunk(body, startRe, endRe) {
+        var m = body.match(startRe);
+        if (!m || m.index == null) return "";
+        var start = m.index + m[0].length;
+        var rest = body.slice(start);
+        var end = rest.length;
+        if (endRe) {
+          var em = rest.match(endRe);
+          if (em && em.index != null) end = em.index;
+        }
+        return cleanPromptChunk(rest.slice(0, end));
+      }
+
+      function extractPromptSections(body) {
+        var imageRaw = extractPromptChunk(body, RE_IMAGE, RE_VIDEO);
+        var videoRaw = extractPromptChunk(body, RE_VIDEO, null);
+        return {
+          imageRaw: imageRaw,
+          videoRaw: videoRaw
+        };
+      }
+
+      function extractDialogueFromVideo(videoText) {
+        if (!videoText) return "";
+        var parts = [];
+        var re = /"([^"]{6,1200})"/g;
+        var x;
+        while ((x = re.exec(videoText)) !== null) {
+          if (/[\u0E00-\u0E7F]/.test(x[1])) parts.push(x[1]);
+        }
+        if (parts.length) return parts.join("\n");
+        var d2 = videoText.match(/Dialogue[^:]*:\s*([^\n]+)/i);
+        if (d2) return d2[1].trim();
+        var best = "";
+        var re3 = /"([^"]+)"/g;
+        var z;
+        while ((z = re3.exec(videoText)) !== null) {
+          if (z[1].length > best.length) best = z[1];
+        }
+        if (best.length >= 8) return best;
+        return "";
+      }
+
+      function extractHookFromPreamble(preamble) {
+        if (!preamble) return "";
+        var idx = preamble.search(/Hook Reference:/i);
+        if (idx === -1) return "";
+        var rest = preamble.slice(idx);
+        var cut = rest.search(/\s===\s*SCENE\s+\d+:/i);
+        if (cut !== -1) rest = rest.slice(0, cut);
+        return rest.trim();
+      }
+
+      function parseStoryboard(fullText) {
+        var char = extractCharacterSection(fullText);
+        var sceneHeaders = findScenes(fullText);
+        if (!sceneHeaders.length) {
+          return {
+            character: char,
+            preamble: fullText.trim(),
+            scenes: [],
+            parseOk: false
+          };
+        }
+        var firstIdx = sceneHeaders[0].index;
+        var preamble = extractPreamble(fullText, firstIdx);
+        var scenes = [];
+        for (var i = 0; i < sceneHeaders.length; i++) {
+          var h = sceneHeaders[i];
+          var bodyStart = h.index + h.len;
+          var bodyEnd = i + 1 < sceneHeaders.length ? sceneHeaders[i + 1].index : fullText.length;
+          var body = fullText.slice(bodyStart, bodyEnd).trim();
+          var sections = extractPromptSections(body);
+          var imageRaw = sections.imageRaw;
+          var videoRaw = sections.videoRaw;
+          var dialogue = extractDialogueFromVideo(videoRaw);
+          scenes.push({
+            num: h.num,
+            title: h.title,
+            imageRaw: imageRaw,
+            videoRaw: videoRaw,
+            dialogue: dialogue
+          });
+        }
+        if (scenes.length) {
+          char.fields = enrichFieldsFromPrompts(
+            char.fields || {},
+            scenes[0].imageRaw,
+            scenes[0].videoRaw
+          );
+        }
+        return {
+          character: char,
+          preamble: preamble,
+          scenes: scenes,
+          parseOk: true
+        };
+      }
+
+      function esc(s) {
+        if (s == null) return "";
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      /** แท็กอ้างอิงฉาก เช่น #scene1 — ใช้นำหน้า prompt ทุกที่ */
+      function sceneTag(num) {
+        var n = String(num == null ? "" : num).replace(/\s+/g, "");
+        return "#scene" + n;
+      }
+
+      /** นำหน้าข้อความ prompt ด้วย #sceneN (ไม่ซ้ำถ้ามีอยู่แล้ว) */
+      function prefixScenePrompt(text, num) {
+        var raw = (text || "").trim();
+        var tag = sceneTag(num);
+        if (!raw) return tag;
+        if (raw.indexOf(tag) === 0) return raw;
+        return tag + "\n\n" + raw;
+      }
+
+      /**
+       * ตัดคำบรรยาย/meta ที่ Gemini แทรกใน IMAGE/VIDEO PROMPT (กฎ parser, ---)
+       * และ [Character Reference: …] เพื่อให้ copy/save ได้สั้นลง
+       */
+      function stripPromptNoise(text) {
+        if (!text || typeof text !== "string") return "";
+        var orig = text.trim();
+        var t = orig.replace(/\s*\[Character Reference:[^\]]*\]/gi, "").trim();
+        var segs = t.split(/\s*---\s*/);
+        if (segs.length > 1) {
+          var tail = segs[segs.length - 1].trim();
+          if (tail.length > 15) t = tail;
+        }
+        var headBad = /before Scene\s*1|required for parser|Keep face\/hair|Outfit is locked|Do NOT add new characters/i;
+        var phIdx = t.lastIndexOf("\nภาพ:");
+        if (phIdx === -1) phIdx = t.indexOf("ภาพ:");
+        if (phIdx !== -1 && headBad.test(t.slice(0, phIdx))) {
+          t = t.slice(phIdx).replace(/^ภาพ\s*:\s*/i, "").trim();
+        }
+        var vdIdx = t.lastIndexOf("\nวิดีโอ:");
+        if (vdIdx === -1) vdIdx = t.indexOf("วิดีโอ:");
+        if (vdIdx !== -1 && headBad.test(t.slice(0, vdIdx))) {
+          t = t.slice(vdIdx).replace(/^วิดีโอ\s*:\s*/i, "").trim();
+        }
+        t = t.replace(/^ภาพ\s*:\s*/im, "").trim();
+        t = t.replace(/^วิดีโอ\s*:\s*/im, "").trim();
+        if (!t) {
+          t = orig.replace(/\s*\[Character Reference:[^\]]*\]/gi, "").trim();
+        }
+        return t;
+      }
+
+      /** รวม character_card เป็นประโยคไทยอ่านง่าย (ตัดค่า null/ว่าง) */
+      function characterToThaiLine(f) {
+        if (!f) return "";
+        var compact = f.char_line || "";
+        if (compact) return compact;
+        var parts = [];
+        if (f.gender) parts.push(f.gender);
+        if (f.age) parts.push("อายุ " + f.age);
+        if (f.appearance) parts.push(f.appearance);
+        if (f.outfit) parts.push("ชุด " + f.outfit);
+        return parts.join(" · ");
+      }
+
+      /** เรนเดอร์บล็อก Thai ของ Image prompt (plain text, ไม่มีปีกกา) */
+      function buildImageThaiBlock(s, fields) {
+        var lines = [];
+        lines.push(sceneTag(s.num));
+        lines.push("");
+        lines.push("ฉาก " + s.num + " — " + s.title);
+        var charLine = characterToThaiLine(fields);
+        if (charLine) {
+          lines.push("");
+          lines.push("ตัวละคร: " + charLine);
+        }
+        var voice = fields.voice || fields.voice_line || "";
+        if (voice) lines.push("เสียง: " + voice);
+        lines.push("");
+        lines.push("ภาพ:");
+        var imgClean = stripPromptNoise(s.imageRaw || "");
+        lines.push(imgClean || "(ไม่พบบล็อกหลัง IMAGE PROMPT)");
+        return lines.join("\n");
+      }
+
+      /** เรนเดอร์บล็อก Thai ของ Video prompt (plain text, ไม่มีปีกกา) */
+      function buildVideoThaiBlock(s, fields) {
+        var lines = [];
+        lines.push(sceneTag(s.num));
+        lines.push("");
+        lines.push("ฉาก " + s.num + " — " + s.title);
+        if (s.dialogue) {
+          lines.push("บทพูด: " + s.dialogue);
+        }
+        var charLine = characterToThaiLine(fields);
+        if (charLine) {
+          lines.push("");
+          lines.push("ตัวละคร: " + charLine);
+        }
+        var voice = fields.voice || fields.voice_line || "";
+        if (voice) lines.push("เสียง: " + voice);
+        lines.push("");
+        lines.push("วิดีโอ:");
+        var vdoClean = stripPromptNoise(s.videoRaw || "");
+        lines.push(vdoClean || "(ไม่พบบล็อกหลัง VIDEO PROMPT)");
+        return lines.join("\n");
+      }
+
+      function buildStoryOverviewJson(parsed) {
+        var hook = extractHookFromPreamble(parsed.preamble);
+        var scenes = [];
+        var i;
+        for (i = 0; i < parsed.scenes.length; i++) {
+          var sc = parsed.scenes[i];
+          scenes.push({
+            scene: Number(sc.num),
+            scene_tag: sceneTag(sc.num),
+            title: sc.title,
+            dialogue: sc.dialogue ? prefixScenePrompt(sc.dialogue, sc.num) : ""
+          });
+        }
+        return {
+          type: "story_overview",
+          hook_reference: hook || null,
+          scenes: scenes
+        };
+      }
+
+      function wireCopy(btn, getText, feedbackEl) {
+        btn.addEventListener("click", async function () {
+          try {
+            var t = getText();
+            await navigator.clipboard.writeText(t);
+            btn.setAttribute("aria-busy", "false");
+            if (feedbackEl) {
+              feedbackEl.style.color = "";
+              feedbackEl.textContent = "คัดลอกแล้ว";
+              feedbackEl.classList.add("is-on");
+              setTimeout(function () {
+                feedbackEl.textContent = "";
+                feedbackEl.classList.remove("is-on");
+                feedbackEl.style.color = "";
+              }, 2200);
+            }
+          } catch (e) {
+            if (feedbackEl) {
+              feedbackEl.textContent = "คัดลอกไม่สำเร็จ";
+              feedbackEl.style.color = "var(--err)";
+              setTimeout(function () {
+                feedbackEl.textContent = "";
+                feedbackEl.style.color = "";
+                feedbackEl.classList.remove("is-on");
+              }, 2200);
+            }
+          }
+        });
+      }
+
+      function renderStructured(parsed, rawText) {
+        structuredRoot.innerHTML = "";
+        structuredRoot.classList.remove("is-mode-thai");
+        structuredRoot.classList.remove("is-mode-json");
+        structuredRoot.hidden = false;
+
+        var storyCard = document.createElement("section");
+        storyCard.className = "card";
+        storyCard.innerHTML = '<p class="card-title">1 · เรื่องเล่าและบทพูด</p>';
+        if (!parsed.scenes.length) {
+          var empty = document.createElement("p");
+          empty.className = "story-empty";
+          empty.textContent =
+            "แยกฉากอัตโนมัติไม่ได้ — เปิด \"แสดงข้อความดิบ\" ด้านล่าง หรือตรวจว่าโมเดลใช้หัวข้อ === SCENE N: ===";
+          storyCard.appendChild(empty);
+        } else {
+          var plainBlock = document.createElement("div");
+          plainBlock.className = "story-plain-block";
+          for (var pi = 0; pi < parsed.scenes.length; pi++) {
+            var scn = parsed.scenes[pi];
+            var pScene = document.createElement("p");
+            pScene.className = "story-dialogue";
+            var line1 = sceneTag(scn.num) + "\n\nฉาก " + scn.num + " — " + scn.title;
+            if (scn.dialogue) {
+              line1 += "\nบทพูด: " + scn.dialogue;
+            }
+            pScene.textContent = line1;
+            plainBlock.appendChild(pScene);
+          }
+          storyCard.appendChild(plainBlock);
+        }
+        structuredRoot.appendChild(storyCard);
+
+        var fields = parsed.character.fields || {};
+
+        if (parsed.scenes.length) {
+          var sec2 = document.createElement("div");
+          sec2.style.margin = "8px 0 4px";
+          var sec2t = document.createElement("p");
+          sec2t.className = "card-title";
+          sec2t.style.margin = "0";
+          sec2t.textContent = "2 · แต่ละฉาก";
+          sec2.appendChild(sec2t);
+          structuredRoot.appendChild(sec2);
+
+          var modeTabs = document.createElement("div");
+          modeTabs.className = "mode-tabs";
+          modeTabs.setAttribute("role", "tablist");
+          modeTabs.setAttribute("aria-label", "โหมดแสดงผล");
+          modeTabs.innerHTML =
+            '<button type="button" class="mode-tab" role="tab" aria-selected="true" id="mode-tab-json">JSON</button>' +
+            '<button type="button" class="mode-tab" role="tab" aria-selected="false" id="mode-tab-thai">Thai</button>';
+          structuredRoot.appendChild(modeTabs);
+          if (!structuredRoot.classList.contains("is-mode-thai")) {
+            structuredRoot.classList.add("is-mode-json");
+          }
+          var btnModeJson = modeTabs.querySelector("#mode-tab-json");
+          var btnModeThai = modeTabs.querySelector("#mode-tab-thai");
+          function setMode(which) {
+            var thai = which === "thai";
+            structuredRoot.classList.toggle("is-mode-thai", thai);
+            structuredRoot.classList.toggle("is-mode-json", !thai);
+            btnModeJson.setAttribute("aria-selected", thai ? "false" : "true");
+            btnModeThai.setAttribute("aria-selected", thai ? "true" : "false");
+          }
+          btnModeJson.addEventListener("click", function () { setMode("json"); });
+          btnModeThai.addEventListener("click", function () { setMode("thai"); });
+        }
+
+        for (var j = 0; j < parsed.scenes.length; j++) {
+          (function (scene) {
+          var s = scene;
+          var sceneEl = document.createElement("section");
+          sceneEl.className = "card scene-card";
+          sceneEl.setAttribute("data-scene", s.num);
+
+          var headRow = document.createElement("div");
+          headRow.className = "scene-head";
+          headRow.innerHTML =
+            '<span class="scene-num">SCENE ' +
+            esc(s.num) +
+            '</span><span class="scene-title">' +
+            esc(s.title) +
+            '</span><span class="scene-prompt-kind" id="scene-' +
+            s.num +
+            '-kind">กำลังดู: รูป</span>';
+          sceneEl.appendChild(headRow);
+
+          var tabs = document.createElement("div");
+          tabs.className = "tabs";
+          tabs.setAttribute("role", "tablist");
+          tabs.innerHTML =
+            '<button type="button" class="tab" role="tab" aria-selected="true" aria-controls="panel-' +
+            s.num +
+            '-img" id="tab-' +
+            s.num +
+            '-img">รูป</button>' +
+            '<button type="button" class="tab" role="tab" aria-selected="false" aria-controls="panel-' +
+            s.num +
+            '-vdo" id="tab-' +
+            s.num +
+            '-vdo">วิดีโอ</button>';
+
+          var panels = document.createElement("div");
+          panels.className = "tab-panels";
+
+          var pImg = document.createElement("div");
+          pImg.className = "tab-panel is-active";
+          pImg.id = "panel-" + s.num + "-img";
+          pImg.setAttribute("role", "tabpanel");
+          pImg.setAttribute("aria-labelledby", "tab-" + s.num + "-img");
+          var headImg = document.createElement("div");
+          headImg.className = "prompt-block-head";
+          headImg.innerHTML =
+            '<span class="prompt-label"><span class="dot" aria-hidden="true"></span>ข้อความสำหรับสร้างรูป</span>';
+          pImg.appendChild(headImg);
+          var fieldsImg = enrichFieldsFromPrompts(fields, s.imageRaw, s.videoRaw);
+          var imgPromptClean = stripPromptNoise(s.imageRaw || "");
+          var imageJsonObj = {
+            type: "storymode_image_prompt",
+            scene: Number(s.num),
+            scene_tag: sceneTag(s.num),
+            scene_title: s.title,
+            character_card: characterFieldsToJson(fieldsImg),
+            prompt: prefixScenePrompt(imgPromptClean, s.num)
+          };
+          if (!s.imageRaw) {
+            imageJsonObj._note = "ไม่พบบล็อกหลัง IMAGE PROMPT";
+          }
+          var preImg = document.createElement("pre");
+          preImg.className = "prompt-pre json-prompt view-json";
+          preImg.textContent = stringifyJson(imageJsonObj);
+          pImg.appendChild(preImg);
+          var preImgThai = document.createElement("pre");
+          preImgThai.className = "thai-pre view-thai";
+          preImgThai.textContent = buildImageThaiBlock(s, fieldsImg);
+          pImg.appendChild(preImgThai);
+          var rowImg = document.createElement("div");
+          rowImg.className = "copy-row";
+          var btnImg = document.createElement("button");
+          btnImg.type = "button";
+          btnImg.className = "btn btn-copy-prompt";
+          btnImg.setAttribute("aria-label", "คัดลอกพรอมต์รูป ฉาก " + s.num);
+          btnImg.textContent = "คัดลอก";
+          var fbImg = document.createElement("span");
+          fbImg.className = "copy-feedback";
+          fbImg.setAttribute("aria-live", "polite");
+          rowImg.appendChild(btnImg);
+          rowImg.appendChild(fbImg);
+          pImg.appendChild(rowImg);
+          wireCopy(
+            btnImg,
+            function () {
+              return structuredRoot.classList.contains("is-mode-thai")
+                ? (preImgThai.textContent || "")
+                : (preImg.textContent || "");
+            },
+            fbImg
+          );
+
+          var pVdo = document.createElement("div");
+          pVdo.className = "tab-panel";
+          pVdo.id = "panel-" + s.num + "-vdo";
+          pVdo.setAttribute("role", "tabpanel");
+          pVdo.setAttribute("aria-labelledby", "tab-" + s.num + "-vdo");
+          pVdo.hidden = true;
+          var headVdo = document.createElement("div");
+          headVdo.className = "prompt-block-head";
+          headVdo.innerHTML =
+            '<span class="prompt-label"><span class="dot" aria-hidden="true"></span>ข้อความสำหรับสร้างวิดีโอ</span>';
+          pVdo.appendChild(headVdo);
+          if (s.dialogue) {
+            var dlgPlain = document.createElement("p");
+            dlgPlain.className = "video-dlg-plain view-json";
+            dlgPlain.textContent = sceneTag(s.num) + "\n\nบทพูด: " + s.dialogue;
+            pVdo.appendChild(dlgPlain);
+          }
+          var fieldsVdo = enrichFieldsFromPrompts(fields, s.imageRaw, s.videoRaw);
+          var vdoPromptClean = stripPromptNoise(s.videoRaw || "");
+          var videoJsonObj = {
+            type: "storymode_video_prompt",
+            scene: Number(s.num),
+            scene_tag: sceneTag(s.num),
+            scene_title: s.title,
+            character_card: characterFieldsToJson(fieldsVdo),
+            dialogue_extracted: s.dialogue || null,
+            prompt: prefixScenePrompt(vdoPromptClean, s.num)
+          };
+          if (!s.videoRaw) {
+            videoJsonObj._note = "ไม่พบบล็อกหลัง VIDEO PROMPT";
+          }
+          var preVdo = document.createElement("pre");
+          preVdo.className = "prompt-pre json-prompt view-json";
+          preVdo.textContent = stringifyJson(videoJsonObj);
+          pVdo.appendChild(preVdo);
+          var preVdoThai = document.createElement("pre");
+          preVdoThai.className = "thai-pre view-thai";
+          preVdoThai.textContent = buildVideoThaiBlock(s, fieldsVdo);
+          pVdo.appendChild(preVdoThai);
+          var rowVdo = document.createElement("div");
+          rowVdo.className = "copy-row";
+          var btnVdo = document.createElement("button");
+          btnVdo.type = "button";
+          btnVdo.className = "btn btn-copy-prompt";
+          btnVdo.setAttribute("aria-label", "คัดลอกพรอมต์วิดีโอ ฉาก " + s.num);
+          btnVdo.textContent = "คัดลอก";
+          var fbVdo = document.createElement("span");
+          fbVdo.className = "copy-feedback";
+          fbVdo.setAttribute("aria-live", "polite");
+          rowVdo.appendChild(btnVdo);
+          rowVdo.appendChild(fbVdo);
+          pVdo.appendChild(rowVdo);
+          wireCopy(
+            btnVdo,
+            function () {
+              return structuredRoot.classList.contains("is-mode-thai")
+                ? (preVdoThai.textContent || "")
+                : (preVdo.textContent || "");
+            },
+            fbVdo
+          );
+
+          panels.appendChild(pImg);
+          panels.appendChild(pVdo);
+          sceneEl.appendChild(tabs);
+          sceneEl.appendChild(panels);
+
+          var tabImg = tabs.querySelector("#tab-" + s.num + "-img");
+          var tabVdo = tabs.querySelector("#tab-" + s.num + "-vdo");
+          var kindEl = sceneEl.querySelector("#scene-" + s.num + "-kind");
+          function activate(which) {
+            var isImg = which === "img";
+            tabImg.setAttribute("aria-selected", isImg ? "true" : "false");
+            tabVdo.setAttribute("aria-selected", isImg ? "false" : "true");
+            pImg.classList.toggle("is-active", isImg);
+            pVdo.classList.toggle("is-active", !isImg);
+            pImg.hidden = !isImg;
+            pVdo.hidden = isImg;
+            if (kindEl) {
+              kindEl.textContent = isImg ? "กำลังดู: รูป" : "กำลังดู: วิดีโอ";
+            }
+          }
+          tabImg.addEventListener("click", function () {
+            activate("img");
+          });
+          tabVdo.addEventListener("click", function () {
+            activate("vdo");
+          });
+          pVdo.hidden = true;
+
+          structuredRoot.appendChild(sceneEl);
+          })(parsed.scenes[j]);
+        }
+
+        if (parsed.character.raw) {
+          var refCard = document.createElement("section");
+          refCard.className = "card";
+          var refTitle = document.createElement("p");
+          refTitle.className = "card-title";
+          refTitle.textContent = "อ้างอิงตัวละคร (ข้อความดิบ)";
+          refCard.appendChild(refTitle);
+          var refPre = document.createElement("pre");
+          refPre.className = "prompt-pre json-prompt";
+          refPre.style.maxHeight = "240px";
+          refPre.textContent = stringifyJson({
+            type: "character_card_raw",
+            content: parsed.character.raw
+          });
+          refCard.appendChild(refPre);
+          structuredRoot.appendChild(refCard);
+        }
+      }
+
+      function render(d) {
+        if (!d) {
+          meta.textContent = "ยังไม่มีผล — กลับไปกดเจนที่ mock ก่อน";
+          processing.classList.remove("is-visible");
+          resultBody.classList.remove("is-hidden");
+          structuredRoot.innerHTML = "";
+          structuredRoot.hidden = true;
+          outRaw.textContent = "";
+          errEl.style.display = "none";
+          document.title = "ผลเจน — Storymode mock";
+          return;
+        }
+
+        if (isProcessing(d)) {
+          document.title = "กำลังประมวลผล… — Storymode mock";
+          pageTitle.textContent = "กำลังประมวลผล";
+          processing.classList.add("is-visible");
+          processingMsg.textContent = d.message || "กำลังเรียก Gemini…";
+          meta.textContent =
+            "แท็บนี้จะอัปเดตอัตโนมัติเมื่อเสร็จ · " +
+            (d.ts ? "เริ่ม: " + new Date(d.ts).toLocaleString("th-TH") : "");
+          resultBody.classList.add("is-hidden");
+          errEl.style.display = "none";
+          structuredRoot.innerHTML = "";
+          structuredRoot.hidden = true;
+          outRaw.textContent = "";
+          return;
+        }
+
+        document.title = "ผลเจน — Storymode mock";
+        pageTitle.textContent = "ผลเจนสคริปต์ฉาก (Gemini)";
+        processing.classList.remove("is-visible");
+        resultBody.classList.remove("is-hidden");
+
+        var ts = d.ts ? new Date(d.ts).toLocaleString("th-TH") : "";
+        meta.textContent =
+          (d.model ? "โมเดล: " + d.model + " · " : "") +
+          (ts ? "เวลา: " + ts : "") +
+          (d.truncated ? " · (อาจถูกตัด MAX_TOKENS)" : "");
+
+        if (d.error) {
+          errEl.style.display = "block";
+          errEl.textContent = d.error;
+        } else {
+          errEl.style.display = "none";
+          errEl.textContent = "";
+        }
+
+        lastRawText = d.text || "";
+        outRaw.textContent = lastRawText;
+
+        if (lastRawText) {
+          var parsed = parseStoryboard(lastRawText);
+          renderStructured(parsed, lastRawText);
+        } else {
+          structuredRoot.innerHTML = "";
+          structuredRoot.hidden = true;
+        }
+      }
+
+      function stopPoll() {
+        if (pollTimer) {
+          clearInterval(pollTimer);
+          pollTimer = null;
+        }
+      }
+
+      function startPollIfProcessing() {
+        stopPoll();
+        var started = Date.now();
+        var maxMs = 15 * 60 * 1000;
+        pollTimer = setInterval(function () {
+          var d = readData();
+          if (!d || !isProcessing(d)) {
+            stopPoll();
+            if (d) render(d);
+            return;
+          }
+          if (Date.now() - started > maxMs) {
+            stopPoll();
+            meta.textContent = "รอนานเกินไป — ลองกดเจนใหม่ที่ mock";
+            processingMsg.textContent = "หมดเวลารอ (15 นาที)";
+            return;
+          }
+          render(d);
+        }, 400);
+      }
+
+      document.getElementById("btn-toggle-raw").addEventListener("click", function () {
+        var open = outRaw.hidden;
+        outRaw.hidden = !open;
+        this.setAttribute("aria-expanded", open ? "true" : "false");
+        this.textContent = open ? "ซ่อนข้อความดิบ" : "แสดงข้อความดิบ";
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", async function () {
+        try {
+          await navigator.clipboard.writeText(lastRawText);
+          var b = document.getElementById("btn-copy");
+          b.textContent = "คัดลอกแล้ว";
+          b.style.color = "var(--ok)";
+          setTimeout(function () {
+            b.textContent = "คัดลอกผลลัพธ์ทั้งหมด";
+            b.style.color = "";
+          }, 2000);
+        } catch (_) {}
+      });
+
+      var initial = readData();
+      if (!initial) {
+        meta.textContent = "ยังไม่มีผล — กลับไปกดเจนที่ mock ก่อน";
+        processing.classList.remove("is-visible");
+        resultBody.classList.remove("is-hidden");
+        document.title = "ผลเจน — Storymode mock";
+      } else {
+        render(initial);
+        if (isProcessing(initial)) {
+          startPollIfProcessing();
+        }
+      }
+
+      window.addEventListener("storage", function (ev) {
+        if (ev.key !== KEY) return;
+        var d = readData();
+        if (d) render(d);
+        if (!d || !isProcessing(d)) stopPoll();
+        else startPollIfProcessing();
+      });
+    })();
+  </script>
+</body>
+</html>

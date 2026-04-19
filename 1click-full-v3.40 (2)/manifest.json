@@ -1,0 +1,123 @@
+{
+  "manifest_version": 3,
+  "name": "1CLICK AUTOMATIC SYSTEM",
+  "version": "3.40",
+  "description": "1CLICK AUTOMATIC SYSTEM - AI-powered content automation for creators",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "downloads",
+    "offscreen",
+    "debugger",
+    "browsingData",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://storage.googleapis.com/*",
+    "https://*.googleapis.com/*",
+    "https://affiliate.tiktok.com/*",
+    "https://seller.tiktok.com/*",
+    "https://*.tiktok.com/*",
+    "https://labs.google/*",
+    "https://*.facebook.com/*",
+    "https://*.youtube.com/*",
+    "https://studio.youtube.com/*"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_icon": "icons/icon.png",
+    "default_title": "1CLICK AUTOMATIC SYSTEM"
+  },
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["library.html"],
+    "matches": ["<all_urls>"]
+  }],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://affiliate.tiktok.com/*",
+        "https://seller.tiktok.com/*",
+        "https://*.tiktok.com/*"
+      ],
+      "js": [
+        "js/content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://*.tiktok.com/*"
+      ],
+      "js": [
+        "js/content-tiktok-platform.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://*.tiktok.com/*"
+      ],
+      "js": [
+        "js/tiktok-click-helper.js"
+      ],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://labs.google/fx/tools/flow*"
+      ],
+      "js": [
+        "js/intercept-blob.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://labs.google/fx/tools/flow*"
+      ],
+      "js": [
+        "js/content-googleflow.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.facebook.com/*",
+        "https://business.facebook.com/*"
+      ],
+      "js": [
+        "js/content-facebook.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://studio.youtube.com/*",
+        "https://www.youtube.com/upload*"
+      ],
+      "js": [
+        "js/content-youtube.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Editor v2</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f172a'/%3E%3Cpath fill='%2338bdf8' d='M9 8v16l11-8-11-8z'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/ui/app.css">
+  <script src="https://unpkg.com/mp4box@0.5.2/dist/mp4box.all.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <nav class="app-nav" aria-label="แอปในชุด">
+        <a class="app-nav__link" href="/">← Project CS</a>
+        <a class="app-nav__link app-nav__link--active" href="/editor/" aria-current="page">Video Editor v2</a>
+      </nav>
+      <h1 class="app-title">Video Editor v2</h1>
+    </header>
+
+    <nav class="steps" aria-label="ขั้นตอน">
+      <button type="button" class="step-pill active" data-step-pill="1">1 เลือกและจัดเรียง</button>
+      <button type="button" class="step-pill disabled" data-step-pill="3">2 Trim</button>
+      <button type="button" class="step-pill disabled" data-step-pill="4">3 Caption</button>
+      <button type="button" class="step-pill disabled" data-step-pill="5">4 Render</button>
+      <button type="button" class="step-pill disabled" data-step-pill="6">5 Share</button>
+    </nav>
+
+    <section id="panel-import" class="panel" aria-labelledby="import-title">
+      <h2 id="import-title" class="sr-only">คลิป</h2>
+
+      <div id="dropzone" class="dropzone" aria-label="นำเข้า VDO เลือกหรือลากไฟล์วิดีโอ">
+        <div class="dropzone-brand" aria-hidden="true">
+          <svg class="dropzone-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="vdo-import-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="55%" stop-color="#a78bfa" />
+                <stop offset="100%" stop-color="#22d3ee" />
+              </linearGradient>
+            </defs>
+            <rect x="6" y="10" width="28" height="22" rx="3.5" fill="none" stroke="url(#vdo-import-grad)" stroke-width="2" />
+            <path d="M15 16v10l8-5-8-5z" fill="url(#vdo-import-grad)" />
+            <path d="M30 30h8M34 26v8" stroke="url(#vdo-import-grad)" stroke-width="2" stroke-linecap="round" />
+            <circle cx="36" cy="14" r="5" fill="#22c55e" />
+            <path d="M34 14h4M36 12v4" stroke="#052e16" stroke-width="1.4" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="dropzone-title">นำเข้า VDO</div>
+        <input id="file-input" type="file" accept="video/mp4,video/quicktime,.mp4,.mov" multiple>
+      </div>
+
+      <h3 class="section-label">จัดเรียง</h3>
+      <div id="clip-arrange-grid" class="clip-arrange-grid" aria-live="polite"></div>
+
+      <div class="toolbar">
+        <button type="button" id="btn-next" class="btn btn-primary btn-block" disabled>ถัดไป</button>
+      </div>
+    </section>
+
+    <section id="panel-next" class="panel hidden" aria-labelledby="next-title">
+      <h2 id="next-title" class="sr-only">ตัดคลิป</h2>
+
+      <div class="trim-layout">
+        <div id="trim-viewer-wrap" class="trim-viewer">
+          <video id="trim-video" playsinline></video>
+          <button
+            type="button"
+            id="trim-preview-hit"
+            class="trim-preview-hit"
+            aria-label="เล่นหรือหยุดพรีวิว"
+          ></button>
+          <button
+            type="button"
+            id="trim-preview-mute"
+            class="trim-preview-mute"
+            aria-pressed="false"
+            title="ปิดเสียงพรีวิว"
+            aria-label="ปิดเสียงพรีวิว"
+          >
+            <span class="trim-preview-mute-icon" aria-hidden="true">🔊</span>
+          </button>
+          <button
+            type="button"
+            id="trim-preview-fullscreen"
+            class="trim-preview-fullscreen"
+            aria-pressed="false"
+            title="พรีวิวเต็มจอ"
+            aria-label="พรีวิวเต็มจอ กดอีกครั้งเพื่อออก"
+          >
+            <span class="trim-preview-fs-icon" aria-hidden="true">⛶</span>
+          </button>
+        </div>
+
+        <div class="trim-global-block" aria-label="ไทม์ไลน์รวมสำหรับพรีวิว">
+          <p class="trim-global-label">ไทม์ไลน์รวม — ลากสครับ · แตะเพื่อขยับตำแหน่ง</p>
+          <div id="trim-global-wrap" class="trim-global-wrap">
+            <div id="trim-global-rail" class="trim-global-rail">
+              <button
+                type="button"
+                id="trim-global-playhead"
+                class="trim-global-playhead"
+                aria-label="ตำแหน่งเล่นบนไทม์ไลน์รวม"
+              >
+                <span class="trim-global-playhead-line" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div id="trim-global-readout" class="trim-global-readout">0:00 / 0:00</div>
+          </div>
+        </div>
+
+        <div id="trim-speed-block" class="trim-speed-block" aria-label="ความเร็วพรีวิว">
+          <label id="trim-preview-speed-label" for="trim-preview-speed" class="trim-speed-label">ความเร็วพรีวิว</label>
+          <div class="trim-speed-row">
+            <input
+              type="range"
+              id="trim-preview-speed"
+              class="trim-preview-speed"
+              min="1"
+              max="1.5"
+              step="0.05"
+              value="1"
+              aria-valuemin="1"
+              aria-valuemax="1.5"
+              aria-valuenow="1"
+              aria-valuetext="1.00 เท่า"
+            />
+            <output id="trim-preview-speed-value" class="trim-speed-value" for="trim-preview-speed">1.00×</output>
+          </div>
+        </div>
+
+        <div class="trim-per-clip-zone">
+          <div id="trim-clip-index-tray" class="trim-clip-index-tray" role="tablist" aria-label="เลือกคลิปตามลำดับ"></div>
+          <div id="trim-timeline-wrap" class="trim-timeline-wrap">
+            <div id="trim-rail" class="trim-rail">
+              <div id="trim-range" class="trim-range" aria-hidden="true"></div>
+              <button
+                type="button"
+                id="trim-handle-in"
+                class="trim-handle trim-handle-in"
+                aria-label="จุดเริ่มตัด"
+              ></button>
+              <button
+                type="button"
+                id="trim-handle-out"
+                class="trim-handle trim-handle-out"
+                aria-label="จุดจบตัด"
+              ></button>
+            </div>
+            <div id="trim-readout" class="trim-time-readout" aria-live="polite">0:00 — 0:00 / 0:00</div>
+          </div>
+        </div>
+
+        <div id="trim-toolbar-step3" class="toolbar trim-toolbar">
+          <button type="button" id="btn-trim-next" class="btn btn-primary btn-block" disabled>ถัดไป</button>
+        </div>
+
+        <div id="caption-workspace" class="caption-workspace hidden" aria-labelledby="caption-title">
+          <h2 id="caption-title" class="sr-only">ใส่คำบรรยาย</h2>
+          <div class="caption-brand-row">
+            <div class="caption-brand-mark" aria-hidden="true">
+              <svg class="caption-brand-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cap-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38bdf8" />
+                    <stop offset="55%" stop-color="#a78bfa" />
+                    <stop offset="100%" stop-color="#22d3ee" />
+                  </linearGradient>
+                </defs>
+                <rect x="6" y="14" width="40" height="30" rx="5" fill="none" stroke="url(#cap-brand-grad)" stroke-width="2.5" />
+                <path d="M26 24v14l10-7-10-7z" fill="url(#cap-brand-grad)" />
+                <path d="M50 22h8v22h-8M46 26h16M54 18v34" stroke="url(#cap-brand-grad)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+              </svg>
+            </div>
+          </div>
+          <label for="caption-draft" class="caption-label">คำบรรยาย (Caption)</label>
+          <textarea
+            id="caption-draft"
+            class="caption-draft"
+            rows="4"
+            maxlength="4000"
+            placeholder="พิมพ์คำบรรยายที่นี่…"
+            autocomplete="off"
+          ></textarea>
+          <div class="caption-actions">
+            <button type="button" id="btn-caption-fetch-stub" class="btn btn-secondary">
+              โหลดจากเว็บ (ทดสอบ)
+            </button>
+          </div>
+          <p id="caption-stub-hint" class="caption-hint" role="status">
+            「แชร์วิดีโอ」= ส่งไฟล์หลังเรนเดอร์ผ่านเมนูแชร์ของเครื่อง (มือถือ) หรือลิงก์หลังอัปโหลดชั่วคราว (ตั้ง URL ใต้ปุ่ม Render) · ปุ่มไอคอน = คัดลอกข้อความแล้วเปิดเว็บเท่านั้น — ไม่แนบวิดีโอ
+          </p>
+          <div
+            class="share-row"
+            role="group"
+            aria-label="ทางลัด: คัดลอกข้อความและเปิดเว็บแพลตฟอร์ม ไม่ส่งไฟล์วิดีโอ"
+          >
+            <button
+              type="button"
+              class="share-icon-btn"
+              data-share-platform="tiktok"
+              disabled
+              title="พิมพ์ caption ในกล่องด้านบนก่อน"
+              aria-label="TikTok — พิมพ์ caption ก่อน"
+            >
+              <span class="share-icon" aria-hidden="true">♪</span>
+            </button>
+            <button
+              type="button"
+              class="share-icon-btn"
+              data-share-platform="instagram"
+              disabled
+              title="พิมพ์ caption ในกล่องด้านบนก่อน"
+              aria-label="Instagram — พิมพ์ caption ก่อน"
+            >
+              <span class="share-icon" aria-hidden="true">◎</span>
+            </button>
+            <button
+              type="button"
+              class="share-icon-btn"
+              data-share-platform="facebook"
+              disabled
+              title="พิมพ์ caption ในกล่องด้านบนก่อน"
+              aria-label="Facebook — พิมพ์ caption ก่อน"
+            >
+              <span class="share-icon" aria-hidden="true">f</span>
+            </button>
+            <button
+              type="button"
+              class="share-icon-btn"
+              data-share-platform="youtube"
+              disabled
+              title="พิมพ์ caption ในกล่องด้านบนก่อน"
+              aria-label="YouTube — พิมพ์ caption ก่อน"
+            >
+              <span class="share-icon" aria-hidden="true">▶</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="trim-toolbar-step4" class="toolbar trim-toolbar trim-toolbar--caption-actions hidden">
+          <button type="button" id="btn-caption-back-trim" class="btn btn-secondary btn-block">กลับไป Trim</button>
+          <div class="caption-action-row">
+            <button type="button" id="btn-caption-render" class="btn btn-primary" title="เรนเดอร์เป็น MP4 เดียว (9:16) — เงียบเบื้องหลัง ใช้ลำดับ/ตัด/ความเร็วจากพรีวิว">
+              Render
+            </button>
+            <button type="button" id="btn-caption-save" class="btn btn-secondary" title="เก็บในเครื่อง (IndexedDB) + ดาวน์โหลด JSON">
+              Save
+            </button>
+          </div>
+          <button
+            type="button"
+            id="btn-share-exported-video"
+            class="btn btn-secondary btn-block share-export-video-btn"
+            disabled
+            title="หลังเรนเดอร์สำเร็จ — แชร์เป็นไฟล์ หรือถ้าตั้ง URL ชั่วคราวไว้จะลองอัปโหลดแล้วแชร์ลิงก์ (ไฟล์ใหญ่/เบราว์เซอร์ไม่รองรับไฟล์)"
+          >
+            แชร์วิดีโอ
+          </button>
+          <div class="folder-target-row">
+            <button
+              type="button"
+              id="btn-folder-target"
+              class="btn-folder-target"
+              title="เลือกโฟลเดอร์ปลายทาง (ถ้าไม่ได้เลือก จะใช้โฟลเดอร์ดาวน์โหลดของเบราว์เซอร์)"
+            >
+              <span class="folder-target-icon" aria-hidden="true">📁</span>
+              <span id="folder-target-label" class="folder-target-label">โฟลเดอร์ปลายทาง: ตามค่าเบราว์เซอร์</span>
+            </button>
+            <button type="button" id="btn-folder-clear" class="btn-folder-clear hidden" title="ล้างการเลือก" aria-label="ล้างโฟลเดอร์ปลายทาง">✕</button>
+          </div>
+          <details class="share-phase-c-details">
+            <summary class="share-phase-c-summary">แชร์ผ่านลิงก์ (ขั้นสูง · ต้องมีเซิร์ฟเวอร์รับ POST)</summary>
+            <p class="caption-hint share-phase-c-hint">
+              ถ้าแชร์เป็นไฟล์ไม่ได้ หรือไฟล์ใหญ่มาก (~20MB+) ระบบจะลอง POST วิดีโอไปที่ URL นี้ รับ JSON <code>{"url":"https://…"}</code> แล้วเปิดเมนูแชร์ด้วยลิงก์
+            </p>
+            <label for="share-upload-endpoint-input" class="sr-only">URL รับอัปโหลดชั่วคราว (POST multipart ฟิลด์ file)</label>
+            <input
+              type="url"
+              id="share-upload-endpoint-input"
+              class="share-upload-endpoint-input"
+              placeholder="https://…/upload-temp"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button type="button" id="btn-share-upload-endpoint-save" class="btn btn-secondary btn-block share-phase-c-save">
+              บันทึก URL
+            </button>
+          </details>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="render-overlay" class="render-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="render-overlay-title" aria-describedby="render-overlay-sub">
+    <div class="render-overlay-card">
+      <div class="render-spinner" aria-hidden="true"></div>
+      <h2 id="render-overlay-title" class="render-overlay-title">กำลังประมวลผล…</h2>
+      <p id="render-overlay-sub" class="render-overlay-sub">เตรียมไฟล์</p>
+      <button type="button" id="render-overlay-cancel" class="btn btn-secondary">ยกเลิก</button>
+    </div>
+  </div>
+
+  <div id="toast-stack" class="toast-stack" aria-live="polite" aria-atomic="false"></div>
+
+  <script type="module" src="./src/ui/app.js"></script>
+</body>
+</html>

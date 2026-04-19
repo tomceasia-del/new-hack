@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok Auto Director</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/sidepanel.css">
+</head>
+<body>
+  <!-- License Login Screen -->
+  <div id="license-screen" class="license-screen">
+    <div class="license-container">
+      <div class="license-form">
+        <h2 class="license-title">🔑 เปิดใช้งาน License</h2>
+        
+        <!-- License Key Input -->
+        <div class="license-field">
+          <label class="license-label">License Key</label>
+          <input type="text" id="license-key-input" class="license-input" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19">
+          <p class="license-hint">กรอก License Key ที่ได้รับจากผู้ดูแลระบบ</p>
+        </div>
+        
+        <!-- Device ID Display -->
+        <div class="license-device-box">
+          <div class="license-device-icon">🖥️</div>
+          <div class="license-device-info">
+            <span class="license-device-label">DEVICE ID ของคุณ</span>
+            <span class="license-device-id" id="display-device-id">กำลังโหลด...</span>
+          </div>
+        </div>
+        
+        <!-- License Info -->
+        <div class="license-info-box">
+          <span class="license-info-icon">ℹ️</span>
+          <span class="license-info-text">1 License Key สามารถใช้งานได้พร้อมกัน 4 อุปกรณ์</span>
+        </div>
+        
+        <!-- Activate Button -->
+        <button id="activate-license-btn" class="license-btn">
+          <span class="license-btn-icon">🔓</span>
+          <span class="license-btn-text">เปิดใช้งาน</span>
+          <span class="license-btn-loading" style="display: none;">⏳</span>
+        </button>
+        
+        <!-- Manage Devices Button -->
+        <button id="manage-devices-login-btn" class="license-btn-outline" style="display: none;">
+          <span>📱 จัดการอุปกรณ์ที่ลงทะเบียน</span>
+        </button>
+        
+        <!-- Device List (แสดงหลังกดจัดการอุปกรณ์) -->
+        <div id="login-device-list" class="login-device-list" style="display: none;">
+          <div class="login-device-header">
+            <span>📱 อุปกรณ์ที่ลงทะเบียนกับ License นี้</span>
+          </div>
+          <div id="login-device-items" class="login-device-items">
+            <!-- Device items จะถูกสร้างจาก JS -->
+          </div>
+        </div>
+        
+        <!-- Status Message -->
+        <div id="license-status-msg" class="license-status-msg" style="display: none;"></div>
+        
+        <!-- Contact Link -->
+        <p class="license-contact">ต้องการ License Key? <a href="mailto:support@1click.com">ติดต่อผู้ดูแลระบบ</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App (hidden until licensed) -->
+  <div id="main-app" class="container" style="display: none;">
+    <header class="header">
+      <div class="header-top">
+        <div class="logo-container brand-header">
+          <img src="images/Logo.png" alt="Logo" class="brand-logo">
+          <div class="brand-text">
+            <h1 class="brand-title">
+              <span class="brand-1">1</span><span class="brand-click">CLICK</span>
+            </h1>
+            <p class="brand-subtitle">AUTOMATIC SYSTEM</p>
+            <span id="app-version" class="app-version-badge"></span>
+          </div>
+          <div class="header-actions">
+            <div class="profile-badge" id="profile-badge">
+              <span class="profile-icon">🔑</span>
+              <span class="profile-status" id="profile-status">ไม่จำกัด</span>
+            </div>
+            <button class="settings-btn" id="settings-btn" title="ตั้งค่า" data-tab="settings">
+              <span>⚙️</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="autopost">Auto Post</button>
+      <button class="tab" data-tab="autov2">Auto V2</button>
+      <button class="tab" data-tab="storymode">Storymode</button>
+      <button class="tab" data-tab="studio">Studio</button>
+      <button class="tab" data-tab="platform">🌐</button>
+      <button class="tab" data-tab="dashboard">📊</button>
+      <button class="tab" data-tab="templates">📋</button>
+    </div>
+
+    <!-- Tab 1: Auto Post -->
+    <div id="autopost-tab" class="tab-content active">
+      <!-- Status Card -->
+      <div class="section status-card">
+        <div class="status-header">
+          <div class="status-indicator" id="status-indicator">
+            <span class="status-dot idle"></span>
+            <span class="status-text">พร้อมใช้งาน</span>
+          </div>
+          <div class="status-stats">
+            <span id="product-count">0</span> สินค้า
+          </div>
+        </div>
+        <div class="control-buttons">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
+            <input type="number" id="page-input" min="1" value="1" style="width:45px;padding:4px 6px;border-radius:4px;border:1px solid #444;background:#2a2a2a;color:#fff;text-align:center;font-size:12px;" title="เลขหน้าที่ต้องการดึง">
+            <button class="ctrl-btn fetch-btn" id="fetch-btn" title="ดึงสินค้าจากหน้าที่เลือก">
+              ดึงหน้านี้
+            </button>
+            <button class="ctrl-btn fetch-btn" id="fetch-all-btn" title="ดึงสินค้าทุกหน้าอัตโนมัติ" style="background:#2d6a4f;border-color:#40916c;">
+              ดึงทุกหน้า
+            </button>
+          </div>
+          <button class="ctrl-btn run-btn" id="run-btn" disabled>
+            Run
+          </button>
+          <button class="ctrl-btn stop-btn" id="stop-btn" disabled>
+            Stop
+          </button>
+          <button class="ctrl-btn next-btn" id="next-btn" disabled>
+            Next
+          </button>
+          <!-- zoom 33% button removed v3.35 -->
+        </div>
+        <div class="progress-section" id="progress-section" style="display: none;">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+          </div>
+          <div class="progress-text">
+            <span id="progress-current">0</span> / <span id="progress-total">0</span> หน้า
+          </div>
+        </div>
+      </div>
+
+      <!-- Flow Progress Card -->
+      <div class="section flow-progress-card" id="flow-progress-card" style="display: none;">
+        <div class="fp-header">
+          <div class="fp-title">
+            <span class="fp-icon">🚀</span>
+            <span class="fp-title-text">กำลังทำงาน...</span>
+          </div>
+          <div class="fp-badge" id="fp-badge">กำลังรัน</div>
+        </div>
+        
+        <div class="fp-current-item">
+          <div class="fp-item-name" id="fp-item-name">-</div>
+          <div class="fp-step" id="fp-step">-</div>
+        </div>
+        
+        <div class="fp-progress-bar">
+          <div class="fp-progress-fill" id="fp-progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="fp-progress-text" id="fp-progress-text">0 / 0 รายการ</div>
+        
+        <div class="fp-stats">
+          <div class="fp-stat success">
+            <span class="fp-stat-num" id="fp-success">0</span>
+            <span class="fp-stat-label">สำเร็จ</span>
+          </div>
+          <div class="fp-stat failed">
+            <span class="fp-stat-num" id="fp-failed">0</span>
+            <span class="fp-stat-label">ล้มเหลว</span>
+          </div>
+          <div class="fp-stat skipped">
+            <span class="fp-stat-num" id="fp-skipped">0</span>
+            <span class="fp-stat-label">ข้าม</span>
+          </div>
+          <div class="fp-stat remaining">
+            <span class="fp-stat-num" id="fp-remaining">0</span>
+            <span class="fp-stat-label">เหลือ</span>
+          </div>
+        </div>
+        
+        <div class="fp-items-log" id="fp-items-log">
+          <!-- Item results will be listed here -->
+        </div>
+      </div>
+
+      <!-- Shared Settings Section -->
+      <div class="section shared-settings-section">
+        <details class="shared-settings-details" id="shared-settings-details">
+          <summary class="shared-settings-summary">⚙️ ตั้งค่าร่วม (ใช้กับทุกสินค้า)</summary>
+          <div class="shared-settings-body">
+            <div class="shared-row">
+              <div class="shared-image-upload">
+                <label class="shared-label">📸 รูปตัวละคร (ใช้ร่วมทุกสินค้า)</label>
+                <div class="shared-image-zone" id="shared-char-zone">
+                  <div class="shared-image-preview" id="shared-char-preview">
+                    <span class="shared-image-placeholder">+ อัปรูป</span>
+                  </div>
+                  <input type="file" id="shared-char-input" accept="image/*" style="display:none">
+                  <button class="shared-image-clear" id="shared-char-clear" style="display:none" title="ลบรูป">×</button>
+                </div>
+                <div class="shared-hint">อัปรูปทีเดียว ใช้เป็นตัวละครให้ทุกสินค้าที่ยังไม่มีรูป</div>
+              </div>
+              <div class="shared-fields">
+                <div class="shared-field">
+                  <label class="shared-label">💬 คำพูด/สไตล์เพิ่มเติม</label>
+                  <textarea id="shared-custom-speech" class="shared-textarea" placeholder="เช่น สวยปังมากแม่ ใส่แล้วจิ้ง, ดีย์จริงไม่จกตา, ต้องลอง!&#10;(AI จะเอาคำเหล่านี้ไปใส่ในบทพูดของแต่ละคลิป)"></textarea>
+                </div>
+                <div class="shared-field">
+                  <label class="shared-label">🏠 ฉากหลัง (Background)</label>
+                  <input type="text" id="shared-custom-bg" class="shared-input" placeholder="เช่น ร้านกาแฟ, ห้องนอนสีขาว, สวนสวย (เว้นว่าง = AI เลือกให้)">
+                </div>
+              </div>
+            </div>
+            <details class="shared-selector-details">
+              <summary class="shared-selector-summary">🎨 Selector สไตล์ร่วม <span class="shared-selector-count" id="shared-selector-count">0/10</span></summary>
+              <div class="shared-selector-grid" id="shared-selector-grid">
+                <!-- Dropdowns will be rendered by JS -->
+              </div>
+            </details>
+            <div class="shared-field" style="margin-top:10px;">
+              <label class="shared-label">🤖 Flow Image Model</label>
+              <select id="flow-image-model" class="shared-input" style="padding:6px 8px;border-radius:6px;background:#2a2a2a;color:#fff;border:1px solid #444;font-size:12px;">
+                <option value="auto">Auto (ระบบเลือกให้)</option>
+                <option value="imagen_4">Imagen 4</option>
+                <option value="nano_banana_pro">Nano Banana Pro</option>
+                <option value="nano_banana_2">Nano Banana 2</option>
+              </select>
+            </div>
+            <div class="shared-field" style="margin-top:6px;">
+              <label class="shared-label">🎬 Flow Video Model</label>
+              <select id="flow-video-model" class="shared-input" style="padding:6px 8px;border-radius:6px;background:#2a2a2a;color:#fff;border:1px solid #444;font-size:12px;">
+                <option value="auto">Auto (ระบบเลือกให้)</option>
+                <option value="veo_fast">Veo 3.1 - Fast</option>
+                <option value="veo_quality">Veo 3.1 - Quality</option>
+                <option value="veo_lite">Veo 2 Lite</option>
+                <option value="veo_lite_lower">Veo 2 Lite (Lower)</option>
+                <option value="veo_fast_lower">Veo 3.1 Fast (Lower)</option>
+              </select>
+            </div>
+            <div class="shared-apply-row">
+              <label class="shared-overwrite-label">
+                <input type="checkbox" id="shared-overwrite-check"> เขียนทับ item ที่ตั้งค่าแล้ว
+              </label>
+              <button class="shared-apply-btn" id="shared-apply-btn">✨ ใช้กับทุกสินค้า</button>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Product List Section -->
+      <div class="section">
+        <div class="section-title">
+          <span>รายการสินค้า</span>
+          <div class="title-actions">
+            <button class="btn-icon" id="refresh-products" title="รีเฟรช">↻</button>
+            <button class="btn-icon danger" id="clear-all-products" title="ลบทั้งหมด">🗑</button>
+          </div>
+        </div>
+        <div class="product-filters">
+          <input type="text" id="product-search" placeholder="ค้นหาสินค้า...">
+        </div>
+        <div class="generate-all-section">
+          <button class="generate-all-btn" id="generate-all-btn">
+            ✨ Generate All (Caption + CTA)
+          </button>
+          <div class="generate-progress" id="generate-progress" style="display: none;">
+            <div class="generate-progress-bar">
+              <div class="generate-progress-fill" id="generate-progress-fill"></div>
+            </div>
+            <div class="generate-progress-text">
+              <span id="generate-current">0</span> / <span id="generate-total">0</span> สินค้า
+            </div>
+          </div>
+        </div>
+        <div class="product-queue" id="product-queue">
+          <!-- Product items will be rendered here -->
+          <div class="empty-state">
+            <span>—</span>
+            <p>ยังไม่มีสินค้า</p>
+            <p class="hint">กด "ดึงสินค้า" เพื่อดึงจาก TikTok</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Section -->
+      <div id="autopost-output" class="output-section" style="display: none;">
+        <div class="section">
+          <div class="section-title">ผลลัพธ์</div>
+          <div class="output-content" id="autopost-content"></div>
+          <div class="output-actions">
+            <button class="btn btn-secondary" id="copy-autopost">คัดลอก</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Log Section -->
+      <div class="section activity-log-section">
+        <div class="section-title">
+          <span>Activity Log</span>
+          <button class="btn-icon" id="clear-log" title="ล้าง Log">×</button>
+        </div>
+        <div class="activity-log" id="activity-log">
+          <div class="log-empty">ยังไม่มีกิจกรรม</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Auto V2 — 3-Step Veo 3.1 Pipeline -->
+    <div id="autov2-tab" class="tab-content">
+
+      <!-- V2 Status Card -->
+      <div class="section status-card">
+        <div class="status-header">
+          <div class="status-indicator" id="v2-status-indicator">
+            <span class="status-dot idle"></span>
+            <span class="status-text">พร้อมใช้งาน</span>
+          </div>
+          <div class="status-stats">
+            <span id="v2-product-count">0</span> สินค้า
+          </div>
+        </div>
+        <div class="control-buttons">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
+            <input type="number" id="v2-page-input" min="1" value="1" style="width:45px;padding:4px 6px;border-radius:4px;border:1px solid #444;background:#2a2a2a;color:#fff;text-align:center;font-size:12px;" title="เลขหน้าที่ต้องการดึง">
+            <button class="ctrl-btn fetch-btn" id="v2-fetch-btn" title="ดึงสินค้าจากหน้าที่เลือก">
+              ดึงหน้านี้
+            </button>
+            <button class="ctrl-btn fetch-btn" id="v2-fetch-all-btn" title="ดึงสินค้าทุกหน้าอัตโนมัติ" style="background:#2d6a4f;border-color:#40916c;">
+              ดึงทุกหน้า
+            </button>
+          </div>
+          <button class="ctrl-btn run-btn" id="v2-run-btn" disabled>
+            Run
+          </button>
+          <button class="ctrl-btn stop-btn" id="v2-stop-btn" disabled>
+            Stop
+          </button>
+          <button class="ctrl-btn next-btn" id="v2-next-btn" disabled>
+            Next
+          </button>
+        </div>
+      </div>
+
+      <!-- V2 Flow Progress Card -->
+      <div class="section flow-progress-card" id="v2-flow-progress-card" style="display: none;">
+        <div class="fp-header">
+          <div class="fp-title">
+            <span class="fp-icon">🎬</span>
+            <span class="fp-title-text">Auto V2 — กำลังทำงาน...</span>
+          </div>
+          <div class="fp-badge" id="v2-fp-badge">กำลังรัน</div>
+        </div>
+        <div class="fp-current-item">
+          <div class="fp-item-name" id="v2-fp-item-name">-</div>
+          <div class="fp-step" id="v2-fp-step">-</div>
+        </div>
+        <div class="fp-progress-bar">
+          <div class="fp-progress-fill" id="v2-fp-progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="fp-progress-text" id="v2-fp-progress-text">0 / 0 รายการ</div>
+        <div class="fp-stats">
+          <div class="fp-stat success">
+            <span class="fp-stat-num" id="v2-fp-success">0</span>
+            <span class="fp-stat-label">สำเร็จ</span>
+          </div>
+          <div class="fp-stat failed">
+            <span class="fp-stat-num" id="v2-fp-failed">0</span>
+            <span class="fp-stat-label">ล้มเหลว</span>
+          </div>
+          <div class="fp-stat skipped">
+            <span class="fp-stat-num" id="v2-fp-skipped">0</span>
+            <span class="fp-stat-label">ข้าม</span>
+          </div>
+          <div class="fp-stat remaining">
+            <span class="fp-stat-num" id="v2-fp-remaining">0</span>
+            <span class="fp-stat-label">เหลือ</span>
+          </div>
+        </div>
+        <div class="fp-items-log" id="v2-fp-items-log"></div>
+      </div>
+
+      <!-- V2 Template Settings -->
+      <div class="section shared-settings-section">
+        <details class="shared-settings-details" id="v2-template-settings" open>
+          <summary class="shared-settings-summary">🎨 ตั้งค่า Prompt Template (Veo 3.1)</summary>
+          <div class="shared-settings-body">
+            <div style="font-size:11px;color:#888;margin-bottom:12px;line-height:1.5;">
+              กรอกข้อมูลด้านล่างเพื่อใช้เป็น Default กับทุกสินค้า — ชื่อสินค้า + ราคาจะดึงอัตโนมัติจากข้อมูลที่ Fetch มา
+            </div>
+            <div class="shared-fields">
+              <div class="shared-field">
+                <label class="shared-label">📦 ลักษณะบรรจุภัณฑ์</label>
+                <input type="text" id="v2-packaging-desc" class="shared-input" placeholder="เช่น large blue and pink bags">
+              </div>
+              <div class="shared-field">
+                <label class="shared-label">📋 ประเภทบรรจุภัณฑ์</label>
+                <input type="text" id="v2-packaging-type" class="shared-input" placeholder="เช่น bags, bottles, boxes, tubes">
+              </div>
+              <div class="shared-field">
+                <label class="shared-label">🖊️ สีปากกาป้ายราคา</label>
+                <input type="text" id="v2-pen-color" class="shared-input" placeholder="เช่น blue, red, black" value="blue">
+              </div>
+              <div class="shared-field">
+                <label class="shared-label">🪵 พื้นผิวที่วาง</label>
+                <input type="text" id="v2-surface" class="shared-input" placeholder="เช่น rustic wooden table outdoors">
+              </div>
+              <div class="shared-field">
+                <label class="shared-label">🌿 ฉากหลัง</label>
+                <input type="text" id="v2-background" class="shared-input" placeholder="เช่น lush green garden bokeh">
+              </div>
+              <div class="shared-field">
+                <label class="shared-label">🤚 ทิศทางมือ</label>
+                <input type="text" id="v2-hand-direction" class="shared-input" placeholder="เช่น right side, left side" value="right side">
+              </div>
+              <div class="shared-field">
+                <label class="shared-label">🍃 การเคลื่อนไหวฉากหลัง</label>
+                <input type="text" id="v2-bg-movement" class="shared-input" placeholder="เช่น tree leaves swaying gently in the breeze">
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- V2 Product List -->
+      <div class="section">
+        <div class="section-title">
+          <span>รายการสินค้า (V2)</span>
+          <div class="title-actions">
+            <button class="btn-icon" id="v2-refresh-products" title="รีเฟรช">↻</button>
+            <button class="btn-icon danger" id="v2-clear-all" title="ลบทั้งหมด">🗑</button>
+          </div>
+        </div>
+        <div class="product-filters">
+          <input type="text" id="v2-product-search" placeholder="ค้นหาสินค้า...">
+        </div>
+        <div class="product-queue" id="v2-product-queue">
+          <div class="empty-state">
+            <span>—</span>
+            <p>ยังไม่มีสินค้า</p>
+            <p class="hint">กด "ดึงสินค้า" เพื่อดึงจาก TikTok</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- V2 Activity Log -->
+      <div class="section activity-log-section">
+        <div class="section-title">
+          <span>Activity Log</span>
+          <button class="btn-icon" id="v2-clear-log" title="ล้าง Log">×</button>
+        </div>
+        <div class="activity-log" id="v2-activity-log">
+          <div class="log-empty">ยังไม่มีกิจกรรม</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tab 2: Storymode -->
+    <div id="storymode-tab" class="tab-content">
+      
+      <!-- 1. Prompt Input -->
+      <div class="sm-section">
+        <textarea id="topic-input" class="sm-textarea" placeholder="พิมพ์สิ่งที่คุณต้องการ เช่น ชื่อสินค้า หรือ Hero+Villain"></textarea>
+      </div>
+
+      <!-- 1.25 Custom full prompt (Storymode pipeline ยังทำงานต่อจาก output เดิม) -->
+      <div class="sm-section sm-checkboxes">
+        <label class="sm-checkbox">
+          <input type="checkbox" id="chk-sm-custom-prompt-full">
+          <span class="sm-checkbox-icon">✏️</span> โหมด Prompt กำหนดเอง — ใช้เฉพาะข้อความในช่องด้านล่าง (ไม่ผสม dropdown / หัวข้อด้านบน)
+        </label>
+        <div id="sm-custom-prompt-wrap" style="display:none;margin-top:10px;">
+          <textarea id="sm-custom-prompt-textarea" class="sm-textarea" rows="14" placeholder="วางหรือพิมพ์ prompt เต็มชุดของคุณที่นี่... จากนั้นกดสร้างสคริปต์ — Pipeline แยกฉาก/การ์ดตามรูปแบบ output เหมือนเดิม"></textarea>
+          <label class="sm-checkbox" style="margin-top:8px;">
+            <input type="checkbox" id="chk-sm-custom-enhanced-system" checked>
+            <span class="sm-checkbox-icon">🎬</span> ใช้ System Director ของ 1Click (แนะนำ — ให้โครง Storyboard ตรงกับ extension)
+          </label>
+          <label class="sm-checkbox">
+            <input type="checkbox" id="chk-sm-custom-append-pipeline-hint" checked>
+            <span class="sm-checkbox-icon">🧩</span> แนบคำใบ้รูปแบบฉากท้ายข้อความ (ช่วยให้แยกการ์ดได้ง่าย)
+          </label>
+          <div class="sm-hint" style="margin-top:6px;">ปิด System มาตรฐานได้ถ้าคุณใส่กฎ output ครบใน prompt แล้ว — แต่ต้องมีหัวข้อแยกฉากและ Image / Video / Dialogue ที่ extension อ่านได้</div>
+        </div>
+      </div>
+
+      <!-- 1.5 Story Type Template -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">📚</span>
+          <span class="sm-title">ประเภทเรื่อง</span>
+          <span class="sm-optional">(เลือกโครงสร้างสำเร็จรูป)</span>
+        </div>
+        <div class="sm-dropdown" id="dropdown-story-type">
+          <button class="sm-dropdown-btn" id="btn-story-type">
+            <span class="sm-dropdown-icon">🎯</span>
+            <span class="sm-dropdown-value">Custom (กำหนดเอง)</span>
+            <span class="sm-dropdown-arrow">▼</span>
+          </button>
+          <div class="sm-dropdown-menu" id="menu-story-type">
+            <!-- จะ generate ด้วย JS -->
+          </div>
+        </div>
+        <div class="sm-story-type-desc" id="story-type-desc"></div>
+      </div>
+
+      <!-- 1.6 AI / Manual Mode -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">🤖</span>
+          <span class="sm-title">โหมดเขียนบท</span>
+        </div>
+        <div class="sm-script-mode-toggle">
+          <button class="sm-script-mode-btn active" data-mode="ai" id="mode-ai-script">
+            <span class="sm-script-mode-icon">🤖</span>
+            <span class="sm-script-mode-name">AI เขียนบท</span>
+            <span class="sm-script-mode-desc">ให้ AI สร้างบทอัตโนมัติ</span>
+          </button>
+          <button class="sm-script-mode-btn" data-mode="manual" id="mode-manual-script">
+            <span class="sm-script-mode-icon">✍️</span>
+            <span class="sm-script-mode-name">เขียนบทเอง</span>
+            <span class="sm-script-mode-desc">พิมพ์บทพูดแต่ละฉากเอง</span>
+          </button>
+        </div>
+        <!-- Manual Script Input (hidden by default) -->
+        <div class="sm-manual-scripts" id="manual-scripts-container" style="display:none;">
+          <div class="sm-manual-scripts-header">
+            <span>✍️ พิมพ์บทพูดแต่ละฉาก</span>
+            <button class="sm-action-btn sm-refresh-scenes-btn" id="refresh-manual-scenes">🔄 รีเซ็ต</button>
+          </div>
+          <div id="manual-scenes-list">
+            <!-- จะ generate ด้วย JS ตามจำนวนฉาก -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. รูปประกอบ -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">🖼️</span>
+          <span class="sm-title">รูปประกอบ</span>
+          <span class="sm-optional">(ไม่บังคับ)</span>
+        </div>
+        <div class="sm-image-options">
+          <label class="sm-image-btn" data-type="product" id="btn-product-image">
+            <input type="file" accept="image/*" id="input-product-image" style="display: none;">
+            <span class="sm-image-icon">📦</span>
+            <span class="sm-image-label">รูปสินค้า</span>
+          </label>
+          <label class="sm-image-btn" data-type="character" id="btn-character-image">
+            <input type="file" accept="image/*" id="input-character-image" style="display: none;">
+            <span class="sm-image-icon">👤</span>
+            <span class="sm-image-label">รูปตัวละคร</span>
+          </label>
+        </div>
+        <!-- Image Previews -->
+        <div class="sm-image-previews" id="image-previews">
+          <div class="sm-image-preview" id="preview-product" style="display: none;">
+            <img id="preview-product-img" src="" alt="Product">
+            <button class="sm-preview-remove" data-type="product">×</button>
+            <span class="sm-preview-label">📦 สินค้า</span>
+          </div>
+          <div class="sm-image-preview" id="preview-character" style="display: none;">
+            <img id="preview-character-img" src="" alt="Character">
+            <button class="sm-preview-remove" data-type="character">×</button>
+            <span class="sm-preview-label">👤 ตัวละคร</span>
+          </div>
+        </div>
+        <div class="sm-hint">📦 รูปสินค้า + 👤 รูปตัวละคร → Gemini จะสร้าง Storyboard ให้!</div>
+      </div>
+
+      <!-- 3. PROMPT MODE -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">🎬</span>
+          <span class="sm-title">PROMPT MODE</span>
+        </div>
+        <div class="sm-prompt-modes">
+          <button class="sm-prompt-btn active" data-mode="storytelling" id="mode-storytelling">
+            <span class="sm-prompt-icon">📖</span>
+            <div class="sm-prompt-info">
+              <span class="sm-prompt-name">Story Telling</span>
+              <span class="sm-prompt-desc">เล่าเรื่องดึงดูดอารมณ์</span>
+            </div>
+          </button>
+          <button class="sm-prompt-btn" data-mode="ugc" id="mode-ugc">
+            <span class="sm-prompt-icon">📱</span>
+            <div class="sm-prompt-info">
+              <span class="sm-prompt-name">รีวิวสินค้า (UGC)</span>
+              <span class="sm-prompt-desc">คนจริงรีวิว / Realistic</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4. PLATFORM MODE (hidden per user request) -->
+      <div class="sm-section" style="display:none;">
+        <div class="sm-section-header">
+          <span class="sm-icon">⚙️</span>
+          <span class="sm-title">PLATFORM MODE</span>
+        </div>
+        <div class="sm-platform-modes">
+          <button class="sm-platform-btn active" data-mode="flow">
+            <span class="sm-platform-icon">🌊</span>
+            <span class="sm-platform-name">Flow</span>
+            <span class="sm-platform-time">8 วินาที (20-30 คำ)</span>
+          </button>
+          <button class="sm-platform-btn" data-mode="grok">
+            <span class="sm-platform-icon">⚡</span>
+            <span class="sm-platform-name">Grok</span>
+            <span class="sm-platform-time">6 วินาที (15-20 คำ)</span>
+          </button>
+          <button class="sm-platform-btn" data-mode="supergrok">
+            <span class="sm-platform-icon">🚀</span>
+            <span class="sm-platform-name">Super Grok</span>
+            <span class="sm-platform-time">10 วินาที (30-40 คำ)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 5. จำนวนฉาก -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">🎬</span>
+          <span class="sm-title">จำนวนฉาก</span>
+          <span class="sm-optional">(1-40)</span>
+        </div>
+        <div class="sm-dropdown" id="dropdown-scene-count">
+          <button class="sm-dropdown-btn" id="btn-scene-count">
+            <span class="sm-dropdown-value">5 ฉาก ⭐</span>
+            <span class="sm-dropdown-arrow">▼</span>
+          </button>
+          <div class="sm-dropdown-menu" id="menu-scene-count">
+            <!-- จะ generate ด้วย JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. NARRATIVE STYLE -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">🎭</span>
+          <span class="sm-title">สไตล์การเล่าเรื่อง</span>
+          <span class="sm-optional">(เลือกได้หลายอัน)</span>
+        </div>
+        <div class="sm-dropdown" id="dropdown-narrative">
+          <button class="sm-dropdown-btn" id="btn-narrative">
+            <span class="sm-dropdown-icon">🎭</span>
+            <span class="sm-dropdown-value">เลือกสไตล์...</span>
+            <span class="sm-dropdown-arrow">▼</span>
+          </button>
+          <div class="sm-dropdown-menu multi" id="menu-narrative">
+            <!-- จะ generate ด้วย JS -->
+          </div>
+        </div>
+        <div class="sm-selected-tags" id="selected-narrative-tags">เลือกแล้ว: —</div>
+      </div>
+
+      <!-- 7. MOOD KEYWORDS -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">✨</span>
+          <span class="sm-title">อารมณ์ / บรรยากาศ</span>
+        </div>
+        <div class="sm-dropdown" id="dropdown-mood">
+          <button class="sm-dropdown-btn" id="btn-mood">
+            <span class="sm-dropdown-icon">🎬</span>
+            <span class="sm-dropdown-value">ซีนีมาติก มาตรฐาน</span>
+            <span class="sm-dropdown-arrow">▼</span>
+          </button>
+          <div class="sm-dropdown-menu" id="menu-mood">
+            <!-- จะ generate ด้วย JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. VISUAL / ART STYLE -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">🎨</span>
+          <span class="sm-title">สไตล์ภาพ / ศิลปะ</span>
+        </div>
+        <div class="sm-dropdown" id="dropdown-visual">
+          <button class="sm-dropdown-btn" id="btn-visual">
+            <span class="sm-dropdown-icon">🎨</span>
+            <span class="sm-dropdown-value">แอนิเมชัน 3D (Pixar)</span>
+            <span class="sm-dropdown-arrow">▼</span>
+          </button>
+          <div class="sm-dropdown-menu" id="menu-visual">
+            <!-- จะ generate ด้วย JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 8.5 Hook Category Selector -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">🎣</span>
+          <span class="sm-title">ฮุคเปิดคลิป (บทพูด Scene 1)</span>
+          <span class="sm-optional">(AI เลือกให้อัตโนมัติ)</span>
+        </div>
+        <div class="sm-dropdown" id="dropdown-hook">
+          <button class="sm-dropdown-btn" id="btn-hook">
+            <span class="sm-dropdown-icon">🤖</span>
+            <span class="sm-dropdown-value">AI เลือกให้อัตโนมัติ</span>
+            <span class="sm-dropdown-arrow">▼</span>
+          </button>
+          <div class="sm-dropdown-menu" id="menu-hook">
+            <!-- จะ generate ด้วย JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Output Type (Image-only / Clip-only / Both) -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">🎞️</span>
+          <span class="sm-title">ประเภทเอาต์พุต</span>
+        </div>
+        <div class="sm-output-type-toggle">
+          <button class="sm-output-type-btn active" data-output="both" id="output-both">
+            <span>🖼️+🎬</span>
+            <span>ภาพ + คลิป</span>
+          </button>
+          <button class="sm-output-type-btn" data-output="image" id="output-image-only">
+            <span>🖼️</span>
+            <span>ภาพอย่างเดียว</span>
+          </button>
+          <button class="sm-output-type-btn" data-output="video" id="output-video-only">
+            <span>🎬</span>
+            <span>คลิปอย่างเดียว</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 9.5 Disclaimer -->
+      <div class="sm-section">
+        <div class="sm-section-header">
+          <span class="sm-icon">⚖️</span>
+          <span class="sm-title">Disclaimer</span>
+          <span class="sm-optional">(ข้อความกำกับในคลิป)</span>
+        </div>
+        <input type="text" class="sm-disclaimer-input" id="sm-disclaimer" placeholder="เช่น: ผลลัพธ์อาจแตกต่างกันในแต่ละบุคคล / ภาพจำลองจาก AI">
+      </div>
+
+      <!-- 9.8 Checkboxes -->
+      <div class="sm-section sm-checkboxes">
+        <label class="sm-checkbox">
+          <input type="checkbox" id="chk-text-h1h2">
+          <span class="sm-checkbox-icon">🔤</span> ใส่ Text H1/H2 บนภาพ
+        </label>
+        <label class="sm-checkbox">
+          <input type="checkbox" id="chk-auto-json">
+          <span class="sm-checkbox-icon">📋</span> Output เป็น JSON
+        </label>
+        <label class="sm-checkbox">
+          <input type="checkbox" id="sm-inside-body">
+          <span class="sm-checkbox-icon">🫀</span> Inside Body Mode (ฉากในร่างกาย)
+        </label>
+      </div>
+
+      <!-- 10. Generate Button + Add to Queue -->
+      <div class="sm-generate-row">
+        <button class="sm-generate-btn" id="generate-btn">
+          <span class="sm-generate-icon">💎</span>
+          <span class="sm-generate-text"><span class="oneclick-animated">1Click</span>1story — สร้าง Full Storyboard</span>
+        </button>
+        <!-- Story Queue removed v2.79 -->
+      </div>
+
+      <!-- Auto Post Toggle removed v3.35 -->
+
+      <!-- Story Queue section removed v2.79 -->
+
+      <!-- 11. Auto Run Storyboard — Pipeline View -->
+      <div class="sm-section" id="auto-run-section" style="display: none;">
+        <div class="sm-section-header">
+          <span class="sm-icon">🎬</span>
+          <span class="sm-title">Pipeline — สร้างฉากต่อเนื่อง</span>
+        </div>
+        
+        <!-- Control Buttons -->
+        <div style="display:flex;gap:8px;margin-bottom:12px;">
+          <button class="sm-generate-btn" id="auto-run-btn" style="flex:1;background:linear-gradient(135deg,#10b981,#059669);">
+            <span>▶️</span>
+            <span>เริ่ม Pipeline</span>
+          </button>
+          <button class="ctrl-btn stop-btn" id="stop-auto-run-btn" style="display:none;">
+            Stop
+          </button>
+        </div>
+        
+        <!-- Pipeline Steps -->
+        <div id="pipeline-container" style="display:none;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:12px;">
+            <span id="pipeline-summary">0 / 0 ฉาก</span>
+            <span id="pipeline-time" style="color:#888;">0:00</span>
+          </div>
+          
+          <!-- Pipeline Steps List -->
+          <div id="pipeline-steps" style="max-height:200px;overflow-y:auto;border:1px solid #333;border-radius:6px;background:#1a1a1a;">
+            <!-- จะ generate ด้วย JS -->
+          </div>
+          
+          <!-- Current Step Detail -->
+          <div id="pipeline-current" style="margin-top:8px;padding:8px;background:#222;border-radius:6px;font-size:11px;">
+            <div style="color:#888;">ขั้นตอนปัจจุบัน:</div>
+            <div id="pipeline-current-text" style="color:#10b981;margin-top:4px;">รอเริ่ม...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- API Status -->
+      <div id="api-status" class="sm-api-status">
+        <span class="status-dot"></span>
+        <span class="status-text">ยังไม่ได้ตั้งค่า API Key</span>
+      </div>
+
+      <div id="error-container" class="sm-error-container"></div>
+
+      <!-- Output Section -->
+      <div id="output-section" class="sm-output-section" style="display: none;">
+        <div class="sm-output-header">
+          <h3 class="sm-output-title">📄 ผลลัพธ์</h3>
+          <div class="sm-output-actions">
+            <button class="sm-action-btn" id="copy-all-output">
+              <span>📋</span> คัดลอกทั้งหมด
+            </button>
+            <button class="sm-action-btn" id="toggle-view-btn">
+              <span>🎴</span> ดูแบบการ์ด
+            </button>
+          </div>
+        </div>
+        <!-- Raw Output View -->
+        <div class="sm-output-content" id="output-content"></div>
+        <!-- Scene Cards View -->
+        <div class="sm-scene-cards" id="scene-cards-container" style="display: none;"></div>
+      </div>
+
+      <!-- ★ Analytics Log Section ★ -->
+      <div class="sm-section" id="sm-analytics-section">
+        <div class="sm-section-header" style="cursor:pointer;" id="sm-analytics-toggle">
+          <span class="sm-icon">📊</span>
+          <span class="sm-title">Analytics Log</span>
+          <span class="sm-optional" id="sm-log-count">(0 รายการ)</span>
+          <span style="margin-left:auto;font-size:12px;color:#888;" id="sm-analytics-arrow">▼</span>
+        </div>
+        <div id="sm-analytics-body">
+          <div id="sm-log-container" class="sm-log-container">
+            <div class="sm-log-empty">ยังไม่มี log — เริ่ม Generate หรือ Auto Run เพื่อดูสถานะ</div>
+          </div>
+          <div class="sm-log-actions">
+            <button class="sm-action-btn sm-log-clear-btn" id="sm-log-clear">🗑️ ล้าง Log</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Studio (API Image + Video Generation) -->
+    <div id="studio-tab" class="tab-content">
+      
+      <!-- Studio Header -->
+      <div class="section studio-header-section">
+        <div class="section-title">🎨 STUDIO</div>
+        <p class="studio-desc">สร้าง Master Prompt → Scene → Image/Video</p>
+        <div id="studio-api-status" class="studio-api-status">
+          <span class="status-dot"></span>
+          <span class="status-text">ตรวจสอบ API Key...</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Input Prompt -->
+      <div class="section studio-step">
+        <div class="studio-step-header">
+          <span class="studio-step-num">1</span>
+          <span class="studio-step-title">📝 ใส่พรอมต์หลัก</span>
+          <button class="studio-paste-btn" id="studio-paste-btn" title="วาง Prompt จาก 1CLICK Web App">📋 วาง Prompt</button>
+        </div>
+        <div class="studio-field-row">
+          <label class="studio-field-label">📦 ชื่อสินค้า</label>
+          <input type="text" id="studio-product-name" class="studio-field-input" placeholder="เช่น ครีมบำรุงผิว XYZ, เซรั่มวิตามินซี">
+        </div>
+        <textarea id="studio-main-prompt" class="studio-textarea" rows="3" placeholder="ใส่ Prompt หลัก เช่น: รีวิวครีมบำรุงผิว สไตล์ UGC สดใส น่าเชื่อถือ"></textarea>
+        <div class="studio-paste-msg" id="studio-paste-msg"></div>
+      </div>
+
+      <!-- Step 2: Content + Style (2 columns) -->
+      <div class="section studio-step">
+        <div class="studio-step-header">
+          <span class="studio-step-num">2</span>
+          <span class="studio-step-title">🔄 ดึงข้อมูล 2 ส่วนมาผสมกัน</span>
+        </div>
+        <div class="studio-two-cols">
+          <!-- Part 1: Content -->
+          <div class="studio-col">
+            <div class="studio-col-header">
+              <span class="studio-col-icon">📦</span>
+              <span class="studio-col-title">ส่วนที่ 1: เนื้อหา</span>
+            </div>
+            <div class="studio-col-desc">เนื้อหา / สินค้า</div>
+            <div class="studio-col-items">
+              <div class="studio-item">
+                <label>รูปสินค้า</label>
+                <div class="studio-upload-area" id="studio-product-upload">
+                  <span>📷 คลิกเพื่ออัพโหลด</span>
+                  <input type="file" id="studio-product-file" accept="image/*" hidden>
+                </div>
+                <div class="studio-upload-preview" id="studio-product-preview"></div>
+              </div>
+              <div class="studio-item">
+                <label>เล่าเรื่องสินค้า</label>
+                <textarea id="studio-storytelling" class="studio-textarea-sm" rows="2" placeholder="เช่น: ครีมตัวนี้ช่วยลดริ้วรอยได้จริง ใช้มา 2 สัปดาห์เห็นผล..."></textarea>
+              </div>
+            </div>
+          </div>
+          <!-- Part 2: Style -->
+          <div class="studio-col">
+            <div class="studio-col-header">
+              <span class="studio-col-icon">🎨</span>
+              <span class="studio-col-title">ส่วนที่ 2: สไตล์</span>
+            </div>
+            <div class="studio-col-desc">รูปแบบ / โทน</div>
+            <div class="studio-col-items">
+              <div class="studio-item">
+                <label>รูปแบบรายการ</label>
+                <select id="studio-format-select" class="studio-select">
+                  <option value="ugc">UGC (คลิปรีวิวสไตล์ผู้ใช้จริง)</option>
+                  <option value="podcast">พอดแคสต์ (คุยเรื่องสบายๆ)</option>
+                  <option value="review">รีวิวสินค้า (เล่าประสบการณ์จริง)</option>
+                  <option value="tutorial">สอนวิธีใช้ (ทำตามทีละขั้น)</option>
+                  <option value="cinematic">ซีนีมาติก (สไตล์ภาพยนตร์)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2.5: Scene Count -->
+      <div class="section studio-step">
+        <div class="studio-step-header">
+          <span class="studio-step-num">2.5</span>
+          <span class="studio-step-title">🎬 จำนวนฉาก</span>
+        </div>
+        <div class="sm-dropdown studio-dropdown" id="studio-dropdown-scene-count">
+          <button class="sm-dropdown-btn" id="studio-btn-scene-count">
+            <span class="sm-dropdown-icon">🎬</span>
+            <span class="sm-dropdown-value">5 ฉาก ⭐</span>
+            <span class="sm-dropdown-arrow">▼</span>
+          </button>
+          <div class="sm-dropdown-menu" id="studio-menu-scene-count">
+            <!-- จะ generate ด้วย JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2.6: Advanced Style Options (like Storymode) -->
+      <div class="section studio-step">
+        <div class="studio-step-header">
+          <span class="studio-step-num">2.6</span>
+          <span class="studio-step-title">🎨 ปรับแต่งสไตล์ขั้นสูง</span>
+        </div>
+        
+        <!-- NARRATIVE STYLE -->
+        <div class="studio-style-row">
+          <div class="studio-style-label">
+            <span class="studio-style-icon">🎭</span>
+            <span>สไตล์การเล่าเรื่อง</span>
+            <span class="studio-style-hint">(เลือกได้หลายอัน)</span>
+          </div>
+          <div class="sm-dropdown studio-dropdown" id="studio-dropdown-narrative">
+            <button class="sm-dropdown-btn" id="studio-btn-narrative">
+              <span class="sm-dropdown-icon">🎭</span>
+              <span class="sm-dropdown-value">เลือกสไตล์...</span>
+              <span class="sm-dropdown-arrow">▼</span>
+            </button>
+            <div class="sm-dropdown-menu multi" id="studio-menu-narrative">
+              <!-- จะ generate ด้วย JS -->
+            </div>
+          </div>
+          <div class="sm-selected-tags" id="studio-selected-narrative-tags">เลือกแล้ว: —</div>
+        </div>
+
+        <!-- MOOD KEYWORDS -->
+        <div class="studio-style-row">
+          <div class="studio-style-label">
+            <span class="studio-style-icon">✨</span>
+            <span>อารมณ์ / บรรยากาศ</span>
+          </div>
+          <div class="sm-dropdown studio-dropdown" id="studio-dropdown-mood">
+            <button class="sm-dropdown-btn" id="studio-btn-mood">
+              <span class="sm-dropdown-icon">🎬</span>
+              <span class="sm-dropdown-value">ซีนีมาติก มาตรฐาน</span>
+              <span class="sm-dropdown-arrow">▼</span>
+            </button>
+            <div class="sm-dropdown-menu" id="studio-menu-mood">
+              <!-- จะ generate ด้วย JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- VISUAL / ART STYLE -->
+        <div class="studio-style-row">
+          <div class="studio-style-label">
+            <span class="studio-style-icon">🎨</span>
+            <span>สไตล์ภาพ / ศิลปะ</span>
+          </div>
+          <div class="sm-dropdown studio-dropdown" id="studio-dropdown-visual">
+            <button class="sm-dropdown-btn" id="studio-btn-visual">
+              <span class="sm-dropdown-icon">🎨</span>
+              <span class="sm-dropdown-value">แอนิเมชัน 3D (Pixar)</span>
+              <span class="sm-dropdown-arrow">▼</span>
+            </button>
+            <div class="sm-dropdown-menu" id="studio-menu-visual">
+              <!-- จะ generate ด้วย JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- HOOK CATEGORY -->
+        <div class="studio-style-row">
+          <div class="studio-style-label">
+            <span class="studio-style-icon">🎣</span>
+            <span>ฮุคเปิดคลิป (บทพูด)</span>
+          </div>
+          <div class="sm-dropdown studio-dropdown" id="studio-dropdown-hook">
+            <button class="sm-dropdown-btn" id="studio-btn-hook">
+              <span class="sm-dropdown-icon">🤖</span>
+              <span class="sm-dropdown-value">AI เลือกให้อัตโนมัติ</span>
+              <span class="sm-dropdown-arrow">▼</span>
+            </button>
+            <div class="sm-dropdown-menu" id="studio-menu-hook">
+              <!-- จะ generate ด้วย JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Generate Master Prompt -->
+      <div class="section studio-step">
+        <div class="studio-step-header">
+          <span class="studio-step-num">3</span>
+          <span class="studio-step-title">📝 สร้าง Master Prompt</span>
+        </div>
+        <button class="studio-btn studio-btn-generate" id="studio-generate-master-btn">
+          <span>🔄</span> ผสานข้อมูล → สร้าง Master Prompt
+        </button>
+        <div class="studio-master-prompt-box" id="studio-master-prompt-box" style="display:none;">
+          <div class="studio-master-prompt-label">พรอมต์หลัก:</div>
+          <div class="studio-master-prompt-text" id="studio-master-prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Step 4: Scene Control -->
+      <div class="section studio-step">
+        <div class="studio-step-header">
+          <span class="studio-step-num">4</span>
+          <span class="studio-step-title">🎬 ควบคุมฉาก</span>
+        </div>
+        <div class="studio-scenes" id="studio-scenes">
+          <div class="studio-scene-empty">กด "ผสานข้อมูล" เพื่อสร้างฉาก</div>
+        </div>
+        <button class="studio-btn studio-btn-add-scene" id="studio-add-scene-btn" style="display:none;">
+          <span>➕</span> เพิ่มฉาก
+        </button>
+      </div>
+
+      <!-- Step 5: Pipeline / Generate -->
+      <div class="section studio-step">
+        <div class="studio-step-header">
+          <span class="studio-step-num">5</span>
+          <span class="studio-step-title">🚀 สร้างคอนเทนต์ / Google API</span>
+        </div>
+        <div class="studio-pipeline-btns">
+          <button class="studio-btn studio-btn-img" id="studio-gen-img-btn" disabled>
+            <span class="studio-btn-icon">🖼️</span>
+            <span class="studio-btn-text">สร้างรูป</span>
+            <span class="studio-btn-sub">Imagen 4</span>
+          </button>
+          <button class="studio-btn studio-btn-vid" id="studio-gen-vid-btn" disabled>
+            <span class="studio-btn-icon">🎬</span>
+            <span class="studio-btn-text">สร้างวีดีโอ</span>
+            <span class="studio-btn-sub">Veo 3.1</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 6: Preview Grid -->
+      <div class="section studio-step">
+        <div class="studio-step-header">
+          <span class="studio-step-num">6</span>
+          <span class="studio-step-title">🖼️ ตัวอย่างผลงาน</span>
+          <span class="studio-result-count" id="studio-result-count">0 รายการ</span>
+        </div>
+        <div class="studio-grid" id="studio-grid">
+          <div class="studio-grid-empty">ยังไม่มีรูป/วีดีโอ — ทำตามขั้นตอนด้านบนเพื่อเริ่ม</div>
+        </div>
+      </div>
+
+      <!-- Step 6 (ต่อ): Share Sheet -->
+      <div class="section studio-step share-sheet-section" id="share-sheet-section">
+        <div class="studio-step-header">
+          <span class="studio-step-num share-sheet-step-num">6</span>
+          <span class="studio-step-title">📤 แชร์ผลงาน</span>
+          <span class="share-sheet-badge" id="share-sheet-badge"></span>
+        </div>
+
+        <!-- Render progress bar -->
+        <div class="share-sheet-render" id="share-sheet-render">
+          <div class="share-sheet-render-track">
+            <div class="share-sheet-render-bar" id="share-sheet-render-bar"></div>
+          </div>
+          <span class="share-sheet-render-label" id="share-sheet-render-label">กำลังเตรียมไฟล์...</span>
+        </div>
+
+        <!-- Platform buttons row -->
+        <div class="share-sheet-row">
+          <button class="share-btn share-btn-facebook" id="ss-btn-facebook" title="ดาวน์โหลด + เปิด Facebook">
+            <span class="share-btn-icon">📘</span>
+            <span class="share-btn-label">Facebook</span>
+          </button>
+          <button class="share-btn share-btn-youtube" id="ss-btn-youtube" title="ดาวน์โหลด + เปิด YouTube Studio">
+            <span class="share-btn-icon">▶️</span>
+            <span class="share-btn-label">YouTube</span>
+          </button>
+          <button class="share-btn share-btn-tiktok" id="ss-btn-tiktok" title="ดาวน์โหลด + เปิด TikTok">
+            <span class="share-btn-icon">🎵</span>
+            <span class="share-btn-label">TikTok</span>
+          </button>
+          <button class="share-btn share-btn-instagram" id="ss-btn-instagram" title="ดาวน์โหลด + เปิด Instagram">
+            <span class="share-btn-icon">📷</span>
+            <span class="share-btn-label">Instagram</span>
+          </button>
+          <button class="share-btn share-btn-save" id="ss-btn-save" title="บันทึกลงอุปกรณ์ + Library">
+            <span class="share-btn-icon">💾</span>
+            <span class="share-btn-label">Save</span>
+          </button>
+        </div>
+
+        <!-- Inline caption -->
+        <div class="ss-caption-row">
+          <label class="share-sheet-caption-label">✏️ Caption / คำบรรยาย (pre-fill ให้ App)</label>
+          <textarea id="ss-caption" class="ss-caption-input" rows="2" placeholder="ใส่ Caption สำหรับโพสต์... (Emoji & Hashtag รองรับ)"></textarea>
+        </div>
+
+        <p class="share-sheet-hint">💡 ระบบจะดาวน์โหลดวิดีโอลงเครื่อง แล้วเปิด App ให้คุณเลือกไฟล์และโพสต์เอง</p>
+        <p class="share-sheet-warning" id="share-sheet-warning"></p>
+      </div>
+
+    </div>
+
+    <!-- Tab 4: Platform -->
+    <div id="platform-tab" class="tab-content">
+
+      <!-- Step 1: Upload Video -->
+      <div class="section platform-step">
+        <div class="platform-step-header">
+          <span class="platform-step-num">1</span>
+          <span class="platform-step-title">📤 อัพโหลด Video</span>
+        </div>
+        <div class="platform-upload-zone" id="platform-upload-zone">
+          <div class="platform-upload-placeholder" id="platform-upload-placeholder">
+            <span class="platform-upload-icon">🎬</span>
+            <p>ลากไฟล์วางที่นี่ หรือคลิกเพื่อเลือก Video</p>
+            <p class="platform-upload-hint">รองรับ .mp4, .mov, .webm (สูงสุด 500MB)</p>
+          </div>
+          <div class="platform-upload-preview" id="platform-upload-preview" style="display:none;">
+            <video id="platform-video-preview" controls playsinline></video>
+            <div class="platform-upload-info">
+              <span id="platform-video-name">video.mp4</span>
+              <button class="platform-remove-btn" id="platform-remove-video" title="ลบ video">✕</button>
+            </div>
+          </div>
+          <input type="file" id="platform-video-input" accept="video/mp4,video/mov,video/webm,video/quicktime" style="display:none;">
+        </div>
+      </div>
+
+      <!-- Step 2: Caption -->
+      <div class="section platform-step">
+        <div class="platform-step-header">
+          <span class="platform-step-num">2</span>
+          <span class="platform-step-title">📝 Caption / คำอธิบาย</span>
+        </div>
+        <textarea id="platform-caption" class="platform-textarea" rows="4" placeholder="ใส่ Caption สำหรับโพสต์... (รองรับ Emoji & Hashtag)"></textarea>
+        <div class="platform-caption-tools">
+          <button class="platform-tool-btn" id="platform-ai-caption" title="ให้ AI สร้าง Caption">🤖 AI สร้าง Caption</button>
+          <span class="platform-char-count" id="platform-char-count">0 / 2200</span>
+        </div>
+      </div>
+
+      <!-- Step 3: Platform Selection -->
+      <div class="section platform-step">
+        <div class="platform-step-header">
+          <span class="platform-step-num">3</span>
+          <span class="platform-step-title">🌐 เลือก Platform</span>
+        </div>
+        <div class="platform-select-grid">
+          <!-- TikTok -->
+          <div class="platform-card" data-platform="tiktok">
+            <div class="platform-card-header">
+              <label class="platform-toggle">
+                <input type="checkbox" id="platform-tiktok-enabled" checked>
+                <span class="platform-toggle-slider"></span>
+              </label>
+              <span class="platform-card-icon">🎵</span>
+              <span class="platform-card-name">TikTok</span>
+            </div>
+            <div class="platform-card-body" id="platform-tiktok-body">
+              <div class="platform-field">
+                <label class="platform-field-label">Product ID (TikTok Shop)</label>
+                <input type="text" id="platform-tiktok-product-id" class="platform-field-input" placeholder="เช่น 1729404...">
+              </div>
+              <div class="platform-field">
+                <label class="platform-field-label">CTA (Call to Action)</label>
+                <input type="text" id="platform-tiktok-cta" class="platform-field-input" placeholder="เช่น ดูเพิ่มเติม, สั่งซื้อเลย" maxlength="30">
+                <div class="platform-cta-tools">
+                  <button class="platform-tool-btn" id="platform-ai-cta" title="ให้ AI สร้าง CTA">🤖 AI สร้าง CTA</button>
+                  <span class="platform-field-hint" id="platform-tiktok-cta-count">0 / 30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Facebook -->
+          <div class="platform-card" data-platform="facebook">
+            <div class="platform-card-header">
+              <label class="platform-toggle">
+                <input type="checkbox" id="platform-facebook-enabled">
+                <span class="platform-toggle-slider"></span>
+              </label>
+              <span class="platform-card-icon">📘</span>
+              <span class="platform-card-name">Facebook</span>
+            </div>
+            <div class="platform-card-body" id="platform-facebook-body" style="display:none;">
+              <div class="platform-field">
+                <label class="platform-field-label">โพสต์ไปที่</label>
+                <select id="platform-facebook-target" class="platform-field-select">
+                  <option value="reels">Reels</option>
+                  <option value="feed">Feed / Watch</option>
+                  <option value="story">Story</option>
+                </select>
+              </div>
+              <div class="platform-field">
+                <label class="platform-field-label">สิทธิ์การเข้าถึง</label>
+                <select id="platform-facebook-privacy" class="platform-field-select">
+                  <option value="public">🌍 สาธารณะ</option>
+                  <option value="friends">👥 เพื่อนเท่านั้น</option>
+                  <option value="only_me">🔒 ฉันเท่านั้น</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- YouTube -->
+          <div class="platform-card" data-platform="youtube">
+            <div class="platform-card-header">
+              <label class="platform-toggle">
+                <input type="checkbox" id="platform-youtube-enabled">
+                <span class="platform-toggle-slider"></span>
+              </label>
+              <span class="platform-card-icon">▶️</span>
+              <span class="platform-card-name">YouTube</span>
+            </div>
+            <div class="platform-card-body" id="platform-youtube-body" style="display:none;">
+              <div class="platform-field">
+                <label class="platform-field-label">ชื่อ Video (Title)</label>
+                <input type="text" id="platform-youtube-title" class="platform-field-input" placeholder="ชื่อ Video สำหรับ YouTube">
+              </div>
+              <div class="platform-field">
+                <label class="platform-field-label">โพสต์เป็น</label>
+                <select id="platform-youtube-type" class="platform-field-select">
+                  <option value="shorts">Shorts</option>
+                  <option value="video">Video ยาว</option>
+                </select>
+              </div>
+              <div class="platform-field">
+                <label class="platform-field-label">สิทธิ์การเข้าถึง</label>
+                <select id="platform-youtube-privacy" class="platform-field-select">
+                  <option value="public">🌍 สาธารณะ</option>
+                  <option value="unlisted">🔗 ไม่แสดงในรายการ</option>
+                  <option value="private">🔒 ส่วนตัว</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Schedule -->
+      <div class="section platform-step">
+        <div class="platform-step-header">
+          <span class="platform-step-num">4</span>
+          <span class="platform-step-title">⏰ ตั้งเวลาโพสต์</span>
+        </div>
+        <div class="platform-schedule-options">
+          <label class="platform-radio-label">
+            <input type="radio" name="platform-schedule" value="now" checked>
+            <span>📤 โพสต์ทันที</span>
+          </label>
+          <label class="platform-radio-label">
+            <input type="radio" name="platform-schedule" value="scheduled">
+            <span>⏰ ตั้งเวลา</span>
+          </label>
+        </div>
+        <div class="platform-schedule-datetime" id="platform-schedule-datetime" style="display:none;">
+          <input type="datetime-local" id="platform-schedule-time" class="platform-field-input">
+        </div>
+      </div>
+
+      <!-- Step 5: Add to Queue -->
+      <div class="section platform-step">
+        <div class="platform-step-header">
+          <span class="platform-step-num">5</span>
+          <span class="platform-step-title">➕ เพิ่มรายการ</span>
+        </div>
+        <button class="platform-add-queue-btn" id="platform-add-queue-btn" disabled>
+          <span>➕</span>
+          <span class="platform-add-queue-text">เพิ่มเข้าคิวโพสต์</span>
+        </button>
+      </div>
+
+      <!-- Step 6: Queue List -->
+      <div class="section platform-step">
+        <div class="platform-step-header">
+          <span class="platform-step-num">6</span>
+          <span class="platform-step-title">📋 รายการโพสต์ (<span id="platform-queue-count">0</span>)</span>
+        </div>
+        <div class="platform-queue-empty" id="platform-queue-empty">
+          <span>📭</span>
+          <p>ยังไม่มีรายการ — ตั้งค่าด้านบนแล้วกด "เพิ่มเข้าคิว"</p>
+        </div>
+        <div class="platform-queue-list" id="platform-queue-list"></div>
+        <div class="platform-queue-actions" id="platform-queue-actions" style="display:none;">
+          <button class="platform-post-btn" id="platform-start-all-btn">
+            <span class="platform-post-icon">🚀</span>
+            <span class="platform-post-text" id="platform-start-all-text">เริ่มโพสต์ทั้งหมด</span>
+          </button>
+          <button class="platform-clear-queue-btn" id="platform-clear-queue-btn">🗑️ ล้างทั้งหมด</button>
+        </div>
+        <div class="platform-post-status" id="platform-post-status"></div>
+      </div>
+
+    </div>
+
+    <!-- Tab 5: Dashboard -->
+    <div id="dashboard-tab" class="tab-content">
+      
+      <!-- Summary Cards -->
+      <div class="section dash-section">
+        <div class="dash-header">
+          <span class="dash-title">📊 สรุปผลงาน</span>
+          <button class="dash-reset-btn" id="dash-reset-btn" title="รีเซ็ตสถิติ">🗑️ รีเซ็ต</button>
+        </div>
+        <div class="dash-cards">
+          <div class="dash-card dash-card-total">
+            <span class="dash-card-num" id="dash-total">0</span>
+            <span class="dash-card-label">ทั้งหมด</span>
+          </div>
+          <div class="dash-card dash-card-success">
+            <span class="dash-card-num" id="dash-success">0</span>
+            <span class="dash-card-label">สำเร็จ</span>
+          </div>
+          <div class="dash-card dash-card-failed">
+            <span class="dash-card-num" id="dash-failed">0</span>
+            <span class="dash-card-label">ล้มเหลว</span>
+          </div>
+          <div class="dash-card dash-card-skipped">
+            <span class="dash-card-num" id="dash-skipped">0</span>
+            <span class="dash-card-label">ข้าม</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platform Breakdown -->
+      <div class="section dash-section">
+        <div class="dash-sub-title">🌐 แยกตาม Platform</div>
+        <div class="dash-platform-list" id="dash-platform-list">
+          <div class="dash-platform-row">
+            <span class="dash-platform-icon">🎵</span>
+            <span class="dash-platform-name">TikTok</span>
+            <span class="dash-platform-count" id="dash-tiktok-count">0</span>
+          </div>
+          <div class="dash-platform-row">
+            <span class="dash-platform-icon">📘</span>
+            <span class="dash-platform-name">Facebook</span>
+            <span class="dash-platform-count" id="dash-facebook-count">0</span>
+          </div>
+          <div class="dash-platform-row">
+            <span class="dash-platform-icon">▶️</span>
+            <span class="dash-platform-name">YouTube</span>
+            <span class="dash-platform-count" id="dash-youtube-count">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today's Activity -->
+      <div class="section dash-section">
+        <div class="dash-sub-title">📅 วันนี้</div>
+        <div class="dash-today-stats">
+          <div class="dash-today-item">
+            <span class="dash-today-num" id="dash-today-posts">0</span>
+            <span class="dash-today-label">โพสต์</span>
+          </div>
+          <div class="dash-today-item">
+            <span class="dash-today-num" id="dash-today-images">0</span>
+            <span class="dash-today-label">รูปภาพ</span>
+          </div>
+          <div class="dash-today-item">
+            <span class="dash-today-num" id="dash-today-videos">0</span>
+            <span class="dash-today-label">วิดีโอ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- History Log -->
+      <div class="section dash-section">
+        <div class="dash-sub-title">📜 ประวัติล่าสุด</div>
+        <div class="dash-history" id="dash-history">
+          <div class="dash-history-empty">ยังไม่มีประวัติ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 6: Templates -->
+    <div id="templates-tab" class="tab-content">
+
+      <!-- Save New Template -->
+      <div class="section tpl-section">
+        <div class="tpl-header">
+          <span class="tpl-title">📋 Prompt Templates</span>
+        </div>
+        <div class="tpl-save-form">
+          <input type="text" id="tpl-name-input" class="tpl-name-input" placeholder="ชื่อ Template เช่น สินค้าบ้าน, แฟชั่น...">
+          <select id="tpl-category-select" class="tpl-category-select">
+            <option value="general">📦 ทั่วไป</option>
+            <option value="fashion">👗 แฟชั่น</option>
+            <option value="food">🍕 อาหาร</option>
+            <option value="beauty">💄 ความงาม</option>
+            <option value="tech">📱 เทคโนโลยี</option>
+            <option value="home">🏠 บ้าน/ไลฟ์สไตล์</option>
+            <option value="custom">✏️ กำหนดเอง</option>
+          </select>
+          <textarea id="tpl-prompt-input" class="tpl-prompt-textarea" rows="4" placeholder="ใส่ Prompt Template ที่ต้องการบันทึก...&#10;&#10;ใช้ {product} แทนชื่อสินค้า เช่น:&#10;สร้างวิดีโอรีวิว {product} สไตล์ UGC น่าเชื่อถือ"></textarea>
+          <button class="tpl-save-btn" id="tpl-save-btn">
+            <span>💾</span> บันทึก Template
+          </button>
+        </div>
+      </div>
+
+      <!-- Template List -->
+      <div class="section tpl-section">
+        <div class="tpl-sub-header">
+          <span class="tpl-sub-title">📚 Templates ที่บันทึกไว้</span>
+          <span class="tpl-count" id="tpl-count">0 รายการ</span>
+        </div>
+        <div class="tpl-filter">
+          <button class="tpl-filter-btn active" data-filter="all">ทั้งหมด</button>
+          <button class="tpl-filter-btn" data-filter="general">📦</button>
+          <button class="tpl-filter-btn" data-filter="fashion">👗</button>
+          <button class="tpl-filter-btn" data-filter="food">🍕</button>
+          <button class="tpl-filter-btn" data-filter="beauty">💄</button>
+          <button class="tpl-filter-btn" data-filter="tech">📱</button>
+          <button class="tpl-filter-btn" data-filter="home">🏠</button>
+          <button class="tpl-filter-btn" data-filter="custom">✏️</button>
+        </div>
+        <div class="tpl-list" id="tpl-list">
+          <div class="tpl-empty">ยังไม่มี Template — บันทึกอันแรกด้านบน!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 7: Settings -->
+    <div id="settings-tab" class="tab-content">
+      <div class="section">
+        <div class="section-title">🔑 API Settings</div>
+        
+        <div class="form-group">
+          <label>เลือก AI Provider</label>
+          <select id="provider-select">
+            <option value="openai">OpenAI (GPT-4)</option>
+            <option value="google">Google AI (Gemini)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>OpenAI API Key</label>
+          <input type="password" id="openai-key" placeholder="sk-...">
+        </div>
+
+        <div class="form-group">
+          <label>Google AI API Key</label>
+          <input type="password" id="google-key" placeholder="AIza...">
+        </div>
+
+        <button class="btn btn-primary" id="save-settings">💾 บันทึกการตั้งค่า</button>
+        
+        <div id="settings-message" style="margin-top: 12px; font-size: 0.8rem; text-align: center;"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">🚫 คำต้องห้ามเพิ่มเติม (Custom Forbidden Words)</div>
+        <p style="font-size: 0.7rem; color: #888; margin-bottom: 8px;">เพิ่มคำที่ไม่ต้องการให้ปรากฏในบทพูด/แคปชั่น (คั่นด้วยจุลภาค ",")</p>
+        <textarea id="custom-forbidden-words" rows="3" placeholder="เช่น: เฮ้ย, สุดปัง, ปังมาก, จัดเลย" style="width:100%;background:#1e272e;color:#dfe6e9;border:1px solid #636e72;border-radius:6px;padding:8px;font-size:0.75rem;resize:vertical;box-sizing:border-box;"></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px;">
+          <button class="btn btn-primary" id="save-forbidden-words" style="flex:1;padding:6px 10px;font-size:0.75rem;">💾 บันทึกคำต้องห้าม</button>
+          <button class="btn" id="clear-forbidden-words" style="flex:0;padding:6px 10px;font-size:0.75rem;background:#2d3436;color:#dfe6e9;border:1px solid #636e72;">🗑️ ล้าง</button>
+        </div>
+        <div id="forbidden-words-message" style="margin-top:6px;font-size:0.7rem;text-align:center;"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">🧹 ล้างข้อมูล Chrome</div>
+        <p style="font-size: 0.7rem; color: #888; margin-bottom: 10px;">เลือกระดับการล้างข้อมูลของ Chrome</p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <button class="btn clear-cache-option" data-mode="cache" style="background: #2d3436; color: #dfe6e9; border: 1px solid #636e72; width: 100%; text-align: left; padding: 10px 12px;">
+            🗑️ <strong>Cache เท่านั้น</strong><br><span style="font-size: 0.65rem; color: #888;">ล้างรูป, JS, CSS ที่ cache ไว้ (ปลอดภัย)</span>
+          </button>
+          <button class="btn clear-cache-option" data-mode="cache_cookies" style="background: #2d3436; color: #dfe6e9; border: 1px solid #e17055; width: 100%; text-align: left; padding: 10px 12px;">
+            🍪 <strong>Cache + Cookies</strong><br><span style="font-size: 0.65rem; color: #e17055;">ล้าง Cache + Cookies (ต้อง Login ใหม่ทุกเว็บ)</span>
+          </button>
+          <button class="btn clear-cache-option" data-mode="all" style="background: #2d3436; color: #dfe6e9; border: 1px solid #d63031; width: 100%; text-align: left; padding: 10px 12px;">
+            🗑️ <strong>ล้างทั้งหมด</strong><br><span style="font-size: 0.65rem; color: #d63031;">Cache + Cookies + History + localStorage</span>
+          </button>
+        </div>
+        <div id="clear-cache-message" style="margin-top: 8px; font-size: 0.75rem; text-align: center;"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">📚 วิธีรับ API Key</div>
+        <div style="font-size: 0.75rem; color: #aaa; line-height: 1.8;">
+          <p><strong>OpenAI:</strong></p>
+          <p>1. ไปที่ <a href="https://platform.openai.com/api-keys" target="_blank" style="color: #54a0ff;">platform.openai.com/api-keys</a></p>
+          <p>2. สร้าง API Key ใหม่</p>
+          <br>
+          <p><strong>Google AI:</strong></p>
+          <p>1. ไปที่ <a href="https://makersuite.google.com/app/apikey" target="_blank" style="color: #54a0ff;">makersuite.google.com/app/apikey</a></p>
+          <p>2. สร้าง API Key ใหม่</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pre-Run Settings Modal -->
+  <div id="run-settings-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚙️ ตั้งค่าก่อนรัน</h3>
+        <button class="modal-close" id="close-run-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-group">
+          <label class="setting-label">🎬 ความยาวคลิป</label>
+          <div class="duration-options">
+            <label class="duration-option">
+              <input type="radio" name="clip-duration" value="8" checked>
+              <span class="duration-card">
+                <span class="duration-value">8</span>
+                <span class="duration-unit">วินาที</span>
+                <span class="duration-desc">สั้น กระชับ</span>
+              </span>
+            </label>
+            <label class="duration-option">
+              <input type="radio" name="clip-duration" value="16">
+              <span class="duration-card">
+                <span class="duration-value">16</span>
+                <span class="duration-unit">วินาที</span>
+                <span class="duration-desc">2 คลิป + Scene Builder</span>
+              </span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-group">
+          <label class="setting-label">📤 โหมดโพสต์</label>
+          <div class="duration-options">
+            <label class="duration-option">
+              <input type="radio" name="post-mode" value="post" checked>
+              <span class="duration-card">
+                <span class="duration-value">📤</span>
+                <span class="duration-unit">Post</span>
+                <span class="duration-desc">โพสต์เลยทันที</span>
+              </span>
+            </label>
+            <label class="duration-option">
+              <input type="radio" name="post-mode" value="schedule">
+              <span class="duration-card">
+                <span class="duration-value">📅</span>
+                <span class="duration-unit">Schedule</span>
+                <span class="duration-desc">ตั้งเวลาโพสต์</span>
+              </span>
+            </label>
+            <label class="duration-option">
+              <input type="radio" name="post-mode" value="draft">
+              <span class="duration-card">
+                <span class="duration-value">📝</span>
+                <span class="duration-unit">Draft</span>
+                <span class="duration-desc">บันทึกแบบร่าง</span>
+              </span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-group" id="schedule-settings" style="display: none;">
+          <label class="setting-label">📅 ตั้งเวลา Schedule</label>
+          <div class="schedule-inputs">
+            <div class="schedule-row">
+              <label class="schedule-input-label">เริ่มต้น</label>
+              <input type="datetime-local" id="schedule-start-time" class="schedule-datetime-input">
+            </div>
+            <div class="schedule-row">
+              <label class="schedule-input-label">ห่างกัน</label>
+              <div class="delay-input-group">
+                <input type="number" id="schedule-interval" value="120" min="10" max="1440" class="delay-input" style="width: 80px;">
+                <span class="delay-unit">นาที</span>
+              </div>
+            </div>
+            <p class="setting-hint" id="schedule-preview"></p>
+          </div>
+        </div>
+        
+        <!-- Zoom setting removed v3.35 — always 100% -->
+        
+        <div class="setting-group">
+          <label class="setting-label">⏱️ Delay ระหว่างสินค้า</label>
+          <div class="delay-input-group">
+            <input type="number" id="delay-seconds" value="3" min="1" max="60" class="delay-input">
+            <span class="delay-unit">วินาที</span>
+          </div>
+          <p class="setting-hint">หน่วงเวลาระหว่างการทำแต่ละสินค้า (1-60 วินาที)</p>
+        </div>
+        
+        <div class="setting-group summary-group">
+          <div class="run-summary">
+            <span class="summary-icon">📦</span>
+            <span class="summary-text">จะรัน <strong id="run-product-count">0</strong> สินค้า</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancel-run">ยกเลิก</button>
+        <button class="btn btn-primary" id="confirm-run">🚀 เริ่มรัน</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auto V2 Pre-Run Settings Modal -->
+  <div id="v2-run-settings-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🎬 Auto V2 — ตั้งค่าก่อนรัน</h3>
+        <button class="modal-close" id="v2-close-run-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-group">
+          <label class="setting-label">📤 โหมดโพสต์</label>
+          <div class="duration-options">
+            <label class="duration-option">
+              <input type="radio" name="v2-post-mode" value="post" checked>
+              <span class="duration-card">
+                <span class="duration-value">📤</span>
+                <span class="duration-unit">Post</span>
+                <span class="duration-desc">โพสต์เลยทันที</span>
+              </span>
+            </label>
+            <label class="duration-option">
+              <input type="radio" name="v2-post-mode" value="schedule">
+              <span class="duration-card">
+                <span class="duration-value">📅</span>
+                <span class="duration-unit">Schedule</span>
+                <span class="duration-desc">ตั้งเวลาโพสต์</span>
+              </span>
+            </label>
+            <label class="duration-option">
+              <input type="radio" name="v2-post-mode" value="draft">
+              <span class="duration-card">
+                <span class="duration-value">📝</span>
+                <span class="duration-unit">Draft</span>
+                <span class="duration-desc">บันทึกแบบร่าง</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-group" id="v2-schedule-settings" style="display: none;">
+          <label class="setting-label">📅 ตั้งเวลา Schedule</label>
+          <div class="schedule-inputs">
+            <div class="schedule-row">
+              <label class="schedule-input-label">เริ่มต้น</label>
+              <input type="datetime-local" id="v2-schedule-start-time" class="schedule-datetime-input">
+            </div>
+            <div class="schedule-row">
+              <label class="schedule-input-label">ห่างกัน</label>
+              <div class="delay-input-group">
+                <input type="number" id="v2-schedule-interval" value="120" min="10" max="1440" class="delay-input" style="width: 80px;">
+                <span class="delay-unit">นาที</span>
+              </div>
+            </div>
+            <p class="setting-hint" id="v2-schedule-preview"></p>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <label class="setting-label">⏱️ Delay ระหว่างสินค้า</label>
+          <div class="delay-input-group">
+            <input type="number" id="v2-delay-seconds" value="3" min="1" max="60" class="delay-input">
+            <span class="delay-unit">วินาที</span>
+          </div>
+          <p class="setting-hint">หน่วงเวลาระหว่างการทำแต่ละสินค้า (1-60 วินาที)</p>
+        </div>
+
+        <div class="setting-group summary-group">
+          <div class="run-summary">
+            <span class="summary-icon">📦</span>
+            <span class="summary-text">จะรัน <strong id="v2-run-product-count">0</strong> สินค้า</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="v2-cancel-run">ยกเลิก</button>
+        <button class="btn btn-primary" id="v2-confirm-run">🎬 เริ่มรัน V2</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/license-service.js"></script>
+  <script type="module" src="js/sidepanel.js"></script>
+</body>
+</html>

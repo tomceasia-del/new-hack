@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library — 1CLICK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0A0A0F;
+      --bg-surface: #12121A;
+      --bg-elevated: #1A1A25;
+      --border-color: #2A2A3A;
+      --crystal-cyan: #38BDF8;
+      --crystal-purple: #A78BFA;
+      --crystal-pink: #F472B6;
+      --crystal-orange: #FB923C;
+      --crystal-gradient: linear-gradient(135deg, #38BDF8 0%, #A78BFA 35%, #F472B6 65%, #FB923C 100%);
+      --text-primary: #FFFFFF;
+      --text-secondary: #A0A0B0;
+      --danger: #EF4444;
+      --success: #22C55E;
+      --warning: #F59E0B;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,.4);
+      --duration: 200ms;
+      --ease: cubic-bezier(0.4,0,0.2,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 20px 16px 60px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── header ── */
+    .lib-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .lib-logo {
+      width: 32px; height: 32px;
+      background: var(--crystal-gradient);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+    .lib-title { font-size: 18px; font-weight: 700; }
+    .lib-title span { background: var(--crystal-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .lib-subtitle { font-size: 11px; color: var(--text-secondary); }
+    .lib-header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+    /* ── toolbar ── */
+    .lib-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .lib-count {
+      font-size: 12px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+    .lib-count span { color: var(--crystal-cyan); font-weight: 600; }
+    .lib-filter {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .filter-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--duration) var(--ease);
+    }
+    .filter-chip:hover, .filter-chip.active {
+      border-color: var(--crystal-cyan);
+      color: var(--crystal-cyan);
+      background: rgba(56,189,248,.1);
+    }
+    .lib-search {
+      margin-left: auto;
+      padding: 6px 10px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 12px;
+      width: 180px;
+      outline: none;
+      transition: border-color var(--duration);
+    }
+    .lib-search:focus { border-color: var(--crystal-cyan); }
+    .lib-search::placeholder { color: var(--text-secondary); }
+
+    /* ── clear all btn ── */
+    .btn-clear-all {
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent;
+      color: var(--danger);
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--duration);
+    }
+    .btn-clear-all:hover { background: rgba(239,68,68,.1); }
+
+    /* ── empty state ── */
+    .lib-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 60px 20px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    .lib-empty-icon { font-size: 48px; opacity: .4; }
+    .lib-empty-title { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+    .lib-empty-sub { font-size: 12px; line-height: 1.6; }
+
+    /* ── cards grid ── */
+    .lib-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .lib-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all var(--duration) var(--ease);
+      position: relative;
+    }
+    .lib-card:hover {
+      border-color: rgba(56,189,248,.3);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .card-platform-badge {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .badge-facebook  { background: rgba(24,119,242,.15); border: 1px solid rgba(24,119,242,.3); }
+    .badge-youtube   { background: rgba(255,0,0,.12);    border: 1px solid rgba(255,0,0,.3); }
+    .badge-tiktok    { background: rgba(254,44,85,.12);  border: 1px solid rgba(254,44,85,.3); }
+    .badge-instagram { background: rgba(225,48,108,.12); border: 1px solid rgba(225,48,108,.3); }
+    .badge-save      { background: rgba(34,197,94,.12);  border: 1px solid rgba(34,197,94,.3); }
+    .badge-default   { background: var(--bg-elevated);   border: 1px solid var(--border-color); }
+
+    .card-meta { flex: 1; min-width: 0; }
+    .card-product {
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-timestamp {
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .card-platform-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 2px 8px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+    .label-facebook  { background: rgba(24,119,242,.15);  color: #60A5FA; }
+    .label-youtube   { background: rgba(255,0,0,.12);     color: #F87171; }
+    .label-tiktok    { background: rgba(254,44,85,.12);   color: #FB7185; }
+    .label-instagram { background: rgba(225,48,108,.12);  color: #F472B6; }
+    .label-save      { background: rgba(34,197,94,.12);   color: #4ADE80; }
+    .label-default   { background: var(--bg-elevated);    color: var(--text-secondary); }
+
+    /* prompt snippets */
+    .card-prompts {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .prompt-row {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 7px 9px;
+    }
+    .prompt-label {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--crystal-cyan);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 3px;
+    }
+    .prompt-text {
+      font-size: 11px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .prompt-text.empty { font-style: italic; opacity: .5; }
+
+    /* card footer */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 4px;
+      border-top: 1px solid var(--border-color);
+    }
+    .btn-delete {
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(239,68,68,.25);
+      background: transparent;
+      color: rgba(239,68,68,.7);
+      font-family: inherit;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all var(--duration);
+    }
+    .btn-delete:hover { background: rgba(239,68,68,.1); color: var(--danger); }
+
+    /* loading */
+    .lib-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 40px;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid var(--border-color);
+      border-top-color: var(--crystal-cyan);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* warning banner */
+    .lib-warning {
+      background: rgba(245,158,11,.08);
+      border: 1px solid rgba(245,158,11,.25);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      font-size: 11px;
+      color: var(--warning);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* toast */
+    #toast {
+      position: fixed;
+      bottom: 20px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 10px 18px;
+      font-size: 12px;
+      color: var(--text-primary);
+      opacity: 0;
+      pointer-events: none;
+      transition: all .25s var(--ease);
+      white-space: nowrap;
+      z-index: 100;
+    }
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="lib-header">
+    <div class="lib-logo">1C</div>
+    <div>
+      <div class="lib-title"><span>Library</span></div>
+      <div class="lib-subtitle">ประวัติการแชร์ผลงาน (เก็บบนอุปกรณ์นี้เท่านั้น)</div>
+    </div>
+    <div class="lib-header-right">
+      <button class="btn-clear-all" id="btn-clear-all">🗑️ ล้างทั้งหมด</button>
+    </div>
+  </div>
+
+  <!-- Warning -->
+  <div class="lib-warning">
+    ⚠️ ข้อมูลทั้งหมดถูกเก็บไว้บนอุปกรณ์นี้เท่านั้น — หากล้าง browser data หรือเปลี่ยนอุปกรณ์ ข้อมูลจะหายถาวร
+  </div>
+
+  <!-- Toolbar -->
+  <div class="lib-toolbar">
+    <div class="lib-count">ทั้งหมด <span id="total-count">0</span> รายการ</div>
+    <div class="lib-filter" id="filter-chips">
+      <button class="filter-chip active" data-platform="all">ทั้งหมด</button>
+      <button class="filter-chip" data-platform="tiktok">🎵 TikTok</button>
+      <button class="filter-chip" data-platform="facebook">📘 Facebook</button>
+      <button class="filter-chip" data-platform="youtube">▶️ YouTube</button>
+      <button class="filter-chip" data-platform="instagram">📷 Instagram</button>
+      <button class="filter-chip" data-platform="save">💾 Save</button>
+    </div>
+    <input type="search" class="lib-search" id="lib-search" placeholder="ค้นหาชื่อสินค้า...">
+  </div>
+
+  <!-- Content -->
+  <div id="lib-content">
+    <div class="lib-loading">
+      <div class="spinner"></div>
+      <span>กำลังโหลด...</span>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"></div>
+
+<script>
+  const DB_NAME = 'ShareSheetDB';
+  const DB_VER = 1;
+  const STORE = 'posts';
+
+  const PLATFORM_ICONS = {
+    facebook: '📘', youtube: '▶️', tiktok: '🎵',
+    instagram: '📷', save: '💾',
+  };
+
+  let allRecords = [];
+  let currentFilter = 'all';
+  let searchQuery = '';
+
+  /* ── IndexedDB helpers ── */
+  function openDB() {
+    return new Promise((res, rej) => {
+      const req = indexedDB.open(DB_NAME, DB_VER);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(STORE)) {
+          const s = db.createObjectStore(STORE, { keyPath: 'id', autoIncrement: true });
+          s.createIndex('platform', 'platform', { unique: false });
+          s.createIndex('timestamp', 'timestamp', { unique: false });
+        }
+      };
+      req.onsuccess = () => res(req.result);
+      req.onerror = () => rej(req.error);
+    });
+  }
+
+  async function loadRecords() {
+    const db = await openDB();
+    return new Promise((res, rej) => {
+      const tx = db.transaction(STORE, 'readonly');
+      const req = tx.objectStore(STORE).getAll();
+      req.onsuccess = () => res(req.result.reverse()); // newest first
+      req.onerror = () => rej(req.error);
+    });
+  }
+
+  async function deleteRecord(id) {
+    const db = await openDB();
+    return new Promise((res, rej) => {
+      const tx = db.transaction(STORE, 'readwrite');
+      tx.objectStore(STORE).delete(id);
+      tx.oncomplete = () => res();
+      tx.onerror = () => rej(tx.error);
+    });
+  }
+
+  async function clearAllRecords() {
+    const db = await openDB();
+    return new Promise((res, rej) => {
+      const tx = db.transaction(STORE, 'readwrite');
+      tx.objectStore(STORE).clear();
+      tx.oncomplete = () => res();
+      tx.onerror = () => rej(tx.error);
+    });
+  }
+
+  /* ── Formatting ── */
+  function formatDate(iso) {
+    if (!iso) return '—';
+    const d = new Date(iso);
+    return d.toLocaleString('th-TH', {
+      year: 'numeric', month: 'short', day: 'numeric',
+      hour: '2-digit', minute: '2-digit',
+    });
+  }
+
+  function truncate(str, max) {
+    if (!str) return '';
+    return str.length > max ? str.slice(0, max) + '…' : str;
+  }
+
+  /* ── Render ── */
+  function filteredRecords() {
+    return allRecords.filter(r => {
+      if (currentFilter !== 'all' && r.platform !== currentFilter) return false;
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        return (r.productName || '').toLowerCase().includes(q) ||
+               (r.platform || '').toLowerCase().includes(q);
+      }
+      return true;
+    });
+  }
+
+  function renderCards() {
+    const records = filteredRecords();
+    const container = document.getElementById('lib-content');
+    document.getElementById('total-count').textContent = allRecords.length;
+
+    if (records.length === 0) {
+      container.innerHTML = `
+        <div class="lib-empty">
+          <div class="lib-empty-icon">📭</div>
+          <div class="lib-empty-title">${allRecords.length === 0 ? 'ยังไม่มีประวัติ' : 'ไม่พบรายการ'}</div>
+          <div class="lib-empty-sub">${allRecords.length === 0
+            ? 'กดปุ่ม Save หรือโพสต์ในแท็บ Studio<br>รายการจะปรากฏที่นี่โดยอัตโนมัติ'
+            : 'ลองเปลี่ยน filter หรือลบคำค้นหา'
+          }</div>
+        </div>`;
+      return;
+    }
+
+    const grid = document.createElement('div');
+    grid.className = 'lib-grid';
+
+    records.forEach(r => {
+      const platform = (r.platform || '').toLowerCase();
+      const icon = PLATFORM_ICONS[platform] || '📦';
+      const badgeCls = `card-platform-badge badge-${platform in PLATFORM_ICONS ? platform : 'default'}`;
+      const labelCls = `card-platform-label label-${platform in PLATFORM_ICONS ? platform : 'default'}`;
+
+      const card = document.createElement('div');
+      card.className = 'lib-card';
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="${badgeCls}">${icon}</div>
+          <div class="card-meta">
+            <div class="card-product">${r.productName || '(ไม่ระบุชื่อสินค้า)'}</div>
+            <div class="card-timestamp">${formatDate(r.timestamp)}</div>
+          </div>
+          <span class="${labelCls}">${r.platform || '—'}</span>
+        </div>
+        <div class="card-prompts">
+          <div class="prompt-row">
+            <div class="prompt-label">📸 Photo Prompt</div>
+            <div class="prompt-text ${r.photoPrompt ? '' : 'empty'}">${r.photoPrompt ? truncate(r.photoPrompt, 80) : 'ไม่มีข้อมูล'}</div>
+          </div>
+          <div class="prompt-row">
+            <div class="prompt-label">🎬 Video Prompt</div>
+            <div class="prompt-text ${r.videoPrompt ? '' : 'empty'}">${r.videoPrompt ? truncate(r.videoPrompt, 80) : 'ไม่มีข้อมูล'}</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-delete" data-id="${r.id}">🗑️ ลบ</button>
+        </div>`;
+
+      card.querySelector('.btn-delete').addEventListener('click', async () => {
+        await deleteRecord(r.id);
+        allRecords = allRecords.filter(x => x.id !== r.id);
+        renderCards();
+        showToast('ลบรายการแล้ว');
+      });
+
+      grid.appendChild(card);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(grid);
+  }
+
+  /* ── Toast ── */
+  function showToast(msg, duration = 2500) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), duration);
+  }
+
+  /* ── Init ── */
+  async function init() {
+    try {
+      allRecords = await loadRecords();
+    } catch (e) {
+      allRecords = [];
+      console.warn('[Library] Failed to load DB:', e);
+    }
+    renderCards();
+  }
+
+  /* ── Events ── */
+  document.getElementById('btn-clear-all').addEventListener('click', async () => {
+    if (!confirm('ลบประวัติทั้งหมด? ไม่สามารถกู้คืนได้')) return;
+    await clearAllRecords();
+    allRecords = [];
+    renderCards();
+    showToast('ล้างข้อมูลทั้งหมดแล้ว');
+  });
+
+  document.getElementById('filter-chips').addEventListener('click', (e) => {
+    const chip = e.target.closest('.filter-chip');
+    if (!chip) return;
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    currentFilter = chip.dataset.platform;
+    renderCards();
+  });
+
+  document.getElementById('lib-search').addEventListener('input', (e) => {
+    searchQuery = e.target.value.trim();
+    renderCards();
+  });
+
+  init();
+</script>
+</body>
+</html>

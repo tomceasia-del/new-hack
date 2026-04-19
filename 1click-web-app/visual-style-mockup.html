@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <title>Project CS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box; margin: 0; padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ══════════════════════════════
+       THEME TOKENS
+    ══════════════════════════════ */
+    :root {
+      /* dark (default) */
+      --bg:      #0c0c0c;
+      --bg2:     #111111;
+      --surface: #161616;
+      --lift:    #1e1e1e;
+      --card:    #252525;
+      --border:  rgba(255,255,255,.09);
+      --border2: rgba(255,255,255,.16);
+      --text:    #ffffff;
+      --off:     rgba(255,255,255,.88);
+      --muted:   rgba(255,255,255,.38);
+      --subtle:  rgba(255,255,255,.10);
+      --overlay-bg: rgba(0,0,0,.80);
+      --dock-bg: rgba(10,10,10,.95);
+      --r:       16px;
+      --r-sm:    12px;
+      --r-pill:  100px;
+    }
+
+    [data-theme="light"] {
+      --bg:      #f2f2f2;
+      --bg2:     #ffffff;
+      --surface: #ffffff;
+      --lift:    #e8e8e8;
+      --card:    #dcdcdc;
+      --border:  rgba(0,0,0,.10);
+      --border2: rgba(0,0,0,.18);
+      --text:    #0a0a0a;
+      --off:     rgba(0,0,0,.86);
+      --muted:   rgba(0,0,0,.40);
+      --subtle:  rgba(0,0,0,.07);
+      --overlay-bg: rgba(0,0,0,.55);
+      --dock-bg: rgba(242,242,242,.96);
+    }
+
+    /* smooth theme switch */
+    html { color-scheme: dark; }
+    [data-theme="light"] { color-scheme: light; }
+
+    body, .shell, .dock, .sheet, .quiz-sheet, .opt-tile,
+    .plat-pill, .sc, .cc, .step-btn, .sheet-back,
+    .sheet-close, .book-fab, .btn-all, .quiz-opt,
+    .quiz-btn, .quiz-block, .prompt-wrap, .quiz-close {
+      transition: background .25s, border-color .25s, color .25s;
+    }
+
+    html, body {
+      height: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    /* ──── PHONE SHELL ──── */
+    .shell {
+      width: 100%;
+      max-width: 430px;
+      height: 100dvh;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ──── STATUS BAR ──── */
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px 6px;
+      flex-shrink: 0;
+    }
+    .status-time { font-size: 15px; font-weight: 700; letter-spacing: -.3px; }
+    .status-right { display: flex; gap: 10px; align-items: center; }
+    .status-icons { display: flex; gap: 4px; align-items: center; font-size: 13px; opacity: .65; }
+
+    /* ──── THEME TOGGLE ──── */
+    .theme-toggle {
+      width: 38px; height: 22px;
+      border-radius: 11px;
+      border: 1.5px solid var(--border2);
+      background: var(--lift);
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: background .25s, border-color .25s, transform .1s;
+    }
+    .theme-toggle:active { transform: scale(.9); }
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--text);
+      top: 1px; left: 1px;
+      transition: transform .22s cubic-bezier(.34,1.56,.64,1), background .25s;
+    }
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(16px);
+    }
+    .theme-icon {
+      font-size: 13px;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* ──── HEADER ──── */
+    .app-header {
+      padding: 4px 20px 14px;
+      flex-shrink: 0;
+    }
+    .app-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+    .app-headline {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-top: 4px;
+      color: var(--text);
+    }
+
+    /* ──── SCROLL BODY ──── */
+    .scroll-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 18px 160px;
+      overscroll-behavior: contain;
+      scrollbar-width: none;
+    }
+    .scroll-body::-webkit-scrollbar { display: none; }
+
+    /* ──── SECTION LABEL ──── */
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 22px 0 10px;
+    }
+
+    /* ──── TEXTAREA ──── */
+    .prompt-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px;
+    }
+    .prompt-wrap textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      resize: none;
+      caret-color: var(--text);
+    }
+    .prompt-wrap textarea::placeholder { color: var(--muted); }
+    .prompt-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .prompt-hint { font-size: 12px; color: var(--muted); }
+    .prompt-clear {
+      font-size: 12px; color: var(--muted);
+      background: none; border: none; cursor: pointer;
+      font-family: inherit;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: background .12s, color .12s, transform .1s;
+    }
+    .prompt-clear:active { transform: scale(.94); background: var(--subtle); }
+
+    /* ──── PLATFORM PILLS ──── */
+    .platform-row { display: flex; gap: 8px; }
+    .plat-pill {
+      flex: 1;
+      padding: 13px 6px;
+      border-radius: var(--r-pill);
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      text-align: center;
+      transition: all .18s, transform .1s;
+      letter-spacing: .2px;
+      min-height: 52px;
+    }
+    .plat-pill:active { transform: scale(.96); }
+    .plat-pill.active {
+      background: var(--text);
+      border-color: var(--text);
+      color: var(--bg);
+    }
+    .plat-dur { display: block; font-size: 10px; font-weight: 500; opacity: .65; margin-top: 2px; }
+
+    /* ──── OPT GRID ──── */
+    .opt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .opt-tile {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 16px 14px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      user-select: none;
+      min-height: 80px;
+      transition: border-color .15s, background .15s, transform .1s;
+    }
+    .opt-tile:active { transform: scale(.97); background: var(--lift); }
+    .opt-tile.active {
+      border-color: var(--border2);
+      background: var(--lift);
+    }
+    .opt-tile--wide { grid-column: 1 / -1; flex-direction: row; align-items: center; min-height: 64px; }
+    .opt-tile__icon { font-size: 20px; line-height: 1; }
+    .opt-tile__meta { flex: 1; }
+    .opt-tile__label { font-size: 10px; color: var(--muted); font-weight: 600; letter-spacing: .5px; text-transform: uppercase; }
+    .opt-tile__val { font-size: 16px; font-weight: 700; color: var(--text); margin-top: 3px; line-height: 1.2; }
+    .opt-tile__arrow { color: var(--muted); font-size: 20px; margin-left: auto; }
+
+    /* ──── SCENE STEPPER ──── */
+    .stepper { display: flex; align-items: center; gap: 16px; }
+    .step-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border2);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 22px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-family: inherit;
+      line-height: 1;
+      flex-shrink: 0;
+      transition: background .15s, transform .1s;
+    }
+    .step-btn:active { transform: scale(.9); background: var(--lift); }
+    .step-count { font-size: 22px; font-weight: 800; min-width: 28px; text-align: center; }
+    .step-sec { font-size: 12px; color: var(--muted); }
+
+    /* ──── BOTTOM DOCK ──── */
+    .dock {
+      position: fixed;
+      bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 430px;
+      background: var(--dock-bg);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
+      border-top: 1px solid var(--border);
+      padding: 12px 18px calc(14px + env(safe-area-inset-bottom,0));
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    .dock-img {
+      width: 60px; height: 60px;
+      border-radius: var(--r-sm);
+      border: 1.5px solid var(--border2);
+      background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background .15s, transform .1s;
+    }
+    .dock-img:active { transform: scale(.93); background: var(--lift); }
+    .dock-gen {
+      flex: 1;
+      height: 60px;
+      border-radius: var(--r-pill);
+      background: var(--text);
+      border: none;
+      color: var(--bg);
+      font-size: 17px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      letter-spacing: -.2px;
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      transition: opacity .15s, transform .12s;
+      position: relative;
+      overflow: hidden;
+    }
+    .dock-gen:active { transform: scale(.97); opacity: .88; }
+    .dock-gen.loading { pointer-events: none; }
+    .dock-gen__icon { font-size: 17px; }
+
+    /* loading spinner */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .spinner {
+      width: 20px; height: 20px;
+      border: 2.5px solid rgba(0,0,0,.2);
+      border-top-color: var(--bg);
+      border-radius: 50%;
+      animation: spin .75s linear infinite;
+    }
+
+    /* ══════════════════════════════
+       CARD ENTRANCE ANIMATION
+    ══════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .sc-anim .sc,
+    .sc-anim .cc {
+      animation: fadeUp .28s ease both;
+    }
+    .sc-anim .sc:nth-child(1),  .sc-anim .cc:nth-child(1)  { animation-delay:  0ms; }
+    .sc-anim .sc:nth-child(2),  .sc-anim .cc:nth-child(2)  { animation-delay: 50ms; }
+    .sc-anim .sc:nth-child(3),  .sc-anim .cc:nth-child(3)  { animation-delay: 90ms; }
+    .sc-anim .sc:nth-child(4),  .sc-anim .cc:nth-child(4)  { animation-delay:125ms; }
+    .sc-anim .sc:nth-child(5),  .sc-anim .cc:nth-child(5)  { animation-delay:155ms; }
+    .sc-anim .sc:nth-child(6),  .sc-anim .cc:nth-child(6)  { animation-delay:180ms; }
+    .sc-anim .sc:nth-child(7),  .sc-anim .cc:nth-child(7)  { animation-delay:200ms; }
+    .sc-anim .sc:nth-child(8),  .sc-anim .cc:nth-child(8)  { animation-delay:215ms; }
+    .sc-anim .sc:nth-child(9),  .sc-anim .cc:nth-child(9)  { animation-delay:228ms; }
+    .sc-anim .sc:nth-child(10), .sc-anim .cc:nth-child(10) { animation-delay:240ms; }
+    .sc-anim .sc:nth-child(11), .sc-anim .cc:nth-child(11) { animation-delay:252ms; }
+    .sc-anim .sc:nth-child(12), .sc-anim .cc:nth-child(12) { animation-delay:264ms; }
+
+    /* ════════════════════════════
+       POPUP
+    ════════════════════════════ */
+    .overlay {
+      position: fixed; inset: 0;
+      background: var(--overlay-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 500;
+      display: flex; align-items: flex-end; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .22s;
+    }
+    .overlay.open { opacity: 1; pointer-events: all; }
+
+    .sheet {
+      width: 100%; max-width: 430px;
+      background: var(--bg2);
+      border-radius: 24px 24px 0 0;
+      max-height: 92dvh;
+      display: flex; flex-direction: column;
+      transform: translateY(100%);
+      transition: transform .32s cubic-bezier(.25,.46,.45,.94);
+      border-top: 1.5px solid var(--border2);
+    }
+    .overlay.open .sheet { transform: translateY(0); }
+
+    .sheet-drag {
+      width: 40px; height: 4px;
+      background: var(--subtle);
+      border-radius: 2px;
+      margin: 12px auto 0;
+      flex-shrink: 0;
+    }
+
+    .sheet-head {
+      padding: 14px 18px 10px;
+      display: flex; align-items: center; gap: 10px;
+      flex-shrink: 0;
+    }
+    .sheet-back {
+      background: var(--lift);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 14px;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 4px;
+      transition: background .12s, transform .1s;
+      min-height: 40px;
+    }
+    .sheet-back:active { background: var(--card); transform: scale(.95); }
+    .sheet-title {
+      flex: 1;
+      font-size: 17px; font-weight: 800;
+      letter-spacing: -.4px;
+      color: var(--text);
+    }
+    .sheet-close {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--lift);
+      border: 1.5px solid var(--border);
+      color: var(--muted);
+      font-size: 15px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .12s, transform .1s;
+    }
+    .sheet-close:active { background: var(--card); transform: scale(.9); }
+
+    .sheet-crumb {
+      padding: 0 18px 8px;
+      font-size: 11px; color: var(--muted);
+      letter-spacing: .3px;
+      flex-shrink: 0;
+    }
+
+    .sheet-body {
+      flex: 1; overflow-y: auto;
+      padding: 6px 18px 36px;
+      overscroll-behavior: contain;
+      scrollbar-width: none;
+    }
+    .sheet-body::-webkit-scrollbar { display: none; }
+
+    /* ──── SHEET SECTION ──── */
+    .sh-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--muted);
+      margin: 14px 0 12px;
+    }
+
+    /* ──── STYLE GRID ──── */
+    .style-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .sc {
+      background: var(--lift);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 18px 12px 16px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color .15s, background .15s, transform .1s;
+    }
+    .sc:active { transform: scale(.95); background: var(--card); }
+    .sc.sel {
+      border-color: var(--text);
+      background: var(--subtle);
+    }
+    .sc__icon { font-size: 30px; margin-bottom: 10px; display: block; }
+    .sc__name { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.2; }
+    .sc__desc { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.35; }
+
+    /* ──── ALL BUTTON ──── */
+    .btn-all {
+      width: 100%;
+      margin-top: 12px;
+      padding: 18px;
+      background: transparent;
+      border: 1.5px dashed var(--border2);
+      border-radius: var(--r-sm);
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      letter-spacing: .1px;
+      transition: border-color .15s, color .15s, transform .1s;
+      min-height: 56px;
+    }
+    .btn-all:active { border-color: var(--border2); color: var(--text); transform: scale(.98); }
+
+    /* ──── CAT GRID ──── */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .cc {
+      background: var(--lift);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 20px 12px 18px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color .15s, background .15s, transform .1s;
+    }
+    .cc:active { border-color: var(--border2); background: var(--card); transform: scale(.95); }
+    .cc__icon { font-size: 24px; margin-bottom: 8px; display: block; }
+    .cc__name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .cc__count { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+    /* ──── SELECTED BADGE ──── */
+    .sel-badge {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: var(--subtle);
+      border: 1.5px solid var(--border2);
+      border-radius: var(--r-pill);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .sel-badge.show { display: flex; }
+    .sel-badge__x {
+      margin-left: auto;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 3px 6px;
+      transition: color .12s, transform .1s;
+    }
+    .sel-badge__x:active { transform: scale(.88); color: var(--text); }
+
+    /* ──── VIEWS ──── */
+    .view { display: none; }
+    .view.on { display: block; }
+
+    /* ──── DIVIDER ──── */
+    .divider { height: 1px; background: var(--border); margin: 18px 0; }
+
+    /* ════════════════════════════
+       BOOK QUIZ
+    ════════════════════════════ */
+    .book-fab {
+      position: absolute;
+      right: 16px;
+      bottom: calc(80px + env(safe-area-inset-bottom, 0));
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border2);
+      background: var(--lift);
+      color: var(--text);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 25;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,.35);
+      transition: background .15s, transform .1s;
+    }
+    .book-fab:active { background: var(--card); transform: scale(.9); }
+
+    .quiz-overlay {
+      position: fixed; inset: 0;
+      background: var(--overlay-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 600;
+      display: flex; align-items: flex-end; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .22s;
+    }
+    .quiz-overlay.open { opacity: 1; pointer-events: all; }
+    .quiz-sheet {
+      width: 100%; max-width: 430px;
+      max-height: 92dvh;
+      background: var(--bg2);
+      border-radius: 24px 24px 0 0;
+      border-top: 1.5px solid var(--border2);
+      display: flex; flex-direction: column;
+      transform: translateY(100%);
+      transition: transform .32s cubic-bezier(.25,.46,.45,.94);
+    }
+    .quiz-overlay.open .quiz-sheet { transform: translateY(0); }
+    .quiz-head {
+      padding: 14px 18px 10px;
+      flex-shrink: 0;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .quiz-head__text { flex: 1; min-width: 0; }
+    .quiz-head__title { font-size: 17px; font-weight: 800; letter-spacing: -.3px; color: var(--text); }
+    .quiz-head__sub { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+    .quiz-close {
+      width: 36px; height: 36px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--lift);
+      color: var(--muted);
+      font-size: 15px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .12s, transform .1s;
+    }
+    .quiz-close:active { background: var(--card); transform: scale(.9); }
+    .quiz-scroll {
+      flex: 1; overflow-y: auto;
+      padding: 4px 18px 14px;
+      overscroll-behavior: contain;
+      scrollbar-width: none;
+    }
+    .quiz-scroll::-webkit-scrollbar { display: none; }
+    .quiz-block {
+      background: var(--lift);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 14px 14px 6px;
+      margin-bottom: 12px;
+    }
+    .quiz-block__num {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 6px;
+    }
+    .quiz-block__q {
+      font-size: 15px; font-weight: 800;
+      color: var(--text); line-height: 1.35; margin-bottom: 10px;
+    }
+    .quiz-hint { font-size: 11px; color: var(--muted); margin: -4px 0 10px; line-height: 1.35; }
+    .quiz-opt {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 12px 10px; margin-bottom: 4px;
+      border-radius: 10px; cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: background .12s, border-color .12s;
+      min-height: 48px;
+    }
+    .quiz-opt:hover { background: var(--subtle); }
+    .quiz-opt:has(input:checked) {
+      background: var(--subtle);
+      border-color: var(--border2);
+    }
+    .quiz-opt input {
+      width: 22px; height: 22px;
+      margin-top: 0; flex-shrink: 0;
+      accent-color: var(--text);
+      cursor: pointer;
+    }
+    .quiz-opt__text {
+      font-size: 14px; font-weight: 500;
+      color: var(--off); line-height: 1.45;
+    }
+    .quiz-summary-wrap { padding: 0 18px 8px; flex-shrink: 0; }
+    .quiz-summary {
+      display: none;
+      font-size: 12px; line-height: 1.5; color: var(--off);
+      background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: var(--r-sm); padding: 14px;
+      max-height: 120px; overflow-y: auto; white-space: pre-wrap;
+    }
+    .quiz-summary.show { display: block; }
+    .quiz-foot {
+      flex-shrink: 0;
+      padding: 10px 18px calc(14px + env(safe-area-inset-bottom, 0));
+      border-top: 1px solid var(--border);
+      display: flex; gap: 10px;
+      background: var(--dock-bg);
+    }
+    .quiz-btn {
+      flex: 1; padding: 16px 12px;
+      border-radius: var(--r-pill);
+      font-family: inherit;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer;
+      border: 1.5px solid var(--border2);
+      background: transparent; color: var(--text);
+      transition: opacity .15s, transform .1s;
+      min-height: 52px;
+    }
+    .quiz-btn:active { opacity: .82; transform: scale(.97); }
+    .quiz-btn--primary {
+      background: var(--text); color: var(--bg);
+      border-color: var(--text);
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <span class="status-time">9:41</span>
+    <div class="status-right">
+      <div class="status-icons">
+        <span>●●●</span>
+        <span>WiFi</span>
+        <span>█</span>
+      </div>
+      <span class="theme-icon" id="theme-icon">☀️</span>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="สลับธีม"></button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="app-header">
+    <div class="app-title">Project CS</div>
+    <div class="app-headline">สร้างคอนเทนต์</div>
+  </div>
+
+  <!-- SCROLL BODY -->
+  <div class="scroll-body">
+
+    <!-- PROMPT -->
+    <div class="sec-label">โจทย์</div>
+    <div class="prompt-wrap">
+      <textarea rows="3" placeholder="สินค้า / เรื่อง / ไอเดีย...">ทัวร์ทะเลอีสาน 3 วัน 2 คืน</textarea>
+      <div class="prompt-footer">
+        <span class="prompt-hint">พิมพ์สั้นๆ AI จะปรับเอง</span>
+        <button class="prompt-clear">ล้าง</button>
+      </div>
+    </div>
+
+    <!-- PLATFORM -->
+    <div class="sec-label">แพลตฟอร์ม</div>
+    <div class="platform-row">
+      <button class="plat-pill active" onclick="setPlatform(this)">
+        Flow<span class="plat-dur">8 วิ</span>
+      </button>
+      <button class="plat-pill" onclick="setPlatform(this)">
+        Grok<span class="plat-dur">6 วิ</span>
+      </button>
+      <button class="plat-pill" onclick="setPlatform(this)">
+        SGrok<span class="plat-dur">10 วิ</span>
+      </button>
+    </div>
+
+    <!-- SCENES -->
+    <div class="sec-label">จำนวนฉาก</div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="stepper">
+        <button class="step-btn" onclick="changeScene(-1)">−</button>
+        <span class="step-count" id="scene-n">6</span>
+        <button class="step-btn" onclick="changeScene(1)">+</button>
+      </div>
+      <span class="step-sec" id="scene-info">× 8 วิ = 48 วินาที</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- OPTIONS -->
+    <div class="sec-label">ปรับแต่ง</div>
+    <div class="opt-grid">
+
+      <div class="opt-tile opt-tile--wide" id="tile-visual" onclick="openSheet()">
+        <span class="opt-tile__icon">◈</span>
+        <div class="opt-tile__meta">
+          <div class="opt-tile__label">สไตล์ภาพ</div>
+          <div class="opt-tile__val" id="visual-val">ยังไม่ได้เลือก</div>
+        </div>
+        <span class="opt-tile__arrow">›</span>
+      </div>
+
+      <div class="opt-tile">
+        <span class="opt-tile__icon">◑</span>
+        <div class="opt-tile__label">Mood</div>
+        <div class="opt-tile__val">อารมณ์</div>
+      </div>
+
+      <div class="opt-tile">
+        <span class="opt-tile__icon">◉</span>
+        <div class="opt-tile__label">Style</div>
+        <div class="opt-tile__val">ตัวละคร</div>
+      </div>
+
+      <div class="opt-tile">
+        <span class="opt-tile__icon">◐</span>
+        <div class="opt-tile__label">Tone</div>
+        <div class="opt-tile__val">บุคลิก</div>
+      </div>
+
+      <div class="opt-tile">
+        <span class="opt-tile__icon">◎</span>
+        <div class="opt-tile__label">ภาษา</div>
+        <div class="opt-tile__val">ไทย</div>
+      </div>
+
+    </div>
+
+  </div><!-- /scroll-body -->
+
+  <!-- BOTTOM DOCK -->
+  <div class="dock">
+    <div class="dock-img">⊕</div>
+    <button class="dock-gen" id="gen-btn" onclick="onGenerate()">
+      <span class="dock-gen__icon">✦</span> Generate
+    </button>
+  </div>
+
+  <button type="button" class="book-fab" onclick="openBookQuiz()" aria-label="แบบสำรวจทำหนังสือ">📖</button>
+
+</div><!-- /shell -->
+
+
+<!-- ════════════════════════════
+     SHEET POPUP
+════════════════════════════ -->
+<div class="overlay" id="overlay" onclick="onOverlayClick(event)">
+<div class="sheet" id="sheet" onclick="event.stopPropagation()">
+
+  <div class="sheet-drag"></div>
+
+  <div class="sheet-head">
+    <span id="sh-back"></span>
+    <span class="sheet-title" id="sh-title">สไตล์ภาพ</span>
+    <button class="sheet-close" onclick="closeSheet()">✕</button>
+  </div>
+  <div class="sheet-crumb" id="sh-crumb"></div>
+
+  <div class="sheet-body">
+
+    <!-- VIEW 1: POPULAR -->
+    <div class="view on" id="v-popular">
+
+      <div class="sel-badge" id="sel-badge">
+        <span id="sel-icon"></span>
+        <span id="sel-name"></span>
+        <span class="sel-badge__x" onclick="clearSel()">✕</span>
+      </div>
+
+      <div class="sh-label">⭐  ยอดนิยม</div>
+      <div class="style-grid sc-anim" id="popular-grid">
+        <div class="sc" id="c-cin" onclick="pick('real_cinematic','🎞️','Cinematic','โทนหนังใหญ่')">
+          <span class="sc__icon">🎞️</span>
+          <div class="sc__name">Cinematic</div>
+          <div class="sc__desc">โทนภาพยนตร์<br>แสงเงาหรู</div>
+        </div>
+        <div class="sc" id="c-pix" onclick="pick('disney_pixar_3d','🏰','Cartoon 3D','Pixar สไตล์')">
+          <span class="sc__icon">🏰</span>
+          <div class="sc__name">Cartoon 3D</div>
+          <div class="sc__desc">การ์ตูน Pixar<br>ดวงตาเด่น</div>
+        </div>
+      </div>
+
+      <button class="btn-all" onclick="showCats()">
+        ⊞ &nbsp;ดูสไตล์ทั้งหมด 50 แบบ &nbsp;›
+      </button>
+
+    </div><!-- /v-popular -->
+
+    <!-- VIEW 2: CATEGORIES -->
+    <div class="view" id="v-cats">
+      <div class="sh-label">หมวดหมู่</div>
+      <div class="cat-grid" id="cats-grid">
+        <div class="cc" onclick="showItems('Mainstream','🎬',['real_cinematic','disney_pixar_3d','surreal_anthropomorphic_3d','ghibli'])">
+          <span class="cc__icon">🎬</span>
+          <div class="cc__name">Mainstream</div>
+          <div class="cc__count">4 สไตล์</div>
+        </div>
+        <div class="cc" onclick="showItems('Craft','🧶',['claymation','crochet','plushie','paper_cutout'])">
+          <span class="cc__icon">🧶</span>
+          <div class="cc__name">Craft</div>
+          <div class="cc__count">4 สไตล์</div>
+        </div>
+        <div class="cc" onclick="showItems('Nostalgia','🕰️',['dragonball','90s_anime','gta_style'])">
+          <span class="cc__icon">🕰️</span>
+          <div class="cc__name">Nostalgia</div>
+          <div class="cc__count">3 สไตล์</div>
+        </div>
+        <div class="cc" onclick="showItems('Artistic','🎨',['watercolor','chalk_art','oil_painting','pop_art'])">
+          <span class="cc__icon">🎨</span>
+          <div class="cc__name">Artistic</div>
+          <div class="cc__count">4 สไตล์</div>
+        </div>
+        <div class="cc" onclick="showItems('Digital','📱',['pixel_art','cyberpunk_neon','vector_flat','lego_style','minimal_product_studio'])">
+          <span class="cc__icon">📱</span>
+          <div class="cc__name">Digital</div>
+          <div class="cc__count">5 สไตล์</div>
+        </div>
+        <div class="cc" onclick="showItems('Unique','🦋',['vaporwave','emoji_icon'])">
+          <span class="cc__icon">🦋</span>
+          <div class="cc__name">Unique</div>
+          <div class="cc__count">2 สไตล์</div>
+        </div>
+        <div class="cc" onclick="showItems('Thai & Asian','🛕',['thai_temple_mural','thai_retro_poster','webtoon_manhwa','thai_ghost_comic','thai_realistic_ghost','thai_ancient_ghost','hospital_ghost_realism','forest_ghost_realism','y2k_purikura','ukiyo_e','thai_commercial_tv'])">
+          <span class="cc__icon">🛕</span>
+          <div class="cc__name">Thai & Asian</div>
+          <div class="cc__count">11 สไตล์</div>
+        </div>
+        <div class="cc" onclick="showItems('Trendy','🔥',['doodle_art','double_exposure','risograph','origami','surrealism','gothic_dark_fantasy','cctv_analog_horror','cinematic_food_closeup'])">
+          <span class="cc__icon">🔥</span>
+          <div class="cc__name">Trendy</div>
+          <div class="cc__count">8 สไตล์</div>
+        </div>
+        <div class="cc" onclick="showItems('Advanced 3D','🧊',['isometric_3d','low_poly_3d','glitch_art','neon_line_art','cyber_sigilism','hyper_realistic','steampunk','polaroid_snapshot'])">
+          <span class="cc__icon">🧊</span>
+          <div class="cc__name">Advanced 3D</div>
+          <div class="cc__count">8 สไตล์</div>
+        </div>
+      </div>
+    </div><!-- /v-cats -->
+
+    <!-- VIEW 3: ITEMS -->
+    <div class="view" id="v-items">
+      <div class="style-grid sc-anim" id="items-grid"></div>
+    </div>
+
+  </div><!-- /sheet-body -->
+</div><!-- /sheet -->
+</div><!-- /overlay -->
+
+
+<!-- ════════════════════════════
+     BOOK QUIZ
+════════════════════════════ -->
+<div class="quiz-overlay" id="book-quiz-overlay" onclick="onBookQuizOverlay(event)">
+  <div class="quiz-sheet" id="book-quiz-sheet" onclick="event.stopPropagation()">
+    <div class="sheet-drag"></div>
+    <div class="quiz-head">
+      <div class="quiz-head__text">
+        <div class="quiz-head__title">ทำหนังสือ — เลือกคำตอบ</div>
+        <div class="quiz-head__sub">แต่ละบล็อกติ๊กได้ชัด ๆ ข้อที่บอกว่า "เลือกได้หลายข้อ" ติ๊กได้มากกว่า 1</div>
+      </div>
+      <button type="button" class="quiz-close" onclick="closeBookQuiz()" aria-label="ปิด">✕</button>
+    </div>
+    <div class="quiz-scroll" id="book-quiz-scroll">
+
+      <div class="quiz-block" data-single="q1">
+        <div class="quiz-block__num">บล็อก 1</div>
+        <div class="quiz-block__q">แนวหนังสือที่ใกล้เคียงที่สุด?</div>
+        <div class="quiz-hint">ติ๊กได้ 1 ข้อในบล็อกนี้</div>
+        <label class="quiz-opt"><input type="checkbox" name="q1" value="คู่มือทำตาม (How-to)"/><span class="quiz-opt__text">คู่มือทำตาม (How-to)</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q1" value="เชิงความคิด / เฟรมเวิร์ก"/><span class="quiz-opt__text">เชิงความคิด / เฟรมเวิร์ก</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q1" value="เล่าประสบการณ์ / เคส"/><span class="quiz-opt__text">เล่าประสบการณ์ / เคส</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q1" value="ผสม / อื่น ๆ"/><span class="quiz-opt__text">ผสม / อื่น ๆ</span></label>
+      </div>
+
+      <div class="quiz-block" data-single="q2">
+        <div class="quiz-block__num">บล็อก 2</div>
+        <div class="quiz-block__q">กลุ่มอ่านหลักที่คุณโฟกัส?</div>
+        <div class="quiz-hint">ติ๊กได้ 1 ข้อในบล็อกนี้</div>
+        <label class="quiz-opt"><input type="checkbox" name="q2" value="มือใหม่ทั่วไป"/><span class="quiz-opt__text">มือใหม่ทั่วไป</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q2" value="ฟรีแลนซ์ / SME"/><span class="quiz-opt__text">ฟรีแลนซ์ / SME</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q2" value="ผู้บริหาร / ทีมองค์กร"/><span class="quiz-opt__text">ผู้บริหาร / ทีมองค์กร</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q2" value="ครู / โค้ช / ที่ปรึกษา"/><span class="quiz-opt__text">ครู / โค้ช / ที่ปรึกษา</span></label>
+      </div>
+
+      <div class="quiz-block" data-single="q3">
+        <div class="quiz-block__num">บล็อก 3</div>
+        <div class="quiz-block__q">เป้าหมายการตลาดช่วงนี้?</div>
+        <div class="quiz-hint">ติ๊กได้ 1 ข้อในบล็อกนี้</div>
+        <label class="quiz-opt"><input type="checkbox" name="q3" value="เน้นยอดขาย"/><span class="quiz-opt__text">เน้นยอดขาย</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q3" value="สร้างแบรนด์ / ความน่าเชื่อถือ"/><span class="quiz-opt__text">สร้างแบรนด์ / ความน่าเชื่อถือ</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q3" value="เก็บลีด / ชวนเข้าคอร์ส"/><span class="quiz-opt__text">เก็บลีด / ชวนเข้าคอร์ส</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q3" value="ทดลองตลาด / เรียนรู้กลุ่มลูกค้า"/><span class="quiz-opt__text">ทดลองตลาด / เรียนรู้กลุ่มลูกค้า</span></label>
+      </div>
+
+      <div class="quiz-block" data-single="q4">
+        <div class="quiz-block__num">บล็อก 4</div>
+        <div class="quiz-block__q">รูปแบบขายที่อยากเริ่มก่อน?</div>
+        <div class="quiz-hint">ติ๊กได้ 1 ข้อในบล็อกนี้</div>
+        <label class="quiz-opt"><input type="checkbox" name="q4" value="อีบุ๊ก"/><span class="quiz-opt__text">อีบุ๊ก</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q4" value="พิมพ์ตามสั่ง (Print-on-demand)"/><span class="quiz-opt__text">พิมพ์ตามสั่ง (Print-on-demand)</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q4" value="แถมกับบริการ / คอร์ส"/><span class="quiz-opt__text">แถมกับบริการ / คอร์ส</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q4" value="ยังไม่แน่ใจ"/><span class="quiz-opt__text">ยังไม่แน่ใจ</span></label>
+      </div>
+
+      <div class="quiz-block" data-multi="q5">
+        <div class="quiz-block__num">บล็อก 5</div>
+        <div class="quiz-block__q">ช่องทางโปรโมทที่สนใจ?</div>
+        <div class="quiz-hint">เลือกได้หลายข้อ — ติ๊กได้มากกว่า 1</div>
+        <label class="quiz-opt"><input type="checkbox" name="q5" value="โซเชียลสั้น (Reels / Shorts)"/><span class="quiz-opt__text">โซเชียลสั้น (Reels / Shorts)</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q5" value="SEO / บทความค้นหา"/><span class="quiz-opt__text">SEO / บทความค้นหา</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q5" value="โฆษณา (Paid Ads)"/><span class="quiz-opt__text">โฆษณา (Paid Ads)</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q5" value="อีเมล / ไลน์ OA"/><span class="quiz-opt__text">อีเมล / ไลน์ OA</span></label>
+        <label class="quiz-opt"><input type="checkbox" name="q5" value="พันธมิตร / อินฟลูเอนเซอร์"/><span class="quiz-opt__text">พันธมิตร / อินฟลูเอนเซอร์</span></label>
+      </div>
+
+    </div>
+    <div class="quiz-summary-wrap">
+      <div class="quiz-summary" id="book-quiz-summary" aria-live="polite"></div>
+    </div>
+    <div class="quiz-foot">
+      <button type="button" class="quiz-btn" onclick="resetBookQuiz()">ล้างการติ๊ก</button>
+      <button type="button" class="quiz-btn quiz-btn--primary" onclick="applyBookQuizSummary()">ดูสรุปที่เลือก</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ── STYLE DATA ── */
+const STYLES = {
+  real_cinematic:            {icon:'🎞️',name:'Cinematic',       desc:'โทนภาพยนตร์คนจริง'},
+  disney_pixar_3d:           {icon:'🏰',name:'Cartoon Nova 3D', desc:'การ์ตูน 3D Pixar'},
+  surreal_anthropomorphic_3d:{icon:'🦊',name:'Surreal Anthro',  desc:'3D body-horror แปลก'},
+  ghibli:                    {icon:'🌿',name:'Mosslight Anime', desc:'Ghibli สีน้ำละมุน'},
+  claymation:                {icon:'🖼️',name:'Plasticine',      desc:'ดินน้ำมันหยุดภาพ'},
+  crochet:                   {icon:'🧶',name:'Threadloom',       desc:'งานถักไหมพรม'},
+  plushie:                   {icon:'🧸',name:'Fluffy Toy',       desc:'ตุ๊กตาขนฟู'},
+  paper_cutout:              {icon:'✂️',name:'Paperstage',       desc:'กระดาษซ้อนชั้น'},
+  dragonball:                {icon:'🐉',name:'Shonen Burst',     desc:'อนิเมะ Dragon Ball'},
+  '90s_anime':               {icon:'🌌',name:'Retro Moonbeam',   desc:'อนิเมะยุค 90'},
+  gta_style:                 {icon:'🔫',name:'Street Noir',      desc:'GTA poster style'},
+  watercolor:                {icon:'🖼️',name:'Mistwash Water',   desc:'สีน้ำละเอียด'},
+  chalk_art:                 {icon:'☕',name:'Cafe Chalk',        desc:'ชอล์กกระดาน'},
+  oil_painting:              {icon:'🖼️',name:'Masterstroke Oil', desc:'สีน้ำมันพู่กัน'},
+  pop_art:                   {icon:'💥',name:'Punch Pop',         desc:'Pop Art สีแรง'},
+  pixel_art:                 {icon:'👾',name:'Retrobit Pixels',  desc:'8-bit retro'},
+  cyberpunk_neon:            {icon:'🌃',name:'Neongrid Future',  desc:'ไซเบอร์พังก์'},
+  vector_flat:               {icon:'📱',name:'Cleanline Vector', desc:'กราฟิกเวกเตอร์'},
+  lego_style:                {icon:'🧱',name:'Brickbox',          desc:'ตัวต่อ Lego'},
+  minimal_product_studio:    {icon:'🧴',name:'Pure Studio',       desc:'สตูดิโอมินิมอล'},
+  vaporwave:                 {icon:'🏛️',name:'Pastel Synthwave', desc:'นีออนเรโทร'},
+  emoji_icon:                {icon:'😊',name:'Emoji Bubble',      desc:'ไอคอนกลมสดใส'},
+  thai_temple_mural:         {icon:'🛕',name:'Siam Mural',        desc:'ลายไทยวิจิตร'},
+  thai_retro_poster:         {icon:'🎞️',name:'Thai Cinema',       desc:'โปสเตอร์หนังเก่า'},
+  webtoon_manhwa:            {icon:'📖',name:'K-Scroll',           desc:'เว็บตูนเกาหลี'},
+  thai_ghost_comic:          {icon:'👻',name:'Thai Pulp Horror',  desc:'การ์ตูนผีขาวดำ'},
+  thai_realistic_ghost:      {icon:'🕯️',name:'Siam Phantom',      desc:'ผีไทยสมจริง'},
+  thai_ancient_ghost:        {icon:'🏮',name:'Lantern Era',        desc:'ไทยโบราณตะเกียง'},
+  hospital_ghost_realism:    {icon:'🏥',name:'Silent Ward',        desc:'โรงพยาบาลหลอน'},
+  forest_ghost_realism:      {icon:'🌲',name:'Moonfog Forest',     desc:'ป่าหมอกสยอง'},
+  y2k_purikura:              {icon:'📸',name:'Purikura',           desc:'สติ๊กเกอร์ญี่ปุ่น'},
+  ukiyo_e:                   {icon:'🌊',name:'Edo Woodwave',       desc:'ภาพพิมพ์ไม้ญี่ปุ่น'},
+  thai_commercial_tv:        {icon:'📺',name:'Thai TV Promo',      desc:'โฆษณาทีวีไทย'},
+  doodle_art:                {icon:'✏️',name:'Chaos Doodle',       desc:'ลายเส้นขยุก'},
+  double_exposure:           {icon:'🌲',name:'Echo Overlay',       desc:'ภาพซ้อนธรรมชาติ'},
+  risograph:                 {icon:'🖨️',name:'Indie Riso',         desc:'พิมพ์ริโซ่'},
+  origami:                   {icon:'🦢',name:'Foldcraft',           desc:'พับกระดาษมิติ'},
+  surrealism:                {icon:'🃏',name:'Dreambend',           desc:'เหนือจริงฝัน'},
+  gothic_dark_fantasy:       {icon:'🏰',name:'Obsidian Gothic',    desc:'ดาร์กแฟนตาซี'},
+  cctv_analog_horror:        {icon:'📹',name:'Analog CCTV',        desc:'กล้องวงจรปิดหลอน'},
+  cinematic_food_closeup:    {icon:'🍜',name:'Gourmet Macro',      desc:'โคลสอัปอาหาร'},
+  isometric_3d:              {icon:'🏗️',name:'Isovista 3D',        desc:'ไอโซเมตริก'},
+  low_poly_3d:               {icon:'🧿',name:'Poly Forge',         desc:'3D เหลี่ยม'},
+  glitch_art:                {icon:'📺',name:'Glitch Break',        desc:'ภาพแตกสัญญาณ'},
+  neon_line_art:             {icon:'💡',name:'Neonwire',            desc:'เส้นนีออน'},
+  cyber_sigilism:            {icon:'🗡️',name:'Sigilpunk',           desc:'ลายคม Y2K'},
+  hyper_realistic:           {icon:'🧑',name:'Hyperdetail',         desc:'สมจริงสุด'},
+  steampunk:                 {icon:'🛠️',name:'Steamgear',           desc:'เครื่องกลไอน้ำ'},
+  polaroid_snapshot:         {icon:'🖼️',name:'Polaroid',            desc:'วินเทจแฟลช'},
+};
+
+/* ── STATE ── */
+let selId = null, sceneCount = 6, platDur = 8;
+
+/* ── THEME ── */
+function toggleTheme() {
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+  document.getElementById('theme-icon').textContent = isLight ? '☀️' : '🌙';
+  try { localStorage.setItem('cs-theme', isLight ? 'dark' : 'light'); } catch(e) {}
+}
+(function initTheme() {
+  try {
+    const saved = localStorage.getItem('cs-theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.getElementById('theme-icon').textContent = '🌙';
+    }
+  } catch(e) {}
+})();
+
+/* ── PLATFORM ── */
+function setPlatform(btn) {
+  document.querySelectorAll('.plat-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const txt = btn.childNodes[0].nodeValue?.trim();
+  platDur = txt === 'Flow' ? 8 : txt === 'Grok' ? 6 : 10;
+  updateSceneInfo();
+}
+function updateSceneInfo() {
+  document.getElementById('scene-info').textContent = `× ${platDur} วิ = ${sceneCount * platDur} วินาที`;
+}
+
+/* ── STEPPER ── */
+function changeScene(d) {
+  sceneCount = Math.max(1, Math.min(20, sceneCount + d));
+  document.getElementById('scene-n').textContent = sceneCount;
+  updateSceneInfo();
+}
+
+/* ── SHEET ── */
+function openSheet() {
+  document.getElementById('overlay').classList.add('open');
+  goPop();
+  /* re-trigger entrance animation */
+  triggerAnim('popular-grid');
+}
+function closeSheet() {
+  document.getElementById('overlay').classList.remove('open');
+}
+function onOverlayClick(e) {
+  if (e.target === document.getElementById('overlay')) closeSheet();
+}
+function triggerAnim(gridId) {
+  const el = document.getElementById(gridId);
+  if (!el) return;
+  el.classList.remove('sc-anim');
+  void el.offsetWidth; /* reflow */
+  el.classList.add('sc-anim');
+}
+function goPop() {
+  setView('popular');
+  document.getElementById('sh-title').textContent = 'สไตล์ภาพ';
+  document.getElementById('sh-crumb').textContent = '';
+  document.getElementById('sh-back').innerHTML = '';
+  triggerAnim('popular-grid');
+}
+function showCats() {
+  setView('cats');
+  document.getElementById('sh-title').textContent = 'หมวดหมู่';
+  document.getElementById('sh-crumb').textContent = 'สไตล์ภาพ  ›  หมวดหมู่';
+  document.getElementById('sh-back').innerHTML = '<button class="sheet-back" onclick="goPop()">‹ กลับ</button>';
+  triggerAnim('cats-grid');
+}
+function showItems(cat, icon, ids) {
+  const grid = document.getElementById('items-grid');
+  grid.innerHTML = ids.map(id => {
+    const s = STYLES[id]; if (!s) return '';
+    const sel = selId === id ? ' sel' : '';
+    return `<div class="sc${sel}" id="c-${id}" onclick="pick('${id}','${s.icon}','${s.name}','${s.desc}')">
+      <span class="sc__icon">${s.icon}</span>
+      <div class="sc__name">${s.name}</div>
+      <div class="sc__desc">${s.desc}</div>
+    </div>`;
+  }).join('');
+  setView('items');
+  document.getElementById('sh-title').textContent = icon + ' ' + cat;
+  document.getElementById('sh-crumb').textContent = `สไตล์ภาพ  ›  หมวดหมู่  ›  ${cat}`;
+  document.getElementById('sh-back').innerHTML = '<button class="sheet-back" onclick="showCats()">‹ กลับ</button>';
+  document.querySelector('.sheet-body').scrollTop = 0;
+  triggerAnim('items-grid');
+}
+function setView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('on'));
+  document.getElementById('v-' + name).classList.add('on');
+}
+
+/* ── SELECT ── */
+function pick(id, icon, name, desc) {
+  selId = id;
+  document.querySelectorAll('.sc.sel').forEach(c => c.classList.remove('sel'));
+  document.getElementById('c-' + id)?.classList.add('sel');
+  if (id === 'real_cinematic')  document.getElementById('c-cin')?.classList.add('sel');
+  if (id === 'disney_pixar_3d') document.getElementById('c-pix')?.classList.add('sel');
+
+  document.getElementById('visual-val').textContent = icon + ' ' + name;
+  document.getElementById('tile-visual').classList.add('active');
+
+  const badge = document.getElementById('sel-badge');
+  document.getElementById('sel-icon').textContent = icon;
+  document.getElementById('sel-name').textContent = name;
+  badge.classList.add('show');
+
+  setTimeout(closeSheet, 180);
+}
+function clearSel() {
+  selId = null;
+  document.querySelectorAll('.sc.sel').forEach(c => c.classList.remove('sel'));
+  document.getElementById('visual-val').textContent = 'ยังไม่ได้เลือก';
+  document.getElementById('tile-visual').classList.remove('active');
+  document.getElementById('sel-badge').classList.remove('show');
+}
+
+/* ── GENERATE ── */
+let genTimer = null;
+function onGenerate() {
+  const btn = document.getElementById('gen-btn');
+  if (btn.classList.contains('loading')) return;
+  btn.classList.add('loading');
+  btn.innerHTML = '<div class="spinner"></div>';
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => {
+    btn.innerHTML = '<span class="dock-gen__icon">✦</span> Generate';
+    btn.classList.remove('loading');
+  }, 2200);
+}
+
+/* ── BOOK QUIZ ── */
+function openBookQuiz() {
+  document.getElementById('book-quiz-overlay').classList.add('open');
+}
+function closeBookQuiz() {
+  document.getElementById('book-quiz-overlay').classList.remove('open');
+}
+function onBookQuizOverlay(e) {
+  if (e.target === document.getElementById('book-quiz-overlay')) closeBookQuiz();
+}
+function wireBookQuizSingleSelect() {
+  document.querySelectorAll('.quiz-block[data-single]').forEach(block => {
+    block.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', () => {
+        if (!cb.checked) return;
+        block.querySelectorAll('input[type="checkbox"]').forEach(o => {
+          if (o !== cb) o.checked = false;
+        });
+      });
+    });
+  });
+}
+wireBookQuizSingleSelect();
+
+function labelsBookQuiz() {
+  return ['แนวหนังสือ','กลุ่มอ่านหลัก','เป้าหมายการตลาด','รูปแบบขายที่อยากเริ่ม','ช่องทางโปรโมท (ติ๊กได้หลายข้อ)'];
+}
+function gatherBookQuizLines() {
+  const L = labelsBookQuiz();
+  const names = ['q1','q2','q3','q4','q5'];
+  const lines = [];
+  names.forEach((name, i) => {
+    const checked = Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(x => x.value);
+    if (checked.length) lines.push(`${L[i]}: ${checked.join(' · ')}`);
+  });
+  return lines;
+}
+function applyBookQuizSummary() {
+  const lines = gatherBookQuizLines();
+  const el = document.getElementById('book-quiz-summary');
+  if (!lines.length) {
+    el.textContent = 'ยังไม่มีการติ๊ก — เลือกอย่างน้อย 1 ข้อในบล็อกที่ต้องการก่อน แล้วกดอีกครั้ง';
+    el.classList.add('show');
+    el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    return;
+  }
+  el.textContent = 'สรุปการติ๊ก\n\n' + lines.join('\n');
+  el.classList.add('show');
+  el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+function resetBookQuiz() {
+  document.querySelectorAll('#book-quiz-scroll input[type="checkbox"]').forEach(i => { i.checked = false; });
+  const el = document.getElementById('book-quiz-summary');
+  el.textContent = '';
+  el.classList.remove('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>1CLICK AUTO TEST — Build v2.91</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; padding: 24px; }
+h1 { color: #58a6ff; margin-bottom: 8px; }
+.subtitle { color: #8b949e; margin-bottom: 24px; font-size: 14px; }
+.section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
+.section-header { padding: 12px 16px; background: #21262d; font-weight: 600; font-size: 14px; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; }
+.section-body { padding: 16px; }
+.test-row { display: flex; align-items: center; padding: 6px 0; border-bottom: 1px solid #21262d; font-size: 13px; }
+.test-row:last-child { border-bottom: none; }
+.test-icon { width: 24px; text-align: center; font-size: 16px; margin-right: 8px; }
+.test-name { flex: 1; }
+.test-detail { color: #8b949e; font-size: 11px; margin-left: 8px; }
+.pass { color: #3fb950; }
+.fail { color: #f85149; }
+.summary { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-top: 24px; text-align: center; }
+.summary-pass { color: #3fb950; font-size: 32px; font-weight: 700; }
+.summary-fail { color: #f85149; font-size: 32px; font-weight: 700; }
+.summary-text { margin-top: 8px; font-size: 14px; }
+.btn-run { background: #238636; color: #fff; border: none; padding: 10px 24px; border-radius: 6px; font-size: 14px; cursor: pointer; margin-bottom: 16px; }
+.btn-run:hover { background: #2ea043; }
+.counter { font-size: 13px; }
+.counter .pass-count { color: #3fb950; font-weight: 600; }
+.counter .fail-count { color: #f85149; font-weight: 600; }
+</style>
+</head>
+<body>
+<h1>🧪 1CLICK AUTO TEST</h1>
+<div class="subtitle">Build v2.91 — ทดสอบการแก้ไขทั้งหมดตั้งแต่ v2.84 ถึง v2.91</div>
+<button class="btn-run" onclick="runAllTests()">▶ Run All Tests</button>
+<div id="results"></div>
+<div id="summary"></div>
+
+<script>
+let totalPass = 0, totalFail = 0;
+let sidepanelCode = '';
+let googleflowCode = '';
+let manifestData = {};
+
+async function loadFiles() {
+  try {
+    const [sp, gf, mf] = await Promise.all([
+      fetch('js/sidepanel.js').then(r => r.text()),
+      fetch('js/content-googleflow.js').then(r => r.text()),
+      fetch('manifest.json').then(r => r.json())
+    ]);
+    sidepanelCode = sp;
+    googleflowCode = gf;
+    manifestData = mf;
+    return true;
+  } catch (e) {
+    document.getElementById('results').innerHTML = `<div class="section"><div class="section-body fail">❌ ไม่สามารถโหลดไฟล์ได้: ${e.message}<br>กรุณาเปิดผ่าน Live Server หรือ Chrome Extension (file:// ไม่รองรับ fetch)</div></div>`;
+    return false;
+  }
+}
+
+function assert(name, condition, detail = '') {
+  if (condition) {
+    totalPass++;
+    return `<div class="test-row"><div class="test-icon pass">✅</div><div class="test-name">${name}</div><div class="test-detail pass">${detail}</div></div>`;
+  } else {
+    totalFail++;
+    return `<div class="test-row"><div class="test-icon fail">❌</div><div class="test-name">${name}</div><div class="test-detail fail">${detail}</div></div>`;
+  }
+}
+
+function section(title, tests) {
+  const passCount = (tests.match(/✅/g) || []).length;
+  const failCount = (tests.match(/❌/g) || []).length;
+  return `<div class="section">
+    <div class="section-header"><span>${title}</span><span class="counter"><span class="pass-count">${passCount} pass</span> / <span class="fail-count">${failCount} fail</span></span></div>
+    <div class="section-body">${tests}</div>
+  </div>`;
+}
+
+async function runAllTests() {
+  totalPass = 0;
+  totalFail = 0;
+  const resultsEl = document.getElementById('results');
+  const summaryEl = document.getElementById('summary');
+  resultsEl.innerHTML = '<div class="section"><div class="section-body">⏳ กำลังโหลดไฟล์และทดสอบ...</div></div>';
+
+  if (!await loadFiles()) return;
+
+  let html = '';
+
+  // ============ 1. MANIFEST VERSION ============
+  html += section('📋 Manifest & Version', [
+    assert('Version = 2.91', manifestData.version === '2.91', `actual: ${manifestData.version}`),
+    assert('Manifest V3', manifestData.manifest_version === 3),
+    assert('Name = 1CLICK AUTOMATIC SYSTEM', manifestData.name === '1CLICK AUTOMATIC SYSTEM'),
+  ].join(''));
+
+  // ============ 2. YOURSHOP BAN (v2.84) ============
+  html += section('🚫 YourShop Ban (v2.84+)', [
+    assert('OVERCLAIM_RULES มีกฎ yourshop', sidepanelCode.includes('ห้ามใช้คำว่า "yourshop"')),
+    assert('OVERCLAIM_RULES มี "Your Shop"', sidepanelCode.includes('"Your Shop"')),
+    assert('OVERCLAIM_RULES ห้ามอ้างชื่อร้าน', sidepanelCode.includes('ห้ามอ้างถึงชื่อร้าน')),
+    assert('CONTENT_PROMPT_NORMAL มีกฎ yourshop', sidepanelCode.includes('ห้ามใช้คำว่า "yourshop", "YourShop", "Your Shop"')),
+    assert('CONTENT_PROMPT_EXTEND มีกฎ yourshop', (sidepanelCode.match(/ห้ามใช้คำว่า "yourshop", "YourShop", "Your Shop"/g) || []).length >= 2, 'ต้องมีอย่างน้อย 2 จุด'),
+    assert('enforceHeadlineWordCount ลบ yourshop', sidepanelCode.includes(".replace(/yourshop/gi, '')")),
+    assert('enforceHeadlineWordCount ลบ your shop (เว้นวรรค)', sidepanelCode.includes(".replace(/your\\s*shop/gi, '')")),
+    assert('enforceHeadlineWordCount ลบ YourShop', sidepanelCode.includes(".replace(/YourShop/g, '')")),
+    assert('enforceHeadlineWordCount ลบ YOUR SHOP', sidepanelCode.includes(".replace(/YOUR\\s*SHOP/gi, '')")),
+  ].join(''));
+
+  // ============ 3. SPEECH WORD COUNT (v2.88) ============
+  html += section('📝 Speech 14-18 คำ (v2.88)', [
+    assert('Normal Mode: 14-18 คำ', sidepanelCode.includes('ไม่เกิน 14-18 คำ') && !sidepanelCode.includes('ไม่เกิน 20-25 คำ')),
+    assert('Normal Mode: ห้ามเกิน 18 คำเด็ดขาด', sidepanelCode.includes('ห้ามเกิน 18 คำเด็ดขาด')),
+    assert('Extend Mode speech1: 14-18 คำ', (sidepanelCode.match(/ไม่เกิน 14-18 คำ/g) || []).length >= 4, 'ต้องมีอย่างน้อย 4 จุด'),
+    assert('Storymode dialogue: 14-18 คำ', sidepanelCode.includes('พอดี 14-18 คำ')),
+    assert('Storymode rule: ห้ามเกิน 18 คำ', sidepanelCode.includes('ห้ามเกิน 18 คำ')),
+    assert('Flow rule: 14-18 คำ', sidepanelCode.includes('(14-18 คำ) สั้นกระชับ')),
+    assert('ไม่มี 20-25 คำ เหลืออยู่', !sidepanelCode.includes('ไม่เกิน 20-25 คำ'), 'ต้องไม่มี 20-25 คำ เหลือ'),
+    assert('ไม่มี 15-20 คำ เหลืออยู่', !sidepanelCode.includes('พอดี 15-20 คำ'), 'ต้องไม่มี 15-20 คำ เหลือ'),
+  ].join(''));
+
+  // ============ 4. NO TEXT IN VIDEO (v2.88) ============
+  html += section('🎬 ห้าม Text ใน Video (v2.88)', [
+    assert('VIDEO_PROMPT_STEP1 (8วิ): ยังเก็บ text header', sidepanelCode.includes('Keep the camera relatively stable to ensure the text header')),
+    assert('VIDEO_PROMPT_STEP2 (16วิ): ห้าม text', sidepanelCode.includes('Do NOT render any text, titles, subtitles, captions, or on-screen typography') && sidepanelCode.includes('completely clean of any text overlays')),
+    assert('VIDEO_PROMPT_STEP2: ไม่มี "keep top header visible"', !sidepanelCode.includes('Maintain camera framing to keep the top header visible')),
+    assert('Storymode 3D style: ห้าม text', sidepanelCode.includes('no typography, no font rendering. The video must be completely clean of any text overlays. No narrator.')),
+    assert('Storymode default: ห้าม text', sidepanelCode.includes('no typography, no font rendering. The video must be completely clean of any text overlays. STRICTLY THAI')),
+    assert('Studio video: ห้าม text', sidepanelCode.includes('Do NOT render any text, titles, captions, or on-screen typography in the video. The video must be completely clean of any text overlays or font rendering.')),
+    assert('STEP2 negative_prompt: มี text/font terms', sidepanelCode.includes('text, titles, subtitles, captions, on-screen text, typography, font, text overlay, text header')),
+  ].join(''));
+
+  // ============ 5. STUDIO API RESTRICTION (v2.90) ============
+  html += section('🔒 Studio API Restriction (v2.90)', [
+    assert('STUDIO_RESTRICTED_KEYS มี key 1', sidepanelCode.includes('AIzaSyDJqF_f5GuClZBx7XXgZ6wotK2Lxh7hMC0')),
+    assert('STUDIO_RESTRICTED_KEYS มี key 2', sidepanelCode.includes('AIzaSyCj35Yd9vs1rXt2NBN6cHTlnmsegDoN61k')),
+    assert('isStudioApiBlocked() function exists', sidepanelCode.includes('async function isStudioApiBlocked()')),
+    assert('generateStudioMasterPrompt: มี guard', sidepanelCode.includes('async function generateStudioMasterPrompt() {\n  if (await isStudioApiBlocked())')),
+    assert('generateSingleScene: มี guard', sidepanelCode.includes('async function generateSingleScene(idx) {\n  if (await isStudioApiBlocked())')),
+    assert('generateStudioImages: มี guard', sidepanelCode.includes('async function generateStudioImages() {\n  if (await isStudioApiBlocked())')),
+    assert('generateStudioVideos: มี guard', sidepanelCode.includes('async function generateStudioVideos() {\n  if (await isStudioApiBlocked())')),
+    assert('Alert message ถูกต้อง', sidepanelCode.includes('API Key นี้ไม่สามารถใช้ใน Studio ได้')),
+  ].join(''));
+
+  // ============ 6. ห้ามคนแก่/เด็ก (v2.91) ============
+  html += section('👤 ห้ามคนแก่/เด็ก — TikTok Policy (v2.91)', [
+    assert('OVERCLAIM_RULES: ห้ามเด็ก', sidepanelCode.includes('ห้ามมีเด็ก (children, kid, child, baby')),
+    assert('OVERCLAIM_RULES: ห้ามผู้สูงอายุ', sidepanelCode.includes('ห้ามมีผู้สูงอายุ (elderly, old person, senior')),
+    assert('OVERCLAIM_RULES: ต้อง 20-40 ปี', sidepanelCode.includes('ตัวละครต้องเป็นผู้ใหญ่วัยทำงาน (อายุ 20-40 ปี)')),
+    assert('IMAGE_PROMPT_TEMPLATE: working-age adult', sidepanelCode.includes('The character MUST be a working-age adult (20-40 years old). Do NOT depict children')),
+    assert('IMAGE_PROMPT_TEMPLATE_NO_TEXT: working-age adult', (sidepanelCode.match(/MUST be a working-age adult \(20-40 years old\)/g) || []).length >= 2, 'ต้องมีอย่างน้อย 2 จุด'),
+    assert('VIDEO_PROMPT_STEP1: working-age adult', sidepanelCode.includes('The person MUST be a working-age adult (20-40 years old)')),
+    assert('VIDEO_PROMPT_STEP2: working-age adult', (sidepanelCode.match(/person MUST be a working-age adult/g) || []).length >= 2),
+    assert('STEP1 negative_prompt: children/elderly', sidepanelCode.includes('children, kids, baby, elderly, old person, senior citizen')),
+    assert('STEP2 negative_prompt: children/elderly', (sidepanelCode.match(/children, kids, baby, elderly, old person, senior citizen/g) || []).length >= 2),
+  ].join(''));
+
+  // ============ 7. GOOGLE FLOW — 9:16 FIX (v2.85-2.87) ============
+  html += section('📐 Google Flow 9:16 Fix (v2.85-2.87)', [
+    assert('findTab: เช็ค icon ก่อน aria-controls', googleflowCode.includes("if(_0x2bbf98&&_0x140315===_0x2bbf98)return _0x5a97f9")),
+    assert('Step 5b: ใช้ findTab(null, "9:16", "crop_9_16")', googleflowCode.includes("findTab(null,'9:16','crop_9_16')")),
+    assert('Step 5b: เช็ค active ก่อนคลิก', googleflowCode.includes('_is916Active')),
+    assert('Step 5b: ตรวจ data-state=active', googleflowCode.includes("getAttribute']('data-state')==='active'")),
+    assert('Step 5b: ตรวจ aria-selected=true', googleflowCode.includes("getAttribute']('aria-selected')==='true'")),
+    assert('Step 5b: ข้ามถ้า active แล้ว', googleflowCode.includes("9:16\\x20already\\x20active")),
+    assert('ไม่มี findTab("PORTRAIT") เหลือ', !googleflowCode.includes("findTab('PORTRAIT','Portrait','crop_9_16')")),
+    assert('Pipeline Image: ไม่ค้นหา "portrait" text', !googleflowCode.includes("_0x8f05de('PORTRAIT');_0x1e32ed&&")),
+    assert('Pipeline Image: เช็ค crop_9_16 active', googleflowCode.includes("[Pipeline]\\x209:16\\x20already\\x20active")),
+    assert('Pipeline Video: เช็ค crop_9_16', googleflowCode.includes("[Pipeline]\\x209:16\\x20already\\x20active\\x20(video)")),
+    assert('Pipeline Video: ไม่ค้นหา "portrait" text อีก', !googleflowCode.includes("includes']('portrait')||_0x1f65db['includes']")),
+  ].join(''));
+
+  // ============ 8. STORYMODE DIRECTOR PROMPT ============
+  html += section('🎭 Storymode Director Prompt', [
+    assert('Director: ห้าม text ใน video', sidepanelCode.includes('no typography, no font rendering, no gibberish letters, no narrator. The video must be completely clean of any text overlays.')),
+    assert('Director: ห้ามคนแก่/เด็ก ผ่าน OVERCLAIM', sidepanelCode.includes('ห้ามมีเด็ก') && sidepanelCode.includes('ห้ามมีผู้สูงอายุ')),
+  ].join(''));
+
+  // ============ SUMMARY ============
+  resultsEl.innerHTML = html;
+  const allPassed = totalFail === 0;
+  summaryEl.innerHTML = `<div class="summary">
+    <div class="${allPassed ? 'summary-pass' : 'summary-fail'}">${allPassed ? '✅ ALL TESTS PASSED' : '❌ SOME TESTS FAILED'}</div>
+    <div class="summary-text">
+      <span class="pass-count" style="color:#3fb950;font-weight:700">${totalPass} passed</span> / 
+      <span class="fail-count" style="color:#f85149;font-weight:700">${totalFail} failed</span> / 
+      ${totalPass + totalFail} total
+    </div>
+    <div style="margin-top:12px;color:#8b949e;font-size:12px">Build v2.91 — Tested: ${new Date().toLocaleString('th-TH')}</div>
+  </div>`;
+}
+</script>
+</body>
+</html>

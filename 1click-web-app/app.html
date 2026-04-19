@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="color-scheme" content="dark" />
+  <title>1CLICK — Web (ตัวจริง)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="brand-row" id="global-header">
+      <img src="images/logo.svg" alt="1CLICK" width="44" height="44" class="brand-logo" />
+      <div class="brand-text">
+        <h1><span class="brand-one">1</span>CLICK <span class="badge" id="app-version">Web 3.40</span></h1>
+        <p class="sub">สร้างบทวิดีโอด้วย AI — ใช้มือเดียวได้บนมือถือ</p>
+      </div>
+    </header>
+
+    <div id="license-screen" class="screen screen--license active">
+      <div class="screen-scroll">
+        <section class="card">
+          <h2 class="card-title">เปิดใช้งาน License</h2>
+          <p class="hint">License เดียวกับ extension (Firebase) — เว็บนับเป็น 1 เครื่องในกฎ 4 เครื่องต่อ license</p>
+          <div class="checkbox-row">
+            <input type="checkbox" id="skip-license" />
+            <label for="skip-license" class="checkbox-label">โหมดทดสอบ — ข้ามการตรวจ License (เฉพาะเบราว์เซอร์นี้)</label>
+          </div>
+          <label for="license-key-input">License Key</label>
+          <input type="text" id="license-key-input" class="input-tap" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19" autocomplete="off" inputmode="text" />
+          <div class="device-box">
+            <span class="device-label">Device ID (เว็บ)</span>
+            <code id="display-device-id">…</code>
+          </div>
+        </section>
+        <p class="footer-note footer-note--in-scroll">เปิดได้ทั้งไฟล์ตรงและผ่านเซิร์ฟเวอร์ — TikTok / Auto Post / Flow ยังใช้ extension หรือ backend แยก</p>
+      </div>
+      <footer class="screen-footer screen-footer--license">
+        <div id="license-status-msg" class="msg msg--dock" style="display:none"></div>
+        <button type="button" class="btn btn-primary btn-block btn-tap" id="activate-license-btn">เปิดใช้งาน</button>
+      </footer>
+    </div>
+
+    <div id="main-app" class="screen screen--main" data-active-tab="script">
+      <div class="screen-scroll screen-scroll--main">
+        <div id="tab-script" class="tab-panel active">
+          <section class="card">
+            <h2 class="card-title">สร้างบท</h2>
+            <p class="hint">วางบรีฟหรือข้อมูลสินค้า — prompt เดียวกับ extension</p>
+            <div class="field">
+              <label for="ai-provider">ผู้ให้บริการ</label>
+              <select id="ai-provider" class="input-tap">
+                <option value="google">Google Gemini</option>
+                <option value="openai">OpenAI GPT-4 Turbo</option>
+              </select>
+            </div>
+            <label for="user-prompt">คำสั่ง / ข้อมูลสินค้า</label>
+            <textarea id="user-prompt" class="input-tap" rows="6" placeholder="เช่น สินค้า: ครีมกันแดด SPF50 จุดเด่น: เนื้อบางเบา ไม่วอก…"></textarea>
+            <div id="gen-status" class="msg" style="display:none"></div>
+          </section>
+          <section class="card card--output">
+            <h2 class="card-title card-title--sm">ผลลัพธ์</h2>
+            <div id="output" class="output" aria-live="polite">ยังไม่มีผลลัพธ์</div>
+            <div id="bridge-row" class="bridge-row" style="display:none;">
+              <button type="button" class="btn btn-bridge btn-tap" id="copy-for-ext-btn">
+                📋 คัดลอก Prompt → Extension
+              </button>
+              <span class="bridge-hint">กดแล้วไปที่ Extension แท็บ Studio → "วาง Prompt"</span>
+            </div>
+          </section>
+          <p class="footer-note footer-note--in-scroll">เปิดได้ทั้งไฟล์ตรงและผ่านเซิร์ฟเวอร์ — TikTok / Auto Post / Flow ยังใช้ extension หรือ backend แยก</p>
+        </div>
+
+        <div id="tab-settings" class="tab-panel">
+          <section class="card">
+            <h2 class="card-title">ตั้งค่า API</h2>
+            <p class="hint">เก็บในเครื่องนี้เท่านั้น (localStorage) — ไม่ส่งไปเซิร์ฟเวอร์ของเรา</p>
+            <label for="key-google">Gemini API Key</label>
+            <input type="password" id="key-google" class="input-tap" placeholder="AIza…" autocomplete="off" />
+            <label for="key-openai">OpenAI API Key</label>
+            <input type="password" id="key-openai" class="input-tap" placeholder="sk-…" autocomplete="off" />
+            <div id="keys-status" class="msg" style="display:none"></div>
+          </section>
+          <button type="button" class="btn btn-ghost btn-block btn-tap btn-logout" id="logout-btn">ออกจาก License</button>
+        </div>
+      </div>
+
+      <div class="action-dock" id="action-dock-script" data-for-tab="script">
+        <button type="button" class="btn btn-primary btn-block btn-tap" id="generate-btn">สร้างบท</button>
+      </div>
+      <div class="action-dock" id="action-dock-settings" data-for-tab="settings" hidden>
+        <button type="button" class="btn btn-primary btn-block btn-tap" id="save-keys-btn">บันทึกคีย์</button>
+      </div>
+
+      <nav class="bottom-nav" aria-label="เมนูหลัก">
+        <button type="button" class="bottom-nav-item active" data-tab="script">
+          <span class="bottom-nav-icon" aria-hidden="true">✎</span>
+          <span class="bottom-nav-label">สร้างบท</span>
+        </button>
+        <button type="button" class="bottom-nav-item" data-tab="settings">
+          <span class="bottom-nav-icon" aria-hidden="true">⚙</span>
+          <span class="bottom-nav-label">ตั้งค่า</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/license-web.js"></script>
+  <script src="js/promptTemplate.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

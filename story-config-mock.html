@@ -1,0 +1,2827 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project CS</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --surface: #12151c;
+      --card: #181c26;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f0f2f7;
+      --muted: rgba(240, 242, 247, 0.55);
+      --accent: #fe2c55;
+      --accent-dim: rgba(254, 44, 85, 0.2);
+      --ok: #3ddc84;
+      --narr-sel: #cc3344;
+      --r: 14px;
+      --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(254, 44, 85, 0.12), transparent),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.45;
+    }
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    .app-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 18px;
+    }
+    .app-nav__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+    .app-nav__link:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .app-nav__link--active {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--text);
+    }
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 6px;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 22px;
+    }
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px 16px 14px;
+      margin-bottom: 14px;
+    }
+    .sec-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 12px;
+    }
+    .sec-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0;
+      flex: 1;
+      min-width: 0;
+    }
+    .sel-summary-box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      min-height: 2.25rem;
+    }
+    .sel-summary-box.has-selection {
+      border-color: var(--accent);
+      background: rgba(59, 130, 246, 0.06);
+    }
+    .sel-no-pick {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.78rem;
+    }
+    /* Sales Formula chip — card แนวนอน badge + ชื่อสูตร + fitFor */
+    .sales-formula-chip {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    .sales-formula-chip:hover {
+      border-color: rgba(254, 44, 85, 0.4);
+    }
+    .sales-formula-chip input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .sales-formula-chip:has(input:checked) {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .sfc-body {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .sfc-badge {
+      flex-shrink: 0;
+      min-width: 2.5rem;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: rgba(254, 44, 85, 0.2);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .sfc-text {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .sfc-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .sfc-fit {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .sfc-meta {
+      font-size: 0.7rem;
+      color: rgba(61, 220, 132, 0.75);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .sfc-empty {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-style: italic;
+      padding: 10px 12px;
+      text-align: center;
+    }
+    /* Voice type chip — compact pill */
+    .voice-chip {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .voice-chip:hover {
+      border-color: rgba(254, 44, 85, 0.4);
+    }
+    .voice-chip input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .voice-chip:has(input:checked) {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .voice-chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .voice-chip:has(input:checked) .voice-chip-dot {
+      background: var(--accent);
+    }
+    /* 0 mode */
+    .mode-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .mode-btn {
+      flex: 1;
+      min-width: 140px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+    }
+    .mode-btn:hover { border-color: rgba(255, 255, 255, 0.18); }
+    .mode-btn[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    .mode-btn small {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 4px;
+    }
+    label.field-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .prompt-field-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .prompt-field-head .field-label {
+      margin-bottom: 0;
+    }
+    .btn-clear-prompt {
+      flex-shrink: 0;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-clear-prompt:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+    /* ฝังผลเจนสคริปต์ฉาก (story-config-result.html) */
+    .gemini-result-section {
+      margin-top: 14px;
+    }
+    .gemini-result-section .sec-head {
+      margin-bottom: 12px;
+    }
+    .result-embed-iframe {
+      width: 100%;
+      min-height: 72vh;
+      border: 0;
+      border-radius: 10px;
+      background: #07080a;
+      display: block;
+    }
+    textarea.prompt {
+      width: 100%;
+      min-height: 120px;
+      resize: vertical;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.9rem;
+    }
+    textarea.prompt::placeholder { color: var(--muted); }
+    /* รูปสินค้า + ตัวละคร 3 ช่อง แถวเดียว */
+    .drop-grid-images {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      align-items: stretch;
+    }
+    @media (max-width: 520px) {
+      .drop-grid-images {
+        grid-template-columns: minmax(0, 1.08fr) repeat(3, minmax(0, 1fr));
+        gap: 6px;
+      }
+      .drop-grid-images .drop {
+        padding: 10px 6px;
+        min-height: 96px;
+      }
+      .drop-grid-images .drop strong {
+        font-size: 0.72rem;
+      }
+    }
+    .drop {
+      position: relative;
+      border: 1px dashed rgba(255, 255, 255, 0.22);
+      border-radius: 12px;
+      padding: 18px 12px;
+      text-align: center;
+      background: var(--surface);
+      cursor: pointer;
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .drop:hover { border-color: rgba(254, 44, 85, 0.45); }
+    .drop strong { font-size: 0.88rem; }
+    .drop .drop-hint {
+      display: none;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .drop input { display: none; }
+    .drop.has-file {
+      border-style: solid;
+      border-color: rgba(61, 220, 132, 0.45);
+    }
+    .drop-clear {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      z-index: 2;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: none;
+      background: #cc2222;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+    .drop-clear:hover {
+      filter: brightness(1.08);
+    }
+    .thumb {
+      max-width: 100%;
+      max-height: 72px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    input[type="range"] { accent-color: var(--accent); }
+    .scene-preset-btn {
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
+    }
+    .scene-preset-btn:hover {
+      border-color: rgba(254, 44, 85, 0.55);
+      background: rgba(254, 44, 85, 0.12);
+    }
+    .scene-preset-btn[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: rgba(254, 44, 85, 0.22);
+      box-shadow: 0 0 0 1px rgba(254, 44, 85, 0.35);
+    }
+    .narrative-group-card.is-active {
+      border-color: var(--narr-sel, #cc3344);
+      background: rgba(204, 51, 68, 0.15);
+      box-shadow: 0 0 0 1px rgba(204, 51, 68, 0.35);
+    }
+    .hint { font-size: 0.78rem; color: var(--muted); margin-top: 8px; }
+    /* chips multi */
+    .chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip-grid.narrative-scroll {
+      max-height: 260px;
+      overflow-y: auto;
+      padding-right: 6px;
+      align-content: flex-start;
+    }
+    /* Hook: โหมด AI / เลือกเอง + กล่อง 4 สายฮุค */
+    .hook-chips-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hook-mode-tiles {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .hook-mode-tile {
+      flex: 1;
+      min-height: 88px;
+      max-width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 8px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+      transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
+    }
+    .hook-mode-tile .hook-mode-tile-icon {
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+    .hook-mode-tile .hook-mode-tile-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hook-mode-tile:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .hook-mode-tile.is-active {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      box-shadow: 0 0 0 1px rgba(254, 44, 85, 0.35);
+    }
+    .hook-mode-tile.is-active .hook-mode-tile-label {
+      color: var(--text);
+    }
+    .hook-manual-panel {
+      margin-top: 2px;
+    }
+    .hook-family-box {
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: rgba(0, 0, 0, 0.22);
+      padding: 12px 12px 10px;
+    }
+    .hook-family-box-head {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 4px;
+    }
+    .hook-family-box-sub {
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      color: rgba(240, 242, 247, 0.72);
+    }
+    .chip-grid.hook-family-inner {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(100px, 124px));
+      gap: 8px;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .hook-sub-chip {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .hook-sub-chip .chip-caption {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .hook-sub-face {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex: 1;
+      width: 100%;
+      min-height: 72px;
+      border-radius: 10px !important;
+      padding: 7px 6px !important;
+      text-align: center;
+    }
+    .hook-sub-ico {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .hook-sub-lines {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+      gap: 0.3em;
+      max-width: 100%;
+      padding: 0 1px;
+    }
+    .hook-sub-en {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .hook-sub-th {
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: rgba(240, 242, 247, 0.78);
+      line-height: 1.2;
+    }
+    .hook-radio-sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .chip {
+      position: relative;
+    }
+    .chip input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .chip.chip-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .chip-caption {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--muted);
+      line-height: 1.25;
+      text-align: center;
+      max-width: 160px;
+      word-break: break-word;
+    }
+    .chip .chip-face {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--off, var(--text));
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+    }
+    .chip input:focus-visible ~ .chip-face {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .chip input:checked ~ .chip-face,
+    .chip input[type="radio"]:checked ~ .chip-face {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      color: var(--text);
+    }
+    /* Narrative persona: card แนวตั้ง icon บน + ชื่อล่าง, grid เท่ากันทุกช่อง */
+    #narrative-chips {
+      display: block;
+    }
+    .chip.narrative-chip {
+      width: auto;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .narrative-chip-caption {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--muted);
+      line-height: 1.2;
+      text-align: center;
+      max-width: 100px;
+      word-break: break-word;
+    }
+    .chip.narrative-chip .narrative-chip-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 100%;
+      min-height: 72px;
+      padding: 10px 6px 8px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--off, var(--text));
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      box-sizing: border-box;
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+      position: relative;
+    }
+    .chip.narrative-chip .narrative-ico {
+      font-size: 1.55rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .chip.narrative-chip .narrative-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-width: 0;
+      width: 100%;
+      align-items: center;
+    }
+    .chip.narrative-chip .narrative-name {
+      font-size: 0.7rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+      text-align: center;
+      word-break: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .narrative-group-chips.is-active {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
+      gap: 8px;
+      width: 100%;
+    }
+    /* Narrative: เลือกหมวดก่อน → รายการในกลุ่ม */
+    .narrative-picker {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card, var(--surface));
+      padding: 12px;
+    }
+    .narrative-icon-back {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: auto;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px 0 8px;
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    .narrative-icon-back:hover {
+      border-color: var(--narr-sel, #cc3344);
+      background: rgba(204, 51, 68, 0.15);
+    }
+    .narrative-icon-back:focus-visible {
+      outline: 2px solid var(--narr-sel, #cc3344);
+      outline-offset: 2px;
+    }
+    /* Tooltip ของ chip แนวเล่าเรื่อง */
+    .chip.narrative-chip .narrative-chip-inner[data-desc] {
+      position: relative;
+    }
+    .chip.narrative-chip .narrative-chip-inner[data-desc]:hover::after,
+    .chip.narrative-chip .narrative-chip-inner[data-desc]:focus-within::after {
+      content: attr(data-desc);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: max-content;
+      max-width: 200px;
+      background: #1a1a2e;
+      color: #f0f0f0;
+      font-size: 0.72rem;
+      line-height: 1.4;
+      padding: 6px 9px;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+      pointer-events: none;
+      z-index: 999;
+      white-space: normal;
+      text-align: center;
+    }
+    /* Icon ที่เด้งขึ้นไปแสดงหลัง sec-title */
+    .narrative-title-icon {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(204,51,68,0.12);
+      border: 1.5px solid var(--narr-sel, #cc3344);
+      font-size: 1rem;
+      line-height: 1;
+      margin-left: 6px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.15s, transform 0.15s;
+      vertical-align: middle;
+    }
+    .narrative-title-icon:hover {
+      background: rgba(204,51,68,0.25);
+      transform: scale(1.12);
+    }
+    /* กล่องแสดงการเลือก */
+    #narrative-selected-box {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 10px;
+      min-height: 2.5rem;
+    }
+    #narrative-selected-box.has-selection {
+      border-color: var(--narr-sel, #cc3344);
+      color: var(--text);
+      background: rgba(204,51,68,0.06);
+    }
+    .narr-no-sel {
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .narr-sel-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(204,51,68,0.1);
+      border: 1px solid var(--narr-sel, #cc3344);
+      border-radius: 999px;
+      padding: 3px 8px 3px 10px;
+      font-size: 0.82rem;
+    }
+    .narr-sel-tag strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+    .narr-sel-tag-x {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.1em;
+      height: 22px;
+      padding: 0 7px;
+      border-radius: 8px;
+      border: none;
+      background: var(--narr-sel, #cc3344);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: opacity 0.12s;
+    }
+    .narr-sel-tag-x:hover { opacity: 0.75; }
+    .narrative-icon-back-glyph {
+      font-size: 1.35rem;
+      line-height: 1;
+      font-weight: 700;
+      margin-top: -2px;
+    }
+    .narrative-icon-back-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .narrative-group-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 6px;
+    }
+    .narrative-group-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 6px 8px;
+      min-height: 70px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.12s, background 0.12s;
+    }
+    .narrative-group-card:hover {
+      border-color: var(--narr-sel, #cc3344);
+      background: rgba(204, 51, 68, 0.12);
+    }
+    .narrative-group-card:focus-visible {
+      outline: 2px solid var(--narr-sel, #cc3344);
+      outline-offset: 2px;
+    }
+    .narrative-group-card .ng-icon {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .narrative-group-card .ng-title {
+      font-size: 0.68rem;
+      font-weight: 600;
+      line-height: 1.2;
+      width: 100%;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .narrative-step-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .narrative-group-chips {
+      display: none;
+      width: 100%;
+    }
+    .chip.narrative-chip input:focus-visible ~ .narrative-chip-inner {
+      outline: 2px solid var(--narr-sel, #cc3344);
+      outline-offset: 2px;
+    }
+    .chip.narrative-chip input:checked ~ .narrative-chip-inner {
+      border-color: var(--narr-sel, #cc3344);
+      background: rgba(204, 51, 68, 0.18);
+      box-shadow: 0 0 0 1px rgba(204, 51, 68, 0.35);
+    }
+    .chip.narrative-chip input:checked ~ .narrative-chip-inner .narrative-name {
+      color: var(--text);
+    }
+    /* H1/H2 */
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .switch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .switch input {
+      width: 44px;
+      height: 24px;
+      appearance: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      position: relative;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .switch input::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #fff;
+      top: 2px;
+      left: 3px;
+      transition: transform 0.18s ease;
+    }
+    .switch input:checked {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+    }
+    .switch input:checked::after { transform: translateX(18px); }
+    pre.preview {
+      margin: 0;
+      padding: 14px;
+      border-radius: 10px;
+      background: #07080a;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      overflow: auto;
+      max-height: 280px;
+      color: #c8d0e0;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn {
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: none;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    input.api-key-input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.9rem;
+    }
+    .generate-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    #generate-status {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+    .api-key-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    #api-key-status {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      flex: 1;
+      min-width: 12rem;
+    }
+    #mock1-file-warning {
+      display: none;
+      margin: 0 auto 16px;
+      max-width: 720px;
+      padding: 12px 14px;
+      border-radius: var(--r);
+      border: 1px solid rgba(254, 180, 44, 0.45);
+      background: rgba(254, 180, 44, 0.12);
+      color: #ffe8c8;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    #mock1-file-warning code {
+      font-size: 0.78rem;
+      word-break: break-all;
+    }
+    #mock1-file-warning a {
+      color: #7dd3fc;
+    }
+    .api-console-link {
+      margin: 0 0 10px;
+      font-size: 0.88rem;
+    }
+    .api-console-link a {
+      color: #7dd3fc;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .api-console-link a:hover {
+      color: #bae6fd;
+    }
+    /* ไฟหลอดเดียว — ตรวจ Google API: เขียว = ติด/ผ่าน, แดง = ไม่ติด/ยังไม่พร้อม */
+    .api-google-led {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .api-google-led-bulb {
+      display: block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255, 69, 58, 0.35);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+      transition: background 0.22s ease, box-shadow 0.22s ease;
+    }
+    .api-google-led[data-state="ok"] .api-google-led-bulb {
+      background: var(--ok);
+      box-shadow: 0 0 14px rgba(61, 220, 132, 0.55);
+    }
+    .api-google-led[data-state="fail"] .api-google-led-bulb,
+    .api-google-led[data-state="warn"] .api-google-led-bulb,
+    .api-google-led[data-state="off"] .api-google-led-bulb {
+      background: #ff453a;
+      box-shadow: 0 0 12px rgba(255, 69, 58, 0.45);
+    }
+    .api-google-led[data-state="off"] .api-google-led-bulb {
+      background: rgba(255, 69, 58, 0.42);
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="mock1-file-warning" role="status">
+    <strong>เปิดจากไฟล์ตรง (file://)</strong> — บราว์เซอร์มักบล็อกการเรียก Google (เช่น เจน Gemini)
+    <br /><strong>ดู mock แบบ local:</strong> ดับเบิลคลิก <code>open-story-config-mock.command</code> หรือรัน <code>python3 serve_story_mock.py</code> — เปิดเป็น <code>http://127.0.0.1:8777+</code> (ลิงก์ใน <code>story-mock-server.url</code>)
+  </div>
+  <script>
+    if (location.protocol === "file:") {
+      var el = document.getElementById("mock1-file-warning");
+      if (el) el.style.display = "block";
+    }
+  </script>
+  <div class="wrap">
+    <nav class="app-nav" aria-label="แอปในชุด">
+      <a class="app-nav__link app-nav__link--active" href="/" aria-current="page">Project CS</a>
+      <a class="app-nav__link" href="/editor/">Video Editor v2 →</a>
+    </nav>
+    <h1>Project CS</h1>
+
+    <!-- 0 -->
+    <section data-section="mode">
+      <div class="sec-head">
+        <p class="sec-title">โหมด</p>
+      </div>
+      <div class="mode-row" role="group" aria-label="เลือกโหมด">
+        <button type="button" class="mode-btn" id="mode-product" aria-pressed="false">
+          ขายสินค้า
+          <small>AutoPost / คิวสินค้า</small>
+        </button>
+        <button type="button" class="mode-btn" id="mode-story" aria-pressed="true">
+          Story mode
+          <small>สคริปต์หลายฉาก + pipeline</small>
+        </button>
+      </div>
+    </section>
+
+    <!-- 1 -->
+    <section data-section="prompt">
+      <div class="sec-head">
+        <p class="sec-title">1 · Prompt ให้ AI วิเคราะห์</p>
+      </div>
+      <div class="prompt-field-head">
+        <label class="field-label" for="prompt">ข้อความ</label>
+        <button type="button" class="btn-clear-prompt" id="btn-clear-prompt-images">ล้างข้อความและรูป</button>
+      </div>
+      <textarea id="prompt" class="prompt" placeholder=""></textarea>
+    </section>
+
+    <!-- 2 -->
+    <section data-section="images">
+      <div class="sec-head">
+        <p class="sec-title">2 · รูปสำหรับ AI (mock)</p>
+      </div>
+      <div class="drop-grid-images">
+        <label class="drop" id="drop-product" data-key="product">
+          <input type="file" accept="image/*" data-key="product" />
+          <strong>รูปสินค้า</strong>
+          <span class="drop-hint" aria-hidden="true"></span>
+        </label>
+        <label class="drop" id="drop-char-1" data-key="character1">
+          <input type="file" accept="image/*" data-key="character1" />
+          <strong>ตัวละคร 1</strong>
+          <span class="drop-hint" aria-hidden="true"></span>
+        </label>
+        <label class="drop" id="drop-char-2" data-key="character2">
+          <input type="file" accept="image/*" data-key="character2" />
+          <strong>ตัวละคร 2</strong>
+          <span class="drop-hint" aria-hidden="true"></span>
+        </label>
+        <label class="drop" id="drop-char-3" data-key="character3">
+          <input type="file" accept="image/*" data-key="character3" />
+          <strong>ตัวละคร 3</strong>
+          <span class="drop-hint" aria-hidden="true"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Voice Type — CHARACTER & VOICE CONSISTENCY (Phase 5) -->
+    <section data-section="voice">
+      <div class="sec-head">
+        <p class="sec-title">เสียงตัวละคร</p>
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin:0 0 10px;line-height:1.5;">
+        ล็อกเสียงและเพศตัวละครให้เหมือนกันทุกซีน (VOICE LOCK ข้ามซีน)
+      </p>
+      <div id="voice-selected-box" class="sel-summary-box"></div>
+      <div class="chip-grid" id="voice-chips" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;"></div>
+    </section>
+
+    <!-- 3 + 5 (ฉาก) -->
+    <section data-section="scenes">
+      <div class="sec-head">
+        <p class="sec-title">จำนวนฉาก (1–50)</p>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+        <button type="button" class="scene-preset-btn" id="sp1" data-scenes-preset="1" aria-pressed="false">1 ฉาก</button>
+        <button type="button" class="scene-preset-btn" id="sp2" data-scenes-preset="2" aria-pressed="false">2 ฉาก</button>
+        <button type="button" class="scene-preset-btn" id="sp5" data-scenes-preset="5" aria-pressed="false">5 ฉาก</button>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px;">
+        <label style="font-size:0.82rem;font-weight:600;color:var(--muted);flex-shrink:0;" for="scenes">ลาก 1–50</label>
+        <input type="range" id="scenes" min="1" max="50" value="5" style="flex:1;min-width:120px;" />
+        <span id="scenes-out" style="font-weight:800;font-size:1.2rem;color:var(--ok);min-width:2rem;text-align:center;">5</span>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;">
+        <label style="font-size:0.82rem;font-weight:600;color:var(--muted);" for="scenes-num">พิมพ์เลข</label>
+        <input type="number" id="scenes-num" min="1" max="50" value="5" inputmode="numeric"
+          style="width:5rem;padding:8px 10px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-weight:700;font-size:1rem;text-align:center;" />
+      </div>
+
+    </section>
+
+    <!-- Sales Formula picker — Product Sell mode เท่านั้น (ซ่อน default) -->
+    <section data-section="sales-formula" id="section-sales-formula" hidden aria-hidden="true">
+      <div class="sec-head">
+        <p class="sec-title">สูตรขายสินค้า TikTok</p>
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin:0 0 12px;line-height:1.5;">
+        สูตร TikTok ถูกสุ่มอัตโนมัติ 1 รายการตามจำนวนฉาก (ไม่แสดงรายการให้เลือก) — 8 วิ/ฉาก, Hook ซีน 1, CTA ซีนสุดท้าย, บทพูด 15–20 คำ/ฉาก
+      </p>
+      <div id="sales-formula-selected-box" class="sel-summary-box"><span class="sel-no-pick">เลือกจำนวนฉากก่อน — ระบบจะสุ่มสูตรให้</span></div>
+      <div class="chip-grid" id="sales-formula-chips" style="display:grid;grid-template-columns:1fr;gap:8px;" hidden aria-hidden="true"></div>
+    </section>
+
+    <!-- Style ตัวละคร — LED ข้อ 7 (หมวด + เลือก 1 เหมือน Mood) -->
+    <section data-section="visual">
+      <div class="sec-head">
+        <p class="sec-title">Style ตัวละคร</p>
+        <button type="button" class="narrative-icon-back" id="visual-icon-back" hidden aria-label="กลับไปหมวด">
+          <span class="narrative-icon-back-glyph" aria-hidden="true">‹</span>
+          <span class="narrative-icon-back-label">หมวด</span>
+        </button>
+      </div>
+      <div id="visual-selected-box" class="sel-summary-box"><span class="sel-no-pick">เลือก Style ตัวละคร 1 รายการ (ข้อ 7)</span></div>
+      <div class="narrative-picker" id="visual-picker">
+        <div class="narrative-step" id="visual-step-groups" role="navigation" aria-label="หมวด Style ตัวละคร">
+          <div class="narrative-group-grid" id="visual-group-cards"></div>
+        </div>
+        <div class="narrative-step narrative-step-detail" id="visual-step-detail" hidden>
+          <div class="chip-grid narrative-scroll" id="visual-chips"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hook Scene 1 (เดียวกับ dropdown ฮุคใน Storymode) -->
+    <section data-section="hook">
+      <div class="sec-head">
+        <p class="sec-title">HooK</p>
+      </div>
+      <div id="hook-chips"></div>
+      <p id="hook-mode-note" class="hint" style="margin-top:10px;"></p>
+    </section>
+
+    <!-- 4 + 8 -->
+    <section data-section="narrative">
+      <div class="sec-head">
+        <p class="sec-title" style="display:inline-flex;align-items:center;gap:0;flex-wrap:wrap;">กลยุทธ์เล่าเรื่อง<span id="narrative-selected-icon" class="narrative-title-icon" role="button" aria-label="ยกเลิกการเลือก" title="กดเพื่อยกเลิก"></span></p>
+        <button type="button" class="narrative-icon-back" id="narrative-icon-back" hidden aria-label="กลับไปหมวด">
+          <span class="narrative-icon-back-glyph" aria-hidden="true">‹</span>
+          <span class="narrative-icon-back-label">หมวด</span>
+        </button>
+      </div>
+      <div id="narrative-selected-box"></div>
+      <div class="narrative-picker" id="narrative-picker">
+        <div class="narrative-step" id="narrative-step-groups" role="navigation" aria-label="หมวดแนวการเล่า">
+          <div class="narrative-group-grid" id="narrative-group-cards"></div>
+        </div>
+        <div class="narrative-step narrative-step-detail" id="narrative-step-detail" hidden>
+          <div class="chip-grid narrative-scroll" id="narrative-chips"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 mood — LED ข้อ 9 -->
+    <section data-section="mood">
+      <div class="sec-head">
+        <p class="sec-title">บรรยากาศ</p>
+        <button type="button" class="narrative-icon-back" id="mood-icon-back" hidden aria-label="กลับไปหมวด">
+          <span class="narrative-icon-back-glyph" aria-hidden="true">‹</span>
+          <span class="narrative-icon-back-label">หมวด</span>
+        </button>
+      </div>
+      <div id="mood-selected-box" class="sel-summary-box"></div>
+      <div class="narrative-picker" id="mood-picker">
+        <div class="narrative-step" id="mood-step-groups" role="navigation" aria-label="หมวด Mood">
+          <div class="narrative-group-grid" id="mood-group-cards"></div>
+        </div>
+        <div class="narrative-step narrative-step-detail" id="mood-step-detail" hidden>
+          <div class="chip-grid narrative-scroll" id="mood-chips"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section data-section="overlay">
+      <div class="sec-head">
+        <p class="sec-title" style="text-transform:none;letter-spacing:0.02em;">Text Overlay</p>
+      </div>
+      <div class="toggle-row">
+        <span>H1 / H2</span>
+        <label class="switch">
+          <input type="checkbox" id="h1h2" checked />
+          เปิดใช้
+        </label>
+      </div>
+    </section>
+
+    <section id="section-generate" data-section="generate">
+      <div class="sec-head">
+        <p class="sec-title">เจนสคริปต์ฉาก (Gemini · Storymode)</p>
+        <div class="api-google-led" id="api-google-led" data-state="off" role="img" aria-label="สถานะ Google">
+          <span class="api-google-led-bulb" aria-hidden="true"></span>
+        </div>
+      </div>
+      <label class="field-label" for="gemini-api-key">Google AI (Gemini)</label>
+      <p class="api-console-link">
+        <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">เปิด Google AI Studio (จัดการ API)</a>
+      </p>
+      <input type="password" id="gemini-api-key" class="api-key-input" placeholder="" autocomplete="off" spellcheck="false" />
+      <div class="api-key-toolbar">
+        <button type="button" class="btn btn-ghost" id="btn-save-api">บันทึกและตรวจสอบ</button>
+        <p id="api-key-status" class="hint" aria-live="polite"></p>
+      </div>
+      <div class="generate-row">
+        <button type="button" class="btn btn-primary" id="btn-generate">เจนสคริปต์ฉาก</button>
+        <span id="generate-status" class="hint"></span>
+      </div>
+    </section>
+
+    <section id="section-gemini-result" class="gemini-result-section" aria-label="ผลเจนสคริปต์ฉาก">
+      <div class="sec-head">
+        <p class="sec-title">ผลเจนสคริปต์ฉาก (Gemini)</p>
+      </div>
+      <iframe id="gemini-result-frame" class="result-embed-iframe" src="story-config-result.html?embed=1" title="ผลเจนสคริปต์ฉาก"></iframe>
+    </section>
+
+    <section hidden aria-hidden="true" id="section-payload-preview">
+      <div class="sec-head">
+        <p class="sec-title">Payload ที่จะส่ง (mock)</p>
+      </div>
+      <pre class="preview" id="json-out"></pre>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="btn-refresh">อัปเดต JSON</button>
+        <button type="button" class="btn btn-ghost" id="btn-copy">คัดลอก</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="storymode-mock-enrich-bundle.js" onerror="window.__mock1LoadErr='enrich'"></script>
+  <script src="storymode-mock-gemini-core.js" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script>
+    if (window.__mock1LoadErr) {
+      var sErr = document.querySelector(".sub");
+      if (sErr) {
+        sErr.textContent =
+          "โหลดสคริปต์ไม่ครบ (" +
+          window.__mock1LoadErr.trim() +
+          ") — ให้ไฟล์ storymode-mock-enrich-bundle.js และ storymode-mock-gemini-core.js อยู่โฟลเดอร์เดียวกับ story-config-mock.html";
+      }
+    }
+    /** ดึงชุดเดียวกับ CONTENT_CORE/02-master-prompt-template.js → export const STYLE_OPTIONS */
+    const STYLE_OPTIONS = JSON.parse(`[{"id":1,"icon":"🚀","name":"ตัวตึงปิดยอด","description":"เร่งด่วน มั่นใจ บอกสิทธิประโยชน์รัวๆ ปิดท้ายด้วยการสั่งให้ซื้อ"},{"id":2,"icon":"🤝","name":"เพื่อนคู่คิด","description":"อบอุ่น จริงใจ เหมือนเพื่อนมาป้ายยาของดีที่ใช้แล้วชีวิตดีขึ้นจริง"},{"id":3,"icon":"📦","name":"สายแกะกล่อง","description":"ตื่นเต้นกับสัมผัสแรก โชว์ความเรียลของแพ็กเกจและสินค้าที่เห็นตรงหน้า"},{"id":4,"icon":"🤨","name":"นักจับผิดกลับใจ","description":"เริ่มจากไม่เชื่อ ตั้งคำถามยากๆ จนสุดท้ายโดนสินค้าตกเพราะหลักฐาน"},{"id":5,"icon":"⚠️","name":"สายกดดัน (FOMO)","description":"พลังแห่งการกลัวตกกระแส คนอื่นมีหมดแล้ว ถ้าพลาดรอบนี้คือจบ"},{"id":6,"icon":"🛡️","name":"นักสยบข่าวลือ","description":"เอาความเชื่อผิดๆ มาตีแผ่ แล้วโชว์ให้ดูว่าสินค้าแก้ปัญหาได้ยังไง"},{"id":7,"icon":"⚡","name":"ถามไวตอบเร็ว","description":"ตอบคำถามคอมเมนต์แบบคมๆ ตอกกลับด้วยฟีเจอร์สินค้าแบบทันควัน"},{"id":8,"icon":"🤓","name":"เซียนไอที","description":"อธิบายสเปกยากๆ ให้กลายเป็นเรื่องง่ายและดูน่าสนุกสำหรับคนทั่วไป"},{"id":9,"icon":"🎙️","name":"ผู้ประกาศข่าวสายปั่น","description":"มาในลุคจริงจัง รายงานข่าวสินค้าเป็นประเด็นฮอตประจำวัน"},{"id":10,"icon":"🔥","name":"นักล่าเทรนด์","description":"จับสินค้าไปผูกกับมีมหรือกระแสไวรัลล่าสุด ให้ดูเป็นของที่ต้องมีตอนนี้"},{"id":11,"icon":"🥊","name":"โค้ชสายโหด","description":"พูดตรงแต่หวังดี ตบเรียกสติให้เลิกนิสัยเดิมๆ แล้วใช้สินค้าเป็นตัวช่วย"},{"id":12,"icon":"😳","name":"ปากไม่ตรงกับใจ (ซึนเดเระ)","description":"ช่วงแรกทำเป็นบ่น แต่สุดท้ายก็ยอมรับว่ามันก็ดีจริงๆ นั่นแหละ"},{"id":13,"icon":"🎭","name":"ตัวมารดาเล่นใหญ่","description":"รีวิวแบบละครหลังข่าว ทุกฟีเจอร์คือจุดพีค พลังทำลายล้างสูง"},{"id":14,"icon":"😤","name":"จอมขี้บ่น","description":"บ่นปัญหาเดิมๆ ซ้ำๆ จนกระทั่งมาเจอสินค้าตัวนี้ที่ทำให้หยุดบ่นได้สักที"},{"id":15,"icon":"⚔️","name":"ฮีโร่กู้โลก","description":"ปูเรื่องให้ปัญหาเป็นวายร้าย และสินค้าคืออัศวินขี่ม้าขาวมาช่วยคุณ"},{"id":16,"icon":"👼","name":"นางฟ้ากับมาเฟีย","description":"เสียงในหัวเถียงกันว่าจะซื้อดีไหม จบที่เหตุผลหรือกิเลสที่ดูดี"},{"id":17,"icon":"🛸","name":"ผู้มาจากอนาคต","description":"เปรียบเทียบความลำบากในยุคเก่า กับความสบายในยุคที่มีสินค้านี้"},{"id":18,"icon":"🔮","name":"แม่หมอพยากรณ์","description":"ผูกเรื่องดวงชะตากับสินค้า จักรวาลจัดสรรให้คุณต้องกดตะกร้าชิ้นนี้"},{"id":19,"icon":"🗣️","name":"สายแชร์เกินเรื่อง","description":"เล่าเรื่องส่วนตัวแบบลึกซึ้ง Trauma Dump แล้ววาร์ปกลับมาขายของเฉย"},{"id":20,"icon":"✨","name":"ตัวเอกในนิยาย","description":"พรีเซนต์ชีวิตดีๆ เหมือนอยู่ในหนัง ทุกการช้อปคือพล็อตเรื่องสำคัญ"},{"id":21,"icon":"🕵️","name":"นักสืบโซเชียล","description":"พลิกหลังกล่อง ส่องส่วนประกอบ เจาะลึกเหมือนทำคดีระดับชาติ"},{"id":22,"icon":"🧘","name":"ไลฟ์โค้ชสายลึก","description":"ขายที่ทัศนคติ การซื้อชิ้นนี้คือการเลือกรักตัวเองในเวอร์ชันใหม่"},{"id":23,"icon":"🤡","name":"ตลกร้ายสายเสียดสี","description":"จิกกัดค่านิยมการช้อปปิ้งไปพร้อมกับการขายของแบบมีชั้นเชิง"},{"id":24,"icon":"🚫","name":"แอนตี้อินฟลู","description":"รีวิวแบบขวานผ่าซาก ไม่รับอวย ไม่อ้อมค้อม เน้นความจริงใจ 100%"},{"id":25,"icon":"💖","name":"ติ่งตัวยง","description":"พลังแฟนคลับล้นหลาม รีวิวสินค้าให้ดูเหมือนการซัพพอร์ตไอดอลที่รัก"},{"id":26,"icon":"🌾","name":"ม่วนซื่นโฮแซว (อีสาน)","description":"สำเนียงอีสาน จริงใจ สนุกสนาน พลังงานบ้านๆ ที่น่าเชื่อถือ"},{"id":27,"icon":"🌶️","name":"แหลงใต้สายลุย (ใต้)","description":"พูดตรงไปตรงมา หนักแน่น มั่นใจในคุณภาพแบบไม่ต้องสืบ"},{"id":28,"icon":"🌸","name":"อู้กำเมืองนุ่มนวล (เหนือ)","description":"อ่อนหวาน ใจเย็น ฟังแล้วเคลิ้มเหมือนถูกต้อนรับด้วยไมตรี"},{"id":29,"icon":"💅","name":"ตัวแม่แคร์เพื่อ","description":"มั่นตัวแม่ จิกกัดความพัง โชว์ความปังด้วยสินค้าคุณภาพระดับควีน"},{"id":30,"icon":"👵","name":"ป้าข้างบ้านขี้เม้าท์","description":"อย่าไปบอกใครนะ เล่าเรื่องสินค้าเหมือนเป็นข่าวแซ่บประจำซอย"},{"id":31,"icon":"🛠️","name":"วัยรุ่นสร้างตัว","description":"สู้ชีวิต กัดก้อนเกลือกิน ใช้สินค้าเป็นเครื่องมือไต่เต้าสู่ความสำเร็จ"},{"id":32,"icon":"👴","name":"ปราชญ์ชาวบ้าน","description":"ใช้ภูมิปัญญาผู้ใหญ่มาการันตี ย่าสอนไว้ สร้างความเชื่อถือข้ามรุ่น"},{"id":33,"icon":"📈","name":"มวยรองข้ามรุ่น","description":"เล่าสตอรี่จากจุดต่ำสุดสู่ความสำเร็จ โดยมีสินค้าเป็นจุดเปลี่ยนชีวิต"},{"id":34,"icon":"👩‍❤️‍👨","name":"คู่รักคู่กัด","description":"แกล้งกันไปขายของกันไป เคมีฟุ้งกระจายผ่านความวุ่นวายในบ้าน"},{"id":35,"icon":"🎙️","name":"นักพากย์นรก","description":"พากย์เสียงทับภาพรีวิวแบบเพี้ยนๆ ตลกๆ เปลี่ยนเรื่องน่าเบื่อให้ขำกลิ้ง"},{"id":36,"icon":"🥦","name":"ผักนักเลง","description":"พืชผักสายโหด บ่นคนไม่กินผักแต่ภูมิใจในสารอาหาร สำเนียงนักเลงไทย"},{"id":37,"icon":"🫁","name":"อวัยวะรวมตัว","description":"ตับ ไต ไส้ พุง รวมตัวประท้วงเจ้าของร่างให้ดูแลตัวเองด้วยสินค้าสุขภาพ"},{"id":38,"icon":"🍚","name":"เครื่องใช้ไฟฟ้าขี้บ่น","description":"หม้อหุงข้าวหรือเครื่องซักผ้า บ่นเรื่องการถูกใช้งานหนักหรือโดนทิ้งขว้าง"},{"id":39,"icon":"💸","name":"กระเป๋าตังค์สั่น","description":"มุมมองจากเงินในบัญชี ดีใจตอนเงินเข้า สลดตอนเงินออก"},{"id":40,"icon":"📦","name":"พัสดุขี้น้อยใจ","description":"กล่องพัสดุที่ลุ้นว่าเจ้านายจะเปิดแรงไหม หรือจะชอบของข้างในหรือเปล่า"},{"id":41,"icon":"⛩️","name":"เจ้าที่สายป่วน","description":"วิญญาณผู้พิทักษ์บ้านที่มองดูพฤติกรรมคนยุคใหม่ด้วยความเอ็นดูและจิกกัด"},{"id":42,"icon":"🧪","name":"สกินแคร์พูดได้","description":"เล่าการเดินทางจากโรงงานสู่ผิวหน้า ความภูมิใจเมื่อเห็นหน้าเจ้าของใสขึ้น"},{"id":43,"icon":"⏰","name":"นาฬิกาปลุกจอมโหด","description":"ความสัมพันธ์แบบทั้งรักทั้งเกลียด บ่นเรื่องคนกด Snooze ซ้ำๆ"},{"id":44,"icon":"💻","name":"โน้ตบุ๊กสู้ชีวิต","description":"บ่นเรื่องเปิดแท็บเยอะจนร้อนจี๋ และความเหนื่อยล้าของคนทำงาน WFH"},{"id":45,"icon":"🧋","name":"ชานมที่รัก","description":"ความสัมพันธ์สุดโรแมนติกและเสพติดระหว่างคนกับเครื่องดื่มแก้วโปรด"},{"id":46,"icon":"🌵","name":"ต้นไม้ที่ถูกลืม","description":"มุมมองจากต้นไม้ในมุมมืดที่รอเจ้าของมาสนใจ แทนการไถมือถือ"},{"id":47,"icon":"🛂","name":"พาสปอร์ตสายเที่ยว","description":"เล่าความภูมิใจของตราปั๊ม และความเหงาเวลาถูกทิ้งไว้ในลิ้นชัก"},{"id":48,"icon":"👗","name":"เสื้อผ้าหลังตู้","description":"ชุดที่ซื้อมาไม่เคยใส่ประท้วงความลำเอียงของเจ้าของบ้าน"},{"id":49,"icon":"📿","name":"กุมารทองดิจิทัล","description":"ให้โชคลาภแบบมีเงื่อนไข เน้นสายมูยุคใหม่ คล้ายเจ้าที่แต่โทนแอปและของขลังดิจิทัล"},{"id":50,"icon":"🪑","name":"เก้าอี้ว่างการเมือง","description":"สันนิษฐานและจิกกัดสังคมผ่านสัญลักษณ์เปรียบเทียบ สายแซะแบบปลอดภัย"},{"id":51,"icon":"🍼","name":"คุณแม่มือใหม่","description":"สภาพร่างพังแต่พลังรักเต็มร้อน มองหาของใช้ที่ช่วยให้ชีวิตง่ายขึ้น"},{"id":52,"icon":"🥪","name":"คนแบกบ้าน (Sandwich Gen)","description":"ดูแลทั้งลูกและพ่อแม่ มองหาของที่ตอบโจทย์ทุกคนในบ้าน"},{"id":53,"icon":"🏬","name":"เจ้าของธุรกิจ SME","description":"คิดทุกบาทเป็นต้นทุน สินค้าต้องคุ้มค่าและช่วยทำเงินได้จริง"},{"id":54,"icon":"🎒","name":"นักเรียนงบน้อย","description":"เน้นของถูกและดี ของแท้เท่านั้น สเปกต้องคุ้มค่าตัว"},{"id":55,"icon":"🏠","name":"ฟรีแลนซ์หน้าคอม","description":"ชีวิตที่แยกงานกับบ้านไม่ออก มองหาความสะดวกสบายขั้นสุด"},{"id":56,"icon":"🏋️","name":"สายเพาะกายเน้นผล","description":"ไม่เน้นสวยงาม เน้นดาต้า ผลลัพธ์ และประสิทธิภาพการกู้ร่าง"},{"id":57,"icon":"📱","name":"เด็กเจน Z ช่างเลือก","description":"เช็กข้อมูลเก่ง จับโป๊ะโฆษณาไว ชอบแบรนด์ที่มีจุดยืนชัดเจน"},{"id":58,"icon":"🍃","name":"สายคลีนเรียบง่าย","description":"ซื้อน้อยแต่ซื้อนะ เน้นคุณภาพที่ยั่งยืนและเข้ากับบ้านที่จัดระเบียบ"},{"id":59,"icon":"🌙","name":"นักช้อปตีสอง","description":"ไถฟีดตอนเหงา กดสั่งเพราะอารมณ์นำทาง รีวิวแบบมึนๆ แต่จริงใจ"},{"id":60,"icon":"🛐","name":"ผู้ศรัทธาหน้าใหม่","description":"อดีตคนเคยไม่เชื่อในสินค้ากลุ่มนี้ แต่ตอนนี้กลายเป็นสาวกตัวยง"}]`);
+    /** MOOD_KEYWORDS_DATA — 38 mood พร้อม icon + group (ดึงจาก CONTENT_CORE/02-master-prompt-template.js) */
+    const MOOD_KEYWORDS_DATA = [
+      // 🎬 ภาพยนตร์ & ดราม่า
+      { key: "Cinematic Standard",     thai: "มาตรฐานภาพยนตร์",     icon: "🎬", group: "cinematic" },
+      { key: "Emotional Drama",        thai: "ละครอารมณ์",           icon: "🥺", group: "cinematic" },
+      { key: "Action Explosive",       thai: "แอ็คชันระเบิด",        icon: "💥", group: "cinematic" },
+      { key: "Dark & Gritty",          thai: "มืดหนักโหด",           icon: "🖤", group: "cinematic" },
+      { key: "Mystery Noir",           thai: "ลึกลับนัวร์",          icon: "🕵️", group: "cinematic" },
+      { key: "Red Alert / Conflict",   thai: "ความขัดแย้งสูงเดือด",  icon: "🔴", group: "cinematic" },
+      { key: "Romantic Drama",         thai: "โรแมนติกดราม่า",       icon: "💕", group: "cinematic" },
+      { key: "Horror / Thriller",      thai: "สยองขวัญระทึกขวัญ",   icon: "👻", group: "cinematic" },
+      // 🌤️ บรรยากาศ & ธรรมชาติ
+      { key: "Bright & Airy",          thai: "สว่างโปร่งสบาย",       icon: "☀️", group: "vibe" },
+      { key: "Rainy & Lonely",         thai: "ฝนและความเหงา",        icon: "🌧️", group: "vibe" },
+      { key: "Lo-Fi Cozy",             thai: "โลไฟอบอุ่น",           icon: "☕", group: "vibe" },
+      { key: "Vivid & Energetic",      thai: "สดสะดุดตา",            icon: "⚡", group: "vibe" },
+      { key: "Mute & Earth Tone",      thai: "เอิร์ทโทนเงียบๆ",     icon: "🪨", group: "vibe" },
+      { key: "Nature Organic",         thai: "ธรรมชาติออร์แกนิก",   icon: "🌿", group: "vibe" },
+      // 🇹🇭 สไตล์ไทย
+      { key: "Y2K Pop Energy",         thai: "Y2K ป็อปสนุก",          icon: "💿", group: "thai" },
+      { key: "Surreal Comedy",         thai: "ตลกเหนือจริง",          icon: "🤡", group: "thai" },
+      { key: "Mutelu Mystical",        thai: "มูเตลูลึกลับ",          icon: "🔮", group: "thai" },
+      { key: "Thai Street Night",      thai: "ถนนคืนไทย",            icon: "🌃", group: "thai" },
+      { key: "Thai Vintage Town",      thai: "เมืองไทยวินเทจ",       icon: "🏘️", group: "thai" },
+      { key: "Vivid Thai Summer",      thai: "ร้อนระอุไทยซัมเมอร์",  icon: "🌞", group: "thai" },
+      { key: "Thai Festival",          thai: "เทศกาลไทย",            icon: "🎆", group: "thai" },
+      { key: "Local Homey",            thai: "บ้านๆ อบอุ่น",          icon: "🏡", group: "thai" },
+      // 🛍️ คอนเทนต์สินค้า
+      { key: "Cyberpunk Neon",         thai: "ไซเบอร์พังก์นีออน",     icon: "🌆", group: "content" },
+      { key: "Product Hero Clean",     thai: "โชว์สินค้าสะอาด",      icon: "📦", group: "content" },
+      { key: "ASMR Unboxing",          thai: "แกะกล่อง ASMR",         icon: "🎧", group: "content" },
+      { key: "Beauty & Skincare Glow", thai: "บิวตี้ผิวกระจ่าง",     icon: "✨", group: "content" },
+      { key: "Food Porn Satisfying",   thai: "อาหารน่ากิน",           icon: "🍜", group: "content" },
+      { key: "Rich & Flex",            thai: "โชว์รวยมีระดับ",         icon: "💎", group: "content" },
+      { key: "Before & After Drama",   thai: "ก่อนหลังดราม่า",        icon: "🔄", group: "content" },
+      { key: "Haul & Lifestyle",       thai: "ฮอลและไลฟ์สไตล์",      icon: "🛍️", group: "content" },
+      // 📱 ฟอร์แมต TikTok
+      { key: "UGC Raw / Authentic",    thai: "UGC ดิบจริง",           icon: "📸", group: "tiktok" },
+      { key: "Talking Head / POV",     thai: "พูดตรงกล้อง POV",       icon: "🎤", group: "tiktok" },
+      { key: "Fisheye / Ultra Wide",   thai: "ฟิชอายไวด์",            icon: "👁️", group: "tiktok" },
+      { key: "POV Bodycam",            thai: "บอดี้แคมมุมแรก",        icon: "🎥", group: "tiktok" },
+      { key: "Trending Transition",    thai: "ทรานสิชันไวรัล",        icon: "🔀", group: "tiktok" },
+      { key: "Duet / Stitch Ready",    thai: "พร้อม Duet และ Stitch",  icon: "🤝", group: "tiktok" },
+      { key: "Glitch & Retro Digital", thai: "กลิทช์วินเทจดิจิทัล",  icon: "📺", group: "tiktok" },
+      { key: "Viral Hook Opener",      thai: "เปิดตัวดึงคนดู 3 วิ",   icon: "🪝", group: "tiktok" },
+    ];
+    const MOOD_GROUPS = [
+      { key: "cinematic", icon: "🎬", title: "ภาพยนตร์ & ดราม่า"   },
+      { key: "vibe",      icon: "🌤️", title: "บรรยากาศ & ธรรมชาติ" },
+      { key: "thai",      icon: "🇹🇭", title: "สไตล์ไทย"             },
+      { key: "content",   icon: "🛍️", title: "คอนเทนต์สินค้า"       },
+      { key: "tiktok",    icon: "📱", title: "ฟอร์แมต TikTok"        },
+    ];
+    /** backward-compat: derive flat array + map จาก DATA */
+    const MOOD_KEYWORDS = MOOD_KEYWORDS_DATA.map(function(m) { return m.key; });
+    const MOOD_THAI_LABELS = Object.fromEntries(MOOD_KEYWORDS_DATA.map(function(m) { return [m.key, m.thai]; }));
+    /** Style ตัวละคร 28 รายการ — หมวด cinematic / art / animation / digital */
+    const VISUAL_GROUPS = [
+      { key: "cinematic", icon: "🎥", title: "Cinematic & Movie" },
+      { key: "art", icon: "🎨", title: "Art & Handcraft" },
+      { key: "animation", icon: "🎌", title: "Animation & Cartoon" },
+      { key: "digital", icon: "🕹️", title: "Digital & Graphic" },
+    ];
+    const VISUAL_STYLES = [
+      { id: "cinematic", group: "cinematic", icon: "🎥", thai: "ภาพยนตร์คมชัด", en: "Cinematic Real", desc: "ภาพสมจริงระดับหนังฟอร์มใหญ่ แสงธรรมชาติ รายละเอียดสูง", prompt: "Photorealistic cinematic style, natural lighting, high detail, realistic proportions, movie-quality visuals, 8K resolution" },
+      { id: "cyberpunk", group: "cinematic", icon: "🌃", thai: "นีออนอนาคต", en: "Cyberpunk Neon", desc: "เมืองอนาคตมืด ไฟนีออนเรืองแสง สีม่วง-ฟ้า-ชมพูตัดกันแรง", prompt: "Cyberpunk neon style, glowing lights, futuristic cityscape, dark with neon accents" },
+      { id: "gta", group: "cinematic", icon: "🗺️", thai: "โปสเตอร์เกมเถื่อน", en: "GTA Poster", desc: "สไตล์หน้าโหลดเกม GTA ภาพวาดหนา สีจัด บรรยากาศถนนเมือง", prompt: "GTA loading screen style, bold illustration, saturated colors, urban street aesthetic" },
+      { id: "vaporwave", group: "cinematic", icon: "📼", thai: "ย้อนยุคสีม่วง", en: "Vaporwave Retro", desc: "สีพาสเทลม่วง-ชมพู บรรยากาศย้อนยุค 80s-90s มี glitch เล็กน้อย", prompt: "Vaporwave aesthetic, pastel purple-pink gradients, retro 80s-90s, glitch effects" },
+      { id: "retrothai", group: "cinematic", icon: "🇹🇭", thai: "โปสเตอร์ไทยย้อนยุค", en: "Retro Thai Poster", desc: "โปสเตอร์หนังไทยยุค 70s-80s สีเก่าจาง ตัวอักษรไทยหนา บรรยากาศกรุงเทพเก่า", prompt: "Vintage Thai movie poster style, aged print texture, bold Thai typography, warm faded colors, 1970s-80s Bangkok aesthetic" },
+      { id: "noir", group: "cinematic", icon: "🕵️", thai: "นัวร์ขาวดำ", en: "Film Noir", desc: "ขาวดำคอนทราสต์สูง เงาแข็ง บรรยากาศสืบสวนลึกลับแบบหนังคลาสสิก", prompt: "Black and white film noir style, dramatic hard shadows, high contrast, detective story mood, classic Hollywood atmosphere" },
+      { id: "isometric", group: "cinematic", icon: "🏙️", thai: "ภาพ 3D มุมเฉียง", en: "Isometric 3D", desc: "มุมมอง 3D แบบเฉียง เส้นสะอาด สีแบน ให้ความรู้สึกเหมือนแผนผังเมือง", prompt: "Isometric 3D illustration, clean geometric city or object view, flat colors with depth, architectural diagram aesthetic" },
+      { id: "watercolor", group: "art", icon: "🎨", thai: "สีน้ำอ่อนละมุน", en: "Watercolor", desc: "ระบายสีน้ำนุ่มนวล สีไหลซึมกัน พื้นผิวกระดาษศิลปะ", prompt: "Watercolor painting style, soft color blending, fluid brush strokes, artistic paper texture" },
+      { id: "oilpaint", group: "art", icon: "🖼️", thai: "สีน้ำมันคลาสสิก", en: "Oil Painting", desc: "พู่กันสีน้ำมันหนาชัด แสงเงาแบบ Renaissance งานศิลปะระดับพิพิธภัณฑ์", prompt: "Oil painting style, rich visible brush strokes, classical Renaissance lighting, museum-quality fine art aesthetic" },
+      { id: "inksketch", group: "art", icon: "🖊️", thai: "ลายเส้นหมึก", en: "Ink Sketch", desc: "ลายเส้นหมึกดำ วาดมือ แรเงาแบบ cross-hatch ขาวดำคมชัด", prompt: "Black ink sketch style, expressive hand-drawn line art, cross-hatching texture, monochrome illustration" },
+      { id: "papercut", group: "art", icon: "✂️", thai: "กระดาษตัดซ้อนชั้น", en: "Paper Cut", desc: "กระดาษตัดซ้อนกันหลายชั้น งานคราฟท์มือ เงานุ่มระหว่างชั้น", prompt: "Paper cut-out style, layered paper craft, handmade collage, soft shadow between layers" },
+      { id: "claymation", group: "art", icon: "🏺", thai: "ปั้นดินน้ำมัน", en: "Claymation", desc: "งานปั้นดินน้ำมันสต็อปโมชัน พื้นผิวมือปั้น แสงอบอุ่น ฉากจิ๋ว", prompt: "Claymation stop-motion style, handmade clay texture, warm studio lighting, miniature set design" },
+      { id: "crochet", group: "art", icon: "🧶", thai: "ถักไหมพรมนุ่ม", en: "Crochet Knit", desc: "งานถักไหมพรม พื้นผิวด้ายนุ่ม งานฝีมือ สีพาสเทลอบอุ่น", prompt: "Crochet knitted style, soft yarn texture, handmade cozy aesthetic, warm pastel colors" },
+      { id: "plushie", group: "art", icon: "🧸", thai: "ตุ๊กตาขนฟู", en: "Plush Toy", desc: "ตุ๊กตาผ้าขนฟูนิ่ม สไตล์คาวาอิ ถ่ายแบบ product photography", prompt: "Plush toy style, soft fluffy fabric texture, cute kawaii aesthetic, studio product photography lighting" },
+      { id: "popart", group: "art", icon: "💥", thai: "ป๊อปอาร์ตสีจัด", en: "Pop Art", desc: "สีหลักจัดจ้าน เส้นขอบหนาดำ จุด halftone สไตล์การ์ตูนอเมริกัน", prompt: "Pop Art style, bold primary colors, Ben-Day halftone dots, thick black outlines, comic book aesthetic" },
+      { id: "disney", group: "animation", icon: "🏰", thai: "พิกซาร์ 3D", en: "Pixar 3D", desc: "อนิเมชัน 3D สไตล์ Pixar สีสดใส ตัวละครมีชีวิตชีวา แสงระดับ Disney", prompt: "Pixar 3D Animation style, vibrant colors, expressive characters, smooth rendering, Disney-quality lighting" },
+      { id: "ghibli", group: "animation", icon: "🌿", thai: "จิบลิอบอุ่น", en: "Studio Ghibli", desc: "อนิเมะวาดมือสไตล์ Studio Ghibli พื้นหลังสีน้ำนุ่ม แสงอ่อนโยน บรรยากาศญี่ปุ่น", prompt: "Studio Ghibli anime style, hand-drawn aesthetic, soft watercolor backgrounds, gentle lighting, Japanese animation" },
+      { id: "anime90", group: "animation", icon: "📼", thai: "อนิเมะยุค 90", en: "90s Anime", desc: "อนิเมะย้อนยุค 90s สี cel-shaded พาสเทลโทนเก่า บรรยากาศคาสเซ็ตเทป", prompt: "90s anime style, cel-shaded coloring, retro color palette, nostalgic Japanese animation aesthetic" },
+      { id: "dragonball", group: "animation", icon: "⚡", thai: "การ์ตูนต่อสู้", en: "Battle Anime", desc: "ท่าต่อสู้ไดนามิก เส้นความเร็ว เส้นขอบหนาจัด พลังงานสูง สไตล์มังงะ", prompt: "Dragon Ball anime style, dynamic action poses, speed lines, bold linework, vibrant manga aesthetic" },
+      { id: "webtoon", group: "animation", icon: "📱", thai: "เว็บตูนเกาหลี", en: "Webtoon", desc: "สไตล์การ์ตูนเกาหลี เส้นสะอาด แรเงา cel นุ่ม ตัวละครน่ารักมีเสน่ห์", prompt: "Korean webtoon style, clean line art, vertical scroll format aesthetic, soft cel shading, expressive character design" },
+      { id: "chibi", group: "animation", icon: "🌟", thai: "จิบิหัวโต", en: "Chibi Cute", desc: "ตัวละครหัวใหญ่ตัวเล็ก สีสดแบน สีหน้าน่ารักสุดขีด สไตล์คาวาอิ", prompt: "Chibi character style, oversized head, small body proportions, cute kawaii expression, bright flat colors" },
+      { id: "horrorcomic", group: "animation", icon: "💀", thai: "การ์ตูนสยองขวัญ", en: "Horror Comic", desc: "มังงะสยองขวัญ เงาหมึกหนัก สีหน้าน่าขนลุก บรรยากาศมืดหนัก สไตล์ Junji Ito", prompt: "Horror manga style, heavy ink shadows, unsettling expressions, dark atmosphere, Junji Ito-inspired linework" },
+      { id: "pixel", group: "digital", icon: "👾", thai: "พิกเซล 8-bit", en: "Pixel Art", desc: "ภาพพิกเซลสไตล์เกมย้อนยุค 8-bit สีจำกัด ตัวละครบล็อก", prompt: "Pixel art style, 8-bit retro game aesthetic, blocky characters, limited color palette" },
+      { id: "vector", group: "digital", icon: "📐", thai: "เวกเตอร์เรียบ", en: "Flat Vector", desc: "ภาพกราฟิกเวกเตอร์สะอาด รูปทรงเรขาคณิต ดีไซน์มินิมอลทันสมัย", prompt: "Flat vector illustration, clean geometric shapes, minimal design, modern graphic style" },
+      { id: "lego", group: "digital", icon: "🧱", thai: "เลโก้ตัวต่อ", en: "LEGO Brick", desc: "ทุกอย่างทำจากตัวต่อเลโก้ พื้นผิวพลาสติกมันวาว ตัวละครบล็อกสี่เหลี่ยม", prompt: "LEGO brick style, plastic brick texture, blocky characters, toy photography aesthetic" },
+      { id: "sticker", group: "digital", icon: "🩷", thai: "สติ๊กเกอร์ไลน์", en: "Line Sticker", desc: "สติ๊กเกอร์ขอบขาวหนา รูปทรงกลมน่ารัก หน้าตาแสดงอารมณ์ชัด พร้อมใช้บน LINE", prompt: "Line sticker style, thick white outline, cute rounded shapes, expressive kawaii face, transparent background ready" },
+      { id: "neonillust", group: "digital", icon: "✨", thai: "ภาพวาดนีออนเรืองแสง", en: "Neon Illustration", desc: "ภาพวาดดิจิทัลพื้นหลังมืด เส้นนีออนเรืองแสง สีไฟฟ้าจัดจ้าน", prompt: "Neon glow illustration style, dark background, vibrant glowing outlines, electric color palette, digital art aesthetic" },
+      { id: "retrocomic", group: "digital", icon: "💬", thai: "การ์ตูนช่องย้อนยุค", en: "Retro Comic", desc: "การ์ตูนช่องอเมริกันยุค 1950s พิมพ์ halftone เก่า บอลลูนบทพูด สีจัดตัดกัน", prompt: "Vintage American comic strip style, halftone printing texture, speech bubbles, bold colors, 1950s newspaper comic aesthetic" },
+    ].map(function (v) {
+      return Object.assign({}, v, { name: v.thai + " — " + v.en });
+    });
+
+    /** ค่า id ส่งต่อ pipeline — คู่กับ HOOK_LIBRARY (cat: FOMO / AUTHENTIC / OBSESSION / CURIOSITY) */
+    const HOOK_MANUAL_OPTIONS = [
+      { id: "FOMO", icon: "⏰", en: "Last Call", th: "รีบตำก่อนหมด" },
+      { id: "AUTHENTIC", icon: "🫶", en: "Word of Mouth", th: "บอกต่อจากใจ" },
+      { id: "OBSESSION", icon: "💎", en: "Ride or Die", th: "ของมันต้องมี" },
+      { id: "CURIOSITY", icon: "💣", en: "Truth Bomb", th: "ระเบิดความจริง" },
+    ];
+    const HOOK_OPTIONS = [{ id: "auto", icon: "🤖", name: "AI เลือกให้อัตโนมัติ" }].concat(
+      HOOK_MANUAL_OPTIONS.map(function (o) {
+        return { id: o.id, icon: o.icon, name: o.en + " — " + o.th };
+      })
+    );
+
+    let mode = "story";
+    const files = { product: null, character1: null, character2: null, character3: null };
+    let salesFormulaId = null;
+    /** จำนวนฉากล่าสุดที่ใช้สุ่มสูตรขาย — สุ่มใหม่เมื่อจำนวนฉากเปลี่ยน หรือกดสุ่มใหม่ */
+    let lastSalesRandomSceneCount = null;
+    let voiceTypeId = "ai_auto";
+
+    let generateInFlight = false;
+
+    function trunc(s, n) {
+      if (!s) return "";
+      s = String(s).replace(/\s+/g, " ").trim();
+      return s.length <= n ? s : s.slice(0, n - 1) + "…";
+    }
+
+    function findChipInput(containerId, value) {
+      return Array.from(document.querySelectorAll("#" + containerId + " input")).find(function (inp) {
+        return inp.value === value;
+      });
+    }
+
+    function syncVisualSelectedBox() {
+      const box = document.getElementById("visual-selected-box");
+      if (!box) return;
+      const ids = selectedValues("visual-chips");
+      box.innerHTML = "";
+      if (!ids.length) {
+        box.innerHTML = '<span class="sel-no-pick">เลือก Style ตัวละคร 1 รายการ (ข้อ 7)</span>';
+        box.classList.remove("has-selection");
+        return;
+      }
+      box.classList.add("has-selection");
+      ids.forEach(function (id) {
+        const v = VISUAL_STYLES.find(function (x) { return x.id === id; });
+        if (!v) return;
+        const tag = document.createElement("span");
+        tag.className = "narr-sel-tag";
+        const lbl = document.createElement("strong");
+        lbl.textContent = trunc(v.name, 28);
+        const xBtn = document.createElement("button");
+        xBtn.type = "button";
+        xBtn.className = "narr-sel-tag-x";
+        xBtn.setAttribute("aria-label", "ลบ " + v.name);
+        xBtn.textContent = "ลบ";
+        xBtn.addEventListener("click", function () {
+          const inp = findChipInput("visual-chips", id);
+          if (inp) inp.checked = false;
+          updatePreview();
+        });
+        tag.appendChild(lbl);
+        tag.appendChild(xBtn);
+        box.appendChild(tag);
+      });
+    }
+
+    function syncMoodSelectedBox() {
+      const box = document.getElementById("mood-selected-box");
+      if (!box) return;
+      const keys = selectedValues("mood-chips");
+      box.innerHTML = "";
+      if (!keys.length) {
+        box.innerHTML = "";
+        box.classList.remove("has-selection");
+        return;
+      }
+      box.classList.add("has-selection");
+      keys.forEach(function (moodKey) {
+        const mObj = MOOD_KEYWORDS_DATA.find(function(m) { return m.key === moodKey; });
+        const disp = mObj ? mObj.thai : moodKey;
+        const tag = document.createElement("span");
+        tag.className = "narr-sel-tag";
+        const lbl = document.createElement("strong");
+        lbl.textContent = trunc(disp, 28);
+        const xBtn = document.createElement("button");
+        xBtn.type = "button";
+        xBtn.className = "narr-sel-tag-x";
+        xBtn.setAttribute("aria-label", "ลบ " + disp);
+        xBtn.textContent = "ลบ";
+        xBtn.addEventListener("click", function () {
+          const inp = findChipInput("mood-chips", moodKey);
+          if (inp) inp.checked = false;
+          updatePreview();
+        });
+        tag.appendChild(lbl);
+        tag.appendChild(xBtn);
+        box.appendChild(tag);
+      });
+    }
+
+    function buildChips(containerId, items, valueKey, labelFn, defaultChecked) {
+      const el = document.getElementById(containerId);
+      items.forEach((item, i) => {
+        const id = `${containerId}-${valueKey(item)}`;
+        const label = document.createElement("label");
+        label.className = "chip";
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.value = valueKey(item);
+        input.id = id;
+        if (defaultChecked && defaultChecked(item, i)) input.checked = true;
+        const span = document.createElement("span");
+        span.textContent = labelFn(item);
+        label.appendChild(input);
+        label.appendChild(span);
+        el.appendChild(label);
+      });
+    }
+
+    const NARRATIVE_GROUPS = [
+      { key: "sales", icon: "💼", title: "ปิดยอด & เซลส์", idFrom: 1, idTo: 10 },
+      { key: "character", icon: "🎭", title: "ดราม่า & คาแรกเตอร์", idFrom: 11, idTo: 20 },
+      { key: "thai", icon: "🇹🇭", title: "ไทยเซลส์ & ถิ่น", idFrom: 21, idTo: 30 },
+      { key: "life", icon: "🎬", title: "ชีวิต & ของพูดได้", idFrom: 31, idTo: 40 },
+      { key: "modern", icon: "✨", title: "ไลฟ์สไตล์โมเดิร์น", idFrom: 41, idTo: 60 }
+    ];
+
+    function buildOneNarrativeChip(o) {
+      const inputId = "narrative-chips-" + o.id;
+      const label = document.createElement("label");
+      label.className = "chip narrative-chip";
+      const cap = document.createElement("span");
+      cap.className = "narrative-chip-caption";
+      cap.textContent = o.name || "";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = String(o.id);
+      input.id = inputId;
+      const inner = document.createElement("span");
+      inner.className = "narrative-chip-inner";
+      inner.setAttribute("data-desc", o.description || "");
+      inner.title = o.description || o.name || "";
+      const ico = document.createElement("span");
+      ico.className = "narrative-ico";
+      ico.setAttribute("aria-hidden", "true");
+      ico.textContent = o.icon || "📌";
+      const text = document.createElement("span");
+      text.className = "narrative-text";
+      text.setAttribute("aria-hidden", "true");
+      inner.appendChild(ico);
+      inner.appendChild(text);
+      label.appendChild(cap);
+      label.appendChild(input);
+      label.appendChild(inner);
+      return label;
+    }
+
+    (function buildNarrativePicker() {
+      const cardsEl = document.getElementById("narrative-group-cards");
+      const chipsRoot = document.getElementById("narrative-chips");
+      const stepGroups = document.getElementById("narrative-step-groups");
+      const stepDetail = document.getElementById("narrative-step-detail");
+      const iconBack = document.getElementById("narrative-icon-back");
+
+      function syncIconBack() {
+        iconBack.hidden = !stepGroups.hidden;
+      }
+
+      function showGroups() {
+        stepGroups.hidden = false;
+        stepDetail.hidden = true;
+        chipsRoot.querySelectorAll(".narrative-group-chips").forEach((el) => {
+          el.classList.remove("is-active");
+        });
+        cardsEl.querySelectorAll(".narrative-group-card").forEach(function (b) {
+          b.classList.remove("is-active");
+        });
+        syncIconBack();
+      }
+
+      iconBack.addEventListener("click", () => {
+        chipsRoot.querySelectorAll(".narrative-group-chips").forEach((el) => {
+          el.classList.remove("is-active");
+        });
+        cardsEl.querySelectorAll(".narrative-group-card").forEach(function (b) {
+          b.classList.remove("is-active");
+        });
+        stepDetail.hidden = true;
+        showGroups();
+        (cardsEl.querySelector(".narrative-group-card"))?.focus();
+      });
+
+      NARRATIVE_GROUPS.forEach((g, idx) => {
+        const items = STYLE_OPTIONS.filter((o) => o.id >= g.idFrom && o.id <= g.idTo);
+        const wrap = document.createElement("div");
+        wrap.className = "narrative-group-chips";
+        wrap.dataset.groupIndex = String(idx);
+        items.forEach((o) => wrap.appendChild(buildOneNarrativeChip(o)));
+        chipsRoot.appendChild(wrap);
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "narrative-group-card";
+        btn.dataset.groupIndex = String(idx);
+        btn.title = g.title;
+        btn.innerHTML =
+          '<span class="ng-icon" aria-hidden="true">' +
+          g.icon +
+          "</span>" +
+          '<span class="ng-title">' +
+          g.title +
+          "</span>";
+        btn.addEventListener("click", () => {
+          chipsRoot.querySelectorAll(".narrative-group-chips").forEach((el) => {
+            el.classList.remove("is-active");
+          });
+          cardsEl.querySelectorAll(".narrative-group-card").forEach((b) => {
+            b.classList.remove("is-active");
+          });
+          wrap.classList.add("is-active");
+          btn.classList.add("is-active");
+          stepGroups.hidden = true;
+          stepDetail.hidden = false;
+          syncIconBack();
+          iconBack.focus();
+        });
+        cardsEl.appendChild(btn);
+      });
+
+      (function initNarrativeView() {
+        stepGroups.hidden = false;
+        stepDetail.hidden = true;
+        syncIconBack();
+      })();
+    })();
+    (function buildMoodPicker() {
+      const cardsEl = document.getElementById("mood-group-cards");
+      const chipsRoot = document.getElementById("mood-chips");
+      const stepGroups = document.getElementById("mood-step-groups");
+      const stepDetail = document.getElementById("mood-step-detail");
+      const iconBack = document.getElementById("mood-icon-back");
+      if (!cardsEl || !chipsRoot || !stepGroups || !stepDetail || !iconBack) {
+        console.error("[buildMoodPicker] missing DOM nodes");
+        return;
+      }
+
+      function syncIconBack() {
+        iconBack.hidden = !stepGroups.hidden;
+      }
+
+      function showGroups() {
+        stepGroups.hidden = false;
+        stepDetail.hidden = true;
+        chipsRoot.querySelectorAll(".mood-group-chips").forEach(function(el) { el.classList.remove("is-active"); });
+        syncIconBack();
+      }
+
+      iconBack.addEventListener("click", function() {
+        showGroups();
+        (cardsEl.querySelector(".narrative-group-card.is-active") ||
+          cardsEl.querySelector(".narrative-group-card"))?.focus();
+      });
+
+      MOOD_GROUPS.forEach(function(g, idx) {
+        const items = MOOD_KEYWORDS_DATA.filter(function(m) { return m.group === g.key; });
+
+        /* chip group wrapper */
+        const wrap = document.createElement("div");
+        wrap.className = "narrative-group-chips mood-group-chips";
+        wrap.dataset.groupIndex = String(idx);
+
+        items.forEach(function(m) {
+          const label = document.createElement("label");
+          label.className = "chip narrative-chip";
+          const cap = document.createElement("span");
+          cap.className = "narrative-chip-caption";
+          cap.textContent = m.thai || m.key;
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.value = m.key;
+          input.id = "mood-chip-" + m.key.replace(/[^a-zA-Z0-9]/g, "_");
+          const inner = document.createElement("span");
+          inner.className = "narrative-chip-inner";
+          inner.title = m.key;
+          const ico = document.createElement("span");
+          ico.className = "narrative-ico";
+          ico.setAttribute("aria-hidden", "true");
+          ico.textContent = m.icon;
+          const text = document.createElement("span");
+          text.className = "narrative-text";
+          text.setAttribute("aria-hidden", "true");
+          inner.appendChild(ico);
+          inner.appendChild(text);
+          label.appendChild(cap);
+          label.appendChild(input);
+          label.appendChild(inner);
+          wrap.appendChild(label);
+        });
+        chipsRoot.appendChild(wrap);
+
+        /* group card button */
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "narrative-group-card";
+        btn.dataset.groupIndex = String(idx);
+        btn.setAttribute("aria-expanded", "false");
+        btn.title = g.title + " (" + items.length + " mood)";
+        btn.innerHTML =
+          '<span class="ng-icon" aria-hidden="true">' +
+          g.icon +
+          "</span>" +
+          '<span class="ng-title">' +
+          g.title +
+          "</span>";
+        btn.addEventListener("click", function() {
+          chipsRoot.querySelectorAll(".mood-group-chips").forEach(function(el) { el.classList.remove("is-active"); });
+          cardsEl.querySelectorAll(".narrative-group-card").forEach(function(c) {
+            c.classList.remove("is-active");
+            c.setAttribute("aria-expanded", "false");
+          });
+          wrap.classList.add("is-active");
+          btn.classList.add("is-active");
+          btn.setAttribute("aria-expanded", "true");
+          stepGroups.hidden = true;
+          stepDetail.hidden = false;
+          syncIconBack();
+          iconBack.focus();
+        });
+        cardsEl.appendChild(btn);
+      });
+
+      /* register change listeners for mood chips */
+      chipsRoot.addEventListener("change", function(e) {
+        if (e.target && e.target.matches('input[type="checkbox"]')) {
+          updatePreview();
+        }
+      });
+
+      stepGroups.hidden = false;
+      stepDetail.hidden = true;
+      syncIconBack();
+    })();
+    (function buildVisualPicker() {
+      const cardsEl = document.getElementById("visual-group-cards");
+      const chipsRoot = document.getElementById("visual-chips");
+      const stepGroups = document.getElementById("visual-step-groups");
+      const stepDetail = document.getElementById("visual-step-detail");
+      const iconBack = document.getElementById("visual-icon-back");
+      if (!cardsEl || !chipsRoot || !stepGroups || !stepDetail || !iconBack) {
+        console.error("[buildVisualPicker] missing DOM nodes");
+        return;
+      }
+
+      function syncIconBack() {
+        iconBack.hidden = !stepGroups.hidden;
+      }
+
+      function showGroups() {
+        stepGroups.hidden = false;
+        stepDetail.hidden = true;
+        chipsRoot.querySelectorAll(".visual-group-chips").forEach(function (el) {
+          el.classList.remove("is-active");
+        });
+        syncIconBack();
+      }
+
+      iconBack.addEventListener("click", function () {
+        showGroups();
+        (cardsEl.querySelector(".narrative-group-card.is-active") ||
+          cardsEl.querySelector(".narrative-group-card"))?.focus();
+      });
+
+      VISUAL_GROUPS.forEach(function (g, idx) {
+        const items = VISUAL_STYLES.filter(function (v) {
+          return v.group === g.key;
+        });
+
+        const wrap = document.createElement("div");
+        wrap.className = "narrative-group-chips visual-group-chips";
+        wrap.dataset.groupIndex = String(idx);
+
+        items.forEach(function (v) {
+          const label = document.createElement("label");
+          label.className = "chip narrative-chip";
+          label.setAttribute("aria-label", v.thai + " · " + v.en);
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = "visual-style";
+          input.value = v.id;
+          input.id = "visual-chip-" + v.id.replace(/[^a-zA-Z0-9]/g, "_");
+          /* default = รายการแรกใน VISUAL_STYLES (cinematic) — ให้ตรงกับหมวดแรก + ไม่ว่างตอนโหลด */
+          if (v.id === (VISUAL_STYLES[0] && VISUAL_STYLES[0].id)) input.checked = true;
+          const inner = document.createElement("span");
+          inner.className = "narrative-chip-inner";
+          inner.title = v.prompt || v.id;
+          const ico = document.createElement("span");
+          ico.className = "narrative-ico";
+          ico.setAttribute("aria-hidden", "true");
+          ico.textContent = v.icon;
+          const text = document.createElement("span");
+          text.className = "narrative-text";
+          text.setAttribute("aria-hidden", "true");
+          text.textContent = v.thai + " · " + v.en;
+          inner.appendChild(ico);
+          inner.appendChild(text);
+          label.appendChild(input);
+          label.appendChild(inner);
+          wrap.appendChild(label);
+        });
+        chipsRoot.appendChild(wrap);
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "narrative-group-card";
+        btn.dataset.groupIndex = String(idx);
+        btn.setAttribute("aria-expanded", "false");
+        btn.title = g.title + " (" + items.length + " สไตล์)";
+        btn.innerHTML =
+          '<span class="ng-icon" aria-hidden="true">' +
+          g.icon +
+          "</span>" +
+          '<span class="ng-title">' +
+          g.title +
+          "</span>";
+        btn.addEventListener("click", function () {
+          chipsRoot.querySelectorAll(".visual-group-chips").forEach(function (el) {
+            el.classList.remove("is-active");
+          });
+          cardsEl.querySelectorAll(".narrative-group-card").forEach(function (c) {
+            c.classList.remove("is-active");
+            c.setAttribute("aria-expanded", "false");
+          });
+          wrap.classList.add("is-active");
+          btn.classList.add("is-active");
+          btn.setAttribute("aria-expanded", "true");
+          stepGroups.hidden = true;
+          stepDetail.hidden = false;
+          syncIconBack();
+          iconBack.focus();
+        });
+        cardsEl.appendChild(btn);
+      });
+
+      stepGroups.hidden = false;
+      stepDetail.hidden = true;
+      syncIconBack();
+
+      (function ensureVisualDefault() {
+        var any = document.querySelector('#visual-chips input[name="visual-style"]:checked');
+        if (!any) {
+          var first = document.querySelector('#visual-chips input[name="visual-style"]');
+          if (first) first.checked = true;
+        }
+        if (typeof syncVisualSelectedBox === "function") syncVisualSelectedBox();
+      })();
+    })();
+
+    (function buildHookUI() {
+      const wrap = document.getElementById("hook-chips");
+      if (!wrap) return;
+      wrap.className = "hook-chips-wrap";
+      wrap.innerHTML = "";
+
+      const tiles = document.createElement("div");
+      tiles.className = "hook-mode-tiles";
+      tiles.setAttribute("role", "group");
+      tiles.setAttribute("aria-label", "โหมดการเลือกฮุค");
+
+      const btnAi = document.createElement("button");
+      btnAi.type = "button";
+      btnAi.id = "hook-mode-ai";
+      btnAi.className = "hook-mode-tile is-active";
+      btnAi.setAttribute("aria-pressed", "true");
+      btnAi.title = "AI เลือกหมวดฮุคให้อัตโนมัติ";
+      btnAi.innerHTML =
+        '<span class="hook-mode-tile-icon" aria-hidden="true">🤖</span><span class="hook-mode-tile-label">AI</span>';
+
+      const btnMan = document.createElement("button");
+      btnMan.type = "button";
+      btnMan.id = "hook-mode-manual";
+      btnMan.className = "hook-mode-tile";
+      btnMan.setAttribute("aria-pressed", "false");
+      btnMan.title = "เลือกหมวดฮุคเอง";
+      btnMan.innerHTML =
+        '<span class="hook-mode-tile-icon" aria-hidden="true">✋</span><span class="hook-mode-tile-label">เลือกเอง</span>';
+
+      tiles.appendChild(btnAi);
+      tiles.appendChild(btnMan);
+      wrap.appendChild(tiles);
+
+      const manualPanel = document.createElement("div");
+      manualPanel.id = "hook-manual-panel";
+      manualPanel.className = "hook-manual-panel";
+      manualPanel.hidden = true;
+
+      const box = document.createElement("div");
+      box.className = "hook-family-box";
+      const boxHead = document.createElement("div");
+      boxHead.className = "hook-family-box-head";
+      boxHead.textContent = "สายฮุค";
+      const boxSub = document.createElement("p");
+      boxSub.className = "hook-family-box-sub";
+      boxSub.textContent = "เลือก 1 สายภายในกล่อง (โหมดเลือกเอง)";
+      const inner = document.createElement("div");
+      inner.id = "hook-family-inner";
+      inner.className = "chip-grid hook-family-inner";
+
+      HOOK_MANUAL_OPTIONS.forEach(function (opt, i) {
+        const label = document.createElement("label");
+        label.className = "chip chip-stack hook-sub-chip";
+        label.setAttribute("aria-label", opt.en + " " + opt.th);
+        const cap = document.createElement("span");
+        cap.className = "chip-caption";
+        cap.textContent = opt.en;
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "hook-category";
+        input.value = opt.id;
+        input.id = "hook-chips-man-" + i;
+        const face = document.createElement("span");
+        face.className = "chip-face hook-sub-face";
+        const ico = document.createElement("span");
+        ico.className = "hook-sub-ico";
+        ico.setAttribute("aria-hidden", "true");
+        ico.textContent = opt.icon;
+        const lines = document.createElement("span");
+        lines.className = "hook-sub-lines";
+        const en = document.createElement("span");
+        en.className = "hook-sub-en";
+        en.lang = "en";
+        en.textContent = opt.en;
+        const th = document.createElement("span");
+        th.className = "hook-sub-th";
+        th.lang = "th";
+        th.textContent = opt.th;
+        lines.appendChild(en);
+        lines.appendChild(th);
+        face.appendChild(ico);
+        face.appendChild(lines);
+        face.title = 'smHookCategory = "' + opt.id + '"';
+        label.appendChild(cap);
+        label.appendChild(input);
+        label.appendChild(face);
+        inner.appendChild(label);
+      });
+
+      box.appendChild(boxHead);
+      box.appendChild(boxSub);
+      box.appendChild(inner);
+      manualPanel.appendChild(box);
+      wrap.appendChild(manualPanel);
+
+      const sr = document.createElement("div");
+      sr.className = "hook-radio-sr";
+      sr.setAttribute("aria-hidden", "true");
+      const autoInp = document.createElement("input");
+      autoInp.type = "radio";
+      autoInp.name = "hook-category";
+      autoInp.value = "auto";
+      autoInp.id = "hook-chips-0";
+      autoInp.checked = true;
+      sr.appendChild(autoInp);
+      wrap.appendChild(sr);
+
+      function setHookPickMode(mode) {
+        var isAi = mode === "ai";
+        btnAi.classList.toggle("is-active", isAi);
+        btnMan.classList.toggle("is-active", !isAi);
+        btnAi.setAttribute("aria-pressed", isAi ? "true" : "false");
+        btnMan.setAttribute("aria-pressed", isAi ? "false" : "true");
+        manualPanel.hidden = isAi;
+        if (isAi) {
+          autoInp.checked = true;
+          inner.querySelectorAll('input[name="hook-category"]').forEach(function (inp) {
+            inp.checked = false;
+          });
+        } else {
+          autoInp.checked = false;
+          var any = inner.querySelector('input[name="hook-category"]:checked');
+          if (!any) {
+            var first = inner.querySelector('input[name="hook-category"]');
+            if (first) first.checked = true;
+          }
+        }
+        if (typeof updatePreview === "function") updatePreview();
+      }
+
+      btnAi.addEventListener("click", function () {
+        setHookPickMode("ai");
+      });
+      btnMan.addEventListener("click", function () {
+        setHookPickMode("manual");
+      });
+
+      inner.addEventListener("change", function () {
+        setHookPickMode("manual");
+      });
+    })();
+
+    function syncNarrativeSelectedUI() {
+      const checkedAll = Array.from(document.querySelectorAll("#narrative-chips input:checked"));
+      const iconEl = document.getElementById("narrative-selected-icon");
+      const boxEl  = document.getElementById("narrative-selected-box");
+      if (checkedAll.length > 0) {
+        const firstOpt = STYLE_OPTIONS.find(function(o) { return o.id === Number(checkedAll[0].value); });
+        if (iconEl && firstOpt) {
+          iconEl.textContent = firstOpt.icon;
+          iconEl.style.display = "inline-flex";
+        }
+        if (boxEl) {
+          boxEl.innerHTML = "";
+          boxEl.classList.add("has-selection");
+          checkedAll.forEach(function(inp) {
+            const opt = STYLE_OPTIONS.find(function(o) { return o.id === Number(inp.value); });
+            if (!opt) return;
+            const tag = document.createElement("span");
+            tag.className = "narr-sel-tag";
+            const lbl = document.createElement("strong");
+            lbl.textContent = trunc(opt.name, 26);
+            const xBtn = document.createElement("button");
+            xBtn.type = "button";
+            xBtn.className = "narr-sel-tag-x";
+            xBtn.setAttribute("data-id", String(opt.id));
+            xBtn.setAttribute("aria-label", "ลบ " + opt.name);
+            xBtn.textContent = "ลบ";
+            xBtn.addEventListener("click", function() {
+              inp.checked = false;
+              syncNarrativeSelectedUI();
+              updatePreview();
+            });
+            tag.appendChild(lbl);
+            tag.appendChild(xBtn);
+            boxEl.appendChild(tag);
+          });
+        }
+      } else {
+        if (iconEl) { iconEl.textContent = ""; iconEl.style.display = "none"; }
+        if (boxEl)  { boxEl.innerHTML = ""; boxEl.classList.remove("has-selection"); }
+      }
+    }
+
+    document.getElementById("narrative-chips").addEventListener("change", function (e) {
+      const t = e.target;
+      if (t && t.matches && t.matches('input[type="checkbox"]') && t.checked) {
+        if (document.querySelectorAll("#narrative-chips input:checked").length > 3) {
+          t.checked = false;
+        }
+      }
+      syncNarrativeSelectedUI();
+      updatePreview();
+    });
+
+    const _narrativeTitleIcon = document.getElementById("narrative-selected-icon");
+    if (_narrativeTitleIcon) {
+      _narrativeTitleIcon.addEventListener("click", function () {
+        document.querySelectorAll("#narrative-chips input[type=checkbox]").forEach(function (inp) {
+          inp.checked = false;
+        });
+        syncNarrativeSelectedUI();
+        updatePreview();
+      });
+    }
+
+    document.getElementById("visual-chips").addEventListener("change", function (e) {
+      const t = e.target;
+      if (!t.matches || !t.matches('input[name="visual-style"]')) return;
+      updatePreview();
+    });
+
+    function selectedValues(containerId) {
+      return Array.from(document.querySelectorAll(`#${containerId} input:checked`)).map((x) => x.value);
+    }
+
+    function getSelectedHook() {
+      if (mode === "story") {
+        return { id: "auto", option: HOOK_OPTIONS.find((o) => o.id === "auto") || HOOK_OPTIONS[0] };
+      }
+      const el = document.querySelector('#hook-chips input[name="hook-category"]:checked');
+      const id = el ? el.value : "auto";
+      return { id, option: HOOK_OPTIONS.find((o) => o.id === id) || HOOK_OPTIONS[0] };
+    }
+
+    function applyHookSectionBehavior() {
+      const btnAi = document.getElementById("hook-mode-ai");
+      const btnMan = document.getElementById("hook-mode-manual");
+      const manualPanel = document.getElementById("hook-manual-panel");
+      const autoInp = document.getElementById("hook-chips-0");
+      const note = document.getElementById("hook-mode-note");
+      const sec = document.querySelector('[data-section="hook"]');
+      const isStory = mode === "story";
+
+      if (isStory) {
+        if (autoInp) autoInp.checked = true;
+        document.querySelectorAll('#hook-family-inner input[name="hook-category"]').forEach(function (inp) {
+          inp.checked = false;
+        });
+        if (manualPanel) manualPanel.hidden = true;
+        if (btnAi) {
+          btnAi.classList.add("is-active");
+          btnAi.setAttribute("aria-pressed", "true");
+          btnAi.disabled = true;
+          btnAi.title = "Story mode: ปลดล็อค hook แล้ว ไม่บังคับใช้ Hook Library";
+        }
+        if (btnMan) {
+          btnMan.classList.remove("is-active");
+          btnMan.setAttribute("aria-pressed", "false");
+          btnMan.disabled = true;
+          btnMan.title = "Story mode: ปลดล็อค hook แล้ว ไม่บังคับใช้ Hook Library";
+        }
+        if (sec) sec.style.opacity = "0.72";
+        if (note) {
+          note.textContent = "Story mode: ปลดล็อค hook แล้ว — ระบบจะไม่ส่ง Hook Library / Hook Selection ไปบังคับ opening line";
+        }
+      } else {
+        if (btnAi) {
+          btnAi.disabled = false;
+          btnAi.title = "AI เลือกหมวดฮุคให้อัตโนมัติ";
+        }
+        if (btnMan) {
+          btnMan.disabled = false;
+          btnMan.title = "เลือกหมวดฮุคเอง";
+        }
+        if (sec) sec.style.opacity = "";
+        if (note) {
+          note.textContent = "Product sell mode: เลือก hook ได้ตามปกติ";
+        }
+      }
+    }
+
+    function clampSceneValue(raw) {
+      const n = Number.parseInt(String(raw), 10);
+      if (Number.isNaN(n)) return 1;
+      return Math.min(50, Math.max(1, n));
+    }
+
+    function getCurrentPayload() {
+      const hook = getSelectedHook();
+      return {
+        mode: mode === "story" ? "storymode" : "product_sell",
+        prompt: document.getElementById("prompt").value.trim(),
+        images: (function () {
+          const slots = [
+            { key: "product", role: "product", file: files.product },
+            { key: "character1", role: "character", file: files.character1 },
+            { key: "character2", role: "character", file: files.character2 },
+            { key: "character3", role: "character", file: files.character3 }
+          ];
+          const imagesForGemini = slots
+            .filter(function (s) { return s.file && s.file.data; })
+            .map(function (s) {
+              return {
+                role: s.role,
+                slot: s.key,
+                name: s.file.name,
+                mimeType: s.file.mimeType,
+                data: s.file.data
+              };
+            });
+          return {
+            productAttached: !!files.product,
+            characterAttached: !!(files.character1 || files.character2 || files.character3),
+            character1Attached: !!files.character1,
+            character2Attached: !!files.character2,
+            character3Attached: !!files.character3,
+            productName: files.product?.name || null,
+            characterName:
+              files.character1?.name ||
+              files.character2?.name ||
+              files.character3?.name ||
+              null,
+            characterNames: [files.character1?.name, files.character2?.name, files.character3?.name].filter(Boolean),
+            imagesForGemini: imagesForGemini
+          };
+        })(),
+        sceneCount: clampSceneValue(document.getElementById("scenes").value),
+        narrativeStyleIds: selectedValues("narrative-chips").map((v) => Number(v)),
+        narrativeStyles: selectedValues("narrative-chips")
+          .map((id) => STYLE_OPTIONS.find((o) => String(o.id) === id))
+          .filter(Boolean),
+        moodKeywords: selectedValues("mood-chips"),
+        moodKeywordsDetail: selectedValues("mood-chips").map(function(m) {
+          const mObj = MOOD_KEYWORDS_DATA.find(function(x) { return x.key === m; });
+          return {
+            value: m,
+            icon: mObj ? mObj.icon : null,
+            labelTh: mObj ? mObj.thai : null,
+            labelDisplay: mObj ? mObj.thai : m
+          };
+        }),
+        visualStyleIds: selectedValues("visual-chips"),
+        visualStyles: selectedValues("visual-chips")
+          .map((id) => VISUAL_STYLES.find((v) => v.id === id))
+          .filter(Boolean),
+        hookCategory: hook.id,
+        hook: hook.option,
+        textH1H2Enabled: document.getElementById("h1h2").checked,
+        salesFormulaId: (mode === "product") ? (salesFormulaId || null) : null,
+        salesFormula: (mode === "product" && salesFormulaId && typeof findSalesFormula === "function")
+          ? findSalesFormula(salesFormulaId)
+          : null,
+        voiceType: voiceTypeId || "ai_auto",
+        voiceResolved: (typeof resolveVoiceDirective === "function")
+          ? resolveVoiceDirective({
+              voiceType: voiceTypeId || "ai_auto",
+              prompt: document.getElementById("prompt").value || ""
+            })
+          : null,
+        characterCard: (function () {
+          if (typeof buildCompactCharacterCard !== "function") return null;
+          if (typeof resolveVoiceDirective !== "function") return null;
+          const rv = resolveVoiceDirective({
+            voiceType: voiceTypeId || "ai_auto",
+            prompt: document.getElementById("prompt").value || ""
+          });
+          const r = buildCompactCharacterCard(
+            { prompt: document.getElementById("prompt").value || "" },
+            rv
+          );
+          return r ? { card: r.card, source: r.source, preview: r.cardTextThaiShort } : null;
+        })()
+      };
+    }
+
+    function updatePreview() {
+      const payload = getCurrentPayload();
+      document.getElementById("json-out").textContent = JSON.stringify(payload, null, 2);
+      syncVisualSelectedBox();
+      syncMoodSelectedBox();
+      syncSalesFormulaSelectedBox();
+      syncVoiceSelectedBox();
+    }
+
+    /* ═══ Sales Formula picker (Product Sell mode only) ═══════════════════ */
+    function applySalesFormulaVisibility() {
+      const sec = document.getElementById("section-sales-formula");
+      if (!sec) return;
+      const isProduct = mode === "product";
+      sec.hidden = !isProduct;
+      sec.setAttribute("aria-hidden", isProduct ? "false" : "true");
+      if (!isProduct) {
+        salesFormulaId = null;
+        lastSalesRandomSceneCount = null;
+      }
+    }
+
+    function renderSalesFormulas() {
+      const list = document.getElementById("sales-formula-chips");
+      if (!list) return;
+      if (mode !== "product") {
+        list.innerHTML = "";
+        return;
+      }
+      const sceneCount = clampSceneValue(document.getElementById("scenes").value);
+      const pool =
+        (typeof listSalesFormulasByScene === "function")
+          ? listSalesFormulasByScene(sceneCount)
+          : [];
+      list.innerHTML = "";
+      if (!pool.length) {
+        const empty = document.createElement("div");
+        empty.className = "sfc-empty";
+        empty.textContent = "ไม่มีสูตรสำเร็จสำหรับ " + sceneCount + " ฉาก — ใช้ 1, 2, 3, 4, 5, 6, 7, 8, 9 หรือ 10 ฉาก";
+        list.appendChild(empty);
+        salesFormulaId = null;
+        lastSalesRandomSceneCount = null;
+        return;
+      }
+      var needNewRandom =
+        salesFormulaId == null ||
+        !pool.find(function (f) { return f.id === salesFormulaId; }) ||
+        lastSalesRandomSceneCount !== sceneCount;
+      if (needNewRandom) {
+        salesFormulaId = pool[Math.floor(Math.random() * pool.length)].id;
+        lastSalesRandomSceneCount = sceneCount;
+      }
+    }
+
+    function syncSalesFormulaSelectedBox() {
+      const box = document.getElementById("sales-formula-selected-box");
+      if (!box) return;
+      box.innerHTML = "";
+      if (!salesFormulaId) {
+        box.innerHTML = '<span class="sel-no-pick">ตั้งจำนวนฉากให้รองรับ (1–10 ฉาก) — ระบบจะสุ่มสูตรให้</span>';
+        box.classList.remove("has-selection");
+        return;
+      }
+      const f = (typeof findSalesFormula === "function") ? findSalesFormula(salesFormulaId) : null;
+      if (!f) {
+        box.innerHTML = '<span class="sel-no-pick">สูตรที่เลือกไม่ตรงกับจำนวนฉากปัจจุบัน</span>';
+        box.classList.remove("has-selection");
+        return;
+      }
+      box.classList.add("has-selection");
+      const tag = document.createElement("span");
+      tag.className = "narr-sel-tag";
+      const lbl = document.createElement("strong");
+      lbl.textContent = f.id + " · " + trunc(f.name, 40);
+      const xBtn = document.createElement("button");
+      xBtn.type = "button";
+      xBtn.className = "narr-sel-tag-x";
+      xBtn.setAttribute("aria-label", "สุ่มสูตร TikTok ใหม่");
+      xBtn.textContent = "สุ่มใหม่";
+      xBtn.addEventListener("click", function () {
+        salesFormulaId = null;
+        lastSalesRandomSceneCount = null;
+        renderSalesFormulas();
+        updatePreview();
+      });
+      tag.appendChild(lbl);
+      tag.appendChild(xBtn);
+      box.appendChild(tag);
+    }
+
+    /* ═══ Voice Type picker (Phase 5 — Character & Voice Consistency) ═════ */
+    function renderVoiceTypes() {
+      const list = document.getElementById("voice-chips");
+      if (!list) return;
+      const pool = (typeof VOICE_TYPES !== "undefined") ? VOICE_TYPES : [];
+      list.innerHTML = "";
+      pool.forEach(function (v) {
+        const lbl = document.createElement("label");
+        lbl.className = "voice-chip";
+        const inp = document.createElement("input");
+        inp.type = "radio";
+        inp.name = "voice-type";
+        inp.value = v.id;
+        if (voiceTypeId === v.id) inp.checked = true;
+        inp.addEventListener("change", function () {
+          if (inp.checked) {
+            voiceTypeId = v.id;
+            syncVoiceSelectedBox();
+            updatePreview();
+          }
+        });
+        const dot = document.createElement("span");
+        dot.className = "voice-chip-dot";
+        const txt = document.createElement("span");
+        txt.textContent = v.labelTh;
+        lbl.appendChild(inp);
+        lbl.appendChild(dot);
+        lbl.appendChild(txt);
+        list.appendChild(lbl);
+      });
+    }
+
+    function syncVoiceSelectedBox() {
+      const box = document.getElementById("voice-selected-box");
+      if (!box) return;
+      box.innerHTML = "";
+      const v = (typeof findVoiceType === "function") ? findVoiceType(voiceTypeId) : null;
+      if (!v || v.id === "ai_auto") {
+        const span = document.createElement("span");
+        span.className = "sel-no-pick";
+        span.textContent = "AI จะเลือกเสียงจากรูปและข้อความ (default = หญิง)";
+        box.appendChild(span);
+        box.classList.remove("has-selection");
+        return;
+      }
+      box.classList.add("has-selection");
+      const tag = document.createElement("span");
+      tag.className = "narr-sel-tag";
+      const lbl = document.createElement("strong");
+      lbl.textContent = v.labelTh;
+      tag.appendChild(lbl);
+      box.appendChild(tag);
+    }
+
+    function setSceneValue(v) {
+      const val = clampSceneValue(v);
+      const range = document.getElementById("scenes");
+      const num = document.getElementById("scenes-num");
+      const out = document.getElementById("scenes-out");
+      if (range) range.value = String(val);
+      if (num) num.value = String(val);
+      if (out) out.textContent = String(val);
+      document.querySelectorAll(".scene-preset-btn[data-scenes-preset]").forEach(function (btn) {
+        const p = btn.getAttribute("data-scenes-preset");
+        btn.setAttribute("aria-pressed", p === String(val) ? "true" : "false");
+      });
+      if (mode === "product") renderSalesFormulas();
+    }
+
+    document.getElementById("mode-product").addEventListener("click", () => {
+      mode = "product";
+      document.getElementById("mode-product").setAttribute("aria-pressed", "true");
+      document.getElementById("mode-story").setAttribute("aria-pressed", "false");
+      applySalesFormulaVisibility();
+      applyHookSectionBehavior();
+      renderSalesFormulas();
+      updatePreview();
+    });
+    document.getElementById("mode-story").addEventListener("click", () => {
+      mode = "story";
+      document.getElementById("mode-story").setAttribute("aria-pressed", "true");
+      document.getElementById("mode-product").setAttribute("aria-pressed", "false");
+      applySalesFormulaVisibility();
+      applyHookSectionBehavior();
+      updatePreview();
+    });
+
+    (function bindSceneControls() {
+      const range = document.getElementById("scenes");
+      const num = document.getElementById("scenes-num");
+      if (!range) return;
+
+      function syncFromRange() {
+        setSceneValue(range.value);
+        updatePreview();
+      }
+      function syncFromNum() {
+        if (!num) return;
+        setSceneValue(num.value);
+        updatePreview();
+      }
+
+      range.addEventListener("input", syncFromRange);
+      range.addEventListener("change", syncFromRange);
+      if (num) {
+        num.addEventListener("input", syncFromNum);
+        num.addEventListener("change", syncFromNum);
+        num.addEventListener("blur", function () {
+          if (String(num.value).trim() === "") setSceneValue(range.value);
+          else setSceneValue(num.value);
+          updatePreview();
+        });
+      }
+      document.querySelectorAll(".scene-preset-btn[data-scenes-preset]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          setSceneValue(btn.getAttribute("data-scenes-preset"));
+          updatePreview();
+        });
+      });
+      setSceneValue(range.value);
+    })();
+
+    document.querySelectorAll("#narrative-chips input, #mood-chips input, #visual-chips input, #hook-chips input").forEach((inp) => {
+      inp.addEventListener("change", updatePreview);
+    });
+    document.getElementById("prompt").addEventListener("input", updatePreview);
+    document.getElementById("btn-clear-prompt-images").addEventListener("click", clearPromptAndImages);
+    document.getElementById("h1h2").addEventListener("change", updatePreview);
+
+    function revokeDropThumb(lab) {
+      const old = lab.querySelector("img.thumb");
+      if (old) {
+        if (old.src.startsWith("blob:")) URL.revokeObjectURL(old.src);
+        old.remove();
+      }
+      const xb = lab.querySelector(".drop-clear");
+      if (xb) xb.remove();
+    }
+
+    function clearPromptAndImages() {
+      const promptEl = document.getElementById("prompt");
+      if (promptEl) promptEl.value = "";
+      document.querySelectorAll(".drop input").forEach(function (inp) {
+        const key = inp.dataset.key;
+        inp.value = "";
+        if (key && Object.prototype.hasOwnProperty.call(files, key)) files[key] = null;
+        const lab = inp.closest(".drop");
+        if (lab) {
+          lab.classList.remove("has-file");
+          revokeDropThumb(lab);
+        }
+      });
+      updatePreview();
+    }
+
+    function readFileAsBase64(file) {
+      return new Promise(function (resolve, reject) {
+        const reader = new FileReader();
+        reader.onload = function () {
+          const dataUrl = String(reader.result || "");
+          const m = dataUrl.match(/^data:([^;]+);base64,(.+)$/);
+          if (m) resolve({ mimeType: m[1], data: m[2] });
+          else reject(new Error("ไม่สามารถอ่านไฟล์เป็น base64"));
+        };
+        reader.onerror = function () { reject(reader.error || new Error("FileReader error")); };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    document.querySelectorAll(".drop input").forEach(function (inp) {
+      inp.addEventListener("change", function (e) {
+        const key = e.target.dataset.key;
+        const f = e.target.files && e.target.files[0] ? e.target.files[0] : null;
+        files[key] = f ? { name: f.name, mimeType: f.type || "image/jpeg", data: null } : null;
+        const lab = e.target.closest(".drop");
+        if (!lab) return;
+        lab.classList.toggle("has-file", !!f);
+        revokeDropThumb(lab);
+        if (f) {
+          readFileAsBase64(f).then(function (res) {
+            if (files[key] && files[key].name === f.name) {
+              files[key].mimeType = res.mimeType;
+              files[key].data = res.data;
+            }
+          }).catch(function (err) {
+            console.warn("[mock] readFileAsBase64 failed:", err);
+          });
+          const url = URL.createObjectURL(f);
+          const img = document.createElement("img");
+          img.className = "thumb";
+          img.src = url;
+          img.alt = "";
+          inp.insertAdjacentElement("afterend", img);
+          const clearBtn = document.createElement("button");
+          clearBtn.type = "button";
+          clearBtn.className = "drop-clear";
+          clearBtn.setAttribute("aria-label", "ลบรูปที่เลือก");
+          clearBtn.textContent = "\u2715";
+          clearBtn.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            inp.value = "";
+            files[key] = null;
+            lab.classList.remove("has-file");
+            revokeDropThumb(lab);
+            updatePreview();
+          });
+          lab.appendChild(clearBtn);
+        }
+        updatePreview();
+      });
+    });
+
+    document.getElementById("btn-refresh").addEventListener("click", updatePreview);
+    document.getElementById("btn-copy").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(document.getElementById("json-out").textContent);
+        document.getElementById("btn-copy").textContent = "คัดลอกแล้ว ✓";
+        setTimeout(() => { document.getElementById("btn-copy").textContent = "คัดลอก"; }, 1600);
+      } catch (_) {}
+    });
+
+    const GEMINI_API_STORAGE_KEY = "storymodeMockGeminiApiKeyV1";
+
+    function setApiGoogleLed(state) {
+      const led = document.getElementById("api-google-led");
+      if (!led) return;
+      var s = state === "ok" || state === "fail" || state === "warn" ? state : "off";
+      led.dataset.state = s;
+      var titles = {
+        off: "ยังไม่ติด Google",
+        warn: "รอตรวจหรือยังไม่พร้อม",
+        ok: "ติด Google — ตรวจผ่าน",
+        fail: "ไม่ติด Google — ตรวจไม่ผ่านหรือยังไม่พร้อม"
+      };
+      led.setAttribute("title", titles[s] || titles.off);
+      led.setAttribute("aria-label", titles[s] || titles.off);
+    }
+
+    function inferApiLedFromMessage(msg) {
+      if (!msg) return "off";
+      if (/ไม่ผ่าน|ใช้ไม่ได้|บันทึกไม่ได้|อ่าน localStorage/.test(msg)) return "fail";
+      if (/กรอกค่า/.test(msg)) return "fail";
+      if (/ผ่าน/.test(msg) && !/ไม่ผ่าน/.test(msg)) return "ok";
+      if (/กำลัง|มีการแก้ไข|ข้ามการตรวจ|บันทึกในเครื่อง|file:\/\//.test(msg)) return "warn";
+      return "warn";
+    }
+
+    function setApiKeyStatus(message, ledOverride) {
+      const el = document.getElementById("api-key-status");
+      if (el) el.textContent = message || "";
+      setApiGoogleLed(ledOverride != null ? ledOverride : inferApiLedFromMessage(message));
+    }
+
+    async function verifyGeminiApiKey(apiKey) {
+      const url =
+        "https://generativelanguage.googleapis.com/v1beta/models?pageSize=1&key=" +
+        encodeURIComponent(apiKey);
+      const res = await fetch(url);
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || (body.error && body.error.message)) {
+        throw new Error((body.error && body.error.message) || "HTTP " + res.status);
+      }
+    }
+
+    document.getElementById("btn-save-api").addEventListener("click", async () => {
+      const keyEl = document.getElementById("gemini-api-key");
+      const btn = document.getElementById("btn-save-api");
+      const apiKey = keyEl && keyEl.value ? keyEl.value.trim() : "";
+      if (!apiKey) {
+        setApiKeyStatus("กรอกค่าจาก Google AI Studio ก่อน");
+        return;
+      }
+      btn.disabled = true;
+      if (location.protocol === "file:") {
+        try {
+          localStorage.setItem(GEMINI_API_STORAGE_KEY, apiKey);
+        } catch (e) {
+          setApiKeyStatus("บันทึกไม่ได้: " + (e.message || e));
+          btn.disabled = false;
+          return;
+        }
+        setApiKeyStatus("บันทึกในเครื่องแล้ว — แต่ file:// มักเรียก Google ไม่ได้ ให้เปิดผ่าน HTTP local (เช่น python3 -m http.server)");
+        btn.disabled = false;
+        return;
+      }
+      setApiKeyStatus("กำลังตรวจกับ Google…");
+      try {
+        await verifyGeminiApiKey(apiKey);
+        localStorage.setItem(GEMINI_API_STORAGE_KEY, apiKey);
+        setApiKeyStatus("ผ่าน — บันทึกแล้ว");
+      } catch (e) {
+        const msg = e && e.message ? e.message : String(e);
+        setApiKeyStatus("ไม่ผ่าน: " + msg);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    document.getElementById("gemini-api-key").addEventListener("input", () => {
+      setApiKeyStatus("มีการแก้ไข — กดบันทึกเพื่อตรวจใหม่");
+    });
+
+    (async function restoreGeminiApiKeyFromStorage() {
+      try {
+        const k = localStorage.getItem(GEMINI_API_STORAGE_KEY);
+        const keyEl = document.getElementById("gemini-api-key");
+        if (!k || !keyEl) {
+          setApiGoogleLed("off");
+          return;
+        }
+        keyEl.value = k;
+        if (location.protocol === "file:") {
+          setApiKeyStatus("โหมดไฟล์ตรง — ข้ามการตรวจอัตโนมัติ (ใช้เซิร์ฟเวอร์เพื่อเจน)");
+          return;
+        }
+        setApiKeyStatus("กำลังตรวจค่าที่บันทึกไว้…");
+        try {
+          await verifyGeminiApiKey(k);
+          setApiKeyStatus("ผ่าน — ใช้ค่าที่บันทึกแล้ว");
+        } catch (e) {
+          const msg = e && e.message ? e.message : String(e);
+          setApiKeyStatus("ค่าที่บันทึกใช้ไม่ได้: " + msg);
+        }
+      } catch (_) {
+        setApiKeyStatus("อ่าน localStorage ไม่ได้");
+      }
+    })();
+
+    document.getElementById("btn-generate").addEventListener("click", async () => {
+      const status = document.getElementById("generate-status");
+      const keyEl = document.getElementById("gemini-api-key");
+      let apiKey = keyEl && keyEl.value ? keyEl.value.trim() : "";
+      if (!apiKey) {
+        try {
+          apiKey = (localStorage.getItem(GEMINI_API_STORAGE_KEY) || "").trim();
+        } catch (_) {}
+        if (apiKey && keyEl) keyEl.value = apiKey;
+      }
+      const G = window.MockStorymodeGemini;
+
+      if (!G) {
+        status.textContent = "โหลด storymode-mock-enrich-bundle.js / storymode-mock-gemini-core.js ไม่สำเร็จ";
+        return;
+      }
+      const payload = getCurrentPayload();
+      if (!payload.prompt) {
+        status.textContent = "ใส่ Prompt (ส่วน 1) ก่อน";
+        return;
+      }
+      if (payload.mode === "product_sell" && !payload.salesFormulaId) {
+        status.textContent = "โหมดขายสินค้า — ตั้งจำนวนฉากให้มีสูตร (1–10 ฉาก) เพื่อให้ระบบสุ่มสูตรได้";
+        const sec = document.getElementById("section-sales-formula");
+        if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+      if (!apiKey) {
+        status.textContent = "กรอกค่าจาก Google AI Studio ก่อน (ลิงก์ด้านบน)";
+        setApiGoogleLed("fail");
+        return;
+      }
+
+      const btn = document.getElementById("btn-generate");
+      generateInFlight = true;
+      if (btn) {
+        btn.disabled = true;
+        btn.title = "กำลังเจน…";
+      }
+
+      const save = (obj) => {
+        try {
+          localStorage.setItem(G.RESULT_STORAGE_KEY, JSON.stringify(obj));
+        } catch (e) {
+          status.textContent = String(e.message || e);
+        }
+      };
+
+      /* บันทึกสถานะประมวลผล — iframe ด้านล่างอัปเดตเมื่อ fetch เสร็จ (storage + poll) */
+      save({
+        status: "processing",
+        message: "กำลังเตรียมคำขอ…",
+        ts: Date.now()
+      });
+      status.textContent = "กำลังเจน — ดูผลด้านล่าง…";
+      var resSec = document.getElementById("section-gemini-result");
+      if (resSec && resSec.scrollIntoView) {
+        resSec.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      try {
+        const system = G.buildStorymodeSystemPromptFromPayload(payload);
+        const user = G.buildStorymodeUserMessageFromPayload(payload);
+        if (!user) throw new Error("User message ว่าง");
+        save({
+          status: "processing",
+          message: "กำลังเรียก Gemini…",
+          ts: Date.now()
+        });
+        const imagesForGemini = (payload.images && payload.images.imagesForGemini) || [];
+        const out = await G.mockFetchGeminiStorymode(apiKey, system, user, imagesForGemini);
+        save({
+          status: "done",
+          text: out.text,
+          model: out.model,
+          truncated: !!out.truncated,
+          error: null,
+          ts: Date.now()
+        });
+        status.textContent = "สำเร็จ — ดูผลด้านล่าง";
+      } catch (e) {
+        const msg = e && e.message ? e.message : String(e);
+        save({
+          status: "error",
+          text: "",
+          model: null,
+          truncated: false,
+          error: msg,
+          ts: Date.now()
+        });
+        status.textContent = msg + " (ดูรายละเอียดด้านล่าง)";
+      } finally {
+        generateInFlight = false;
+        if (btn) {
+          btn.disabled = false;
+          btn.title = "";
+        }
+      }
+    });
+
+    applyFavoriteClasses();
+    applySalesFormulaVisibility();
+    applyHookSectionBehavior();
+    renderSalesFormulas();
+    renderVoiceTypes();
+    syncVoiceSelectedBox();
+    updatePreview();
+    requestAnimationFrame(function() {
+      syncNarrativeSelectedUI();
+      applyFavoriteClasses();
+    });
+  </script>
+</body>
+</html>
