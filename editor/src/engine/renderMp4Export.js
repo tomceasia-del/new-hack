@@ -74,7 +74,7 @@ function triggerDownload(blob, filename) {
 }
 
 /** เขียนลงโฟลเดอร์ที่ผู้ใช้เลือก (File System Access API) */
-async function writeToFolder(folderHandle, filename, blob) {
+export async function writeToFolder(folderHandle, filename, blob) {
   if (!folderHandle) return false
   try {
     const perm = await folderHandle.queryPermission?.({ mode: 'readwrite' })
@@ -172,6 +172,7 @@ async function ensureAudioContextRunning(ctx) {
  *   outputName?: string,
  *   folderHandle?: FileSystemDirectoryHandle | null,
  *   signal?: AbortSignal,
+ *   noAutoDownload?: boolean,
  *   onProgress?: (info: { clipIndex: number, clipCount: number, phase: 'loading'|'recording'|'finalizing' }) => void,
  * }} [opts]
  * @returns {Promise<{ blob: Blob, mimeType: string, isMp4: boolean, filename: string, savedToFolder: boolean }>}
@@ -490,11 +491,13 @@ export async function renderProjectToMp4(clips, opts = {}) {
   const filename = `${safeFilename(outputName)}.${ext}`
 
   let savedToFolder = false
-  if (folderHandle) {
-    savedToFolder = await writeToFolder(folderHandle, filename, blob)
-  }
-  if (!savedToFolder) {
-    triggerDownload(blob, filename)
+  if (!opts.noAutoDownload) {
+    if (folderHandle) {
+      savedToFolder = await writeToFolder(folderHandle, filename, blob)
+    }
+    if (!savedToFolder) {
+      triggerDownload(blob, filename)
+    }
   }
 
   return { blob, mimeType: blobType, isMp4, filename, savedToFolder }
