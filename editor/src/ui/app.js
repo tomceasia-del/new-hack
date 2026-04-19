@@ -3,7 +3,7 @@
  */
 
 import { probeClip } from '../engine/demux.js'
-import { renderProjectToMp4, writeToFolder } from '../engine/renderMp4Export.js'
+import { renderProjectToMp4 } from '../engine/renderMp4Export.js'
 import { downloadProjectMetadataJson, saveProjectToIndexedDB } from '../engine/projectSave.js'
 import {
   clearRenderFolderHandle,
@@ -17,21 +17,18 @@ import {
   setShareUploadEndpoint,
   uploadVideoForShareLink,
 } from '../engine/shareUploadPhaseC.js'
-import {
-  getBgRenderDelayMs,
-  getRenderStrategy,
-  isChromeDesktop,
-  shouldSpeculativelyPreload,
-} from '../engine/deviceCapabilities.js'
 
-/* ── Design envelope (ออกแบบให้ Chrome desktop เท่านั้น) ──────────────────
- * - คลิป input: ≤ 1.5 นาที, ≤ 50 MB
- * - Output หลัง trim: เฉลี่ย ~15 วินาที
- * - Render pipeline: MediaRecorder แบบ near-real-time บน Chrome desktop
- */
-const MAX_CLIP_DURATION_SEC = 90
-const MAX_CLIP_BYTES = 50 * 1024 * 1024
-const TYPICAL_OUTPUT_SEC = 15
+/** มือถือ / แท็บเล็ต — ลดภาระ encode (MediaRecorder ทำงานหนักมากที่ 1080p30) */
+function isMobileLikeDevice() {
+  if (typeof navigator === 'undefined' || typeof window === 'undefined') return false
+  const ua = navigator.userAgent || ''
+  if (/iPhone|iPad|iPod|Android/i.test(ua)) return true
+  try {
+    return window.matchMedia('(pointer: coarse)').matches && window.matchMedia('(max-width: 900px)').matches
+  } catch {
+    return false
+  }
+}
 
 /**
  * @typedef {{
@@ -59,20 +56,6 @@ let _captionExporting = false
 /** ผลเรนเดอร์ล่าสุด — ปุ่มแชร์วิดีโอ (Web Share API) */
 /** @type {{ blob: Blob, mimeType: string, filename: string, isMp4: boolean } | null} */
 let lastExportVideo = null
-
-/* ── Background render (Chrome desktop only) — เริ่มตอนกดถัดไปจาก Trim ────
- * เป้าหมาย: ตอน user กรอก caption เสร็จกด Render, blob พร้อมใช้งานทันที
- * ถ้า bg ยังรันอยู่ → แสดง overlay แล้ว await promise เดิม
- * ถ้า bg error → เงียบไว้, เด้งตอน user กด render บน caption (silent-fail policy)
- */
-/** @type {Promise<any> | null} */
-let _bgRenderPromise = null
-/** @type {{ blob: Blob, mimeType: string, isMp4: boolean, filename: string, width: number, height: number } | null} */
-let _bgRenderResult = null
-/** @type {Error | null} */
-let _bgRenderError = null
-/** @type {AbortController | null} */
-let _bgRenderAbort = null
 let dragFromIndex = null
 
 let _touchFrom = null
@@ -274,19 +257,8 @@ function filterVideoFiles(fileList) {
   })
 }
 
-/** ตรวจขนาดไฟล์ (≤ 50 MB ต่อคลิปตามดีไซน์) */
-function checkFileSizeLimit(file) {
-  if (file.size > MAX_CLIP_BYTES) {
-    const mb = (file.size / (1024 * 1024)).toFixed(1)
-    showToast(`ไฟล์ "${file.name}" ใหญ่ ${mb} MB — จำกัด 50 MB/คลิป`, 'error', 5000)
-    return false
-  }
-  return true
-}
-
 async function addFiles(fileList) {
-  const allVideos = filterVideoFiles(fileList)
-  const files = allVideos.filter(checkFileSizeLimit)
+  const files = filterVideoFiles(fileList)
   if (!files.length) return
 
   const placeholders = files.map((file) => {
@@ -320,58 +292,13 @@ async function addFiles(fileList) {
     }),
   )
 
-  /* ตัดคลิปที่ยาวเกิน 1.5 นาทีออก (ตามดีไซน์) */
-  const overLimit = clips.filter(
-    (c) => c.durationSec > MAX_CLIP_DURATION_SEC + 0.5 && placeholders.includes(c),
-  )
-  if (overLimit.length) {
-    const names = overLimit.map((c) => `${c.name} (${c.durationSec.toFixed(1)}s)`).join(', ')
-    showToast(`คลิปเกิน 1.5 นาที ถูกตัดออก: ${names}`, 'error', 6000)
-    clips = clips.filter((c) => !overLimit.includes(c))
-  }
-
-  /* Speculative preload — warm browser media cache สำหรับคลิปที่เหลือ
-     ไม่เก็บ reference (fire-and-forget) — browser จัด LRU cache เอง */
-  if (shouldSpeculativelyPreload()) {
-    for (const c of clips) {
-      if (placeholders.includes(c)) warmClipVideoCache(c.file)
-    }
-  }
-
   renderClipArrangeGrid()
   syncButtons()
-}
-
-/**
- * Warm browser's media cache สำหรับคลิปหนึ่งไฟล์
- * สร้าง hidden <video preload="auto"> → self-cleanup ใน 30s
- * ไม่ควรทำบน mobile เก่า (RAM น้อย + battery)
- */
-function warmClipVideoCache(file) {
-  try {
-    const v = document.createElement('video')
-    v.preload = 'auto'
-    v.muted = true
-    v.playsInline = true
-    const url = URL.createObjectURL(file)
-    v.src = url
-    v.load()
-    const cleanup = () => {
-      try { URL.revokeObjectURL(url) } catch { /* ignore */ }
-      try { v.removeAttribute('src'); v.load() } catch { /* ignore */ }
-    }
-    v.addEventListener('loadeddata', () => setTimeout(cleanup, 0), { once: true })
-    setTimeout(cleanup, 30_000)
-  } catch {
-    /* ignore — preload เป็น optional */
-  }
 }
 
 function removeClip(id) {
   clips = clips.filter((c) => c.id !== id)
   if (!clips.length) lastExportVideo = null
-  /* clip list เปลี่ยน → bg render ที่ยังรันอยู่ไม่ valid แล้ว */
-  invalidateBgRender()
   renderClipArrangeGrid()
   syncButtons()
 }
@@ -2093,163 +2020,15 @@ function bindStepPillsOnce() {
   })
 }
 
-/**
- * คำนวณ render parameters จาก payload + speed (ใช้ร่วมกันระหว่าง bg + foreground)
- * @param {Array<{trimInSec:number, trimOutSec:number}>} payload
- * @param {number} speed
- */
-function computeRenderParams(payload, speed) {
-  const totalSelectedSec = payload.reduce(
-    (sum, c) => sum + Math.max(0, c.trimOutSec - c.trimInSec),
-    0,
-  )
-  const totalOutputSec = totalSelectedSec / Math.max(1, speed)
-  const TARGET_BYTES = 14 * 1024 * 1024
-  const audioBitrate = 128_000
-  const secForSize = Math.max(totalOutputSec, 1)
-  const rawVideoBitrate = Math.floor((TARGET_BYTES * 8) / secForSize - audioBitrate)
-  const MIN_1080_BITRATE = 3_500_000
-  const use720 = rawVideoBitrate < MIN_1080_BITRATE
-  const width = use720 ? 720 : 1080
-  const height = use720 ? 1280 : 1920
-  const capBitrate = use720 ? 7_000_000 : 14_000_000
-  const floorBitrate = use720 ? 2_000_000 : 3_000_000
-  const videoBitrate = Math.max(floorBitrate, Math.min(rawVideoBitrate, capBitrate))
-  const fps = 30
-  return { totalOutputSec, width, height, videoBitrate, audioBitrate, fps }
-}
-
-/**
- * เริ่ม background render (เงียบ) — ไม่มี overlay, ไม่ trigger download, ไม่เขียน folder
- * จะเริ่มเฉพาะเมื่อ strategy = 'desktop-bg' เท่านั้น
- * ถ้า bg ทำงานอยู่หรือมี cached result แล้ว → no-op
- */
-function startBackgroundRender() {
-  if (_bgRenderPromise || _bgRenderResult) return
-  if (getRenderStrategy() !== 'desktop-bg') return
-  if (!clips.length || clips.some((c) => c.loading)) return
-
-  clips.forEach((c) => ensureClipTrim(c))
-  const payload = clips.map((c) => ({
-    file: c.file,
-    trimInSec: c.trimInSec,
-    trimOutSec: c.trimOutSec,
-    name: c.name,
-  }))
-  const speed = Math.max(1, Number(trimPreviewPlaybackSpeed) || 1)
-  const params = computeRenderParams(payload, speed)
-
-  _bgRenderAbort = new AbortController()
-  _bgRenderError = null
-  _bgRenderResult = null
-
-  _bgRenderPromise = renderProjectToMp4(payload, {
-    playbackSpeed: speed,
-    width: params.width,
-    height: params.height,
-    fps: params.fps,
-    videoBitrate: params.videoBitrate,
-    audioBitrate: params.audioBitrate,
-    signal: _bgRenderAbort.signal,
-    outputName: `vdo-${Date.now()}`,
-    noAutoDownload: true,
-  })
-    .then((result) => {
-      _bgRenderResult = {
-        blob: result.blob,
-        mimeType: result.mimeType,
-        isMp4: result.isMp4,
-        filename: result.filename,
-        width: params.width,
-        height: params.height,
-      }
-      return _bgRenderResult
-    })
-    .catch((e) => {
-      _bgRenderError = e instanceof Error ? e : new Error(String(e))
-      return null
-    })
-    .finally(() => {
-      _bgRenderPromise = null
-      _bgRenderAbort = null
-    })
-}
-
-/**
- * Invalidate bg render — abort ถ้ากำลังรัน, ล้าง cached result
- * เรียกเมื่อ user กลับไปแก้ trim หรือ clip list เปลี่ยน
- */
-function invalidateBgRender() {
-  try { _bgRenderAbort?.abort() } catch { /* ignore */ }
-  _bgRenderAbort = null
-  _bgRenderPromise = null
-  _bgRenderResult = null
-  _bgRenderError = null
-}
-
-/**
- * บันทึก blob → folder (ถ้ามี) หรือ fallback เป็น download
- * @param {Blob} blob
- * @param {string} filename
- * @returns {Promise<{ savedToFolder: boolean }>}
- */
-async function persistRenderedBlob(blob, filename) {
-  let savedToFolder = false
-  if (renderFolderHandle) {
-    try {
-      savedToFolder = await writeToFolder(renderFolderHandle, filename, blob)
-    } catch {
-      savedToFolder = false
-    }
-  }
-  if (!savedToFolder) downloadBlobAsFile(blob, filename)
-  return { savedToFolder }
-}
-
-/**
- * ใช้ผล bg render ที่ cached ไว้ — save + toast + update state
- * (ใช้เมื่อ user คลิก render บน caption step)
- */
-async function consumeBgRenderResult() {
-  const r = _bgRenderResult
-  if (!r) return
-  _bgRenderResult = null
-  const { savedToFolder } = await persistRenderedBlob(r.blob, r.filename)
-  const sizeMb = (r.blob.size / (1024 * 1024)).toFixed(1)
-  const where = savedToFolder ? 'โฟลเดอร์ที่เลือก' : 'โฟลเดอร์ดาวน์โหลด'
-  const typeTh = r.isMp4 ? 'MP4' : 'WebM (เบราว์เซอร์ไม่รองรับ MP4 ตรง)'
-  lastExportVideo = {
-    blob: r.blob,
-    mimeType: r.mimeType,
-    filename: r.filename,
-    isMp4: r.isMp4,
-  }
-  syncCaptionStep4Buttons()
-  showToast(
-    `เรนเดอร์สำเร็จ (พื้นหลัง) · ${typeTh} · ${sizeMb} MB · ${r.width}×${r.height}\nบันทึกไว้ที่ ${where}`,
-    'ok',
-  )
-}
-
 function bindCaptionUiOnce() {
   if (document.documentElement.dataset.captionUiBound === '1') return
   document.documentElement.dataset.captionUiBound = '1'
   el.btnTrimNext?.addEventListener('click', () => {
     if (step !== 3 || !clips.length || clips.some((c) => c.loading)) return
-    /* Chrome desktop: เริ่ม bg render ก่อน, หน่วง 4s แล้วค่อยไป caption
-       Strategy อื่น: ไปทันที (ไม่ต้อง delay เปล่า) */
-    const delay = getBgRenderDelayMs()
-    if (delay > 0) {
-      startBackgroundRender()
-      setTimeout(() => setStep(4), delay)
-    } else {
-      setStep(4)
-    }
+    setStep(4)
   })
   el.btnCaptionBackTrim?.addEventListener('click', () => {
     if (!clips.length) return
-    /* กลับไปแก้ trim — invalidate bg render เผื่อ user เปลี่ยน trim จุดใด */
-    invalidateBgRender()
     setStep(3)
   })
   el.captionDraft?.addEventListener('input', () => {
@@ -2291,54 +2070,6 @@ function bindCaptionUiOnce() {
 
   el.btnCaptionRender?.addEventListener('click', async () => {
     if (_captionExporting || step !== 4 || !clips.length || clips.some((c) => c.loading)) return
-
-    /* ──────── Cache-first path: bg render เสร็จแล้ว ──────── */
-    if (_bgRenderResult) {
-      _captionExporting = true
-      syncCaptionStep4Buttons()
-      try {
-        await consumeBgRenderResult()
-      } finally {
-        _captionExporting = false
-        syncCaptionStep4Buttons()
-      }
-      return
-    }
-
-    /* ──────── Bg render ยังรันอยู่ → show overlay + await promise เดิม ──────── */
-    if (_bgRenderPromise) {
-      _captionExporting = true
-      syncCaptionStep4Buttons()
-      showRenderOverlay('กำลังเรนเดอร์เบื้องหลัง · กรุณารอสักครู่')
-      try {
-        await _bgRenderPromise
-        if (_bgRenderResult) {
-          await consumeBgRenderResult()
-        } else if (_bgRenderError) {
-          const msg = _bgRenderError.message || String(_bgRenderError)
-          if (msg !== 'ยกเลิก') {
-            showToast(`Render ไม่สำเร็จ: ${msg}`, 'error', 6000)
-          }
-          _bgRenderError = null
-        }
-      } finally {
-        hideRenderOverlay()
-        _captionExporting = false
-        syncCaptionStep4Buttons()
-      }
-      return
-    }
-
-    /* ──────── Silent bg error → เด้งเตือนแล้ว fall-through ไป foreground ──────── */
-    if (_bgRenderError) {
-      const msg = _bgRenderError.message || String(_bgRenderError)
-      if (msg !== 'ยกเลิก') {
-        showToast(`เจนเบื้องหลังไม่สำเร็จ: ${msg} — กำลังลองใหม่`, 'warn', 4000)
-      }
-      _bgRenderError = null
-    }
-
-    /* ──────── Foreground render (ไม่มี bg หรือ strategy อื่น) ──────── */
     clips.forEach((c) => ensureClipTrim(c))
     const payload = clips.map((c) => ({
       file: c.file,
@@ -2346,44 +2077,80 @@ function bindCaptionUiOnce() {
       trimOutSec: c.trimOutSec,
       name: c.name,
     }))
-    const speed = Math.max(1, Number(trimPreviewPlaybackSpeed) || 1)
-    const params = computeRenderParams(payload, speed)
 
-    /* Chrome-desktop gate — เฉพาะเส้น foreground (bg path ข้ามไปแล้ว) */
-    if (!isChromeDesktop()) {
+    // รวมระยะเวลาจริงหลังเร่งความเร็ว (วินาที)
+    const speed = Math.max(1, Number(trimPreviewPlaybackSpeed) || 1)
+    const totalSelectedSec = payload.reduce(
+      (sum, c) => sum + Math.max(0, c.trimOutSec - c.trimInSec),
+      0,
+    )
+    const totalOutputSec = totalSelectedSec / speed
+
+    // เตือนถ้าเกิน 60 วินาที (แต่ยังให้เรนเดอร์ต่อได้)
+    if (totalOutputSec > 60) {
       const ok = window.confirm(
-        'ระบบนี้ออกแบบให้ใช้ Chrome บนคอมพิวเตอร์\n' +
-          'ถ้าใช้เบราว์เซอร์อื่น (เช่น Safari บน iPhone) การ Render อาจช้ามากหรือค้าง\n\n' +
-          'แนะนำเปิดหน้านี้บน Chrome Mac/PC\n\n' +
-          'ต้องการเรนเดอร์ต่อไปหรือไม่?',
+        `ความยาวรวมหลังเร่งความเร็ว ≈ ${totalOutputSec.toFixed(1)} วินาที — เกิน 60 วินาที\n` +
+          'อาจไม่เหมาะกับข้อจำกัดของแพลตฟอร์ม (และไฟล์อาจใหญ่/คุณภาพลด)\n\n' +
+          'ต้องการเรนเดอร์ต่อหรือไม่?',
       )
       if (!ok) return
     }
-    if (params.totalOutputSec > 60) {
+    // มือถือ: การเรนเดอร์ใช้เวลาประมาณเท่าความยาวคลิป (real-time) — คลิปยาวมากอาจค้างหรือช้ามาก
+    if (isMobileLikeDevice() && totalOutputSec > 90) {
       const ok = window.confirm(
-        `ผลลัพธ์ยาว ≈ ${params.totalOutputSec.toFixed(1)} วินาที — เกินจากเป้าหมายระบบ (ประมาณ 15 วินาที)\n` +
-          'การ Render จะใช้เวลาประมาณเท่ากัน (MediaRecorder near real-time)\n\n' +
+        `บนมือถือ การ Render จะใช้เวลาประมาณ ${Math.ceil(totalOutputSec)} วินาทีขึ้นไป\n` +
+          '(ระบบเล่นวิดีโอจริงขณะบันทึก — ไม่ใช่การเร่งแบบพีซี)\n\n' +
+          'แนะนำตัดให้สั้นกว่า 60–90 วินาที หรือใช้คอมพิวเตอร์ Chrome\n\n' +
           'ต้องการเรนเดอร์ต่อหรือไม่?',
       )
       if (!ok) return
     }
 
+    // เล็งไฟล์ ≈ 14 MB (เผื่อโอเวอร์เฮดไม่เกิน ~15 MB) + พื้นบิตเรตสูงขึ้นเล็กน้อยลดสะดุดจาก encode
+    const TARGET_BYTES = 14 * 1024 * 1024
+    const audioBitrate = 128_000
+    const secForSize = Math.max(totalOutputSec, 1)
+    const rawVideoBitrate = Math.floor(
+      (TARGET_BYTES * 8) / secForSize - audioBitrate,
+    )
+    // auto-downgrade: ถ้าบิตเรตต่ำเกินไป ย่อเหลือ 720x1280
+    const MIN_1080_BITRATE = 3_500_000
+    let use720 = rawVideoBitrate < MIN_1080_BITRATE
+    // มือถือ: บังคับ 720p + fps ต่ำลง — 1080p30+MediaRecorder บน Safari มักช้ามากหรือค้างนาน
+    const mobile = isMobileLikeDevice()
+    if (mobile) {
+      use720 = true
+    }
+    const width = use720 ? 720 : 1080
+    const height = use720 ? 1280 : 1920
+    // เพดานคุณภาพต่อความละเอียด
+    const capBitrate = use720 ? 7_000_000 : 14_000_000
+    const floorBitrate = use720 ? 2_000_000 : 3_000_000
+    let videoBitrate = Math.max(floorBitrate, Math.min(rawVideoBitrate, capBitrate))
+    if (mobile) {
+      videoBitrate = Math.min(videoBitrate, 5_000_000)
+    }
+    /** เรนเดอร์แบบเล่นจริงตามเวลา — ใช้เวลาไม่ต่ำกว่าความยาวหลังเร่งความเร็วโดยประมาณ */
+    const fps = mobile ? 24 : 30
+
     _captionExporting = true
     syncCaptionStep4Buttons()
     _renderAbort = new AbortController()
-    const etaSec = Math.max(1, Math.ceil(params.totalOutputSec + payload.length * 1.2))
+    const etaSec = Math.max(1, Math.ceil(totalOutputSec))
     showRenderOverlay(
-      `เตรียมไฟล์ · ประมาณ ${etaSec} วินาที · ${params.width}×${params.height}@${params.fps}`,
+      mobile
+        ? `เตรียมไฟล์ · โดยประมาณ ${etaSec} วินาที (ตามความยาวคลิป) · ${width}×${height}@${fps}`
+        : `เตรียมไฟล์ · โดยประมาณ ${etaSec} วินาที · ${width}×${height}`,
     )
 
     try {
       const result = await renderProjectToMp4(payload, {
-        playbackSpeed: speed,
-        width: params.width,
-        height: params.height,
-        fps: params.fps,
-        videoBitrate: params.videoBitrate,
-        audioBitrate: params.audioBitrate,
+        playbackSpeed: trimPreviewPlaybackSpeed,
+        width,
+        height,
+        fps,
+        videoBitrate,
+        audioBitrate,
         folderHandle: renderFolderHandle,
         signal: _renderAbort.signal,
         outputName: `vdo-${Date.now()}`,
@@ -2395,7 +2162,7 @@ function bindCaptionUiOnce() {
                 ? 'กำลังเรนเดอร์'
                 : 'กำลังปิดไฟล์'
           updateRenderOverlay(
-            `${phaseTh} ${Math.min(clipIndex + 1, clipCount)}/${clipCount} · ${params.width}×${params.height}`,
+            `${phaseTh} ${Math.min(clipIndex + 1, clipCount)}/${clipCount} · ${width}×${height}`,
           )
         },
       })
@@ -2410,7 +2177,7 @@ function bindCaptionUiOnce() {
       }
       syncCaptionStep4Buttons()
       showToast(
-        `เรนเดอร์สำเร็จ · ${typeTh} · ${sizeMb} MB · ${params.width}×${params.height}\nบันทึกไว้ที่ ${where}\nกด「แชร์วิดีโอ」เพื่อเปิดเมนูแชร์ของเครื่อง (มือถือ)`,
+        `เรนเดอร์สำเร็จ · ${typeTh} · ${sizeMb} MB · ${width}×${height}\nบันทึกไว้ที่ ${where}\nกด「แชร์วิดีโอ」เพื่อเปิดเมนูแชร์ของเครื่อง (มือถือ)`,
         'ok',
       )
     } catch (e) {
