@@ -5,16 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Editor v2</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f172a'/%3E%3Cpath fill='%2338bdf8' d='M9 8v16l11-8-11-8z'/%3E%3C/svg%3E" type="image/svg+xml">
-  <link rel="stylesheet" href="./src/ui/app.css">
+  <link rel="stylesheet" href="/editor/src/ui/app.css">
   <script src="https://unpkg.com/mp4box@0.5.2/dist/mp4box.all.min.js"></script>
 </head>
 <body>
   <div class="app">
     <header class="app-header">
-      <nav class="app-nav" aria-label="แอปในชุด">
-        <a class="app-nav__link" href="/">← Project CS</a>
-        <a class="app-nav__link app-nav__link--active" href="/editor/" aria-current="page">Video Editor v2</a>
-      </nav>
       <h1 class="app-title">Video Editor v2</h1>
     </header>
 
@@ -303,6 +299,6 @@
 
   <div id="toast-stack" class="toast-stack" aria-live="polite" aria-atomic="false"></div>
 
-  <script type="module" src="./src/ui/app.js"></script>
+  <script type="module" src="/editor/src/ui/app.js"></script>
 </body>
 </html>

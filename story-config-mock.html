@@ -312,6 +312,45 @@
       background: #07080a;
       display: block;
     }
+
+    /* ── แท็บหลัก Project CS / ผลเจนสคริปต์ฉาก ── */
+    .main-panel-tabs {
+      display: flex;
+      gap: 0;
+      margin: 14px 0 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .main-panel-tab {
+      flex: 1;
+      padding: 11px 14px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.13s, color 0.13s;
+      text-align: center;
+    }
+    .main-panel-tab:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .main-panel-tab[aria-selected="true"] {
+      color: var(--text);
+      background: rgba(254, 44, 85, 0.14);
+      box-shadow: inset 0 -2px 0 var(--accent);
+    }
+    .main-panel-body {
+      padding-top: 6px;
+    }
+    #main-panel-result {
+      padding-top: 10px;
+    }
     textarea.prompt {
       width: 100%;
       min-height: 120px;
@@ -698,6 +737,7 @@
       word-break: break-word;
       display: -webkit-box;
       -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -901,6 +941,7 @@
       width: 100%;
       display: -webkit-box;
       -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -1125,7 +1166,16 @@
     </nav>
     <h1>Project CS</h1>
 
-    <!-- 0 -->
+    <!-- ── แท็บหลัก ── -->
+    <div class="main-panel-tabs" role="tablist" aria-label="ส่วนหลัก">
+      <button type="button" class="main-panel-tab" id="main-panel-tab-project"
+        role="tab" aria-selected="true" aria-controls="main-panel-project">Project CS</button>
+      <button type="button" class="main-panel-tab" id="main-panel-tab-result"
+        role="tab" aria-selected="false" aria-controls="main-panel-result">ผลเจนสคริปต์ฉาก (Gemini)</button>
+    </div>
+
+    <!-- ── Panel: Project CS ── -->
+    <div id="main-panel-project" class="main-panel-body" role="tabpanel" aria-labelledby="main-panel-tab-project">
     <section data-section="mode">
       <div class="sec-head">
         <p class="sec-title">โหมด</p>
@@ -1338,12 +1388,19 @@
       </div>
     </section>
 
+    </div><!-- /main-panel-project -->
+
+    <!-- ── Panel: ผลเจนสคริปต์ฉาก (Gemini) ── -->
+    <div id="main-panel-result" class="main-panel-body" role="tabpanel" aria-labelledby="main-panel-tab-result" hidden>
+
     <section id="section-gemini-result" class="gemini-result-section" aria-label="ผลเจนสคริปต์ฉาก">
       <div class="sec-head">
         <p class="sec-title">ผลเจนสคริปต์ฉาก (Gemini)</p>
       </div>
       <iframe id="gemini-result-frame" class="result-embed-iframe" src="story-config-result.html?embed=1" title="ผลเจนสคริปต์ฉาก"></iframe>
     </section>
+
+    </div><!-- /main-panel-result -->
 
     <section hidden aria-hidden="true" id="section-payload-preview">
       <div class="sec-head">
@@ -2790,7 +2847,8 @@
           error: null,
           ts: Date.now()
         });
-        status.textContent = "สำเร็จ — ดูผลด้านล่าง";
+        status.textContent = "สำเร็จ — ดูผลในแท็บผลเจน";
+        showMainTab('result');
       } catch (e) {
         const msg = e && e.message ? e.message : String(e);
         save({
@@ -2822,6 +2880,33 @@
       syncNarrativeSelectedUI();
       applyFavoriteClasses();
     });
+
+    /* ── ควบคุมแท็บหลัก Project CS / ผลเจนสคริปต์ฉาก ── */
+    function showMainTab(which) {
+      var tabProject = document.getElementById("main-panel-tab-project");
+      var tabResult  = document.getElementById("main-panel-tab-result");
+      var panelProject = document.getElementById("main-panel-project");
+      var panelResult  = document.getElementById("main-panel-result");
+      if (!tabProject || !tabResult || !panelProject || !panelResult) return;
+      var isResult = (which === "result");
+      tabProject.setAttribute("aria-selected", isResult ? "false" : "true");
+      tabResult.setAttribute("aria-selected",  isResult ? "true"  : "false");
+      panelProject.hidden = isResult;
+      panelResult.hidden  = !isResult;
+      if (isResult) {
+        /* เลื่อนขึ้นหัวหน้าเพื่อให้เห็นแท็บบาร์ */
+        var tabs = document.querySelector(".main-panel-tabs");
+        if (tabs && tabs.scrollIntoView) tabs.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    /* เชื่อม click event กับปุ่มแท็บหลัก */
+    (function() {
+      var tabProject = document.getElementById("main-panel-tab-project");
+      var tabResult  = document.getElementById("main-panel-tab-result");
+      if (tabProject) tabProject.addEventListener("click", function() { showMainTab("project"); });
+      if (tabResult)  tabResult.addEventListener("click",  function() { showMainTab("result");  });
+    })();
   </script>
 </body>
 </html>

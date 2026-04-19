@@ -71,40 +71,6 @@ a {
   margin: 0;
 }
 
-.app-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 0 0 14px;
-}
-
-.app-nav__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 500;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
-}
-
-.app-nav__link:hover {
-  color: var(--text);
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-.app-nav__link--active {
-  background: rgba(56, 189, 248, 0.12);
-  border-color: var(--cyan);
-  color: var(--text);
-}
-
 .sr-only {
   position: absolute;
   width: 1px;

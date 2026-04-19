@@ -1697,7 +1697,7 @@ const ROLE_KEYWORDS = [
   { id: 'teen_girl',      pattern: /เด็กสาว|วัยรุ่นหญิง|สาววัยรุ่น|น้องสาว|teen(age)?\s*girl/i,                                                                                                               gender: 'female' },
   { id: 'teen_boy',       pattern: /เด็กหนุ่ม|วัยรุ่นชาย|หนุ่มวัยรุ่น|น้องชาย|teen(age)?\s*boy/i,                                                                                                             gender: 'male'   },
   { id: 'elder_woman',    pattern: /คุณป้า|คุณยาย|คุณย่า|ผู้สูงอายุหญิง|วัยทอง|grandma|elderly\s*woman/i,                                                                                                     gender: 'female' },
-  { id: 'elder_man',      pattern: /คุณลุง|คุณตา|คุณปู่|ผู้สูงอายุชาย|วัยเกษียณ|grandpa|elderly\s*man/i,                                                                                                      gender: 'male'   }
+  { id: 'elder_man',      pattern: /คุณลุง|(?<![ก-๙])ลุง(?![ก-๙])|คุณตา|คุณปู่|ผู้สูงอายุชาย|วัยเกษียณ|grandpa|elderly\s*man/i,                                                                                                      gender: 'male'   }
 ];
 
 const ROLE_DEFAULTS = {
@@ -1705,103 +1705,103 @@ const ROLE_DEFAULTS = {
     role_en: 'office woman',
     age_range: '25-30',
     appearance: 'Thai skin, long straight black hair, light natural makeup',
-    outfit: 'white blouse, black pencil skirt, minimal jewelry'
+    outfit: 'OUTFIT LOCKED: white long-sleeve blouse (plain), black knee-length pencil skirt, black low heels, silver stud earrings only, no jacket'
   },
   office_man: {
     role_en: 'office man',
     age_range: '28-33',
     appearance: 'Thai skin, short black hair, clean-shaven',
-    outfit: 'light blue dress shirt, dark slacks, no tie'
+    outfit: 'OUTFIT LOCKED: light blue long-sleeve dress shirt, charcoal straight slacks, black leather loafers, black belt, no tie, no hat'
   },
   mother: {
     role_en: 'Thai mother',
     age_range: '30-38',
     appearance: 'Thai skin, shoulder-length black hair, warm friendly face',
-    outfit: 'soft pastel blouse, comfortable jeans or midi skirt'
+    outfit: 'OUTFIT LOCKED: pastel pink short-sleeve blouse, medium-blue straight jeans, white sneakers, thin silver bracelet only'
   },
   father: {
     role_en: 'Thai father',
     age_range: '33-42',
     appearance: 'Thai skin, short black hair, calm expression',
-    outfit: 'casual polo shirt, khaki pants'
+    outfit: 'OUTFIT LOCKED: navy polo shirt, khaki chinos, white low-top sneakers, black watch only'
   },
   student: {
     role_en: 'Thai student',
     age_range: '18-22',
     appearance: 'Thai skin, youthful fresh face, simple hair',
-    outfit: 'casual student outfit (tee + jeans) or university uniform'
+    outfit: 'OUTFIT LOCKED: plain white t-shirt, light blue straight jeans, white canvas sneakers, black backpack, no extra jewelry'
   },
   medical: {
     role_en: 'Thai medical professional',
     age_range: '28-35',
     appearance: 'Thai skin, neat short/tied-back black hair, trustworthy expression',
-    outfit: 'white medical coat over scrubs, stethoscope'
+    outfit: 'OUTFIT LOCKED: white medical coat over light blue scrubs, white clinic shoes, stethoscope, no additional accessories'
   },
   chef: {
     role_en: 'Thai chef',
     age_range: '28-40',
     appearance: 'Thai skin, neat hair tied back, focused expression',
-    outfit: 'white chef jacket, black apron'
+    outfit: 'OUTFIT LOCKED: white chef jacket, black apron, black chef pants, black non-slip kitchen shoes, no jewelry'
   },
   beauty_expert: {
     role_en: 'Thai beauty expert',
     age_range: '24-30',
     appearance: 'Thai skin, glowing polished makeup, long styled black hair',
-    outfit: 'trendy modern outfit, stylish accessories'
+    outfit: 'OUTFIT LOCKED: fitted beige blouse, white high-waist wide-leg pants, nude heels, small gold hoop earrings, delicate gold necklace'
   },
   teen_girl: {
     role_en: 'Thai teenage girl',
     age_range: '16-20',
     appearance: 'Thai skin, youthful cute face, long straight black hair',
-    outfit: 'casual Y2K-style tee and mini skirt, sneakers'
+    outfit: 'OUTFIT LOCKED: pastel blue baby tee, white pleated mini skirt, white sneakers, simple hair clip, no heavy jewelry'
   },
   teen_boy: {
     role_en: 'Thai teenage boy',
     age_range: '16-20',
     appearance: 'Thai skin, short black hair, youthful face',
-    outfit: 'oversized tee, jeans, sneakers'
+    outfit: 'OUTFIT LOCKED: oversized gray t-shirt, dark blue relaxed jeans, white sneakers, black wristband only'
   },
   athlete: {
     role_en: 'Thai athlete',
     age_range: '22-30',
     appearance: 'Thai skin, toned build, sporty short hair',
-    outfit: 'athletic wear (tank + shorts), running shoes'
+    outfit: 'OUTFIT LOCKED: black athletic tank top, black running shorts, white running shoes with black accents, sports watch only'
   },
   elder_woman: {
     role_en: 'Thai elder woman',
     age_range: '55-65',
     appearance: 'Thai skin, graying short hair, kind face',
-    outfit: 'traditional Thai blouse, long skirt'
+    outfit: 'OUTFIT LOCKED: cream traditional Thai blouse, dark brown long skirt, black flat shoes, small pearl earrings'
   },
   elder_man: {
     role_en: 'Thai elder man',
     age_range: '55-65',
     appearance: 'Thai skin, graying short hair, calm weathered face',
-    outfit: 'simple button shirt, slacks'
+    outfit: 'OUTFIT LOCKED: light gray short-sleeve button shirt, dark gray slacks, black slip-on shoes, no tie, no hat'
   },
   shop_owner: {
     role_en: 'Thai shop owner',
     age_range: '28-38',
     appearance: 'Thai skin, practical tied-back hair, energetic friendly face',
-    outfit: 'brand polo or apron over casual tee, simple accessories'
+    outfit: 'OUTFIT LOCKED: brand navy polo shirt, black apron, dark jeans, black sneakers, name tag, no extra accessories'
   },
   teacher: {
     role_en: 'Thai teacher',
     age_range: '28-40',
     appearance: 'Thai skin, neat hair, composed trustworthy expression',
-    outfit: 'smart-casual blouse or shirt, simple slacks or midi skirt'
+    outfit: 'OUTFIT LOCKED: light beige blouse, navy midi skirt, black low heels, small silver earrings, no outerwear'
   },
   generic_person_female: {
     role_en: 'Thai woman',
     age_range: '22-28',
     appearance: 'Thai skin, long black hair, natural makeup, friendly face',
-    outfit: 'casual modern outfit (blouse + jeans)'
+    outfit: 'OUTFIT LOCKED: white long-sleeve blouse (plain), medium-blue high-waist straight jeans, white sneakers, silver stud earrings only'
   },
   generic_person_male: {
     role_en: 'Thai man',
     age_range: '22-30',
     appearance: 'Thai skin, short black hair, friendly face',
-    outfit: 'casual modern outfit (polo + jeans)'
+    outfit: 'OUTFIT LOCKED: navy polo shirt, medium-blue straight jeans, white sneakers, black wristwatch only, no hat'
   }
 };
 
@@ -1822,6 +1822,180 @@ function pickRoleDefaults(roleId, gender) {
   return { roleId: fallbackId, data: ROLE_DEFAULTS[fallbackId] };
 }
 
+const OUTFIT_STYLE_PRESETS = [
+  {
+    pattern: /ชุดโทรม|โทรมๆ|มอมแมม|เก่าๆ|เก่า\b|worn-?out|ragged|shabby/i,
+    spec: {
+      top: 'faded loose t-shirt',
+      bottom: 'worn straight jeans',
+      shoes: 'used canvas sneakers',
+      accessories: 'no jewelry',
+      extra: 'slightly wrinkled fabric'
+    }
+  },
+  {
+    pattern: /ชุดเลิศ|เลิศๆ|หรู|หรูหรา|เนี้ยบ|หรูๆ|glam|luxury|elegant|polished/i,
+    spec: {
+      top: 'tailored fitted top or blouse',
+      bottom: 'tailored pants or elegant skirt',
+      shoes: 'polished formal shoes or heels',
+      accessories: 'minimal premium jewelry',
+      extra: 'clean high-end finish'
+    }
+  },
+  {
+    pattern: /ชุดบ้านนอก|บ้านนอกๆ|ลูกทุ่ง|ชนบท|rural|country style/i,
+    spec: {
+      top: 'simple cotton plaid shirt',
+      bottom: 'work pants or long simple skirt',
+      shoes: 'rubber sandals or basic slip-on shoes',
+      accessories: 'simple local accessories only',
+      extra: 'practical everyday countryside style'
+    }
+  }
+];
+
+const OUTFIT_COLOR_HINTS = [
+  { pattern: /ขาว|white/i, label: 'white' },
+  { pattern: /ดำ|black/i, label: 'black' },
+  { pattern: /เทา|gray|grey/i, label: 'gray' },
+  { pattern: /น้ำเงิน|กรม|navy|blue/i, label: 'blue' },
+  { pattern: /ฟ้า|sky blue|light blue/i, label: 'light blue' },
+  { pattern: /เขียว|green/i, label: 'green' },
+  { pattern: /แดง|red/i, label: 'red' },
+  { pattern: /ชมพู|pink/i, label: 'pink' },
+  { pattern: /ม่วง|purple|violet/i, label: 'purple' },
+  { pattern: /น้ำตาล|brown/i, label: 'brown' },
+  { pattern: /ครีม|เบจ|beige|cream/i, label: 'beige/cream' },
+  { pattern: /ทอง|gold/i, label: 'gold' },
+  { pattern: /เงิน|silver/i, label: 'silver' }
+];
+
+function stripOutfitLockedPrefix(text) {
+  return String(text || '').replace(/^OUTFIT LOCKED:\s*/i, '').trim();
+}
+
+function collectColorLabels(text) {
+  const out = [];
+  const src = String(text || '');
+  for (let i = 0; i < OUTFIT_COLOR_HINTS.length; i++) {
+    const c = OUTFIT_COLOR_HINTS[i];
+    if (c.pattern.test(src) && out.indexOf(c.label) === -1) out.push(c.label);
+  }
+  return out;
+}
+
+function parseDefaultOutfitSpec(outfitText) {
+  const clean = stripOutfitLockedPrefix(outfitText);
+  const parts = clean.split(',').map((s) => s.trim()).filter(Boolean);
+  return {
+    top: parts[0] || 'plain top',
+    bottom: parts[1] || 'simple bottom',
+    shoes: parts[2] || 'basic shoes',
+    accessories: parts[3] || 'minimal accessories',
+    extra: parts.slice(4).join(', '),
+    colors: collectColorLabels(clean)
+  };
+}
+
+function normalizeOutfitSpec(spec) {
+  const s = spec || {};
+  const colors = Array.isArray(s.colors) ? s.colors.filter(Boolean) : [];
+  return {
+    top: s.top || 'plain top',
+    bottom: s.bottom || 'simple bottom',
+    shoes: s.shoes || 'basic shoes',
+    accessories: s.accessories || 'minimal accessories',
+    extra: s.extra || '',
+    colors: colors
+  };
+}
+
+function stringifyLockedOutfit(spec) {
+  const s = normalizeOutfitSpec(spec);
+  const bits = [
+    s.top,
+    s.bottom,
+    s.shoes,
+    s.accessories
+  ];
+  if (s.colors.length) bits.push('color palette locked: ' + s.colors.join('/'));
+  if (s.extra) bits.push(s.extra);
+  return 'OUTFIT LOCKED: ' + bits.join(', ');
+}
+
+function resolveOutfitFromUserIntent(promptText, roleDefaultOutfit) {
+  const text = String(promptText || '');
+  const base = parseDefaultOutfitSpec(roleDefaultOutfit);
+  const hasOutfitIntent = /ชุด|แต่งตัว|เสื้อ|กางเกง|กระโปรง|รองเท้า|เครื่องประดับ|ต่างหู|สร้อย|แหวน|เสื้อผ้า|outfit|wardrobe|look|style|shirt|blouse|pants|skirt|shoes|sneakers|heels|jewelry/i.test(text);
+  let usedUserIntent = false;
+  const merged = {
+    top: base.top,
+    bottom: base.bottom,
+    shoes: base.shoes,
+    accessories: base.accessories,
+    extra: base.extra,
+    colors: base.colors.slice()
+  };
+
+  for (let i = 0; i < OUTFIT_STYLE_PRESETS.length; i++) {
+    const p = OUTFIT_STYLE_PRESETS[i];
+    if (!p.pattern.test(text)) continue;
+    usedUserIntent = true;
+    merged.top = p.spec.top || merged.top;
+    merged.bottom = p.spec.bottom || merged.bottom;
+    merged.shoes = p.spec.shoes || merged.shoes;
+    merged.accessories = p.spec.accessories || merged.accessories;
+    merged.extra = p.spec.extra || merged.extra;
+    break;
+  }
+
+  if (/เสื้อเชิ้ต|shirt|blouse/i.test(text)) { merged.top = 'shirt or blouse (user-specified)'; usedUserIntent = true; }
+  if (/เสื้อยืด|t-?shirt|tee\b/i.test(text)) { merged.top = 'plain t-shirt (user-specified)'; usedUserIntent = true; }
+  if (/ฮู้ด|hoodie/i.test(text)) { merged.top = 'hoodie (user-specified)'; usedUserIntent = true; }
+  if (/สูท|blazer|สูทลำลอง/i.test(text)) { merged.top = 'blazer/suit top (user-specified)'; usedUserIntent = true; }
+
+  if (/ยีนส์|jeans|denim/i.test(text)) { merged.bottom = 'jeans (user-specified)'; usedUserIntent = true; }
+  if (/กระโปรง|skirt/i.test(text)) { merged.bottom = 'skirt (user-specified)'; usedUserIntent = true; }
+  if (/สแลค|slacks|trousers|chinos/i.test(text)) { merged.bottom = 'slacks/trousers (user-specified)'; usedUserIntent = true; }
+  if (/ขาสั้น|shorts/i.test(text)) { merged.bottom = 'shorts (user-specified)'; usedUserIntent = true; }
+
+  if (/ผ้าใบ|sneakers?/i.test(text)) { merged.shoes = 'sneakers (user-specified)'; usedUserIntent = true; }
+  if (/ส้นสูง|heels?/i.test(text)) { merged.shoes = 'heels (user-specified)'; usedUserIntent = true; }
+  if (/บูท|boots?/i.test(text)) { merged.shoes = 'boots (user-specified)'; usedUserIntent = true; }
+  if (/แตะ|sandals?/i.test(text)) { merged.shoes = 'sandals (user-specified)'; usedUserIntent = true; }
+
+  if (/ไม่ใส่(?:เครื่องประดับ|จิวเวลรี่)|no jewelry|no accessories/i.test(text)) {
+    merged.accessories = 'no jewelry/accessories';
+    usedUserIntent = true;
+  } else if (/ต่างหู|earrings?/i.test(text)) {
+    merged.accessories = 'earrings (user-specified)';
+    usedUserIntent = true;
+  } else if (/สร้อย|necklace/i.test(text)) {
+    merged.accessories = 'necklace (user-specified)';
+    usedUserIntent = true;
+  } else if (/กำไล|bracelet/i.test(text)) {
+    merged.accessories = 'bracelet (user-specified)';
+    usedUserIntent = true;
+  } else if (/นาฬิกา|watch/i.test(text)) {
+    merged.accessories = 'watch (user-specified)';
+    usedUserIntent = true;
+  }
+
+  const userColors = collectColorLabels(text);
+  if (userColors.length) {
+    merged.colors = userColors;
+    usedUserIntent = true;
+  }
+
+  return {
+    hasOutfitIntent: hasOutfitIntent,
+    usedUserIntent: usedUserIntent,
+    spec: normalizeOutfitSpec(merged),
+    outfit: stringifyLockedOutfit(merged)
+  };
+}
+
 /**
  * Build deterministic CHARACTER CARD from payload + resolved voice.
  * Returns: { card, cardTextEN, cardTextThaiShort, source }
@@ -1839,6 +2013,7 @@ function buildCompactCharacterCard(payload, resolvedVoice) {
   const detectedRole = detectRoleFromText(text);
   const rolePick = pickRoleDefaults(detectedRole, resolvedVoice.gender);
   const data = rolePick.data;
+  const outfitResolved = resolveOutfitFromUserIntent(text, data.outfit);
 
   const hasCharImg =
     (payload.images && (payload.images.character1Attached || payload.images.character2Attached || payload.images.character3Attached)) ||
@@ -1850,7 +2025,7 @@ function buildCompactCharacterCard(payload, resolvedVoice) {
     gender: resolvedVoice.gender || 'female',
     age_range: data.age_range,
     appearance: data.appearance,
-    outfit: data.outfit,
+    outfit: outfitResolved.outfit,
     voice_en: resolvedVoice.voiceEn,
     lock_scope: 'single_clip',
     image_ref: !!hasCharImg
@@ -1874,7 +2049,7 @@ function buildCompactCharacterCard(payload, resolvedVoice) {
     card: card,
     cardTextEN: cardTextEN,
     cardTextThaiShort: cardTextThaiShort,
-    source: detectedRole ? 'text-keyword' : 'default-fallback'
+    source: (detectedRole ? 'text-keyword' : 'default-fallback') + (outfitResolved.usedUserIntent ? '+user-outfit-intent' : '')
   };
 }
 
@@ -1903,13 +2078,14 @@ function buildCompactCardInjectionBlock(cardResult, payload) {
     'RULES:',
     '  1. Echo this CARD verbatim at the very top of output before Scene 1 (required for parser).',
     '  2. Keep face/hair/voice IDENTICAL in every scene. Same character throughout.',
-    '  3. Outfit is locked by default' + (hasBlueprint
+    '  3. Outfit details are locked by default (top, bottom, shoes, accessories, and colors)' + (hasBlueprint
         ? ' — EXCEPT when a sales-formula beat explicitly describes a before/after or transformation; in that case follow the beat\'s wardrobe note for that specific scene only.'
         : ' across all scenes — do not change clothing.'),
-    '  4. Do NOT add new characters mid-clip (background extras OK).'
+    '  4. Do NOT add/remove accessories or change color palette unless explicitly allowed by rule 3.',
+    '  5. Do NOT add new characters mid-clip (background extras OK).'
   ];
   if (hasRefImg) {
-    lines.push('  5. A character reference image is attached — use it as ground truth for face/hair; the CARD above fills any gaps.');
+    lines.push('  6. A character reference image is attached — use it as ground truth for face/hair; the CARD above fills any gaps.');
   }
   lines.push('');
   return lines.join('\n');

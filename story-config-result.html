@@ -445,7 +445,7 @@
           else if (current === "age") o.age = v;
           else if (current === "appearance") o.appearance = v;
           else if (current === "outfit") o.outfit = v;
-          else if (current === "voice") o.voice = v;
+          else if (current === "voice") o.voice = v.replace(/\s+RULES:\s*[\s\S]*$/i, "").trim();
           buf = [];
         }
         for (var li = 0; li < lines.length; li++) {
@@ -461,7 +461,7 @@
           if (voiceM) {
             flush();
             current = null;
-            o.voice_line = voiceM[1].trim();
+            o.voice_line = voiceM[1].replace(/\s+RULES:\s*[\s\S]*$/i, "").trim();
             if (!o.voice) o.voice = o.voice_line;
             continue;
           }
@@ -472,6 +472,8 @@
             buf.push(m[2].trim());
           } else if (
             current &&
+            !/^\s*RULES?\s*:/i.test(line) &&
+            !/^\s*\d+\.\s*/.test(line) &&
             !/Hook Reference:|===\s*SCENE\s+\d+\s*:|(?:🔴\s*)?IMAGE\s+PROMPT|(?:🟢\s*)?VIDEO\s+PROMPT/i.test(line) &&
             line.trim() !== "```"
           ) {
@@ -692,7 +694,7 @@
           var tail = segs[segs.length - 1].trim();
           if (tail.length > 15) t = tail;
         }
-        var headBad = /before Scene\s*1|required for parser|Keep face\/hair|Outfit is locked|Do NOT add new characters/i;
+        var headBad = /before Scene\s*1|required for parser|Keep face\/hair|Outfit is locked|Outfit details are locked|Do NOT add\/remove accessories|Do NOT add new characters/i;
         var phIdx = t.lastIndexOf("\nภาพ:");
         if (phIdx === -1) phIdx = t.indexOf("ภาพ:");
         if (phIdx !== -1 && headBad.test(t.slice(0, phIdx))) {
