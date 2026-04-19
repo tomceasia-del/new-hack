@@ -16,6 +16,7 @@
       --ok: #7dd3a8;
       --tab-bg: #12151c;
       --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+      --btn-scale: 2;
     }
     * { box-sizing: border-box; }
     body {
@@ -145,7 +146,7 @@
     .tab {
       flex: 1;
       max-width: 200px;
-      padding: 10px 14px;
+      padding: calc(10px * var(--btn-scale)) calc(14px * var(--btn-scale));
       border-radius: 10px 10px 0 0;
       border: 1px solid var(--border);
       border-bottom: none;
@@ -153,7 +154,7 @@
       color: var(--muted);
       font: inherit;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: calc(0.85rem * var(--btn-scale));
       cursor: pointer;
       transition: background 0.12s, color 0.12s;
       outline: none;
@@ -187,16 +188,17 @@
       margin: 10px 0 14px;
     }
     .mode-tab {
-      padding: 10px 22px;
+      padding: calc(10px * var(--btn-scale)) calc(22px * var(--btn-scale));
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--tab-bg);
       color: var(--muted);
       font: inherit;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: calc(0.85rem * var(--btn-scale));
       cursor: pointer;
     }
+    .mode-tab:active { opacity: 0.75; transform: scale(0.97); }
     .mode-tab:hover { color: var(--text); }
     .mode-tab[aria-selected="true"] {
       background: #000;
@@ -273,18 +275,19 @@
       margin-top: 12px;
     }
     .btn {
-      padding: 8px 14px;
+      padding: calc(8px * var(--btn-scale)) calc(14px * var(--btn-scale));
       border-radius: 10px;
       border: none;
       font: inherit;
       font-weight: 600;
-      font-size: 0.82rem;
+      font-size: calc(0.82rem * var(--btn-scale));
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
+    .btn:active { opacity: 0.75; transform: scale(0.97); }
     .btn-primary { background: #334155; color: #f1f5f9; border: 1px solid var(--border); }
     .btn-ghost {
       background: transparent;
@@ -297,6 +300,7 @@
       border: 1px solid var(--border);
     }
     .btn-copy-prompt:hover { background: rgba(255, 255, 255, 0.08); }
+    .btn-copy-prompt:active { opacity: 0.75; transform: scale(0.97); }
 
     .copy-feedback {
       font-size: 0.78rem;

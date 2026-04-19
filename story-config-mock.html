@@ -18,6 +18,7 @@
       --narr-sel: #cc3344;
       --r: 14px;
       --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+      --btn-scale: 2;
     }
     * { box-sizing: border-box; }
     body {
@@ -49,13 +50,13 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 14px;
+      padding: calc(7px * var(--btn-scale)) calc(14px * var(--btn-scale));
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.82rem;
+      font-size: calc(0.82rem * var(--btn-scale));
       font-weight: 600;
       white-space: nowrap;
       transition: color 0.15s, border-color 0.15s, background 0.15s;
@@ -242,7 +243,7 @@
     .mode-btn {
       flex: 1;
       min-width: 140px;
-      padding: 12px 14px;
+      padding: calc(12px * var(--btn-scale)) calc(14px * var(--btn-scale));
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--surface);
@@ -253,6 +254,7 @@
       transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
     }
     .mode-btn:hover { border-color: rgba(255, 255, 255, 0.18); }
+    .mode-btn:active { opacity: 0.75; transform: scale(0.97); }
     .mode-btn[aria-pressed="true"] {
       border-color: var(--accent);
       background: var(--accent-dim);
@@ -284,8 +286,8 @@
     }
     .btn-clear-prompt {
       flex-shrink: 0;
-      padding: 6px 12px;
-      font-size: 0.78rem;
+      padding: calc(6px * var(--btn-scale)) calc(12px * var(--btn-scale));
+      font-size: calc(0.78rem * var(--btn-scale));
       font-weight: 600;
       border-radius: 8px;
       border: 1px solid var(--border);
@@ -326,12 +328,12 @@
     }
     .main-panel-tab {
       flex: 1;
-      padding: 11px 14px;
+      padding: calc(11px * var(--btn-scale)) calc(14px * var(--btn-scale));
       border: none;
       background: transparent;
       color: var(--muted);
       font: inherit;
-      font-size: 0.88rem;
+      font-size: calc(0.88rem * var(--btn-scale));
       font-weight: 700;
       cursor: pointer;
       transition: background 0.13s, color 0.13s;
@@ -341,6 +343,7 @@
       color: var(--text);
       background: rgba(255, 255, 255, 0.04);
     }
+    .main-panel-tab:active { opacity: 0.75; }
     .main-panel-tab[aria-selected="true"] {
       color: var(--text);
       background: rgba(254, 44, 85, 0.14);
@@ -362,7 +365,7 @@
       background: var(--surface);
       color: var(--text);
       font: inherit;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     textarea.prompt::placeholder { color: var(--muted); }
     /* รูปสินค้า + ตัวละคร 3 ช่อง แถวเดียว */
@@ -374,7 +377,7 @@
     }
     @media (max-width: 520px) {
       .drop-grid-images {
-        grid-template-columns: minmax(0, 1.08fr) repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 6px;
       }
       .drop-grid-images .drop {
@@ -443,17 +446,18 @@
     }
     input[type="range"] { accent-color: var(--accent); }
     .scene-preset-btn {
-      padding: 10px 18px;
+      padding: calc(10px * var(--btn-scale)) calc(18px * var(--btn-scale));
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--text);
       font: inherit;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: calc(0.95rem * var(--btn-scale));
       cursor: pointer;
       transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
     }
+    .scene-preset-btn:active { opacity: 0.75; transform: scale(0.97); }
     .scene-preset-btn:hover {
       border-color: rgba(254, 44, 85, 0.55);
       background: rgba(254, 44, 85, 0.12);
@@ -478,6 +482,8 @@
     .chip-grid.narrative-scroll {
       max-height: 260px;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
       padding-right: 6px;
       align-content: flex-start;
     }
@@ -495,14 +501,14 @@
     }
     .hook-mode-tile {
       flex: 1;
-      min-height: 88px;
+      min-height: calc(88px * var(--btn-scale));
       max-width: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 10px 8px;
+      padding: calc(10px * var(--btn-scale)) calc(8px * var(--btn-scale));
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--surface);
@@ -512,11 +518,11 @@
       transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
     }
     .hook-mode-tile .hook-mode-tile-icon {
-      font-size: 1.65rem;
+      font-size: calc(1.65rem * var(--btn-scale));
       line-height: 1;
     }
     .hook-mode-tile .hook-mode-tile-label {
-      font-size: 0.72rem;
+      font-size: calc(0.72rem * var(--btn-scale));
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -557,7 +563,7 @@
     }
     .chip-grid.hook-family-inner {
       display: grid;
-      grid-template-columns: repeat(2, minmax(100px, 124px));
+      grid-template-columns: repeat(2, minmax(calc(100px * var(--btn-scale)), calc(124px * var(--btn-scale))));
       gap: 8px;
       justify-content: center;
       align-items: stretch;
@@ -589,13 +595,13 @@
       gap: 4px;
       flex: 1;
       width: 100%;
-      min-height: 72px;
+      min-height: calc(72px * var(--btn-scale));
       border-radius: 10px !important;
-      padding: 7px 6px !important;
+      padding: calc(7px * var(--btn-scale)) calc(6px * var(--btn-scale)) !important;
       text-align: center;
     }
     .hook-sub-ico {
-      font-size: 1.2rem;
+      font-size: calc(1.2rem * var(--btn-scale));
       line-height: 1;
     }
     .hook-sub-lines {
@@ -608,12 +614,12 @@
       padding: 0 1px;
     }
     .hook-sub-en {
-      font-size: 0.68rem;
+      font-size: calc(0.68rem * var(--btn-scale));
       font-weight: 800;
       letter-spacing: 0.02em;
     }
     .hook-sub-th {
-      font-size: 0.62rem;
+      font-size: calc(0.62rem * var(--btn-scale));
       font-weight: 600;
       color: rgba(240, 242, 247, 0.78);
       line-height: 1.2;
@@ -654,9 +660,9 @@
     }
     .chip .chip-face {
       display: inline-block;
-      padding: 8px 12px;
+      padding: calc(8px * var(--btn-scale)) calc(12px * var(--btn-scale));
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: calc(0.8rem * var(--btn-scale));
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--off, var(--text));
@@ -702,10 +708,10 @@
       justify-content: center;
       gap: 5px;
       width: 100%;
-      min-height: 72px;
-      padding: 10px 6px 8px;
+      min-height: calc(72px * var(--btn-scale));
+      padding: calc(10px * var(--btn-scale)) calc(6px * var(--btn-scale)) calc(8px * var(--btn-scale));
       border-radius: 12px;
-      font-size: 0.75rem;
+      font-size: calc(0.75rem * var(--btn-scale));
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--off, var(--text));
@@ -717,7 +723,7 @@
       position: relative;
     }
     .chip.narrative-chip .narrative-ico {
-      font-size: 1.55rem;
+      font-size: calc(1.55rem * var(--btn-scale));
       line-height: 1;
       flex-shrink: 0;
     }
@@ -730,7 +736,7 @@
       align-items: center;
     }
     .chip.narrative-chip .narrative-name {
-      font-size: 0.7rem;
+      font-size: calc(0.7rem * var(--btn-scale));
       font-weight: 600;
       line-height: 1.2;
       color: var(--text);
@@ -744,7 +750,7 @@
     }
     .narrative-group-chips.is-active {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(calc(82px * var(--btn-scale)), 1fr));
       gap: 8px;
       width: 100%;
     }
@@ -762,9 +768,9 @@
       justify-content: center;
       gap: 6px;
       width: auto;
-      min-width: 36px;
-      height: 36px;
-      padding: 0 10px 0 8px;
+      min-width: calc(36px * var(--btn-scale));
+      height: calc(36px * var(--btn-scale));
+      padding: 0 calc(10px * var(--btn-scale)) 0 calc(8px * var(--btn-scale));
       margin: 0;
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -902,7 +908,7 @@
     }
     .narrative-group-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(calc(100px * var(--btn-scale)), 1fr));
       gap: 6px;
     }
     .narrative-group-card {
@@ -911,8 +917,8 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 10px 6px 8px;
-      min-height: 70px;
+      padding: calc(10px * var(--btn-scale)) calc(6px * var(--btn-scale)) calc(8px * var(--btn-scale));
+      min-height: calc(70px * var(--btn-scale));
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--surface);
@@ -931,12 +937,12 @@
       outline-offset: 2px;
     }
     .narrative-group-card .ng-icon {
-      font-size: 2rem;
+      font-size: calc(2rem * var(--btn-scale));
       line-height: 1;
       flex-shrink: 0;
     }
     .narrative-group-card .ng-title {
-      font-size: 0.68rem;
+      font-size: calc(0.68rem * var(--btn-scale));
       font-weight: 600;
       line-height: 1.2;
       width: 100%;
@@ -1026,13 +1032,14 @@
       margin-top: 16px;
     }
     .btn {
-      padding: 10px 18px;
+      padding: calc(10px * var(--btn-scale)) calc(18px * var(--btn-scale));
       border-radius: 10px;
       border: none;
       font: inherit;
       font-weight: 600;
       cursor: pointer;
     }
+    .btn:active { opacity: 0.75; transform: scale(0.97); }
     .btn-primary {
       background: var(--accent);
       color: #fff;
@@ -1054,7 +1061,7 @@
       background: var(--surface);
       color: var(--text);
       font: inherit;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     .generate-row {
       display: flex;
