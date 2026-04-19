@@ -699,12 +699,12 @@
       gap: 4px;
     }
     .narrative-chip-caption {
-      font-size: 0.62rem;
+      font-size: calc(0.68rem * var(--btn-scale));
       font-weight: 700;
       color: var(--muted);
       line-height: 1.2;
       text-align: center;
-      max-width: 100px;
+      max-width: 100%;
       word-break: break-word;
     }
     .chip.narrative-chip .narrative-chip-inner {
@@ -740,6 +740,12 @@
       min-width: 0;
       width: 100%;
       align-items: center;
+      font-size: calc(0.68rem * var(--btn-scale));
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+      text-align: center;
+      word-break: break-word;
     }
     .chip.narrative-chip .narrative-name {
       font-size: calc(0.68rem * var(--btn-scale));
