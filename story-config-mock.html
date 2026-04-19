@@ -90,9 +90,10 @@
       justify-content: space-between;
       gap: 12px;
       margin: 0 0 12px;
+      position: relative;
     }
     .sec-title {
-      font-size: 0.72rem;
+      font-size: calc(0.72rem * var(--btn-scale));
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -106,11 +107,11 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px;
-      padding: 8px 12px;
+      padding: calc(8px * var(--btn-scale)) calc(12px * var(--btn-scale));
       border-radius: 10px;
       background: var(--surface);
       border: 1px solid var(--border);
-      font-size: 0.8rem;
+      font-size: calc(0.8rem * var(--btn-scale));
       margin-bottom: 10px;
       min-height: 2.25rem;
     }
@@ -761,33 +762,28 @@
       background: var(--card, var(--surface));
       padding: 12px;
     }
-    .narrative-icon-back {
-      flex-shrink: 0;
-      display: inline-flex;
+    .narrative-icon-back { display: none; }
+    .narrative-close-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: calc(44px * var(--btn-scale));
+      height: calc(44px * var(--btn-scale));
+      border-radius: 12px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: calc(1.4rem * var(--btn-scale));
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      width: auto;
-      min-width: calc(36px * var(--btn-scale));
-      height: calc(36px * var(--btn-scale));
-      padding: 0 calc(10px * var(--btn-scale)) 0 calc(8px * var(--btn-scale));
-      margin: 0;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--surface);
-      color: var(--text);
-      font: inherit;
-      cursor: pointer;
-      transition: background 0.12s, border-color 0.12s;
+      transition: opacity 0.12s;
     }
-    .narrative-icon-back:hover {
-      border-color: var(--narr-sel, #cc3344);
-      background: rgba(204, 51, 68, 0.15);
-    }
-    .narrative-icon-back:focus-visible {
-      outline: 2px solid var(--narr-sel, #cc3344);
-      outline-offset: 2px;
-    }
+    .narrative-close-btn:hover { opacity: 0.82; }
+    .narrative-close-btn:active { opacity: 0.65; transform: scale(0.95); }
+    .narrative-close-btn[hidden] { display: none; }
     /* Tooltip ของ chip แนวเล่าเรื่อง */
     .chip.narrative-chip .narrative-chip-inner[data-desc] {
       position: relative;
@@ -893,19 +889,6 @@
       transition: opacity 0.12s;
     }
     .narr-sel-tag-x:hover { opacity: 0.75; }
-    .narrative-icon-back-glyph {
-      font-size: 1.35rem;
-      line-height: 1;
-      font-weight: 700;
-      margin-top: -2px;
-    }
-    .narrative-icon-back-label {
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
     .narrative-group-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1294,10 +1277,7 @@
     <section data-section="visual">
       <div class="sec-head">
         <p class="sec-title">Style ตัวละคร</p>
-        <button type="button" class="narrative-icon-back" id="visual-icon-back" hidden aria-label="กลับไปหมวด">
-          <span class="narrative-icon-back-glyph" aria-hidden="true">‹</span>
-          <span class="narrative-icon-back-label">หมวด</span>
-        </button>
+        <button type="button" class="narrative-close-btn" id="visual-icon-back" hidden aria-label="ปิด">×</button>
       </div>
       <div id="visual-selected-box" class="sel-summary-box"><span class="sel-no-pick">เลือก Style ตัวละคร 1 รายการ (ข้อ 7)</span></div>
       <div class="narrative-picker" id="visual-picker">
@@ -1323,10 +1303,7 @@
     <section data-section="narrative">
       <div class="sec-head">
         <p class="sec-title" style="display:inline-flex;align-items:center;gap:0;flex-wrap:wrap;">กลยุทธ์เล่าเรื่อง<span id="narrative-selected-icon" class="narrative-title-icon" role="button" aria-label="ยกเลิกการเลือก" title="กดเพื่อยกเลิก"></span></p>
-        <button type="button" class="narrative-icon-back" id="narrative-icon-back" hidden aria-label="กลับไปหมวด">
-          <span class="narrative-icon-back-glyph" aria-hidden="true">‹</span>
-          <span class="narrative-icon-back-label">หมวด</span>
-        </button>
+        <button type="button" class="narrative-close-btn" id="narrative-icon-back" hidden aria-label="ปิด">×</button>
       </div>
       <div id="narrative-selected-box"></div>
       <div class="narrative-picker" id="narrative-picker">
@@ -1343,10 +1320,7 @@
     <section data-section="mood">
       <div class="sec-head">
         <p class="sec-title">บรรยากาศ</p>
-        <button type="button" class="narrative-icon-back" id="mood-icon-back" hidden aria-label="กลับไปหมวด">
-          <span class="narrative-icon-back-glyph" aria-hidden="true">‹</span>
-          <span class="narrative-icon-back-label">หมวด</span>
-        </button>
+        <button type="button" class="narrative-close-btn" id="mood-icon-back" hidden aria-label="ปิด">×</button>
       </div>
       <div id="mood-selected-box" class="sel-summary-box"></div>
       <div class="narrative-picker" id="mood-picker">
