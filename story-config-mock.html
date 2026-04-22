@@ -4,24 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project CS</title>
-  <!-- ── Auth guard: redirect to login if no valid session ── -->
+  <!-- ── Auth guard: verify server-side session before showing any content ── -->
   <script>
-    (function () {
-      var raw = localStorage.getItem('gcs_token');
-      if (!raw) { location.replace('/'); return; }
-      try {
-        var p = JSON.parse(atob(raw.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')));
-        if (p.exp * 1000 < Date.now()) {
-          localStorage.removeItem('gcs_token');
-          localStorage.removeItem('gcs_user');
-          location.replace('/');
-        }
-      } catch (e) {
-        localStorage.removeItem('gcs_token');
-        localStorage.removeItem('gcs_user');
-        location.replace('/');
-      }
-    })();
+    document.documentElement.style.visibility = 'hidden';
+    fetch('/api/auth/session')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (!data.authenticated) { location.replace('/'); return; }
+        window.__gcsUser = data.user;
+        document.documentElement.style.visibility = '';
+      })
+      .catch(function() { location.replace('/'); });
   </script>
   <style>
     :root {
@@ -3049,7 +3042,7 @@
       var wrap = document.getElementById('user-avatar-wrap');
       if (!wrap) return;
       try {
-        var user = JSON.parse(localStorage.getItem('gcs_user') || '{}');
+        var user = window.__gcsUser || {};
         if (user.picture) {
           var img = document.createElement('img');
           img.src = user.picture;
@@ -3071,9 +3064,7 @@
     })();
 
     function doLogout() {
-      localStorage.removeItem('gcs_token');
-      localStorage.removeItem('gcs_user');
-      location.replace('/');
+      location.replace('/api/auth/logout');
     }
   </script>
 </body>

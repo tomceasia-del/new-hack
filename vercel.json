@@ -3,14 +3,18 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "functions": {
-    "api/gemini.js": { "maxDuration": 60 },
-    "api/gemini-verify.js": { "maxDuration": 10 }
+    "api/gemini.js":             { "maxDuration": 60 },
+    "api/gemini-verify.js":      { "maxDuration": 10 },
+    "api/auth/login.js":         { "maxDuration": 10 },
+    "api/auth/callback.js":      { "maxDuration": 15 },
+    "api/auth/session.js":       { "maxDuration": 10 },
+    "api/auth/logout.js":        { "maxDuration": 10 }
   },
   "rewrites": [
-    { "source": "/", "destination": "/login.html" },
-    { "source": "/cs", "destination": "/story-config-mock.html" },
-    { "source": "/result", "destination": "/story-config-result.html" },
-    { "source": "/editor", "destination": "/editor/index.html" },
+    { "source": "/",        "destination": "/login.html" },
+    { "source": "/cs",      "destination": "/story-config-mock.html" },
+    { "source": "/result",  "destination": "/story-config-result.html" },
+    { "source": "/editor",  "destination": "/editor/index.html" },
     { "source": "/editor/", "destination": "/editor/index.html" }
   ],
   "headers": [

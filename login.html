@@ -8,7 +8,6 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0b0d10;
-      --surface: #12151c;
       --card: #181c26;
       --border: rgba(255,255,255,0.08);
       --text: #f0f2f7;
@@ -18,7 +17,9 @@
     }
     html, body {
       min-height: 100dvh;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(254,44,85,0.14), transparent), var(--bg);
+      background:
+        radial-gradient(900px 500px at 15% -5%, rgba(254,44,85,0.14), transparent),
+        var(--bg);
       color: var(--text);
       font-family: var(--font);
       display: flex;
@@ -26,20 +27,22 @@
       justify-content: center;
       padding: 24px;
     }
-    .login-card {
+
+    .card {
       width: 100%;
-      max-width: 380px;
+      max-width: 360px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 44px 36px 40px;
+      padding: 44px 32px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
     }
-    .login-logo {
+
+    .logo {
       width: 60px;
       height: 60px;
       background: var(--accent);
@@ -48,43 +51,63 @@
       align-items: center;
       justify-content: center;
       font-size: 1.8rem;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .login-title {
+    .title {
       font-size: 1.5rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: var(--text);
     }
-    .login-sub {
-      font-size: 0.85rem;
+    .subtitle {
+      font-size: 0.82rem;
       color: var(--muted);
       text-align: center;
-      margin-bottom: 24px;
-      line-height: 1.5;
+      line-height: 1.55;
+      margin-bottom: 20px;
     }
     .divider {
       width: 100%;
       height: 1px;
       background: var(--border);
-      margin: 8px 0 24px;
+      margin-bottom: 24px;
     }
-    /* Google Sign-In button wrapper — keeps Google's button centred */
-    #g_id_signin {
-      display: flex;
-      justify-content: center;
+
+    /* Google sign-in button */
+    .btn-google {
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: #fff;
+      color: #1f1f1f;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      text-decoration: none;
+      transition: box-shadow 0.15s, opacity 0.12s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
-    .login-hint {
-      font-size: 0.72rem;
+    .btn-google:hover  { box-shadow: 0 4px 16px rgba(0,0,0,0.35); }
+    .btn-google:active { opacity: 0.88; }
+    .btn-google svg    { flex-shrink: 0; }
+
+    .hint {
+      font-size: 0.7rem;
       color: var(--muted);
       text-align: center;
-      margin-top: 20px;
       line-height: 1.6;
+      margin-top: 20px;
     }
-    /* Loading / error states */
-    #login-error {
+
+    /* Error banner */
+    #error-msg {
       display: none;
+      width: 100%;
       background: rgba(254,44,85,0.12);
       border: 1px solid rgba(254,44,85,0.35);
       border-radius: 10px;
@@ -92,90 +115,58 @@
       font-size: 0.8rem;
       color: #ff6b82;
       text-align: center;
-      width: 100%;
+      margin-top: 4px;
     }
   </style>
 </head>
 <body>
-
-  <div class="login-card">
-    <div class="login-logo">🎬</div>
-    <div class="login-title">Project CS</div>
-    <div class="login-sub">ระบบสร้างสคริปต์วิดีโอ TikTok<br>สำหรับทีมงานที่ได้รับอนุญาต</div>
+  <div class="card">
+    <div class="logo">🎬</div>
+    <div class="title">Project CS</div>
+    <p class="subtitle">ระบบสร้างสคริปต์วิดีโอ TikTok<br>สำหรับทีมงานที่ได้รับอนุญาต</p>
     <div class="divider"></div>
 
-    <!--
-      Google Sign-In button — rendered by the GSI library.
-      data-client_id: replace with your real OAuth 2.0 Client ID
-    -->
-    <div id="g_id_onload"
-         data-client_id="REPLACE_WITH_YOUR_GOOGLE_CLIENT_ID"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
-    </div>
+    <a class="btn-google" href="/api/auth/login">
+      <!-- Google "G" logo -->
+      <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        <path fill="none" d="M0 0h48v48H0z"/>
+      </svg>
+      เข้าสู่ระบบด้วย Google
+    </a>
 
-    <div class="g_id_signin"
-         data-type="standard"
-         data-shape="pill"
-         data-theme="filled_black"
-         data-text="signin_with"
-         data-size="large"
-         data-logo_alignment="left"
-         data-width="280">
-    </div>
+    <div id="error-msg"></div>
 
-    <div id="login-error"></div>
-
-    <p class="login-hint">
-      ล็อกอินด้วย Google account ที่ได้รับสิทธิ์<br>
-      เข้าถึงเท่านั้น
+    <p class="hint">
+      ใช้ได้เฉพาะ Google account ที่ได้รับสิทธิ์<br>
+      เข้าถึงระบบเท่านั้น
     </p>
   </div>
 
-  <!-- Google Identity Services -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-
   <script>
-    // ── Check if already logged in ──────────────────────────────────────────
-    (function () {
-      var raw = localStorage.getItem('gcs_token');
-      if (!raw) return;
-      try {
-        var payload = JSON.parse(atob(raw.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
-        if (payload.exp * 1000 > Date.now()) {
-          location.replace('/cs');
-        } else {
-          localStorage.removeItem('gcs_token');
-          localStorage.removeItem('gcs_user');
-        }
-      } catch (e) {
-        localStorage.removeItem('gcs_token');
-        localStorage.removeItem('gcs_user');
-      }
-    })();
+    // Already authenticated → skip login page
+    fetch('/api/auth/session')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.authenticated) location.replace('/cs');
+      })
+      .catch(function() {});
 
-    // ── Callback from Google Sign-In ─────────────────────────────────────────
-    function handleCredentialResponse(response) {
-      try {
-        var cred = response.credential;
-        var payload = JSON.parse(atob(cred.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
-
-        // Save token and basic profile
-        localStorage.setItem('gcs_token', cred);
-        localStorage.setItem('gcs_user', JSON.stringify({
-          name: payload.name || '',
-          email: payload.email || '',
-          picture: payload.picture || ''
-        }));
-
-        location.replace('/cs');
-      } catch (e) {
-        var errEl = document.getElementById('login-error');
-        errEl.style.display = 'block';
-        errEl.textContent = 'เข้าสู่ระบบไม่สำเร็จ กรุณาลองอีกครั้ง';
-      }
+    // Show error from OAuth callback redirect (?error=...)
+    var params = new URLSearchParams(location.search);
+    var err = params.get('error');
+    if (err) {
+      var el = document.getElementById('error-msg');
+      var msgs = {
+        access_denied:      'คุณยกเลิกการเข้าสู่ระบบ',
+        state_mismatch:     'ข้อผิดพลาดความปลอดภัย กรุณาลองอีกครั้ง',
+        token_exchange_failed: 'เชื่อมต่อ Google ไม่สำเร็จ กรุณาลองอีกครั้ง',
+      };
+      el.textContent = msgs[err] || 'เกิดข้อผิดพลาด: ' + err;
+      el.style.display = 'block';
     }
   </script>
 </body>
