@@ -4,6 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project CS</title>
+  <!-- ── Auth guard: redirect to login if no valid session ── -->
+  <script>
+    (function () {
+      var raw = localStorage.getItem('gcs_token');
+      if (!raw) { location.replace('/'); return; }
+      try {
+        var p = JSON.parse(atob(raw.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')));
+        if (p.exp * 1000 < Date.now()) {
+          localStorage.removeItem('gcs_token');
+          localStorage.removeItem('gcs_user');
+          location.replace('/');
+        }
+      } catch (e) {
+        localStorage.removeItem('gcs_token');
+        localStorage.removeItem('gcs_user');
+        location.replace('/');
+      }
+    })();
+  </script>
   <style>
     :root {
       --bg: #0b0d10;
@@ -45,6 +64,52 @@
     .page-header h1 {
       margin: 0;
     }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.15);
+      display: block;
+    }
+    .user-avatar-placeholder {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .btn-logout {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.12s, color 0.12s;
+    }
+    .btn-logout:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+    .btn-logout:active { opacity: 0.7; }
     .app-switch-btn {
       flex-shrink: 0;
       display: inline-flex;
@@ -1201,7 +1266,11 @@
   <div class="wrap">
     <header class="page-header">
       <h1>Project CS</h1>
-      <a class="app-switch-btn" href="/editor/">Video Editor v2 →</a>
+      <div class="header-right">
+        <a class="app-switch-btn" href="/editor/">Video Editor v2 →</a>
+        <div id="user-avatar-wrap"></div>
+        <button class="btn-logout" id="btn-logout" onclick="doLogout()">ออกจากระบบ</button>
+      </div>
     </header>
 
     <!-- ── แท็บหลัก ── -->
@@ -2974,6 +3043,38 @@
       if (tabProject) tabProject.addEventListener("click", function() { showMainTab("project"); });
       if (tabResult)  tabResult.addEventListener("click",  function() { showMainTab("result");  });
     })();
+
+    /* ── Auth: render avatar & logout ─────────────────────────────────────── */
+    (function () {
+      var wrap = document.getElementById('user-avatar-wrap');
+      if (!wrap) return;
+      try {
+        var user = JSON.parse(localStorage.getItem('gcs_user') || '{}');
+        if (user.picture) {
+          var img = document.createElement('img');
+          img.src = user.picture;
+          img.alt = user.name || '';
+          img.className = 'user-avatar';
+          img.onerror = function () { img.replaceWith(makePlaceholder(user)); };
+          wrap.appendChild(img);
+        } else if (user.name) {
+          wrap.appendChild(makePlaceholder(user));
+        }
+      } catch (e) {}
+
+      function makePlaceholder(user) {
+        var d = document.createElement('div');
+        d.className = 'user-avatar-placeholder';
+        d.textContent = (user.name || '?').charAt(0).toUpperCase();
+        return d;
+      }
+    })();
+
+    function doLogout() {
+      localStorage.removeItem('gcs_token');
+      localStorage.removeItem('gcs_user');
+      location.replace('/');
+    }
   </script>
 </body>
 </html>

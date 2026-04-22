@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project CS — เข้าสู่ระบบ</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0d10;
+      --surface: #12151c;
+      --card: #181c26;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f2f7;
+      --muted: rgba(240,242,247,0.5);
+      --accent: #fe2c55;
+      --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+    }
+    html, body {
+      min-height: 100dvh;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(254,44,85,0.14), transparent), var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .login-card {
+      width: 100%;
+      max-width: 380px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px 36px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .login-logo {
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+    .login-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .login-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 8px 0 24px;
+    }
+    /* Google Sign-In button wrapper — keeps Google's button centred */
+    #g_id_signin {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .login-hint {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+    /* Loading / error states */
+    #login-error {
+      display: none;
+      background: rgba(254,44,85,0.12);
+      border: 1px solid rgba(254,44,85,0.35);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      color: #ff6b82;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <div class="login-logo">🎬</div>
+    <div class="login-title">Project CS</div>
+    <div class="login-sub">ระบบสร้างสคริปต์วิดีโอ TikTok<br>สำหรับทีมงานที่ได้รับอนุญาต</div>
+    <div class="divider"></div>
+
+    <!--
+      Google Sign-In button — rendered by the GSI library.
+      data-client_id: replace with your real OAuth 2.0 Client ID
+    -->
+    <div id="g_id_onload"
+         data-client_id="REPLACE_WITH_YOUR_GOOGLE_CLIENT_ID"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="pill"
+         data-theme="filled_black"
+         data-text="signin_with"
+         data-size="large"
+         data-logo_alignment="left"
+         data-width="280">
+    </div>
+
+    <div id="login-error"></div>
+
+    <p class="login-hint">
+      ล็อกอินด้วย Google account ที่ได้รับสิทธิ์<br>
+      เข้าถึงเท่านั้น
+    </p>
+  </div>
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <script>
+    // ── Check if already logged in ──────────────────────────────────────────
+    (function () {
+      var raw = localStorage.getItem('gcs_token');
+      if (!raw) return;
+      try {
+        var payload = JSON.parse(atob(raw.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+        if (payload.exp * 1000 > Date.now()) {
+          location.replace('/cs');
+        } else {
+          localStorage.removeItem('gcs_token');
+          localStorage.removeItem('gcs_user');
+        }
+      } catch (e) {
+        localStorage.removeItem('gcs_token');
+        localStorage.removeItem('gcs_user');
+      }
+    })();
+
+    // ── Callback from Google Sign-In ─────────────────────────────────────────
+    function handleCredentialResponse(response) {
+      try {
+        var cred = response.credential;
+        var payload = JSON.parse(atob(cred.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+
+        // Save token and basic profile
+        localStorage.setItem('gcs_token', cred);
+        localStorage.setItem('gcs_user', JSON.stringify({
+          name: payload.name || '',
+          email: payload.email || '',
+          picture: payload.picture || ''
+        }));
+
+        location.replace('/cs');
+      } catch (e) {
+        var errEl = document.getElementById('login-error');
+        errEl.style.display = 'block';
+        errEl.textContent = 'เข้าสู่ระบบไม่สำเร็จ กรุณาลองอีกครั้ง';
+      }
+    }
+  </script>
+</body>
+</html>
