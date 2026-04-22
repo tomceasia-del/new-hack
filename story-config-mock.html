@@ -4,18 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project CS</title>
-  <!-- ── Auth guard: verify server-side session before showing any content ── -->
-  <script>
-    document.documentElement.style.visibility = 'hidden';
-    fetch('/api/auth/session')
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        if (!data.authenticated) { location.replace('/'); return; }
-        window.__gcsUser = data.user;
-        document.documentElement.style.visibility = '';
-      })
-      .catch(function() { location.replace('/'); });
-  </script>
   <style>
     :root {
       --bg: #0b0d10;
@@ -1261,8 +1249,6 @@
       <h1>Project CS</h1>
       <div class="header-right">
         <a class="app-switch-btn" href="/editor/">Video Editor v2 →</a>
-        <div id="user-avatar-wrap"></div>
-        <button class="btn-logout" id="btn-logout" onclick="doLogout()">ออกจากระบบ</button>
       </div>
     </header>
 
