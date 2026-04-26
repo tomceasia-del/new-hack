@@ -2191,3 +2191,18 @@ function buildCardUserReference(cardResult) {
   if (!cardResult || !cardResult.cardTextEN) return '';
   return 'HERO: expand the HERO BIBLE in system prompt (full look + outfit per role). Personal names are optional—use stable role labels if you must not name anyone. Lock those labels and exact Thai DIALOGUE lines. Repeat full detail in each scene. Voice per role—not one default for all.';
 }
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * EXPLICIT GLOBAL EXPORTS — ป้องกัน edge case บนมือถือ/บางเอนจินที่ไม่ดัน
+ * top-level function declarations เข้าหน้าต่างอัตโนมัติ และทำให้ฝั่ง HTML
+ * ตรวจสอบได้ชัดว่า bundle โหลดสำเร็จ (`window.__SALES_FORMULAS_LOADED__`).
+ * ──────────────────────────────────────────────────────────────────────────── */
+if (typeof globalThis !== 'undefined') {
+  try {
+    globalThis.findSalesFormula = findSalesFormula;
+    globalThis.listSalesFormulasByScene = listSalesFormulasByScene;
+    globalThis.buildSalesFormulaBlueprint = buildSalesFormulaBlueprint;
+    globalThis.SALES_FORMULAS = SALES_FORMULAS;
+    globalThis.__SALES_FORMULAS_LOADED__ = Array.isArray(SALES_FORMULAS) && SALES_FORMULAS.length > 0;
+  } catch (_) {}
+}
