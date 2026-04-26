@@ -1,5 +1,7 @@
 mock1-server.url
 story-mock-server.url
+dev-server.url
+node_modules/
 .DS_Store
 .env
 .env.*

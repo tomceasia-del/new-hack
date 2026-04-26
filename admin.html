@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — อนุมัติบัญชี</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0d10;
+      --card: #181c26;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f2f7;
+      --muted: rgba(240,242,247,0.55);
+      --accent: #7dd3a8;
+      --err: #ff6b6b;
+      --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+    }
+    html, body {
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 520px; margin: 0 auto; padding: 28px 18px 48px; }
+    h1 { font-size: 1.2rem; margin-bottom: 8px; }
+    .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 18px 20px;
+      margin-bottom: 16px;
+    }
+    .card h2 { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    ul { list-style: none; }
+    li {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.9rem; word-break: break-all;
+    }
+    li:last-child { border-bottom: none; }
+    .row-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    button, .link-btn {
+      font: inherit; cursor: pointer; border-radius: 8px; padding: 6px 12px; font-size: 0.8rem; font-weight: 600;
+    }
+    .btn-del { background: rgba(255,107,107,0.12); color: #ff8a8a; border: 1px solid rgba(255,107,107,0.3); }
+    .btn-add { background: var(--accent); color: #0b0d10; border: none; }
+    .field { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+    input[type="email"] {
+      flex: 1; min-width: 200px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border);
+      background: #0e1015; color: var(--text); font: inherit;
+    }
+    .err { color: var(--err); font-size: 0.85rem; margin-top: 10px; }
+    .ok { color: var(--accent); font-size: 0.85rem; margin-top: 10px; }
+    .back { display: inline-block; margin-top: 16px; color: #94a3b8; font-size: 0.88rem; }
+    a { color: #7dd3fc; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Admin — รายชื่อ admin</h1>
+    <p class="meta">เฉพาะ admin เท่านั้น · ต้องเชื่อม <strong>Vercel KV</strong> ถึงจะเพิ่ม/ถอน admin กลางคันได้</p>
+    <p class="meta" style="margin-bottom: 16px;"><a href="/admin-approvals.html" style="color: #7dd3fc; font-weight: 600">→ อนุมัติผู้ขอเข้าใช้ (คิว)</a></p>
+
+    <div id="block-gate" class="card">
+      <p id="gate-msg">กำลังตรวจสอบสิทธิ์…</p>
+    </div>
+
+    <div id="block-main" class="hidden">
+      <div class="card">
+        <h2>อีเมล admin ปัจจุบัน</h2>
+        <ul id="admin-list"></ul>
+        <p id="list-hint" class="meta" style="margin: 12px 0 0; font-size: 0.78rem;">ถอด built-in: บันทึก “revoke” บน KV · ลบ extra: ลบออกจากชุด extra</p>
+      </div>
+      <div class="card">
+        <h2>เพิ่ม admin</h2>
+        <div class="field">
+          <input type="email" id="new-email" placeholder="email@example.com" autocomplete="email" />
+          <button type="button" class="btn-add" id="btn-add">เพิ่ม</button>
+        </div>
+        <p id="form-err" class="err" style="display:none;"></p>
+        <p id="form-ok" class="ok" style="display:none;"></p>
+      </div>
+      <a class="back" href="/cs">← กลับ Project CS</a>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var listEl = document.getElementById("admin-list");
+      var main = document.getElementById("block-main");
+      var gate = document.getElementById("block-gate");
+      var gateMsg = document.getElementById("gate-msg");
+
+      function showErr(t) {
+        var e = document.getElementById("form-err");
+        var o = document.getElementById("form-ok");
+        o.style.display = "none";
+        e.style.display = "block";
+        e.textContent = t;
+      }
+      function showOk(t) {
+        var e = document.getElementById("form-err");
+        var o = document.getElementById("form-ok");
+        e.style.display = "none";
+        o.style.display = "block";
+        o.textContent = t || "สำเร็จ";
+      }
+
+      function renderList(admins) {
+        listEl.innerHTML = "";
+        for (var i = 0; i < (admins || []).length; i++) {
+          var em = admins[i];
+          var li = document.createElement("li");
+          li.textContent = em;
+          var act = document.createElement("div");
+          act.className = "row-actions";
+          var del = document.createElement("button");
+          del.className = "btn-del";
+          del.type = "button";
+          del.textContent = "ถอด";
+          del.setAttribute("data-email", em);
+          del.addEventListener("click", function () {
+            var e = this.getAttribute("data-email");
+            if (!e || !confirm("ถอด admin: " + e + " ?")) return;
+            fetch("/api/admin/admins?email=" + encodeURIComponent(e), { method: "DELETE", credentials: "include" })
+              .then(function (r) { return r.json().then(function (j) { return { r: r, j: j }; }); })
+              .then(function (x) {
+                if (!x.j.ok) {
+                  showErr(x.j.error || "ลบไม่สำเร็จ");
+                  return;
+                }
+                showOk("อัปเดตแล้ว");
+                renderList(x.j.admins || []);
+              })
+              .catch(function () { showErr("เครือข่ายผิดพลาด"); });
+          });
+          act.appendChild(del);
+          li.appendChild(act);
+          listEl.appendChild(li);
+        }
+      }
+
+      function loadAdmins() {
+        return fetch("/api/admin/admins", { credentials: "include" })
+          .then(function (r) { return r.json(); });
+      }
+
+      document.getElementById("btn-add").addEventListener("click", function () {
+        var v = (document.getElementById("new-email") && document.getElementById("new-email").value || "").trim();
+        if (!v) { showErr("ใส่อีเมล"); return; }
+        fetch("/api/admin/admins", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ email: v }),
+        })
+          .then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); })
+          .then(function (x) {
+            if (x.s === 503 && x.j.error === "kv_unconfigured") {
+              showErr("ยังไม่เชื่อม Vercel KV — ดู api/_lib/auth-access.js หรือเอกสาร Vercel");
+              return;
+            }
+            if (!x.j.ok) { showErr(x.j.error || "เพิ่มไม่สำเร็จ"); return; }
+            showOk("เพิ่มแล้ว");
+            document.getElementById("new-email").value = "";
+            renderList(x.j.admins || []);
+          })
+          .catch(function () { showErr("เครือข่ายผิดพลาด"); });
+      });
+
+      fetch("/api/auth/session", { credentials: "include" })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d.authenticated) {
+            gateMsg.innerHTML = 'ต้อง <a href="login.html">เข้าสู่ระบบ</a> ก่อน';
+            return;
+          }
+          if (!d.isAdmin) {
+            gateMsg.textContent = "คุณไม่ใช่ admin — ห้ามเข้า";
+            return;
+          }
+          gate.classList.add("hidden");
+          main.classList.remove("hidden");
+          loadAdmins()
+            .then(function (d2) {
+              if (!d2.ok) {
+                gate.classList.remove("hidden");
+                main.classList.add("hidden");
+                gateMsg.textContent = d2.error || "โหลดรายการไม่ได้";
+                return;
+              }
+              renderList(d2.admins);
+            })
+            .catch(function () {
+              gateMsg.textContent = "โหลด API ล้มเหลว";
+            });
+        })
+        .catch(function () {
+          gateMsg.textContent = "ตรวจ session ไม่สำเร็จ";
+        });
+    })();
+  </script>
+</body>
+</html>

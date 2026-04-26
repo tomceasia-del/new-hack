@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — อนุมัติผู้ขอเข้าใช้</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0d10;
+      --card: #181c26;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f2f7;
+      --muted: rgba(240,242,247,0.55);
+      --ok: #7dd3a8;
+      --err: #ff6b6b;
+      --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+    }
+    html, body { min-height: 100dvh; background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.5; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 28px 18px 48px; }
+    h1 { font-size: 1.2rem; margin-bottom: 8px; }
+    .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 18px; }
+    .nav { margin-bottom: 16px; }
+    .nav a { color: #7dd3fc; font-size: 0.9rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .card h2 { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .row {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem;
+    }
+    .row:last-of-type { border-bottom: none; }
+    .row-main { flex: 1; min-width: 0; word-break: break-all; }
+    .em { font-weight: 600; }
+    .sub { font-size: 0.78rem; color: var(--muted); }
+    .actions { display: flex; flex-shrink: 0; gap: 8px; }
+    button {
+      font: inherit; cursor: pointer; border-radius: 8px; padding: 6px 12px; font-size: 0.8rem; font-weight: 600; border: none;
+    }
+    .btn-ok { background: var(--ok); color: #0b0d10; }
+    .btn-no { background: rgba(255,107,107,0.12); color: #ff8a8a; border: 1px solid rgba(255,107,107,0.3); }
+    .btn-rev { background: rgba(255,200,100,0.1); color: #ffc86b; border: 1px solid rgba(255,200,100,0.3); }
+    .empty { color: var(--muted); font-size: 0.88rem; padding: 8px 0; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>อนุมัติการเข้าใช้งาน</h1>
+    <p class="meta">รายชื่อล็อกอิน Google สำเร็จแต่ยังไม่มีสิทธิ์ — เก็บคิวบน <strong>Vercel KV</strong> · กดอนุมัติแล้ว user ล็อกอินรอบถัดไปจะผ่าน</p>
+    <p class="nav">
+      <a href="/admin">← จัดการ admin</a>
+      &nbsp;·&nbsp; <a href="/cs">Project CS</a>
+    </p>
+
+    <div id="block-gate" class="card">
+      <p id="gate-msg">กำลังตรวจสอบสิทธิ์…</p>
+    </div>
+
+    <div id="block-main" class="hidden">
+      <div class="card">
+        <h2>รออนุมัติ <span id="c-pend">0</span> ราย</h2>
+        <div id="list-pend"></div>
+        <p id="kv-pend" class="empty" style="display:none;">ยังไม่มีคิว หรือเชื่อม KV ยังไม่สมบูรณ์</p>
+      </div>
+      <div class="card">
+        <h2>อนุมัติแล้ว (KV) <span id="c-apr">0</span> ราย</h2>
+        <div id="list-apr"></div>
+        <p id="empty-apr" class="empty" style="display:none;">ยังไม่มี (หรือทุกคนอนุมัติผ่าน env อย่างเดียว)</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var main = document.getElementById("block-main");
+      var gate = document.getElementById("block-gate");
+      var gateMsg = document.getElementById("gate-msg");
+      var listPend = document.getElementById("list-pend");
+      var listApr = document.getElementById("list-apr");
+
+      function fmtT(iso) {
+        if (!iso) return "—";
+        try {
+          var d = new Date(iso);
+          if (isNaN(d)) return iso;
+          return d.toLocaleString("th-TH", { dateStyle: "short", timeStyle: "short" });
+        } catch (e) { return iso; }
+      }
+
+      function postAction(action, email) {
+        return fetch("/api/admin/access-requests", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ action: action, email: email })
+        }).then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); });
+      }
+
+      function render(pending, approved) {
+        pending = pending || [];
+        approved = approved || [];
+        document.getElementById("c-pend").textContent = String(pending.length);
+        document.getElementById("c-apr").textContent = String(approved.length);
+        var kvH = document.getElementById("kv-pend");
+        kvH.style.display = pending.length ? "none" : "block";
+
+        listPend.innerHTML = "";
+        for (var i = 0; i < pending.length; i++) {
+          var p = pending[i];
+          var row = document.createElement("div");
+          row.className = "row";
+          var m = document.createElement("div");
+          m.className = "row-main";
+          m.innerHTML = "<div class='em'></div><div class='sub'></div>";
+          m.querySelector(".em").textContent = p.email;
+          m.querySelector(".sub").textContent = (p.name || "—") + " · " + fmtT(p.requestedAt);
+          var act = document.createElement("div");
+          act.className = "actions";
+          var b1 = document.createElement("button");
+          b1.className = "btn-ok";
+          b1.type = "button";
+          b1.textContent = "อนุมัติ";
+          b1.setAttribute("data-email", p.email);
+          b1.addEventListener("click", function () {
+            var e = this.getAttribute("data-email");
+            if (!e || !confirm("อนุมัติ: " + e + " ?")) return;
+            postAction("approve", e).then(function (x) {
+              if (!x.j.ok) { alert(x.j.error || "ไม่สำเร็จ"); return; }
+              render(x.j.pending, x.j.approved);
+            });
+          });
+          var b2 = document.createElement("button");
+          b2.className = "btn-no";
+          b2.type = "button";
+          b2.textContent = "ปฏิเสธ";
+          b2.setAttribute("data-email", p.email);
+          b2.addEventListener("click", function () {
+            var e2 = this.getAttribute("data-email");
+            if (!e2 || !confirm("ลบออกจากคิว: " + e2 + " ?")) return;
+            postAction("reject", e2).then(function (x) {
+              if (!x.j.ok) { alert(x.j.error || "ไม่สำเร็จ"); return; }
+              render(x.j.pending, x.j.approved);
+            });
+          });
+          act.appendChild(b1);
+          act.appendChild(b2);
+          row.appendChild(m);
+          row.appendChild(act);
+          listPend.appendChild(row);
+        }
+
+        listApr.innerHTML = "";
+        var eApr = document.getElementById("empty-apr");
+        eApr.style.display = approved.length ? "none" : "block";
+        for (var j = 0; j < approved.length; j++) {
+          var em = approved[j];
+          var r2 = document.createElement("div");
+          r2.className = "row";
+          var t = document.createElement("div");
+          t.className = "row-main em";
+          t.textContent = em;
+          var act2 = document.createElement("div");
+          act2.className = "actions";
+          var br = document.createElement("button");
+          br.className = "btn-rev";
+          br.type = "button";
+          br.textContent = "ถอนการอนุมัติ";
+          br.setAttribute("data-email", em);
+          br.addEventListener("click", function () {
+            var ex = this.getAttribute("data-email");
+            if (!ex || !confirm("ถอนสิทธิ์: " + ex + " ?")) return;
+            postAction("revoke", ex).then(function (x) {
+              if (!x.j.ok) { alert(x.j.error || "ไม่สำเร็จ"); return; }
+              render(x.j.pending, x.j.approved);
+            });
+          });
+          act2.appendChild(br);
+          r2.appendChild(t);
+          r2.appendChild(act2);
+          listApr.appendChild(r2);
+        }
+      }
+
+      function errLocalNoApi() {
+        gate.classList.remove("hidden");
+        main.classList.add("hidden");
+        gateMsg.innerHTML =
+          "<strong>ไม่มี API บนเครื่องนี้</strong> — หน้านี้ต้องรันผ่าน " +
+          "<code>vercel dev</code> หรือ <strong>deploy บน Vercel</strong> " +
+          "ถึงจะใช้ <code>/api/auth/…</code> และ " +
+          "<code>/api/admin/…</code> ได้ · " +
+          "<code>python3 serve_story_mock.py</code> เป็น static เท่านั้น ไม่มี Node API";
+      }
+
+      fetch("/api/auth/session", { credentials: "include" })
+        .then(function (r) {
+          if (r.status === 404) throw new Error("no_api");
+          return r.json();
+        })
+        .then(function (d) {
+          if (!d.authenticated) {
+            gateMsg.innerHTML = 'ต้อง <a href="login.html">เข้าสู่ระบบ</a> ก่อน';
+            return;
+          }
+          if (!d.isAdmin) {
+            gateMsg.textContent = "เฉพาะ admin — ห้ามเข้า";
+            return;
+          }
+          gate.classList.add("hidden");
+          main.classList.remove("hidden");
+          return fetch("/api/admin/access-requests", { credentials: "include" }).then(function (r) {
+            if (r.status === 404) throw new Error("no_api");
+            return r.json();
+          });
+        })
+        .then(function (d) {
+          if (!d) return;
+          if (!d.ok) {
+            gate.classList.remove("hidden");
+            main.classList.add("hidden");
+            gateMsg.textContent = d.error || "โหลดรายการไม่ได้";
+            return;
+          }
+          render(d.pending, d.approved);
+        })
+        .catch(function (e) {
+          if (e && e.message === "no_api") {
+            errLocalNoApi();
+            return;
+          }
+          gate.classList.remove("hidden");
+          main.classList.add("hidden");
+          gateMsg.textContent =
+            "โหลด API ล้มเหลว — ถ้าใช้ python serve แบบ static: รัน  vercel dev  หรือ ทดสอบบน Vercel";
+        });
+    })();
+  </script>
+</body>
+</html>

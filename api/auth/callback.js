@@ -5,7 +5,8 @@
  * creates a signed session JWT, and sets a secure HttpOnly cookie.
  */
 'use strict';
-const { signJWT, parseCookies, setCookie, getBaseUrl, SESSION_COOKIE, SESSION_MAX_AGE, isEmailAllowed } = require('./_helpers');
+const { signJWT, parseCookies, setCookie, getBaseUrl, SESSION_COOKIE, SESSION_MAX_AGE } = require('./_helpers');
+const { isLoginAllowed, addAccessRequest } = require('../_lib/auth-access');
 
 module.exports = async function handler(req, res) {
   const { code, state, error } = req.query || {};
@@ -75,8 +76,12 @@ module.exports = async function handler(req, res) {
     console.warn('[auth/callback] Google account has no email in id_token');
     return res.redirect(302, `${getBaseUrl(req)}/login.html?error=no_email`);
   }
-  if (!isEmailAllowed(accountEmail)) {
-    console.warn('[auth/callback] email not in AUTH_ALLOWED_EMAILS:', accountEmail);
+  if (!(await isLoginAllowed(accountEmail))) {
+    console.warn('[auth/callback] login not allowed for:', accountEmail);
+    const queued = await addAccessRequest(accountEmail, { name: profile.name, sub: profile.sub });
+    if (queued.ok) {
+      return res.redirect(302, `${getBaseUrl(req)}/login.html?info=access_queued`);
+    }
     return res.redirect(302, `${getBaseUrl(req)}/login.html?error=email_not_approved`);
   }
 

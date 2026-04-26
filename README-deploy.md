@@ -83,6 +83,13 @@ npx vercel --prod    # production
 Vercel → Project → **Settings → Domains** → Add Domain → ชี้ CNAME/Nameserver ตามคำแนะนำ
 SSL ออกอัตโนมัติ (Let's Encrypt)
 
+## Admin + Vercel KV (เพิ่ม/ถอน admin บน `/admin`)
+
+- ค่าเริ่ม admin ฝั่งโค้ก + `AUTH_ADMIN_SEED_EMAILS` (ออปชัน) ใน `api/_lib/auth-access.js`
+- **เชื่อม Redis / KV** กับโปรเจกต์: Vercel → Storage / Marketplace (Redis) — ตั้งค่าแล้วจะใส่ **`KV_REST_API_URL`** และ **`KV_REST_API_TOKEN`** ใน env อัตโนมัติ
+- ไม่เชื่อม KV: ล็อกอิน/สิทธิ์ built-in ยังทำงาน; **เพิ่ม/ถอน admin กลางคัน** คืน 503 จนกว่าจะมี KV
+- หน้า: **`/admin`** (rewrite → `admin.html`) · API: **`/api/admin/admins`**
+
 ## Rollback
 
 Vercel เก็บ **ทุก deployment** — ใน Dashboard กด **Promote to Production** ของ deployment เก่าได้ทันที

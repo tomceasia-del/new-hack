@@ -8,12 +8,17 @@
     "api/auth/login.js":         { "maxDuration": 10 },
     "api/auth/callback.js":      { "maxDuration": 15 },
     "api/auth/session.js":       { "maxDuration": 10 },
-    "api/auth/logout.js":        { "maxDuration": 10 }
+    "api/auth/logout.js":        { "maxDuration": 10 },
+    "api/admin/admins.js":         { "maxDuration": 10 },
+    "api/admin/access-requests.js": { "maxDuration": 10 }
   },
   "rewrites": [
     { "source": "/",        "destination": "/login.html" },
     { "source": "/login",   "destination": "/login.html" },
-    { "source": "/cs",      "destination": "/story-config-mock.html" },
+    { "source": "/admin",   "destination": "/admin.html" },
+    { "source": "/admin/approvals", "destination": "/admin-approvals.html" },
+    { "source": "/cs",              "destination": "/story-config-mock.html" },
+    { "source": "/story-config-mock", "destination": "/story-config-mock.html" },
     { "source": "/result",  "destination": "/story-config-result.html" },
     { "source": "/editor",  "destination": "/editor/index.html" },
     { "source": "/editor/", "destination": "/editor/index.html" }

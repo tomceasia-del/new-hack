@@ -168,11 +168,11 @@ function parseAllowedEmailsSet() {
 }
 
 /**
- * อีเมล์ได้รับอนุมัติตาม AUTH_ALLOWED_EMAILS หรือไม่
+ * อีเมล์ได้รับอนุมัติตาม AUTH_ALLOWED_EMAILS หรือไม่ (ยังไม่รวมสิทธิ์ admin)
  * @param {string} [email]
  * @returns {boolean}
  */
-function isEmailAllowed(email) {
+function isEmailInAllowlist(email) {
   const set = parseAllowedEmailsSet();
   if (set === null) return true;
   const e = (email || '').trim().toLowerCase();
@@ -180,6 +180,9 @@ function isEmailAllowed(email) {
   if (set.size === 0) return false;
   return set.has(e);
 }
+
+/** @deprecated ใช้ isLoginAllowed จาก api/_lib/auth-access — อันนี้คือ allowlist อย่างเดียว */
+const isEmailAllowed = isEmailInAllowlist;
 
 module.exports = {
   signJWT,
@@ -189,5 +192,6 @@ module.exports = {
   getBaseUrl,
   SESSION_COOKIE,
   SESSION_MAX_AGE,
+  isEmailInAllowlist,
   isEmailAllowed,
 };

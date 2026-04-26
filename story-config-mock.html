@@ -1510,6 +1510,7 @@
         <div id="user-menu" class="user-menu" hidden>
           <span id="user-avatar-wrap" class="user-avatar-wrap"></span>
           <span id="user-display-name" class="user-display-name" hidden></span>
+          <a id="header-admin-link" class="app-switch-btn" href="/admin" style="display:none" title="จัดการ admin">Admin</a>
           <button type="button" class="btn-logout" id="header-logout-btn">ออกจากระบบ</button>
         </div>
         <a class="app-switch-btn" href="/editor/">Video Editor v2 →</a>
@@ -3963,7 +3964,13 @@
           return r.json().then(function (d) {
             if (d && d.authenticated && d.user) {
               window.__gcsUser = d.user;
+              window.__gcsIsAdmin = !!d.isAdmin;
               renderUserMenu(d.user);
+              var adm = document.getElementById("header-admin-link");
+              if (adm) {
+                adm.style.display = d.isAdmin ? "inline-flex" : "none";
+                adm.hidden = !d.isAdmin;
+              }
               finishUnlocked();
             } else {
               finishLocked();

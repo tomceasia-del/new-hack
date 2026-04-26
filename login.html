@@ -117,6 +117,18 @@
       text-align: center;
       margin-top: 4px;
     }
+    #info-msg {
+      display: none;
+      width: 100%;
+      background: rgba(90, 200, 150, 0.12);
+      border: 1px solid rgba(90, 200, 150, 0.35);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      color: #8fe3c0;
+      text-align: center;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -139,6 +151,7 @@
     </a>
 
     <div id="error-msg"></div>
+    <div id="info-msg" role="status" aria-live="polite"></div>
 
     <p class="hint">
       ใช้ได้เฉพาะ Google account ที่ได้รับสิทธิ์<br>
@@ -166,10 +179,21 @@
         state_mismatch:     'ข้อผิดพลาดความปลอดภัย กรุณาลองอีกครั้ง',
         token_exchange_failed: 'เชื่อมต่อ Google ไม่สำเร็จ กรุณาลองอีกครั้ง',
         no_email:           'บัญชี Google นี้ไม่มีอีเมลสำหรับยืนยันตัวตน กรุณาใช้บัญชีอื่น',
-        email_not_approved: 'อีเมลนี้ยังไม่ได้รับอนุมัติให้เข้าใช้งาน กรุณาติดต่อผู้ดูแลระบบ',
+        email_not_approved: 'อีเมลนี้ยังไม่อนุมัติ หรือยังไม่เชื่อม Vercel KV สำหรับลงทะเบียนขอรหัส กรุณาติดต่อ admin',
       };
       el.textContent = msgs[err] || 'เกิดข้อผิดพลาด: ' + err;
       el.style.display = 'block';
+    }
+    var info = params.get('info');
+    if (info === 'access_queued') {
+      var iel = document.getElementById('info-msg');
+      iel.textContent = 'ส่งคำขอเข้าใช้งานแล้ว รอ admin อนุมัติ จากนั้นลองล็อกอินอีกครั้ง';
+      iel.style.display = 'block';
+    }
+    if (info === 'local_dev') {
+      var iel2 = document.getElementById('info-msg');
+      iel2.textContent = 'โหมด local: กด "เข้าสู่ระบบ Google" จริงต้องใช้ Vercel — รัน dev_server.py นี้มี /api จำลองให้เทสหน้าได้';
+      iel2.style.display = 'block';
     }
   </script>
 </body>

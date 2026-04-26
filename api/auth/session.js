@@ -4,9 +4,10 @@
  * Called by client-side auth guards in the HTML pages.
  */
 'use strict';
-const { verifyJWT, parseCookies, SESSION_COOKIE, isEmailAllowed } = require('./_helpers');
+const { verifyJWT, parseCookies, SESSION_COOKIE } = require('./_helpers');
+const { isLoginAllowed, isAdminEmail } = require('../_lib/auth-access');
 
-module.exports = function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
 
   const cookies = parseCookies(req.headers.cookie);
@@ -25,9 +26,10 @@ module.exports = function handler(req, res) {
     const payload = verifyJWT(token, secret);
     // รองรับ JWT รุ่นเก่า (email/name) กับรุ่นเบา (e/u) เพื่อกัน 494
     const email = (payload.e != null ? payload.e : payload.email) || '';
-    if (!isEmailAllowed(email)) {
+    if (!(await isLoginAllowed(email))) {
       return res.status(401).json({ authenticated: false, reason: 'email_not_approved' });
     }
+    var isAd = await isAdminEmail(email);
     const name =
       (payload.n != null && String(payload.n).trim()) ||
       (payload.name != null && String(payload.name).trim()) ||
@@ -35,6 +37,7 @@ module.exports = function handler(req, res) {
       '';
     return res.status(200).json({
       authenticated: true,
+      isAdmin:   !!isAd,
       user: {
         name:    name,
         email:   email,

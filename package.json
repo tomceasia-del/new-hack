@@ -1,0 +1,10 @@
+{
+  "name": "new-hack",
+  "private": true,
+  "scripts": {
+    "dev": "python3 dev_server.py"
+  },
+  "dependencies": {
+    "@vercel/kv": "^2.0.0"
+  }
+}
