@@ -105,5 +105,7 @@ module.exports = async function handler(req, res) {
     setCookie(SESSION_COOKIE, sessionJWT, { httpOnly: true, secure: true, sameSite: 'Lax', path: '/', maxAge: SESSION_MAX_AGE }),
   ]);
 
-  return res.redirect(302, '/cs');
+  // ไป mock หลัก: ใช้ path ไฟล์ตรง ๆ + base จาก AUTH_BASE_URL/getBaseUrl
+  // (กันบาง deploy ที่ /cs rewrite ยังไม่ match → Vercel 404)
+  return res.redirect(302, `${getBaseUrl(req)}/story-config-mock.html`);
 };
