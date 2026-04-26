@@ -35,6 +35,22 @@
       margin: 0 auto;
       padding: 28px 18px 48px;
     }
+    /* โหมด Story/ขายสินค้า — ติดด้านบนบนหน้าจอแคบ ให้เลือกโหมดชัดเจนเทียบกับ PC (viewport กว้าง) */
+    @media (max-width: 900px) {
+      #section-mode.section-mode-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        margin: 0 -18px 16px;
+        padding: 12px 18px 14px;
+        background: color-mix(in srgb, var(--bg) 85%, black);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 6px 28px rgba(0, 0, 0, 0.4);
+      }
+    }
     .page-header {
       display: flex;
       align-items: center;
@@ -345,9 +361,11 @@
       color: var(--text);
       border-color: var(--accent);
     }
-    /* ฝังผลเจนสคริปต์ฉาก (story-config-result.html) */
+    /* ฝังผลเจนสคริปต์ฉาก (story-config-result.html) ใต้ปุ่มเจน — บนหน้าเดียวกับฟอร์ม */
     .gemini-result-section {
-      margin-top: 14px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
     }
     .gemini-result-section .sec-head {
       margin-bottom: 12px;
@@ -361,44 +379,8 @@
       display: block;
     }
 
-    /* ── แท็บหลัก Project CS / ผลเจนสคริปต์ฉาก ── */
-    .main-panel-tabs {
-      display: flex;
-      gap: 0;
-      margin: 14px 0 0;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--surface);
-    }
-    .main-panel-tab {
-      flex: 1;
-      padding: calc(11px * var(--btn-scale)) calc(14px * var(--btn-scale));
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      font: inherit;
-      font-size: calc(0.88rem * var(--btn-scale));
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.13s, color 0.13s;
-      text-align: center;
-    }
-    .main-panel-tab:hover {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.04);
-    }
-    .main-panel-tab:active { opacity: 0.75; }
-    .main-panel-tab[aria-selected="true"] {
-      color: var(--text);
-      background: rgba(254, 44, 85, 0.14);
-      box-shadow: inset 0 -2px 0 var(--accent);
-    }
     .main-panel-body {
       padding-top: 6px;
-    }
-    #main-panel-result {
-      padding-top: 10px;
     }
     textarea.prompt {
       width: 100%;
@@ -1513,21 +1495,12 @@
           <a id="header-admin-link" class="app-switch-btn" href="/admin" style="display:none" title="จัดการ admin">Admin</a>
           <button type="button" class="btn-logout" id="header-logout-btn">ออกจากระบบ</button>
         </div>
-        <a class="app-switch-btn" href="/editor/">Video Editor v2 →</a>
       </div>
     </header>
 
-    <!-- ── แท็บหลัก ── -->
-    <div class="main-panel-tabs" role="tablist" aria-label="ส่วนหลัก">
-      <button type="button" class="main-panel-tab" id="main-panel-tab-project"
-        role="tab" aria-selected="true" aria-controls="main-panel-project">Project CS</button>
-      <button type="button" class="main-panel-tab" id="main-panel-tab-result"
-        role="tab" aria-selected="false" aria-controls="main-panel-result">ผลเจนสคริปต์ฉาก (Gemini)</button>
-    </div>
-
-    <!-- ── Panel: Project CS ── -->
-    <div id="main-panel-project" class="main-panel-body" role="tabpanel" aria-labelledby="main-panel-tab-project">
-    <section data-section="mode">
+    <!-- ── เนื้อหา Project CS + ผลเจน (ฝังในหน้าเดียว) ── -->
+    <div id="main-panel-project" class="main-panel-body">
+    <section id="section-mode" class="section-mode-sticky" data-section="mode">
       <div class="sec-head">
         <p class="sec-title">โหมด</p>
       </div>
@@ -1590,13 +1563,13 @@
           <span class="drop-hint" aria-hidden="true"></span>
         </label>
       </div>
-      <div class="hero-analysis-toolbar">
-        <button type="button" class="btn-hero-analyze" id="btn-hero-analyze" title="วิเคราะห์รูปตัวละคร (ทุก slot) ด้วย Gemini ได้ JSON ล็อก Hero">
+      <div class="hero-analysis-toolbar" style="display:none" aria-hidden="true">
+        <button type="button" class="btn-hero-analyze" id="btn-hero-analyze" title="วิเคราะห์รูปตัวละคร (ทุก slot) ด้วย Gemini ได้ JSON ล็อก Hero" tabindex="-1">
           วิเคราะห์ Hero จากรูป (JSON)
         </button>
         <span id="hero-analyze-status" style="font-size:0.78rem;color:var(--muted);"></span>
       </div>
-      <pre class="preview hero-analysis-out" id="hero-analysis-out" aria-live="polite"></pre>
+      <pre class="preview hero-analysis-out" id="hero-analysis-out" aria-live="polite" style="display:none"></pre>
     </section>
 
     <!-- Voice Type — CHARACTER & VOICE CONSISTENCY (Phase 5) -->
@@ -1781,11 +1754,6 @@
       </div>
     </section>
 
-    </div><!-- /main-panel-project -->
-
-    <!-- ── Panel: ผลเจนสคริปต์ฉาก (Gemini) ── -->
-    <div id="main-panel-result" class="main-panel-body" role="tabpanel" aria-labelledby="main-panel-tab-result" hidden>
-
     <section id="section-gemini-result" class="gemini-result-section" aria-label="ผลเจนสคริปต์ฉาก">
       <div class="sec-head">
         <p class="sec-title">ผลเจนสคริปต์ฉาก (Gemini)</p>
@@ -1793,7 +1761,7 @@
       <iframe id="gemini-result-frame" class="result-embed-iframe" src="story-config-result.html?embed=1" title="ผลเจนสคริปต์ฉาก"></iframe>
     </section>
 
-    </div><!-- /main-panel-result -->
+    </div><!-- /main-panel-project -->
 
     <section hidden aria-hidden="true" id="section-payload-preview">
       <div class="sec-head">
@@ -1931,6 +1899,7 @@
     );
 
     let mode = "story";
+    const MODE_STORAGE_KEY = "storymodeMockModeV1";
     /** สินค้า + ตัวละครแต่ละ slot: อาร์เรย์สูงสุด 5 รูป (input multiple) */
     const MULTI_IMAGE_MAX = 5;
     const files = {
@@ -2660,6 +2629,28 @@
       }
     }
 
+    /** สลับ Story / ขายสินค้า — เดิม path เดียวกันทุก device; บันทึก localStorage ให้มือถือ-PC สอดคล้อง */
+    function setModeAndSync(nextMode, opts) {
+      const o = opts || {};
+      if (nextMode !== "product" && nextMode !== "story") return;
+      mode = nextMode;
+      const mp = document.getElementById("mode-product");
+      const ms = document.getElementById("mode-story");
+      if (mp) mp.setAttribute("aria-pressed", nextMode === "product" ? "true" : "false");
+      if (ms) ms.setAttribute("aria-pressed", nextMode === "story" ? "true" : "false");
+      applySalesFormulaVisibility();
+      applyHookSectionBehavior();
+      if (nextMode === "product") {
+        renderSalesFormulas();
+      }
+      updatePreview();
+      if (!o.skipPersist) {
+        try {
+          localStorage.setItem(MODE_STORAGE_KEY, nextMode);
+        } catch (_) {}
+      }
+    }
+
     function clampSceneValue(raw) {
       const n = Number.parseInt(String(raw), 10);
       if (Number.isNaN(n)) return 1;
@@ -3202,22 +3193,11 @@
       if (mode === "product") renderSalesFormulas();
     }
 
-    document.getElementById("mode-product").addEventListener("click", () => {
-      mode = "product";
-      document.getElementById("mode-product").setAttribute("aria-pressed", "true");
-      document.getElementById("mode-story").setAttribute("aria-pressed", "false");
-      applySalesFormulaVisibility();
-      applyHookSectionBehavior();
-      renderSalesFormulas();
-      updatePreview();
+    document.getElementById("mode-product").addEventListener("click", function () {
+      setModeAndSync("product", {});
     });
-    document.getElementById("mode-story").addEventListener("click", () => {
-      mode = "story";
-      document.getElementById("mode-story").setAttribute("aria-pressed", "true");
-      document.getElementById("mode-product").setAttribute("aria-pressed", "false");
-      applySalesFormulaVisibility();
-      applyHookSectionBehavior();
-      updatePreview();
+    document.getElementById("mode-story").addEventListener("click", function () {
+      setModeAndSync("story", {});
     });
 
     (function bindSceneControls() {
@@ -3253,6 +3233,15 @@
         });
       });
       setSceneValue(range.value);
+    })();
+
+    (function restoreModeFromStorage() {
+      try {
+        var s = localStorage.getItem(MODE_STORAGE_KEY);
+        if (s === "product" || s === "story") {
+          setModeAndSync(s, { skipPersist: true });
+        }
+      } catch (_) {}
     })();
 
     document.querySelectorAll("#narrative-chips input, #mood-chips input, #visual-chips input, #hook-chips input").forEach((inp) => {
@@ -3522,13 +3511,54 @@
     });
     })();
 
+    function copyTextWithFallback(text) {
+      if (text == null) text = "";
+      return (async function () {
+        try {
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+            await navigator.clipboard.writeText(String(text));
+            return true;
+          }
+        } catch (_) {}
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = String(text);
+          ta.setAttribute("readonly", "readonly");
+          ta.style.cssText = "position:fixed;left:0;top:0;width:2em;height:2em;padding:0;border:0;opacity:0.01;";
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          var ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+          return ok;
+        } catch (_) {
+          return false;
+        }
+      })();
+    }
+
     document.getElementById("btn-refresh").addEventListener("click", updatePreview);
-    document.getElementById("btn-copy").addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(document.getElementById("json-out").textContent);
-        document.getElementById("btn-copy").textContent = "คัดลอกแล้ว ✓";
-        setTimeout(() => { document.getElementById("btn-copy").textContent = "คัดลอก"; }, 1600);
-      } catch (_) {}
+    document.getElementById("btn-copy").addEventListener("click", function () {
+      const btn = document.getElementById("btn-copy");
+      const raw = document.getElementById("json-out");
+      const text = raw ? raw.textContent : "";
+      void copyTextWithFallback(text).then(function (ok) {
+        if (ok) {
+          btn.textContent = "คัดลอกแล้ว ✓";
+          setTimeout(function () { btn.textContent = "คัดลอก"; }, 1600);
+        } else if (raw) {
+          try {
+            raw.focus();
+            var range = document.createRange();
+            range.selectNodeContents(raw);
+            var sel = window.getSelection();
+            if (sel) {
+              sel.removeAllRanges();
+              sel.addRange(range);
+            }
+          } catch (_) {}
+        }
+      });
     });
 
     const GEMINI_API_STORAGE_KEY = "storymodeMockGeminiApiKeyV1";
@@ -3672,6 +3702,50 @@
       }
     })();
 
+    /** Hero analysis เบื้องหลัง — เรียกอัตโนมัติตอนกด «เจนสคริปต์ฉาก» ถ้ามีรูปตัวละคร และยังไม่มีผลในแคช */
+    async function runHeroAnalysisInBackground(apiKey) {
+      const G = window.MockStorymodeGemini;
+      if (!G || typeof G.buildHeroAnalysisSystemPrompt !== "function") return false;
+      if (heroAnalysisCache && heroAnalysisCache.parsed) return false;
+      var imgs;
+      try {
+        imgs = collectCharacterRefImagesForAnalysis();
+      } catch (_) {
+        imgs = [];
+      }
+      if (!imgs.length) return false;
+      if (!apiKey && !window.__GEMINI_SERVER_MODE__) return false;
+      try {
+        var legend = buildHeroImageOrderLegend();
+        var sys = G.buildHeroAnalysisSystemPrompt();
+        var usr = G.buildHeroAnalysisUserMessage(legend);
+        var res = await G.mockFetchGeminiStorymode(apiKey, sys, usr, imgs, {
+          skipStorySafety: true,
+          temperature: 0.25,
+          maxOutputTokens: 4096
+        });
+        var raw = res && res.text ? String(res.text) : "";
+        var parsed = null;
+        try {
+          parsed = parseJsonFromGeminiText(raw);
+        } catch (_) {
+          parsed = null;
+        }
+        heroAnalysisCache = {
+          rawText: raw,
+          parsed: parsed,
+          at: Date.now(),
+          error: parsed ? null : "parse"
+        };
+        return !!parsed;
+      } catch (e) {
+        try {
+          console.warn("[hero] background analysis failed:", e && e.message ? e.message : e);
+        } catch (_) {}
+        return false;
+      }
+    }
+
     document.getElementById("btn-generate").addEventListener("click", async () => {
       const status = document.getElementById("generate-status");
       const keyEl = document.getElementById("gemini-api-key");
@@ -3689,10 +3763,16 @@
         return;
       }
       syncDomainKnowledgeUI();
-      const payload = getCurrentPayload();
+      let payload = getCurrentPayload();
       if (!payload.prompt) {
         status.textContent = "ใส่ Prompt (ส่วน 1) ก่อน";
         return;
+      }
+      if (payload.mode === "product_sell" && !payload.salesFormulaId) {
+        if (typeof renderSalesFormulas === "function") {
+          try { renderSalesFormulas(); } catch (_) {}
+        }
+        payload = getCurrentPayload();
       }
       if (payload.mode === "product_sell" && !payload.salesFormulaId) {
         status.textContent = "โหมดขายสินค้า — ตั้งจำนวนฉากให้มีสูตร (1–10 ฉาก) เพื่อให้ระบบสุ่มสูตรได้";
@@ -3765,6 +3845,23 @@
         } else {
           status.textContent = "กำลังเจน — ดูผลด้านล่าง…";
         }
+
+        try {
+          var heroNeeded =
+            !heroAnalysisCache.parsed &&
+            collectCharacterRefImagesForAnalysis().length > 0;
+          if (heroNeeded) {
+            status.textContent = "กำลังวิเคราะห์ Hero (เบื้องหลัง)…";
+            await runHeroAnalysisInBackground(apiKey);
+            payload = getCurrentPayload();
+            await injectDomainKnowledgePayload(payload);
+            await injectProductFactsPayload(payload);
+            status.textContent = "กำลังเจน — ดูผลด้านล่าง…";
+          }
+        } catch (_) {
+          /* hero analysis เบื้องหลัง — ผิดพลาดก็ไม่บล็อกการเจน */
+        }
+
         const system = G.buildStorymodeSystemPromptFromPayload(payload);
         const user = G.buildStorymodeUserMessageFromPayload(payload);
         if (!user) throw new Error("User message ว่าง");
@@ -3787,8 +3884,11 @@
           safety: out.safety || null,
           ts: Date.now()
         });
-        status.textContent = "สำเร็จ — ดูผลในแท็บผลเจน";
-        showMainTab('result');
+        status.textContent = "สำเร็จ — ดูผลด้านล่าง";
+        var resOk = document.getElementById("section-gemini-result");
+        if (resOk && resOk.scrollIntoView) {
+          resOk.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       } catch (e) {
         const msg = e && e.message ? e.message : String(e);
         var errRef = [];
@@ -3841,33 +3941,6 @@
       syncNarrativeSelectedUI();
       applyFavoriteClasses();
     });
-
-    /* ── ควบคุมแท็บหลัก Project CS / ผลเจนสคริปต์ฉาก ── */
-    function showMainTab(which) {
-      var tabProject = document.getElementById("main-panel-tab-project");
-      var tabResult  = document.getElementById("main-panel-tab-result");
-      var panelProject = document.getElementById("main-panel-project");
-      var panelResult  = document.getElementById("main-panel-result");
-      if (!tabProject || !tabResult || !panelProject || !panelResult) return;
-      var isResult = (which === "result");
-      tabProject.setAttribute("aria-selected", isResult ? "false" : "true");
-      tabResult.setAttribute("aria-selected",  isResult ? "true"  : "false");
-      panelProject.hidden = isResult;
-      panelResult.hidden  = !isResult;
-      if (isResult) {
-        /* เลื่อนขึ้นหัวหน้าเพื่อให้เห็นแท็บบาร์ */
-        var tabs = document.querySelector(".main-panel-tabs");
-        if (tabs && tabs.scrollIntoView) tabs.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-
-    /* เชื่อม click event กับปุ่มแท็บหลัก */
-    (function() {
-      var tabProject = document.getElementById("main-panel-tab-project");
-      var tabResult  = document.getElementById("main-panel-tab-result");
-      if (tabProject) tabProject.addEventListener("click", function() { showMainTab("project"); });
-      if (tabResult)  tabResult.addEventListener("click",  function() { showMainTab("result");  });
-    })();
 
   </script>
   <script>
