@@ -295,6 +295,38 @@
         )
       : '';
 
+    const storyModeDirectorOverride =
+      payload.mode === 'storymode'
+        ? (
+            '\n═══════════════════════════════════════════════════════════\n' +
+            '📖 STORY MODE (นิยามคนละอันกับ "ขายสินค้า / รีวิว") — **ลำดับสูงกว่า** กฎเชิงร้านค้าใน Director ข้างบน\n' +
+            '⛔ สำหรับงานนี้ **ห้ามนำมาใช้/บังคับ** แม้จะปรากฏใน Adaptive Video Director:\n' +
+            '  • **SHOPPERTAINMENT** — ห้ามบังคับ 2 ซีนสุดท้าย = บันเทิง+ขายของ (Entertaining Commerce)\n' +
+            '  • **SALES MODE** — ห้ามบังคับ 2 ซีนสุดท้าย = ปิดการขาย/ถือสินค้าเชียร์ซื้อ (ยกเว้น **บรีฟ** สั่งชัดว่าเป็นคลิปขาย)\n' +
+            '  • **REVIEW DIALOGUE AUTHENTICITY** — ห้ามบังคับ "แต่ละซีนรีวิวมุมต่างของสินค้า"\n' +
+            '  • **PRODUCT IMAGE MODE แบบรีวิวต่อเนื่อง** — หากมีรูปสินค้า/สิ่งของ ใช้ได้เป็น **prop/ฉาก** ตามเนื้อ ไม่บังคับ **พูด/โชว์** ทุกฉาก\n' +
+            '  • **Hook Master แนว "วิเคราะห์สินค้า + ดัด hook เข้ากับสินค้า"** — ไม่บังคับ; เปิด Scene 1 ตาม **บรีฟ + นิยาย/อารมณ์** ไม่ต้องเสมือนรีวิว\n' +
+            '  • **SCENE PROGRESSION** ที่บอก "ซีนสุดท้าย = payoff + CTA" — สำหรับ Story: ซีนสุดท้าย = **payoff/ปิดเรื่อง**; **CTA/กดตะกร้า/โปร** ห้ามใส่ถ้าบรีฟไม่ได้สั่ง\n' +
+            '  • **VIRAL CAPTION / แฮชแท็ก** — เน้นดราม่า/น่าติดตาม/อารมณ์ ไม่บังคับแฮชแท็กขายหรือกระตุ้นซื้อ\n' +
+            '✅ ENFORCE สำหรับ Story mode:\n' +
+            '  1) เน้น **พล็อต ตัวละคร อารมณ์ การตัดสินใจ/เปลี่ยนแปลง** ตามบรีฟ — ทุกซีนเป็นส่วนเดียวกันของเรื่อง\n' +
+            '  2) ห้าม **สอดเชียร์ขาย/ราคา/กดตะกร้า/โทรสั่ง** ถ้า brief ไม่ใช่คอนเทนต์ขาย\n' +
+            '  3) เนื้อ dialogue ยัง **15–20 คำ/ฉาก** และกฎ safety/ท่าทาง/เสียง ตาม system — แต่ **ไม่** ต้องอ่านแบบรีวิวสินค้า\n' +
+            '═══════════════════════════════════════════════════════════\n\n'
+          )
+        : '';
+
+    const formatOverrideTieBreak =
+      payload.mode === 'storymode'
+        ? (
+            'กฎ Forbidden Words (OVERCLAIM), TTS-safe, Dialogue 15-20 คำ, Human Anatomy Lock, Product Truth Lock ยังบังคับ  \n' +
+            '**Story mode:** กฎ Hook Master / วงจรรีวิวสินค้าใน Director ด้านบน **ไม่** บังคับ (ดู "STORY MODE" ก้อนก่อน OUTPUT FORMAT)  \n'
+          )
+        : (
+            'กฎ Forbidden Words (OVERCLAIM), TTS-safe, Hook Master, Dialogue 15-20 คำ, \n' +
+            'Human Anatomy Lock, Product Truth Lock ใน Director prompt ยังบังคับใช้ทุกข้อ\n'
+          );
+
     const directorBlock =
       (typeof ADAPTIVE_VIDEO_DIRECTOR_PROMPT !== 'undefined' && ADAPTIVE_VIDEO_DIRECTOR_PROMPT)
         ? (
@@ -304,12 +336,17 @@
             '⚠️ FORMAT OVERRIDE (สำคัญมาก — ใช้แทน Output Format ของ Adaptive Video Director ด้านบน):\n' +
             'โปรแกรมนี้มี parser ที่ต้องการ format แบบเฉพาะ ให้ข้าม Output Format ใน Director prompt\n' +
             'แล้วใช้ format ที่กำหนดใน "═══ OUTPUT FORMAT ═══" ด้านล่างเท่านั้น\n' +
-            'กฎ Forbidden Words (OVERCLAIM), TTS-safe, Hook Master, Dialogue 15-20 คำ,\n' +
-            'Human Anatomy Lock, Product Truth Lock ใน Director prompt ยังบังคับใช้ทุกข้อ\n' +
+            formatOverrideTieBreak +
             '═══════════════════════════════════════════════════════════\n' +
-            blueprintOverride
+            blueprintOverride +
+            storyModeDirectorOverride
           )
         : '';
+
+    const criticalRule9Line =
+      payload.mode === 'storymode'
+        ? '9. ถ้า brief/รูป ref มีสินค้า — ใช้เป็นส่วนเรื่องหรือพร็อพ **เมื่อสอดเนื้อ**; ห้ามบังคับโชว์หรืออธิบายเชิงรีวิว/ขายในทุกฉากถ้าไม่เกี่ยวกับบรีฟ\n'
+        : '9. ถ้ามีสินค้า ต้องเห็นสินค้าชัดเจนในทุกฉาก (โหมดขาย/รีวิว)\n';
 
     return (
       directorBlock +
@@ -359,7 +396,7 @@
       '6. Image ต้องเป็น single image, no collage, no multiple panels\n' +
       '7. ตัวละครต้อง consistent ทุกฉาก — หน้า เสื้อผ้า สไตล์เดียวกัน; ย้ำรายละเอียดเต็มต่อฉาก ห้ามอ้าง "same as HERO BIBLE" แทนคำบรรยาย\n' +
       '8. ห้ามแทนร่างตัวละครด้วยบรรทัด [Character Reference] อย่างเดียว — บรรยายตาม HERO BIBLE ในช่อง image prompt ของฉากนั้น\n' +
-      '9. ถ้ามีสินค้า ต้องเห็นสินค้าชัดเจนในทุกฉาก\n' +
+      criticalRule9Line +
       '10. Scene header ต้องใช้ === SCENE N: NAME === เท่านั้น (สำคัญสำหรับ parser)\n' +
       '11. Prompt ต้องอยู่ใน code block (```) เสมอ\n' +
       '12. จำนวนฉาก: ' +
@@ -466,7 +503,12 @@
 
     const smOutputType = opts.outputType || 'both';
 
-    var msg = '═══ หัวข้อ / สินค้า ═══\n' + topic + '\n';
+    var msg =
+      (payload.mode === 'storymode'
+        ? '═══ บรีฟ / หัวเรื่อง (Story — ไม่ใช่สคริปต์ขายสินค้า) ═══\n'
+        : '═══ หัวข้อ / สินค้า ═══\n') +
+      topic +
+      '\n';
 
     // Domain knowledge: เฉพาะ storymode + เนะเรทีฟ ผักนักเลง (36) หรือ อวัยวะรวมตัว (37) — ห้ามใน product_sell
     var _dkNarr = payload.narrativeStyleIds || [];
@@ -490,7 +532,11 @@
         '\n';
     }
 
-    if (payload.productFactsText && String(payload.productFactsText).trim()) {
+    if (
+      payload.mode === 'product_sell' &&
+      payload.productFactsText &&
+      String(payload.productFactsText).trim()
+    ) {
       msg +=
         '\n══ PRODUCT FACTS (local repository — numeric anchors for product consistency) ══\n' +
         String(payload.productFactsText).trim() +
@@ -620,7 +666,11 @@
         }
         msg += 'ชื่อไฟล์อ้างอิง (รูปแรกแต่ละ slot): ' + (charNames.join(', ') || '(attached)') + '\n';
       }
-      msg += 'ใช้ภาพแนบเป็น reference สำหรับสินค้า/ตัวละครในทุกฉาก ไม่ต้องเปลี่ยนหน้าตา/แพ็กเกจ\n';
+      if (payload.mode === 'storymode') {
+        msg += 'ใช้ภาพแนบตามบรีฟ — รักษาเอกลักษณ์ ref; **Story:** ไม่บังคับโชว์/รีวิวสินค้าทุกฉาก ยกเว้นบรีฟสั่ง\n';
+      } else {
+        msg += 'ใช้ภาพแนบเป็น reference สำหรับสินค้า/ตัวละครในทุกฉาก ไม่ต้องเปลี่ยนหน้าตา/แพ็กเกจ\n';
+      }
     }
 
     msg +=

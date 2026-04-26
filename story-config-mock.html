@@ -1776,7 +1776,7 @@
   </div>
 
   <script src="storymode-mock-enrich-bundle.js?v=2026-04-26d" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="storymode-mock-gemini-core.js?v=2026-04-26d" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script src="storymode-mock-gemini-core.js?v=2026-04-26e" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -4038,6 +4038,11 @@
       if (ps) ps.addEventListener("change", updatePreview);
       if (pn) pn.addEventListener("input", updatePreview);
     })();
+    /** applyFavoriteClasses — leftover hook from older "★ ใช้บ่อย" feature ที่ถอดออกแล้ว
+     *  คงเป็น no-op เพื่อกัน ReferenceError บล็อกการรัน renderSalesFormulas() ที่อยู่ถัดไป */
+    if (typeof applyFavoriteClasses !== "function") {
+      window.applyFavoriteClasses = function () {};
+    }
     applyFavoriteClasses();
     applySalesFormulaVisibility();
     applyHookSectionBehavior();
