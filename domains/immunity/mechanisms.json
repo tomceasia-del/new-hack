@@ -1,0 +1,130 @@
+{
+  "domain_id": "immunity",
+  "_meta": {"current_count": 7, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.immunity"},
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_imm_001",
+      "label_th": "Innate Immunity — First Responder: Phagocytes, NK Cells, Complement",
+      "label_en": "Innate Immune System: Pattern Recognition, Phagocytosis, and Complement Cascade",
+      "description_th": "Innate immunity = ด่านแรกที่ไม่จำเพาะ: PRR (Pattern Recognition Receptors เช่น TLR, NOD) จดจำ PAMP (pathogen-associated molecular patterns เช่น LPS, dsRNA) → activate macrophages/neutrophils → phagocytosis; NK cells จดจำ cells ที่ขาด MHC-I → kill infected/tumor cells; complement system (C3b opsonization → phagocytosis, MAC lysis) → all rapid (<4 hours)",
+      "description_en": "Innate immunity (non-specific, rapid): PRRs (TLR, NOD) recognize PAMPs (LPS, dsRNA) → activate macrophages/neutrophils → phagocytosis; NK cells recognize MHC-I loss → kill infected/tumor cells; complement cascade (C3b opsonization → enhanced phagocytosis, MAC pore → lysis); all within <4 hours.",
+      "chain": [
+        {"step": 1, "actor": "Pathogen enters tissue", "action": "PAMPs (LPS, flagellin, dsRNA) bind", "target": "TLR/NLR/RIG-I on macrophages, dendritic cells", "effect": "NF-κB activation → inflammatory cytokines (IL-1β, IL-6, TNF-α, type I IFN)"},
+        {"step": 2, "actor": "Complement C3 (spontaneous cleavage)", "action": "C3b deposits on pathogen surface", "target": "pathogen cell wall", "effect": "opsonization → enhanced phagocytosis by macrophages (CR1 receptor)"},
+        {"step": 3, "actor": "Neutrophils (recruited by IL-8)", "action": "phagocytose opsonized pathogens", "target": "phagosome-lysosome", "effect": "reactive oxygen species (ROS), proteases kill pathogen"},
+        {"step": 4, "actor": "NK cells", "action": "detect loss of MHC-I (infected cells downregulate MHC-I)", "target": "infected cell surface", "effect": "perforin/granzyme release → target cell apoptosis"},
+        {"step": 5, "actor": "Dendritic cells (matured after PAMP activation)", "action": "present antigens via MHC-II to", "target": "naive T cells in lymph nodes", "effect": "bridge between innate → adaptive immunity"}
+      ],
+      "analogies_th": ["innate immunity = ทหารทั่วไปที่รักษาชายแดน ไม่สนว่าใครมา ยิงก่อน", "complement = ระบบ tag ที่ติด sticker บนเชื้อโรค บอก macrophage ว่า 'กินตัวนี้เลย'"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/28202713/", "source_tier": "A", "year": 2017, "title": "Vitamin D supplementation and ARTI — Martineau AR", "access_date": "2026-04-22"}],
+      "sub_topic_id": "innate_immunity",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_imm_002",
+      "label_th": "Adaptive Immunity — T-cell และ B-cell: Antigen-Specific Memory",
+      "label_en": "Adaptive Immune System: Antigen Presentation, T/B Cell Activation, Immunological Memory",
+      "description_th": "Adaptive immunity = จำเพาะ + จดจำ: APC (dendritic cell) นำ antigen peptide ใน MHC-II ให้ CD4+ T-helper → activate → helper สั่ง B cells ผ่าน CD40L + cytokines → B cells differentiate เป็น plasma cells → antibodies (IgM, IgG, IgA, IgE); CD8+ T-cells จดจำ antigen ใน MHC-I ของ infected cells → CTL kill; Memory T+B cells อยู่นานทศวรรษ",
+      "description_en": "Adaptive immunity (specific, memorized): APC presents antigen peptide in MHC-II to CD4+ T-helper → CD40L + cytokines → B cell differentiation → plasma cells → antibodies (IgM, IgG, IgA, IgE); CD8+ T-cells recognize MHC-I-presented peptides → CTL killing; memory T+B cells persist for decades.",
+      "chain": [
+        {"step": 1, "actor": "Dendritic cells (matured in tissue)", "action": "migrate to lymph nodes, present antigen peptide via MHC-II to", "target": "naive CD4+ T-helper cells", "effect": "T-cell activation + clonal expansion (3-5 days)"},
+        {"step": 2, "actor": "CD4+ T-helper (Th1 type for intracellular, Th2 for extracellular)", "action": "provide help via CD40L + IL-4/IFN-γ to", "target": "B cells (germinal center reaction)", "effect": "B cells undergo somatic hypermutation → high-affinity antibody selection → class switching (IgM → IgG/IgA/IgE)"},
+        {"step": 3, "actor": "Plasma cells (differentiated B cells)", "action": "secrete large quantities of", "target": "antigen-specific antibodies into blood/mucosal secretions", "effect": "neutralization, opsonization, complement activation"},
+        {"step": 4, "actor": "CD8+ CTLs (activated via MHC-I peptide)", "action": "kill", "target": "infected cells displaying intracellular pathogen peptides", "effect": "viral clearance; cancer immune surveillance"},
+        {"step": 5, "actor": "Memory T and B cells (long-lived)", "action": "patrol blood/lymph nodes for decades", "target": "re-exposure to same antigen", "effect": "rapid secondary response (hours vs days) → vaccine protection mechanism"}
+      ],
+      "analogies_th": ["adaptive immunity = ฐานข้อมูลศัตรูที่อัปเดต + หน่วยรบพิเศษที่รู้จักศัตรูแต่ละตัว", "antibody = ลูกกุญแจที่สร้างขึ้นเพื่อล็อกศัตรูตัวนั้นโดยเฉพาะ"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/28345649/", "source_tier": "A", "year": 2017, "title": "Immunosenescence and Vaccine Responses — Nikolich-Zugich J", "access_date": "2026-04-22"}],
+      "sub_topic_id": "adaptive_immunity",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_imm_003",
+      "label_th": "Vitamin D กับ Cathelicidin — Innate Antimicrobial Peptide",
+      "label_en": "Vitamin D Receptor Activation Induces Cathelicidin LL-37: Innate Antimicrobial Defense",
+      "description_th": "Macrophages + monocytes มี Vitamin D receptor (VDR) + CYP27B1 enzyme (แปลง 25-OHD → active 1,25-OHD locally); 1,25-OHD จับ VDR → VDR-RXR heterodimer → bind VDRE ใน cathelicidin gene promoter → เพิ่ม LL-37 production; LL-37 = antimicrobial peptide: ทำลาย bacterial cell membrane, inhibit viral entry, stimulate phagocytosis, reduce inflammation",
+      "description_en": "Macrophages/monocytes express VDR + CYP27B1 (locally converts 25-OHD → active 1,25-OHD); 1,25-OHD binds VDR → VDR-RXR heterodimer → binds VDRE in cathelicidin gene promoter → LL-37 production; LL-37 = antimicrobial peptide that disrupts bacterial membranes, inhibits viral entry, stimulates phagocytosis.",
+      "chain": [
+        {"step": 1, "actor": "Vitamin D (25-OHD) sufficient level in blood", "action": "converted locally by CYP27B1 in macrophages to", "target": "active 1,25-(OH)₂D", "effect": "active vitamin D available within immune cells"},
+        {"step": 2, "actor": "Active 1,25-(OH)₂D", "action": "binds VDR → forms VDR-RXR heterodimer", "target": "VDRE (vitamin D response element) in cathelicidin gene promoter", "effect": "cathelicidin (LL-37) gene transcription upregulated"},
+        {"step": 3, "actor": "LL-37 (cathelicidin)", "action": "inserts into and disrupts", "target": "bacterial lipid bilayer membranes", "effect": "bacterial lysis (especially Mycobacterium tuberculosis, gram+ bacteria)"},
+        {"step": 4, "actor": "LL-37", "action": "inhibits viral entry via", "target": "endosomal acidification disruption and membrane perturbation", "effect": "reduced influenza, SARS-CoV-2 replication"},
+        {"step": 5, "actor": "LL-37", "action": "modulates", "target": "TLR signaling (TLR9 suppression)", "effect": "prevents excessive inflammatory response (anti-inflammatory dual role)"}
+      ],
+      "analogies_th": ["Vitamin D = สั่งพิมพ์ antibiotic ของร่างกายเอง (LL-37)", "LL-37 = กระดาษทรายระดับ cell ที่ทำลาย membrane เชื้อโรค"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/16959920/", "source_tier": "A", "year": 2006, "title": "Vitamin D-mediated induction of innate immunity — Liu PT et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "innate_immunity",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_imm_004",
+      "label_th": "Gut-Immunity Axis — GALT และ Secretory IgA",
+      "label_en": "Gut-Associated Lymphoid Tissue (GALT) and Secretory IgA Production",
+      "description_th": "70% ของ immune cells อยู่ใน gut (GALT — Peyer's patches, mesenteric lymph nodes, lamina propria); gut microbiome diversity → educate immune tolerance (Treg cells) + maintain Th1/Th2/Th17 balance; probiotics → stimulate dendritic cells ใน Peyer's patches → IgA class switching in lamina propria B cells → sIgA ถูก transport ผ่าน epithelium สู่ lumen → coat bacteria/viruses → neutralization (first line mucosal defense)",
+      "description_en": "~70% of immune cells reside in gut (GALT: Peyer's patches, mesenteric LN, lamina propria); microbiome diversity → immune tolerance education (Treg), Th1/Th2/Th17 balance; probiotics → DC activation in Peyer's patches → IgA class switching → sIgA transported to gut lumen → coats bacteria/viruses → first-line mucosal neutralization.",
+      "chain": [
+        {"step": 1, "actor": "Gut bacteria (commensal and probiotic)", "action": "stimulate", "target": "dendritic cells in Peyer's patches (via TLR2, TLR4)", "effect": "DC maturation → IL-10, TGF-β (tolerogenic) + IL-12 (pro-immunity) signals"},
+        {"step": 2, "actor": "Stimulated DCs in Peyer's patches", "action": "migrate to", "target": "mesenteric lymph nodes → trigger T-helper cells → B cells", "effect": "B cells undergo IgA class switching (directed to mucosal compartment)"},
+        {"step": 3, "actor": "IgA-secreting plasma cells (in lamina propria)", "action": "produce dimeric IgA", "target": "epithelial cell transcytosis receptor (pIgR)", "effect": "sIgA transported into intestinal lumen"},
+        {"step": 4, "actor": "Secretory IgA (sIgA) in gut lumen", "action": "neutralizes and agglutinates", "target": "pathogens and toxins at mucosal surface", "effect": "first-line defense without triggering inflammation"},
+        {"step": 5, "actor": "Short-chain fatty acids (butyrate from microbiome)", "action": "maintain", "target": "intestinal epithelial tight junctions + Treg differentiation", "effect": "gut barrier integrity + immune tolerance → prevents inappropriate inflammatory responses"}
+      ],
+      "analogies_th": ["GALT = กองทหาร 70% ของระบบภูมิคุ้มกันอยู่ในลำไส้ — อาหารที่กินเข้าไปเป็นส่วนหนึ่งของ training", "sIgA = ตาข่ายดักยุงที่ลำไส้ — จับเชื้อโรคก่อนที่จะ invade"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/25927096/", "source_tier": "A", "year": 2015, "title": "Probiotics for preventing URTI — Hao Q et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "gut_immunity",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_imm_005",
+      "label_th": "Cortisol → Immune Suppression: HPA Axis และ Inflammation",
+      "label_en": "Cortisol-Mediated Immune Suppression: Glucocorticoid Receptor Signaling",
+      "description_th": "Cortisol (acute) = anti-inflammatory: cortisol จับ GR → nuclear translocation → inhibit NF-κB → ลด IL-1β, IL-6, TNF-α → prevent runaway inflammation; acute cortisol ดี; chronic cortisol → immune cells desensitized ต่อ glucocorticoid signal (GR downregulation) → inflammation ควบคุมไม่ได้ + T/NK/B cell function ลด; ลด lymphocyte trafficking → เพิ่มความเสี่ยงติดเชื้อ",
+      "description_en": "Acute cortisol: anti-inflammatory via GR → NF-κB inhibition → reduces IL-1β, IL-6, TNF-α; chronic cortisol → GR downregulation in immune cells → loss of anti-inflammatory control + impaired T/NK/B cell function + reduced lymphocyte trafficking → increased infection susceptibility.",
+      "chain": [
+        {"step": 1, "actor": "Acute cortisol", "action": "binds GR → nuclear translocation", "target": "NF-κB p65 subunit (sequestration)", "effect": "pro-inflammatory cytokine gene transcription inhibited → beneficial anti-inflammatory effect"},
+        {"step": 2, "actor": "Chronic cortisol exposure", "action": "downregulates", "target": "GR expression on T cells, macrophages, NK cells", "effect": "cells become glucocorticoid-resistant → can't turn off inflammation"},
+        {"step": 3, "actor": "Chronically elevated cortisol", "action": "reduces", "target": "lymphocyte trafficking from blood → lymph nodes", "effect": "immune surveillance reduced in peripheral tissues"},
+        {"step": 4, "actor": "Cortisol suppression of NK cell cytotoxicity", "action": "reduces", "target": "perforin/granzyme production in NK cells", "effect": "viral clearance impaired, cancer immune surveillance reduced"},
+        {"step": 5, "actor": "Stress-induced shift to Th2 dominant", "action": "promotes", "target": "IgE production (allergy pathway) over Th1 (anti-viral)", "effect": "more allergies + less effective anti-viral immunity with chronic stress"}
+      ],
+      "analogies_th": ["cortisol = fire extinguisher ที่ดีมาก แต่ถ้าฉีดตลอดเวลา จะชุ่มทุกอย่างจน 'immune fire' ดับ", "chronic stress = unplugging 30% ของ immune system ทุกวัน"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/33317743/", "source_tier": "A", "year": 2020, "title": "Psychoneuroimmunology and Stress — Kiecolt-Glaser JK", "access_date": "2026-04-22"}],
+      "sub_topic_id": "lifestyle_immunity",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_imm_006",
+      "label_th": "Omega-3 → Inflammation Resolution: SPM (Specialized Pro-Resolving Mediators)",
+      "label_en": "Omega-3 EPA/DHA Generate SPMs to Resolve Inflammation Actively",
+      "description_th": "EPA + DHA ไม่แค่ anti-inflammatory แบบ passive — เป็น precursors ของ SPMs (Specialized Pro-Resolving Mediators): EPA → resolvins E series, DHA → resolvins D series + protectins + maresins; SPMs กระตุ้น active resolution ของ inflammation: ยุติการ recruit neutrophils, ส่ง macrophage phagocytose debris (efferocytosis), restore tissue homeostasis",
+      "description_en": "EPA + DHA are precursors of Specialized Pro-Resolving Mediators (SPMs): EPA → resolvin E series, DHA → resolvin D series + protectins + maresins; SPMs actively resolve inflammation: stop neutrophil recruitment, promote macrophage efferocytosis (clearance of dead cells), restore tissue homeostasis.",
+      "chain": [
+        {"step": 1, "actor": "High tissue EPA + DHA (from dietary Omega-3)", "action": "converted by LOX-12/15 and COX-2 during resolution phase to", "target": "resolvins, protectins, maresins (SPMs)", "effect": "pro-resolution signals generated"},
+        {"step": 2, "actor": "Resolvins (RvE1, RvD1)", "action": "bind GPCRs on neutrophils", "target": "halt neutrophil infiltration into inflamed tissue", "effect": "neutrophil swarm stopped (reduce collateral tissue damage)"},
+        {"step": 3, "actor": "Resolvins + Protectins", "action": "switch macrophage phenotype from M1 (pro-inflammatory) to M2 (anti-inflammatory, repair)", "target": "macrophage polarization", "effect": "efferocytosis: clearance of dead cells + tissue repair promoted"},
+        {"step": 4, "actor": "Maresins (MaR1)", "action": "reduce pain + promote", "target": "mucosal tissue regeneration", "effect": "gut and lung barrier repair after infection/inflammation"}
+      ],
+      "analogies_th": ["Omega-3 = ทีม cleanup หลังการต่อสู้ (ไม่ใช่แค่หยุดการต่อสู้ แต่ทำความสะอาดด้วย)", "SPM = สัญญาณ 'สงบศึก' ที่ EPA/DHA ผลิตให้ immune system"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/23092115/", "source_tier": "A", "year": 2013, "title": "Omega-3 Fatty Acids and Inflammatory Processes — Calder PC", "access_date": "2026-04-22"}],
+      "sub_topic_id": "innate_immunity",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_imm_007",
+      "label_th": "Sleep และ Immune Function: Cytokine Production และ Memory T-Cell Consolidation",
+      "label_en": "Sleep Promotes Immune Memory Consolidation and Cytokine Balance",
+      "description_th": "ระหว่าง SWS (slow-wave sleep): GH สูง, cortisol ต่ำ → pro-inflammatory cytokines (IL-1β, TNF-α) สูง ชั่วคราว → เป็น signal สำหรับ naïve T-cell activation ใน lymph nodes; immune memory consolidation คล้าย sleep-dependent memory (hippocampus); memory T-cells และ B-cells migrate ไป lymph nodes ระหว่างนอน; sleep deprivation → ลด NK cell cytotoxicity 28% (Irwin 1996), ลด vaccine antibody response",
+      "description_en": "During SWS: high GH + low cortisol → transient pro-inflammatory cytokines (IL-1β, TNF-α) → signal for naïve T-cell activation in lymph nodes; immune memory consolidation analogous to sleep-dependent memory; sleep deprivation → 28% reduction in NK cell cytotoxicity (Irwin 1996) + reduced vaccine antibody response.",
+      "chain": [
+        {"step": 1, "actor": "SWS (slow-wave sleep onset)", "action": "triggers", "target": "pituitary → GH release + cortisol nadir", "effect": "anabolic/repair environment + immune activation window"},
+        {"step": 2, "actor": "Transient IL-1β + TNF-α rise during SWS", "action": "activate", "target": "naive T-cells in lymph nodes (through lymphocyte homing)", "effect": "antigen-specific memory T-cells formed or consolidated"},
+        {"step": 3, "actor": "Memory T-cells + B-cells", "action": "migrate to lymph nodes during sleep", "target": "long-term immune memory consolidation", "effect": "vaccine efficacy, re-infection resistance improved"},
+        {"step": 4, "actor": "Sleep deprivation (cortisol rises, cytokines dysregulated)", "action": "impairs", "target": "NK cell killing capacity + lymphocyte trafficking", "effect": "28% NK cytotoxicity reduction; 25-30% lower vaccine antibody response"}
+      ],
+      "analogies_th": ["immune memory consolidation ระหว่างนอน = brain consolidating memories during sleep — same principle, different cell type", "sleep = backup time ของ immune database"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/19139325/", "source_tier": "A", "year": 2009, "title": "Sleep habits and susceptibility to common cold — Cohen S et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "lifestyle_immunity",
+      "confidence": "high"
+    }
+  ]
+}

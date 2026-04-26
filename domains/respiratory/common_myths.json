@@ -1,0 +1,120 @@
+{
+  "domain_id": "respiratory",
+  "_meta": {"current_count": 9, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.respiratory"},
+  "myths": [
+    {
+      "myth_id": "myth_resp_001",
+      "myth_statement_th": "Breathing exercises (Buteyko, Pranayama, Wim Hof) สามารถรักษา asthma และ COPD แทนยาได้",
+      "myth_statement_en": "Breathing exercises can cure asthma and COPD and replace medications.",
+      "reality_th": "ผิดอันตราย: breathing techniques เป็น adjunct therapy ไม่ใช่ replacement; Buteyko Cochrane evidence = ลด bronchodilator use ได้ แต่ไม่ได้ลด underlying inflammation (inhaled corticosteroids ยังจำเป็น); COPD = irreversible structural damage → breathing techniques ช่วย symptom management ไม่ได้ reverse damage; หยุดยาเองอาจนำไปสู่ status asthmaticus (life-threatening)",
+      "reality_en": "Dangerously false: breathing techniques are adjunct, not replacement therapy; Buteyko Cochrane evidence shows reduced bronchodilator use but does not address underlying inflammation (ICS still required); COPD involves irreversible structural damage — breathing techniques manage symptoms but cannot reverse; stopping medication risks status asthmaticus.",
+      "mechanism_refs": ["mech_resp_002", "mech_resp_003"],
+      "evidence_quality": "high",
+      "myth_origin_th": "Buteyko/natural health advocates overstating evidence; anti-pharmaceutical sentiment",
+      "dangerous_if_believed": true,
+      "safety_warning": "ห้ามแนะนำหยุดยา asthma/COPD เพื่อใช้ breathing technique เพียงอย่างเดียว — อาจเสียชีวิตจาก status asthmaticus",
+      "fact_refs": ["fact_resp_004"]
+    },
+    {
+      "myth_id": "myth_resp_002",
+      "myth_statement_th": "ออกกำลังกายมากๆ กลางแจ้งช่วยพัฒนาปอดแม้ PM2.5 จะสูง",
+      "myth_statement_en": "Heavy outdoor exercise develops lungs even when PM2.5 is high.",
+      "reality_th": "ผิดอันตราย: exercise เพิ่ม minute ventilation 10-20 เท่า → ดูด PM2.5 ลึกถึง alveoli มากขึ้นมาก → อาจเพิ่มความเสี่ยง CVD + respiratory disease มากกว่าประโยชน์จาก exercise เมื่อ AQI > 100; ควรออกกำลังกายใน gym หรือสวม N95",
+      "reality_en": "Dangerously false: exercise increases minute ventilation 10-20x → vastly more PM2.5 reaches alveoli → harm may exceed exercise benefit when AQI > 100; should exercise indoors or wear N95 in high PM2.5.",
+      "mechanism_refs": ["mech_resp_006"],
+      "evidence_quality": "high",
+      "myth_origin_th": "fitness culture; lack of awareness about air quality-exercise interaction",
+      "dangerous_if_believed": true,
+      "safety_warning": "Thai context: เชียงใหม่ช่วง March-April AQI 150-300+ → outdoor intense exercise เป็นอันตราย",
+      "fact_refs": ["fact_resp_018"]
+    },
+    {
+      "myth_id": "myth_resp_003",
+      "myth_statement_th": "บุหรี่ไฟฟ้า (e-cigarettes) ปลอดภัยกว่าบุหรี่สำหรับปอด",
+      "myth_statement_en": "E-cigarettes are safe for lungs compared to cigarettes.",
+      "reality_th": "ผิดและอันตราย: EVALI (E-cigarette/Vaping-Associated Lung Injury) 2,807 cases, 68 deaths (USA 2019); vaping ทำให้ airway inflammation, oxidative stress ใน airway; nicotine effects ยังเหมือนเดิม; long-term lung effects ยังไม่ทราบ — ไม่มีหลักฐาน 'safe'; บุหรี่ไฟฟ้า THC + vitamin E acetate = ซ้ำเติม",
+      "reality_en": "False and dangerous: EVALI 2,807 cases, 68 deaths (USA 2019); vaping causes airway inflammation and oxidative stress; nicotine effects persist; long-term lung effects unknown — no evidence of safety; THC vaping + vitamin E acetate = especially dangerous.",
+      "mechanism_refs": ["mech_resp_006"],
+      "evidence_quality": "high",
+      "myth_origin_th": "e-cigarette industry marketing; harm reduction messaging misinterpreted; social media promotion",
+      "dangerous_if_believed": true,
+      "safety_warning": "TikTok platform policy ห้ามโปรโมทบุหรี่ไฟฟ้า; content เกี่ยวกับ vaping ต้องไม่ promote as safe",
+      "fact_refs": ["fact_resp_020"]
+    },
+    {
+      "myth_id": "myth_resp_004",
+      "myth_statement_th": "N95 mask ทำให้ขาด oxygen และเพิ่ม CO₂ อย่างอันตราย",
+      "myth_statement_en": "N95 masks cause dangerous oxygen deprivation and CO₂ build-up.",
+      "reality_th": "ผิด: multiple studies confirm N95 ไม่ลด SpO₂ อย่างมีนัยสำคัญในคนสุขภาพดี; CO₂ dead space เพิ่มเล็กน้อย แต่ ventilation compensates; exceptions: ผู้ป่วย severe COPD หรือ respiratory failure ที่มี hypoxemia baseline — ควรปรึกษาแพทย์; แต่สำหรับประชาชนทั่วไป N95 ปลอดภัยและมีประสิทธิภาพ",
+      "reality_en": "False: multiple studies confirm N95 does not significantly reduce SpO₂ in healthy individuals; CO₂ dead space increases minimally; ventilation compensates; exception: severe COPD with baseline hypoxemia — consult physician; for general public, N95 is safe and effective against PM2.5 and pathogens.",
+      "mechanism_refs": ["mech_resp_001"],
+      "evidence_quality": "high",
+      "myth_origin_th": "COVID-19 anti-mask movement; social media misinformation",
+      "dangerous_if_believed": true,
+      "safety_warning": "ผู้ป่วย severe COPD/pulmonary fibrosis → ปรึกษาแพทย์เรื่อง N95 สวมใส่ระยะยาว",
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_resp_005",
+      "myth_statement_th": "หายใจลึกๆ (deep breathing = big breaths) ดีที่สุด",
+      "myth_statement_en": "Breathing as deeply as possible (maximum volume) is the healthiest way to breathe.",
+      "reality_th": "ผิด: หายใจมาก/เร็วเกินไป = hyperventilation → blow off CO₂ → Bohr effect reversed → functional hypoxia; optimal breathing = ช้า (5-6 breaths/min), diaphragmatic, nasal, ไม่ใช่ big breaths; tidal volume ขณะ rest ปกติ 500ml — ไม่ควรขยายเกิน pattern นี้ในชีวิตประจำวัน",
+      "reality_en": "False: breathing too much/too fast = hyperventilation → CO₂ washout → Bohr effect reversal → functional hypoxia; optimal breathing = slow (5-6/min), diaphragmatic, nasal — not maximum volume; normal resting tidal volume = 500ml; forced deep breathing throughout day is counterproductive.",
+      "mechanism_refs": ["mech_resp_001", "mech_resp_005"],
+      "evidence_quality": "high",
+      "myth_origin_th": "pop wellness culture; 'breathe deeply' advice taken out of context; yoga oversimplification",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_resp_003", "fact_resp_009"]
+    },
+    {
+      "myth_id": "myth_resp_006",
+      "myth_statement_th": "Vitamin C ขนาดสูงรักษา asthma ได้",
+      "myth_statement_en": "High-dose Vitamin C can treat or cure asthma.",
+      "reality_th": "ส่วนใหญ่ผิด: Vitamin C มีฤทธิ์ antioxidant ใน airway เล็กน้อย และบาง RCT พบลด exercise-induced bronchoconstriction; แต่ไม่มีหลักฐานเพียงพอว่า Vit C รักษา asthma ได้; Cochrane 2013 พบหลักฐาน inadequate; inhaled corticosteroids (ICS) ยังเป็น gold standard",
+      "reality_en": "Mostly false: Vitamin C has minor airway antioxidant effects; some RCTs show reduction in exercise-induced bronchoconstriction; no sufficient evidence that Vit C treats asthma; Cochrane 2013 found evidence inadequate; ICS remains gold standard.",
+      "mechanism_refs": ["mech_resp_002"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "antioxidant nutrient oversimplification; Pauling influence",
+      "dangerous_if_believed": true,
+      "safety_warning": "Claim vitamin C รักษา asthma อาจทำให้ผู้ป่วยหยุดยา ICS — อันตราย",
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_resp_007",
+      "myth_statement_th": "Wim Hof Breathing ปลอดภัยสำหรับทุกคน สามารถทำในน้ำหรือในรถได้",
+      "myth_statement_en": "Wim Hof Breathing is safe for everyone, including in water or while driving.",
+      "reality_th": "อันตรายถึงชีวิต: Wim Hof breathing (hyperventilation) → hypocapnia → ลด cerebral blood flow + hypoxic syncope; syncope ขณะว่ายน้ำ = จมน้ำเสียชีวิต (reported deaths); ขณะขับรถ = อุบัติเหตุ; ผู้ป่วย epilepsy, CVD, ตั้งครรภ์ = contraindicated; ควรทำเฉพาะนอนลงบนพื้นในที่ปลอดภัยเท่านั้น",
+      "reality_en": "LIFE-THREATENING: Wim Hof hyperventilation → hypocapnia → cerebral vasoconstriction + hypoxic syncope; syncope while swimming = drowning death (multiple reported deaths); while driving = accidents; contraindicated for epilepsy, CVD, pregnancy; should only be practiced lying down in safe location.",
+      "mechanism_refs": ["mech_resp_001"],
+      "evidence_quality": "high",
+      "myth_origin_th": "Wim Hof social media influencer culture; lack of safety warnings in viral videos",
+      "dangerous_if_believed": true,
+      "safety_warning": "CRITICAL SAFETY: ห้ามทำ Wim Hof breathing ใกล้น้ำหรือขณะขับรถ — มีรายงาน drowning deaths; ต้องใส่ safety warning ในทุก content ที่พูดถึง Wim Hof breathing",
+      "fact_refs": ["fact_resp_019"]
+    },
+    {
+      "myth_id": "myth_resp_008",
+      "myth_statement_th": "ไม่ต้องกังวลเรื่อง PM2.5 เพราะมี HEPA air purifier ในบ้าน",
+      "myth_statement_en": "You don't need to worry about PM2.5 if you have a HEPA air purifier at home.",
+      "reality_th": "บางส่วนผิด: HEPA purifier ลด indoor PM2.5 ได้ดีมาก แต่ชีวิตในเมืองไทยมีเวลาอยู่นอกบ้าน, ในรถ, และในออฟฟิส ซึ่งอาจได้รับ PM2.5 สูง; นอกจากนี้ กิจกรรม indoor เช่น ปรุงอาหาร, ธูปเทียน, บุหรี่ ก็ผลิต PM2.5 ในบ้าน; HEPA เพียงอย่างเดียวไม่พอ — ต้องใส่ mask นอกบ้านด้วย",
+      "reality_en": "Partially false: HEPA purifier significantly reduces indoor PM2.5, but urban Thais spend considerable time outdoors, commuting, and in offices with potentially high PM2.5; indoor activities (cooking, incense, smoking) also produce PM2.5; HEPA alone insufficient — N95 mask needed outdoors.",
+      "mechanism_refs": ["mech_resp_006"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "air purifier marketing; false sense of complete protection",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_resp_006"]
+    },
+    {
+      "myth_id": "myth_resp_009",
+      "myth_statement_th": "การหายใจทางปากระหว่างออกกำลังกายสูงสุดไม่มีผลเสีย",
+      "myth_statement_en": "Mouth breathing during maximal exercise has no negative effects.",
+      "reality_th": "บางส่วนผิด: ระหว่าง maximal intensity exercise (>80% VO₂max) mouth breathing เป็น necessary overflow เพราะ nasal breathing ไม่สามารถ match ventilation demand; อย่างไรก็ตาม: ระหว่าง moderate exercise (50-70% VO₂max) nasal breathing ทำได้ + ได้ NO benefits; chronic mouth breathing at rest = ปัญหา (ลด NO, ลด CO₂ tolerance, ลดคุณภาพการนอน)",
+      "reality_en": "Partially false: during maximal exercise (>80% VO₂max) mouth breathing is necessary overflow; at moderate exercise (50-70% VO₂max) nasal breathing is possible and provides NO benefits; chronic resting mouth breathing = problem (reduced NO, CO₂ tolerance, sleep quality).",
+      "mechanism_refs": ["mech_resp_001"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "sports coaching tradition of 'breathe however feels right'; oversimplification",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_resp_002"]
+    }
+  ]
+}

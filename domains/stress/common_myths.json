@@ -1,0 +1,118 @@
+{
+  "domain_id": "stress",
+  "_meta": {"current_count": 9, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.stress"},
+  "myths": [
+    {
+      "myth_id": "myth_stress_001",
+      "myth_statement_th": "'Adrenal Fatigue' เกิดจาก stress มากเกินจน 'ต่อมหมวกไตเหนื่อย' และต้องกิน supplement แก้",
+      "myth_statement_en": "\"Adrenal fatigue\" is a real condition caused by overworked adrenal glands requiring supplement treatment.",
+      "reality_th": "ไม่มีหลักฐาน: Endocrine Society systematic review (Cadegiani 2016) สรุปว่า 'adrenal fatigue' ไม่ใช่ clinical entity ที่ได้รับการพิสูจน์; อาการ fatigue, brain fog, low energy มีสาเหตุจริงอื่น (hypothyroidism, anemia, depression, sleep apnea, cortisol dysregulation จริง) ที่ควรตรวจจาก แพทย์",
+      "reality_en": "No evidence: Endocrine Society 2016 systematic review found no support for 'adrenal fatigue' as a medical entity; real causes of fatigue include hypothyroidism, anemia, depression, sleep apnea — all require proper medical diagnosis.",
+      "mechanism_refs": ["mech_stress_001"],
+      "evidence_quality": "high",
+      "myth_origin_th": "alternative health practitioners, supplement marketing, oversimplification of HPA axis research",
+      "dangerous_if_believed": true,
+      "safety_warning": "การ self-diagnose 'adrenal fatigue' ทำให้ผู้ป่วยไม่ไปตรวจโรคจริง เช่น hypothyroidism, Addison's disease (adrenal insufficiency ที่เป็นโรคจริง)",
+      "fact_refs": ["fact_stress_020"]
+    },
+    {
+      "myth_id": "myth_stress_002",
+      "myth_statement_th": "Stress ทุกอย่างเป็นโทษ — ควรหลีกเลี่ยง stress ให้มากที่สุด",
+      "myth_statement_en": "All stress is harmful — you should avoid stress as much as possible.",
+      "reality_th": "ผิด: Eustress (stress ระดับเหมาะสม) เพิ่ม performance, focus, motivation — Yerkes-Dodson Law; acute stress inoculation เพิ่ม stress resilience ระยะยาว; ปัญหาคือ chronic/uncontrollable stress ไม่ใช่ stress ทั้งหมด; Kelly McGonigal (Stanford) research: มองว่า stress เป็นประโยชน์ → ลด mortality risk",
+      "reality_en": "False: eustress (optimal stress) enhances performance, focus, and motivation (Yerkes-Dodson Law); acute stress inoculation builds long-term resilience; chronic uncontrollable stress is the problem, not all stress; mindset shift toward stress as enhancing → reduced mortality risk (McGonigal / Keller 2012 NHIS).",
+      "mechanism_refs": ["mech_stress_001", "mech_stress_002"],
+      "evidence_quality": "high",
+      "myth_origin_th": "wellness culture ที่เน้น stress elimination; media oversimplification",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_stress_003",
+      "myth_statement_th": "Cortisol เป็น 'ฮอร์โมนเลว' ที่ทำลายร่างกายเสมอ",
+      "myth_statement_en": "Cortisol is a 'bad hormone' that always damages the body.",
+      "reality_th": "ผิดบางส่วน: Cortisol จำเป็น — anti-inflammatory, immune modulation, memory consolidation, waking response (cortisol awakening response); ปัญหาคือ cortisol สูงเรื้อรัง ไม่ใช่ cortisol ตามธรรมชาติ; Addison's disease (cortisol ต่ำเกินไป) อันตรายถึงชีวิต",
+      "reality_en": "Partially false: cortisol is essential — anti-inflammatory, immune modulation, memory consolidation, cortisol awakening response; the problem is chronically elevated cortisol, not cortisol per se; Addison's disease (cortisol deficiency) is life-threatening.",
+      "mechanism_refs": ["mech_stress_001"],
+      "evidence_quality": "high",
+      "myth_origin_th": "wellness content ที่ oversimplify cortisol; 'cortisol = bad' narrative",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_stress_004",
+      "myth_statement_th": "Adaptogens ทำงานเหมือนยา anxiolytic (ยากล่อมประสาท) — ใช้แทน benzodiazepines ได้",
+      "myth_statement_en": "Adaptogens work like prescription anxiolytics and can replace benzodiazepines.",
+      "reality_th": "ผิดอันตราย: adaptogens มีกลไก HPA modulation ที่ mild — ลด cortisol reactivity และ improve resilience; ไม่ใช่ acute anxiolytic; ไม่มีหลักฐาน v benzodiazepine efficacy; withdrawal risk ของ benzodiazepine อันตราย ห้ามหยุดยาเองเพื่อเปลี่ยนเป็น adaptogen",
+      "reality_en": "Dangerously false: adaptogens mildly modulate HPA axis — they are NOT acute anxiolytics; not comparable to benzodiazepines in efficacy; stopping benzodiazepines abruptly to switch to adaptogens risks dangerous withdrawal symptoms (seizures).",
+      "mechanism_refs": ["mech_stress_006"],
+      "evidence_quality": "high",
+      "myth_origin_th": "natural health advocates; anti-prescription medication sentiment",
+      "dangerous_if_believed": true,
+      "safety_warning": "ห้ามแนะนำให้หยุดยาทางการแพทย์แล้วเปลี่ยนเป็น supplement — โดยเฉพาะ benzodiazepines (seizure risk)",
+      "fact_refs": ["fact_stress_008", "fact_stress_009"]
+    },
+    {
+      "myth_id": "myth_stress_005",
+      "myth_statement_th": "ดื่มแอลกอฮอล์ช่วยลด stress ได้",
+      "myth_statement_en": "Drinking alcohol is an effective stress reliever.",
+      "reality_th": "ผิด: alcohol ลด cortisol ชั่วคราว (inhibits CRH release acutely) แต่ rebound เพิ่ม cortisol หลัง 4-6h (hangover HPA surge); chronic alcohol → HPA hyperreactivity; alcohol disrupts sleep quality (ลด REM → worsens mood); high risk self-medication pattern → alcohol use disorder",
+      "reality_en": "False: alcohol briefly reduces CRH/cortisol acutely but rebounds with cortisol surge after 4-6h; chronic alcohol → HPA hyperreactivity; alcohol disrupts REM sleep → worsens mood/anxiety; self-medication pattern is a primary pathway to alcohol use disorder.",
+      "mechanism_refs": ["mech_stress_001"],
+      "evidence_quality": "high",
+      "myth_origin_th": "social norm, alcohol industry, short-term cortisol effect misinterpreted",
+      "dangerous_if_believed": true,
+      "safety_warning": "Content ที่เกี่ยวกับ alcohol และ stress management ต้องระมัดระวัง — อย่า imply ว่า alcohol = stress relief",
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_stress_006",
+      "myth_statement_th": "Stress ไม่มีผลต่อร่างกายจริงๆ — เป็นแค่ mental ล้วนๆ",
+      "myth_statement_en": "Stress is purely mental and has no real physical effects.",
+      "reality_th": "ผิดสิ้นเชิง: stress มี measurable physiological effects — cortisol สูง (ตรวจ serum/saliva ได้), HRV ต่ำ (wearable), telomere สั้น (blood), inflammatory markers สูง (CRP, IL-6); psychoneuroimmunology พิสูจน์ว่า mind → immune → body effects เป็น bidirectional",
+      "reality_en": "Completely false: stress has measurable physiological effects — elevated cortisol (serum/saliva), low HRV (wearables), telomere shortening (blood), elevated inflammatory markers (CRP, IL-6); psychoneuroimmunology demonstrates bidirectional mind-immune-body effects.",
+      "mechanism_refs": ["mech_stress_001", "mech_stress_002", "mech_stress_003"],
+      "evidence_quality": "high",
+      "myth_origin_th": "Cartesian mind-body dualism; dismissal of psychosomatic medicine",
+      "dangerous_if_believed": true,
+      "fact_refs": ["fact_stress_001", "fact_stress_003", "fact_stress_004"]
+    },
+    {
+      "myth_id": "myth_stress_007",
+      "myth_statement_th": "Magnesium ขนาดสูงช่วยรักษา anxiety disorder ได้เทียบเท่า SSRI",
+      "myth_statement_en": "High-dose magnesium supplements treat anxiety disorders as effectively as SSRIs.",
+      "reality_th": "บางส่วนผิด: Magnesium glycinate มีหลักฐาน RCT ว่าช่วยลด mild anxiety (sub-clinical); ไม่มีหลักฐาน head-to-head กับ SSRI; clinical anxiety disorder (GAD, panic disorder, PTSD) ต้องการ proper psychiatric evaluation + evidence-based treatment; Mg supplement ≠ SSRI",
+      "reality_en": "Mostly false: magnesium shows RCT evidence for mild/sub-clinical anxiety; no head-to-head evidence vs SSRIs; clinical anxiety disorders (GAD, panic, PTSD) require psychiatric evaluation and evidence-based treatment; Mg ≠ SSRI.",
+      "mechanism_refs": ["mech_stress_006"],
+      "evidence_quality": "high",
+      "myth_origin_th": "supplement industry overclaiming; wellness community extrapolating from sub-clinical trials",
+      "dangerous_if_believed": true,
+      "safety_warning": "ผู้มี anxiety disorder ที่ต้องการการรักษา ไม่ควรถูก discourage จากการพบจิตแพทย์/นักจิตวิทยา",
+      "fact_refs": ["fact_stress_010"]
+    },
+    {
+      "myth_id": "myth_stress_008",
+      "myth_statement_th": "Cortisol test จาก saliva kit ที่บ้านให้ผลแม่นยำเท่า medical test",
+      "myth_statement_en": "At-home salivary cortisol kits are as accurate as clinical laboratory testing.",
+      "reality_th": "บางส่วนผิด: salivary cortisol testing มีประโยชน์ในงานวิจัย (ไม่ invasive); อย่างไรก็ตาม consumer kits มักไม่ validated ตาม clinical standards; cortisol diurnal variation สูง (สูงสุดตอนเช้า, ต่ำสุดตอนกลางคืน) — single sample ไม่มีความหมาย; Cushing's syndrome หรือ Addison's ต้องการ multiple timed samples + medical interpretation",
+      "reality_en": "Partially false: salivary cortisol is useful in research but consumer kits lack clinical validation; cortisol has high diurnal variation (peak morning, nadir night) — single sample is insufficient; Cushing's/Addison's diagnosis requires multiple timed samples with medical interpretation.",
+      "mechanism_refs": ["mech_stress_001"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "DTC testing market, wellness tech companies",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_stress_009",
+      "myth_statement_th": "Collagen supplement ลด wrinkles จาก stress ได้ทันที",
+      "myth_statement_en": "Collagen supplements immediately reverse stress-induced skin aging.",
+      "reality_th": "บางส่วนผิด: cortisol สูงเรื้อรัง → ยับยั้ง fibroblast + collagen synthesis → skin aging; collagen supplement มีหลักฐาน RCT ว่าลด wrinkle depth (Proksch 2014, n=69, 8 สัปดาห์) แต่ 'ทันที' ผิด — ต้องใช้เวลา 8-12 สัปดาห์; และ ถ้าไม่แก้ stress ต้นตอ cortisol ยังยับยั้ง collagen synthesis ต่อไป",
+      "reality_en": "Partially false: cortisol inhibits fibroblast and collagen synthesis; collagen supplements have RCT evidence for wrinkle reduction (Proksch 2014) but effects take 8-12 weeks — not immediate; without addressing root stress, cortisol continues suppressing collagen synthesis.",
+      "mechanism_refs": ["mech_stress_005"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "beauty supplement marketing; collagen trend oversimplification",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    }
+  ]
+}

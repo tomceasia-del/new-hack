@@ -1,0 +1,91 @@
+{
+  "domain_id": "fat_metabolism",
+  "_meta": {
+    "target_count": 5,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "notes": "Hook templates harvested from UncleD's dominant hook patterns (hook_primitives.json) + anchored to tier-A facts. Each template must be deployable with a fact_id substitution."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_fat_001_worlds_record",
+      "style": "awe",
+      "pattern_th": "คุณรู้มั้ยว่าคนที่อดอาหารนานที่สุดในโลก อดไป __X__ วันติด และลดไปถึง __Y__ กิโล?",
+      "example_th": "คุณรู้มั้ยว่าคนที่อดอาหารนานที่สุดในโลก อดไป 382 วันติด และลดไปถึง 125 กิโล? แล้วยังมีชีวิตอยู่อีก 5 ปี? — เขาคือ Angus Barbieri",
+      "facts_used": ["fat_001"],
+      "effectiveness_notes": "Hook แบบ 'ที่สุดในโลก' เป็น pattern อันดับ 1 ของ UncleD (aggregate: 'ที่สุดในโลก' ปรากฏในหลายคลิป). ใช้ในคลิปแรกของ thread ได้ดีมาก — viewer หยุดไถ"
+    },
+    {
+      "template_id": "hook_fat_002_myth_flip",
+      "style": "insult_reality",
+      "pattern_th": "__คนส่วนใหญ่คิดว่า__ __X__ แต่ความจริงคือ __Y__",
+      "example_th": "คนส่วนใหญ่คิดว่าทำ sit-up เยอะ ๆ จะลดพุงได้ — แต่ความจริงคือ ไขมันหน้าท้องกับกล้ามหน้าท้องไม่เกี่ยวกันเลย! งานวิจัย 2011 ทำ sit-up 6 สัปดาห์ไม่ลดไขมันหน้าท้องแม้แต่น้อย",
+      "facts_used": ["fat_010"],
+      "effectiveness_notes": "Pattern 'คนส่วนใหญ่คิดว่า...แต่' เป็น myth-correction hook ที่ UncleD ใช้มาก — ช่วยให้ viewer รู้สึกว่าได้ข้อมูล insider"
+    },
+    {
+      "template_id": "hook_fat_003_body_is_smart",
+      "style": "awe",
+      "pattern_th": "ร่างกายคุณฉลาดกว่าที่คิด — ตอนคุณอดอาหาร __X__ ชั่วโมง ร่างกายจะ __Y__",
+      "example_th": "ร่างกายคุณฉลาดกว่าที่คิด — ตอนคุณอดอาหาร 16 ชั่วโมง ไกลโคเจนหมดแล้ว ร่างกายเปิดสวิตช์เผาไขมันจริงจัง + ปล่อยโกรทฮอร์โมนเพิ่มขึ้นเกือบเท่าตัว!",
+      "facts_used": ["fat_003", "fat_007"],
+      "effectiveness_notes": "Awe-based hook เล่าถึง 'ธรรมชาติของร่างกาย' เป็น hook ที่ UncleD ใช้สร้างความเชื่อมั่นในสรีรวิทยา"
+    },
+    {
+      "template_id": "hook_fat_004_number_shock",
+      "style": "shock",
+      "pattern_th": "มีไขมันแค่ __X__ % ในตับก็พอทำให้คุณเป็นเบาหวาน — __Y__",
+      "example_th": "มีไขมันในตับแค่ 5% เกินมาก็พอทำให้เป็นเบาหวานชนิดที่ 2! งานของ Roy Taylor ใน Newcastle แสดงว่าคนเป็นเบาหวานมีไขมันตับ 16% ในขณะที่คนปกติอยู่ที่ <5.5%",
+      "facts_used": ["fat_005", "fat_006"],
+      "effectiveness_notes": "Numeric shock hook — ตัวเลขเฉพาะเจาะจง (5.5%, 16%) ทำให้ฟังน่าเชื่อถือ ใช้กับกลุ่มอายุ 35+ ได้ดีมาก"
+    },
+    {
+      "template_id": "hook_fat_005_pain_recognition",
+      "style": "pain",
+      "pattern_th": "ถ้าคุณ __X__ แต่ยังไม่ลง นั่นไม่ใช่เพราะคุณขี้เกียจ — มันคือ __Y__",
+      "example_th": "ถ้าคุณออกกำลังกายทุกวัน กินน้อยลงแล้ว แต่พุงไม่ยุบ — นั่นไม่ใช่เพราะคุณขี้เกียจ มันคืออินซูลินของคุณสูงเกินไปตลอดเวลา ร่างกายเลยไม่ยอมปล่อยไขมันออกมาเผา",
+      "facts_used": ["fat_011", "fat_016"],
+      "effectiveness_notes": "Pain-recognition hook — ทำให้ viewer รู้สึก 'มีคนเข้าใจ' ก่อน reframe ปัญหาเป็นเรื่องฮอร์โมน ตรงกับ niche ของ UncleD มาก"
+    },
+    {
+      "template_id": "hook_fat_006_curiosity_gap",
+      "style": "curiosity",
+      "pattern_th": "มีฮอร์โมนหนึ่งตัวที่เพิ่มขึ้น __X__ เท่าเมื่อคุณ __Y__ — และมันคือเหตุผลว่าทำไมคน IF ดูสด",
+      "example_th": "มีฮอร์โมนหนึ่งตัวที่เพิ่มขึ้นเกือบเท่าตัวเมื่อคุณอดอาหาร 5 วัน — มันคือโกรทฮอร์โมน และนี่คือเหตุผลที่คนที่ทำ fasting ดูแน่นกว่าคนที่แค่ลดแคล",
+      "facts_used": ["fat_003"],
+      "effectiveness_notes": "Curiosity gap hook ที่ปกปิดชื่อฮอร์โมนไว้ให้ viewer อยากรู้ — score สูงใน 3-second retention"
+    },
+    {
+      "template_id": "hook_fat_007_historic_framing",
+      "style": "awe",
+      "pattern_th": "นี่ไม่ใช่เรื่องใหม่ — __X__ ค้นพบเรื่องนี้มาตั้งแต่ __Y__",
+      "example_th": "นี่ไม่ใช่เรื่องใหม่ — โรงพยาบาลอังกฤษทดลองให้คนอดอาหาร 382 วันสำเร็จมาตั้งแต่ปี 1966! ทำไมเราถึงเพิ่งมารู้กัน?",
+      "facts_used": ["fat_001", "fat_002"],
+      "effectiveness_notes": "Historic framing เพิ่ม credibility และสร้างความรู้สึก 'ถูกปิดบัง' — hook ที่ UncleD เล่นหลายครั้ง"
+    },
+    {
+      "template_id": "hook_fat_008_fat_goes_where",
+      "style": "curiosity",
+      "pattern_th": "ไขมัน __X__ กิโลที่หายไป มันไปไหน? — คำตอบอาจไม่ใช่ที่คุณคิด",
+      "example_th": "ไขมัน 10 กิโลที่หายไปตอนคุณลดน้ำหนัก — มันไปไหน? คำตอบคือ 84% หายออกไปทางลมหายใจในรูปของ CO₂! (BMJ 2014)",
+      "facts_used": ["fat_017"],
+      "effectiveness_notes": "Curiosity gap + surprising answer — viral pattern, highly shareable. Hook นี้ UncleD ไม่ได้ใช้ตรง ๆ แต่เข้ากับ tone"
+    },
+    {
+      "template_id": "hook_fat_009_comparison_contrast",
+      "style": "insult_reality",
+      "pattern_th": "คนผอมกับคนอ้วนต่างกันที่ __X__ — ไม่ใช่ที่ __Y__",
+      "example_th": "คนผอมกับคนอ้วนต่างกันที่ไขมันสีน้ำตาล! คนผอมมีการทำงานของ brown fat มากกว่าคนอ้วนถึง 4 เท่า — แค่เย็น ๆ นิด ไขมันก็ถูกเผาไปทันที",
+      "facts_used": ["fat_008", "fat_020"],
+      "effectiveness_notes": "Contrast hook ที่ใช้ scientific surprise — เชื่อมต่อ BAT / cold exposure กับ content lifestyle (อาบน้ำเย็น, AC) ได้ดี"
+    },
+    {
+      "template_id": "hook_fat_010_sleep_is_fat_loss",
+      "style": "pain",
+      "pattern_th": "คุณอาจไม่ได้ตัวใหญ่ขึ้นเพราะกินเยอะ — แต่เพราะ __X__",
+      "example_th": "คุณอาจไม่ได้อ้วนขึ้นเพราะกินเยอะ — แต่เพราะคุณนอน 5 ชั่วโมง! Spiegel 2004 แสดงว่า sleep 4 ชั่วโมง 2 คืนติด → leptin ลด 18%, ghrelin เพิ่ม 28% → หิวทั้งวัน",
+      "facts_used": ["fat_013"],
+      "effectiveness_notes": "Pain + reframe hook — ช่วยเปิด angle 'sleep as tool 1' ของ UncleD ที่เขา pitch บ่อย"
+    }
+  ]
+}

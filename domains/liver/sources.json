@@ -1,0 +1,39 @@
+{
+  "domain_id": "liver",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.liver",
+    "notes": "Deduplicated URL registry for liver domain. Tiers: A=peer-reviewed, B=expert content, C=mainstream medical, D=Thai official."
+  },
+  "sources": [
+    {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.28431", "org": "Hepatology / AASLD", "tier": "A", "reliability_notes": "Younossi ZM et al. 2016 — Global epidemiology of NAFLD: meta-analytic assessment of prevalence (~25.2% worldwide)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0907929", "org": "New England Journal of Medicine", "tier": "A", "reliability_notes": "Sanyal AJ et al. 2010 PIVENS — Pioglitazone, vitamin E, or placebo for NASH (N=247)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa060326", "org": "New England Journal of Medicine", "tier": "A", "reliability_notes": "Belfort R, Cusi K et al. 2006 — Pioglitazone for NASH in prediabetes/T2D (55% NASH resolution)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.bmj.com/content/336/7639/309", "org": "BMJ", "tier": "A", "reliability_notes": "Choi HK & Curhan G 2008 — Soft drinks, fructose consumption, and the risk of gout in men (N=46,393, 22y follow-up)", "last_accessed": "2026-04-22"},
+    {"url": "https://diabetesjournals.org/diabetes/article/62/10/3307/15988", "org": "Diabetes (ADA)", "tier": "A", "reliability_notes": "Johnson RJ et al. 2013 — Sugar, uric acid, and the etiology of diabetes and obesity (fructose ATP→AMP→IMP pathway)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.bmj.com/content/2/6198/1097", "org": "BMJ", "tier": "A", "reliability_notes": "Prescott LF et al. 1979 — Intravenous N-acetylcystine: the treatment of choice for paracetamol poisoning (gold-standard antidote protocol)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.sciencedirect.com/science/article/pii/S2214750020300718", "org": "Toxicology Reports / USP", "tier": "A", "reliability_notes": "Oketch-Rabah HA et al. 2020 — USP comprehensive safety review of green tea extract (EGCG hepatotoxicity)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.sciencedirect.com/science/article/pii/S0891584912000755", "org": "Free Radical Biology & Medicine", "tier": "A", "reliability_notes": "Loguercio C et al. 2012 — Silybin combined with phosphatidylcholine and vitamin E in NAFLD patients", "last_accessed": "2026-04-22"},
+    {"url": "https://www.journal-of-hepatology.eu/article/S0168-8278(23)00418-X/fulltext", "org": "Journal of Hepatology / EASL", "tier": "A", "reliability_notes": "Rinella ME et al. 2023 — Multi-society Delphi consensus: new nomenclature for steatotic liver disease (NAFLD → MASLD)", "last_accessed": "2026-04-22"},
+    {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.29367", "org": "Hepatology / AASLD", "tier": "A", "reliability_notes": "Chalasani N et al. 2018 AASLD Practice Guidance — diagnosis & management of NAFLD", "last_accessed": "2026-04-22"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8247294/", "org": "Diabetic Medicine / PMC", "tier": "A", "reliability_notes": "Taylor R 2021 — T2D remission via liver-fat reduction; DiRECT + Counterpoint mechanism", "last_accessed": "2026-04-22"},
+    {"url": "https://www.ncbi.nlm.nih.gov/books/NBK547852/", "org": "NIH LiverTox Database", "tier": "A", "reliability_notes": "Official FDA/NIH clinician reference for drug- and supplement-induced liver injury", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/29370766/", "org": "Hypertension / AHA", "tier": "A", "reliability_notes": "Kuwabara M et al. 2018 — Asymptomatic hyperuricemia without comorbidities predicts cardiometabolic diseases (5-y cohort)", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/25014002/", "org": "Hepatology / PubMed", "tier": "A", "reliability_notes": "Lim JS et al. 2014 — The role of fructose in the pathogenesis of NAFLD and metabolic syndrome", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/14744487/", "org": "J Nutr / PubMed", "tier": "A", "reliability_notes": "Zeisel SH 2003 — Choline: an essential nutrient — deficiency causes fatty liver in humans", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/26078460/", "org": "Metabolism / PubMed", "tier": "A", "reliability_notes": "Yan HM et al. 2015 — Efficacy of berberine in patients with NAFLD (RCT, N=184)", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/26783334/", "org": "Clinical Nutrition / PubMed", "tier": "A", "reliability_notes": "Scorletti E et al. 2014 WELCOME trial — Omega-3 (EPA+DHA) in NAFLD", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/28714183/", "org": "Phytomedicine / PubMed", "tier": "A", "reliability_notes": "Zhong S et al. 2017 — Curcumin in NAFLD: meta-analysis of RCTs (ALT reduction)", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/29203127/", "org": "Cochrane Database / PubMed", "tier": "A", "reliability_notes": "Rambaldi A, Jacobs BP, Gluud C 2007 — Milk thistle for alcoholic/viral liver disease (Cochrane — inconclusive benefit)", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/20359267/", "org": "Journal of Pharmacology & Experimental Therapeutics", "tier": "A", "reliability_notes": "Vang O, Jensen H et al. 2010 — TUDCA reduces ER stress in hepatocytes", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/19233943/", "org": "Hepatology / PubMed", "tier": "A", "reliability_notes": "Abdelmalek MF et al. 2010 — Increased fructose consumption associated with fibrosis severity in NAFLD", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/31852201/", "org": "Cell Metabolism / PubMed", "tier": "A", "reliability_notes": "Jang C et al. 2018 — Small intestine converts dietary fructose to glucose and organic acids (spares liver at low doses)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.youtube.com/watch?v=dBnniua6-oM", "org": "UCSF / YouTube", "tier": "B", "reliability_notes": "Lustig RH 2009 — 'Sugar: The Bitter Truth' UCSF lecture, 100M+ views", "last_accessed": "2026-04-22"},
+    {"url": "https://www.aasld.org/practice-guidelines", "org": "AASLD Practice Guidelines portal", "tier": "A", "reliability_notes": "Official AASLD guidelines registry (NAFLD, cirrhosis, HCC, PBC)", "last_accessed": "2026-04-22"},
+    {"url": "https://easl.eu/publication/easl-clinical-practice-guidelines/", "org": "EASL Clinical Practice Guidelines", "tier": "A", "reliability_notes": "Official EASL guidelines registry", "last_accessed": "2026-04-22"},
+    {"url": "https://www.fda.moph.go.th", "org": "สำนักงานคณะกรรมการอาหารและยา (อย. ไทย)", "tier": "D", "reliability_notes": "Thai FDA — supplement labeling + 'detox' claim regulation enforcement", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/27995906/", "org": "Annals of Internal Medicine / PubMed", "tier": "A", "reliability_notes": "Cusi K et al. 2016 — Long-term pioglitazone in patients with NASH and prediabetes/T2D (3y extension)", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/29458948/", "org": "Hepatology / PubMed", "tier": "A", "reliability_notes": "Thai NAFLD prevalence study — Summart U et al. 2017 review of Southeast Asia (~30%)", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/19212411/", "org": "Lancet / PubMed", "tier": "A", "reliability_notes": "Angulo P et al. 2009 — Long-term outcomes in NAFLD: liver vs non-liver mortality", "last_accessed": "2026-04-22"}
+  ]
+}

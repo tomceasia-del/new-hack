@@ -1,0 +1,750 @@
+{
+  "domain_id": "fat_metabolism",
+  "_meta": {
+    "target_count": 20,
+    "current_count": 24,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.fat_metabolism",
+    "notes": "≥70% of facts target UncleD's existing claims (DNA-first harvest). Tier distribution optimized for composer safety: T1 where possible (numeric anchors), T2/T3 for mechanism/consensus."
+  },
+  "facts": [
+    {
+      "fact_id": "fat_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "ectopic_fat",
+      "statement_th": "Angus Barbieri อดอาหารติดต่อกัน 382 วัน (1965-66) ภายใต้การดูแลของโรงพยาบาล Maryfield เมือง Dundee — น้ำหนักลดจาก 456 ปอนด์ (207 กิโล) เหลือ 180 ปอนด์ (82 กิโล) ดื่มเฉพาะน้ำ ชา กาแฟ และวิตามินเท่านั้น",
+      "statement_en": "Angus Barbieri fasted continuously for 382 days (1965-66) under hospital supervision at Maryfield Hospital, Dundee — his weight dropped from 456 lb (207 kg) to 180 lb (82 kg) while consuming only water, tea, coffee, and vitamins.",
+      "numeric_values": [
+        {"value": 382, "unit": "days", "label": "fast duration", "is_approximation": false},
+        {"value": 456, "unit": "lb", "label": "starting weight", "is_approximation": false},
+        {"value": 207, "unit": "kg", "label": "starting weight", "is_approximation": false},
+        {"value": 180, "unit": "lb", "label": "ending weight", "is_approximation": false},
+        {"value": 82, "unit": "kg", "label": "ending weight", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fat_001",
+      "entities_mentioned": ["angus_barbieri", "stewart_fleming_1973"],
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2495396/pdf/postmedj00315-0056.pdf",
+          "org": "Postgrad Med J / PubMed Central",
+          "source_tier": "A",
+          "year": 1973,
+          "title": "Features of a successful therapeutic fast of 382 days' duration — Stewart WK & Fleming LW",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ที่สุดในโลก", "ใครกล้ากว่านี้", "ประวัติศาสตร์การแพทย์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข 382/207/82/456/180 — อนุญาตให้เปลี่ยน delivery + เสริมคำพูดดราม่าได้",
+      "usage_notes": "ใช้เป็น hook 'longest IF in the world' — UncleD clip 7553972476968062228 ใช้อยู่แล้ว. ห้ามแนะนำให้ audience ทำตาม (ต้อง medical supervision)",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy",
+      "statement_th": "Yoshinori Ohsumi ได้รับรางวัลโนเบลสาขาการแพทย์ปี 2016 จากการค้นพบกลไกออโตฟาจี — กระบวนการที่เซลล์ 'กินตัวเอง' เพื่อรีไซเคิลโปรตีนเก่า/organelle ชำรุด — autophagosome สร้างและย่อยภายในเพียง 10-20 นาที",
+      "statement_en": "Yoshinori Ohsumi won the 2016 Nobel Prize in Physiology or Medicine for discovering the mechanisms of autophagy — the process by which cells 'self-eat' to recycle old proteins and damaged organelles; autophagosomes form and fuse with lysosomes within just 10-20 minutes.",
+      "numeric_values": [
+        {"value": 2016, "unit": "year", "label": "Nobel Prize year", "is_approximation": false},
+        {"value": "10-20", "unit": "minutes", "label": "autophagosome lifespan", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fat_002",
+      "entities_mentioned": ["yoshinori_ohsumi", "mtor", "atg_genes"],
+      "sources": [
+        {
+          "url": "https://www.nobelprize.org/prizes/medicine/2016/advanced-information/_",
+          "org": "NobelPrize.org",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "The 2016 Nobel Prize in Physiology or Medicine — Scientific Background (Ohsumi, Autophagy)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["โนเบล", "เซลล์กินตัวเอง", "ร่างกายซ่อมตัวเอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "คำว่า 'กินตัวเอง' = ถูก (Ohsumi เรียก self-eating) แต่ห้ามพูดว่า 'ออโตฟาจี = รักษามะเร็ง/anti-aging แน่นอน'",
+      "usage_notes": "ใช้ pair กับ fasting 24-72h — UncleD mention ใน clips 7554756304250719489, 7555051742099016980",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy",
+      "statement_th": "mTOR คือ 'สวิตช์ปิดออโตฟาจี' — ตอนกินอิ่ม (โดยเฉพาะคาร์บ/โปรตีน) mTOR จะทำงานและหยุดกระบวนการทำความสะอาดเซลล์ พออดอาหารหรือคาร์บต่ำ mTOR ถูกปิด → ออโตฟาจีเริ่ม",
+      "statement_en": "mTOR is the 'off-switch' for autophagy — when fed (especially carbs/protein), mTOR is active and suppresses cellular cleanup; during fasting or carbohydrate restriction, mTOR is inactivated and autophagy is turned on.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_002",
+      "entities_mentioned": ["mtor", "atg1", "atg13", "yoshinori_ohsumi"],
+      "sources": [
+        {
+          "url": "https://www.nobelprize.org/prizes/medicine/2016/advanced-information/_",
+          "org": "NobelPrize.org",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "The 2016 Nobel Prize in Physiology or Medicine — Scientific Background (Ohsumi, Autophagy)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["สวิตช์", "ปุ่มเปิดโหมดซ่อม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามระบุ 'ต้องอด X ชั่วโมง autophagy ถึงเริ่ม' — หลักฐานในมนุษย์ยังไม่ precise",
+      "usage_notes": "ใช้อธิบายทำไมการอดอาหารได้ผล — mechanism backbone",
+      "contradictions": ["ในมนุษย์ ตัวเลขเฉพาะของชั่วโมงที่ autophagy 'peak' ไม่ชัดเจน — คนชอบพูด 16h หรือ 24h แต่หลักฐานส่วนใหญ่มาจากหนู/ยีสต์"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy",
+      "statement_th": "การอดอาหาร 5 วันในชายปกติทำให้ความถี่ของ pulse โกรทฮอร์โมน (GH) เพิ่มจาก 5.8±0.7 เป็น 9.9 ครั้งต่อ 24 ชั่วโมง — เกือบ 2 เท่าตัว (Ho et al., J Clin Invest, 1988)",
+      "statement_en": "A 5-day fast in healthy men increased the 24-hour growth hormone (GH) pulse frequency from 5.8±0.7 to 9.9 pulses — nearly 2-fold (Ho et al., J Clin Invest, 1988).",
+      "numeric_values": [
+        {"value": 5, "unit": "days", "label": "fast duration", "is_approximation": false},
+        {"value": 5.8, "unit": "pulses/24h", "label": "baseline GH pulse frequency (fed)", "is_approximation": false},
+        {"value": 9.9, "unit": "pulses/24h", "label": "day-5 fasted GH pulse frequency", "is_approximation": false},
+        {"value": 6, "unit": "subjects", "label": "sample size (adult males)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fat_003",
+      "entities_mentioned": ["growth_hormone", "ken_ho", "michael_thorner"],
+      "sources": [
+        {
+          "url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC329619/",
+          "org": "J Clin Invest / PubMed Central",
+          "source_tier": "A",
+          "year": 1988,
+          "title": "Fasting enhances growth hormone secretion and amplifies the complex rhythms of growth hormone secretion in man — Ho KY, Veldhuis JD, Thorner MO et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["โกรทฮอร์โมนพุ่ง", "ร่างกายเปิดโหมดซ่อม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "UncleD พูดว่า '30 ชั่วโมง GH พุ่ง' — directionally correct แต่ตัวเลขเฉพาะมาจาก 5-day study. ใช้ได้แต่ห้ามพูด '5000%' หรือตัวเลขเว่อร์",
+      "usage_notes": "Primary anchor for UncleD's GH claims (clips 7550548224046599442, 7552418767196671253, 7554756304250719489). Sample size small (n=6) — frame as 'งานวิจัยพบ' ไม่ใช่ 'ทุกคน'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "brown_adipose_tissue",
+      "statement_th": "ในชายวัยหนุ่ม 24 คน ที่ถูกเย็นที่ 16°C เป็นเวลา 2 ชั่วโมง — 23 คน (96%) ตรวจพบ brown adipose tissue ทำงานจาก PET-CT scan — ชายผอมมี BAT activity สูงกว่าชายอ้วนประมาณ 4 เท่า (van Marken Lichtenbelt et al., NEJM 2009)",
+      "statement_en": "In 24 young men exposed to 16°C for 2 hours, 23 (96%) showed active brown adipose tissue on PET-CT — lean men had roughly 4× the BAT activity of overweight/obese men (van Marken Lichtenbelt et al., NEJM 2009).",
+      "numeric_values": [
+        {"value": 96, "unit": "%", "label": "subjects with active BAT under cold", "is_approximation": false},
+        {"value": 16, "unit": "°C", "label": "cold exposure temperature", "is_approximation": false},
+        {"value": 2, "unit": "hours", "label": "exposure duration", "is_approximation": false},
+        {"value": 428, "unit": "kBq", "label": "lean men mean BAT activity", "is_approximation": false},
+        {"value": 102, "unit": "kBq", "label": "obese men mean BAT activity", "is_approximation": false},
+        {"value": 11.8, "unit": "% of RMR", "label": "cold-induced thermogenesis share", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_004",
+      "entities_mentioned": ["ucp1", "brown_adipose_tissue", "van_marken_lichtenbelt"],
+      "sources": [
+        {
+          "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0808718",
+          "org": "New England Journal of Medicine",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Cold-Activated Brown Adipose Tissue in Healthy Men — van Marken Lichtenbelt WD et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไขมันดีที่เผาไขมัน", "ความเย็นปลุกพลัง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้างว่า 'อาบน้ำเย็นลด X กิโลใน Y สัปดาห์' — ไม่มีหลักฐาน. ใช้ได้แค่ว่า BAT ถูกกระตุ้นด้วยความเย็นและคนผอมมีมากกว่า",
+      "usage_notes": "Use to counter 'กินแคลน้อย = ลดน้ำหนัก' simplification — metabolic activity varies",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "ectopic_fat",
+      "statement_th": "Counterpoint study (Roy Taylor, Newcastle) — ผู้ป่วยเบาหวานชนิดที่ 2 ทานเพียง 800 kcal/วัน — ตับหยุดปล่อยน้ำตาลเกิน (hepatic glucose output) กลับมาเป็นปกติภายใน 7 วัน และเบต้าเซลล์ตับอ่อนฟื้นกลับใกล้ปกติภายใน 8 สัปดาห์",
+      "statement_en": "In Roy Taylor's Counterpoint study, type 2 diabetes patients on an 800 kcal/day diet normalized hepatic glucose output within 7 days and restored beta-cell function close to normal within 8 weeks.",
+      "numeric_values": [
+        {"value": 800, "unit": "kcal/day", "label": "very-low-calorie diet", "is_approximation": false},
+        {"value": 7, "unit": "days", "label": "time to normalize liver glucose", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "time to recover beta-cell function", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fat_005",
+      "entities_mentioned": ["roy_taylor", "twin_cycle_hypothesis", "direct_trial"],
+      "sources": [
+        {
+          "url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC8247294/",
+          "org": "Diabet Med / PubMed Central",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Type 2 diabetes and remission: practical management guided by pathophysiology — Taylor R.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["7 วันเปลี่ยนชีวิต", "เบาหวานถอยหลังได้", "กินน้อยลงชนิดจริงจัง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามชวนให้ audience อด 800 kcal เอง — ต้อง medical supervision. ห้ามใช้คำว่า 'รักษา' เบาหวาน (ใช้ 'remission' หรือ 'ถอยหลัง' เท่านั้น)",
+      "usage_notes": "ใช้เป็น authority anchor เมื่อพูดเรื่อง visceral/liver fat",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "ectopic_fat",
+      "statement_th": "ใน DiRECT trial ผู้ป่วยเบาหวาน T2 มีไขมันสะสมในตับเฉลี่ย 16% (ค่าปกติ ≤5.5%) — น้ำหนักลด 15 กิโลทำให้ไขมันในตับลดเกือบเป็นศูนย์ และตับอ่อนกลับมาทำงาน (Roy Taylor, Newcastle)",
+      "statement_en": "In the DiRECT trial, type 2 diabetes patients had average liver fat of 16% (normal ≤5.5%); a 15 kg weight loss dropped liver fat to near-zero and restored pancreatic function (Roy Taylor, Newcastle).",
+      "numeric_values": [
+        {"value": 16, "unit": "%", "label": "baseline liver fat in T2D", "is_approximation": false},
+        {"value": 5.5, "unit": "%", "label": "normal upper-limit liver fat", "is_approximation": false},
+        {"value": 15, "unit": "kg", "label": "weight loss needed for remission", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_005",
+      "entities_mentioned": ["roy_taylor", "direct_trial", "twin_cycle_hypothesis"],
+      "sources": [
+        {
+          "url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC8247294/",
+          "org": "Diabet Med / PubMed Central",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Type 2 diabetes and remission: practical management guided by pathophysiology — Taylor R.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไขมันพอกตับ", "ลด 15 โลชีวิตเปลี่ยน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 15 kg เป็น average — กรอบ personal fat threshold บางคนลดน้อยกว่าก็พอ. ห้ามการันตีว่า 'ลด 15 โล = หายเบาหวาน 100%'",
+      "usage_notes": "Thai audience มี visceral fat risk สูง — ใช้อธิบายทำไมพุงอันตรายกว่าสะโพก",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_008",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "ketosis",
+      "statement_th": "ในการอดอาหาร ตับเปลี่ยนกรดไขมันเป็นคีโตน (β-hydroxybutyrate, acetoacetate) — สมองเริ่มใช้คีโตนเป็นเชื้อเพลิงหลักแทนน้ำตาลได้ใน 2-3 วัน และในการอดยาวสมองใช้คีโตนทดแทนน้ำตาลได้ถึงประมาณ 60-70% ของพลังงาน (Cahill; StatPearls Ketogenesis)",
+      "statement_en": "During fasting, the liver converts fatty acids into ketones (β-hydroxybutyrate, acetoacetate) — the brain starts using ketones as primary fuel within 2-3 days and can derive roughly 60-70% of its energy from ketones during prolonged fasting (Cahill; StatPearls).",
+      "numeric_values": [
+        {"value": "2-3", "unit": "days", "label": "time for ketone adaptation", "is_approximation": true},
+        {"value": "60-70", "unit": "%", "label": "brain energy from ketones during prolonged fast", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_006",
+      "entities_mentioned": ["beta_hydroxybutyrate", "acetoacetate", "hmg_coa"],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK493179/",
+          "org": "NCBI Bookshelf / StatPearls",
+          "source_tier": "A",
+          "year": 2026,
+          "title": "Biochemistry, Ketogenesis (StatPearls)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["โหมดคีโต", "สมองเปลี่ยนเชื้อเพลิง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'คีโตดีกว่าแป้งเสมอ' — ไม่ universal. ตัวเลข 60-70% มาจาก prolonged fast ไม่ใช่ keto diet ทั่วไป",
+      "usage_notes": "UncleD mention ใน clip 7555051742099016980 ที่ 24h → เริ่มคีโต — directionally correct",
+      "contradictions": ["'2-3 days' เข้าคีโตสำหรับคนกินแป้งสูงปกติ — คนคีโตเชี่ยวชาญอาจเข้าได้ใน 12-18h"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_009",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "อินซูลินเป็นฮอร์โมน 'เก็บพลังงาน' — เมื่ออินซูลินสูง ฮอร์โมน-sensitive lipase (HSL) ถูกยับยั้ง → เซลล์ไขมันเลิกปล่อยไขมันออกมาเผา; พอแป้ง/น้ำตาลตกอินซูลินลด HSL ทำงาน → ไขมันถูกสลายไปใช้",
+      "statement_en": "Insulin is the body's 'energy storage' hormone — high insulin inhibits hormone-sensitive lipase (HSL), preventing fat release from adipocytes; when carbs/sugar drop, insulin falls, HSL activates, and fat is mobilized for energy.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_007",
+      "entities_mentioned": ["insulin", "hormone_sensitive_lipase", "glut4"],
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/",
+          "org": "Endocrinol Metab (Seoul) / PubMed Central",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Intermittent fasting for obesity and related disorders: knowns, unknowns, and next steps — Halpern B, Mancini MC",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["สวิตช์เก็บ/เผา", "ปุ่มปิดเผาไขมัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ใช้ metaphor 'สวิตช์' ได้ — ห้ามบอกว่า insulin เป็น 'โรค' (คนต้องมี insulin เพื่อมีชีวิต)",
+      "usage_notes": "UncleD ใช้คำว่า 'ปิดสวิตช์เผาไขมัน' ใน clip 7557353919975034120 — ตรงกับหลักฐาน",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_010",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "การทำ IF แบบ 16:8 (อด 16 ชั่วโมง กิน 8 ชั่วโมง) ลดอินซูลินฟาสติ้งและเพิ่มความไวต่ออินซูลินได้ชัดเจนภายใน 4-8 สัปดาห์ (systematic review: Welton et al., Can Fam Physician 2020)",
+      "statement_en": "16:8 intermittent fasting (16-hour fast, 8-hour eating window) significantly lowers fasting insulin and improves insulin sensitivity within 4-8 weeks (systematic review: Welton et al., Can Fam Physician 2020).",
+      "numeric_values": [
+        {"value": 16, "unit": "hours", "label": "fasting window", "is_approximation": false},
+        {"value": 8, "unit": "hours", "label": "eating window", "is_approximation": false},
+        {"value": "4-8", "unit": "weeks", "label": "time-to-effect", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_007",
+      "entities_mentioned": ["insulin", "intermittent_fasting"],
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7021351/",
+          "org": "Can Fam Physician / PubMed Central",
+          "source_tier": "A",
+          "year": 2020,
+          "title": "Intermittent fasting and weight loss: Systematic review — Welton S et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["สูตรโกง", "ง่ายที่สุด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามการันตี 'IF ได้ผลกับทุกคน' — มี subgroup ไม่ตอบสนอง; ห้ามแนะนำให้ผู้ป่วยเบาหวานทำเอง",
+      "usage_notes": "Direct anchor for UncleD's core IF content — clip 7549833085127363848, 7550548224046599442, etc.",
+      "contradictions": ["บางงานวิจัยแสดงว่า IF ไม่ดีกว่า calorie restriction ปกติในการลดน้ำหนัก (Lowe 2020 JAMA Intern Med) — แต่ metabolic benefits เฉพาะ IF มีหลักฐาน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_011",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "leptin_resistance",
+      "statement_th": "เลปตินคือสัญญาณ 'อิ่ม' จากเซลล์ไขมันไปยังไฮโปทาลามัส — คนอ้วนมีเลปตินในเลือดสูง (เพราะไขมันเยอะ) แต่สมองไม่ตอบสนอง (leptin resistance) ทำให้รู้สึกหิวตลอดแม้มีไขมันสะสมเหลือเฟือ (Morris & Rui 2009; Friedman 2014)",
+      "statement_en": "Leptin is a 'satiety' signal from adipocytes to the hypothalamus — obese people have high circulating leptin but their brain fails to respond (leptin resistance), producing persistent hunger despite abundant fat stores (Morris & Rui 2009; Friedman 2014).",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_008",
+      "entities_mentioned": ["leptin", "leprb", "pomc_neurons", "agrp_neurons", "jeff_friedman"],
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2793049/",
+          "org": "Am J Physiol Endocrinol Metab / PMC",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Recent advances in understanding leptin signaling and leptin resistance — Morris DL, Rui L.",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://www.endocrinology-journals.org/joe-sub/content/223/1/T1.full.pdf",
+          "org": "Journal of Endocrinology",
+          "source_tier": "A",
+          "year": 2014,
+          "title": "20 Years of Leptin — retrospective by Jeffrey Friedman",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["สมองหูหนวก", "หิวทั้งที่มีไขมันล้น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ฉีดเลปตินลดอ้วน' — fail ในการรักษา obesity (คนอ้วนส่วนใหญ่ไม่ใช่ leptin-deficient)",
+      "usage_notes": "เสริม narrative ว่าทำไมการนับแคลอย่างเดียวไม่พอ — hormone รัน hunger",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_012",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "white_adipose_tissue",
+      "statement_th": "ไขมันในช่องท้อง (visceral fat) อันตรายกว่าไขมันใต้ผิวหนัง (subcutaneous) อย่างชัดเจน — เพราะระบายออกทาง portal vein ตรงไปที่ตับ ทำให้ตับสะสมไขมัน, เพิ่ม VLDL, เพิ่ม insulin resistance และเพิ่มความเสี่ยงโรคหัวใจ-เบาหวาน",
+      "statement_en": "Visceral fat is materially more dangerous than subcutaneous fat — it drains via the portal vein directly to the liver, driving hepatic fat accumulation, elevated VLDL, insulin resistance, and cardiometabolic disease.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_005",
+      "entities_mentioned": ["visceral_fat", "subcutaneous_fat", "vldl", "portal_vein"],
+      "sources": [
+        {
+          "url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC3609491/",
+          "org": "Diabetes Care / PubMed Central",
+          "source_tier": "A",
+          "year": 2013,
+          "title": "Type 2 Diabetes: Etiology and Reversibility — Roy Taylor",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไขมันใต้ผิวยอมรับได้ ไขมันในพุงฆ่ามึง", "visceral = visceral danger"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'subcutaneous fat ไม่อันตรายเลย' — ในปริมาณมากก็ส่งผลทางสถิติ",
+      "usage_notes": "รองรับคำว่า 'พุง' ของ UncleD — มี anatomical basis",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_013",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "white_adipose_tissue",
+      "statement_th": "การกินไขมันไม่ได้ทำให้อ้วนโดยตรง — ร่างกายเก็บไขมันเป็นหลักจาก 'คาร์โบไฮเดรตเกิน' ผ่าน de novo lipogenesis เพราะอินซูลินสูง; ไขมันที่กินเข้าไปถูก oxidize/เก็บตามสมดุลพลังงาน ไม่ใช่ตามชนิดของไขมัน",
+      "statement_en": "Eating fat does not directly cause fat gain — the body primarily stores fat from excess carbohydrate via de novo lipogenesis driven by insulin; dietary fat is oxidized or stored based on overall energy balance, not purely on food category.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_009",
+      "entities_mentioned": ["insulin", "de_novo_lipogenesis", "srebp1c"],
+      "sources": [
+        {
+          "url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC8247294/",
+          "org": "Diabet Med / PubMed Central",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Type 2 diabetes and remission: practical management guided by pathophysiology — Taylor R.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["แดกหมูกระทะไม่ได้ทำให้อ้วน", "ขาดความรู้ = กลัวไขมันผิด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'กินไขมันเท่าไหร่ก็ไม่อ้วน' — energy balance ยังสำคัญ. กรอบคือ: 'ไม่ใช่ไขมันที่เป็นปัญหาหลัก คาร์บส่วนเกินต่างหาก'",
+      "usage_notes": "UncleD clip 7587242110378626320 'แดกหมูกระทะไม่ได้ทำให้มึงอ้วน' — ตรงกับ mechanism",
+      "contradictions": ["พลังงานส่วนเกินจากไขมัน (เช่น อัลมอนด์ 2 ถุง) ทำให้อ้วนได้แน่นอน"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_014",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "white_adipose_tissue",
+      "statement_th": "การออกกำลังกายคาร์ดิโอ 1 ชั่วโมงเผาผลาญประมาณ 300-500 kcal ขณะที่การอดอาหารนาน ≥12 ชั่วโมง ลดอินซูลินและทำให้ร่างกาย 'เปิดสวิตช์เผาไขมัน' ได้ตลอด 24 ชั่วโมง — การอดอาหารให้ผลเรื่อง body composition มากกว่า cardio เฉพาะแง่ hormonal leverage",
+      "statement_en": "One hour of cardio burns ~300-500 kcal, while fasting ≥12 hours lowers insulin and flips fat oxidation on across the full 24 hours — fasting gives a hormonal leverage for body composition that cardio alone does not.",
+      "numeric_values": [
+        {"value": "300-500", "unit": "kcal", "label": "1h cardio energy expenditure", "is_approximation": true},
+        {"value": 12, "unit": "hours", "label": "fasting threshold for insulin drop", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_007",
+      "entities_mentioned": ["insulin", "hormone_sensitive_lipase"],
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/",
+          "org": "Endocrinol Metab / PMC",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Intermittent fasting for obesity and related disorders — Halpern & Mancini",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["คาร์ดิโอไม่ใช่คำตอบ", "อดกินมีพลังกว่าการวิ่ง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ไม่ต้องออกกำลังกายเลย' — มุสคูลาร์ health สำคัญ. กรอบคือ: 'hormonal leverage ของ IF' สำคัญกว่า 'เผาแคลระหว่างวิ่ง'",
+      "usage_notes": "UncleD clip 7559130077384953096 อ้าง '200-300 แคล ใน 1 ชม' — low end ของ range. ปรับให้ 'ประมาณ 300-500' เพื่อครอบคลุม",
+      "contradictions": ["UncleD พูด '120-200' แต่งานทั่วไปบอก 300-500 สำหรับคนหนัก 60-80 kg — ปรับ"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_015",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "metabolic_syndrome",
+      "statement_th": "ตับของมนุษย์สามารถเก็บไกลโคเจนได้ประมาณ 100-120 กรัม — หลังอดอาหาร ~12-24 ชั่วโมง ไกลโคเจนตับใกล้หมด แล้วร่างกายจะเริ่ม mobilize ไขมันและผลิตคีโตนอย่างจริงจัง",
+      "statement_en": "The human liver stores roughly 100-120 g of glycogen — after ~12-24 hours of fasting, hepatic glycogen is near-depleted and the body shifts substantially to mobilizing fat and producing ketones.",
+      "numeric_values": [
+        {"value": "100-120", "unit": "g", "label": "hepatic glycogen capacity", "is_approximation": true},
+        {"value": "12-24", "unit": "hours", "label": "time to substantial glycogen depletion (resting)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_006",
+      "entities_mentioned": ["glycogen", "beta_hydroxybutyrate"],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK493179/",
+          "org": "StatPearls",
+          "source_tier": "A",
+          "year": 2026,
+          "title": "Biochemistry, Ketogenesis",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไกลโคเจนหมด ไขมันเริ่ม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข glycogen ขึ้นกับ body size — กรอบ 100-120 g เหมาะคนทั่วไป",
+      "usage_notes": "อธิบายทำไม 'หลัง 24h ร่างกายเริ่มเผาไขมันจริงจัง'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_016",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "white_adipose_tissue",
+      "statement_th": "Spot reduction (ลดไขมันเฉพาะจุด) เป็นเรื่องไม่จริงในทางสรีระ — การทำซิทอัพ 1,000 ครั้งไม่ได้ 'เผา' ไขมันหน้าท้องเท่านั้น; ร่างกายดึงไขมันจากทุกคลังพร้อมๆ กันตาม genetic order ส่วนบุคคล",
+      "statement_en": "Spot reduction is physiologically false — doing 1,000 sit-ups does not selectively burn belly fat; the body mobilizes fat from all depots simultaneously in a genetically determined order.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_007",
+      "entities_mentioned": ["hormone_sensitive_lipase", "adipose_triglyceride_lipase"],
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/",
+          "org": "Endocrinol Metab / PMC",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Intermittent fasting for obesity and related disorders — Halpern & Mancini (review covering mobilization)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ความเชื่อโคตรโง่", "ซิทอัพไม่ลดพุง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ออกกำลังกายไม่มีประโยชน์' — แค่จุดเน้นไม่ถูก",
+      "usage_notes": "UncleD clip 7557635337305083157 '5 ความเชื่อโคตรโง่' — ตรง theme",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_017",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "white_adipose_tissue",
+      "statement_th": "เหงื่อคือระบบระบายความร้อน ไม่ใช่การลดไขมัน — น้ำหนักที่หายหลังซาวน่าหรือวิ่งจัดส่วนใหญ่เป็น 'น้ำ' ที่เติมกลับภายในไม่กี่ชั่วโมง; ไขมันถูก oxidize และปล่อยเป็น CO2 + H2O ผ่านลมหายใจ ไม่ได้ไหลออกจากรูขุมขน",
+      "statement_en": "Sweat is a thermoregulation system, not fat loss — weight lost after sauna or intense cardio is mostly water that rebounds within hours; fat is oxidized and exhaled as CO2 + H2O through breathing, not excreted through skin.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_007",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://www.bmj.com/content/349/bmj.g7257",
+          "org": "BMJ",
+          "source_tier": "A",
+          "year": 2014,
+          "title": "When somebody loses weight, where does the fat go? — Meerman & Brown",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เหงื่อ = น้ำไม่ใช่ไขมัน", "ร่างกายหายใจไขมันทิ้ง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "CO2 exhalation = mechanism จริง, ห้ามเกินว่า 'หายใจลึกๆ ลดพุง'",
+      "usage_notes": "UncleD myth-bust clip 7557635337305083157 — ตรง",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "การนอนไม่พอ (<6 ชั่วโมง/คืน) เพิ่มคอร์ติซอล, ลดเลปติน, เพิ่มเกรลิน และทำให้ความไวต่ออินซูลินลดลงประมาณ 20-30% ภายในไม่กี่วัน → กินเยอะขึ้น + เก็บไขมันได้ดีขึ้น",
+      "statement_en": "Insufficient sleep (<6 h/night) raises cortisol, decreases leptin, increases ghrelin, and reduces insulin sensitivity by ~20-30% within days — driving both increased intake and increased fat storage.",
+      "numeric_values": [
+        {"value": 6, "unit": "hours", "label": "sleep threshold", "is_approximation": true},
+        {"value": "20-30", "unit": "%", "label": "drop in insulin sensitivity", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_010",
+      "entities_mentioned": ["cortisol", "leptin", "ghrelin", "insulin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15531540/",
+          "org": "Ann Intern Med / PubMed",
+          "source_tier": "A",
+          "year": 2004,
+          "title": "Brief communication: Sleep curtailment in healthy young men is associated with decreased leptin levels, elevated ghrelin, and increased hunger — Spiegel K et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนก่อนผอมก่อน", "ออกกำลังกายไม่ทันนอนพัง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'นอนพอคนเดียว ลดพุงได้แน่' — เป็น supportive ไม่ใช่ sole factor",
+      "usage_notes": "UncleD clip 7559130077384953096 'ไปนอนดีกว่าไปวิ่ง' — directionally supported",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_019",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "ectopic_fat",
+      "statement_th": "ใน DiRECT trial ผู้ที่ลดน้ำหนักแล้วกลับเป็น 'responder' (เบาหวานสงบ) ลดน้ำหนักเฉลี่ย 16.2±1.2 กิโล; 'non-responder' ลด 13.4±1.4 กิโล — ช่องว่างเพียง ~3 กิโลแต่ผลต่างลึก เพราะเบต้าเซลล์บางคนเสียหายถาวรแล้ว",
+      "statement_en": "In DiRECT, patients who achieved type 2 diabetes remission ('responders') lost 16.2±1.2 kg; 'non-responders' lost 13.4±1.4 kg — a gap of only ~3 kg but with profound physiological difference driven by residual beta-cell capacity.",
+      "numeric_values": [
+        {"value": 16.2, "unit": "kg", "label": "responder mean weight loss", "is_approximation": false},
+        {"value": 13.4, "unit": "kg", "label": "non-responder mean weight loss", "is_approximation": false},
+        {"value": 1.2, "unit": "kg (SEM)", "label": "responder SEM", "is_approximation": false},
+        {"value": 1.4, "unit": "kg (SEM)", "label": "non-responder SEM", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fat_005",
+      "entities_mentioned": ["roy_taylor", "direct_trial"],
+      "sources": [
+        {
+          "url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC8247294/",
+          "org": "Diabet Med / PMC",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Type 2 diabetes and remission: practical management guided by pathophysiology — Taylor R.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["3 กิโลที่เปลี่ยนชีวิต"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลขต้องตรง (16.2 / 13.4) — ห้าม round เป็น 16/13 (เสีย T1 status)",
+      "usage_notes": "แสดงว่า 'personal fat threshold' ไม่ใช่ BMI generic",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_020",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "brown_adipose_tissue",
+      "statement_th": "UCP1 (uncoupling protein 1) คือโปรตีนเฉพาะใน mitochondria ของไขมันสีน้ำตาล ที่ 'ปลด' การสังเคราะห์ ATP ปกติ → พลังงานจากการเผากรดไขมันกลายเป็นความร้อนแทน — ทำให้ BAT เผาไขมันได้โดยไม่ต้องออกแรง",
+      "statement_en": "UCP1 (uncoupling protein 1) is the unique mitochondrial protein in brown adipose tissue that uncouples normal ATP synthesis, converting energy from fatty acid oxidation into heat instead — letting BAT burn fat without any physical effort.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_004",
+      "entities_mentioned": ["ucp1", "brown_adipose_tissue", "mitochondria"],
+      "sources": [
+        {
+          "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0810780",
+          "org": "NEJM",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Identification and Importance of Brown Adipose Tissue in Adult Humans — Cypess AM et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไขมันที่เผาไขมัน", "เครื่องทำความร้อนในตัว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามขายคำว่า 'BAT pill' หรือ 'เพิ่ม BAT ด้วยสารเสริม' ที่มีหลักฐานจำกัด",
+      "usage_notes": "Mechanism สำหรับ cold exposure claims",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_021",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "white_adipose_tissue",
+      "statement_th": "ไฟเบอร์ที่ละลายน้ำได้ (soluble fiber) เช่นจาก psyllium, oat beta-glucan, ช่วยเพิ่มความรู้สึกอิ่ม ลดการดูดซึมคาร์บในลำไส้ และชะลอ glucose spike — ผลที่ตามมาคืออินซูลินต่ำลง fat storage signal น้อยลง",
+      "statement_en": "Soluble fiber (e.g., psyllium, oat beta-glucan) increases satiety, slows carbohydrate absorption, and blunts glucose spikes — the downstream effect is lower insulin and less 'store fat' signaling.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fat_007",
+      "entities_mentioned": ["soluble_fiber", "insulin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30786393/",
+          "org": "Lancet / PubMed",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Carbohydrate quality and human health: a series of systematic reviews and meta-analyses — Reynolds A et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไฟเบอร์ = เบรคอินซูลิน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้าม '(ไฟเบอร์ X ยี่ห้อ) รักษาเบาหวาน' — ไฟเบอร์เป็น supporting tool",
+      "usage_notes": "Anchor for fiber product angle",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_022",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "white_adipose_tissue",
+      "statement_th": "โปรตีนมี thermic effect สูงที่สุดในสารอาหารหลัก (ประมาณ 20-30% ของ kcal ที่กินเข้าไปถูกเผาในการย่อย) เทียบกับคาร์บ 5-10% และไขมัน 0-3% — กินโปรตีนเท่ากันกับแป้ง แต่ร่างกายเผาเกือบ 3-4 เท่า",
+      "statement_en": "Protein has the highest thermic effect of food (~20-30% of ingested kcal burned in digestion) vs 5-10% for carbs and 0-3% for fat — eating equal-calorie protein vs carb burns roughly 3-4× more energy just in processing.",
+      "numeric_values": [
+        {"value": "20-30", "unit": "%", "label": "thermic effect of protein", "is_approximation": true},
+        {"value": "5-10", "unit": "%", "label": "thermic effect of carbs", "is_approximation": true},
+        {"value": "0-3", "unit": "%", "label": "thermic effect of fat", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_011",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15507147/",
+          "org": "Nutr Metab (Lond) / PubMed",
+          "source_tier": "A",
+          "year": 2004,
+          "title": "A high-protein diet induces sustained reductions in appetite... — Westerterp-Plantenga et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["โปรตีน = ระบบเผาในตัว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'กินโปรตีนเยอะไม่อ้วน' — energy balance ยังสำคัญ",
+      "usage_notes": "Cross-domain: ใช้ร่วมกับ domain muscle",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_023",
+      "tier": "T4_COMMON_WISDOM",
+      "sub_topic_id": "white_adipose_tissue",
+      "statement_th": "'กินเร็วทำให้อ้วนง่ายขึ้น' — มีเหตุผลเชิง physiology (leptin/CCK ส่งสัญญาณอิ่มช้ากว่าการกิน ~15-20 นาที) แต่ไม่ใช่ universal; คนกินช้าไม่ได้ผอมทุกคน — ใช้เป็น opinion frame",
+      "statement_en": "'Eating too fast makes you fatter' — there's a physiological basis (leptin/CCK satiety signals lag ~15-20 minutes behind chewing), but it's not universal; slow eating alone doesn't guarantee leanness — use as opinion frame.",
+      "numeric_values": [
+        {"value": "15-20", "unit": "minutes", "label": "satiety signal lag", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fat_008",
+      "entities_mentioned": ["leptin", "cck"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18589036/",
+          "org": "J Am Diet Assoc / PubMed",
+          "source_tier": "A",
+          "year": 2008,
+          "title": "Self-reported eating rate and energy intake — Andrade et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กินเร็ว = สมองตามไม่ทัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้อง frame เป็น 'สำหรับกู/กูได้ยินมาว่า' per doctrine T4 policy",
+      "usage_notes": "T4 fallback — ใช้เมื่อต้องการ advice นิยมแต่ไม่มี hard data",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "fat_024",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "ketosis",
+      "statement_th": "Early Time-Restricted Eating (eTRE) — กินภายในช่วงเช้าถึงบ่าย 8 ชั่วโมง — ช่วยลดอินซูลินฟาสติ้ง, เพิ่มความไวต่ออินซูลิน และลด oxidative stress แม้ไม่มีการลดน้ำหนัก (Sutton et al., Cell Metab 2018) — สนับสนุนแนวทาง 'ไม่แดกหลังเย็น'",
+      "statement_en": "Early Time-Restricted Eating (eTRE) — confining food to an 8-hour window in the morning/afternoon — lowered fasting insulin, improved insulin sensitivity, and reduced oxidative stress even without weight loss (Sutton et al., Cell Metab 2018) — supports the 'don't eat late' approach.",
+      "numeric_values": [
+        {"value": 8, "unit": "hours", "label": "early eating window", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fat_007",
+      "entities_mentioned": ["insulin", "intermittent_fasting", "satchin_panda"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29805099/",
+          "org": "Cell Metabolism / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Early Time-Restricted Feeding Improves Insulin Sensitivity, Blood Pressure, and Oxidative Stress — Sutton EF et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["หยุดแดกก่อน 1 ทุ่ม", "เช้ากิน เย็นอด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ต้องกินก่อน 6 โมงเย็นเท่านั้น' — กรอบ: 'ช่วงเวลากินก่อนพระอาทิตย์ตกช่วยระบบ circadian'",
+      "usage_notes": "UncleD clip 7552418767196671253 'หยุดแดกตั้งแต่ 1 ทุ่ม' — ตรง eTRE framework",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.fat_metabolism",
+      "harvested_at": "2026-04-22T12:00:00"
+    }
+  ]
+}

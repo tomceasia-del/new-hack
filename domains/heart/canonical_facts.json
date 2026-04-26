@@ -1,0 +1,905 @@
+{
+  "domain_id": "heart",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 24,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.heart",
+    "notes": "Cardiovascular facts are ORANGE by default — patients on statin/warfarin/antihypertensive can be harmed by naive advice. Every fact carries safety_warning. Key landmarks: REDUCE-IT, JUPITER, MESA CAC, Sniderman ApoB, Lp(a) genetics, Davies shear stress, Rotterdam K2."
+  },
+  "facts": [
+    {
+      "fact_id": "heart_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "โรคหลอดเลือดหัวใจและหลอดเลือดสมองคือสาเหตุการเสียชีวิตอันดับ 1 ของโลก — ประมาณ 17.9 ล้านคน/ปี ตามข้อมูล WHO 2021 คิดเป็น 32% ของการตายทั้งหมดทั่วโลก และประมาณ 85% มาจากหัวใจวายและสโตรก",
+      "statement_en": "Cardiovascular diseases are the #1 cause of death globally — ~17.9 million deaths/year per WHO (2021), representing 32% of all global deaths; ~85% of these are due to heart attack and stroke.",
+      "numeric_values": [
+        {"value": 17.9, "unit": "million deaths/year", "label": "global CVD mortality", "is_approximation": true},
+        {"value": 32, "unit": "%", "label": "share of all global deaths", "is_approximation": false},
+        {"value": 85, "unit": "%", "label": "share from heart attack + stroke", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_001",
+      "entities_mentioned": ["who"],
+      "sources": [
+        {"url": "https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)", "org": "World Health Organization", "source_tier": "A", "year": 2021, "title": "Cardiovascular diseases (CVDs) — WHO Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ฆาตกรเงียบอันดับ 1 ของโลก", "ตาย 17.9 ล้านทุกปี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามระบุว่า 'ป้องกันได้ 100%' หรือเชื่อมว่า supplement ตัวเดียวแก้ได้ — ใช้เป็น context ของปัญหาเท่านั้น",
+      "usage_notes": "Opening hook สำหรับ cardio content — ใช้เป็น 'pain/urgency framing' ก่อน pivot ไปที่ solution",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'ซื้ออาหารเสริมยี่ห้อ X ป้องกันหัวใจวายได้แน่นอน'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ป้องกันหัวใจวายได้แน่นอน", "กัน stroke 100%"],
+        "regulatory_risk_notes": "Epidemiology fact — ปลอดภัยถ้าไม่เชื่อมกับ product claim"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "REDUCE-IT trial (Bhatt et al. NEJM 2019, N=8,179) — ผู้ป่วยที่กิน statin + มี triglyceride สูง (135-499 mg/dL) กิน icosapent ethyl (EPA บริสุทธิ์) 4 กรัม/วัน ลด MACE (heart attack, stroke, CV death รวม) ได้ 25% และลด CV death ได้ 20% ในเวลา 4.9 ปี",
+      "statement_en": "REDUCE-IT (Bhatt et al. NEJM 2019; N=8,179): on-statin patients with TG 135-499 mg/dL taking icosapent ethyl (pure EPA) 4 g/day had a 25% relative reduction in MACE and 20% reduction in cardiovascular death over 4.9 years.",
+      "numeric_values": [
+        {"value": 8179, "unit": "subjects", "label": "REDUCE-IT enrollment", "is_approximation": false},
+        {"value": 4, "unit": "g/day", "label": "icosapent ethyl dose", "is_approximation": false},
+        {"value": 25, "unit": "%", "label": "MACE relative reduction", "is_approximation": false},
+        {"value": 20, "unit": "%", "label": "CV death relative reduction", "is_approximation": false},
+        {"value": 4.9, "unit": "years", "label": "median follow-up", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_005",
+      "entities_mentioned": ["deepak_bhatt", "epa", "reduce_it_trial"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1812792", "org": "NEJM", "source_tier": "A", "year": 2019, "title": "Cardiovascular Risk Reduction with Icosapent Ethyl for Hypertriglyceridemia — Bhatt DL et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["โอเมก้า 3 ตัวนี้ไม่เหมือนตัวอื่น", "ลดหัวใจวาย 25% ในงาน 8,179 คน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้าม generalize ไปที่ 'fish oil ทั่วไป' — ผลนี้เฉพาะ icosapent ethyl (pure EPA, prescription form) ที่ dose สูง; OTC fish oil ส่วนใหญ่เป็น EPA+DHA dose ต่ำ ไม่มีหลักฐานเท่านี้",
+      "usage_notes": "Primary anchor สำหรับ product angle 'omega_3_epa_high_dose' — ต้อง frame เป็น 'high-dose EPA prescription-grade' ไม่ใช่ fish oil ทั่วไป",
+      "contradictions": ["STRENGTH trial (2020) ใช้ EPA+DHA rebrand ไม่เจอ benefit — suggesting EPA-only หรือ mineral oil placebo effect อาจช่วย REDUCE-IT"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_warfarin_or_anticoagulant", "post_bariatric_surgery"],
+        "drug_interactions": ["warfarin (bleeding risk ↑ at 4 g/day EPA)", "DOACs (rivaroxaban/apixaban — additive bleeding)", "clopidogrel (additive antiplatelet)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'โอเมก้า 3 แทน warfarin ได้'",
+          "ห้ามบอก 'หยุด statin แล้วกิน EPA แทน'",
+          "ห้ามแนะนำ dose 4 g ให้คนทั่วไปโดยไม่มีแพทย์ติดตาม"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant", "on_prescription_medications"],
+        "validator_keywords_th": ["แทน warfarin", "หยุด statin กิน EPA", "ป้องกันหัวใจวาย 25%"],
+        "regulatory_risk_notes": "อย. ไทย — EPA-only high-dose (icosapent ethyl) ยังไม่ได้ขึ้นทะเบียนเป็นยาในไทยเหมือนสหรัฐ; OTC fish oil อ้างผล REDUCE-IT ไม่ได้"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "ApoB_LDL",
+      "statement_th": "Sniderman et al. 2019 (JAMA Cardiology, meta-analysis ~389,000 คน) แสดงว่า ApoB ทำนาย CVD risk ได้ดีกว่า LDL-C และ non-HDL-C อย่างสม่ำเสมอ โดยเฉพาะเมื่อค่าต่างกัน (discordant) — หมายความว่าคนที่ LDL-C 'ปกติ' แต่ ApoB สูง ยังมีความเสี่ยงสูงซ่อนอยู่",
+      "statement_en": "Sniderman et al. 2019 (JAMA Cardiology, meta-analysis ~389,000 participants): ApoB consistently outperforms LDL-C and non-HDL-C for CVD risk prediction, especially in discordant cases — i.e., people with 'normal' LDL-C but elevated ApoB remain at substantial hidden risk.",
+      "numeric_values": [
+        {"value": 389000, "unit": "subjects (meta-analysis pooled)", "label": "aggregate sample", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_011",
+      "entities_mentioned": ["allan_sniderman", "apob", "ldl_c", "sniderman_apob_jamacard_2019"],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2749203", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Apolipoprotein B Particles and Cardiovascular Disease — Sniderman AD, Thanassoulis G, Glavinovic T, Navar AM, Pencina M, Catapano A, Ference BA", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตรวจคอเลสเตอรอลปกติ ≠ ปลอดภัย", "ต้องตรวจ ApoB"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "อนุญาตให้พูด 'LDL ปกติแต่ ApoB สูง = เสี่ยงซ่อน' — ห้ามบอกว่า 'LDL ไม่สำคัญ' (ยังสำคัญแค่ไม่พอเดี่ยว)",
+      "usage_notes": "Core hook ของ Attia-style content — คู่กับ heart_010 (insulin resistance → discordance); ตรงกับ 'สายขู่ยอดวิว' pattern",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'LDL ไม่สำคัญ'", "ห้ามบอกว่า ApoB test แทน LDL ได้ทุกครั้ง (lab availability ต่างกัน)"],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["LDL ไม่สำคัญ", "ไม่ต้องตรวจ LDL"],
+        "regulatory_risk_notes": "Education claim ปลอดภัย — ApoB test มีในโรงพยาบาลใหญ่ในไทย (จุฬา รามา ศิริราช เอกชน) แต่ยังไม่เป็น mainstream"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "calcium_score",
+      "statement_th": "MESA cohort (Multi-Ethnic Study of Atherosclerosis) — ผู้ที่มี coronary artery calcium score = 0 มีอัตรา cardiovascular event ใน 10 ปีถัดไปต่ำกว่า 1% แม้มีปัจจัยเสี่ยงอื่น (LDL สูง, ครอบครัว); Blaha et al. 2017 เรียกว่า '10-year warranty period'",
+      "statement_en": "MESA cohort: individuals with coronary artery calcium score = 0 had <1% 10-year cardiovascular event rate even in the presence of otherwise elevated risk factors (high LDL, family history); Blaha et al. 2017 termed this a 'warranty period.'",
+      "numeric_values": [
+        {"value": 0, "unit": "Agatston score", "label": "CAC=0 cohort", "is_approximation": false},
+        {"value": 1, "unit": "%", "label": "10-year ASCVD event rate", "is_approximation": true},
+        {"value": 10, "unit": "years", "label": "warranty period", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_008",
+      "entities_mentioned": ["mesa_cohort", "matthew_budoff", "arthur_agatston", "mesa_cac_0_cohort"],
+      "sources": [
+        {"url": "https://www.jacc.org/doi/10.1016/j.jacc.2015.07.066", "org": "JACC", "source_tier": "A", "year": 2015, "title": "Improving the CAC-based risk assessment: Power of zero — Blaha MJ et al. (MESA)", "access_date": "2026-04-22"},
+        {"url": "https://www.mesa-nhlbi.org/", "org": "MESA Study Official", "source_tier": "A", "year": 2026, "title": "Multi-Ethnic Study of Atherosclerosis", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ใบรับประกัน 10 ปี", "คะแนน 0 = อุ่นใจกว่า LDL สวย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'CAC=0 แปลว่าปลอดโรค 100%' — warranty period มี exception (acute MI ได้ถ้า plaque soft/vulnerable ที่ยังไม่ calcify)",
+      "usage_notes": "Counter ต่อ 'LDL สูง = ตายแน่' — ใช้กับ audience 40+ ที่อยากตรวจเชิงรุก",
+      "contradictions": ["บางคน (~4-5%) มี soft plaque ที่ CT ไม่จับแต่มี risk — จึง CAC=0 ไม่ใช่ license ให้ sedentary"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'CAC=0 = หยุด statin ได้' โดยไม่มีแพทย์"],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["หยุด statin เพราะ CAC=0", "ปลอดโรคหัวใจ 100%"],
+        "regulatory_risk_notes": "Education only — CAC test ในไทยราคา ~4,000-8,000 บาท (2026) ใน รพ.เอกชน"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "lipoprotein_a",
+      "statement_th": "ประมาณ 20% ของประชากรโลก (~1,400 ล้านคน) มี Lp(a) สูงเกิน 50 mg/dL — เป็น genetic risk factor ที่ถ่ายทอดจากยีน LPA เกือบทั้งหมด; diet, exercise, statin แทบไม่เปลี่ยน Lp(a) — ต้องตรวจครั้งเดียวในชีวิตก็พอ (Tsimikas 2017 JACC)",
+      "statement_en": "Approximately 20% of the world population (~1.4 billion people) have Lp(a) >50 mg/dL — a genetic risk factor inherited via the LPA gene; diet, exercise, and statins do not meaningfully lower Lp(a), so a once-in-a-lifetime test is sufficient (Tsimikas 2017 JACC).",
+      "numeric_values": [
+        {"value": 20, "unit": "% of population", "label": "prevalence of elevated Lp(a)", "is_approximation": true},
+        {"value": 50, "unit": "mg/dL", "label": "elevated Lp(a) threshold (also 125 nmol/L)", "is_approximation": false},
+        {"value": 1.4, "unit": "billion people", "label": "affected globally", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_007",
+      "entities_mentioned": ["lp_a", "sotirios_tsimikas"],
+      "sources": [
+        {"url": "https://www.jacc.org/doi/10.1016/j.jacc.2016.11.042", "org": "JACC", "source_tier": "A", "year": 2017, "title": "A Test in Context: Lipoprotein(a) — Tsimikas S", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยีนเสี่ยงที่พ่อแม่ให้ติดตัวมา", "ตรวจครั้งเดียวพอ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'supplement X ลด Lp(a)' — ไม่มีหลักฐาน; pelacarsen ยังเป็น investigational drug",
+      "usage_notes": "Pain hook สำหรับคนที่ 'ออกกำลังกาย-กินสะอาด แต่ยังเป็นหัวใจวาย' — อธิบายได้ด้วย Lp(a)",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามขายอาหารเสริมว่า 'ลด Lp(a) ได้'", "ห้ามบอก 'ป้องกันพันธุกรรม' แบบการันตี"],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ลด Lp(a) ด้วยอาหารเสริม", "ยาแก้ Lp(a)", "รักษาพันธุกรรม"],
+        "regulatory_risk_notes": "Lp(a) test ในไทยมีเฉพาะ รพ.ใหญ่ ~1,500-3,000 บาท; อย. ไม่รับอาหารเสริม claim ลด Lp(a)"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "JUPITER trial (Ridker et al. NEJM 2008, N=17,802) — คน primary prevention ที่ LDL <130 mg/dL แต่ hs-CRP ≥2 mg/L กิน rosuvastatin 20 mg ลด MACE ได้ 44% และต้องหยุด trial ก่อนกำหนดเพราะเห็น benefit ชัด",
+      "statement_en": "JUPITER (Ridker et al. NEJM 2008; N=17,802): primary-prevention adults with LDL <130 mg/dL but hs-CRP ≥2 mg/L who took rosuvastatin 20 mg reduced MACE by 44% — stopped early for overwhelming benefit.",
+      "numeric_values": [
+        {"value": 17802, "unit": "subjects", "label": "JUPITER enrollment", "is_approximation": false},
+        {"value": 130, "unit": "mg/dL", "label": "LDL entry ceiling", "is_approximation": false},
+        {"value": 2, "unit": "mg/L", "label": "hs-CRP entry threshold", "is_approximation": false},
+        {"value": 44, "unit": "%", "label": "MACE relative reduction", "is_approximation": false},
+        {"value": 20, "unit": "mg/day", "label": "rosuvastatin dose", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_004",
+      "entities_mentioned": ["paul_ridker", "hs_crp", "jupiter_trial"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0807646", "org": "NEJM", "source_tier": "A", "year": 2008, "title": "Rosuvastatin to Prevent Vascular Events in Men and Women with Elevated C-Reactive Protein — Ridker PM et al. (JUPITER)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["statin ไม่ใช่แค่เรื่อง LDL — แต่เรื่องการอักเสบ", "LDL ปกติ แต่ยังเสี่ยง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'statin ป้องกันหัวใจวายได้ทุกคน' — primary prevention benefit relative แต่ absolute risk reduction ต่ำกว่า secondary prevention",
+      "usage_notes": "Education anchor — counter 'statin overprescribed' narrative; ใช้ร่วมกับ hs-CRP/inflammation framing",
+      "contradictions": ["Kaul et al. 2010 critique ว่า JUPITER NNT สูง + industry funding — แต่ผลยังยืนยันในงาน replication"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["liver_disease", "on_statin"],
+        "drug_interactions": ["grapefruit juice (CYP3A4 — rosuvastatin less affected but atorvastatin ระวัง)", "red yeast rice (duplicate mechanism — CK rise)", "fibrates (myopathy)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอกให้เริ่ม statin ด้วยตัวเอง",
+          "ห้ามบอก 'statin ปลอดภัย 100%' หรือ 'มีผลข้างเคียง 100%'",
+          "ห้ามบอกว่า 'หยุด statin แล้วกิน X แทน'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_statin", "liver_disease"],
+        "validator_keywords_th": ["หยุด statin", "แทน statin", "statin ป้องกัน 100%"],
+        "regulatory_risk_notes": "Statin เป็นยาควบคุมตามใบสั่งแพทย์ในไทย — ห้าม content แนะนำให้ซื้อ/หยุดเอง"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "CANTOS trial (Ridker NEJM 2017) — canakinumab (anti-IL-1β antibody) ลด hs-CRP โดยไม่เปลี่ยน LDL และลด MACE 15% — พิสูจน์ได้เป็นครั้งแรกว่า 'การอักเสบ' เป็นต้นเหตุ CVD แยกต่างหากจาก cholesterol",
+      "statement_en": "CANTOS (Ridker et al. NEJM 2017): canakinumab (anti-IL-1β monoclonal antibody) reduced hs-CRP without changing LDL yet cut MACE by 15% — the first proof that inflammation is a causal CVD pathway independent of cholesterol.",
+      "numeric_values": [
+        {"value": 15, "unit": "%", "label": "MACE relative reduction", "is_approximation": false},
+        {"value": 10061, "unit": "subjects", "label": "CANTOS enrollment", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_009",
+      "entities_mentioned": ["paul_ridker", "hs_crp", "cant_2017_canakinumab"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1707914", "org": "NEJM", "source_tier": "A", "year": 2017, "title": "Antiinflammatory Therapy with Canakinumab for Atherosclerotic Disease — Ridker PM et al. (CANTOS)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไฟใน plaque", "การอักเสบคือน้ำมันที่โหมไฟ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูดว่า 'anti-inflammation supplement = ลดหัวใจวาย' — canakinumab เป็นยาชีวภาพไม่ใช่ supplement",
+      "usage_notes": "Mechanistic backbone สำหรับ 'residual risk' theme — pair กับ EPA/omega-3 content",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามโปรโมต supplement ว่า 'ทำงานเหมือน canakinumab'"],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["anti-inflammation รักษาหัวใจ"],
+        "regulatory_risk_notes": "Education only"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "INTERHEART study (Yusuf, Lancet 2004, N=29,972 ใน 52 ประเทศ) — ปัจจัยเสี่ยงที่เปลี่ยนได้ 9 ข้อ (ApoB/ApoA1 ratio, สูบบุหรี่, ความดันสูง, เบาหวาน, อ้วนลงพุง, เครียด, อาหาร, แอลกอฮอล์เกิน, ไม่ออกกำลังกาย) อธิบายความเสี่ยง MI ครั้งแรกได้ ~90% ทั่วโลก",
+      "statement_en": "INTERHEART (Yusuf et al. Lancet 2004; N=29,972 across 52 countries): nine modifiable risk factors (ApoB/ApoA1 ratio, smoking, HTN, diabetes, abdominal obesity, stress, diet, alcohol excess, physical inactivity) accounted for ~90% of first myocardial infarction risk worldwide.",
+      "numeric_values": [
+        {"value": 29972, "unit": "subjects", "label": "INTERHEART enrollment", "is_approximation": false},
+        {"value": 52, "unit": "countries", "label": "INTERHEART geography", "is_approximation": false},
+        {"value": 90, "unit": "%", "label": "population-attributable risk from 9 factors", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_001",
+      "entities_mentioned": ["salim_yusuf", "interheart_2004"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15364185/", "org": "The Lancet / PubMed", "source_tier": "A", "year": 2004, "title": "Effect of potentially modifiable risk factors associated with myocardial infarction in 52 countries — Yusuf S et al. (INTERHEART)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["90% ของหัวใจวายเลือกได้", "ปัจจัยเสี่ยง 9 ข้อที่เปลี่ยนได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก '90% ป้องกันได้ 100%' — population-attributable risk ไม่เท่ากับ individual prevention",
+      "usage_notes": "ใช้เป็น empowerment frame — 'คุณควบคุมได้ 9/10'",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามการันตี 'ทำตาม 9 ข้อแล้วไม่เป็นหัวใจวาย 100%'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ป้องกันหัวใจวายได้แน่นอน"],
+        "regulatory_risk_notes": "Epidemiology — ปลอดภัย"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "endothelial_dysfunction",
+      "statement_th": "Atherosclerotic plaque มักเกิดที่จุด 'bifurcation' หรือโค้งของหลอดเลือด (เช่น carotid bulb, โคน LAD, iliac bifurcation) เพราะ shear stress ไหลผิดทิศ (disturbed flow) ทำให้ endothelium ในโซนนั้น 'pro-inflammatory' — Davies 2009 Nature Reviews Cardiology วางกรอบ mechanotransduction ของ endothelium ว่าเป็น 'ทำไม plaque เลือกที่'",
+      "statement_en": "Atherosclerotic plaques preferentially form at vessel bifurcations and curvatures (carotid bulb, proximal LAD, iliac bifurcation) where disturbed shear stress renders the endothelium pro-inflammatory — Davies (2009 Nat Rev Cardiol) articulated the endothelial mechanotransduction framework explaining why plaques localize to specific sites.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_heart_002",
+      "entities_mentioned": ["peter_davies", "enos"],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nrcardio.2009.40", "org": "Nature Reviews Cardiology", "source_tier": "A", "year": 2009, "title": "Hemodynamic shear stress and the endothelium in atherosclerotic pathogenesis — Davies PF", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["plaque เลือกที่เกิด", "ทำไมมันเกิดที่ 'โค้ง'"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้างว่า 'ออกกำลังกายเพิ่ม shear stress ดี = ป้องกันหัวใจวายได้แน่นอน' — ดีแต่ไม่ guarantee",
+      "usage_notes": "Educational depth — ใช้ pair กับ NO/endothelial framing ของ omega-3/L-citrulline content",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "calcium_score",
+      "statement_th": "Coronary artery calcium (CAC) scoring ถูกคิดค้นโดย Arthur Agatston ในปี 1990 — วิธีวัด 'area × density' ของ calcium ใน plaque หัวใจจาก non-contrast CT; ใช้ radiation dose เพียง ~1 mSv (เท่ากับ chest x-ray 5 ครั้งหรือ natural background 4 เดือน)",
+      "statement_en": "Coronary artery calcium scoring was pioneered by Arthur Agatston in 1990 — computing area × density of coronary calcium from non-contrast CT; radiation dose is only ~1 mSv (equivalent to ~5 chest X-rays or 4 months of natural background).",
+      "numeric_values": [
+        {"value": 1990, "unit": "year", "label": "Agatston method year", "is_approximation": false},
+        {"value": 1, "unit": "mSv", "label": "effective radiation dose of CAC CT", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_008",
+      "entities_mentioned": ["arthur_agatston"],
+      "sources": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/0735109790907824", "org": "JACC (Agatston 1990)", "source_tier": "A", "year": 1990, "title": "Quantification of coronary artery calcium using ultrafast computed tomography — Agatston AS et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["วิธีวัดที่มีมา 35+ ปี", "CT 5 นาที บอกอนาคต 10 ปี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุว่าต้องตีความผลร่วมกับแพทย์ — ห้ามบอก 'ไปทำเอง ไม่ต้องหาหมอ'",
+      "usage_notes": "Use เมื่อ audience ถามว่า 'CAC ปลอดภัยมั้ย' — radiation dose ต่ำ",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": ["pregnancy_lactation"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามแนะนำหญิงตั้งครรภ์ทำ CT"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": ["pregnant_lactating"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "calcium_score",
+      "statement_th": "Rotterdam K2 Study (Geleijnse et al. J Nutr 2004, N=4,807 ผู้สูงอายุ) — กลุ่มที่กินวิตามิน K2 (menaquinone) จากอาหารมากที่สุด (tertile สูง) มี aortic calcification รุนแรงลดลง ~50% และ coronary event ต่ำลงในเวลา 7 ปี เทียบกับ tertile ต่ำ — ไม่พบผลเดียวกันกับ vitamin K1 (phylloquinone)",
+      "statement_en": "Rotterdam K2 Study (Geleijnse et al. J Nutr 2004; N=4,807 elderly Dutch): the highest tertile of dietary menaquinone (K2) intake showed ~50% reduction in severe aortic calcification and coronary events over 7 years vs lowest tertile — no similar effect was seen with K1 (phylloquinone).",
+      "numeric_values": [
+        {"value": 4807, "unit": "subjects", "label": "Rotterdam K2 cohort", "is_approximation": false},
+        {"value": 50, "unit": "% reduction", "label": "severe aortic calcification (top vs bottom tertile)", "is_approximation": true},
+        {"value": 7, "unit": "years", "label": "follow-up", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_006",
+      "entities_mentioned": ["mk7_menaquinone", "rotterdam_k2_study"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15514282/", "org": "Journal of Nutrition / PubMed", "source_tier": "A", "year": 2004, "title": "Dietary intake of menaquinone is associated with a reduced risk of coronary heart disease — Geleijnse JM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["นัตโตะลด plaque ครึ่งหนึ่ง", "วิตามินที่คนไม่รู้จัก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เป็น observational study — ห้ามบอก 'K2 ป้องกันหัวใจวายได้แน่นอน'; ผล RCT ขนาดใหญ่ยังไม่มี",
+      "usage_notes": "Anchor สำหรับ K2 supplement angle — pair กับ D3 + K2 combined product",
+      "contradictions": ["RCT ขนาดใหญ่เฉพาะ K2 → CVD outcome ยังขาด — ข้อมูลส่วนใหญ่เป็น observational"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (antagonism — vitamin K ย้อน effect ของ warfarin ทำให้ INR ตก = clot risk)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอกให้คนกิน warfarin เปลี่ยนไปกิน K2 แทน",
+          "ห้ามบอก 'K2 แทน warfarin ได้'",
+          "ห้ามบอก 'K2 ลดคราบไขมันในหลอดเลือด' แบบการันตี"
+        ],
+        "required_disclaimer_th": "anticoagulant_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["K2 แทน warfarin", "K2 ลดคราบหลอดเลือด", "K2 ป้องกันหัวใจวาย 100%"],
+        "regulatory_risk_notes": "อย. ไทย — K2 ขึ้นทะเบียนเป็นอาหารเสริม ห้ามอ้างรักษาโรคหัวใจ; ต้องเตือนผู้ใช้ warfarin เสมอ"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "Red yeast rice (ข้าวยีสต์แดง) มี monacolin K ซึ่งเป็นโมเลกุลเดียวกันกับ lovastatin — ถ้า supplement มีปริมาณ monacolin K เพียงพอ ก็ลด LDL ได้ประมาณ 15-25% แต่ความเสี่ยง rhabdomyolysis + hepatotoxicity ก็เหมือน statin และ EU restrict ขนาดสูงสุดที่ 3 mg/day",
+      "statement_en": "Red yeast rice contains monacolin K, a molecule chemically identical to lovastatin — supplements with adequate monacolin K lower LDL-C by ~15-25%, but also carry the same risk of rhabdomyolysis and hepatotoxicity as prescription statins. The EU limits monacolin K to ≤3 mg/day (2022 EFSA).",
+      "numeric_values": [
+        {"value": "15-25", "unit": "%", "label": "LDL reduction (dose-dependent)", "is_approximation": true},
+        {"value": 3, "unit": "mg/day", "label": "EU EFSA maximum monacolin K", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_004",
+      "entities_mentioned": ["monacolin_k", "hmg_coa_reductase"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15507665/", "org": "American Journal of Cardiology / PubMed", "source_tier": "A", "year": 2004, "title": "Red yeast rice for dyslipidemia — Becker DJ et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.efsa.europa.eu/en/efsajournal/pub/6761", "org": "EFSA", "source_tier": "A", "year": 2022, "title": "Scientific opinion on the safety of monacolins in red yeast rice", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ข้าวยีสต์แดง = 'statin ธรรมชาติ'", "ของธรรมชาติก็มีโทษเท่ายา"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามขายเป็น 'natural alternative to statin' ที่ปลอดภัยกว่า — ความจริงกลไกเดียวกันและผลข้างเคียงเหมือนกัน",
+      "usage_notes": "Cautionary angle — ถ้า target audience กิน statin อยู่ ห้ามแนะนำ RYR เด็ดขาด",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "red",
+        "contraindications": ["on_statin", "liver_disease", "pregnancy_lactation"],
+        "drug_interactions": ["statin (duplicate mechanism — rhabdomyolysis)", "fibrates (myopathy)", "grapefruit (CYP3A4 — monacolin K level ↑)", "cyclosporine (severe myopathy)", "gemfibrozil"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'หยุด statin แล้วกิน red yeast rice แทน'",
+          "ห้ามบอก 'red yeast rice ปลอดภัยกว่ายา statin'",
+          "ห้ามบอก 'red yeast rice รักษาคอเลสเตอรอลได้'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_statin", "liver_disease", "pregnant_lactating"],
+        "validator_keywords_th": ["แทน statin", "หยุด statin", "statin ธรรมชาติ", "ปลอดภัยกว่ายา"],
+        "regulatory_risk_notes": "อย. ไทย — red yeast rice ที่มี monacolin K ต้องระวัง; EU 2022 restrict ≤3 mg/day; ห้ามโฆษณาทดแทนยา"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "Bergamot polyphenolic fraction (BPF) 500-1,000 mg/วัน ลด LDL-C ประมาณ 20-36% และ triglyceride 30% ในงาน RCT หลายชิ้น (Mollace 2011, Toth 2016) — กลไกคือ naringin/neohesperidin + brutieridin/melitidin (โครงสร้างคล้าย statin) ยับยั้ง HMG-CoA reductase อ่อนๆ + เพิ่ม LDL receptor activity",
+      "statement_en": "Bergamot polyphenolic fraction (BPF) 500-1,000 mg/day reduced LDL-C by ~20-36% and triglycerides ~30% across multiple RCTs (Mollace 2011, Toth 2016), via flavanones (naringin, neohesperidin) plus statin-like brutieridin/melitidin that modestly inhibit HMG-CoA reductase and upregulate LDL receptors.",
+      "numeric_values": [
+        {"value": "500-1000", "unit": "mg/day", "label": "BPF dose", "is_approximation": false},
+        {"value": "20-36", "unit": "%", "label": "LDL-C reduction", "is_approximation": true},
+        {"value": 30, "unit": "%", "label": "TG reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_004",
+      "entities_mentioned": ["bergamot_polyphenolic", "hmg_coa_reductase"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21056640/", "org": "Fitoterapia / PubMed", "source_tier": "A", "year": 2011, "title": "Hypolipemic and hypoglycaemic activity of bergamot polyphenols — Mollace V et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26618443/", "org": "Integr Med (Encinitas) / PubMed", "source_tier": "A", "year": 2016, "title": "Bergamot Reduces Plasma Lipids — Toth PP et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["สารสกัดส้มที่เก่งเรื่องไขมัน", "อาหารเสริมที่คล้าย statin อ่อนๆ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'bergamot แทน statin ได้' — ลดได้บางส่วนแต่ไม่ matched ที่ secondary prevention",
+      "usage_notes": "Angle สำหรับคนที่ LDL borderline แต่ยังไม่ถึง threshold statin — ต้อง frame เป็น 'lifestyle booster' ไม่ใช่ replacement",
+      "contradictions": ["Meta-analysis เจอ heterogeneity สูง + sample ขนาดเล็ก — ผล real-world อาจต่ำกว่า"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_statin", "liver_disease"],
+        "drug_interactions": ["statin (additive — ระวัง myopathy)", "grapefruit-like CYP3A4 inhibition (theoretical)", "warfarin (flavonoid interaction — INR variability)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'bergamot แทน statin ได้'",
+          "ห้ามบอก 'bergamot ลด LDL 50%' (เกินค่าจริง)"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_statin"],
+        "validator_keywords_th": ["bergamot แทน statin", "bergamot รักษาคอเลสเตอรอล"],
+        "regulatory_risk_notes": "อย. ไทย — อาหารเสริม bergamot ห้ามอ้างลด LDL/รักษาโรคหัวใจ; ใช้ 'สนับสนุนระดับไขมัน'"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "Nattokinase (enzyme จากถั่วเหลืองหมักญี่ปุ่น natto) 2,000 FU/วัน ใน RCT ขนาดเล็ก ~100-200 คน ลด fibrinogen ~9%, ลด systolic BP ~5 mmHg, และลด D-dimer เล็กน้อยในเวลา 8 สัปดาห์ — แต่ไม่ใช่ยาต้านการแข็งตัวของเลือด + ไม่มี RCT ระยะยาวยืนยัน MACE reduction",
+      "statement_en": "Nattokinase 2,000 FU/day in small RCTs (~100-200 subjects) reduced fibrinogen ~9%, systolic BP ~5 mmHg, and modestly decreased D-dimer over 8 weeks — but it is NOT a prescription anticoagulant and no long-term RCTs confirm MACE reduction.",
+      "numeric_values": [
+        {"value": 2000, "unit": "FU/day", "label": "common nattokinase dose", "is_approximation": false},
+        {"value": 9, "unit": "%", "label": "fibrinogen reduction", "is_approximation": true},
+        {"value": 5, "unit": "mmHg", "label": "systolic BP reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_010",
+      "entities_mentioned": ["nattokinase"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19786022/", "org": "Hypertens Res / PubMed", "source_tier": "A", "year": 2008, "title": "Effects of nattokinase on blood pressure — Kim JY et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29666299/", "org": "Biomark Insights", "source_tier": "A", "year": 2018, "title": "Nattokinase: a promising alternative in CVD — Chen H et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เอนไซม์จากถั่วเน่าญี่ปุ่น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'nattokinase ละลายลิ่มเลือดได้เหมือน warfarin' — mechanism ต่างกัน; ห้ามบอก 'ป้องกัน stroke ได้แน่'",
+      "usage_notes": "ใช้เป็น 'circulatory support' angle — ห้าม pair กับ stroke/MI prevention claim",
+      "contradictions": ["หลายงานเจอ effect size เล็ก + heterogeneity สูง"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "red",
+        "contraindications": ["on_warfarin_or_anticoagulant", "post_surgical_6_months", "pregnancy_lactation"],
+        "drug_interactions": ["warfarin (additive bleeding)", "DOACs (rivaroxaban/apixaban — bleeding)", "aspirin/clopidogrel (additive antiplatelet)", "NSAID (bleeding)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'nattokinase แทน warfarin ได้'",
+          "ห้ามบอก 'nattokinase ละลายลิ่มเลือด ป้องกัน stroke'",
+          "ห้ามบอกให้ผู้กิน warfarin/DOAC เปลี่ยนมา nattokinase"
+        ],
+        "required_disclaimer_th": "anticoagulant_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant", "post_surgical_6_months", "pregnant_lactating"],
+        "validator_keywords_th": ["แทน warfarin", "nattokinase ละลายลิ่ม", "ป้องกัน stroke ได้แน่"],
+        "regulatory_risk_notes": "อย. ไทย — nattokinase = อาหารเสริม ห้ามอ้างรักษา/ป้องกันโรคหัวใจ stroke; ต้องเตือนคนก่อนผ่าตัดและผู้ใช้ anticoagulant"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_015",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "CoQ10 (ubiquinol/ubiquinone) 100-200 mg/วัน ใน meta-analysis RCTs (Qu 2018, Banach 2015) ลดอาการกล้ามเนื้ออ่อนแรงจาก statin (statin-associated muscle symptoms, SAMS) ได้บางส่วนในกลุ่มที่มีอาการ; mechanism คือ statin ลด CoQ10 synthesis ผ่าน mevalonate pathway เดียวกับ cholesterol",
+      "statement_en": "CoQ10 (ubiquinol/ubiquinone) 100-200 mg/day in meta-analyses (Qu 2018, Banach 2015) modestly improves statin-associated muscle symptoms (SAMS) in symptomatic patients — mechanism: statins deplete CoQ10 synthesis via the shared mevalonate pathway.",
+      "numeric_values": [
+        {"value": "100-200", "unit": "mg/day", "label": "CoQ10 dose in SAMS trials", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_004",
+      "entities_mentioned": ["coq10_ubiquinol", "beatrice_golomb"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29662583/", "org": "American Journal of Cardiology / PubMed", "source_tier": "A", "year": 2018, "title": "CoQ10 supplementation in statin myopathy — Qu H et al. meta-analysis", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["statin ดึง CoQ10 ลงไปด้วย", "เติม battery ให้กล้ามเนื้อ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "effect size เล็ก — ห้ามบอก 'CoQ10 แก้ปวดกล้ามจาก statin 100%'",
+      "usage_notes": "Product angle adjunct — target คนกิน statin + มี myalgia; ต้อง frame ว่า 'adjunct' ไม่ใช่ replacement",
+      "contradictions": ["RCT บางงานไม่เจอ benefit significant — Banach 2015 borderline"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (CoQ10 มีโครงสร้างคล้าย vitamin K — อาจลด INR; monitor)", "antihypertensive (อาจเสริม — BP drop เล็กน้อย)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'CoQ10 แทน statin ได้'",
+          "ห้ามบอก 'CoQ10 รักษาโรคหัวใจ'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["CoQ10 แทน statin", "รักษาโรคหัวใจ"],
+        "regulatory_risk_notes": "อย. ไทย — CoQ10 อาหารเสริม ใช้ 'สนับสนุนพลังงานระดับเซลล์'; ห้ามอ้างรักษาหัวใจ"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "endothelial_dysfunction",
+      "statement_th": "L-citrulline 3-6 g/วัน (หรือ L-arginine dose สูงกว่า) เพิ่ม nitric oxide bioavailability และ flow-mediated dilation (FMD) ในคน middle-aged ที่มี endothelial dysfunction — ลด systolic BP ประมาณ 4-7 mmHg (Mirmiran 2021 meta-analysis)",
+      "statement_en": "L-citrulline 3-6 g/day (or higher-dose L-arginine) modestly increases NO bioavailability and flow-mediated dilation (FMD) in middle-aged adults with endothelial dysfunction — reducing systolic BP by ~4-7 mmHg (Mirmiran 2021 meta-analysis).",
+      "numeric_values": [
+        {"value": "3-6", "unit": "g/day", "label": "L-citrulline dose", "is_approximation": true},
+        {"value": "4-7", "unit": "mmHg", "label": "systolic BP reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_003",
+      "entities_mentioned": ["nitric_oxide", "enos"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/33837592/", "org": "J Am Coll Nutr / PubMed", "source_tier": "A", "year": 2021, "title": "Effects of L-citrulline on blood pressure — Mirmiran P et al. meta-analysis", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["สวิตช์ NO ใน endothelium"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'L-citrulline รักษาความดันสูงได้' — ลด แค่ modestly ต้อง baseline elevated",
+      "usage_notes": "Product angle 'endothelial support' — audience 40+ ที่อยาก performance + heart health",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["hypertension_uncontrolled"],
+        "drug_interactions": ["antihypertensive (additive BP drop — hypotension risk)", "sildenafil/PDE5 inhibitor (severe hypotension — ห้ามเด็ดขาด)", "nitrate (nitroglycerin — life-threatening hypotension)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'L-citrulline แทนยาความดันได้'",
+          "ห้ามบอกให้กินร่วมกับ viagra/sildenafil"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications", "hypertension_uncontrolled"],
+        "validator_keywords_th": ["แทนยาความดัน", "L-citrulline รักษาความดัน"],
+        "regulatory_risk_notes": "อย. ไทย — L-citrulline อาหารเสริมสำหรับ sports nutrition; ห้ามอ้างลดความดัน"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_017",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "PDAY study (Pathobiological Determinants of Atherosclerosis in Youth, McGill 1998) — autopsy ในคนตายวัย 15-34 ปี: พบ fatty streak ใน aorta เกือบทุกคน และ fibrous plaque ใน coronary artery ใน 20-30% ของคนอายุ 25-34 — แปลว่า atherosclerosis เริ่มตั้งแต่วัยรุ่น ไม่ใช่โรคคนแก่",
+      "statement_en": "PDAY study (Pathobiological Determinants of Atherosclerosis in Youth, McGill 1998): autopsy of individuals aged 15-34 found aortic fatty streaks in nearly everyone and coronary fibrous plaques in 20-30% of those aged 25-34 — atherosclerosis begins in adolescence, not old age.",
+      "numeric_values": [
+        {"value": "15-34", "unit": "years old", "label": "PDAY autopsy age range", "is_approximation": false},
+        {"value": "20-30", "unit": "%", "label": "fibrous plaque prevalence age 25-34", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_001",
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9874585/", "org": "Arterioscler Thromb Vasc Biol / PubMed", "source_tier": "A", "year": 1998, "title": "Natural History of Atherosclerosis in Young People — McGill HC et al. (PDAY)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["หลอดเลือดเริ่มแข็งตั้งแต่ 25", "atherosclerosis ไม่ใช่โรคคนแก่"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามใช้ฉายแบบ 'วัยรุ่นกินผัดกะเพราเดียวหลอดเลือดแข็งแล้ว' — stretching evidence",
+      "usage_notes": "Landmark 'shock' hook สำหรับ Thai audience 25-40 — ตรง 'สายขู่ยอดวิว' pattern",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'เริ่มกินอาหารเสริมตั้งแต่ 25 ป้องกันได้แน่นอน'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "ApoB_LDL",
+      "statement_th": "Cholesterol Treatment Trialists' (CTT) meta-analysis (Lancet 2010, N>170,000) — ทุกๆ 38.6 mg/dL ที่ลด LDL-C ได้ (ด้วย statin) ลดความเสี่ยง major vascular event ได้ 22% ต่อ 1 มิลลิโมล/ลิตรที่ลดลง (1 mmol/L = 38.6 mg/dL) และ benefit นี้มีในทุกกลุ่มอายุ+เพศ+baseline risk",
+      "statement_en": "CTT meta-analysis (Lancet 2010, N>170,000 across 26 trials): every 1 mmol/L (38.6 mg/dL) reduction in LDL-C with statins lowered major vascular events by ~22%; benefit was consistent across age, sex, and baseline risk.",
+      "numeric_values": [
+        {"value": 170000, "unit": "subjects", "label": "CTT pooled sample", "is_approximation": true},
+        {"value": 22, "unit": "%", "label": "relative risk reduction per 1 mmol/L LDL drop", "is_approximation": false},
+        {"value": 38.6, "unit": "mg/dL", "label": "1 mmol/L equivalent", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_004",
+      "entities_mentioned": ["ldl_c", "hmg_coa_reductase"],
+      "sources": [
+        {"url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)61350-5/fulltext", "org": "The Lancet / CTT Collaboration", "source_tier": "A", "year": 2010, "title": "Efficacy and safety of more intensive lowering of LDL cholesterol — CTT Collaboration meta-analysis", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ทุก 1 mmol/L = 22% เสี่ยงน้อยลง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'LDL ยิ่งต่ำยิ่งดี ไม่มีขีด' — มี biological minimum; ต้อง balance",
+      "usage_notes": "Authority anchor สำหรับ 'LDL lowering works' — คู่กับ safety_warning เรื่อง statin",
+      "contradictions": ["บาง individual studies (ENHANCE) ไม่เจอ benefit แม้ LDL ลด"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามใช้เชื่อมกับ supplement ว่า 'ลด LDL = ลด MACE 22%' — ผลเฉพาะ statin/LDL-C lowering drugs"],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["อาหารเสริมลด LDL ป้องกันหัวใจวาย 22%"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_019",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "Niacin ขนาดสูง (1-3 g/วัน) ลด LDL 5-25% + เพิ่ม HDL 15-35% + ลด Lp(a) 20-30% — แต่ AIM-HIGH และ HPS2-THRIVE RCT ใหญ่พบว่าเมื่อเติม niacin บน statin แล้ว ไม่ลด MACE + เพิ่ม adverse events → AHA ไม่แนะนำ niacin เพื่อ primary CVD prevention แล้ว",
+      "statement_en": "High-dose niacin (1-3 g/day) lowers LDL 5-25%, raises HDL 15-35%, and reduces Lp(a) 20-30% — but AIM-HIGH and HPS2-THRIVE RCTs showed adding niacin on statin did NOT reduce MACE and increased adverse events → AHA no longer recommends niacin for primary CVD prevention.",
+      "numeric_values": [
+        {"value": "1-3", "unit": "g/day", "label": "niacin lipid dose", "is_approximation": false},
+        {"value": "15-35", "unit": "%", "label": "HDL increase", "is_approximation": true},
+        {"value": "20-30", "unit": "%", "label": "Lp(a) reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_004",
+      "entities_mentioned": ["lp_a"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1107579", "org": "NEJM", "source_tier": "A", "year": 2011, "title": "Niacin in Patients with Low HDL Cholesterol Levels Receiving Intensive Statin Therapy — AIM-HIGH investigators", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไม่ใช่ทุก 'ลดไขมัน' = 'ลดหัวใจวาย'"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามขาย niacin เป็น primary CVD prevention supplement — หลักฐานไม่รับรอง",
+      "usage_notes": "Counter myth — 'HDL ขึ้นก็ดี' ไม่จริง; pair กับ fact heart_020",
+      "contradictions": ["Coronary Drug Project (1975) niacin เดี่ยวลด MACE — แต่ที่ใน era pre-statin"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["liver_disease", "gout_or_hyperuricemia", "type_2_diabetes_on_medication", "active_peptic_ulcer"],
+        "drug_interactions": ["statin (myopathy risk ↑)", "antidiabetic (hyperglycemia worsened)", "uric-acid drugs"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามโปรโมต niacin ขนาดสูงว่า 'ลด LDL ป้องกันหัวใจวายได้แน่'",
+          "ห้ามบอก 'niacin เพิ่ม HDL ดีต่อหัวใจ 100%'",
+          "ห้ามแนะนำคนเบาหวาน/โรคตับกิน niacin เอง"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["type_2_diabetes_on_medication", "liver_disease", "gout_or_hyperuricemia"],
+        "validator_keywords_th": ["niacin ป้องกันหัวใจวาย", "HDL สูง = ปลอดภัย"],
+        "regulatory_risk_notes": "อย. ไทย — niacin dose สูง > 500 mg ถือเป็น pharmacological; ห้ามขายเป็น OTC high-dose"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_020",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "ApoB_LDL",
+      "statement_th": "HDL-C สูงเกินไป (>80-100 mg/dL) ไม่ได้ป้องกันโรคหัวใจเสมอไป — REVEAL, ILLUMINATE, dal-OUTCOMES ทดลอง CETP inhibitor ที่เพิ่ม HDL ได้ 40-138% แต่ไม่ลด MACE; Madsen et al. 2017 (Eur Heart J) พบ U-shaped curve — HDL สูงมากสัมพันธ์กับ all-cause mortality เพิ่ม",
+      "statement_en": "Very high HDL-C (>80-100 mg/dL) does not reliably protect against heart disease — CETP inhibitor trials (REVEAL, ILLUMINATE, dal-OUTCOMES) raised HDL 40-138% but did not cut MACE; Madsen et al. 2017 (Eur Heart J) found a U-shaped curve where extremely high HDL is associated with increased all-cause mortality.",
+      "numeric_values": [
+        {"value": "80-100+", "unit": "mg/dL", "label": "extremely high HDL threshold", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_011",
+      "entities_mentioned": ["hdl_c", "philip_barter"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28977522/", "org": "European Heart Journal / PubMed", "source_tier": "A", "year": 2017, "title": "Extreme high HDL cholesterol is paradoxically associated with high mortality — Madsen CM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["HDL สูง ≠ ปลอดภัย", "ความเชื่อเก่าที่ RCT ล้ม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'HDL ไม่ต้องสนใจเลย' — ค่า very low ก็ยังเป็น marker ของ metabolic dysfunction",
+      "usage_notes": "Myth-bust hook — audience ชอบคิดว่า 'HDL ยิ่งสูงยิ่งดี'",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_021",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "Aspirin primary prevention ไม่แนะนำสำหรับคนสุขภาพดีอายุ >60 ปีแล้ว — ASCEND, ARRIVE, ASPREE (3 trials ใหญ่ 2018-19) พบว่า benefit ลด MACE เล็กน้อย แต่ bleeding risk (GI bleed, hemorrhagic stroke) เพิ่มมากกว่า; USPSTF 2022 update: ไม่แนะนำ aspirin primary prevention ในคน >60",
+      "statement_en": "Aspirin for primary prevention is no longer recommended in healthy adults >60 — ASCEND, ARRIVE, and ASPREE trials (2018-19) showed modest MACE benefit was outweighed by increased bleeding (GI, hemorrhagic stroke); USPSTF 2022 formally recommends against aspirin primary prevention in adults >60.",
+      "numeric_values": [
+        {"value": 60, "unit": "years", "label": "USPSTF cutoff for no primary-prevention aspirin", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_010",
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/2791399", "org": "JAMA / USPSTF", "source_tier": "A", "year": 2022, "title": "Aspirin Use to Prevent Cardiovascular Disease: US Preventive Services Task Force Recommendation Statement", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["aspirin หยุดได้แล้ว?", "คำแนะนำเก่าที่ไม่เป็นจริงแล้ว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เฉพาะ 'primary prevention' เท่านั้น — คนที่เคยมี MI/stroke (secondary prevention) ยังต้องกินต่อ; ห้าม confuse",
+      "usage_notes": "Education — ใช้ challenge คำแนะนำเก่า; ต้องเน้น 'ถ้าหมอสั่งแล้วห้ามหยุดเอง'",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_warfarin_or_anticoagulant", "active_peptic_ulcer"],
+        "drug_interactions": ["warfarin/DOAC (bleeding)", "NSAID (GI bleeding ↑)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'หยุด aspirin เอง'",
+          "ห้ามเหมาว่า 'คนเคยเป็น MI ก็หยุด aspirin ได้'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["หยุด aspirin เอง"],
+        "regulatory_risk_notes": "Aspirin 81 mg = OTC ในไทย แต่ indication ต่างกันระหว่าง primary/secondary prevention"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_022",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "การออกกำลังกาย zone 2 (60-70% HRmax, คุยได้แต่หายใจแรง) 3-4 ชม./สัปดาห์ เพิ่ม mitochondrial density, ลด visceral fat, ปรับปรุง insulin sensitivity และ endothelial function — Attia แนะนำเป็น 'foundation' ของ cardio หลัง 40; การวิ่ง HIIT เพียงอย่างเดียวไม่ทดแทน base",
+      "statement_en": "Zone 2 training (60-70% HRmax, conversational pace) 3-4 hours/week increases mitochondrial density, reduces visceral fat, and improves insulin sensitivity and endothelial function — Peter Attia frames zone 2 as the 'foundation' of cardio training after 40; HIIT alone does not substitute for this aerobic base.",
+      "numeric_values": [
+        {"value": "60-70", "unit": "% HRmax", "label": "zone 2 intensity", "is_approximation": true},
+        {"value": "3-4", "unit": "hours/week", "label": "Attia zone 2 recommendation", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_003",
+      "entities_mentioned": ["peter_attia"],
+      "sources": [
+        {"url": "https://peterattiamd.com/category/exercise/zone-2/", "org": "Peter Attia MD", "source_tier": "B", "year": 2024, "title": "Zone 2 training explained — Peter Attia", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยิมไม่ใช่คำตอบ วิ่งช้าคือฐาน", "สายเผาไขมัน = ออกแรงแค่ 60%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'zone 2 ลด CVD risk 50%' — ไม่มี RCT แสดง causal outcome ที่ชัด",
+      "usage_notes": "Lifestyle angle — pair กับ omega-3 + CoQ10 product bundle",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": ["elderly_frail"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามแนะนำคนหัวใจวายเคยรักษาให้เริ่ม zone 2 เอง — ต้อง cardiac rehab"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_023",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "endothelial_dysfunction",
+      "statement_th": "การสูบบุหรี่ (active หรือ secondhand) ลด endothelial NO bioavailability ภายในไม่กี่ชั่วโมง และทำให้ FMD ตก 30-50% ในคนปกติ — เลิกบุหรี่ 1 ปี ลด CVD risk ลงครึ่งหนึ่ง, เลิก 15 ปี ไม่ต่างจากคนไม่เคยสูบ (US Surgeon General 2020)",
+      "statement_en": "Smoking (active or secondhand) reduces endothelial NO bioavailability within hours and drops FMD by 30-50% in healthy subjects — quitting for 1 year halves CVD risk; quitting for 15 years returns risk to never-smoker levels (US Surgeon General 2020).",
+      "numeric_values": [
+        {"value": "30-50", "unit": "%", "label": "FMD drop from smoking", "is_approximation": true},
+        {"value": 1, "unit": "year", "label": "time to half CVD risk after quitting", "is_approximation": false},
+        {"value": 15, "unit": "years", "label": "time to never-smoker equivalent risk", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_heart_003",
+      "entities_mentioned": ["nitric_oxide"],
+      "sources": [
+        {"url": "https://www.cdc.gov/tobacco/sgr/2020-smoking-cessation/index.html", "org": "US Surgeon General", "source_tier": "A", "year": 2020, "title": "Smoking Cessation: A Report of the Surgeon General 2020", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เลิกบุหรี่ 1 ปี ลดเสี่ยงครึ่งหนึ่ง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 1 ปี/15 ปีอิง Surgeon General — ห้ามเปลี่ยน",
+      "usage_notes": "Powerful lifestyle hook — ไม่เชื่อม product โดยตรง",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามโปรโมต nicotine replacement แทน medical guidance"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "heart_024",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "atherosclerosis",
+      "statement_th": "Aged garlic extract (AGE, Kyolic-type) 1,200-2,400 mg/วัน ในงาน RCT หลายชิ้น (Budoff 2009, Ried 2016 meta-analysis) ลด systolic BP ~8-11 mmHg, ลด CAC progression, และมี modest LDL reduction — กลไกผ่าน S-allyl cysteine + NO enhancement",
+      "statement_en": "Aged garlic extract (AGE, Kyolic-style) 1,200-2,400 mg/day in multiple RCTs (Budoff 2009, Ried 2016 meta-analysis) reduced systolic BP by ~8-11 mmHg, slowed CAC progression, and produced modest LDL reductions via S-allyl cysteine and NO enhancement.",
+      "numeric_values": [
+        {"value": "1200-2400", "unit": "mg/day", "label": "AGE dose range in trials", "is_approximation": false},
+        {"value": "8-11", "unit": "mmHg", "label": "systolic BP reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_heart_003",
+      "entities_mentioned": ["nitric_oxide"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26764323/", "org": "J Nutr / PubMed", "source_tier": "A", "year": 2016, "title": "Garlic for hypertension meta-analysis — Ried K", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19664456/", "org": "J Nutr / PubMed", "source_tier": "A", "year": 2009, "title": "Aged garlic extract reduces plaque progression — Budoff MJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กระเทียมดำลดความดัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'กระเทียมรักษาความดันสูง' — ช่วยลด modestly ไม่ใช่ replacement",
+      "usage_notes": "Product angle สำหรับคนความดันปริ่ม ๆ — ต้อง exclude คนกินยาความดันหลายตัว",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (enhanced bleeding)", "antihypertensive (additive BP drop)", "HIV protease inhibitors (CYP3A4 — ระวัง)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'กระเทียมแทนยาความดันได้'",
+          "ห้ามผู้กิน warfarin เริ่ม garlic extract เอง"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant", "on_prescription_medications"],
+        "validator_keywords_th": ["กระเทียมแทนยาความดัน", "รักษาความดันสูง"],
+        "regulatory_risk_notes": "อย. ไทย — garlic extract ห้ามอ้างรักษาความดัน; ใช้ 'สนับสนุนสุขภาพหลอดเลือด'"
+      },
+      "harvested_by": "domain_harvester.heart",
+      "harvested_at": "2026-04-22T12:00:00"
+    }
+  ]
+}

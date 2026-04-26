@@ -1,0 +1,268 @@
+{
+  "domain_id": "skin",
+  "_meta": {
+    "last_harvested": "2026-04-22T00:00:00",
+    "harvested_by": "domain_harvester.skin",
+    "target_count": 10,
+    "current_count": 10
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_skin_001",
+      "label_th": "UV กระตุ้น MMP ย่อยคอลลาเจน (Photoaging cascade)",
+      "label_en": "UV-induced MMP collagen degradation (Photoaging cascade)",
+      "description_th": "รังสี UVA ทะลุถึงชั้นหนังแท้ (dermis) กระตุ้นให้เซลล์สร้าง reactive oxygen species (ROS) → ROS กระตุ้น transcription factor AP-1 (c-Fos/c-Jun) → AP-1 ขึ้นควบคุมยีน MMP-1 (collagenase-1), MMP-3 (stromelysin), MMP-9 (gelatinase) → เอนไซม์ MMP เหล่านี้ย่อยสลายคอลลาเจน type I/III ในชั้น dermis → สูญเสียโครงสร้างผิว ริ้วรอย หย่อนคล้อย ภาวะนี้รวมเรียกว่า photoaging หรือ extrinsic skin aging ซึ่งคิดเป็น ~80-90% ของความแก่ที่เห็นได้บนผิวหน้า",
+      "description_en": "UVA radiation penetrates the dermis and generates reactive oxygen species (ROS) → ROS activates AP-1 transcription factor (c-Fos/c-Jun heterodimers) → AP-1 upregulates matrix metalloproteinases MMP-1 (collagenase-1), MMP-3 (stromelysin), and MMP-9 (gelatinase B) → these enzymes cleave dermal collagen types I and III → loss of structural scaffold → wrinkles, laxity, photodamage. This cascade accounts for ~80-90% of visible facial aging (photoaging).",
+      "chain": [
+        {"step": 1, "actor": "UVA radiation", "action": "penetrates dermis, generates ROS (singlet O₂, H₂O₂, hydroxyl radical)", "target": "keratinocytes and fibroblasts", "effect": "oxidative stress signal"},
+        {"step": 2, "actor": "ROS", "action": "activates AP-1 transcription factor (c-Fos + c-Jun)", "target": "cell nucleus", "effect": "AP-1 binds to MMP gene promoters"},
+        {"step": 3, "actor": "AP-1", "action": "upregulates MMP-1, MMP-3, MMP-9 gene expression", "target": "MMP promoter regions", "effect": "increased MMP protein secretion (within 8-24 hours)"},
+        {"step": 4, "actor": "MMP-1 (collagenase-1)", "action": "cleaves collagen type I and III triple helix", "target": "dermal collagen fibrils", "effect": "collagen fragments — loss of tensile strength"},
+        {"step": 5, "actor": "Degraded collagen scaffold", "action": "triggers fibroblast mechanosensing collapse", "target": "dermal fibroblasts", "effect": "fibroblasts reduce new collagen synthesis — net collagen loss"}
+      ],
+      "analogies_th": [
+        "UV คือ 'สัญญาณเพลิงไหม้' ที่ทำให้โรงงานส่งทีมรื้อกำแพง (MMP) แต่ไม่ได้ส่งทีมก่อสร้าง (collagen synthesis) มาแทน",
+        "ผิวคือตึกที่ถูกปรับทุบทุกวันที่โดนแดด ถ้าทุบเร็วกว่าสร้าง ตึกก็พัง"
+      ],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJM199711133372003", "org": "New England Journal of Medicine", "source_tier": "A", "year": 1997, "title": "Pathophysiology of premature skin aging induced by ultraviolet light — Fisher GJ et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24354878/", "org": "J Drugs Dermatol / PubMed", "source_tier": "A", "year": 2013, "title": "Photoaging: mechanisms and repair — Friedman PM", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "photoaging_uv",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_002",
+      "label_th": "กลไก SPF — ครีมกันแดดป้องกัน UV",
+      "label_en": "SPF mechanism — sunscreen UV attenuation",
+      "description_th": "SPF (Sun Protection Factor) วัดจากอัตราส่วนปริมาณ UV ที่ทำให้ผิวแดง (Minimal Erythema Dose) เมื่อทาครีมกันแดด ÷ ปริมาณที่ทำให้แดงโดยไม่ทา → SPF 30 หมายความว่าต้องใช้ UV มากขึ้น 30 เท่าจึงจะทำให้ผิวแดง ≈ บล็อก UVB 96.7%; ฟิลเตอร์เคมี (avobenzone, octinoxate) ดูดซับ UV แปลงเป็นความร้อน; ฟิลเตอร์กายภาพ (ZnO, TiO₂) สะท้อนและดูดซับ; PA++++ วัดการบล็อก UVA โดย Persistent Pigment Darkening assay",
+      "description_en": "SPF = ratio of MED (UV dose to cause erythema) with vs without sunscreen. SPF 30 transmits 1/30 (~3.3%) of UVB → blocks 96.7%; SPF 50 blocks 98%. Chemical filters (avobenzone, octinoxate, oxybenzone) absorb UV and re-emit as heat. Physical/mineral filters (ZnO, TiO₂ nano) scatter and absorb UV. Real-world under-application (25-50% of 2 mg/cm² standard) halves effective SPF.",
+      "chain": [
+        {"step": 1, "actor": "UV photon (UVB 280-315 nm)", "action": "strikes sunscreen film on skin surface", "target": "chemical filter molecules (e.g. avobenzone)", "effect": "photon energy absorbed → molecule enters excited state"},
+        {"step": 2, "actor": "Excited filter molecule", "action": "dissipates absorbed energy as heat (internal conversion)", "target": "filter molecule", "effect": "UV photon never reaches DNA/melanocytes"},
+        {"step": 3, "actor": "Physical filter (ZnO/TiO₂ particles)", "action": "scatter and absorb photons across UVA+UVB spectrum", "target": "photons at skin surface", "effect": "broad-spectrum attenuation without absorption peak limitation"},
+        {"step": 4, "actor": "PA++++ rating (UVA protection)", "action": "Persistent Pigment Darkening assay → UVA blocking measured", "target": "melanocytes / dermis", "effect": "reduces UVA reaching dermis → reduces MMP induction + melanin stimulation"}
+      ],
+      "analogies_th": [
+        "ฟิลเตอร์เคมีคือ 'เสื้อกันกระสุน' ดักกระสุน UV ก่อนถึงเซลล์ — แต่ถ้าสวมไม่ครบก็โดนทะลุ",
+        "SPF คือ 'คะแนนกั้นน้ำ' — ยิ่งสูงยิ่งกั้นได้นานกว่า แต่ไม่มีทางกั้นได้ 100%"
+      ],
+      "sources": [
+        {"url": "https://www.aad.org/public/everyday-care/sun-protection/sunscreen-patients/sunscreen-faqs", "org": "American Academy of Dermatology", "source_tier": "A", "year": 2024, "title": "Sunscreen FAQs — AAD", "access_date": "2026-04-22"},
+        {"url": "https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun", "org": "U.S. FDA", "source_tier": "A", "year": 2022, "title": "Sunscreen: How to Help Protect Your Skin from the Sun — FDA", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sunscreen_spf",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_003",
+      "label_th": "การสังเคราะห์คอลลาเจน — จากไฟโบรบลาสต์สู่เส้นใย",
+      "label_en": "Collagen biosynthesis — fibroblast to fibril",
+      "description_th": "ไฟโบรบลาสต์ในชั้นหนังแท้ถอดรหัสยีน COL1A1/COL1A2 → สร้าง pre-procollagen → signal peptide ถูกตัด → procollagen สาย alpha เข้า ER → hydroxylation ของ proline และ lysine โดย prolyl hydroxylase และ lysyl hydroxylase (ต้องการ vitamin C เป็น cofactor) → 3 สาย alpha พับเป็น triple helix → secretion สู่ extracellular matrix → propeptide cleavage → tropocollagen self-assembles into fibrils → cross-linking โดย lysyl oxidase = mature collagen fiber",
+      "description_en": "Dermal fibroblasts transcribe COL1A1/COL1A2 → pre-procollagen → signal peptide cleavage → procollagen α-chains enter ER → prolyl and lysyl hydroxylation (requires vitamin C as cofactor) → triple helix formation → secretion → N/C-propeptide cleavage by procollagen proteases → tropocollagen → fibril self-assembly → lysyl oxidase cross-linking = mature collagen fiber. Vitamin C deficiency prevents hydroxylation → structurally weak procollagen → impaired collagen secretion.",
+      "chain": [
+        {"step": 1, "actor": "Fibroblast nucleus", "action": "transcribes COL1A1/COL1A2 genes → pre-procollagen mRNA", "target": "ribosome (rough ER)", "effect": "procollagen α-chains synthesized"},
+        {"step": 2, "actor": "Prolyl/lysyl hydroxylase enzymes", "action": "hydroxylate proline → 4-hydroxyproline; lysine → hydroxylysine (requires Vitamin C + Fe²⁺)", "target": "procollagen in ER lumen", "effect": "triple helix stability — without Vit C, triple helix unstable"},
+        {"step": 3, "actor": "Procollagen triple helix", "action": "Golgi packaging → vesicle secretion to extracellular space", "target": "extracellular matrix", "effect": "procollagen propeptides cleaved by BMP-1/mTLD → tropocollagen"},
+        {"step": 4, "actor": "Tropocollagen", "action": "self-assembles in quarter-stagger array → microfibril → fibril", "target": "extracellular matrix", "effect": "structural collagen fibril formed"},
+        {"step": 5, "actor": "Lysyl oxidase (LOX)", "action": "oxidizes hydroxylysine/lysine → aldehyde → covalent cross-links", "target": "collagen fibrils", "effect": "mature tensile-strength collagen fiber — irreversible cross-linking"}
+      ],
+      "analogies_th": [
+        "คอลลาเจนคือเชือกเส้นเล็กๆ หลายพันเส้นที่ถักรวมกัน — ถ้าขาด vitamin C ก็เหมือนเส้นด้ายไม่มีกาว จะถักยังไงก็ไม่แน่น",
+        "โรงงานผิว (fibroblast) ผลิตเชือก (collagen) — vitamin C คือสารหล่อเครื่องจักรที่ขาดไม่ได้"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/1174398/", "org": "Br J Dermatol / PubMed", "source_tier": "A", "year": 1975, "title": "The influence of age and sex on skin thickness, skin collagen and density — Shuster S et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24401291/", "org": "Skin Pharmacol Physiol / PubMed", "source_tier": "A", "year": 2014, "title": "Oral supplementation of specific collagen peptides — Proksch E et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "collagen_synthesis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_004",
+      "label_th": "Retinoid — เพิ่มคอลลาเจน ลดริ้วรอย",
+      "label_en": "Retinoid mechanism — collagen upregulation and anti-aging",
+      "description_th": "Retinol (OTC) ถูก oxidize 2 ขั้นใน keratinocyte: retinol → retinal (โดย alcohol dehydrogenase) → retinoic acid (โดย retinal dehydrogenase); Retinoic acid จับ nuclear receptor RAR/RXR เป็น heterodimer → bind RARE (Retinoic Acid Response Element) บน DNA → (1) เพิ่ม procollagen I/III transcription, (2) ยับยั้ง AP-1 → ลด MMP-1 expression, (3) เพิ่ม keratinocyte turnover → ผิวเรียบขึ้น, (4) กระตุ้น angiogenesis ใน papillary dermis → ผิวดูอิ่มขึ้น",
+      "description_en": "Retinol → retinaldehyde (alcohol dehydrogenase) → retinoic acid (retinaldehyde dehydrogenase); retinoic acid binds nuclear RAR/RXR heterodimer → binds RARE sequence on collagen gene promoters → (1) increases COL1A1/COL1A2 transcription, (2) suppresses AP-1 → reduces MMP-1 induction, (3) accelerates keratinocyte differentiation and epidermal turnover, (4) increases papillary dermal angiogenesis. OTC retinol has ~1/10-1/20 potency vs prescription tretinoin due to conversion rate-limiting steps.",
+      "chain": [
+        {"step": 1, "actor": "Retinol (OTC product)", "action": "enters keratinocyte → oxidized to retinal by ADH4", "target": "keratinocyte cytoplasm", "effect": "intermediate retinal formed"},
+        {"step": 2, "actor": "Retinal", "action": "further oxidized to retinoic acid (RA) by RALDH", "target": "keratinocyte cytoplasm", "effect": "active ligand retinoic acid produced — rate-limiting step"},
+        {"step": 3, "actor": "Retinoic acid", "action": "binds RAR (α/β/γ)/RXR heterodimer → translocates to nucleus", "target": "cell nucleus", "effect": "transcription factor complex activated"},
+        {"step": 4, "actor": "RAR/RXR complex", "action": "binds RARE on COL1A1 promoter → activates transcription", "target": "collagen genes COL1A1/COL1A2", "effect": "+65% procollagen I mRNA (in vivo biopsy data, Griffiths 1993)"},
+        {"step": 5, "actor": "RAR/RXR complex (simultaneously)", "action": "inhibits AP-1 (Fos/Jun) → reduces MMP-1 expression", "target": "MMP-1 promoter", "effect": "less collagen degradation — net collagen accumulation"}
+      ],
+      "analogies_th": [
+        "Retinoic acid คือ 'CEO letter' ส่งถึงนิวเคลียส สั่งให้โรงงานผลิตคอลลาเจนเพิ่ม และปิดทีมรื้อ (MMP)",
+        "Retinol OTC = คำสั่งที่ต้องผ่านล่าม 2 ด่าน; Tretinoin = ส่ง CEO letter ตรง — ความหมายเดียวกัน แต่ tretinoin ถึงเร็วกว่า"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/8421403/", "org": "N Engl J Med / PubMed", "source_tier": "A", "year": 1993, "title": "Restoration of collagen formation in photodamaged human skin by tretinoin — Griffiths CE et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/16691020/", "org": "Dermatol Surg / PubMed", "source_tier": "A", "year": 2006, "title": "Topical retinoids in clinical practice — Mukherjee S et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "retinoids",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_005",
+      "label_th": "Melanogenesis — การสร้างเมลานินและการยับยั้ง",
+      "label_en": "Melanogenesis — pigment synthesis and inhibition",
+      "description_th": "Melanocyte ใน basal layer (อัตราส่วน 1:10 กับ keratinocyte) รับสัญญาณ UV → เพิ่ม MITF (master transcription factor) → MITF เพิ่ม tyrosinase + TRP1 + TYRP2 → tyrosinase oxidize L-tyrosine → DOPA → dopaquinone → eumelanin (น้ำตาล/ดำ) หรือ pheomelanin (เหลือง/แดง ถ้ามี cysteine); Glutathione จับกับ dopaquinone แทน cysteine → pheomelanin เพิ่ม (skin-lightening mechanism); Niacinamide ไม่ยับยั้ง tyrosinase แต่บล็อก PAR-2 → ลดการส่ง melanosome จาก melanocyte ไป keratinocyte ~35-68%",
+      "description_en": "UV → α-MSH/ACTH release → MC1R activation on melanocytes → MITF upregulation → tyrosinase + TRP1 + TYRP2 gene expression → tyrosinase catalyzes L-tyrosine → L-DOPA → dopaquinone → eumelanin (brown/black) or pheomelanin (yellow/red, if cysteine competes). Glutathione competes with cysteine for dopaquinone → shifts eumelanin:pheomelanin ratio toward lighter pigment. Niacinamide blocks PAR-2 receptor on keratinocytes → inhibits melanosome uptake (not synthesis) → 35-68% reduction in transfer. Genetic ceiling set by MC1R/SLC24A5 — supplements cannot exceed baseline constitutive tone.",
+      "chain": [
+        {"step": 1, "actor": "UV or estrogen or inflammation", "action": "triggers α-MSH/SCF/ET-1 secretion → MC1R activation", "target": "melanocyte surface", "effect": "MITF transcription factor upregulated"},
+        {"step": 2, "actor": "MITF", "action": "activates tyrosinase, TRP1, TYRP2 gene expression", "target": "melanocyte nucleus", "effect": "enzyme arsenal for melanin synthesis ready"},
+        {"step": 3, "actor": "Tyrosinase", "action": "oxidizes L-tyrosine → L-DOPA → dopaquinone (2 steps)", "target": "melanin synthesis pathway", "effect": "dopaquinone is the committed intermediate"},
+        {"step": 4, "actor": "Dopaquinone", "action": "cyclizes → eumelanin pathway OR reacts with cysteine/GSH → pheomelanin", "target": "melanosome", "effect": "eumelanin = UV-protective dark pigment; pheomelanin = lighter, generates ROS"},
+        {"step": 5, "actor": "Mature melanosome", "action": "transferred via melanocyte dendrites through PAR-2/E-cadherin to keratinocyte", "target": "surrounding keratinocytes (supranuclear cap)", "effect": "pigmentation distributed — blocked by niacinamide at this step"}
+      ],
+      "analogies_th": [
+        "Melanocyte คือ 'เครื่องพ่นสี' ที่ UV เปิดสวิตช์ — glutathione เหมือนเติมสีอ่อนในถังพ่น แทนสีดำ",
+        "Niacinamide ไม่ได้ปิดเครื่องพ่นสี แต่บล็อก 'ท่อส่งสีจากเครื่องพ่นไปยังผนัง (keratinocyte)'"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12100180/", "org": "Br J Dermatol / PubMed", "source_tier": "A", "year": 2002, "title": "The effect of niacinamide on reducing cutaneous pigmentation — Hakozaki T et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27000386/", "org": "Clin Cosmet Investig Dermatol / PubMed", "source_tier": "A", "year": 2016, "title": "Glutathione as a skin whitening agent: facts, myths, evidence and controversies — Sonthalia S et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hyperpigmentation",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_006",
+      "label_th": "AGE Glycation — น้ำตาลเชื่อมคอลลาเจนถาวร",
+      "label_en": "Advanced Glycation End-products — non-enzymatic collagen crosslinking",
+      "description_th": "น้ำตาล (glucose, fructose) จับกับ amino group ของ lysine/hydroxylysine บนคอลลาเจน (non-enzymatic) → Schiff base → Amadori product → ตามเวลายิ่งนาน → crosslinked AGE เช่น pentosidine, glucosepane; AGE crosslinks ทำให้คอลลาเจน fibril แข็ง (stiff) และสูญเสีย elasticity → ผิวแข็ง ริ้วรอยลึก ผิวเหลือง (skin autofluorescence); AGE สะสมเร็วกว่าในผู้ป่วยเบาหวาน หรือคนที่กินน้ำตาลสูง; half-life ของ dermal collagen ~15 ปี = AGE ที่สะสมแล้วกำจัดออกไม่ได้ง่ายๆ",
+      "description_en": "Reducing sugars (glucose, fructose) condense non-enzymatically with ε-amino groups of lysine/hydroxylysine residues on collagen → Schiff base → Amadori product → further rearrangement over weeks-years → irreversible crosslinked AGEs (pentosidine, glucosepane, CML). AGE crosslinks increase collagen fibril stiffness, reduce elasticity, and cause yellow-brown discolouration (skin autofluorescence). Dermal collagen half-life ~15 years → AGEs accumulate irreversibly. Accelerated in hyperglycemia/diabetes.",
+      "chain": [
+        {"step": 1, "actor": "Glucose/fructose (excess in blood)", "action": "non-enzymatic condensation with -NH₂ of Lys/HyLys on collagen", "target": "collagen lysine residues", "effect": "Schiff base (reversible) formed"},
+        {"step": 2, "actor": "Schiff base", "action": "Amadori rearrangement → more stable ketoamine product", "target": "collagen", "effect": "Amadori product (irreversible if not resolved) — accumulates over weeks"},
+        {"step": 3, "actor": "Amadori products", "action": "further oxidation/dehydration → reactive dicarbonyl intermediates (3-DG, MGO)", "target": "adjacent lysine/arginine on collagen", "effect": "cross-link formation → pentosidine, glucosepane (irreversible covalent bonds)"},
+        {"step": 4, "actor": "AGE crosslinks", "action": "mechanically stiffen collagen fibril network", "target": "dermal extracellular matrix", "effect": "reduced skin elasticity, deeper wrinkles, yellow hue via skin autofluorescence"},
+        {"step": 5, "actor": "AGE-RAGE signaling", "action": "AGEs bind RAGE receptor → NF-kB activation → inflammatory cytokines", "target": "dermal fibroblasts", "effect": "inflammation → suppressed new collagen synthesis — double damage"}
+      ],
+      "analogies_th": [
+        "AGE เหมือน 'กาวติดถาวร' ที่น้ำตาลหยดลงบนเส้นใยคอลลาเจน — ยิ่งหยดนานยิ่งแกะออกไม่ได้",
+        "คอลลาเจนอายุยืน 15 ปี เหมือนสะพานที่สร้างทนนาน แต่ถ้ากินน้ำตาลเยอะก็เหมือนสนิมกัดสะพานไม่หยุด"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/1757889/", "org": "J Clin Invest / PubMed", "source_tier": "A", "year": 1991, "title": "Pentosidine and aging — Sell DR, Monnier VM", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10954734/", "org": "J Invest Dermatol / PubMed", "source_tier": "A", "year": 2000, "title": "Non-enzymatic glycation of skin collagen in aging and diabetes — Verzijl N et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "age_glycation",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_007",
+      "label_th": "Astaxanthin — ดับ singlet oxygen ในเมมเบรน",
+      "label_en": "Astaxanthin antioxidant — membrane singlet oxygen quenching",
+      "description_th": "Astaxanthin เป็น carotenoid ชนิด xanthophyll ที่มีโครงสร้างพิเศษ: หัวและหางมีกลุ่ม hydroxyl + keto (polar) แทรกแนวตั้งข้ามชั้น lipid bilayer — ทำให้สามารถ stabilize membrane และดับ singlet oxygen (¹O₂) ทั้งในส่วน polar และ nonpolar ของ membrane พร้อมกัน; ประสิทธิภาพ quenching ¹O₂ ~100× beta-carotene ใน in vitro (chemiluminescence assay); ยังยับยั้ง NF-kB → ลด IL-6, TNF-α → anti-inflammatory; ป้องกัน UVA-induced MMP induction ใน fibroblast culture",
+      "description_en": "Astaxanthin (3,3'-dihydroxy-β,β-carotene-4,4'-dione) spans lipid bilayers — polar keto/hydroxy groups anchor at both membrane surfaces while the polyene chain sits in the hydrophobic core → singlet oxygen (¹O₂) quenching across full membrane width. In vitro ¹O₂ quenching ~100× β-carotene (Nishida 2007). Additionally suppresses NF-κB pathway → reduces IL-6, TNF-α → anti-inflammatory. In human RCTs (6-12 mg/day oral, 8-16 weeks) statistically significant reductions in wrinkle depth and improved skin elasticity (Tominaga 2012; Ito 2018).",
+      "chain": [
+        {"step": 1, "actor": "UV/visible light or metabolic processes", "action": "generate reactive oxygen species especially singlet oxygen (¹O₂)", "target": "cell membranes, lipid bilayers in skin cells", "effect": "lipid peroxidation chain reaction begins"},
+        {"step": 2, "actor": "Astaxanthin (membrane-spanning position)", "action": "physical energy transfer from ¹O₂ → triplet astaxanthin* → heat", "target": "singlet oxygen in membrane", "effect": "¹O₂ quenched without producing secondary radicals — catalytic cycle"},
+        {"step": 3, "actor": "Astaxanthin", "action": "inhibits NF-kB nuclear translocation", "target": "keratinocyte/fibroblast nuclei", "effect": "reduced IL-6, IL-1β, TNF-α secretion — anti-inflammatory"},
+        {"step": 4, "actor": "Reduced NF-kB activity", "action": "suppresses MMP-1/MMP-3 upregulation", "target": "collagen", "effect": "less collagen degradation → preserved dermal structure"}
+      ],
+      "analogies_th": [
+        "Astaxanthin คือ 'เสื้อกันกระสุน' ที่ยาวพอแนบกับทั้งหน้าและหลังของเมมเบรน — ต่างจาก beta-carotene ที่ลงแค่ครึ่งหน้า",
+        "มันไม่ใช่สารต้านอนุมูลอิสระที่ 'สู้แล้วตาย' — มันดูดพลังงานแล้วคืนเป็นความร้อน แล้วใช้ได้ใหม่ (catalytic)"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21569256/", "org": "Mar Drugs / PubMed", "source_tier": "A", "year": 2011, "title": "Astaxanthin: A Review of its Chemistry and Applications — Ambati RR et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22428137/", "org": "Acta Biochim Pol / PubMed", "source_tier": "A", "year": 2012, "title": "Cosmetic benefits of astaxanthin on human subjects — Tominaga K et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "antioxidants_glutathione",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_008",
+      "label_th": "Vitamin C — cofactor คอลลาเจนและต้าน ROS",
+      "label_en": "Vitamin C — collagen cofactor and antioxidant in skin",
+      "description_th": "Vitamin C (L-ascorbic acid) ทำหน้าที่ 3 อย่างในผิว: (1) Collagen cofactor — ให้ e⁻ แก่ Fe²⁺ ใน prolyl/lysyl hydroxylase เพื่อ hydroxylate proline → 4-Hyp → ถ้าขาด triple helix ไม่เสถียร; (2) Antioxidant — donate e⁻ neutralize ROS โดยตรง (แล้ว vitamin E regenerate vitamin C กลับ); (3) Tyrosinase inhibitor ทางอ้อม — ลด DOPA oxidation → ลด eumelanin; topical L-ascorbic acid ต้องใช้ pH <3.5 + 10-20% เพื่อ penetrate SC; ferulic acid + vitamin E stabilize VC และเพิ่ม photoprotection ~8×",
+      "description_en": "L-ascorbic acid serves three roles in skin: (1) Collagen cofactor — donates electrons to Fe²⁺-dependent prolyl/lysyl hydroxylase → 4-hydroxyproline formation → triple helix stability (scurvy when deficient); (2) Antioxidant — directly neutralizes ROS (O₂⁻, H₂O₂, ¹O₂), regenerated by vitamin E cycle; (3) Indirect melanogenesis inhibitor — reduces o-dopaquinone → reduces eumelanin. Topical formulation: pH <3.5 required for stratum corneum penetration, 10-20% optimal (Pinnell 2001). Ferulic acid + tocopherol co-formulation stabilizes VC and enhances photoprotection ~8-fold (Lin 2005).",
+      "chain": [
+        {"step": 1, "actor": "Prolyl hydroxylase (Fe²⁺ enzyme)", "action": "requires ascorbate to reduce Fe³⁺ → Fe²⁺ after each catalytic cycle", "target": "proline residue on procollagen", "effect": "4-hydroxyproline formed → triple helix stability"},
+        {"step": 2, "actor": "L-ascorbic acid (topical, pH <3.5)", "action": "penetrates stratum corneum via passive diffusion through lipid pathway", "target": "epidermis and dermis", "effect": "local ascorbate concentration builds in skin"},
+        {"step": 3, "actor": "Ascorbate (intracellular)", "action": "neutralizes ROS by donating H⁺ → ascorbate radical → dehydroascorbate", "target": "ROS in keratinocytes/fibroblasts", "effect": "oxidative stress reduced — skin cell survival"},
+        {"step": 4, "actor": "Ascorbate radical", "action": "regenerated by vitamin E / glutathione / NADH cycle", "target": "antioxidant network", "effect": "Vitamin C acts catalytically — small amounts have multiplied effect when network intact"}
+      ],
+      "analogies_th": [
+        "Vitamin C ในการสร้างคอลลาเจนคือ 'หัวหมุนเครื่อง' ที่ต้องตั้งค่าใหม่ทุกรอบ — ถ้าขาดหัวหมุน โรงงานหยุด",
+        "Vitamin C คือ 'ผู้พิทักษ์' ที่กินกระสุน ROS แทนผิว แล้ว vitamin E ช่วยรื้อฟื้น C กลับ — ทั้งคู่ทำงานเป็นทีม"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11705373/", "org": "J Invest Dermatol / PubMed", "source_tier": "A", "year": 2001, "title": "Topical L-ascorbic acid: percutaneous absorption studies — Pinnell SR et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15982977/", "org": "J Invest Dermatol / PubMed", "source_tier": "A", "year": 2005, "title": "UV photoprotection by combination topical antioxidants vitamin C and vitamin E — Lin FH et al. (ferulic acid study)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "vitamin_c_topical",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_009",
+      "label_th": "Sleep-Skin axis — cortisol รบกวนการซ่อมผิวตอนกลางคืน",
+      "label_en": "Sleep-skin axis — cortisol disrupts nocturnal skin repair",
+      "description_th": "ในช่วงหลับลึก (NREM stage 3) ร่างกายหลั่ง growth hormone (GH) และ IGF-1 สูง → กระตุ้น fibroblast สร้างคอลลาเจน และ keratinocyte proliferation; blood flow ไปผิวเพิ่ม 20-30% → ออกซิเจนและสารอาหารส่งถึงผิวมากขึ้น; skin temperature สูงขึ้น → TEWL เพิ่มชั่วคราว → skin permeability เพิ่ม → barrier repair activity เพิ่ม (acid mantle แข็งแกร่งขึ้น); การนอนน้อย/นอนไม่หลับ → cortisol สูง → cortisol ยับยั้ง fibroblast proliferation + ลด collagen synthesis + เพิ่ม MMP → skin barrier ฟื้นช้าลง ~2×",
+      "description_en": "During deep NREM sleep: GH/IGF-1 peaks → fibroblast collagen synthesis + keratinocyte proliferation activated; cutaneous blood flow increases ~20-30%; skin temperature rises → TEWL increases transiently → barrier repair programs activated. Poor sleep → chronically elevated cortisol → cortisol suppresses fibroblast proliferation + reduces procollagen synthesis + induces MMP-1 → net collagen loss + impaired barrier recovery (2× slower per Oyetakin-White 2015). Melatonin (nighttime) also has direct antioxidant effects on skin.",
+      "chain": [
+        {"step": 1, "actor": "NREM Stage 3 deep sleep", "action": "hypothalamus releases GHRH → pituitary releases GH burst", "target": "systemic circulation", "effect": "GH → liver IGF-1 → anabolic signaling in fibroblasts"},
+        {"step": 2, "actor": "IGF-1 in dermis", "action": "binds IGF-1R on fibroblasts → PI3K/Akt/mTOR pathway", "target": "dermal fibroblasts", "effect": "increased COL1A1/COL1A2 transcription + fibroblast proliferation"},
+        {"step": 3, "actor": "Poor sleep (cortisol elevation)", "action": "cortisol binds GR → GR-AP1 interaction → represses collagen gene transcription; activates MMP-1", "target": "fibroblast nucleus", "effect": "double hit: less new collagen + more collagen degradation"},
+        {"step": 4, "actor": "Cortisol (chronically elevated)", "action": "impairs skin barrier repair (blocks ceramide synthesis)", "target": "keratinocytes in stratum corneum", "effect": "TEWL remains high → dry, reactive, inflamed skin"}
+      ],
+      "analogies_th": [
+        "กลางคืนคือ 'กะซ่อมโรงงาน' ที่ทีม (GH/IGF-1) เข้ามาซ่อมคอลลาเจน — ถ้านอนน้อยก็เหมือนไม่ให้ทีมซ่อมเข้า",
+        "Cortisol คือ 'หัวหน้าที่กดดันคนงาน' — คนงาน (fibroblast) งานยังไม่เสร็จก็ถูกสั่งหยุด"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25266053/", "org": "Clin Exp Dermatol / PubMed", "source_tier": "A", "year": 2015, "title": "Does poor sleep quality affect skin ageing? — Oyetakin-White P et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "collagen_synthesis",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_skin_010",
+      "label_th": "สิวฮอร์โมน — androgen → sebum → C. acnes",
+      "label_en": "Hormonal acne — androgen-sebaceous gland-C. acnes cascade",
+      "description_th": "Androgen (testosterone, DHT) จับ androgen receptor (AR) บน sebocyte → กระตุ้นต่อมไขมัน (sebaceous gland) ผลิต sebum เพิ่ม + กระตุ้น keratinocyte hyperproliferation อุดปาก follicle → microcomedone; Cutibacterium acnes (C. acnes) ใน follicle ย่อย sebum triglycerides → free fatty acids → กระตุ้น TLR-2 บน keratinocyte → IL-1α → อักเสบ; ผู้หญิงสิวฮอร์โมนมักเห่อช่วง luteal phase (โปรเจสเตอโรน↑ → 5α-reductase↑ → DHT↑); zinc ยับยั้ง 5α-reductase บางส่วน + ต้าน C. acnes → ลดสิวอักเสบ ~40-50%",
+      "description_en": "Androgens (T, DHT) bind AR on sebocytes → sebum hypersecretion + keratinocyte hyperproliferation → follicular occlusion (microcomedone) → C. acnes overgrowth → C. acnes lipase cleaves sebum triglycerides → free fatty acids + porphyrins → TLR-2 activation → IL-1α, IL-8, TNF-α → inflammatory cascade = papule/pustule. Hormonal female acne flares in luteal phase (progesterone → local 5α-reductase increase → DHT spike). Zinc inhibits 5α-reductase partially + direct C. acnes antibacterial → 40-50% inflammatory lesion reduction.",
+      "chain": [
+        {"step": 1, "actor": "DHT (dihydrotestosterone)", "action": "binds androgen receptor (AR) on sebocyte", "target": "sebaceous gland", "effect": "↑sebum production — comedogenic lipid mixture"},
+        {"step": 2, "actor": "Excess sebum + keratinocyte proliferation", "action": "occlude follicular ostium", "target": "hair follicle opening", "effect": "microcomedone → comedone (black/whitehead)"},
+        {"step": 3, "actor": "C. acnes", "action": "proliferates in anaerobic comedone environment → secretes lipase → FFA + propionibacterial porphyrins", "target": "follicular environment", "effect": "chemical irritation + TLR-2 activation on follicular keratinocytes"},
+        {"step": 4, "actor": "TLR-2 activation", "action": "NF-kB pathway → IL-1α, IL-8, TNF-α release", "target": "follicular wall", "effect": "inflammatory infiltrate → papule/pustule/nodule"}
+      ],
+      "analogies_th": [
+        "ต่อมไขมันคือ 'โรงงานน้ำมัน' ที่ DHT กดปุ่มเดินเครื่องเต็มกำลัง — C. acnes คือ 'ผู้บุกรุก' ที่มากินน้ำมันที่넘เปี่ยม",
+        "สิวฮอร์โมนไม่ใช่เพราะล้างหน้าไม่สะอาด — มันเป็นเรื่องของ 'น้ำมันล้น' และ 'แบคทีเรียในท่อ'"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29243351/", "org": "J Drugs Dermatol / PubMed", "source_tier": "A", "year": 2018, "title": "The role of zinc in the treatment of acne — Cervantes J et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24688624/", "org": "J Clin Aesthet Dermatol / PubMed", "source_tier": "A", "year": 2014, "title": "The role of inflammation in the pathology of acne — Tanghetti EA", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hormonal_acne",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_skin_011",
+      "label_th": "Skin Barrier — เกราะ brick-and-mortar ป้องกัน TEWL",
+      "label_en": "Skin barrier function — stratum corneum brick-and-mortar model",
+      "description_th": "Stratum corneum (SC) = 15-20 layer ของ corneocyte (anucleate, keratin-filled cells = 'bricks') ฝังใน lipid lamellae (mortar) ประกอบด้วย ceramides ~50%, cholesterol ~25%, free fatty acids ~15%; lipid lamellae สร้างโดย lamellar bodies ที่หลั่งออกมาระหว่าง cornification; SC ป้องกัน TEWL 99% — ถ้า ceramide ลดลง/ถูก detergent ทำลาย/pH ผิดเพี้ยน (>6) → lipid lamellae ไม่สมบูรณ์ → TEWL เพิ่ม → ผิวแห้ง/อักเสบ/แพ้ง่าย; Filaggrin breakdown → amino acids → NMF (natural moisturizing factor) รักษา SC hydration 10-30%",
+      "description_en": "Stratum corneum: 15-20 layers of corneocytes ('bricks') surrounded by lipid lamellae ('mortar') — ~50% ceramides, ~25% cholesterol, ~15% free fatty acids (Feingold 2007). Lamellar bodies in upper SG exocytose lipid precursors at SG-SC interface → ceramide synthesis from glucosylceramides/sphingomyelin. Ceramide deficiency (atopic dermatitis, aging, SLS damage) → lipid lamellar gaps → elevated TEWL → barrier-compromised skin. Filaggrin proteolysis → pyrrolidone carboxylic acid (PCA), urocanic acid, amino acids → NMF → SC hydration. SC pH 4.5-5.5 = acid mantle; alkaline disruption impairs lipid processing enzymes (beta-glucocerebrosidase).",
+      "chain": [
+        {"step": 1, "actor": "Upper granular layer (stratum granulosum)", "action": "lamellar bodies exocytose glucosylceramides, phospholipids, cholesterol at SG-SC junction", "target": "intercellular space", "effect": "precursors for lipid lamellae secreted"},
+        {"step": 2, "actor": "Lipid-processing enzymes (beta-GCase, sphingomyelinase)", "action": "convert glucosylceramides → ceramides; sphingomyelin → ceramides (acid mantle pH 5 required)", "target": "intercellular space", "effect": "lipid lamellae assembled with correct ceramide:cholesterol:FFA ratio"},
+        {"step": 3, "actor": "Mature lipid lamellae", "action": "form continuous lamellar sheets between corneocytes", "target": "stratum corneum", "effect": "tortuous water barrier — TEWL minimized (<10 g/m²/h normal)"},
+        {"step": 4, "actor": "Barrier disruption (SLS, over-washing, retinol, low humidity)", "action": "solubilize SC lipids → lamellar gaps", "target": "intercellular lipid lamellae", "effect": "TEWL rises → cytokine signal (IL-1α, TNF-α) to basal keratinocytes for emergency repair"}
+      ],
+      "analogies_th": [
+        "SC คือ 'กำแพงอิฐ' — อิฐคือ corneocyte, ปูนคือ lipid ceramide; ถ้าปูน (ceramide) หลุด น้ำรั่วผ่านทุกรอยแตก",
+        "SC얇กว่ากระดาษ แต่ป้องกันน้ำระเหยได้ 99% — เหมือนฟิล์ม Gore-Tex บางๆ ที่กันลมกันน้ำ แต่ระบายอากาศได้"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/16434297/", "org": "J Invest Dermatol Symp Proc / PubMed", "source_tier": "A", "year": 2005, "title": "Stratum corneum and beyond — Elias PM", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15303105/", "org": "J Lipid Res / PubMed", "source_tier": "A", "year": 2003, "title": "The skin barrier: lipids and abnormalities — Feingold KR", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "skin_barrier",
+      "confidence": "high"
+    }
+  ]
+}

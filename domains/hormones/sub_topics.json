@@ -1,0 +1,214 @@
+{
+  "domain_id": "hormones",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 12,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.hormones"
+  },
+  "sub_topics": [
+    {
+      "id": "insulin_resistance",
+      "label_th": "ภาวะดื้ออินซูลิน / แกนอินซูลิน",
+      "label_en": "Insulin Resistance / Insulin Axis",
+      "description": "เซลล์ตอบสนองต่ออินซูลินแย่ลง → ตับอ่อนปล่อยอินซูลินมากขึ้น → อินซูลินสูงเรื้อรัง (hyperinsulinemia) เป็นสวิตช์ 'เก็บไขมัน' + หัวใจของ metabolic syndrome (ADA 2023; Taylor twin cycle)",
+      "key_concepts": [
+        "hyperinsulinemia",
+        "HOMA-IR >2.5",
+        "fasting insulin <10 mIU/L normal",
+        "GLUT4",
+        "insulin → suppresses HSL",
+        "insulin → activates SREBP-1c → DNL"
+      ],
+      "related_sub_topics": ["cortisol_HPA", "leptin_signaling", "hypothyroidism", "growth_hormone"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "testosterone_decline",
+      "label_th": "เทสโทสเตอโรนลดตามวัย / แอนโดรพอส",
+      "label_en": "Testosterone Decline / Andropause",
+      "description": "ผู้ชายเสียเทสโทสเตอโรน ~1% ต่อปีหลังอายุ 30; ทั้ง individual aging + generational decline (Travison JAMA 2007) — low T สัมพันธ์กับ obesity, insulin resistance, poor sleep, chronic stress มากกว่าอายุล้วน ๆ",
+      "key_concepts": [
+        "total T 264-916 ng/dL (Endocrine Society)",
+        "free T",
+        "SHBG",
+        "LH",
+        "hypogonadism",
+        "secular decline"
+      ],
+      "related_sub_topics": ["cortisol_HPA", "insulin_resistance", "estrogen_metabolism"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "estrogen_metabolism",
+      "label_th": "เอสโตรเจนและการเมตาบอไลซ์",
+      "label_en": "Estrogen Metabolism",
+      "description": "Estradiol (E2), estrone (E1), estriol (E3) — ผลิตที่รังไข่/รก/adipose via aromatase; เมตาบอไลซ์ผ่าน 2-OH (protective), 4-OH (DNA-damaging), 16-OH pathways; DIM/I3C จาก cruciferous ช่วยชิฟไปทาง 2-OH",
+      "key_concepts": [
+        "aromatase (adipose)",
+        "2-OH vs 4-OH vs 16-OH",
+        "ER-alpha / ER-beta",
+        "DIM / I3C",
+        "estrogen dominance",
+        "estrobolome"
+      ],
+      "related_sub_topics": ["testosterone_decline", "pcos", "menopause_hrt"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "cortisol_HPA",
+      "label_th": "คอร์ติซอล / แกน HPA",
+      "label_en": "Cortisol & HPA Axis",
+      "description": "Hypothalamus→pituitary→adrenal — CRH→ACTH→cortisol; ปกติพุ่งตอนเช้า (CAR peak 06:00-08:00) ต่ำตอนนอน; stress เรื้อรังทำ HPA dysregulate → visceral fat, insulin resistance, hippocampal atrophy (McEwen allostatic load)",
+      "key_concepts": [
+        "CRH",
+        "ACTH",
+        "cortisol awakening response (CAR)",
+        "diurnal rhythm",
+        "HPA dysregulation",
+        "allostatic load",
+        "11β-HSD1"
+      ],
+      "related_sub_topics": ["insulin_resistance", "melatonin_circadian", "testosterone_decline"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "hypothyroidism",
+      "label_th": "ไทรอยด์ต่ำ / แกน HPT",
+      "label_en": "Hypothyroidism / HPT Axis",
+      "description": "TSH (ต่อมใต้สมอง) กระตุ้นไทรอยด์ผลิต T4 → deiodinase แปลงเป็น T3 ที่เนื้อเยื่อ; Hashimoto's = สาเหตุหลักในประเทศพัฒนา (iodine-sufficient); อาการ: เหนื่อย, ตัวบวม, ขี้หนาว, อ้วนง่าย, ท้องผูก — แต่ thyroid weight gain ส่วนใหญ่ 2-4 กิโลเท่านั้น",
+      "key_concepts": [
+        "TSH 0.4-4.0 mIU/L",
+        "free T4",
+        "free T3",
+        "reverse T3",
+        "anti-TPO antibodies",
+        "Hashimoto's thyroiditis",
+        "subclinical hypothyroidism"
+      ],
+      "related_sub_topics": ["cortisol_HPA", "insulin_resistance"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "growth_hormone",
+      "label_th": "โกรทฮอร์โมน / IGF-1",
+      "label_en": "Growth Hormone / IGF-1 Axis",
+      "description": "GH ปล่อยเป็น pulse จากต่อมใต้สมองส่วนหน้า โดยเฉพาะในช่วง SWS (deep sleep) + fasting; GH → IGF-1 (ตับ); fasting 5 วันเพิ่ม GH pulse frequency จาก 5.8 → 9.9 /24h (Ho 1988); IF + sleep คือวิธี non-pharma ที่ยืนยันได้",
+      "key_concepts": [
+        "pulsatile secretion",
+        "GHRH / somatostatin",
+        "IGF-1",
+        "SWS peak",
+        "fasting-induced pulse amplification",
+        "somatopause"
+      ],
+      "related_sub_topics": ["insulin_resistance", "melatonin_circadian", "testosterone_decline"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "leptin_signaling",
+      "label_th": "เลปติน / สัญญาณอิ่ม",
+      "label_en": "Leptin Signaling",
+      "description": "Adipocyte-derived satiety signal ไป hypothalamus (arcuate nucleus POMC/AgRP); obesity = leptin resistance (high leptin, no signal); women have 2-3× leptin at same BMI (Morris & Rui 2009; Friedman retrospective 2014)",
+      "key_concepts": [
+        "LEPRb receptor",
+        "JAK2/STAT3",
+        "SOCS3 negative feedback",
+        "POMC / AgRP neurons",
+        "hypothalamic inflammation",
+        "sex-dimorphic secretion"
+      ],
+      "related_sub_topics": ["insulin_resistance", "ghrelin_satiety", "melatonin_circadian"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "ghrelin_satiety",
+      "label_th": "เกรลิน / ฮอร์โมนหิว",
+      "label_en": "Ghrelin / Hunger Hormone",
+      "description": "ปล่อยจาก gastric X/A-like cells; pre-meal surge + suppressed by eating; sleep deprivation เพิ่ม ghrelin ~28% (Spiegel 2004); fiber/protein suppresses ghrelin นาน — tool key ของ UncleD ในการเรื่อง 'คุมหิว'",
+      "key_concepts": [
+        "acyl-ghrelin active form",
+        "GHSR receptor",
+        "pre-meal peak",
+        "sleep deprivation effect",
+        "protein/fiber suppression"
+      ],
+      "related_sub_topics": ["leptin_signaling", "insulin_resistance", "melatonin_circadian"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "melatonin_circadian",
+      "label_th": "เมลาโทนิน / นาฬิกาชีวภาพ",
+      "label_en": "Melatonin / Circadian Hormone",
+      "description": "Pineal gland ปล่อย melatonin ตอน dim light → peak 02:00-04:00; คุม sleep/wake + กระทบทุกฮอร์โมน (cortisol, GH, testosterone, insulin sensitivity); blue light at night suppress melatonin 50%+ (Harvard/Czeisler)",
+      "key_concepts": [
+        "pineal gland",
+        "dim light melatonin onset (DLMO)",
+        "MT1 / MT2 receptors",
+        "blue light suppression",
+        "shift work chronobiology"
+      ],
+      "related_sub_topics": ["cortisol_HPA", "growth_hormone", "testosterone_decline"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "dhea_adrenal",
+      "label_th": "DHEA / ต่อมหมวกไต",
+      "label_en": "DHEA / Adrenal Androgens",
+      "description": "DHEA/DHEAS ผลิตจาก adrenal cortex — เป็น precursor ของทั้ง T และ E2; peak อายุ 25 แล้วค่อย ๆ ลด ~80% ที่อายุ 70; 'adrenopause'; เสริมมีหลักฐานปานกลาง (T3 consensus)",
+      "key_concepts": [
+        "DHEA-S most abundant steroid",
+        "adrenal zona reticularis",
+        "sex-steroid precursor",
+        "adrenopause",
+        "supplementation debate"
+      ],
+      "related_sub_topics": ["testosterone_decline", "estrogen_metabolism", "cortisol_HPA"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "pcos",
+      "label_th": "PCOS / ถุงน้ำรังไข่",
+      "label_en": "Polycystic Ovary Syndrome",
+      "description": "ความชุก 6-13% ของหญิงวัยเจริญพันธุ์ (WHO); Rotterdam criteria: 2/3 ของ hyperandrogenism + ovulatory dysfunction + polycystic ovaries; insulin resistance เป็นแกนกลาง (Dunaif); myo-inositol + metformin ช่วยได้",
+      "key_concepts": [
+        "Rotterdam criteria",
+        "hyperandrogenism",
+        "anovulation",
+        "insulin resistance core",
+        "myo-inositol",
+        "LH/FSH ratio"
+      ],
+      "related_sub_topics": ["insulin_resistance", "estrogen_metabolism", "testosterone_decline"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "menopause_hrt",
+      "label_th": "วัยทอง / เมโนพอส + HRT",
+      "label_en": "Menopause / HRT",
+      "description": "Average age 51 (range 45-55); estradiol drop → vasomotor, bone loss, sleep fragmentation, metabolic shift; WHI 2002 overstated risk — North American Menopause Society 2022: HRT เหมาะสำหรับ symptomatic women <60 หรือ <10 ปีหลังเมโนพอส",
+      "key_concepts": [
+        "perimenopause",
+        "FSH >30 IU/L",
+        "estradiol collapse",
+        "vasomotor symptoms (VMS)",
+        "WHI reanalysis",
+        "timing hypothesis"
+      ],
+      "related_sub_topics": ["estrogen_metabolism", "insulin_resistance", "cortisol_HPA"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    }
+  ]
+}

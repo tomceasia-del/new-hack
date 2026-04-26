@@ -1,0 +1,97 @@
+{
+  "domain_id": "life_coaching",
+  "primary_th": [
+    "นิสัย",
+    "วินัย",
+    "ความคิด",
+    "กรอบความคิด",
+    "แรงจูงใจ",
+    "ผัดวันประกันพรุ่ง",
+    "เป้าหมาย",
+    "สติ",
+    "ความยืดหยุ่นทางจิตใจ",
+    "การตัดสินใจ"
+  ],
+  "primary_en": [
+    "habit",
+    "discipline",
+    "mindset",
+    "motivation",
+    "procrastination",
+    "goal setting",
+    "self-control",
+    "willpower",
+    "behavior change",
+    "life coaching"
+  ],
+  "aliases_th": [
+    "สร้างนิสัย",
+    "เลิกผัดวันประกันพรุ่ง",
+    "พัฒนาตัวเอง",
+    "ปรับความคิด",
+    "วินัยตัวเอง",
+    "คนสำเร็จ",
+    "เปลี่ยนพฤติกรรม",
+    "ความสุข",
+    "จิตวิทยาความสำเร็จ",
+    "ลงมือทำ"
+  ],
+  "aliases_en": [
+    "atomic habits",
+    "growth mindset",
+    "fixed mindset",
+    "nudge",
+    "self-discipline",
+    "behavior design",
+    "habit loop",
+    "identity-based habits",
+    "tiny habits",
+    "delayed gratification"
+  ],
+  "jargon_th": [
+    "Habit Loop",
+    "Cue-Routine-Reward",
+    "Implementation Intention",
+    "Self-Determination Theory",
+    "Cognitive Behavioral",
+    "Ego Depletion",
+    "Executive Function",
+    "Neuroplasticity",
+    "Default Mode Network",
+    "WOOP Method"
+  ],
+  "jargon_en": [
+    "habit stack",
+    "temptation bundling",
+    "loss aversion",
+    "cognitive distortion",
+    "intrinsic motivation",
+    "extrinsic motivation",
+    "self-efficacy",
+    "psychological flexibility",
+    "autonomy support",
+    "positive psychology"
+  ],
+  "regex_patterns": [
+    {
+      "pattern": "นิสัย|habit",
+      "case_insensitive": true,
+      "description": "core habit keyword"
+    },
+    {
+      "pattern": "ผัดวัน|procrastinat",
+      "case_insensitive": true,
+      "description": "procrastination"
+    },
+    {
+      "pattern": "วินัย|discipline|self.control",
+      "case_insensitive": true,
+      "description": "discipline / self-control"
+    },
+    {
+      "pattern": "growth mindset|fixed mindset|กรอบความคิด",
+      "case_insensitive": true,
+      "description": "mindset keywords"
+    }
+  ]
+}

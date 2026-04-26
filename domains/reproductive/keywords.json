@@ -1,0 +1,23 @@
+{
+  "domain_id": "reproductive",
+  "primary_th": [
+    "เพศ",
+    "จู๋",
+    "จิ๋ม",
+    "แข็งตัว",
+    "ลิบิโด"
+  ],
+  "primary_en": [
+    "sexual",
+    "libido",
+    "erectile",
+    "fertility",
+    "testosterone",
+    "estrogen"
+  ],
+  "aliases_th": [],
+  "aliases_en": [],
+  "jargon_th": [],
+  "jargon_en": [],
+  "regex_patterns": []
+}

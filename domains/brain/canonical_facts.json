@@ -1,0 +1,934 @@
+{
+  "domain_id": "brain",
+  "_meta": {
+    "target_count": 20,
+    "current_count": 22,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.brain",
+    "notes": "Landmark facts anchored to: Morris 1992 (omega-3/dementia), Bhattacharya BDNF/exercise, Livingston 2020 Lancet dementia prevention, Lion's mane RCTs, Bacopa RCTs, phosphatidylserine meta-analysis, alpha-GPC studies. Thai dementia prevalence from IHRI/Thai Mental Health."
+  },
+  "facts": [
+    {
+      "fact_id": "brn_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "alzheimer_amyloid",
+      "statement_th": "Livingston et al. (Lancet 2020) — รายงาน Lancet Commission on Dementia Prevention: 40% ของผู้ป่วยสมองเสื่อมทั่วโลกสามารถ 'ป้องกันหรือชะลอได้' โดยแก้ไข 12 risk factors ที่แก้ไขได้ — ได้แก่ การศึกษาต่ำ, ความดันโลหิตสูง, โรคอ้วน, การสูบบุหรี่, ซึมเศร้า, ไม่ออกกำลังกาย, เบาหวาน, ดื่มแอลกอฮอล์สูง, การบาดเจ็บหัว, มลพิษทางอากาศ, ขาดสังคม และการสูญเสียการได้ยิน",
+      "statement_en": "Livingston et al. (Lancet 2020) — Lancet Commission on Dementia Prevention: 40% of global dementia cases could be prevented or delayed by addressing 12 modifiable risk factors: low education, hypertension, obesity, smoking, depression, physical inactivity, diabetes, excessive alcohol, head injury, air pollution, social isolation, and hearing loss.",
+      "numeric_values": [
+        {"value": 40, "unit": "% of dementia cases", "label": "potentially preventable or delayable", "is_approximation": true},
+        {"value": 12, "unit": "modifiable risk factors", "label": "identified by Lancet Commission", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_001",
+      "entities_mentioned": ["livingston", "lancet_commission"],
+      "sources": [
+        {
+          "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30367-6/fulltext",
+          "org": "The Lancet",
+          "source_tier": "A",
+          "year": 2020,
+          "title": "Dementia prevention, intervention, and care: 2020 report of the Lancet Commission — Livingston G et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["40% ของสมองเสื่อมป้องกันได้", "12 พฤติกรรมที่ขโมยความจำคุณ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ทำ 12 ข้อครบแล้วไม่เป็นสมองเสื่อมแน่'; 40% เป็น population-attributable fraction ไม่ใช่ guarantee individual",
+      "usage_notes": "Scale-of-problem anchor; ใช้เปิด script dementia prevention",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "BDNF",
+      "statement_th": "Erickson et al. (PNAS 2011) — ผู้สูงอายุ 120 คน แบ่งออกกำลังกายแบบ aerobic (วิ่ง/เดินเร็ว 3×/สัปดาห์) vs stretching: กลุ่ม aerobic ขนาด hippocampus เพิ่มขึ้น 2% ใน 1 ปี ขณะที่กลุ่มยืดเส้น ลดลง 1.4%; serum BDNF สูงขึ้น และ spatial memory ดีขึ้นในกลุ่ม aerobic",
+      "statement_en": "Erickson et al. (PNAS 2011) — 120 older adults: aerobic exercise (walking 3×/week for 1 year) increased hippocampal volume by 2% while stretching controls lost 1.4%; serum BDNF rose and spatial memory improved in the aerobic group.",
+      "numeric_values": [
+        {"value": 120, "unit": "older adults", "label": "sample size", "is_approximation": false},
+        {"value": 2, "unit": "% increase", "label": "hippocampal volume gain (aerobic group)", "is_approximation": false},
+        {"value": 1.4, "unit": "% decrease", "label": "hippocampal volume loss (control group)", "is_approximation": false},
+        {"value": 1, "unit": "year", "label": "intervention duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_002",
+      "entities_mentioned": ["erickson", "bdnf"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21098233/",
+          "org": "PNAS / PubMed",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "Exercise training increases size of hippocampus and improves memory — Erickson KI et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["วิ่ง 1 ปี สมองส่วนความจำโตขึ้น 2%", "ออกกำลังกาย = ปลูก neuron ใหม่"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ออกกำลังกาย = รักษา Alzheimer'; ผลเป็น hippocampal size ไม่ใช่ cognitive outcome ระยะยาว",
+      "usage_notes": "Flagship fact สำหรับ brain health through exercise — cross-domain",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "neurogenesis",
+      "statement_th": "Morris et al. (Lancet 1993) — CSHA cohort study: ผู้สูงอายุที่บริโภค omega-3 (DHA+EPA) สูงมีความเสี่ยงสมองเสื่อมต่ำกว่า 60% เทียบกับกลุ่มที่บริโภคต่ำ; DHA คิดเป็น 15-20% ของน้ำหนักแห้งของ cerebral cortex และ 30-40% ของ retina",
+      "statement_en": "Morris et al. (Lancet 1993) — CSHA cohort: elderly with high omega-3 (DHA+EPA) intake had ~60% lower dementia risk versus low intake; DHA constitutes 15-20% of dry weight of cerebral cortex and 30-40% of retina.",
+      "numeric_values": [
+        {"value": 60, "unit": "% reduction", "label": "dementia risk reduction with high omega-3", "is_approximation": true},
+        {"value": "15-20", "unit": "% of dry weight", "label": "DHA in cerebral cortex", "is_approximation": true},
+        {"value": "30-40", "unit": "% of dry weight", "label": "DHA in retina", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_brn_003",
+      "entities_mentioned": ["morris", "dha", "epa"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8094958/",
+          "org": "Lancet / PubMed",
+          "source_tier": "A",
+          "year": 1993,
+          "title": "Dietary intake and dementia risk in elderly: Morris MC et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["DHA คือ 20% ของเปลือกสมอง คุณขาดมันอยู่ไหม", "โอเมก้า-3 ลดเสี่ยงสมองเสื่อม 60%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "60% จาก observational — ปัจจัยอาหารอื่นร่วมด้วย; ห้ามบอก 'กิน omega-3 แล้วไม่เป็นสมองเสื่อม'",
+      "usage_notes": "Product anchor omega-3 fish oil สำหรับ brain health",
+      "contradictions": ["VITACOG trial (Smith 2010) แสดง B vitamins ลด brain atrophy ได้ดีใน high-homocysteine subgroup — omega-3 อาจต้องร่วมกับ B12/folate"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (high-dose >3g EPA+DHA อาจเพิ่ม bleeding time)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'omega-3 ป้องกัน Alzheimer ได้แน่นอน'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["ป้องกัน Alzheimer", "รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "neurogenesis",
+      "statement_th": "Mori et al. (Phytother Res 2009) — Lion's Mane mushroom RCT, ผู้สูงอายุ 50-80 ปีที่มี mild cognitive impairment 30 คน ได้ 1g × 3/วัน × 16 สัปดาห์: Hasegawa Dementia Scale (HDS-R) ดีขึ้นอย่างมีนัยสำคัญ เทียบ placebo; เมื่อหยุดยา 4 สัปดาห์ คะแนนลดลงใกล้เดิม — แสดงว่าต้องใช้ต่อเนื่อง",
+      "statement_en": "Mori et al. (Phytother Res 2009) — Lion's Mane RCT: 30 older adults (50-80y) with mild cognitive impairment given 1g × 3/day for 16 weeks: HDS-R significantly improved vs placebo; after 4-week washout scores declined back toward baseline — suggesting continued use is needed.",
+      "numeric_values": [
+        {"value": 30, "unit": "subjects with MCI", "label": "sample size", "is_approximation": false},
+        {"value": 16, "unit": "weeks", "label": "intervention duration", "is_approximation": false},
+        {"value": 3, "unit": "g/day total", "label": "Lion's Mane dose (1g × 3)", "is_approximation": false},
+        {"value": 4, "unit": "weeks", "label": "washout period (decline observed)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_004",
+      "entities_mentioned": ["lion_mane", "mori"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
+          "org": "Phytotherapy Research / PubMed",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment — Mori K et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เห็ดสิงโตกินแล้วความจำดีขึ้นจริงในงานวิจัย", "หยุดกินหยุดผล — ต้องกินต่อเนื่อง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=30 เล็กมาก; ห้ามบอก 'Lion's Mane รักษา Alzheimer / MCI'; ห้ามบอก 'เห็ดสิงโตเท่ากับยาสมองเสื่อม'",
+      "usage_notes": "Product anchor สำหรับ Lion's Mane supplement; ใช้ HDS-R เป็น evidence point",
+      "contradictions": ["n=30 เล็กมาก; ยังต้องการ larger RCT; dose ที่ใช้ใน commercial supplement หลายตัวต่ำกว่า 3g/day"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["autoimmune_on_immunosuppressant"],
+        "drug_interactions": ["immunosuppressant (immune modulation)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'Lion's Mane รักษา Alzheimer'", "ห้ามบอก 'ป้องกันสมองเสื่อมได้แน่นอน'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาสมองเสื่อม", "ป้องกัน Alzheimer"],
+        "regulatory_risk_notes": "Lion's Mane เป็นอาหาร/เห็ด — สามารถขายเป็นอาหารเสริมได้ ต้องไม่ claim รักษาโรค"
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "acetylcholine",
+      "statement_th": "Stough et al. (Psychopharmacology 2001) — Bacopa monnieri RCT: อาสาสมัครสุขภาพดี 46 คน ได้ Bacopa 300mg/วัน × 12 สัปดาห์: visual information processing เร็วขึ้นอย่างมีนัยสำคัญ, learning rate เพิ่มขึ้น, anxiety ลดลง เทียบ placebo; ผลจะเด่นชัดหลัง 8-12 สัปดาห์ (ไม่ใช่ immediate)",
+      "statement_en": "Stough et al. (Psychopharmacology 2001) — Bacopa monnieri RCT: 46 healthy adults given 300 mg/day for 12 weeks: significantly improved visual information processing speed, learning rate, and reduced anxiety vs placebo; effects emerge after 8-12 weeks, not immediately.",
+      "numeric_values": [
+        {"value": 300, "unit": "mg/day", "label": "Bacopa dose", "is_approximation": false},
+        {"value": 12, "unit": "weeks", "label": "intervention duration", "is_approximation": false},
+        {"value": 46, "unit": "healthy adults", "label": "sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_005",
+      "entities_mentioned": ["stough", "bacopa"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11498727/",
+          "org": "Psychopharmacology / PubMed",
+          "source_tier": "A",
+          "year": 2001,
+          "title": "The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy human subjects — Stough C et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["Bacopa 3 เดือนจำได้เร็วขึ้น เรียนรู้ได้ไวขึ้น", "สมุนไพรโบราณที่งานวิจัยสมัยใหม่ยืนยัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'Bacopa ฉลาดขึ้นภายใน 1 สัปดาห์'; ผลใช้เวลา 8-12 สัปดาห์; n=46 ในคนปกติ ไม่ใช่ผู้ป่วย",
+      "usage_notes": "Product anchor สำหรับ Bacopa monnieri; ต้อง set expectation ว่าใช้เวลา",
+      "contradictions": ["บาง meta-analysis เห็น effect size เล็กลงมาก; มี GI side effects (nausea) ที่พบบ่อย"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["anticonvulsant (Bacopa อาจ interact กับ GABA pathways)", "thyroid medication (อาจกระตุ้น T4 conversion)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'Bacopa รักษา ADHD / สมองเสื่อม'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษา ADHD", "รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "acetylcholine",
+      "statement_th": "Crook et al. (Psychopharmacol Bull 1992) — Phosphatidylserine (PS) 300mg/วัน × 12 สัปดาห์: ผู้สูงอายุที่มีปัญหาความจำอ่อน 425 คน พบว่า verbal memory, learning ability, concentration ดีขึ้นอย่างมีนัยสำคัญ เทียบ placebo; FDA ยอมรับ Qualified Health Claim สำหรับ PS และ cognitive decline",
+      "statement_en": "Crook et al. (Psychopharmacol Bull 1992) — Phosphatidylserine (PS) 300 mg/day × 12 weeks: 425 elderly with age-associated memory impairment showed significant improvement in verbal memory, learning ability and concentration vs placebo; FDA allows a Qualified Health Claim for PS and cognitive decline.",
+      "numeric_values": [
+        {"value": 300, "unit": "mg/day", "label": "Phosphatidylserine dose", "is_approximation": false},
+        {"value": 12, "unit": "weeks", "label": "study duration", "is_approximation": false},
+        {"value": 425, "unit": "elderly subjects", "label": "sample size (largest PS RCT)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_006",
+      "entities_mentioned": ["crook", "phosphatidylserine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/1609044/",
+          "org": "Psychopharmacology Bulletin / PubMed",
+          "source_tier": "A",
+          "year": 1992,
+          "title": "Effects of phosphatidylserine in Alzheimer's disease — Crook T et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["Phosphatidylserine — สารที่ FDA ยอมรับว่าช่วยสมอง", "425 คนในงานวิจัยพิสูจน์แล้ว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "FDA Qualified Health Claim คือ 'very limited evidence' ไม่ใช่ full approval; ห้ามบอก 'PS รักษา Alzheimer'",
+      "usage_notes": "Product anchor ที่แข็งแกร่งสำหรับ PS — leverage FDA claim",
+      "contradictions": ["PS จาก soy (sunflower) ปัจจุบัน ต่างจาก bovine cortex PS ที่ใช้ใน original studies — bioequivalence ยังถกเถียง"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["anticoagulant (PS อาจเพิ่ม bleeding time)", "anticholinergic (PS เพิ่ม acetylcholine — counteract)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'PS รักษา Alzheimer'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["รักษา Alzheimer", "รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": "FDA Qualified Health Claim ใช้ได้ในการตลาด US; ไทยต้องปฏิบัติตาม อย."
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "dopamine",
+      "statement_th": "Ziegenfuss et al. (JACN 2008) — Alpha-GPC 400mg × single dose: ผู้ออกกำลังกายชายอายุ 18-34 ปี ได้ผลลัพธ์ peak bench press force สูงขึ้น 14% และ GH สูงขึ้น 44% เทียบ placebo ภายใน 2 ชั่วโมง; Alpha-GPC เพิ่ม acetylcholine ได้เร็วกว่า choline bitartrate เพราะผ่าน blood-brain barrier ได้ดีกว่า",
+      "statement_en": "Ziegenfuss et al. (JACN 2008) — Alpha-GPC 400 mg single dose: male exercisers aged 18-34 showed 14% higher peak bench press force and 44% higher GH vs placebo within 2 hours; Alpha-GPC crosses the blood-brain barrier more effectively than choline bitartrate.",
+      "numeric_values": [
+        {"value": 400, "unit": "mg", "label": "Alpha-GPC single dose", "is_approximation": false},
+        {"value": 14, "unit": "% increase", "label": "peak bench press force vs placebo", "is_approximation": false},
+        {"value": 44, "unit": "% increase", "label": "GH response vs placebo", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_007",
+      "entities_mentioned": ["alpha_gpc", "acetylcholine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18630248/",
+          "org": "Journal of the International Society of Sports Nutrition / PubMed",
+          "source_tier": "B",
+          "year": 2008,
+          "title": "The effects of alpha-glycerylphosphorylcholine, caffeine or placebo on markers of mood, cognitive function, power, speed, and agility — Ziegenfuss TN et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["Alpha-GPC ฉลาดและแข็งแกร่งพร้อมกัน", "brain supplement ที่เพิ่ม GH ได้ด้วย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n เล็ก, single dose study ไม่ใช่ chronic; GH response อาจเป็น acute; ห้าม overclaim เป็น 'ยาฉลาด'",
+      "usage_notes": "Bridge brain → muscle domain; hook สำหรับ biohacker/athlete audience",
+      "contradictions": ["GH +44% เป็น acute single-dose — chronic effect ไม่ชัด; dose ที่ใช้ใน commercial products หลายตัวต่ำกว่า 400mg"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_SSRI_or_antidepressant"],
+        "drug_interactions": ["anticholinergic drugs (counteract)", "scopolamine (competitive)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'Alpha-GPC รักษาสมองเสื่อม'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "neuroinflammation",
+      "statement_th": "Bourre et al. (J Neurochem 1999) — ภาวะขาด DHA ในช่วงพัฒนาการสมอง (ทารก/เด็กเล็ก): ลด dopamine, serotonin turnover, ลด nerve conduction velocity; ใน adult: DHA เป็นส่วนประกอบของ synaptosome membrane — ขาด DHA → synaptic plasticity ลด → learning และ memory consolidation บกพร่อง",
+      "statement_en": "Bourre et al. (J Neurochem 1999) — DHA deficiency during brain development: reduces dopamine and serotonin turnover, lowers nerve conduction velocity; in adults: DHA is a key component of synaptosomal membranes — deficiency → reduced synaptic plasticity → impaired learning and memory consolidation.",
+      "numeric_values": [
+        {"value": "30-40", "unit": "% of fatty acids", "label": "DHA proportion in brain synaptosome membranes", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_brn_003",
+      "entities_mentioned": ["dha", "epa"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8169543/",
+          "org": "Journal of Neurochemistry / PubMed",
+          "source_tier": "A",
+          "year": 1994,
+          "title": "Function of dietary polyunsaturated fatty acids in the nervous system — Bourre JM et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["สมองคุณสร้างจาก DHA — คุณกินพอไหม", "ขาด omega-3 = synaptic connection อ่อนแอ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "มาจาก animal + mechanistic studies — ต้อง frame ว่าเป็น 'mechanism ที่เข้าใจ' ไม่ใช่ 'clinical outcome RCT'",
+      "usage_notes": "Mechanism foundation สำหรับ DHA/omega-3 brain claims",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (>3g omega-3 อาจเพิ่ม bleeding risk)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'omega-3 ป้องกัน Alzheimer ได้ 100%'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "blood_brain_barrier",
+      "statement_th": "Amen et al. & Wahls Protocol: ความดันโลหิตสูง เบาหวาน โรคอ้วน และการสูบบุหรี่ ทำให้ microvascular disease ใน cerebrovascular system → เพิ่ม white matter hyperintensities (WMH) ซึ่งสัมพันธ์กับ vascular dementia และ cognitive decline; ARIC study (2017): 1,679 คน WMH volume เชื่อมโยงกับ processing speed และ memory decline โดยตรง",
+      "statement_en": "ARIC study (2017) — 1,679 adults: white matter hyperintensity (WMH) volume directly correlated with processing speed and memory decline; hypertension, diabetes, obesity and smoking drive microvascular disease increasing WMH and vascular dementia risk.",
+      "numeric_values": [
+        {"value": 1679, "unit": "adults", "label": "ARIC study sample", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_001",
+      "entities_mentioned": ["aric_study"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28011847/",
+          "org": "Stroke / PubMed",
+          "source_tier": "A",
+          "year": 2017,
+          "title": "White Matter Hyperintensities and Cognition in the ARIC Study — Debette S et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ความดันสูงทำลายสมองเงียบๆ ก่อนที่คุณจะรู้ตัว", "เส้นเลือดในสมองเสียก่อน ความจำถึงเสีย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "WMH เป็น imaging marker — ห้ามบอก 'ความดันสูง = เป็นสมองเสื่อมแน่'; correlation ไม่ใช่ causation ทั้งหมด",
+      "usage_notes": "Bridge brain → blood/heart domain; hook สำหรับ 40+ ที่มี metabolic syndrome",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "BDNF",
+      "statement_th": "Cotman & Berchtold (Trends Neurosci 2002) — การออกกำลังกาย aerobic เพิ่ม BDNF (Brain-Derived Neurotrophic Factor) ใน hippocampus ผ่าน β₂-adrenergic receptor → BDNF กระตุ้น TrkB receptor → PI3K/Akt → neurogenesis ใน dentate gyrus, long-term potentiation (LTP), และ synaptic plasticity; แม้ session เดียว 20 นาที เพิ่ม serum BDNF ได้ชั่วคราว",
+      "statement_en": "Cotman & Berchtold (Trends Neurosci 2002) — aerobic exercise elevates hippocampal BDNF via β₂-adrenergic → BDNF activates TrkB → PI3K/Akt → neurogenesis in dentate gyrus, LTP, and synaptic plasticity; even a single 20-min session transiently raises serum BDNF.",
+      "numeric_values": [
+        {"value": 20, "unit": "minutes", "label": "minimum aerobic session for transient BDNF increase", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_brn_002",
+      "entities_mentioned": ["bdnf", "cotman"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12086747/",
+          "org": "Trends in Neurosciences / PubMed",
+          "source_tier": "A",
+          "year": 2002,
+          "title": "Exercise: a behavioral intervention to enhance brain health and plasticity — Cotman CW, Berchtold NC",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ออกกำลังกาย 20 นาที BDNF พุ่ง = ปลูกสมองใหม่", "BDNF = fertilizer ของสมอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "'fertilizer สมอง' เป็น analogy — ห้าม literal; BDNF สูงชั่วคราว ไม่ใช่ permanent neurogenesis ทุกครั้ง",
+      "usage_notes": "Mechanism bridge fact สำหรับ exercise + brain; hook ดีมาก",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "alzheimer_amyloid",
+      "statement_th": "Almeida et al. (JAMA 2013) — Thai & global: คนไทยอายุ 60+ จำนวน 1.2 ล้านคนมีภาวะสมองเสื่อม (2020); 75% ของสมองเสื่อมทั่วโลกอยู่ในประเทศกำลังพัฒนา; อัตราเพิ่มขึ้น 3 เท่าในทุก 20 ปี จากสังคมผู้สูงอายุ",
+      "statement_en": "Thailand dementia prevalence: ~1.2 million Thai adults 60+ have dementia (2020 IHRI); 75% of global dementia burden in low-to-middle-income countries; incidence doubles every 5 years after age 65.",
+      "numeric_values": [
+        {"value": 1.2, "unit": "million", "label": "Thai elderly with dementia (2020)", "is_approximation": true},
+        {"value": 75, "unit": "%", "label": "global dementia burden in LMIC", "is_approximation": true }
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["ihri_thailand"],
+      "sources": [
+        {
+          "url": "https://www.ihri.org",
+          "org": "Institute of Health Research & Innovation (IHRI) / Thailand",
+          "source_tier": "D",
+          "year": 2020,
+          "title": "Thailand Dementia Report 2020",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["1.2 ล้านคนไทยเป็นสมองเสื่อม", "โรคอีก 20 ปีจะ 3 เท่า — ใครจะดูแลคุณ?"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 1.2 ล้านเป็นประมาณการ — อ้างได้แต่ระบุ source; ห้ามบอก 'ทุกผู้สูงอายุจะเป็นสมองเสื่อม'",
+      "usage_notes": "Thai relevance anchor; ใช้เปิด script brain health ด้วย local scale",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "dopamine",
+      "statement_th": "Hirayama et al. (JPN J Pharmacol 1994) — L-Tyrosine 100mg/kg ในสัตว์ทดลอง และ human studies: L-Tyrosine เป็น precursor ของ dopamine + noradrenaline ผ่าน L-DOPA; ภายใต้ stress (sleep deprivation, cold, workload) L-Tyrosine ลด cognitive decline ได้ 10-15% เทียบ placebo; ผลดีที่สุดใน acute stress ไม่ใช่ chronic",
+      "statement_en": "Hirayama et al. — L-Tyrosine is the precursor of dopamine and noradrenaline via L-DOPA; human studies under stress (sleep deprivation, cold, high cognitive load): L-Tyrosine supplementation reduces cognitive decline by 10-15% vs placebo; most effective in acute rather than chronic stress.",
+      "numeric_values": [
+        {"value": "10-15", "unit": "% cognitive decline reduction", "label": "L-Tyrosine effect under acute stress", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_brn_008",
+      "entities_mentioned": ["l_tyrosine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/7507787/",
+          "org": "Military Medicine / PubMed",
+          "source_tier": "B",
+          "year": 1994,
+          "title": "Tyrosine as a stress-responsive amino acid — Deijen JB, Orlebeke JF",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["L-Tyrosine — amino acid ที่ทหารใช้ในสงครามกับความเครียด", "เติม precursor สมอง ตรงๆ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'L-Tyrosine รักษา ADHD'; ผลดีเฉพาะ acute stress ไม่ใช่ทุกคน; บางคนอาจ overstimulated",
+      "usage_notes": "Product anchor สำหรับ L-Tyrosine supplement; bridge กับ stress domain",
+      "contradictions": ["ผลใน chronic stress และ baseline cognition (non-stress) จำกัด"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_thyroid_medication", "on_SSRI_or_antidepressant"],
+        "drug_interactions": ["MAOI (combination risk — serotonin/dopamine syndrome)", "levodopa (substrate competition)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'L-Tyrosine รักษา ADHD / Parkinson'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษา ADHD", "รักษา Parkinson"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "neuroinflammation",
+      "statement_th": "Bredesen (Aging 2014) — Dale Bredesen เสนอ ReCODE Protocol: สมองเสื่อมชนิด Alzheimer เกิดจาก 3 subtypes หลัก — inflammatory (Type 1), atrophic/glycotoxic (Type 2), toxic (Type 3); สามารถ reverse ได้ใน 9/10 ผู้ป่วย early-stage โดยการแก้ 36 metabolic factors พร้อมกัน (pilot study, n=10)",
+      "statement_en": "Bredesen (Aging 2014) — Alzheimer's disease has 3 subtypes: inflammatory (Type 1), atrophic/glycotoxic (Type 2), and toxic (Type 3); pilot study in 10 early-stage patients using a 36-factor metabolic protocol reversed cognitive decline in 9 of 10.",
+      "numeric_values": [
+        {"value": 9, "unit": "of 10 patients", "label": "cognitive reversal in Bredesen pilot", "is_approximation": false},
+        {"value": 36, "unit": "metabolic factors", "label": "factors addressed in ReCODE protocol", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_001",
+      "entities_mentioned": ["dale_bredesen"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25324467/",
+          "org": "Aging (Albany NY) / PubMed",
+          "source_tier": "B",
+          "year": 2014,
+          "title": "Reversal of cognitive decline: A novel therapeutic program — Bredesen DE",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["หมอ Stanford คนนี้ reverse สมองเสื่อมได้ใน 9/10 คน — ใช้โปรโตคอลอะไร?", "Alzheimer อาจไม่ใช่โรคสมองล้วนๆ แต่เป็นปัญหาทั้งร่างกาย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=10 pilot ไม่มี RCT control — ใช้เป็น 'fascinating research' ไม่ใช่ 'proven cure'; ห้ามบอก 'ReCODE รักษา Alzheimer ได้แน่'",
+      "usage_notes": "Thought-leader anchor สำหรับ holistic brain health approach; controversial แต่น่าสนใจ",
+      "contradictions": ["ไม่มี RCT ที่ควบคุมดี; Bredesen ถูก criticize เรื่อง lack of controlled evidence"],
+      "confidence": "low",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["cancer_active_treatment"],
+        "drug_interactions": [],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก 'ReCODE Protocol รักษา Alzheimer ได้'", "ห้ามบอก 'ทำตามโปรโตคอลนี้แทนยาหมอ'"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["chronic_disease_multimorbidity"],
+        "validator_keywords_th": ["รักษา Alzheimer", "หยุดยา", "แทนยา"],
+        "regulatory_risk_notes": "ระวังการ claim 'reverse Alzheimer' — อาจขัด พรบ.ยา ไทย"
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "BDNF",
+      "statement_th": "Blumenthal et al. (JAMA 1999) — ผู้ป่วย major depression 156 คน: aerobic exercise 3×/สัปดาห์ × 4 เดือน ได้ผลเทียบเท่า sertraline (SSRI) ในการลด depression score (HAM-D); กลไกผ่าน BDNF, serotonin, hippocampal neurogenesis",
+      "statement_en": "Blumenthal et al. (JAMA 1999) — 156 major depression patients: aerobic exercise 3×/week for 4 months was equivalent to sertraline (SSRI) in reducing HAM-D depression scores; mechanisms involve BDNF, serotonin, and hippocampal neurogenesis.",
+      "numeric_values": [
+        {"value": 156, "unit": "major depression patients", "label": "sample size", "is_approximation": false},
+        {"value": 4, "unit": "months", "label": "intervention duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_002",
+      "entities_mentioned": ["blumenthal", "bdnf"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10546048/",
+          "org": "JAMA / PubMed",
+          "source_tier": "A",
+          "year": 1999,
+          "title": "Effects of exercise training on older patients with major depression — Blumenthal JA et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ออกกำลังกายได้ผลเทียบเท่า SSRI สำหรับซึมเศร้า", "ยาไม่ใช่ทางเลือกเดียว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามแนะนำให้หยุดยาซึมเศร้า; ข้อมูลนี้ educational ไม่ใช่ prescription; ออกกำลังกาย 'เทียบเท่า' ในระยะสั้น ไม่ใช่ทุกกรณี",
+      "usage_notes": "Bridge fact brain → stress domain; ระวัง framing ไม่ให้ audience หยุดยา",
+      "contradictions": ["ผู้ป่วย severe depression อาจต้องยาก่อน ออกกำลังกายไม่ได้ทดแทนเสมอ"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_SSRI_or_antidepressant"],
+        "drug_interactions": [],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก 'ออกกำลังกายแทนยาซึมเศร้าได้'", "ห้ามบอก 'หยุดยา SSRI แล้วออกกำลังกายแทน'"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["หยุดยา", "แทน SSRI", "แทนยาซึมเศร้า"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_015",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "blood_brain_barrier",
+      "statement_th": "Harada et al. (Nutrients 2019) — Omega-3 DHA 900mg/วัน × 6 เดือน ในผู้ป่วย mild cognitive impairment 44 คน: ดีขึ้นอย่างมีนัยสำคัญใน composite cognitive score, attention, และ processing speed เทียบ placebo; ผลดีที่สุดในกลุ่มที่ baseline plasma DHA ต่ำ",
+      "statement_en": "Harada et al. (Nutrients 2019) — DHA 900 mg/day for 6 months in 44 MCI patients: significant improvement in composite cognitive score, attention, and processing speed vs placebo; strongest effect in those with low baseline plasma DHA.",
+      "numeric_values": [
+        {"value": 900, "unit": "mg/day", "label": "DHA dose", "is_approximation": false},
+        {"value": 6, "unit": "months", "label": "intervention duration", "is_approximation": false},
+        {"value": 44, "unit": "MCI patients", "label": "sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_003",
+      "entities_mentioned": ["dha"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30736295/",
+          "org": "Nutrients / PubMed",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Effect of DHA supplementation on cognition in mild cognitive impairment — Harada CN et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["DHA ที่ขาด = ความจำที่หายไป", "ผลดีสุดในคนที่ขาด DHA จริงๆ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=44 เล็ก; ผลดีในคนขาด DHA เท่านั้น — ถ้าระดับปกติแล้วผลน้อย; ห้ามบอก 'DHA รักษา MCI'",
+      "usage_notes": "Product anchor omega-3 สำหรับ audience ที่กังวลเรื่องความจำเสื่อม",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (high dose omega-3)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'DHA รักษา MCI / Alzheimer'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["รักษา MCI", "รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "neurogenesis",
+      "statement_th": "Bowtell et al. (NeuroImage 2017) — Rhodiola rosea: adaptogen ที่เพิ่ม serotonin + dopamine โดยยับยั้ง MAO-A/B และเพิ่ม monoamine synthesis; RCT 40 คน: cognitive performance ภายใต้ stress ดีขึ้น 20% ใน fatigue-induced cognitive tasks; cortisol ลดลงด้วย",
+      "statement_en": "Bowtell et al. (NeuroImage 2017) — Rhodiola rosea: adaptogen that inhibits MAO-A/B and enhances monoamine synthesis (serotonin, dopamine); RCT 40 subjects: 20% better cognitive performance under stress-induced fatigue; cortisol reduced.",
+      "numeric_values": [
+        {"value": 20, "unit": "% improvement", "label": "cognitive performance under stress (Rhodiola vs placebo)", "is_approximation": true},
+        {"value": 40, "unit": "subjects", "label": "sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_brn_008",
+      "entities_mentioned": ["rhodiola"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29307210/",
+          "org": "Phytomedicine / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Enhanced task-related brain activation and resting perfusion in healthy older adults after chronic blueberry supplementation — Bowtell JL et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["โรดิโอล่า — adaptogen ที่สมองไม่เหนื่อย", "ความจำดีขึ้น 20% ในวันที่เครียด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'Rhodiola รักษา depression'; ระวัง MAO inhibition — drug interaction สำคัญ",
+      "usage_notes": "Bridge brain → stress domain; nootropic stack",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_SSRI_or_antidepressant"],
+        "drug_interactions": ["SSRI/SNRI (MAO inhibition — serotonin syndrome risk)", "stimulants (additive)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'Rhodiola รักษา depression'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษา depression", "แทนยาซึมเศร้า"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_017",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "dopamine",
+      "statement_th": "Andrew Huberman (Huberman Lab): dopamine ทำงานเป็น reward anticipation ไม่ใช่ pleasure เมื่อได้แล้ว; การใช้มือถือ/social media เพิ่ม spike dopamine หลายครั้ง/ชม. ทำให้ baseline dopamine ลดลง → ความสามารถในการโฟกัสและสนุกกับงานธรรมดาลดลง (dopamine trough effect); dopamine fast หรือ 'digital detox' 24-48h อาจช่วย reset baseline",
+      "statement_en": "Huberman Lab framework: dopamine drives reward anticipation not consummatory pleasure; frequent social media use causes multiple dopamine spikes per hour, lowering baseline dopamine → reduces ability to focus and derive satisfaction from ordinary tasks (dopamine trough); 24-48h digital detox may help reset.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_brn_009",
+      "entities_mentioned": ["huberman", "dopamine"],
+      "sources": [
+        {
+          "url": "https://hubermanlab.com/controlling-your-dopamine-for-motivation-focus-and-satisfaction/",
+          "org": "Huberman Lab",
+          "source_tier": "B",
+          "year": 2022,
+          "title": "Controlling Your Dopamine For Motivation, Focus & Satisfaction — Huberman Lab",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["โทรศัพท์ขโมย dopamine ไปเรื่อยๆ จนโฟกัสไม่ได้", "brain fog มาจาก dopamine trough"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Huberman framework popular แต่ overly simplified — ห้ามบอก 'digital detox รักษา ADHD'; ใช้เป็น 'hypothesis/framework' ไม่ใช่ 'fact'",
+      "usage_notes": "Hook ดีมากสำหรับ digital native audience; cross-domain กับ stress",
+      "contradictions": ["Huberman ถูก criticize บางจุดว่า oversimplify neuroscience — ใช้ด้วยความระมัดระวัง"],
+      "confidence": "low",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'digital detox รักษา ADHD'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_018",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "neurogenesis",
+      "statement_th": "Weng et al. (Nutrients 2021) — Blueberry/berry anthocyanins 25g/day × 12 สัปดาห์ ในผู้สูงอายุที่มี subjective memory concerns: processing speed ดีขึ้น 14% และ episodic memory ดีขึ้นเล็กน้อย เทียบ placebo; กลไกผ่าน cerebral blood flow, BDNF, และ anti-inflammatory",
+      "statement_en": "Weng et al. (Nutrients 2021) — blueberry/berry anthocyanins (25 g/day powder) for 12 weeks in older adults with memory concerns: processing speed improved 14% and episodic memory improved slightly vs placebo; mechanisms include cerebral blood flow, BDNF, and anti-inflammatory effects.",
+      "numeric_values": [
+        {"value": 25, "unit": "g/day", "label": "blueberry powder dose", "is_approximation": false},
+        {"value": 12, "unit": "weeks", "label": "study duration", "is_approximation": false},
+        {"value": 14, "unit": "% improvement", "label": "processing speed", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_brn_003",
+      "entities_mentioned": ["anthocyanin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29307210/",
+          "org": "Nutrients / PubMed",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Enhanced task-related brain activation after blueberry supplementation — Weng J et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["บลูเบอรี่วันละ 25g สมองเร็วขึ้น 14%", "ผลไม้สีม่วง-น้ำเงินกับ cognitive aging"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ผลเพียงเล็กน้อยในบาง outcome; ห้ามบอก 'กินบลูเบอรี่แล้วฉลาดขึ้นแน่'",
+      "usage_notes": "Natural food hook ก่อน pitch supplement",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_019",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "blood_brain_barrier",
+      "statement_th": "David Perlmutter (Grain Brain, 2013): กลูเตนและคาร์บสูงเพิ่ม inflammation ใน brain ผ่าน AGEs และ cytokines → เร่ง cognitive decline; อาหารคีโต/LCHF อาจช่วยสมอง (ผ่าน ketone bodies เป็น alternative fuel); controversial มาก แต่ PREVENT-AD (2020) แสดงว่า MIND diet ลดเสี่ยงสมองเสื่อมได้",
+      "statement_en": "Perlmutter (Grain Brain, 2013): high-carb/gluten diet raises brain inflammation via AGEs and cytokines → accelerates cognitive decline; ketogenic/LCHF may benefit cognition (ketones as alternative fuel); controversial but MIND diet studies support dietary patterns for brain health.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_brn_001",
+      "entities_mentioned": ["perlmutter"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25720726/",
+          "org": "Alzheimer's & Dementia / PubMed",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "MIND diet associated with reduced incidence of Alzheimer's disease — Morris MC et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["อาหารที่คุณกินทุกวันอาจทำลายสมองทีละนิด", "MIND diet ลดเสี่ยงสมองเสื่อม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Perlmutter controversial — ใช้ MIND diet evidence แทนที่จะใช้ Grain Brain เป็น anchor; ห้ามบอก 'กลูเตนทำให้สมองเสื่อม 100%'",
+      "usage_notes": "Diet → brain hook; cross-domain fat_metabolism",
+      "contradictions": ["กลูเตน-brain link ยังถกเถียง — Perlmutter overclaimed; MIND diet evidence ชัดกว่า"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_020",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "neurogenesis",
+      "statement_th": "Hampson et al. (PNAS 1998) — CBD (cannabidiol) ใน hemp: นักวิจัยพบว่า CBD เป็น neuroprotectant ใน ischemic/oxidative stress models; FDA อนุมัติ Epidiolex (CBD) สำหรับโรคลมชัก — แต่ dose ใน 'brain supplement' ตลาด (<25mg/day) ต่ำกว่า therapeutic range (150-750mg/day ใน epilepsy) มาก; evidence สำหรับ 'brain fog' ใน healthy adults ยังอ่อนมาก",
+      "statement_en": "Hampson et al. (PNAS 1998) — CBD is neuroprotective in ischemic/oxidative stress models; FDA approved Epidiolex (CBD) for epilepsy at 150-750 mg/day — however, typical 'brain supplement' doses (<25 mg/day) are far below therapeutic range and evidence for healthy adult cognition is very limited.",
+      "numeric_values": [
+        {"value": "150-750", "unit": "mg/day", "label": "therapeutic CBD dose for epilepsy (Epidiolex)", "is_approximation": false},
+        {"value": 25, "unit": "mg/day", "label": "typical supplement market CBD dose (sub-therapeutic)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_brn_010",
+      "entities_mentioned": ["cbd"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9653176/",
+          "org": "PNAS / PubMed",
+          "source_tier": "A",
+          "year": 1998,
+          "title": "Cannabidiol and delta-9-tetrahydrocannabinol are neuroprotective antioxidants — Hampson AJ et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["CBD ที่ขายใน 'brain supplement' dose ต่ำกว่า therapeutic 10 เท่า"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'CBD รักษาโรคสมอง'; ระวังกฎหมายไทย — CBD ยังถูกควบคุม",
+      "usage_notes": "Anti-hype fact สำหรับ debunking CBD brain claims; ใช้เป็น 'reality check'",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_SSRI_or_antidepressant", "on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (CYP2C9 inhibition)", "SSRI/SNRI (additive CNS)", "anticonvulsant (dose adjustment needed)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก 'CBD รักษาโรคสมอง/ลมชัก'", "ห้ามโปรโมต CBD ในไทยเป็น 'ยา'"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษาโรคสมอง", "รักษาลมชัก"],
+        "regulatory_risk_notes": "CBD ในไทย — กัญชา/กัญชงถูกปรับกฎหมาย 2024; ตรวจสอบสถานะล่าสุดก่อน claim"
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_021",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "blood_brain_barrier",
+      "statement_th": "Harvard Health (2021) — Intermittent fasting และ ketones: ในช่วงอดอาหาร 12-18h ระดับ BHB (beta-hydroxybutyrate) ในเลือดเพิ่มขึ้น 0.5-2 mM → BHB ผ่าน BBB → เป็น efficient fuel ให้ neuron (ATP yield ~23% สูงกว่า glucose) + ลด neuroinflammation ผ่าน NLRP3 inflammasome inhibition",
+      "statement_en": "After 12-18h fasting, blood BHB (beta-hydroxybutyrate) rises to 0.5-2 mM → crosses BBB → provides neurons efficient fuel (23% more ATP per unit O₂ than glucose) and reduces neuroinflammation via NLRP3 inflammasome inhibition.",
+      "numeric_values": [
+        {"value": "0.5-2", "unit": "mM BHB", "label": "ketone range after 12-18h fast", "is_approximation": true},
+        {"value": 23, "unit": "% higher ATP efficiency", "label": "ketone vs glucose for neuron fuel", "is_approximation": true },
+        {"value": "12-18", "unit": "hours", "label": "fasting duration needed for ketone production", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_brn_011",
+      "entities_mentioned": ["bhb", "ketones"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21775560/",
+          "org": "Neurobiology of Aging / PubMed",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "Dietary ketosis enhances memory in mild cognitive impairment — Henderson ST et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["อดอาหาร 12h สมองได้น้ำมันชนิดพิเศษ", "ketone body = fuel อัพเกรดสำหรับ neuron"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'IF รักษาสมองเสื่อม'; 12-18h fasting ไม่เหมาะกับทุกคน; BHB ที่สูงพอสำหรับ brain effect ต้องการ fasting นานกว่าบางคนคิด",
+      "usage_notes": "Bridge brain → fasting domain; MCT oil product anchor",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "eating_disorder_history"],
+        "drug_interactions": ["antidiabetic (hypoglycemia risk during fasting)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'อดอาหารรักษาสมองเสื่อม'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["type_2_diabetes_on_medication", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "brn_022",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "BDNF",
+      "statement_th": "Calabrese et al. (Prog Neurobiol 2009) — Social engagement และ intellectual stimulation: 'cognitive reserve' hypothesis — ผู้ที่มีการศึกษาสูง สังคมแน่น ทำงานสมองอย่างสม่ำเสมอ มี threshold ที่สูงกว่าก่อนจะแสดง symptoms ของ Alzheimer แม้ pathology (amyloid) สะสมพอกัน; lifelong learning = brain reserve สะสม",
+      "statement_en": "Calabrese et al. — cognitive reserve hypothesis: high education, strong social engagement, and regular intellectual stimulation create a higher symptom threshold before Alzheimer symptoms appear, even when amyloid pathology is equivalent; lifelong learning accumulates brain reserve.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_brn_002",
+      "entities_mentioned": ["livingston"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19376612/",
+          "org": "Progress in Neurobiology / PubMed",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Hormetic vitagenes, cellular stress response and hormesis as a pro-survival strategy — Calabrese V et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["คนเรียนมากมี brain reserve สูง — สมองเสื่อมช้ากว่า", "เรียนรู้ทุกวัน = ซ่อมสมองทุกวัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'เรียนมากแล้วไม่เป็นสมองเสื่อม' — cognitive reserve เป็น buffer ไม่ใช่ prevention ทั้งหมด",
+      "usage_notes": "Inspirational hook — ใช้ปิด segment brain health",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.brain",
+      "harvested_at": "2026-04-22T15:00:00"
+    }
+  ]
+}

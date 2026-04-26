@@ -1,0 +1,55 @@
+{
+  "domain_id": "reproductive",
+  "sub_topics": [
+    {
+      "id": "erectile_function",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "nitric_oxide",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "SHBG",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "sperm_quality",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "menopause",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "domain_id": "supplements",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 9,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.supplements"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_supp_001",
+      "popular_belief_th": "วิตามินจากอาหารดีกว่าอาหารเสริมเสมอ — กินผักผลไม้พอแล้ว",
+      "popular_belief_en": "Food-sourced vitamins are always better than supplements — just eat fruits and vegetables",
+      "truth_th": "ถูกบางส่วน — อาหารมี matrix ที่ร่างกายออกแบบมาดูดซึม แต่บางวิตามินอาหารมีไม่พอ เช่น วิตามิน D ต้องพึ่งแสงแดดเป็นหลัก (45% ของคนไทยระดับ <30 ng/mL แม้อยู่เขตร้อน), B12 ในสมองต้องอาศัย intrinsic factor (PPI/metformin/เจ/อายุมากลดการดูดซึม), EPA/DHA ต้องกินปลามัน ≥2 ครั้ง/สัปดาห์ซึ่งคนส่วนใหญ่ทำไม่ได้",
+      "truth_en": "Partially true — food has absorption matrix advantages, but some vitamins simply aren't obtainable from diet alone: vitamin D requires UVB (45% of Thais are <30 ng/mL despite the tropics); B12 needs intrinsic factor (reduced by PPI, metformin, veganism, aging); EPA/DHA requires fatty fish ≥2×/week which most people don't achieve.",
+      "why_popular": "แนวคิด 'ธรรมชาติดีกว่าสังเคราะห์' + ความกลัวอาหารเสริมปลอม/เกินขนาด + เพจสุขภาพแนว 'clean eating'",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-11-853", "org": "BMC Public Health", "source_tier": "A", "year": 2011, "title": "Thai vitamin D survey — Chailurkit", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19116321/", "org": "Am J Clin Nutr", "source_tier": "A", "year": 2009, "title": "B12 deficiency prevalence — Allen", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "multivitamin_basic",
+      "counter_facts": ["supp_003", "supp_013", "supp_016"],
+      "composer_directive": "อนุญาตให้บอกว่า 'อาหารเป็นหลัก + เสริมเฉพาะตัวที่ขาด' ห้าม demonize supplement หรือ deify 'natural'",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_supp_002",
+      "popular_belief_th": "แมกนีเซียมอะไรก็ได้ — ยี่ห้อไหนก็เหมือนกัน",
+      "popular_belief_en": "Any magnesium is the same — brand/form doesn't matter",
+      "truth_th": "ผิด — รูปแบบแมกนีเซียมดูดซึมต่างกันถึง 4-10 เท่า: oxide ดูดซึมเพียง ~4% (Firoz & Graber 2001), glycinate/citrate/chloride ดูดซึมประมาณ 50%; glycinate ไม่ทำให้ท้องเสีย ช่วยผ่อนคลาย; threonate อ้างผ่าน blood-brain barrier; oxide เหมาะเป็นยาระบายมากกว่าอาหารเสริม",
+      "truth_en": "Wrong — Mg forms differ 4-10× in absorption: oxide ~4% (Firoz & Graber 2001), glycinate/citrate/chloride ~50%; glycinate doesn't cause diarrhea and promotes calm; threonate claims CNS penetration; oxide is better suited as a laxative than as a supplement.",
+      "why_popular": "ยี่ห้อถูกในซูเปอร์มาร์เก็ตส่วนใหญ่ใช้ magnesium oxide (ราคาถูก) — ผู้บริโภคไม่เคยเทียบ",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11794633/", "org": "Magnes Res / PubMed", "source_tier": "A", "year": 2001, "title": "Firoz & Graber — Mg bioavailability", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "magnesium_forms",
+      "counter_facts": ["supp_007", "supp_008", "supp_009"],
+      "composer_directive": "อนุญาต 'ต่างกัน 4-10 เท่า' + ยกตัวอย่าง form แต่ห้ามบอก 'glycinate รักษานอนไม่หลับ' — ใช้ 'ช่วยให้ผ่อนคลาย/หลับง่ายขึ้น' ตาม อย.",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_supp_003",
+      "popular_belief_th": "Omega-3 ทุกยี่ห้อเหมือนกัน — ขอแค่ EPA+DHA รวมๆ พอ",
+      "popular_belief_en": "All omega-3 brands are the same as long as total EPA+DHA matches",
+      "truth_th": "ผิด — รูปแบบ triglyceride (rTG) ดูดซึมได้ ~70% vs ethyl ester (EE) ~27% ในงาน Dyerberg 2010; ยังมีปัจจัย TOTOX (oxidation), mercury, ความสดของปลา, ปริมาณ EPA:DHA ratio ที่ต่างกันมาก; 'fish oil เกรดถูก' หลายยี่ห้อเป็น EE และมีค่า oxidation สูง",
+      "truth_en": "Wrong — triglyceride (rTG) form is ~70% bioavailable vs ethyl ester (EE) ~27% (Dyerberg 2010); also differs in TOTOX (oxidation), mercury content, freshness, EPA:DHA ratio; many 'cheap fish oils' are EE with high oxidation.",
+      "why_popular": "ฉลากพูดแค่ 'EPA/DHA mg' ไม่บอก form — ผู้บริโภคอ่านไม่เป็น; ร้านขายยาเน้นราคา",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20638827/", "org": "PLEFA / PubMed", "source_tier": "A", "year": 2010, "title": "Dyerberg TG vs EE bioavailability", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "omega_3_EPA_DHA",
+      "counter_facts": ["supp_014", "supp_015", "supp_016"],
+      "composer_directive": "สามารถ contrast TG vs EE ได้ แต่ห้ามอ้างว่า 'ยี่ห้อ X รักษา' โรคใดๆ",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_supp_004",
+      "popular_belief_th": "วิตามิน C ยิ่งกินยิ่งดี — กิน 2,000-5,000 mg/วัน 'บูสต์ภูมิ'",
+      "popular_belief_en": "More vitamin C is better — mega-dose 2,000-5,000 mg/day 'boosts immunity'",
+      "truth_th": "ผิด — ร่างกายดูดซึมผ่าน SVCT1 transporter ที่อิ่มตัวประมาณ 200-400 mg/dose เกินนั้นขับออกทางปัสสาวะ (bowel tolerance ที่ >2,000 mg มักท้องเสีย); Cochrane review (Hemilä 2013) พบวิตามิน C ไม่ป้องกันหวัดในประชากรทั่วไป แค่ลดระยะเวลาหวัดเล็กน้อย 8% ในผู้ใหญ่",
+      "truth_en": "Wrong — SVCT1 transporter saturates at ~200-400 mg/dose, excess excreted in urine (bowel tolerance >2,000 mg causes diarrhea); Cochrane review (Hemilä 2013) found vitamin C does NOT prevent colds in general population, only shortens duration by ~8% in adults.",
+      "why_popular": "Linus Pauling himself promoted mega-dose C in the 1970s — though mainstream science never fully validated it",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD000980.pub4/full", "org": "Cochrane Database of Systematic Reviews", "source_tier": "A", "year": 2013, "title": "Vitamin C for preventing and treating the common cold — Hemilä H, Chalker E", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "multivitamin_basic",
+      "counter_facts": ["supp_021", "supp_022"],
+      "composer_directive": "ห้าม claim 'boost ภูมิ' ใน ad ไทย — ใช้ 'สนับสนุนระบบภูมิคุ้มกัน' เท่านั้น; ถ้าขาย liposomal อ้าง bioavailability ไม่ใช่ cold prevention",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_supp_005",
+      "popular_belief_th": "กินวิตามิน D ไม่ต้องดูแดดก็ได้ / ไทยแดดเยอะไม่ต้องเสริม",
+      "popular_belief_en": "You don't need sunlight if you take vitamin D / Thailand is sunny so no need",
+      "truth_th": "ทั้งสองผิด — แม้ไทยอยู่ 13-15°N แต่ 45.2% ของผู้ใหญ่ไทยมี 25(OH)D <30 ng/mL เพราะคนเมืองอยู่ในร่ม 90%+, SPF 30+ บล็อก UVB >96%, ผิวเข้มต้องการเวลาแดดมากกว่าผิวขาว 2-6 เท่า; ในทางกลับกัน วิตามิน D3 pill ก็ช่วยได้แต่ดูดซึมได้ดีสุดเมื่อกินคู่ไขมัน (Mulligan 2010: +57% ถ้ากินพร้อมมื้อใหญ่)",
+      "truth_en": "Both wrong — despite 13-15°N latitude, 45.2% of Thai adults have 25(OH)D <30 ng/mL because urbanites spend >90% of day indoors, SPF 30+ blocks >96% UVB, dark skin needs 2-6× more sun exposure than fair; conversely D3 pills work best with fat (Mulligan 2010: +57% absorption with largest meal).",
+      "why_popular": "Intuition: 'ประเทศร้อน = วิตามิน D เยอะ' ไม่ถูก anatomy — เป็น latitude paradox",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-11-853", "org": "BMC Public Health", "source_tier": "A", "year": 2011, "title": "Chailurkit Thai vitamin D survey", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20200983/", "org": "J Bone Miner Res", "source_tier": "A", "year": 2010, "title": "Mulligan & Licata — D with largest meal", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "deficiency_prevalence_thailand",
+      "counter_facts": ["supp_001", "supp_003", "supp_017"],
+      "composer_directive": "Use as main hook สำหรับคลิปขาย vitamin D; ห้ามอ้างรักษาโรคใด — ใช้ 'สนับสนุนระดับวิตามิน D' และ 'สนับสนุนกระดูก' เท่านั้น",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_supp_006",
+      "popular_belief_th": "ซิงค์ช่วยแก้หวัดได้ทันที — รู้สึกไม่สบายเมื่อไหร่กินเลย",
+      "popular_belief_en": "Zinc cures colds instantly — take some as soon as you feel sick",
+      "truth_th": "ครึ่งจริง — Cochrane review (Singh & Das 2013/Wang 2023) พบ zinc lozenge (zinc acetate/gluconate) ภายใน 24 ชม. แรกของอาการ ลดระยะเวลาหวัด 1-2 วัน — แต่ต้อง form ถูก (acetate/gluconate), dose 75-90 mg/วัน, แบบ lozenge ไม่ใช่แคปซูล, และเริ่มภายใน 24 ชม.; กินหลังจากนั้นไม่มีผล; ห้ามกินเรื้อรัง >50 mg/d (Cu deficiency)",
+      "truth_en": "Half true — Cochrane (Singh & Das 2013 / Wang 2023) found zinc lozenge (acetate/gluconate) started within 24 h of symptoms reduced cold duration by 1-2 days — but requires correct form (acetate/gluconate), 75-90 mg/day dose, lozenge (not capsule), and early timing; later use is ineffective; chronic >50 mg/day risks copper deficiency.",
+      "why_popular": "Advertising 'zinc for cold' + partial science evidence + emotional 'must take supplement now' response",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001364.pub4/full", "org": "Cochrane Library", "source_tier": "A", "year": 2013, "title": "Zinc for the common cold — Singh M, Das RR", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/2407097/", "org": "Am J Clin Nutr", "source_tier": "A", "year": 1990, "title": "Fosmire — Zinc toxicity", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "zinc_copper_ratio",
+      "counter_facts": ["supp_010", "supp_011"],
+      "composer_directive": "ไม่อนุญาตให้ ad อ้าง 'รักษาหวัด' — ใช้ 'สนับสนุนระบบภูมิคุ้มกัน' เท่านั้น ตาม อย.",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_supp_007",
+      "popular_belief_th": "มัลติวิตามินกินทุกวันเป็นอันตราย ทำลายตับไต",
+      "popular_belief_en": "Daily multivitamin damages liver/kidney over time",
+      "truth_th": "ผิด — RCT ขนาดใหญ่ Physicians' Health Study II (Gaziano 2012, n=14,641, 11 ปี) พบ multivitamin ปลอดภัย + ลดมะเร็งรวม 8%; อันตรายเกิดเฉพาะเมื่อเกิน Upper Limit (UL) เช่น Fe >45 mg/d ในชาย/post-menopause, vitamin A >3,000 µg/d, vitamin E >400 IU เรื้อรัง; ตับ/ไตปกติจัดการวิตามินละลายน้ำได้ปกติ",
+      "truth_en": "Wrong — the large PHS II RCT (Gaziano 2012, n=14,641, 11 y) showed multivitamin is safe and reduced total cancer by 8%; toxicity occurs only above Upper Limits — e.g. Fe >45 mg/d in men/postmenopausal women, vitamin A >3,000 µg/d, vitamin E >400 IU chronic; healthy liver/kidney handle water-soluble vitamins normally.",
+      "why_popular": "ข่าว case report ที่ megadose + 'ทุกอย่างกินมากไม่ดี' heuristic + paranoid wellness pages",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/1380451", "org": "JAMA", "source_tier": "A", "year": 2012, "title": "PHS II multivitamin — Gaziano JM et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "multivitamin_basic",
+      "counter_facts": ["supp_019", "supp_022", "supp_023"],
+      "composer_directive": "สามารถยืนยันความปลอดภัยของมัลติวิตามิน 'ตาม RDA' ได้ ห้ามบอก 'กินมากเท่าไหร่ก็ปลอดภัย'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_supp_008",
+      "popular_belief_th": "วิตามิน B12 ในเลือดปกติ = ไม่ต้องกิน B12",
+      "popular_belief_en": "Normal serum B12 means you don't need B12 supplementation",
+      "truth_th": "ไม่เสมอ — serum B12 เป็น marker ที่ไม่ไว; methylmalonic acid (MMA) สูงบ่งชี้ B12 function ต่ำแม้ serum ปกติ (Allen 2009); 10-30% ของผู้สูงอายุที่ serum B12 'ปกติ' มี MMA สูง; MTHFR polymorphism + PPI + metformin + อายุ >60 เพิ่มความเสี่ยง — กลุ่มเสี่ยงควรใช้ methylcobalamin + 5-MTHF",
+      "truth_en": "Not always — serum B12 is an insensitive marker; elevated methylmalonic acid (MMA) indicates functional deficiency even with normal serum B12 (Allen 2009); 10-30% of elderly with 'normal' B12 have elevated MMA; MTHFR polymorphism + PPI + metformin + age >60 raise risk — these groups should prefer methylcobalamin + 5-MTHF.",
+      "why_popular": "แพทย์ทั่วไปวัด serum B12 เป็น standard — MMA วัดแพงกว่า; คนไข้จึงคิดว่า normal = ok",
+      "reveal_style": "curiosity",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19116321/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 2009, "title": "How common is B12 deficiency? — Allen LH", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "B12_methyl",
+      "counter_facts": ["supp_012", "supp_013"],
+      "composer_directive": "สามารถพูดถึง MMA เป็น 'การวัดละเอียดกว่า' แต่ต้องแนะนำปรึกษาแพทย์; ห้ามแนะนำให้ตรวจเอง",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_supp_009",
+      "popular_belief_th": "K2 กินคู่ warfarin ได้ — เป็นวิตามิน 'ธรรมชาติ' ไม่อันตราย",
+      "popular_belief_en": "K2 is fine with warfarin since it's 'natural'",
+      "truth_th": "ผิด อันตรายมาก — warfarin ออกฤทธิ์โดยยับยั้ง vitamin K epoxide reductase (VKORC1); การเพิ่ม K intake (ทั้ง K1 จากผัก, K2 จากอาหารเสริม/นัตโตะ) จะลดประสิทธิภาพ warfarin → INR ลด → เสี่ยงลิ่มเลือด; ต้องปรึกษาหมอก่อนเริ่ม/หยุด K ถ้ากิน warfarin; K2 ไม่ใช่ 'ปลอดภัยเพราะธรรมชาติ' ในบริบทยาต้านการแข็งตัว",
+      "truth_en": "Dangerous and wrong — warfarin works by inhibiting vitamin K epoxide reductase (VKORC1); increasing K intake (K1 from greens OR K2 from supplements/natto) reduces warfarin efficacy → INR drops → clot risk; must consult physician before starting/stopping K when on warfarin; 'natural' doesn't equal 'safe' in this context.",
+      "why_popular": "ความเชื่อว่าวิตามินจากธรรมชาติไม่ interact กับยา + K2 ถูกขายเป็น bone/heart supplement โดยไม่เน้น warning",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.nccih.nih.gov/health/vitamins-and-minerals", "org": "NIH NCCIH", "source_tier": "A", "year": 2024, "title": "Vitamins/Minerals safety — warfarin interaction guidance", "access_date": "2026-04-22"},
+        {"url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Vitamin K — Health Professional Fact Sheet (interactions)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "supplement_drug_interactions",
+      "counter_facts": ["supp_005", "supp_023"],
+      "composer_directive": "MUST include warfarin warning ในทุก K2 ad; ถือเป็น safety disclaimer สำคัญตาม อย.",
+      "uncleped_debunked": false
+    }
+  ]
+}

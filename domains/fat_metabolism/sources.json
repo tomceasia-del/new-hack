@@ -1,0 +1,41 @@
+{
+  "domain_id": "fat_metabolism",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.fat_metabolism",
+    "notes": "Deduplicated URL registry compiled from canonical_facts.json, mechanisms.json, common_myths.json, and entities.json. Tiers: A=peer-reviewed, B=expert content, C=mainstream medical, D=Thai official."
+  },
+  "sources": [
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2495396/pdf/postmedj00315-0056.pdf", "org": "Postgraduate Medical Journal / PubMed Central", "tier": "A", "reliability_notes": "Stewart & Fleming 1973 case report of Angus Barbieri 382-day fast — anchor T1 for longest documented therapeutic fast", "last_accessed": "2026-04-22"},
+    {"url": "https://www.nobelprize.org/prizes/medicine/2016/advanced-information/", "org": "Nobel Foundation (nobelprize.org)", "tier": "A", "reliability_notes": "Official advanced scientific background for Ohsumi's 2016 Nobel Prize on autophagy", "last_accessed": "2026-04-22"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC329619/", "org": "J Clin Invest / PubMed Central", "tier": "A", "reliability_notes": "Ho et al. 1988 — fasting amplifies GH pulse frequency (5.8 → 9.9 pulses/24h in 5-day fast)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0808718", "org": "New England Journal of Medicine", "tier": "A", "reliability_notes": "van Marken Lichtenbelt et al. 2009 — cold-activated brown adipose tissue in healthy men (23/24 subjects)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0810780", "org": "New England Journal of Medicine", "tier": "A", "reliability_notes": "Cypess et al. 2009 — identification and importance of BAT in adult humans", "last_accessed": "2026-04-22"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8247294/", "org": "Diabetic Medicine / PMC (Taylor review)", "tier": "A", "reliability_notes": "Roy Taylor 2021 review — Twin Cycle Hypothesis; DiRECT remission data (46% at 12 mo)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.ncbi.nlm.nih.gov/books/NBK493179/", "org": "StatPearls (NCBI Bookshelf)", "tier": "A", "reliability_notes": "Peer-reviewed open biochemistry reference on ketogenesis — BHB/AcAc/acetone mechanism", "last_accessed": "2026-04-22"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/", "org": "Endocrinology & Metabolism / PMC", "tier": "A", "reliability_notes": "Halpern et al. 2021 clinical review of intermittent fasting for obesity", "last_accessed": "2026-04-22"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7021351/", "org": "PMC (leptin-obesity review)", "tier": "A", "reliability_notes": "Izquierdo 2019 — leptin and hypothalamic leptin resistance in obesity", "last_accessed": "2026-04-22"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2793049/", "org": "PubMed Central", "tier": "A", "reliability_notes": "Morris & Rui 2009 — leptin signaling (JAK2/STAT3/POMC/AgRP) review", "last_accessed": "2026-04-22"},
+    {"url": "https://www.endocrinology-journals.org/joe-sub/content/223/1/T1.full.pdf", "org": "Journal of Endocrinology", "tier": "A", "reliability_notes": "Leptin resistance review referenced for hypothalamic arcuate nucleus signaling", "last_accessed": "2026-04-22"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3609491/", "org": "PubMed Central", "tier": "A", "reliability_notes": "Thermic effect of food (TEF) review — protein ~20-30%, carbs ~5-10%, fat ~0-3%", "last_accessed": "2026-04-22"},
+    {"url": "https://www.bmj.com/content/349/bmj.g7257", "org": "BMJ", "tier": "A", "reliability_notes": "Physics of weight loss — Meerman & Brown 2014 'When somebody loses weight, where does the fat go?'", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/15531540/", "org": "Annals of Internal Medicine / PubMed", "tier": "A", "reliability_notes": "Spiegel et al. 2004 — sleep restriction decreases leptin, increases ghrelin, raises hunger", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/30786393/", "org": "PubMed / meta-analysis", "tier": "A", "reliability_notes": "Caffeine + green tea (EGCG) fat oxidation meta-analysis", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/15507147/", "org": "PubMed", "tier": "A", "reliability_notes": "Westerterp-Plantenga 2004 — high-protein diet satiety and thermic effect", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/18589036/", "org": "PubMed / Cell Metabolism-era review", "tier": "A", "reliability_notes": "Autophagy during fasting — mTOR inhibition time course (~16-24h)", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/29805099/", "org": "PubMed", "tier": "A", "reliability_notes": "Intermittent fasting vs continuous caloric restriction — HbA1c and visceral fat outcomes", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/21804427/", "org": "Journal of Strength & Conditioning Research / PubMed", "tier": "A", "reliability_notes": "Vispute et al. 2011 — 6 weeks abdominal exercise does NOT reduce abdominal fat (spot-reduction myth)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.mayoclinic.org/healthy-lifestyle/weight-loss/expert-answers/sweating-and-weight-loss/faq-20058077", "org": "Mayo Clinic", "tier": "C", "reliability_notes": "Mainstream medical explainer debunking 'sweat = fat loss' myth", "last_accessed": "2026-04-22"},
+    {"url": "https://jamanetwork.com/journals/jama/fullarticle/2673150", "org": "JAMA", "tier": "A", "reliability_notes": "Gardner et al. 2018 DIETFITS — no significant difference between low-fat vs low-carb at 12 months", "last_accessed": "2026-04-22"},
+    {"url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3848416/", "org": "Obesity Reviews / PMC", "tier": "A", "reliability_notes": "Peterson et al. 2012 — resistance exercise preserves lean mass in aging", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/20193122/", "org": "British Journal of Nutrition / PubMed", "tier": "A", "reliability_notes": "Cameron et al. 2010 — meal frequency does not increase weight loss (debunks 5-6 meal myth)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.science.org/doi/10.1126/science.1141634", "org": "Science (AAAS)", "tier": "A", "reliability_notes": "Frayling et al. 2007 — FTO variant associated with BMI (effect size bounded to few kg)", "last_accessed": "2026-04-22"},
+    {"url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2673472", "org": "JAMA Internal Medicine", "tier": "A", "reliability_notes": "Ludwig & Ebbeling 2018 — carbohydrate-insulin model of obesity review", "last_accessed": "2026-04-22"},
+    {"url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP092009", "org": "Experimental Physiology / Wiley", "tier": "A", "reliability_notes": "Taylor 2025 restatement of Twin Cycle Hypothesis — ectopic fat in liver and pancreas", "last_accessed": "2026-04-22"},
+    {"url": "https://www.ncl.ac.uk/magres/research/diabetes/reversal/", "org": "Newcastle University", "tier": "B", "reliability_notes": "Taylor group official page — T2D reversal research summary", "last_accessed": "2026-04-22"},
+    {"url": "https://www.salk.edu/scientist/satchidananda-panda/", "org": "Salk Institute", "tier": "B", "reliability_notes": "Satchin Panda lab — circadian biology and time-restricted eating", "last_accessed": "2026-04-22"},
+    {"url": "https://hubermanlab.com", "org": "Huberman Lab (Stanford)", "tier": "B", "reliability_notes": "Andrew Huberman podcast — metabolism, BAT, fasting episodes", "last_accessed": "2026-04-22"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov", "org": "PubMed / NCBI", "tier": "A", "reliability_notes": "Master biomedical literature index (meta-registry)", "last_accessed": "2026-04-22"},
+    {"url": "https://www.nih.gov", "org": "National Institutes of Health", "tier": "A", "reliability_notes": "US federal biomedical research agency (meta-registry)", "last_accessed": "2026-04-22"}
+  ]
+}

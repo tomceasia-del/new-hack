@@ -1,0 +1,73 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.muscle"
+  },
+  "sub_topics": [
+    {
+      "id": "mps",
+      "label_th": "การสังเคราะห์โปรตีนกล้ามเนื้อ (MPS)",
+      "label_en": "Muscle Protein Synthesis (MPS)",
+      "description": "กระบวนการที่เซลล์กล้ามเนื้อสร้างโปรตีนใหม่เพื่อซ่อมแซมและเพิ่มมวลกล้ามเนื้อ กระตุ้นโดย leucine และแรงจากการออกกำลังกาย",
+      "prevalence_th": "เป็นหัวข้อหลักในหมู่คนที่ต้องการสร้างกล้ามเนื้อและนักกีฬา",
+      "product_relevance": "whey_protein, EAA, BCAA, leucine supplement"
+    },
+    {
+      "id": "sarcopenia",
+      "label_th": "ซาร์โคพีเนีย — กล้ามเนื้อฝ่อตามอายุ",
+      "label_en": "Sarcopenia — Age-Related Muscle Loss",
+      "description": "การสูญเสียมวลกล้ามเนื้อและความแข็งแรงตามอายุที่เพิ่มขึ้น เริ่มต้นรุนแรงหลังอายุ 30 และเร่งขึ้นหลัง 60",
+      "prevalence_th": "กระทบคนไทยอายุ 40+ จำนวนมาก โดยเฉพาะผู้หญิงวัยหมดประจำเดือน และผู้ชายวัยทำงานที่ไม่ออกกำลังกาย",
+      "product_relevance": "whey_protein, creatine, HMB, EAA, collagen_peptides"
+    },
+    {
+      "id": "creatine_mechanics",
+      "label_th": "ครีเอทีนและระบบ phosphocreatine",
+      "label_en": "Creatine & Phosphocreatine System",
+      "description": "ครีเอทีนเพิ่ม phosphocreatine ในกล้ามเนื้อ ทำให้ผลิต ATP ได้เร็วขึ้นในช่วงออกแรงระยะสั้นแบบหนัก เช่น ยกน้ำหนัก วิ่งเร็ว",
+      "prevalence_th": "ยอดนิยมในหมู่นักยกน้ำหนัก นักกีฬา และคนออกกำลังกายทั่วไป",
+      "product_relevance": "creatine_monohydrate"
+    },
+    {
+      "id": "protein_timing",
+      "label_th": "เวลาและปริมาณโปรตีนต่อมื้อ",
+      "label_en": "Protein Timing & Per-Meal Dosing",
+      "description": "ความสัมพันธ์ระหว่างปริมาณโปรตีนต่อมื้อ ช่วงเวลารับประทาน และประสิทธิภาพในการกระตุ้น MPS โดยเฉพาะ leucine threshold",
+      "prevalence_th": "ความเชื่อผิดๆ เรื่อง 'กินโปรตีนเกิน 30g ต่อมื้อแล้วไม่ได้ประโยชน์' แพร่หลายมากในไทย",
+      "product_relevance": "whey_protein, EAA, BCAA"
+    },
+    {
+      "id": "resistance_training_aging",
+      "label_th": "การฝึกแรงต้านในผู้สูงอายุ",
+      "label_en": "Resistance Training & Aging",
+      "description": "การออกกำลังกายแบบฝึกแรงต้านเป็นวิธีที่มีหลักฐานดีที่สุดในการชะลอและย้อนกลับ sarcopenia ในทุกช่วงอายุ",
+      "prevalence_th": "คนไทยวัย 40-60 ส่วนใหญ่ไม่รู้ว่าการยกน้ำหนักสำคัญกว่าคาร์ดิโอในการชะลอวัย",
+      "product_relevance": "creatine, whey_protein, HMB, EAA"
+    },
+    {
+      "id": "sleep_recovery",
+      "label_th": "การนอนหลับและการฟื้นฟูกล้ามเนื้อ",
+      "label_en": "Sleep & Muscle Recovery",
+      "description": "การนอนหลับเป็นช่วงหลักที่ Growth Hormone หลั่งสูงสุดและ MPS ทำงาน การอดนอนลดกระบวนการสร้างกล้ามเนื้ออย่างมีนัยสำคัญ",
+      "prevalence_th": "คนไทยนอนน้อยเฉลี่ย 6.5-7 ชม. แต่ไม่ตระหนักว่าส่งผลโดยตรงต่อการสร้างกล้ามเนื้อ",
+      "product_relevance": "whey_protein (casein ก่อนนอน), EAA"
+    },
+    {
+      "id": "hmb_catabolism",
+      "label_th": "HMB และการป้องกันกล้ามเนื้อสลาย",
+      "label_en": "HMB & Muscle Catabolism Prevention",
+      "description": "Beta-Hydroxy Beta-Methylbutyrate (HMB) เป็น metabolite ของ leucine ที่ช่วยลดการสลายตัวของกล้ามเนื้อ (proteolysis) โดยเฉพาะในภาวะ catabolic",
+      "prevalence_th": "เริ่มเป็นที่รู้จักในไทยในกลุ่มผู้สูงอายุที่กังวลเรื่องกล้ามเนื้อ และนักกีฬา",
+      "product_relevance": "HMB"
+    },
+    {
+      "id": "eaa_vs_bcaa",
+      "label_th": "EAA vs BCAA — ครบหรือแค่บางส่วน",
+      "label_en": "EAA vs BCAA — Complete vs Partial Amino Profile",
+      "description": "BCAA (leucine, isoleucine, valine) กระตุ้น MPS ชั่วคราว แต่ขาด EAA ที่จำเป็นในการสร้างโปรตีนเต็มรูปแบบ EAA ให้ผลดีกว่าอย่างชัดเจนในการเพิ่มมวลกล้ามเนื้อ",
+      "prevalence_th": "BCAA ยังคงยอดนิยมในไทย ทั้งที่วิทยาศาสตร์ปัจจุบันชี้ว่า EAA เหนือกว่า",
+      "product_relevance": "EAA, BCAA"
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "domain_id": "sleep",
+  "_meta": {
+    "current_count": 9,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.sleep"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_slp_001",
+      "label_th": "Circadian Clock — SCN ตั้งนาฬิกาชีวิต",
+      "label_en": "Circadian Clock via Suprachiasmatic Nucleus (SCN)",
+      "description_th": "แสงสว่างกระทบ melanopsin-containing retinal ganglion cells (ipRGCs) ในตา → ส่งสัญญาณ glutamate ไปยัง suprachiasmatic nucleus (SCN) ใน hypothalamus → SCN ทำหน้าที่เป็น 'master clock' โดยออกสัญญาณ control circadian output ผ่าน melatonin (pineal gland), cortisol (adrenal), body temperature และ sleep-wake cycle",
+      "description_en": "Light hits melanopsin-containing ipRGCs in the retina, sending glutamate to the SCN (hypothalamus master clock), which coordinates melatonin release from the pineal gland, cortisol from adrenals, core body temperature oscillations, and all circadian outputs.",
+      "chain": [
+        {"step": 1, "actor": "Light (400-500nm blue spectrum)", "action": "activates", "target": "ipRGC melanopsin receptors in retina", "effect": "generates neural signal via optic tract"},
+        {"step": 2, "actor": "Glutamate signal", "action": "resets", "target": "SCN (suprachiasmatic nucleus)", "effect": "phase advance or delay of master clock"},
+        {"step": 3, "actor": "SCN", "action": "suppresses via", "target": "pineal gland", "effect": "melatonin synthesis inhibited during day"},
+        {"step": 4, "actor": "SCN at dusk (darkness)", "action": "releases inhibition", "target": "pineal gland", "effect": "melatonin rises → sleep onset signal"},
+        {"step": 5, "actor": "Circadian clock genes (CLOCK, BMAL1, PER, CRY)", "action": "regulate", "target": "all peripheral tissues", "effect": "metabolism, immunity, cell repair follow 24h rhythm"}
+      ],
+      "analogies_th": ["SCN = ผู้บัญชาการทัพ ส่งสัญญาณให้ทุกอวัยวะทำงานตรงเวลา", "แสงแดดเช้า = ปุ่ม reset นาฬิกาให้กลับเป็น 0"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11568040/", "org": "Science / PubMed", "source_tier": "A", "year": 2002, "title": "A molecular perspective on human circadian rhythm disorders — Schibler U, Sassone-Corsi P", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "circadian_rhythm",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_slp_002",
+      "label_th": "Melatonin Synthesis & Light Suppression",
+      "label_en": "Melatonin Biosynthesis and Photic Suppression",
+      "description_th": "Serotonin ใน pineal gland ถูกเปลี่ยนเป็น melatonin ผ่าน 2 ขั้นตอน (AANAT + ASMT enzymes) เมื่อแสงมืด → melatonin หลั่งเข้ากระแสเลือด → จับ MT1/MT2 receptors ใน SCN และส่วนอื่นๆ → สัญญาณ 'กลางคืน' ลดอุณหภูมิร่างกาย ลด core arousal → เตรียมนอน; แสงสว่าง (โดยเฉพาะ 446-484 nm) กด AANAT ทำให้ melatonin ไม่หลั่ง",
+      "description_en": "Pineal serotonin is converted to melatonin via AANAT + ASMT enzymes in darkness → melatonin enters blood → binds MT1/MT2 receptors in SCN → signals 'nighttime', lowers core body temperature and arousal → promotes sleep onset; blue-wavelength light (446-484 nm) suppresses AANAT, blocking melatonin production.",
+      "chain": [
+        {"step": 1, "actor": "Darkness signal from SCN", "action": "disinhibits", "target": "AANAT enzyme in pineal gland", "effect": "serotonin → N-acetylserotonin conversion begins"},
+        {"step": 2, "actor": "ASMT enzyme", "action": "converts", "target": "N-acetylserotonin", "effect": "melatonin synthesized"},
+        {"step": 3, "actor": "Melatonin in blood", "action": "binds", "target": "MT1/MT2 receptors (SCN, pars tuberalis, peripheral)", "effect": "circadian 'darkness' signal propagated"},
+        {"step": 4, "actor": "Blue light", "action": "activates ipRGCs → SCN → suppresses", "target": "AANAT (night suppression)", "effect": "melatonin synthesis halted even at night"}
+      ],
+      "analogies_th": ["melatonin = สัญญาณกลางคืนของร่างกาย ไม่ใช่ยานอนหลับ", "AANAT = краnik ที่ถูก SCN เปิด/ปิดตามแสง"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19900766/", "org": "Current Biology / PubMed", "source_tier": "A", "year": 2010, "title": "Melanopsin and mechanisms of non-visual ocular photoreception — Panda S", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "melatonin_pathway",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_slp_003",
+      "label_th": "Sleep Deprivation → Cortisol สูงขึ้น → HPA Dysregulation",
+      "label_en": "Sleep Loss → HPA Axis Activation → Elevated Evening Cortisol",
+      "description_th": "การนอนน้อยกระตุ้น HPA axis → corticotropin-releasing hormone (CRH) จาก hypothalamus → ACTH จาก pituitary → cortisol จาก adrenal สูงขึ้นในช่วงบ่าย-เย็น (ช่วงที่ปกติ cortisol ต่ำ); cortisol สูงเรื้อรังกระตุ้น gluconeogenesis → เพิ่ม fasting glucose, ลด insulin sensitivity",
+      "description_en": "Sleep deprivation activates HPA axis → CRH from hypothalamus → ACTH from pituitary → elevated afternoon-evening cortisol (normally nadir); chronic cortisol elevation stimulates gluconeogenesis, raises fasting glucose, and reduces insulin sensitivity.",
+      "chain": [
+        {"step": 1, "actor": "Sleep deprivation / fragmentation", "action": "activates", "target": "CRH neurons in hypothalamus (PVN)", "effect": "HPA axis turned on"},
+        {"step": 2, "actor": "CRH", "action": "stimulates", "target": "pituitary corticotrophs", "effect": "ACTH secretion"},
+        {"step": 3, "actor": "ACTH", "action": "stimulates", "target": "adrenal cortex zona fasciculata", "effect": "cortisol secretion elevated"},
+        {"step": 4, "actor": "Cortisol (afternoon-evening)", "action": "remains elevated instead of declining", "target": "peripheral tissues", "effect": "gluconeogenesis, insulin resistance, abdominal fat accumulation"}
+      ],
+      "analogies_th": ["นอนน้อย = ร่างกายคิดว่าเป็นภาวะฉุกเฉิน → คอร์ติซอลสูงเสมอ", "cortisol เย็น = สัญญาณว่านอนไม่พอมาหลายคืน"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10543671/", "org": "Lancet / PubMed", "source_tier": "A", "year": 1999, "title": "Impact of sleep debt on metabolic and endocrine function — Spiegel K, Leproult R, Van Cauter E", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_stages",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_slp_004",
+      "label_th": "Sleep Deprivation → Ghrelin↑ Leptin↓ → ความหิวและน้ำหนักขึ้น",
+      "label_en": "Sleep Loss → Ghrelin Elevation + Leptin Reduction → Hyperphagia",
+      "description_th": "การนอนน้อยลด sleep-related leptin pulse (จาก adipocyte) → ลดสัญญาณอิ่ม; เพิ่ม orexigenic ghrelin (จาก oxyntic cells ในกระเพาะ) → เพิ่มความหิว; ทั้งสองทำงานร่วมในไฮโปทาลามัส (arcuate nucleus) ผ่าน NPY/AgRP neurons → เพิ่มการกินโดยเฉพาะอาหารแป้ง/หวาน",
+      "description_en": "Sleep deprivation reduces the nocturnal leptin pulse (from adipocytes) → less satiety signal; raises ghrelin (from gastric oxyntic cells) → more hunger; both converge on arcuate nucleus NPY/AgRP neurons → increased food intake, especially carbohydrate-dense foods.",
+      "chain": [
+        {"step": 1, "actor": "Short sleep (<6h)", "action": "blunts nocturnal pulse of", "target": "leptin secretion from adipocytes", "effect": "reduced satiety signal to hypothalamus"},
+        {"step": 2, "actor": "Short sleep", "action": "elevates", "target": "ghrelin from gastric oxyntic cells", "effect": "increased hunger signal"},
+        {"step": 3, "actor": "Ghrelin + reduced leptin", "action": "activate NPY/AgRP neurons in", "target": "arcuate nucleus (hypothalamus)", "effect": "elevated drive to eat, especially sweets/carbs"},
+        {"step": 4, "actor": "Endocannabinoid system (2-AG)", "action": "also elevated by sleep loss, enhances", "target": "hedonic eating circuits", "effect": "food cravings for high-fat, high-sugar"}
+      ],
+      "analogies_th": ["นอนน้อย = ปุ่มหิวค้าง ปุ่มอิ่มพัง", "เกรลินเหมือนสัญญาณ GPS บอกสมองว่า 'หิวแล้ว' ทุกๆ ชั่วโมง"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15583226/", "org": "Ann Intern Med / PubMed", "source_tier": "A", "year": 2004, "title": "Sleep curtailment in healthy young men is associated with decreased leptin levels, elevated ghrelin levels — Spiegel K et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_stages",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_slp_005",
+      "label_th": "SWS → Growth Hormone Pulse",
+      "label_en": "Slow-Wave Sleep (SWS) Triggers Pulsatile GH Release",
+      "description_th": "Growth Hormone Releasing Hormone (GHRH) จาก hypothalamus เพิ่มขึ้นในช่วง slow-wave sleep (SWS) → กระตุ้น pituitary → GH pulse ที่ใหญ่ที่สุดในรอบ 24 ชั่วโมง (70-80% ของ GH รายวันหลั่งในช่วง SWS แรก); GH กระตุ้น lipolysis, protein synthesis ใน muscle/bone และ IGF-1 production ใน liver",
+      "description_en": "GHRH from hypothalamus surges during SWS → pituitary GH pulse (70-80% of daily GH released in first SWS episode); GH stimulates lipolysis (fat burning), muscle/bone protein synthesis, and hepatic IGF-1 production.",
+      "chain": [
+        {"step": 1, "actor": "Sleep onset → SWS (N3)", "action": "triggers GHRH pulse from", "target": "arcuate nucleus", "effect": "GHRH travels to pituitary"},
+        {"step": 2, "actor": "GHRH", "action": "stimulates", "target": "pituitary somatotrophs", "effect": "large GH pulse (70-80% of daily GH)"},
+        {"step": 3, "actor": "GH in blood", "action": "stimulates", "target": "liver hepatocytes", "effect": "IGF-1 production"},
+        {"step": 4, "actor": "GH + IGF-1", "action": "promote", "target": "muscle/bone protein synthesis, lipolysis in adipocytes", "effect": "body composition improved, fat mobilized"}
+      ],
+      "analogies_th": ["SWS = โรงงานซ่อมและสร้างร่างกาย ทำงานช่วงหลับลึก", "ถ้าพลาด SWS = พลาดโรงงาน GH ทั้งคืน"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10843528/", "org": "Sleep / PubMed", "source_tier": "A", "year": 2000, "title": "Age-related changes in slow wave sleep and relationship with GH and cortisol — Van Cauter E et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_stages",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_slp_006",
+      "label_th": "Sleep และ Immune Modulation — NK Cell / Cytokine",
+      "label_en": "Sleep and Immune Function via NK Cells and Cytokine Regulation",
+      "description_th": "ในช่วงนอนหลับ (โดยเฉพาะ SWS): cytokines pro-inflammatory (IL-1β, TNF-α, IL-6) สูงขึ้น → ส่งเสริม immune memory formation; NK cell cytotoxicity และ T cell proliferation สูงสุดในช่วงกลางดึก; การอดนอน ลด NK cell activity 28% ใน 1 คืน และลด antibody response ต่อ vaccine",
+      "description_en": "During sleep (especially SWS): pro-inflammatory cytokines (IL-1β, TNF-α, IL-6) rise transiently → promote immune memory consolidation; NK cell cytotoxicity and T cell proliferation peak overnight; one night of sleep deprivation reduces NK cell activity by 28% and impairs vaccine antibody response.",
+      "chain": [
+        {"step": 1, "actor": "SWS sleep", "action": "elevates transiently", "target": "IL-1β, TNF-α in blood/CSF", "effect": "SWS-promoting and immune memory signals"},
+        {"step": 2, "actor": "Low cortisol / catecholamines during sleep", "action": "allows migration of", "target": "lymphocytes to lymph nodes", "effect": "T cell-antigen presenting cell interactions peak"},
+        {"step": 3, "actor": "NK cells", "action": "reach peak cytotoxicity at", "target": "midnight-2AM", "effect": "cancer cell and virus-infected cell surveillance highest"},
+        {"step": 4, "actor": "Sleep deprivation", "action": "reduces by 28%", "target": "NK cell activity", "effect": "decreased immune surveillance"}
+      ],
+      "analogies_th": ["นอนหลับ = กองทัพภูมิคุ้มกันทำงานเต็มกำลัง", "NK cell ยามดึก = ทหารพิเศษตรวจเซลล์เสีย"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26903523/", "org": "Sleep / PubMed", "source_tier": "A", "year": 2016, "title": "Why sleep is important for health: a psychoneuroimmunology perspective — Irwin MR", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_stages",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_slp_007",
+      "label_th": "Adenosine Build-up (Sleep Pressure) และ Caffeine Blocking",
+      "label_en": "Adenosine Sleep Pressure and Caffeine Antagonism",
+      "description_th": "ตลอดเวลาที่ตื่น สมองใช้พลังงาน ATP → ผลพลอยได้คือ adenosine สะสมใน basal forebrain, cortex; adenosine จับ A1 receptor (locus coeruleus) และ A2A receptor (nucleus accumbens ventral striatum) → ลด arousal → ง่วง; caffeine แข่งจับ receptor เดียวกัน (antagonist) แต่ไม่ย่อย adenosine → adenosine ยังสะสมอยู่ใต้ caffeine → เมื่อ caffeine ถูก metabolize (half-life 5-7h) → adenosine rebound",
+      "description_en": "Waking brain uses ATP → adenosine byproduct accumulates in basal forebrain and cortex; adenosine binds A1/A2A receptors → reduces arousal; caffeine competes for the same receptors (antagonist) without degrading adenosine → adenosine 'banks up' under caffeine; when caffeine is metabolized (half-life 5-7h) → adenosine rebound → crash.",
+      "chain": [
+        {"step": 1, "actor": "Neural activity (ATP hydrolysis)", "action": "produces", "target": "adenosine in extracellular space", "effect": "linear rise with wake duration"},
+        {"step": 2, "actor": "Adenosine", "action": "binds A1 receptors in", "target": "locus coeruleus (arousal center)", "effect": "noradrenaline release inhibited → drowsy"},
+        {"step": 3, "actor": "Caffeine", "action": "competitively blocks", "target": "A1/A2A adenosine receptors", "effect": "adenosine cannot signal → alertness restored"},
+        {"step": 4, "actor": "Adenosine (uncleared)", "action": "accumulates behind caffeine, then rebound-binds when caffeine clears", "target": "same receptors", "effect": "greater drowsiness than before caffeine (caffeine crash)"}
+      ],
+      "analogies_th": ["adenosine = กองขยะที่สะสมตลอดวัน ต้องล้างตอนนอน", "caffeine ปิดประตู แต่ขยะยังอยู่ — พอเปิดประตู ล้นออกมา"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12020799/", "org": "Journal of Neuroscience / PubMed", "source_tier": "A", "year": 2002, "title": "Adenosine and sleep-wake regulation — Basheer R et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "adenosine",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_slp_008",
+      "label_th": "Magnesium → GABA + NMDA → ผ่อนคลายและนอนหลับ",
+      "label_en": "Magnesium as GABA Agonist and NMDA Blocker for Sleep",
+      "description_th": "Magnesium จับ GABA-A receptor (co-factor) เสริม inhibitory neurotransmission → ลด neuronal excitability; บล็อก NMDA receptor (voltage-gated Mg²⁺ block) → ลด excitatory glutamate activity; ลด cortisol จาก HPA axis; ช่วย serotonin → melatonin conversion โดยเป็น cofactor ของ HIOMT enzyme",
+      "description_en": "Magnesium enhances GABA-A receptor function (co-factor) → inhibitory neurotransmission → lower neuronal excitability; blocks NMDA receptor Mg²⁺ gate → reduces excitatory glutamate drive; suppresses HPA cortisol; acts as cofactor for HIOMT in melatonin synthesis.",
+      "chain": [
+        {"step": 1, "actor": "Mg²⁺", "action": "potentiates GABA binding to", "target": "GABA-A receptor", "effect": "Cl⁻ influx → neuronal hyperpolarization (calm)"},
+        {"step": 2, "actor": "Mg²⁺", "action": "voltage-dependent block of", "target": "NMDA receptor channel", "effect": "reduces glutamate-driven excitation at resting state"},
+        {"step": 3, "actor": "Mg²⁺", "action": "suppresses", "target": "HPA axis CRH release", "effect": "lower cortisol → less evening arousal"},
+        {"step": 4, "actor": "Mg²⁺ as cofactor", "action": "enables", "target": "HIOMT (hydroxyindole-O-methyltransferase)", "effect": "melatonin synthesis step 2 proceeds efficiently"}
+      ],
+      "analogies_th": ["แมกนีเซียม = ยาผ่อนคลายระบบประสาทตามธรรมชาติ", "ขาด Mg = สวิตช์ GABA บกพร่อง"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22364157/", "org": "J Res Med Sci / PubMed", "source_tier": "A", "year": 2012, "title": "The effect of magnesium supplementation on primary insomnia in elderly — Abbasi B et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_stages",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_slp_009",
+      "label_th": "Core Body Temperature Drop → Sleep Onset Signal",
+      "label_en": "Pre-Sleep Core Body Temperature Reduction as Sleep Trigger",
+      "description_th": "Core body temperature ต้องลดลง ~0.5-1°C จากค่า daytime เพื่อ trigger sleep onset; ลดผ่านการ vasodilation (ขยายหลอดเลือดที่มือ เท้า ผิวหนัง) → ระบายความร้อนออกนอกร่างกาย; SCN ควบคุม temperature drop ให้เกิดตอนเย็น-ค่ำ; ห้องเย็น (18-20°C) เสริม heat dissipation ของร่างกาย",
+      "description_en": "Core body temperature must drop ~0.5-1°C from daytime levels to initiate sleep; achieved via peripheral vasodilation (hands, feet, skin) releasing core heat; SCN orchestrates the evening temperature decline; a cool room (18-20°C) facilitates heat dissipation.",
+      "chain": [
+        {"step": 1, "actor": "SCN evening signal", "action": "triggers", "target": "sympathetic vasodilation in skin/extremities", "effect": "heat loss via hands and feet (feeling warm)"},
+        {"step": 2, "actor": "Core body temperature", "action": "drops ~0.5-1°C", "target": "brain thermostat set point", "effect": "VLPO (sleep-promoting neurons) activated"},
+        {"step": 3, "actor": "VLPO activation", "action": "inhibits", "target": "arousal centers (LC, TMN, RN)", "effect": "sleep onset initiated"},
+        {"step": 4, "actor": "Cool ambient temperature (<20°C)", "action": "facilitates", "target": "peripheral heat dissipation", "effect": "faster temperature drop → faster sleep onset"}
+      ],
+      "analogies_th": ["ร่างกายดับเครื่องด้วยการระบายความร้อนก่อนนอน เหมือนคอมพิวเตอร์ cool down", "อาบน้ำอุ่นแล้วออกมา = ผิวหนังแดง ระบายร้อน core ลดลง"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10485726/", "org": "Am J Physiol / PubMed", "source_tier": "A", "year": 1999, "title": "Core body temperature and sleep onset latency — Kräuchi K et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_hygiene",
+      "confidence": "high"
+    }
+  ]
+}

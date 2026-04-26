@@ -1,0 +1,265 @@
+{
+  "domain_id": "sleep",
+  "_meta": {"current_count": 9, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.sleep"},
+  "angles": [
+    {
+      "angle_id": "slp_angle_001",
+      "product_category": "magnesium_glycinate",
+      "problem_th": "นอนไม่หลับ ตื่นกลางดึก ตื่นเช้าแล้วยังเมื่อย โดยเฉพาะในผู้ที่ขาด Mg",
+      "mechanism_claim_th": "Magnesium glycinate เสริม GABA-A receptor + บล็อก NMDA receptor → ลด neuronal excitability; ลด cortisol เย็น; เป็น cofactor ในการสร้าง melatonin",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยสนับสนุนการผ่อนคลายและเตรียมร่างกายสำหรับการนอน",
+        "Magnesium glycinate ดูดซึมได้ดีและรบกวนระบบย่อยอาหารน้อยกว่า magnesium oxide",
+        "ผลการศึกษาใน elderly insomnia: ISI score ดีขึ้นอย่างมีนัยสำคัญที่ 8 สัปดาห์ (Abbasi 2012)"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษาอาการนอนไม่หลับ'",
+        "ห้ามบอก 'นอนหลับสนิทภายในคืนแรก'",
+        "ห้ามบอกว่า 'แทนยานอนหลับได้'"
+      ],
+      "supporting_facts": ["slp_010"],
+      "narrative_frames": ["ชาวอเมริกัน 68% ขาด Mg / คนไทยประมาณการณ์ขาดใกล้เคียงกัน", "Mg glycinate ไม่ท้องเสียเหมือน oxide/citrate", "คืนสุดท้ายที่คุณนอนหลับสนิท... Mg คืออะไร?"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": ["on_thyroid_medication (แยกเวลา 4h จาก levothyroxine)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'Magnesium รักษาอาการนอนไม่หลับได้แน่นอน'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษาอาการนอนไม่หลับ", "แทนยานอนหลับ"],
+        "regulatory_risk_notes": "อย. ไทย — จำหน่ายเป็นอาหารเสริม claim ผ่อนคลายได้"
+      }
+    },
+    {
+      "angle_id": "slp_angle_002",
+      "product_category": "melatonin",
+      "problem_th": "นาฬิกาชีวิตเพี้ยน นอนดึกตื่นสาย, jet lag, shift work, ปรับวงจรนอนยาก",
+      "mechanism_claim_th": "Melatonin 0.5-1mg เป็น chronobiotic — reset circadian clock ผ่าน MT1/MT2 receptors ใน SCN; ไม่ใช่ยานอนหลับ แต่เป็น 'ป้ายบอกทาง' ให้ร่างกายรู้ว่าถึงเวลากลางคืน",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วย reset นาฬิกาชีวิตสำหรับ jet lag และ shift work",
+        "ลด sleep onset latency เฉลี่ย 7 นาที (meta-analysis 17 RCTs)",
+        "ขนาด 0.5-1mg ปลอดภัยและมีประสิทธิภาพเทียบเท่า 5-10mg"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษาโรคนอนไม่หลับ (insomnia) ได้แน่นอน'",
+        "ห้ามบอก 'กินแล้วหลับทันที'",
+        "ห้ามบอก 'ปลอดภัย 100% กับทุกคน' (ผู้ใช้ยา SSRI ต้องระวัง)"
+      ],
+      "supporting_facts": ["slp_009"],
+      "narrative_frames": ["melatonin คือนาฬิกาไม่ใช่ยาหลับ", "dose น้อยดีกว่า dose มาก (กินแค่ 0.5mg)", "ผู้เดินทางข้ามโซนเวลา ใช้ melatonin reset"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_SSRI_or_antidepressant", "autoimmune_on_immunosuppressant"],
+        "drug_interactions": ["fluvoxamine (CYP1A2 — raises melatonin 12x)", "warfarin (possible INR change)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'เมลาโทนินรักษาอาการนอนไม่หลับเรื้อรัง'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications", "pregnant_lactating", "under_18"],
+        "validator_keywords_th": ["รักษาอาการนอนไม่หลับ"],
+        "regulatory_risk_notes": "อย. ไทย — melatonin ≤5mg เป็นอาหารเสริมได้"
+      }
+    },
+    {
+      "angle_id": "slp_angle_003",
+      "product_category": "L_theanine",
+      "problem_th": "ความเครียดและ racing mind ก่อนนอน นอนหลับยากเพราะคิดมาก",
+      "mechanism_claim_th": "L-theanine 200mg กระตุ้น alpha brain wave (relaxed alertness) โดยไม่ทำให้ง่วงซึม; ลดความตื่นตัวของ sympathetic → ช่วย unwind ก่อนนอน",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยผ่อนคลายโดยไม่ทำให้ง่วงซึมระหว่างวัน",
+        "PSQI score ดีขึ้นใน 4 สัปดาห์",
+        "ดีสำหรับคนที่ 'ความคิดวนเวียน' ก่อนนอน"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'แทนยานอนหลับได้'",
+        "ห้ามบอก 'รักษา anxiety disorder'"
+      ],
+      "supporting_facts": ["slp_012"],
+      "narrative_frames": ["ชาเขียวมี theanine ทำให้ผ่อนคลายไม่ซึม", "combo: L-theanine + Mg + melatonin", "สำหรับ overthinking person"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["antihypertensive (mild additive effect)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'L-theanine รักษา anxiety'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษา anxiety", "แทนยานอนหลับ"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "slp_angle_004",
+      "product_category": "sleep_supplement_combo",
+      "problem_th": "นอนไม่หลับหลายสาเหตุพร้อมกัน — stress + circadian disruption + Mg deficiency",
+      "mechanism_claim_th": "Combo ผสม Mg glycinate + L-theanine + melatonin 0.5mg แต่ละตัวทำงานต่าง pathway: Mg → GABA/NMDA, Theanine → alpha wave, Melatonin → circadian signal → สนับสนุนการนอนหลายมิติ",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "แต่ละส่วนประกอบมีงานวิจัยรองรับ",
+        "stack approach ครอบคลุมหลาย mechanism",
+        "ปลอดภัยในขนาดที่ใช้"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษาโรคนอนไม่หลับ'",
+        "ห้ามบอก '100% ได้ผล'"
+      ],
+      "supporting_facts": ["slp_009", "slp_010", "slp_012"],
+      "narrative_frames": ["3-in-1 sleep stack", "ทีม 3 คน ต่าง pathway"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["chronic_kidney_disease_stage_3_plus", "on_SSRI_or_antidepressant"],
+        "drug_interactions": ["fluvoxamine + melatonin (12x melatonin levels)", "on_thyroid_medication + Mg (แยกเวลา)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'รักษาโรคนอนไม่หลับ'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษาโรคนอนไม่หลับ"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "slp_angle_005",
+      "product_category": "GABA",
+      "problem_th": "ความวิตกกังวลและ hyperarousal ที่ทำให้นอนไม่หลับ",
+      "mechanism_claim_th": "GABA (gamma-aminobutyric acid) เป็น primary inhibitory neurotransmitter ในสมอง; GABA supplement ช่วยเพิ่ม GABAergic tone → ลด neuronal excitability; bioavailability ข้ามาสมองยังถกเถียง แต่ PNS (enteric/peripheral) GABA effect มีงานวิจัยหนุน",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ผลิตภัณฑ์เสริมอาหาร มีส่วนช่วยในความผ่อนคลาย",
+        "ใช้คู่กับ L-theanine ได้"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'GABA supplement = ยา benzodiazepine'",
+        "ห้ามบอก 'รักษา anxiety / panic attack'"
+      ],
+      "supporting_facts": ["slp_010"],
+      "narrative_frames": ["สารผ่อนคลายตามธรรมชาติจากสมอง"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["benzodiazepine (additive CNS depression — caution)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'GABA แทน benzodiazepine'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษา anxiety", "แทน benzodiazepine"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "slp_angle_006",
+      "product_category": "passionflower",
+      "problem_th": "อาการนอนไม่หลับจากความเครียดระยะสั้น (situational insomnia)",
+      "mechanism_claim_th": "Passionflower (Passiflora incarnata) มี chrysin และ apigenin ที่จับ benzodiazepine receptor sites บน GABA-A receptor (partial agonist); RCT Ngan & Conduit 2011: passionflower tea 1 สัปดาห์ ปรับปรุง sleep quality อย่างมีนัยสำคัญเทียบ placebo",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยการผ่อนคลาย",
+        "เหมาะกับอาการนอนไม่หลับระยะสั้น"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษา insomnia เรื้อรัง'",
+        "ห้ามบอก 'ปลอดภัยกับทุกคน' (เด็ก/ตั้งครรภ์ต้องระวัง)"
+      ],
+      "supporting_facts": [],
+      "narrative_frames": ["herbal คลาสสิก สำหรับ situational stress"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["pregnancy_lactation"],
+        "drug_interactions": ["benzodiazepine/CNS depressants (additive)", "warfarin (minor antiplatelet)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "slp_angle_007",
+      "product_category": "collagen_glycine",
+      "problem_th": "ตื่นเช้ามาง่วงและไม่สดชื่น แม้นอนครบชั่วโมง",
+      "mechanism_claim_th": "Collagen peptide มี glycine สูง (~30%) — glycine 3g ก่อนนอนลด core body temperature ผ่าน NMDA receptor/vasodilation pathway → เร่ง sleep onset; ลด Epworth sleepiness score (ง่วงระหว่างวัน)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "glycine ใน collagen มีส่วนช่วยในคุณภาพการนอน",
+        "ลดความง่วงระหว่างวัน (Bannai 2012)",
+        "ได้ประโยชน์ 2 ทาง: ผิว + การนอน"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'collagen รักษาอาการนอนไม่หลับ'"
+      ],
+      "supporting_facts": ["slp_022"],
+      "narrative_frames": ["collagen ก่อนนอน = สวย + นอนหลับ 2in1", "กินแล้วตื่นเช้าไม่ง่วง"],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "slp_angle_008",
+      "product_category": "blue_light_blocking_glasses",
+      "problem_th": "การทำงาน/เล่นมือถือดึกๆ ทำให้นาฬิกาชีวิตเพี้ยนและนอนหลับยาก",
+      "mechanism_claim_th": "แว่นตากรองแสงสีน้ำเงิน (Blue Light Blocking Glasses) ลดปริมาณ 446-484nm blue light ที่กด melatonin → ช่วย preserve melatonin onset แม้อยู่หน้าจอ",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลดผลของแสงสีน้ำเงินต่อการหลั่ง melatonin",
+        "Ostrin et al. 2017: แว่นกรองแสงสีน้ำเงิน 99% รักษา melatonin onset ได้ในผู้ที่อยู่หน้าจอ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'ใส่แว่นแล้วนอนหลับได้ทันที'",
+        "ห้ามบอก 'แก้ insomnia ได้'"
+      ],
+      "supporting_facts": ["slp_002"],
+      "narrative_frames": ["tech-savvy solution สำหรับ digital native"],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "slp_angle_009",
+      "product_category": "ashwagandha",
+      "problem_th": "ความเครียดเรื้อรังและ cortisol สูงทำให้นอนไม่หลับ",
+      "mechanism_claim_th": "Ashwagandha (KSM-66 / Sensoril) ลด serum cortisol ผ่าน HPA axis modulation; Langade et al. (Medicine 2019) RCT 60 คน: ashwagandha 300mg BID × 10 สัปดาห์ ปรับปรุง sleep quality (PSQI -41.9%), sleep onset, และลด serum cortisol -23%",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยลด cortisol และสนับสนุนการนอน",
+        "KSM-66 extract มีงานวิจัย RCT หนุน",
+        "เหมาะกับผู้ที่ stress-related sleep problems"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษา insomnia หรือ anxiety disorder'",
+        "ห้ามบอก 'ลด cortisol ได้แน่ 23% ในทุกคน'"
+      ],
+      "supporting_facts": ["slp_003"],
+      "narrative_frames": ["ashwagandha = adaptogen คลาสสิกสำหรับ stress + sleep", "ลด cortisol ตอนเย็น = นอนหลับง่ายขึ้น"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_thyroid_medication", "autoimmune_on_immunosuppressant", "pregnancy_lactation"],
+        "drug_interactions": ["thyroid medication (อาจเพิ่ม T3/T4)", "immunosuppressant (immune modulation)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'รักษา anxiety disorder'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "on_prescription_medications"],
+        "validator_keywords_th": ["รักษา anxiety", "รักษา insomnia"],
+        "regulatory_risk_notes": null
+      }
+    }
+  ]
+}

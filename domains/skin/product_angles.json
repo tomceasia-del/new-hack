@@ -1,0 +1,117 @@
+{
+  "domain_id": "skin",
+  "_meta": {
+    "last_harvested": "2026-04-22T00:00:00",
+    "harvested_by": "domain_harvester.skin",
+    "product_categories_from_taxonomy": [
+      "collagen_peptide",
+      "glutathione",
+      "vitamin_C",
+      "hyaluronic_acid",
+      "retinol",
+      "niacinamide"
+    ],
+    "compliance_notes": "All product roles are 'support/tool' — never 'cure'. No whitening cure claims. No disease treatment claims. Thai market: focus on ฝ้า/กระ/ผิวหมอง/ริ้วรอย as primary concerns."
+  },
+  "angles": [
+    {
+      "angle_id": "angle_skin_001",
+      "product_category": "collagen_peptide",
+      "problem_th": "หลัง 20 ปี คอลลาเจนในผิวหายไป ~1% ทุกปี — พอถึง 40 หายไป 20% แล้ว; ผิวหย่อน ริ้วรอยลึกขึ้น และ firming cream ทาภายนอกเข้าไม่ถึงชั้นหนังแท้",
+      "mechanism_link": "mech_skin_003",
+      "angle_th": "คอลลาเจนเปปไทด์ที่กิน → ดูดซึมเป็น peptide เล็ก Pro-Hyp, Hyp-Gly → เข้าเลือด → ถึง fibroblast ใน dermis → กระตุ้นให้ผิวสร้างคอลลาเจนเองมากขึ้น; RCT (Proksch 2014) พิสูจน์: 2.5 g/วัน 8 สัปดาห์ → procollagen I เพิ่ม 65%, ริ้วรอยลด 20%",
+      "product_role": "support — กระตุ้นกลไกสร้างคอลลาเจนของร่างกาย ไม่ใช่ 'เติมคอลลาเจนตรงๆ'",
+      "framing_notes": "ต้องระบุว่า 'bioactive collagen peptides' เฉพาะ ไม่ใช่คอลลาเจนทุกรูปแบบ; อ้าง RCT ได้แต่บอก n=114 ผู้หญิง 45-65 ปี; ห้ามพูด 'หายริ้วรอย 100%'",
+      "forbidden_claims": [
+        "ห้ามพูดว่าคอลลาเจนไปถึงผิวโดยตรง",
+        "ห้ามอ้าง 'กิน collagen = ไม่แก่'",
+        "ห้ามใช้ before/after ที่เกินจริง",
+        "ห้ามพูดว่าคอลลาเจนทุกยี่ห้อให้ผลเหมือนกัน"
+      ],
+      "hook_th": "ผิวมึงไม่ได้แก่เพราะอายุ — แต่เพราะโรงงานสร้างคอลลาเจนมันหยุดทำงาน; งานวิจัย 114 คนพิสูจน์ว่ากระตุ้นโรงงานได้",
+      "target_segment": "ผู้หญิงอายุ 35-55 ปี, กังวลเรื่องริ้วรอยและผิวหย่อน"
+    },
+    {
+      "angle_id": "angle_skin_002",
+      "product_category": "glutathione",
+      "problem_th": "ฝ้า/กระ/ผิวหมอง ที่เกิดจาก UV + ฮอร์โมน ทำให้ melanocyte ผลิต eumelanin (สีเข้ม) มากเกินปกติ — ผิวสีไม่สม่ำเสมอ จุดด่างดำ ซึ่งเป็นอันดับ 1 ของความกังวลผิวคนไทย (Fitzpatrick IV-V)",
+      "mechanism_link": "mech_skin_005",
+      "angle_th": "Glutathione จับ dopaquinone (intermediate ของ melanin) → เบี่ยงการสังเคราะห์จาก eumelanin (น้ำตาล/ดำ) → pheomelanin (สีอ่อนกว่า); ยับยั้ง tyrosinase ทางอ้อม + antioxidant ลด ROS ที่กระตุ้น melanogenesis; oral form 250-500 mg/วัน มีหลักฐาน pilot RCT ว่า 'even out tone' ใน 8-12 สัปดาห์",
+      "product_role": "support — ปรับสมดุลกระบวนการสร้างเมลานิน ไม่ใช่ 'ลบสีผิว'",
+      "framing_notes": "ต้องใช้คำว่า 'กระจ่างใส' หรือ 'tone even' ไม่ใช่ 'ขาว'; ห้ามโฆษณา IV route; ห้ามอ้างว่า oral glutathione = IV glutathione ในแง่ผล; bioavailability oral = ต่ำ แต่ liposomal form ดีกว่า",
+      "forbidden_claims": [
+        "ห้ามใช้คำ 'ฟอกขาว' หรือ 'whitening'",
+        "ห้ามแนะนำ IV glutathione",
+        "ห้ามพูดว่าขาวได้ไม่มีเพดาน",
+        "ห้ามเปรียบเทียบผล oral กับ IV"
+      ],
+      "hook_th": "ผิวไม่ได้ขาวเพราะฝ้าหาย — แต่กระจ่างขึ้นเพราะเมลานินสมดุลขึ้น; gluta ไม่ได้ลบสี แต่เปลี่ยนสูตรสี",
+      "target_segment": "ผู้หญิงทุกอายุที่มีปัญหาฝ้า กระ ผิวหมอง ต้องการผิวกระจ่างสม่ำเสมอ"
+    },
+    {
+      "angle_id": "angle_skin_003",
+      "product_category": "vitamin_C",
+      "problem_th": "UV สร้าง ROS ในผิวทุกวัน — ROS ทำลาย collagen ผ่าน MMP และกระตุ้น melanin; วิตามินซีในร่างกายหมดเร็วเมื่อเจอแดดหนัก; skin ต้องการ Vit C ทั้งในการสร้างคอลลาเจน (cofactor) และ neutralize ROS",
+      "mechanism_link": "mech_skin_008",
+      "angle_th": "Vitamin C (oral) เพิ่ม ascorbate ใน plasma → ส่งถึงผิว → (1) cofactor prolyl hydroxylase สร้าง collagen, (2) neutralize ROS จาก UV, (3) ยับยั้ง tyrosinase ทางอ้อม → ลดเมลานิน; topical Vit C (L-ascorbic acid, pH <3.5, 10-20%) เสริมฤทธิ์โดยตรงที่ผิว; ferulic acid + Vit E เพิ่ม photoprotection ~8×",
+      "product_role": "support — เป็น cofactor ที่ขาดไม่ได้ในกระบวนการ collagen synthesis + ROS defense",
+      "framing_notes": "สามารถ cite RDA/RDI ได้ (65-90 mg/วัน) และ optimal skin saturation ~200 mg/วัน; ต้องแยก oral vs topical mechanism; ห้ามพูดว่า Vit C แทน sunscreen ได้",
+      "forbidden_claims": [
+        "ห้ามพูดว่า Vit C ทดแทนกันแดดได้",
+        "ห้ามอ้างว่า 'ขาวภายใน X วัน'",
+        "ห้ามเคลม 'หยุดริ้วรอย' — มันชะลอ ไม่ใช่หยุด"
+      ],
+      "hook_th": "UV กิน Vit C ในผิวมึงทุกวัน — แต่ขณะเดียวกัน ผิวต้องการ Vit C เพื่อสร้างคอลลาเจนใหม่; ขาด Vit C ผิวแพ้แดดง่ายขึ้น ฟื้นช้าลง",
+      "target_segment": "ผู้หญิง/ผู้ชายทุกวัยที่อยู่กลางแจ้ง, กังวลเรื่อง photoaging และ uneven tone"
+    },
+    {
+      "angle_id": "angle_skin_004",
+      "product_category": "hyaluronic_acid",
+      "problem_th": "ผิวแห้ง ขาดความยืดหยุ่น ริ้วรอยตื้นดูชัดขึ้นเพราะผิวขาดน้ำ — hyaluronic acid (HA) ในผิวลดลงตามอายุ โดยเฉพาะหลัง 40; คนไทยสัมผัส aircon และ pollution สูง ทำให้ TEWL มากขึ้น",
+      "mechanism_link": "mech_skin_011",
+      "angle_th": "Hyaluronic acid เป็น glycosaminoglycan ที่ดูดน้ำได้ ~1,000 เท่าน้ำหนักตัว — ใน dermis มี HA ~1g/kg ช่วยรักษา turgor ผิว; oral HA (80-120 mg/วัน) มี small RCT (Kawada 2015, n=60) ว่าเพิ่ม skin moisture และลด wrinkle depth ใน 12 สัปดาห์; topical HA สร้างชั้น moisture reservoir บน epidermis",
+      "product_role": "support — รักษาความชุ่มชื้น stratum corneum และ dermis ไม่ใช่ 'ฉีด filler'",
+      "framing_notes": "ต้องแยก oral HA vs topical HA vs filler injection; oral form ผ่านการย่อยแต่ oligo-HA ดูดซึมได้; ห้ามเปรียบกับ filler; เน้น hydration ไม่ใช่ 'volume'",
+      "forbidden_claims": [
+        "ห้ามเปรียบ oral HA กับ filler injection",
+        "ห้ามอ้าง 'ผิวใสขาว' — HA ทำให้ชุ่มชื้น ไม่ใช่ขาว",
+        "ห้ามพูดว่า 1g HA ดูด 6 ลิตรน้ำในร่างกายจริง — นั่นคือ in vitro"
+      ],
+      "hook_th": "ผิวขาดน้ำไม่ใช่เพราะดื่มน้ำน้อย — แต่เพราะโครงสร้างที่กักเก็บน้ำในผิว (HA) ลดลง; หนึ่งกรัม HA ในธรรมชาติดูดน้ำได้เท่า 6 ขวดน้ำ",
+      "target_segment": "ผู้หญิงอายุ 30+ ที่ผิวแห้ง ใช้ aircon มาก หรือผิวขาดความยืดหยุ่น"
+    },
+    {
+      "angle_id": "angle_skin_005",
+      "product_category": "retinol",
+      "problem_th": "ริ้วรอยละเอียด ผิวหยาบกร้าน รอยสิวเก่าหายช้า — เกิดจาก cell turnover ช้าลงตามอายุ (28 วัน → 45-60 วัน) และ collagen synthesis ลดลง",
+      "mechanism_link": "mech_skin_004",
+      "angle_th": "Retinol กระตุ้น RAR/RXR nuclear receptor → (1) เพิ่ม collagen gene expression, (2) ยับยั้ง MMP-1 (หยุดย่อยคอลลาเจน), (3) เร่ง keratinocyte turnover → ผิวเรียบขึ้น รอยดำจางเร็วขึ้น; OTC retinol 0.025-0.1% เหมาะสำหรับ beginner; ต้องใช้ 3-6 เดือนต่อเนื่องถึงเห็นผลเต็มที่",
+      "product_role": "support — ปรับ gene expression ผิวให้ทำงานเหมือนผิวอายุน้อยกว่า ไม่ใช่ 'ลบริ้วรอย'",
+      "framing_notes": "ต้องบอก 'start low, go slow'; แนะนำใช้กลางคืน; SPF กลางวันบังคับ; ห้ามใช้ตอนท้อง; ห้าม claim 'ลบริ้วรอย' — ใช้คำว่า 'ลดความชัด' หรือ 'ผิวเรียบขึ้น'",
+      "forbidden_claims": [
+        "ห้ามพูดว่า retinol = tretinoin ในแง่ potency",
+        "ห้ามใช้คำ 'หน้าเด็ก 10 ปี'",
+        "ห้ามแนะนำใช้ตอนท้องหรือให้นมบุตร",
+        "ห้ามบอกว่าใช้ครั้งเดียวแล้วเห็นผล"
+      ],
+      "hook_th": "ผิวมึงหมุนช้าลงทุก 10 ปี — ริ้วรอยอยู่นานขึ้นเพราะ cell turnover ช้า; retinol เป็นสาร OTC ตัวเดียวที่มี RCT ยืนยันว่ากระตุ้นยีนสร้างคอลลาเจนได้จริง",
+      "target_segment": "ผู้หญิงอายุ 30+ ที่มีริ้วรอยละเอียด รอยสิว ผิวหยาบ และต้องการ anti-aging แบบ evidence-based"
+    },
+    {
+      "angle_id": "angle_skin_006",
+      "product_category": "niacinamide",
+      "problem_th": "จุดด่างดำ ฝ้า รอยสิว PIH (post-inflammatory hyperpigmentation) — เกิดจาก melanocyte ส่ง melanosome เข้า keratinocyte มากเกินปกติหลัง UV/inflammation; คนไทย Fitzpatrick IV-V มี tendency PIH สูง",
+      "mechanism_link": "mech_skin_005",
+      "angle_th": "Niacinamide (Vitamin B3) 5% ทาผิว → บล็อก PAR-2 receptor บน keratinocyte → ลดการรับ melanosome จาก melanocyte ~35-68% (ไม่ได้ฆ่า melanin แต่บล็อก 'ท่อส่ง'); กลไกอื่น: ต้านการอักเสบ (ลด IL-8, NF-kB) + เสริม ceramide synthesis → ลด PIH; RCT Hakozaki 2002 (8 สัปดาห์) ลด hyperpigmentation อย่างมีนัยสำคัญ",
+      "product_role": "support — ลด tone unevenness ผ่านการบล็อก melanosome transfer ไม่ใช่ 'ฟอกสีผิว'",
+      "framing_notes": "ปลอดภัยสูงมาก — ใช้ได้ตอนท้อง เหมาะสำหรับผิวแพ้ง่าย; combine ได้กับ Vitamin C และ SPF; ห้ามอ้างว่า niacinamide = hydroquinone ในแง่ผล; ต้องใช้ต่อเนื่อง 8+ สัปดาห์",
+      "forbidden_claims": [
+        "ห้ามอ้างว่า niacinamide ขาวเท่า hydroquinone",
+        "ห้ามพูดว่าฝ้าหายถาวร — ต้องใช้ต่อเนื่อง",
+        "ห้ามพูดว่า niacinamide ลบ melanin"
+      ],
+      "hook_th": "Niacinamide ไม่ได้ทำลายเมลานิน — มันบล็อกท่อส่งสีจากโรงงาน (melanocyte) ไปผนัง (keratinocyte); ปลอดภัยที่สุดในบรรดา brightening ingredients และใช้ได้แม้แต่ผิวแพ้ง่าย",
+      "target_segment": "ผู้หญิงทุกอายุที่มีฝ้า กระ รอยสิว PIH และต้องการ brightening agent ที่ปลอดภัยสูง"
+    }
+  ]
+}

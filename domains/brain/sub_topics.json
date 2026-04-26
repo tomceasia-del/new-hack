@@ -1,0 +1,75 @@
+{
+  "domain_id": "brain",
+  "sub_topics": [
+    {
+      "id": "BDNF",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "neurogenesis",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "blood_brain_barrier",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "neuroinflammation",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "dopamine",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "acetylcholine",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "alzheimer_amyloid",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    }
+  ]
+}

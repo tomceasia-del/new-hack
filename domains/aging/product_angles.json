@@ -1,0 +1,446 @@
+{
+  "domain_id": "aging",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "target_count": 8,
+    "current_count": 10,
+    "product_categories_from_taxonomy": [
+      "NMN_NAD_precursor",
+      "NR_nicotinamide_riboside",
+      "resveratrol_trans",
+      "spermidine",
+      "urolithin_A",
+      "fisetin_senolytic",
+      "quercetin_senolytic",
+      "pterostilbene",
+      "CoQ10_ubiquinol",
+      "glycine_NAC_GlyNAC",
+      "collagen_hydrolyzed"
+    ],
+    "excluded_categories": ["rapamycin"],
+    "exclusion_reason": "rapamycin = prescription drug; Thailand law prohibits advertising Rx — facts kept educational only, NEVER referenced here"
+  },
+  "angles": [
+    {
+      "angle_id": "angle_aging_NMN_NAD_precursor",
+      "product_category": "NMN_NAD_precursor",
+      "price_tier": "premium",
+      "problem_th": "อายุ 40+ เริ่มรู้สึกว่าพลังงานลด เพลียกลางวัน นอนตื่นเช้าไม่สดชื่น ออกกำลังกายฟื้นช้า — ส่วนหนึ่งเพราะ NAD+ ในเซลล์ลดลงเกือบ 50% จากอายุ 20 (Massudi 2012) — sirtuins (SIRT1-7) ขาดโคเอนไซม์จึงทำงานได้ไม่เต็มที่",
+      "mechanism_claim_th": "NMN (β-nicotinamide mononucleotide) เป็น precursor ตรงของ NAD+ ผ่าน salvage pathway; Yoshino 2021 (Science) RCT ผู้หญิง prediabetic 25 คน ได้ NMN 250 mg/วัน 10 สัปดาห์ — muscle insulin sensitivity เพิ่มอย่างมีนัยสำคัญ; Yamaguchi 2022 + Katayoshi 2023 พบ walking speed + sleep quality ดีขึ้น — mechanism คือเติม substrate ให้ NAD+ salvage pathway",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนระดับ NAD+ ซึ่งเป็น coenzyme ของ sirtuins",
+        "มีส่วนช่วยในการทำงานของเซลล์และไมโตคอนเดรีย",
+        "เหมาะสำหรับผู้ที่ต้องการดูแลสุขภาพเซลล์ในช่วงอายุ 40+"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'ย้อนวัย' หรือ 'ย้อนอายุ biological age'",
+        "ห้ามอ้างว่า 'NMN แทน exercise' — forbidden script",
+        "ห้ามอ้างรักษา/ป้องกันโรค (เบาหวาน/alzheimer's/parkinson's)",
+        "ห้ามการันตี 'อายุยืนขึ้น X ปี'"
+      ],
+      "supporting_facts": ["aging_005", "aging_006", "aging_007"],
+      "narrative_frames": [
+        "NAD+ = 'เหรียญหยอด' ที่ sirtuins ใช้ทำงาน — อายุ 60 เหรียญเหลือครึ่ง",
+        "คุณไม่ได้ขี้เกียจ — เซลล์คุณแค่ขาดโคเอนไซม์ที่จะเปิดโหมดซ่อมแซม",
+        "Sinclair (Harvard) เรียก NAD+ ว่า 'ตัวกลางของ longevity pathway'"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["cancer_active_treatment", "pregnancy_lactation", "type_2_diabetes_on_medication"],
+        "drug_interactions": [
+          "chemotherapy (PARP inhibitors — theoretical interaction)",
+          "immunosuppressants (ยังไม่ confirm — หลีกเลี่ยงในผู้ปลูกถ่ายอวัยวะ)"
+        ],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'NMN ย้อนวัย biological age'",
+          "ห้ามพูดว่า 'NMN แทนการออกกำลังกาย'",
+          "ห้ามพูดว่า 'NMN ป้องกันโรค/รักษาโรค'",
+          "ห้ามการันตีขนาดอายุที่เพิ่มขึ้น"
+        ],
+        "required_disclaimer_th": "high_dose_supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "active_cancer_treatment", "organ_transplant_recipient"],
+        "validator_keywords_th": ["NMN ย้อนวัย", "NMN ลด biological age", "NMN แทน exercise", "NMN หายเบาหวาน"],
+        "regulatory_risk_notes": "อย. ไทย: NMN ยังไม่ได้ขึ้นทะเบียนเป็นยา — ห้ามอ้าง anti-aging direct; long-term safety (>12 เดือน) ใน human RCT ยังไม่เสร็จสมบูรณ์ — FDA 2022 re-classified NMN (status ที่โต้แย้ง) ทำให้ผู้ผลิตบางรายถอนผลิตภัณฑ์ในสหรัฐฯ"
+      }
+    },
+    {
+      "angle_id": "angle_aging_NR_nicotinamide_riboside",
+      "product_category": "NR_nicotinamide_riboside",
+      "price_tier": "premium",
+      "problem_th": "ผู้ที่อายุ 50+ เริ่มมีปัญหา metabolic slowdown — BP สูงเบา, cholesterol ขยับ, energy ลดลง — มีงานวิจัย NR ในกลุ่มนี้มากกว่า NMN (เพราะ NR ถูกทดสอบใน human RCT มาก่อน)",
+      "mechanism_claim_th": "NR (nicotinamide riboside) เข้าเซลล์ผ่าน nucleoside transporter → NRK1/2 enzyme → NMN → NAD+; Martens 2018 (Nature Comm) NR 1,000 mg × 6 สัปดาห์ ลด SBP 10 mmHg ในกลุ่ม prehypertensive; Remie 2020 พบ NR เปลี่ยน muscle acylcarnitine profile แม้ไม่เพิ่ม insulin sensitivity มาก",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนการสร้าง NAD+ ในเซลล์",
+        "มีส่วนช่วยในการทำงานของระบบไหลเวียน/หลอดเลือด (supportive)",
+        "เหมาะสำหรับวัย 50+ ที่ต้องการดูแล metabolic health"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษาความดันสูง",
+        "ห้ามอ้าง anti-aging direct หรือ 'ย้อนวัย'",
+        "ห้ามการันตีผลลัพธ์เป็นตัวเลข"
+      ],
+      "supporting_facts": ["aging_005", "aging_006"],
+      "narrative_frames": [
+        "NR = NAD+ precursor ที่มี human RCT นานที่สุด (ตั้งแต่ 2016)",
+        "ร่างกายอายุ 50+ ไม่ได้ 'พัง' — แค่ขาดส่วนประกอบเดิมที่เคยมีสมัย 20"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["cancer_active_treatment", "pregnancy_lactation"],
+        "drug_interactions": [
+          "chemotherapy (theoretical — NAD feeding cancer cells)",
+          "antihypertensives (NR may have additive BP lowering in prehypertensive)"
+        ],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามอ้างว่า NR รักษาความดัน/เบาหวาน",
+          "ห้ามอ้าง 'ย้อนวัย' หรือ 'reverse aging'",
+          "ห้ามบอกว่า NR = ยาอายุยืน"
+        ],
+        "required_disclaimer_th": "high_dose_supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "active_cancer_treatment"],
+        "validator_keywords_th": ["NR ย้อนวัย", "NR รักษาความดัน", "NR anti-aging ชัวร์"],
+        "regulatory_risk_notes": "อย. ไทย: NR เป็นอาหารเสริม — ห้ามอ้างรักษาโรค; มี patent/trademark ผูก (Niagen®) → การโฆษณาเปรียบเทียบ brand ระวัง"
+      }
+    },
+    {
+      "angle_id": "angle_aging_resveratrol_trans",
+      "product_category": "resveratrol_trans",
+      "price_tier": "premium",
+      "problem_th": "อยากได้สาร anti-aging จากธรรมชาติที่มีงานวิจัยยาว แต่ไม่อยากดื่มไวน์แดง (ซึ่งเป็น carcinogen)",
+      "mechanism_claim_th": "Trans-resveratrol เป็น polyphenol จากผิวองุ่น/knotweed; ใน vitro กระตุ้น SIRT1 (Howitz 2003) — แต่ bioavailability ต่ำ (~1%); Liposomal / pterostilbene co-formulation เพิ่มการดูดซึมได้; benefits ที่มีหลักฐานในคน: vascular function, insulin sensitivity (modest), neuroprotection markers",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "เป็น polyphenol จากองุ่น/knotweed ที่ทดลองใน vitro กระตุ้น SIRT1 pathway",
+        "มีส่วนช่วยในการทำงานของระบบไหลเวียน",
+        "ให้สารประกอบที่ไวน์แดงมีโดยไม่ต้องดื่มแอลกอฮอล์"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้าง 'French Paradox' = ดื่มไวน์แล้วอายุยืน",
+        "ห้ามอ้าง anti-aging direct หรือ 'ย้อนวัย'",
+        "ห้ามบอกว่า resveratrol รักษามะเร็ง/หัวใจ",
+        "ห้ามบอกขนาดสูง (1+ กรัม) ว่า 'ยิ่งเยอะยิ่งดี' — มี GI side effects"
+      ],
+      "supporting_facts": ["aging_014"],
+      "narrative_frames": [
+        "resveratrol = สารในไวน์แดงที่คนพูดถึง — แต่ต้องกิน 100+ แก้วถึงจะได้ขนาด lab",
+        "ไม่ใช่ 'ย้อนวัย' แต่เป็น 'hormesis molecule' — ท้าทายเซลล์เบา ๆ"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["anticoagulant_use", "pregnancy_lactation", "hormone_sensitive_cancer"],
+        "drug_interactions": [
+          "warfarin (bleeding risk)",
+          "statin (CYP3A4 inhibition → statin ↑)",
+          "tamoxifen (weak estrogenic activity — theoretical)",
+          "cyclosporine (CYP3A4)"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำให้ดื่มไวน์แดงแทน resveratrol",
+          "ห้ามอ้าง resveratrol รักษามะเร็ง",
+          "ห้ามอ้าง 'ย้อนวัย' / 'reverse aging'"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "anticoagulant_users", "hormone_sensitive_cancer_history"],
+        "validator_keywords_th": ["resveratrol ย้อนวัย", "ไวน์แดงอายุยืน", "resveratrol รักษามะเร็ง"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริม — ห้ามอ้างรักษาโรค; CYP3A4 interaction สำคัญมากกับ statin/cyclosporine"
+      }
+    },
+    {
+      "angle_id": "angle_aging_spermidine",
+      "product_category": "spermidine",
+      "price_tier": "premium",
+      "problem_th": "รู้ว่า autophagy (Nobel 2016) ช่วยเซลล์ 'ล้างบ้าน' แต่อดอาหารนาน ๆ ไม่ไหว มี eating disorder history / DM / ผู้สูงอายุ — อยากได้ตัวช่วยที่เลียนแบบ autophagy โดยไม่ต้องอด",
+      "mechanism_claim_th": "Spermidine (polyamine ธรรมชาติใน wheat germ, natto, aged cheese) ยับยั้ง EP300 acetyltransferase → ATG proteins ยังคง active → autophagy flux เพิ่มแม้ในสภาวะไม่อด; Kiechl 2018 cohort 20 ปี: กลุ่ม high spermidine intake มี all-cause mortality risk ต่ำเท่ากับคนอายุน้อยกว่า 5.7 ปี",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "เลียนแบบสัญญาณ autophagy โดยไม่ต้องอดอาหารนาน",
+        "มีส่วนช่วยสนับสนุน proteostasis ของเซลล์",
+        "เหมาะสำหรับผู้สูงอายุ / ผู้ที่อดอาหารนาน ๆ ไม่ได้"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า spermidine 'ย้อนวัย' หรือ 'ยืดอายุ 5.7 ปี' (Kiechl เป็น observational — correlation)",
+        "ห้ามอ้างรักษา dementia / Alzheimer's",
+        "ห้ามการันตีผลลัพธ์เป็น 'anti-aging'"
+      ],
+      "supporting_facts": ["aging_015"],
+      "narrative_frames": [
+        "spermidine = สัญญาณ 'ล้างบ้าน' ที่ไม่ต้องอดอาหาร",
+        "Okinawa centenarians กิน natto ทุกวัน — spermidine เยอะ",
+        "ลอกกลไกการอดอาหารสำหรับคนที่อดไม่ได้"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["cancer_active_treatment"],
+        "drug_interactions": [
+          "chemotherapy (polyamines fuel cancer cells — avoid during active treatment)"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามอ้าง 'spermidine ย้อนวัย / ยืดอายุ'",
+          "ห้ามอ้าง 'ป้องกัน dementia / Alzheimer's'",
+          "ห้ามแนะนำให้ cancer patient กิน"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "active_cancer_treatment"],
+        "validator_keywords_th": ["spermidine ย้อนวัย", "spermidine รักษาอัลไซเมอร์", "ยืดอายุแน่นอน"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริม — cautions สำหรับ cancer patients เพราะ polyamines อาจ promote tumor growth"
+      }
+    },
+    {
+      "angle_id": "angle_aging_urolithin_A",
+      "product_category": "urolithin_A",
+      "price_tier": "premium",
+      "problem_th": "รู้สึกแรงออกกำลังกายไม่เหมือนเดิม — ปั่น/เดินเร็วแล้วหมดแรงเร็วขึ้น; กล้ามเนื้อ fatigue ก่อนใจ; ~60-70% ของคนไม่สามารถแปลง ellagitannins (ทับทิม, วอลนัท) เป็น urolithin A ได้เอง (ขาด gut bacteria เฉพาะ)",
+      "mechanism_claim_th": "Urolithin A กระตุ้น PINK1/Parkin mitophagy → ไมโตคอนเดรียเก่าถูกกำจัด และแทนที่ด้วยใหม่; Andreux 2019 (Nature Metab) first-in-human safety + molecular signature; Liu 2022 (Cell Rep Med) ผู้สูงอายุ 65-90 ปี ได้ 1,000 mg/วัน × 4 เดือน — muscle endurance + 6MWT ดีขึ้น ~12%",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุน mitophagy — กลไกรีไซเคิลไมโตคอนเดรีย",
+        "มีส่วนช่วยสนับสนุน muscle endurance ในผู้สูงอายุ",
+        "เหมาะสำหรับผู้ที่ microbiome ไม่สามารถผลิต urolithin A ได้เอง"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้าง 'เพิ่มกล้ามเนื้อ' (Liu 2022 ไม่เพิ่ม muscle mass — แค่ endurance)",
+        "ห้ามอ้างรักษา sarcopenia เป็นโรค",
+        "ห้ามอ้าง 'ย้อนวัย'",
+        "ห้ามบอกว่าทับทิม/วอลนัทอย่างเดียวพอ — ขึ้นกับ microbiome"
+      ],
+      "supporting_facts": ["aging_016"],
+      "narrative_frames": [
+        "ทับทิม + วอลนัท + urolithin A = trio ของ mitophagy",
+        "คนไทย 60-70% กินทับทิมแล้วไม่เปลี่ยนเป็น urolithin A — ต้องเสริมตรง ๆ",
+        "Mitochondria เก่าทำให้เพลีย — urolithin A เป็นช่างเปลี่ยนเครื่อง"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["pregnancy_lactation"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามอ้าง urolithin A 'ย้อนวัย' / 'สร้างกล้ามเนื้อ'",
+          "ห้ามอ้างรักษา sarcopenia / frailty"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18"],
+        "validator_keywords_th": ["urolithin A ย้อนวัย", "urolithin A สร้างกล้าม"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริม — human RCT มีแต่ผู้สูงอายุ/น้อยกลุ่ม (~90 คน); trademark Mitopure® ต้องระวังการเปรียบเทียบ"
+      }
+    },
+    {
+      "angle_id": "angle_aging_fisetin_senolytic",
+      "product_category": "fisetin_senolytic",
+      "price_tier": "premium",
+      "problem_th": "อายุ 50+ เริ่มมี 'zombie cells' (senescent cells) สะสมในเนื้อเยื่อ — หลั่ง SASP ที่สร้างการอักเสบเรื้อรัง (inflammaging); fisetin ในธรรมชาติมีในสตรอเบอร์รีปริมาณต่ำมาก",
+      "mechanism_claim_th": "Fisetin (flavonol) ยับยั้ง Bcl-xL / Bcl-w anti-apoptotic proteins ในเซลล์ senescent → selective apoptosis; Yousefzadeh 2018 (EBioMedicine) ใน aged mice: fisetin 100 mg/kg × 5 วัน ลด p16+ cells + เพิ่ม median lifespan ~10%; human trials (Mayo Clinic NCT03675724, NCT03430037) กำลังดำเนินการ",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในกระบวนการ cellular health (ในขั้นการศึกษา)",
+        "เป็น flavonol ที่ในการทดลอง preclinical เกี่ยวข้องกับ senolytic mechanism",
+        "ใช้เป็นข้อมูลเพื่อการศึกษา"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า fisetin 'ล้าง zombie cells' หรือ 'ย้อนวัย' ได้จริงในคน — human RCT ยังไม่เสร็จ",
+        "ห้ามอ้างรักษามะเร็ง / หลอดเลือด",
+        "ห้ามแนะนำ pulse dose 20 mg/kg (mouse dose)",
+        "ห้ามบอกว่า 'human proven senolytic'"
+      ],
+      "supporting_facts": ["aging_004", "aging_019"],
+      "narrative_frames": [
+        "zombie cells = 'พนักงานที่ถูกไล่ออกแต่ไม่ออก' — senolytic มาช่วยดึงออก",
+        "fisetin = flavonoid ที่นักวิจัย Mayo Clinic สนใจ",
+        "กลไกเดียวกับงานวิจัยที่ NIH ลงทุน"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["cancer_active_treatment", "pregnancy_lactation", "anticoagulant_use"],
+        "drug_interactions": [
+          "warfarin (mild CYP interaction)",
+          "chemotherapy (interference with apoptosis timing)",
+          "immunosuppressants"
+        ],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามอ้าง 'fisetin รักษามะเร็ง' — forbidden script",
+          "ห้ามอ้าง 'ล้างเซลล์ชราได้แน่นอน'",
+          "ห้ามแนะนำ pulse dose mouse-scale (20 mg/kg)",
+          "ห้ามอ้างว่า senolytic 'human proven'"
+        ],
+        "required_disclaimer_th": "high_dose_supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "active_cancer_treatment", "anticoagulant_users"],
+        "validator_keywords_th": ["fisetin รักษามะเร็ง", "fisetin ย้อนวัย", "ล้างเซลล์ชราแน่", "senolytic หายแน่"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริม — human senolytic evidence = 14 IPF patients (Hickson 2019) + mice lifespan (Yousefzadeh 2018); dosing for healthy humans UNRESOLVED — use educational framing only"
+      }
+    },
+    {
+      "angle_id": "angle_aging_quercetin_senolytic",
+      "product_category": "quercetin_senolytic",
+      "price_tier": "mid_to_premium",
+      "problem_th": "อยากหาสารต้านอนุมูลอิสระ/ต้านการอักเสบที่มีหลักฐานดี และเริ่มเข้าสู่ senolytic territory (เช่นใช้ร่วมกับโปรโตคอล D+Q แต่ต้องภายใต้แพทย์)",
+      "mechanism_claim_th": "Quercetin เป็น flavonoid ที่: (1) ต้านการอักเสบ (block NF-κB / COX-2), (2) modulate histamine, (3) ในขนาดสูง + dasatinib (prescription) = senolytic (Kirkland protocol — Hickson 2019 IPF trial)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มี antioxidant + anti-inflammatory activity (multiple RCTs)",
+        "มีส่วนช่วยสนับสนุนระบบภูมิคุ้มกันและหลอดเลือด",
+        "เหมาะเป็น baseline flavonoid สำหรับผู้ดูแลสุขภาพในระยะยาว"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้าง quercetin เดี่ยวเป็น 'senolytic'",
+        "ห้ามแนะนำ 'D+Q protocol' ซึ่งต้องใช้ dasatinib (prescription)",
+        "ห้ามอ้าง 'ย้อนวัย'",
+        "ห้ามอ้างรักษา allergy/COVID"
+      ],
+      "supporting_facts": ["aging_004"],
+      "narrative_frames": [
+        "quercetin = 'flavonoid ทั่วไป' ที่มีบทบาทใน senolytic research",
+        "ในอาหาร: หัวหอม แอปเปิ้ล คะน้า — แต่ขนาดต่ำกว่างานวิจัย",
+        "ต้นทางของ D+Q protocol (ส่วนยาคือแพทย์)"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["pregnancy_lactation", "chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": [
+          "warfarin (mild CYP interaction)",
+          "cyclosporine (↑ levels)",
+          "fluoroquinolone antibiotics (chelation)"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามอ้าง 'quercetin senolytic' แบบเดี่ยว",
+          "ห้ามแนะนำ D+Q protocol โดยไม่มีแพทย์",
+          "ห้ามอ้างรักษา allergy/covid/มะเร็ง"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "anticoagulant_users", "ckd_stage_3_plus"],
+        "validator_keywords_th": ["quercetin รักษามะเร็ง", "D+Q กินเอง", "quercetin ย้อนวัย"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริม — ห้ามอ้าง senolytic; D+Q จะเกี่ยวข้อง dasatinib ซึ่งเป็น prescription ห้ามโฆษณา"
+      }
+    },
+    {
+      "angle_id": "angle_aging_CoQ10_ubiquinol",
+      "product_category": "CoQ10_ubiquinol",
+      "price_tier": "mid_to_premium",
+      "problem_th": "อายุ 40+ พลังงานลด + ใช้ยา statin (atorvastatin, rosuvastatin) — statin ยับยั้ง mevalonate pathway → ลด endogenous CoQ10 → เพลีย กล้ามเนื้อล้า (statin-associated myalgia)",
+      "mechanism_claim_th": "CoQ10 (ubiquinone/ubiquinol) เป็น electron carrier ใน ETC complex I-III + antioxidant ใน mitochondrial membrane; statin ลด CoQ10 synthesis ~40%; ubiquinol (reduced form) bioavailable กว่า ubiquinone โดยเฉพาะในผู้สูงอายุ; Mortensen 2014 Q-SYMBIO RCT (heart failure): CoQ10 300 mg/วัน ลด major adverse events + mortality",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "เป็น coenzyme ที่ไมโตคอนเดรียใช้ผลิตพลังงาน (ETC)",
+        "มีส่วนช่วยในการทำงานของหัวใจและกล้ามเนื้อ",
+        "เหมาะสำหรับผู้สูงอายุหรือผู้ใช้ยา statin ที่ต้องการสนับสนุน CoQ10"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า CoQ10 รักษาหัวใจวาย (Mortensen 2014 เป็น adjunct + under medical care)",
+        "ห้ามอ้าง 'ย้อนวัย'",
+        "ห้ามให้หยุด statin เพื่อกิน CoQ10 แทน"
+      ],
+      "supporting_facts": ["aging_023"],
+      "narrative_frames": [
+        "statin = ขึ้นรถเบา แต่เครื่องเดิมยังทำงาน — CoQ10 = น้ำมันเครื่อง",
+        "40 ปีขึ้นไป + statin = CoQ10 ลดเกือบครึ่ง"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["pregnancy_lactation"],
+        "drug_interactions": [
+          "warfarin (CoQ10 อาจลด INR — monitor)",
+          "antihypertensives (CoQ10 มี mild BP lowering — additive)",
+          "insulin/sulfonylurea (mild glucose lowering)"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำหยุด statin เพื่อกิน CoQ10",
+          "ห้ามอ้าง 'รักษาหัวใจวาย'",
+          "ห้ามอ้าง 'ย้อนวัย'"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "anticoagulant_users_uncontrolled"],
+        "validator_keywords_th": ["CoQ10 แทน statin", "CoQ10 รักษาหัวใจ", "หยุดยา statin"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริม — warfarin interaction สำคัญ; Q-SYMBIO = adjunctive not replacement for medical care"
+      }
+    },
+    {
+      "angle_id": "angle_aging_glycine_NAC_GlyNAC",
+      "product_category": "glycine_NAC_GlyNAC",
+      "price_tier": "premium",
+      "problem_th": "ผู้สูงอายุ 60+: glutathione (GSH) ลดลง → oxidative stress + inflammation สะสม → muscle weakness, cognitive decline, insulin resistance — ทั้งหมดเพราะขาด cysteine + glycine precursor",
+      "mechanism_claim_th": "GlyNAC = Glycine + NAC (N-acetylcysteine); Sekhar 2011 พบผู้สูงอายุขาด cysteine + glycine → GSH ต่ำ; Kumar 2022 (J Gerontol) RCT ผู้สูงอายุ 65-85 ปี × 16 สัปดาห์ — GSH กลับมาใกล้ระดับคนหนุ่มสาว + cognition + grip strength + insulin sensitivity + inflammation markers ดีขึ้นทั้งหมด",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนการสังเคราะห์ glutathione (GSH) — master antioxidant ของเซลล์",
+        "มีส่วนช่วยในการทำงานของระบบต้านอนุมูลอิสระ",
+        "เหมาะสำหรับผู้สูงอายุที่ต้องการ comprehensive cellular support"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา sarcopenia / cognitive decline / dementia",
+        "ห้ามอ้าง 'ย้อนวัย'",
+        "ห้ามอ้างรักษา insulin resistance / เบาหวาน"
+      ],
+      "supporting_facts": ["aging_018"],
+      "narrative_frames": [
+        "glutathione = 'master antioxidant' ที่อายุมากก็ทำเองลดลง",
+        "GlyNAC = เติมวัตถุดิบขาดให้โรงงานต้านอนุมูลอิสระ",
+        "Baylor College 16 สัปดาห์ — 8 aging markers ดีขึ้นพร้อมกัน"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["asthma_severe", "pregnancy_lactation"],
+        "drug_interactions": [
+          "nitroglycerin (NAC potentiates vasodilation)",
+          "activated charcoal (NAC adsorbed)",
+          "chemotherapy (NAC may reduce efficacy — debated)"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามอ้างรักษา dementia/sarcopenia",
+          "ห้ามอ้าง 'ย้อนวัย'",
+          "ห้ามให้ผู้ใช้ chemo กินโดยไม่ปรึกษาแพทย์"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "active_cancer_treatment", "severe_asthma"],
+        "validator_keywords_th": ["GlyNAC ย้อนวัย", "GlyNAC รักษาอัลไซเมอร์", "NAC รักษามะเร็ง"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริม — US FDA มี position ที่เปลี่ยนแปลงเกี่ยวกับ NAC (drug vs supplement); human RCT ยังเล็ก (n~24)"
+      }
+    },
+    {
+      "angle_id": "angle_aging_collagen_hydrolyzed",
+      "product_category": "collagen_hydrolyzed",
+      "price_tier": "mass_to_premium",
+      "problem_th": "อายุ 40+ ผิวเริ่มบาง ริ้วรอย ข้อเข่าฝืด เล็บ/ผมอ่อน — คอลลาเจนในร่างกายลดลง ~1%/ปีหลัง 30 (Shoulders & Raines 2009)",
+      "mechanism_claim_th": "Hydrolyzed collagen peptides (MW 2-5 kDa) ถูกดูดซึมเป็น di-peptides (proline-hydroxyproline) ที่กระตุ้น fibroblast collagen synthesis (Shigemura 2009); ไม่ใช่ 'ส่งวัสดุถึงผิว' แต่เป็น 'สัญญาณ'; Choi 2019 + Proksch 2014 meta-analyses: elasticity + hydration ดีขึ้นหลัง 8-12 สัปดาห์ 2.5-10 g/วัน",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยสนับสนุน skin hydration + elasticity (RCT 8-12 สัปดาห์)",
+        "เป็นแหล่ง glycine + proline — amino acids ที่ร่างกายใช้สร้าง collagen",
+        "เหมาะสำหรับผู้ที่ protein intake ต่ำ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า collagen 'ไปถึงผิวตรง'",
+        "ห้ามอ้างรักษาริ้วรอย / arthritis / osteoporosis",
+        "ห้ามอ้าง 'ย้อนวัย' / reverse aging",
+        "ห้ามบอกว่า 1 สัปดาห์เห็นผล"
+      ],
+      "supporting_facts": ["aging_020"],
+      "narrative_frames": [
+        "collagen peptide ≠ 'แผ่นคอลลาเจนส่งถึงผิว' แต่เป็น 'สัญญาณ' กระตุ้น fibroblast",
+        "หลัง 30 ปี คอลลาเจนลด 1%/ปี — เหมือน banked savings ที่ถอนทุกปี"
+      ],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามอ้างว่า collagen 'ย้อนวัย' / 'ลบริ้วรอย'",
+          "ห้ามอ้างรักษา arthritis/osteoporosis"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["fish_shellfish_allergy_if_marine_source"],
+        "validator_keywords_th": ["collagen ย้อนวัย", "collagen ลบริ้วรอย", "รักษาข้อเข่า"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริม — สามารถพูด 'skin hydration support' ได้; ห้ามอ้างรักษาโรคผิวหนัง/ข้อ"
+      }
+    }
+  ]
+}

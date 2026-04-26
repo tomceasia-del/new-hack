@@ -1,0 +1,114 @@
+{
+  "domain_id": "brain",
+  "_meta": {"current_count": 9, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.brain"},
+  "myths": [
+    {
+      "myth_id": "brn_myth_001",
+      "popular_belief_th": "เราใช้สมองแค่ 10% — 90% ถูกปล่อยทิ้ง",
+      "popular_belief_en": "We only use 10% of our brains",
+      "truth_th": "Myth นี้ false อย่างสิ้นเชิง — fMRI และ PET scan แสดงว่าส่วนของสมองทั้งหมดทำงานอย่างใดอย่างหนึ่งตลอด 24 ชั่วโมง; แม้แต่ในช่วงพัก (default mode network ก็ active); evolutionarily brain cost 20% ของ caloric expenditure — ถ้า 90% ไม่ได้ใช้ จะถูก eliminate ไปนานแล้ว",
+      "truth_en": "Completely false — fMRI and PET show all brain regions are active at various times; even resting default mode network is highly active; evolutionarily the brain consumes 20% of calories — unused 90% would have been selected away.",
+      "why_popular": "ใช้ใน pop-psychology / marketing; มาจากการเข้าใจผิดเรื่อง glial cells vs neurons",
+      "reveal_style": "correction",
+      "sources_debunking": [{"url": "https://pubmed.ncbi.nlm.nih.gov/21968761/", "org": "Nature Rev Neurosci / PubMed", "source_tier": "A", "year": 2012, "title": "Energy cost of brain function — Attwell D, Laughlin SB", "access_date": "2026-04-22"}],
+      "sub_topic_id": "neurogenesis",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "brn_myth_002",
+      "popular_belief_th": "คนเราเกิดมาพร้อม neuron ที่ตายแล้วสร้างใหม่ไม่ได้",
+      "popular_belief_en": "Brain neurons are fixed at birth and cannot be replaced",
+      "truth_th": "Neurogenesis ในผู้ใหญ่เกิดขึ้นอย่างน้อย 2 พื้นที่: dentate gyrus ใน hippocampus และ olfactory bulb; Eriksson et al. (Nat Med 1998): เซลล์ใหม่ใน hippocampus ของผู้ใหญ่ confirmed; การออกกำลังกาย, การเรียนรู้ และ BDNF ส่งเสริม neurogenesis; อย่างไรก็ตาม scale ของ neurogenesis ในผู้ใหญ่ยังถกเถียงในบางพื้นที่",
+      "truth_en": "Eriksson et al. (Nat Med 1998) confirmed adult neurogenesis in hippocampus (dentate gyrus) and olfactory bulb; exercise, learning, and BDNF promote it; however the scale of adult human neurogenesis in some regions is still debated.",
+      "why_popular": "ความเชื่อเก่าในวงการวิทยาศาสตร์ก่อน 1990s ที่ถูก revision",
+      "reveal_style": "curiosity",
+      "sources_debunking": [{"url": "https://pubmed.ncbi.nlm.nih.gov/9809557/", "org": "Nature Medicine / PubMed", "source_tier": "A", "year": 1998, "title": "Neurogenesis in the adult human hippocampus — Eriksson PS et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "neurogenesis",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "brn_myth_003",
+      "popular_belief_th": "สมองซ้าย = logical ขวา = creative — คนมี 'dominant side'",
+      "popular_belief_en": "People are left-brained (logical) or right-brained (creative)",
+      "truth_th": "Nielsen et al. (PLOS One 2013) — fMRI ในคน 1,011 คน: ไม่พบ evidence ว่าคนใช้ hemisphere ใดมากกว่า; ทุก function ที่ 'ถูกแยก' (language, logic, creativity) ใช้ bilateral networks; division นี้เป็น oversimplification จาก split-brain patients ที่ถูก generalize ผิด",
+      "truth_en": "Nielsen et al. (PLOS One 2013) — fMRI of 1,011 people: no evidence of hemisphere dominance for personality; all higher functions use bilateral networks; the left-right split was an overgeneralization from split-brain research.",
+      "why_popular": "Came from legitimate split-brain neuroscience (Sperry Nobel Prize 1981) but was vastly oversimplified in pop culture",
+      "reveal_style": "correction",
+      "sources_debunking": [{"url": "https://pubmed.ncbi.nlm.nih.gov/23950755/", "org": "PLOS One / PubMed", "source_tier": "A", "year": 2013, "title": "An evaluation of the left-brain vs right-brain hypothesis with resting state functional connectivity MRI — Nielsen JA et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "neurogenesis",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "brn_myth_004",
+      "popular_belief_th": "อายุมากขึ้น ความจำย่อมแย่ลงตามธรรมชาติ ทำอะไรไม่ได้",
+      "popular_belief_en": "Cognitive decline is inevitable and untreatable with age",
+      "truth_th": "Livingston et al. (Lancet 2020): 40% ของสมองเสื่อมป้องกันหรือชะลอได้ด้วย lifestyle modification; Erickson et al. 2011: aerobic exercise เพิ่ม hippocampus ในผู้สูงอายุ; cognitive reserve จากการเรียนรู้สะสมช่วย delay onset; aging-associated decline ≠ pathological decline",
+      "truth_en": "40% of dementia is preventable (Lancet 2020); aerobic exercise increases hippocampal volume in older adults (Erickson 2011); cognitive reserve delays onset; normal aging decline is distinct from pathological neurodegeneration.",
+      "why_popular": "Fatalistic belief reinforced by observing older relatives with decline; medical nihilism ('nothing can be done')",
+      "reveal_style": "shock",
+      "sources_debunking": [{"url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30367-6/fulltext", "org": "Lancet", "source_tier": "A", "year": 2020, "title": "Dementia prevention, intervention, and care: 2020 Lancet Commission — Livingston G et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "alzheimer_amyloid",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": ["ห้ามบอก 'ทำตามแล้วไม่เป็นสมองเสื่อมแน่'"], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": ["ป้องกันสมองเสื่อมได้แน่นอน"], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "brn_myth_005",
+      "popular_belief_th": "Brain games / ปริศนาทำให้ฉลาดขึ้น / ชะลอสมองเสื่อมได้",
+      "popular_belief_en": "Brain training games significantly prevent dementia or improve general intelligence",
+      "truth_th": "Consensus Statement (Stanford / Max Planck 2014, signed by 70+ scientists): 'Brain training' อาจเพิ่ม performance ใน task ที่ฝึก แต่ transfer ไปยัง real-world cognition หรือ dementia prevention ยังไม่มี evidence แข็งแกร่ง; Lumosity ถูก FTC ฟ้อง 2016 เรื่อง misleading claims; lifestyle (exercise, sleep, social) มีหลักฐานดีกว่ามาก",
+      "truth_en": "70+ scientists' consensus (2014): brain training improves trained tasks but transfer to real-world cognition or dementia prevention is not well-supported; Lumosity fined by FTC in 2016; lifestyle interventions (exercise, sleep, social engagement) have stronger evidence.",
+      "why_popular": "Lumosity และ brain training apps marketing สร้าง belief นี้; แนวคิด 'ใช้มันหรือเสียมัน' ถูก oversimplify",
+      "reveal_style": "correction",
+      "sources_debunking": [{"url": "https://pubmed.ncbi.nlm.nih.gov/25237104/", "org": "Psychol Sci Public Interest / PubMed", "source_tier": "A", "year": 2014, "title": "Do 'Brain-Training' Programs Work? — Simons DJ et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "neurogenesis",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "brn_myth_006",
+      "popular_belief_th": "Energy drinks ช่วยให้สมองทำงานดีขึ้น",
+      "popular_belief_en": "Energy drinks genuinely improve brain performance",
+      "truth_th": "Caffeine (ใน energy drink) ลด adenosine → ลดความง่วง → cognitive performance ที่วัดได้ดีขึ้นชั่วคราว; แต่ effect จะหาย (tolerance) และ adenosine rebound; taurine, B vitamins, guarana ใน energy drink มี evidence ผลต่อ cognition น้อยมาก; dose caffeine สูง (>400mg/day) เพิ่มความวิตก, cardiac arrhythmia; ไม่มี net cognitive 'enhancement' ในระยะยาว",
+      "truth_en": "Caffeine reduces adenosine → transient alertness improvement; effect disappears with tolerance and adenosine rebound; taurine, B vitamins, guarana have minimal cognitive evidence; high caffeine doses (>400mg/day) increase anxiety and cardiac risk; no long-term net cognitive enhancement.",
+      "why_popular": "การตลาด energy drink ใช้ 'focus/brain power' claims; caffeine effect ชั่วคราวทำให้คนคิดว่า 'ได้ผล'",
+      "reveal_style": "correction",
+      "sources_debunking": [{"url": "https://pubmed.ncbi.nlm.nih.gov/12020799/", "org": "J Neurosci / PubMed", "source_tier": "A", "year": 2002, "title": "Adenosine, sleep and wakefulness — Basheer R et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "dopamine",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "brn_myth_007",
+      "popular_belief_th": "Omega-3 กินได้เท่าไหร่ก็ยิ่งดีสำหรับสมอง",
+      "popular_belief_en": "More omega-3 is always better for brain health",
+      "truth_th": "Omega-3 มี therapeutic window — EPA+DHA >3g/day เพิ่ม bleeding time ในผู้ที่กิน anticoagulant; AREDS2 trial: EPA+DHA ไม่ลดความเสี่ยง AMD; ปริมาณที่ optimal สำหรับ brain health ยังถกเถียง แต่ส่วนใหญ่อยู่ที่ 1-2g EPA+DHA/day; การกินสูงเกินไปอาจมี peroxidation risk",
+      "truth_en": "Omega-3 has a therapeutic window — EPA+DHA >3g/day increases bleeding time in anticoagulant users; AREDS2: no AMD risk reduction from high-dose omega-3; most brain health benefit from 1-2g EPA+DHA/day; excessive doses carry lipid peroxidation risk.",
+      "why_popular": "'มากยิ่งดีกว่า' thinking; omega-3 positive press กว้างขวาง",
+      "reveal_style": "correction",
+      "sources_debunking": [{"url": "https://pubmed.ncbi.nlm.nih.gov/23695859/", "org": "JAMA / PubMed", "source_tier": "A", "year": 2013, "title": "Lutein + zeaxanthin and omega-3 fatty acids for age-related macular degeneration (AREDS2) — AREDS2 Research Group", "access_date": "2026-04-22"}],
+      "sub_topic_id": "neuroinflammation",
+      "safety_warning": {"risk_level": "yellow", "contraindications": ["on_warfarin_or_anticoagulant"], "drug_interactions": ["warfarin (high dose >3g)"], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": "supplement_th", "audience_exclusions": ["on_warfarin_or_anticoagulant"], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "brn_myth_008",
+      "popular_belief_th": "Multitasking ฝึกสมองให้ sharp ขึ้นได้",
+      "popular_belief_en": "Multitasking trains your brain to become sharper",
+      "truth_th": "Ophir et al. (PNAS 2009) — heavy media multitaskers actually performed significantly worse in attention tasks, working memory, and task switching compared to light multitaskers; สมองไม่ 'multitask' จริง — แค่ switch tasks อย่างรวดเร็ว ซึ่ง costs switching time ~23 นาทีต่อ deep focus task; chronic multitasking ลด quality ของทุก task",
+      "truth_en": "Ophir et al. (PNAS 2009) — heavy media multitaskers performed worse on attention, working memory and task-switching tests; the brain doesn't truly multitask — it rapid-switches, costing ~23 min per deep focus task; chronic multitasking degrades performance quality.",
+      "why_popular": "วัฒนธรรมที่ยกย่อง 'ยุ่ง' และ 'multitasker' ว่า productive; พฤติกรรมมือถือ",
+      "reveal_style": "shock",
+      "sources_debunking": [{"url": "https://pubmed.ncbi.nlm.nih.gov/19706386/", "org": "PNAS / PubMed", "source_tier": "A", "year": 2009, "title": "Cognitive control in media multitaskers — Ophir E, Nass C, Wagner AD", "access_date": "2026-04-22"}],
+      "sub_topic_id": "dopamine",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "brn_myth_009",
+      "popular_belief_th": "Nootropic / 'smart drug' supplement ทำให้ IQ สูงขึ้น",
+      "popular_belief_en": "Nootropic supplements raise IQ or make you permanently smarter",
+      "truth_th": "ไม่มี supplement ใดที่ผ่าน RCT ว่าเพิ่ม IQ ในคนสุขภาพดีได้อย่างมีนัยสำคัญ; Lion's Mane, Bacopa, Omega-3 ช่วย cognitive performance ในกลุ่มที่ขาดหรือมี MCI เท่านั้น; ผลส่วนใหญ่เป็น 'optimizing baseline' ไม่ใช่ 'enhancement beyond normal'; FDA ห้าม claim ว่า supplement เพิ่ม IQ",
+      "truth_en": "No supplement has passed RCT proving IQ increase in healthy adults; Lion's Mane, Bacopa, omega-3 help those with deficiency or MCI only; most effects are 'restoring' rather than 'enhancing beyond normal'; FDA prohibits IQ-boosting supplement claims.",
+      "why_popular": "Silicon Valley biohacking culture; 'Limitless' movie; social media nootropic communities",
+      "reveal_style": "correction",
+      "sources_debunking": [{"url": "https://pubmed.ncbi.nlm.nih.gov/25237104/", "org": "Psychol Sci / PubMed", "source_tier": "A", "year": 2014, "title": "Do brain training programs work? — Simons DJ et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "neurogenesis",
+      "safety_warning": {"risk_level": "yellow", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": ["ห้ามบอก 'supplement นี้เพิ่ม IQ'"], "required_disclaimer_th": "supplement_th", "audience_exclusions": [], "validator_keywords_th": ["เพิ่ม IQ", "ฉลาดขึ้น 100%"], "regulatory_risk_notes": "ห้าม claim เพิ่ม IQ ใน อย. ไทย"}
+    }
+  ]
+}

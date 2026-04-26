@@ -1,0 +1,190 @@
+{
+  "domain_id": "hormones",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 11,
+    "last_harvested": "2026-04-22"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_horm_001",
+      "popular_belief_th": "เทสโทสเตอโรนต่ำเป็นเพราะอายุ — หลีกเลี่ยงไม่ได้",
+      "popular_belief_en": "Low testosterone is just aging — you can't do anything about it",
+      "truth_th": "Travison 2007 พบว่า ชายอเมริกันอายุเท่ากัน ปี 2004 มี T ต่ำกว่าปี 1987 ~17% — เป็น 'secular decline' ทั้งประชากร ไม่ใช่แค่อายุ; sleep <5 ชม. 1 สัปดาห์ลด T 10-15% (Leproult 2011); obesity เพิ่ม aromatase → T→E2; ลดพุง + นอน 7-9 ชม. + weight training = non-pharma fix",
+      "truth_en": "Travison 2007 found age-matched American men in 2004 had ~17% lower T than in 1987 — a population-level secular decline, not pure aging. Sleep <5h for 1 week drops T 10-15% (Leproult 2011). Obesity raises aromatase → T→E2. Weight loss + 7-9h sleep + resistance training is the non-pharma fix.",
+      "why_popular": "โฆษณา TRT ขายความคิดว่า 'อายุ = T ต่ำ'; คนไม่รู้ว่านอน/อ้วน/ stress เป็นสาเหตุใหญ่กว่า",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/17148556/", "org": "JAMA", "source_tier": "A", "year": 2007, "title": "Travison — population-level T decline", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21632481/", "org": "JAMA", "source_tier": "A", "year": 2011, "title": "Leproult & Van Cauter — sleep restriction T drop", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "testosterone_decline",
+      "counter_facts": ["horm_003", "horm_004", "horm_014", "horm_018"],
+      "composer_directive": "Hook 'เทส-ลดเพราะอายุ? ไม่ใช่ไอ้สัส' ใช้ได้ — ต้อง pair ด้วยทางเลือก lifestyle ก่อน TRT; ห้าม imply ว่า 'ไม่ต้องไปหาหมอเลย'",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_horm_002",
+      "popular_belief_th": "อ้วนทั้งตัวเพราะไทรอยด์ต่ำ",
+      "popular_belief_en": "Obesity is caused by hypothyroidism",
+      "truth_th": "Hypothyroidism ทำน้ำหนักขึ้นเพียง 2-4 กก.เฉลี่ย (ส่วนใหญ่เป็นน้ำตัวบวม + glycogen) — ไม่สามารถอธิบาย 20+ กก. ได้; การรักษา levothyroxine คืนน้ำหนักได้แค่ 2-4 กก.เท่านั้น (Karmisholt 2009); อ้วนมากมักมาจาก insulin resistance + leptin resistance ไม่ใช่ thyroid",
+      "truth_en": "Hypothyroidism causes only ~2-4 kg typical weight gain (mostly water + glycogen); levothyroxine restores only 2-4 kg (Karmisholt 2009); major obesity reflects insulin + leptin resistance, not thyroid.",
+      "why_popular": "อาการ hypothyroidism (เหนื่อย, อ้วนง่าย, ขี้หนาว) ตรงกับอาการของคนน้ำหนักเกิน — ง่ายต่อการสรุปผิด",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19088155/", "org": "J Clin Endocrinol Metab", "source_tier": "A", "year": 2009, "title": "Karmisholt — weight gain in hypothyroidism", "access_date": "2026-04-22"},
+        {"url": "https://www.thyroid.org/professionals/ata-professional-guidelines/", "org": "American Thyroid Association", "source_tier": "A", "year": 2014, "title": "ATA Hypothyroidism Guidelines", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hypothyroidism",
+      "counter_facts": ["horm_005"],
+      "composer_directive": "Hook 'ไทรอยด์ต่ำมึงเลยอ้วน ใช่ป่ะ?' ใช้เพื่อ reveal ว่าไทรอยด์ไม่ใช่ scapegoat หลัก; ห้าม imply ว่า 'ไทรอยด์ต่ำไม่ต้องรักษา' — ควรพบหมอ",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_horm_003",
+      "popular_belief_th": "ถั่วเหลือง/นมถั่วเหลือง ทำให้ผู้ชาย 'อ่อนแอ' / 'กลายเป็นผู้หญิง'",
+      "popular_belief_en": "Soy feminizes men",
+      "truth_th": "Meta-analysis 2021 (Reed et al., Reprod Toxicol) รวม 41 RCT + observational → isoflavones ในถั่วเหลือง ไม่ส่งผลต่อ testosterone, estradiol, หรือ SHBG ในผู้ชาย; case reports 'gynecomastia จากถั่วเหลือง' มีน้อยมากและมักเกินปริมาณสุดขีด (15-20 servings/วัน)",
+      "truth_en": "Meta-analysis (Reed 2021, Reprod Toxicol) — 41 RCT + observational studies — soy isoflavones do NOT alter testosterone, estradiol, or SHBG in men; feminization case reports involve extreme doses (15-20 servings/day).",
+      "why_popular": "Isoflavones เป็น phytoestrogen — structural similarity ทำให้คน 'คิดว่า' = เอสโตรเจน; bodybuilding forums amplify",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/33775393/", "org": "Reprod Toxicol / PubMed", "source_tier": "A", "year": 2021, "title": "Neither soy nor isoflavone intake affects male reproductive hormones: An expanded and updated meta-analysis (Reed KE et al.)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "estrogen_metabolism",
+      "counter_facts": ["horm_018"],
+      "composer_directive": "Debunk แรงได้ — Reed 2021 ชัดเจน; ห้าม encourage 'กินถั่วเหลืองไม่อั้น' เพราะยังต้อง balance",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_horm_004",
+      "popular_belief_th": "ยา/อาหารเสริม 'testosterone booster' ที่โฆษณาเพิ่มเทส-ได้จริง",
+      "popular_belief_en": "Over-the-counter 'testosterone boosters' actually raise T",
+      "truth_th": "Balasubramanian 2019 ทดสอบ 50 products ขาย OTC — น้อยกว่า 25% มี ingredient ที่มีงานวิจัยว่าเพิ่ม T ในคนขาดเท่านั้น; zinc/vit D ทำงานเฉพาะถ้าขาดอยู่ก่อน; 'Tribulus terrestris' + 'Tongkat ali' evidence อ่อน; non-pharma fix ที่ proven = ลดพุง + นอน + weight training",
+      "truth_en": "Balasubramanian 2019 tested 50 OTC products — <25% contained ingredients shown to raise T, and only in deficient men; zinc/vit D work only in deficiency; Tribulus, Tongkat Ali evidence is weak; the proven non-pharma fix is fat loss + sleep + resistance training.",
+      "why_popular": "ตลาด supplement ใหญ่ + ไม่ต้อง prescription + โฆษณา 'เทส-x3' ง่ายขาย",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/30880245/", "org": "World J Mens Health / PubMed", "source_tier": "A", "year": 2019, "title": "An Analysis of Popular Online Erectile Dysfunction Supplements — Balasubramanian A et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "testosterone_decline",
+      "counter_facts": ["horm_014", "horm_016", "horm_017"],
+      "composer_directive": "ท้าทายตลาด supplement ได้ แต่อย่าลากเหยียบสินค้า Tier A (zinc, vit D ในคนขาด); ใช้สร้าง 'กรอบที่รับได้' สำหรับ product angle ของเราเอง",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_horm_005",
+      "popular_belief_th": "คอร์ติซอล = ฮอร์โมนเลวร้าย ต้องกดให้ต่ำที่สุดทุกเวลา",
+      "popular_belief_en": "Cortisol is evil — keep it as low as possible all day",
+      "truth_th": "Cortisol เช้าต้องสูง (10-20 μg/dL) เพื่อตื่นตัวและผลิตพลังงาน; problem ไม่ใช่ระดับ แต่คือ 'rhythm พัง' — แบนราบ (burnout) หรือสูงกลางคืน; การกด cortisol เช้าด้วย adaptogen เกินพอดี → เพลีย + brain fog; เป้าหมายคือ restore rhythm ไม่ใช่ suppress",
+      "truth_en": "Morning cortisol should be high (10-20 μg/dL) to drive alertness and glucose mobilization; the problem is rhythm disruption — flattened (burnout) or elevated at night — not high morning values. Blunting morning cortisol via excessive adaptogens → fatigue and brain fog. Goal is to restore rhythm, not suppress.",
+      "why_popular": "Wellness influencers brand cortisol เป็น 'stress hormone' เลว; ignore diurnal physiology",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK538239/", "org": "StatPearls", "source_tier": "A", "year": 2023, "title": "Physiology, Cortisol", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cortisol_HPA",
+      "counter_facts": ["horm_006", "horm_022"],
+      "composer_directive": "ใช้ reframe product ashwagandha ว่า 'restore rhythm' ไม่ใช่ 'ลดคอร์ติซอล'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_horm_006",
+      "popular_belief_th": "HRT เป็นอันตราย หลังเจอ WHI 2002 = ห้ามใช้ทุกกรณี",
+      "popular_belief_en": "HRT is dangerous — WHI 2002 said so",
+      "truth_th": "การ re-analyze WHI โดยอายุ/ช่วงเวลา (Manson 2017 JAMA; NAMS 2022) พบว่าหญิงที่เริ่ม HRT <60 ปี หรือ <10 ปีหลังเมโนพอส มี mortality/CVD benefit; risk หลักอยู่ที่ผู้เริ่ม >60 + CEE oral + MPA; transdermal E2 + micronized progesterone คือรูปแบบปลอดภัยกว่า",
+      "truth_en": "Re-analyses of WHI by age and timing (Manson 2017 JAMA; NAMS 2022) show women initiating HRT at <60 or <10 years post-menopause have mortality/CVD benefits; main risks occurred in women >60 on oral CEE + MPA. Transdermal E2 + micronized progesterone is the safer modern regimen.",
+      "why_popular": "Media 2002 ขยาย 'HRT = breast cancer' โดยไม่แยก age stratum; generations of women avoided HRT unnecessarily",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/2653735", "org": "JAMA / Manson 2017", "source_tier": "A", "year": 2017, "title": "Menopausal Hormone Therapy and Long-term All-Cause and Cause-Specific Mortality — Manson JE et al.", "access_date": "2026-04-22"},
+        {"url": "https://journals.lww.com/menopausejournal/fulltext/2022/07000/the_2022_hormone_therapy_position_statement_of_the.4.aspx", "org": "NAMS", "source_tier": "A", "year": 2022, "title": "2022 Hormone Therapy Position Statement", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "menopause_hrt",
+      "counter_facts": ["horm_012"],
+      "composer_directive": "ต้อง frame 'consult gynecologist' ทุกครั้ง; ห้าม self-prescription HRT",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_horm_007",
+      "popular_belief_th": "หัวล้าน/BPH เกิดเพราะเทสโทสเตอโรนสูง — ลดเทส-จะหาย",
+      "popular_belief_en": "Baldness / BPH come from high testosterone — lower T will cure them",
+      "truth_th": "หัวล้าน/BPH เกิดจาก DHT (ผลผลิตของ 5α-reductase) ไม่ใช่ T โดยตรง; AR ใน hair follicle + prostate sensitive ต่อ DHT ~3-5 เท่าของ T; finasteride block 5α-reductase → DHT ลด 70% = รักษาทั้งสอง; ชายเทส-สูงไม่จำเป็นหัวล้านถ้า DHT conversion ต่ำ",
+      "truth_en": "Male-pattern baldness and BPH come from DHT (5α-reductase product), not T directly; AR in hair follicle + prostate respond 3-5× more to DHT; finasteride blocks 5α-reductase → DHT -70% = effective treatment; men with high T don't necessarily go bald if DHT conversion is low.",
+      "why_popular": "'High testosterone = manly = baldness' narrative popular on social media",
+      "reveal_style": "curiosity",
+      "sources_debunking": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK557634/", "org": "StatPearls", "source_tier": "A", "year": 2023, "title": "Finasteride — StatPearls", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "testosterone_decline",
+      "counter_facts": ["horm_025"],
+      "composer_directive": "Debunk แรงได้; pair กับ 'saw palmetto' angle เชิง educational ไม่ overclaim",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_horm_008",
+      "popular_belief_th": "IF ทำให้ cortisol สูง → stress → ทำลายฮอร์โมน",
+      "popular_belief_en": "Intermittent fasting spikes cortisol and wrecks hormones",
+      "truth_th": "16/8 IF ปกติไม่เพิ่ม cortisol baseline อย่างมีนัยสำคัญ (Halpern 2021 review); cortisol rise ปกติใน Acute fast เป็น physiological การ mobilize fuel ไม่ใช่ 'stress pathological'; เฉพาะ prolonged fast >72 ชม. + ไม่พอนอน + overtraining ที่มี concern; 'ผู้หญิง IF แล้วประจำเดือนหาย' มักเกิดจาก energy availability ต่ำเกิน ไม่ใช่ IF window",
+      "truth_en": "16/8 IF does not meaningfully elevate baseline cortisol (Halpern 2021); the small acute cortisol rise during a fast is physiological fuel mobilization, not pathological stress; concerns are real only for prolonged (>72h) fasts with poor sleep or overtraining; 'IF caused missed periods' usually reflects under-eating overall, not timing.",
+      "why_popular": "Some influencers oppose IF and cite cortisol as a catch-all",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/", "org": "Endocrinol Metab / PMC", "source_tier": "A", "year": 2021, "title": "Halpern — IF for obesity review", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29754952/", "org": "Cell Metab", "source_tier": "A", "year": 2018, "title": "Sutton — early TRE insulin sensitivity", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["horm_013"],
+      "composer_directive": "Defend 16/8; ห้าม defend 72h+ fast แบบ universal — ต้องมี medical sup",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_horm_009",
+      "popular_belief_th": "ประจำเดือนไม่มาตอน IF = ร่างกายพัง",
+      "popular_belief_en": "Missed periods on IF = broken metabolism",
+      "truth_th": "Hypothalamic amenorrhea เกิดเมื่อ energy availability ต่ำเกินไป (Loucks <30 kcal/kg FFM/day) — ไม่ใช่ IF โดยเฉพาะ; ผู้หญิงที่ IF + กินครบแคล + ไม่เทรนหนักเกินมักประจำเดือนปกติ; ถ้าขาด → ลดเทรน + เพิ่มแคล 15-20% + ขยาย eating window = ฟื้น",
+      "truth_en": "Hypothalamic amenorrhea arises from low energy availability (Loucks: <30 kcal/kg FFM/day), not IF per se. Women who IF with adequate calories and moderate training usually cycle normally; when missing cycles, reducing training load + adding 15-20% kcal + extending eating window typically restores menses.",
+      "why_popular": "Many women conflate 'skipping breakfast' with cycle problems because timing and hunger both change",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12791618/", "org": "J Appl Physiol / PubMed", "source_tier": "A", "year": 2003, "title": "Low energy availability, not stress of exercise, alters LH pulsatility — Loucks AB, Thuma JR", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "menopause_hrt",
+      "counter_facts": ["horm_013"],
+      "composer_directive": "ระบุเสมอว่า 'ปรึกษา gyn ถ้าประจำเดือนขาด >3 เดือน'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_horm_010",
+      "popular_belief_th": "Melatonin ยิ่งกินมาก ยิ่งหลับดี → 5-10 mg ก่อนนอน",
+      "popular_belief_en": "More melatonin = better sleep: take 5-10 mg",
+      "truth_th": "Physiological melatonin ตอน peak = ~0.3-0.5 nmol/L; ยา OTC 0.3-1 mg ก็ทำถึงระดับนี้; 5-10 mg ทำให้ serum สูง 20× ของ physiological → ตื่นเช้าง่วง + บางคน headache; Zhdanova 2001 เสนอว่า dose ต่ำ (0.3 mg) มีประสิทธิภาพสูงสุดในผู้ใหญ่",
+      "truth_en": "Physiological melatonin peak is ~0.3-0.5 nmol/L; 0.3-1 mg oral reaches this; 5-10 mg pushes 20× physiological → morning grogginess + headache; Zhdanova 2001 demonstrated 0.3 mg may be most effective dose in adults.",
+      "why_popular": "Supplement companies sell high-dose; 'more is better' bias",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11485924/", "org": "Sleep / PubMed", "source_tier": "A", "year": 2001, "title": "Melatonin treatment for age-related insomnia — Zhdanova IV et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "melatonin_circadian",
+      "counter_facts": ["horm_026"],
+      "composer_directive": "Reframe product sleep gummy ว่า 'low-dose สมาร์ทกว่า'; ห้ามบอก 10 mg ดีกว่า",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_horm_011",
+      "popular_belief_th": "เหนื่อยเรื้อรัง = adrenal fatigue ต้องกิน adrenal supplement",
+      "popular_belief_en": "Chronic fatigue = adrenal fatigue — take adrenal supplements",
+      "truth_th": "Endocrine Society 2016 + Hormone Health Network: 'adrenal fatigue' ไม่ใช่ diagnosis ที่ยอมรับ — เป็น wellness term; chronic fatigue จริงมักเกิดจาก sleep apnea, hypothyroidism, iron/B12 deficiency, depression, หรือ HPA dysregulation (flattened cortisol rhythm); ต้องแยกโรคก่อน supplement",
+      "truth_en": "Endocrine Society + Hormone Health Network: 'adrenal fatigue' is not a recognized diagnosis — it's a wellness label; true chronic fatigue usually reflects sleep apnea, hypothyroidism, iron/B12 deficiency, depression, or HPA rhythm disruption. Workup first, supplements later.",
+      "why_popular": "'Adrenal fatigue' was popularized by James Wilson 1998; absence of formal diagnosis convenient for supplement sales",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27557701/", "org": "BMC Endocr Disord / PubMed", "source_tier": "A", "year": 2016, "title": "Adrenal fatigue does not exist: a systematic review — Cadegiani FA, Kater CE", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cortisol_HPA",
+      "counter_facts": ["horm_006", "horm_022"],
+      "composer_directive": "ห้ามใช้ 'adrenal fatigue' แบบ diagnosis; ใช้ 'HPA rhythm disruption' แทน — accurate + marketable",
+      "uncleped_debunked": false
+    }
+  ]
+}

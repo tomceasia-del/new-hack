@@ -1,0 +1,43 @@
+{
+  "domain_id": "brain",
+  "_meta": {"last_harvested": "2026-04-22", "harvested_by": "domain_harvester.brain"},
+  "people": [
+    {"id": "matthew_walker", "name": "Matthew Walker", "title": "Professor, Neuroscience & Psychology", "affiliation": "UC Berkeley", "known_for": "Sleep and brain health; glymphatic system", "verifiable": true},
+    {"id": "dale_bredesen", "name": "Dale Bredesen", "title": "Professor, Neuroscience", "affiliation": "Buck Institute for Research on Aging / UCLA", "known_for": "ReCODE Protocol; 36 metabolic factors for Alzheimer reversal", "verifiable": true},
+    {"id": "david_perlmutter", "name": "David Perlmutter", "title": "Neurologist, Author", "affiliation": "Private Practice", "known_for": "Grain Brain (2013); brain-gut connection; LCHF for brain", "verifiable": true},
+    {"id": "huberman", "name": "Andrew Huberman", "title": "Professor of Neurobiology", "affiliation": "Stanford School of Medicine", "known_for": "Huberman Lab podcast; dopamine, BDNF, visual neuroscience", "verifiable": true},
+    {"id": "erickson", "name": "Kirk Erickson", "title": "Professor of Psychology", "affiliation": "University of Pittsburgh", "known_for": "PNAS 2011 — exercise increases hippocampal volume in older adults", "verifiable": true},
+    {"id": "livingston", "name": "Gill Livingston", "title": "Professor of Psychiatry", "affiliation": "University College London", "known_for": "Lancet Commission on Dementia Prevention 2020", "verifiable": true},
+    {"id": "cotman", "name": "Carl Cotman", "title": "Professor of Neurobiology", "affiliation": "UCI Institute for Brain Aging", "known_for": "Exercise-BDNF-neurogenesis research (Trends Neurosci 2002)", "verifiable": true},
+    {"id": "mori_kk", "name": "Koichiro Mori", "title": "Researcher", "affiliation": "Hokuto Hospital, Japan", "known_for": "Lion's Mane MCI RCT (Phytother Res 2009)", "verifiable": true},
+    {"id": "stough", "name": "Con Stough", "title": "Professor of Cognitive Neuroscience", "affiliation": "Swinburne University", "known_for": "Bacopa monnieri cognitive RCTs (Psychopharmacology 2001)", "verifiable": true}
+  ],
+  "molecules": [
+    {"id": "bdnf", "name": "BDNF (Brain-Derived Neurotrophic Factor)", "label_th": "BDNF สารปลูกสมอง", "family": "neurotrophin", "role": "Promotes neurogenesis (dentate gyrus), LTP, synaptic plasticity; elevated by exercise"},
+    {"id": "acetylcholine", "name": "Acetylcholine (ACh)", "label_th": "อะเซทิลโคลีน", "family": "neurotransmitter", "role": "Memory encoding, attention, muscle control; depleted in Alzheimer basal forebrain"},
+    {"id": "dopamine", "name": "Dopamine", "label_th": "โดพามีน", "family": "catecholamine neurotransmitter", "role": "Reward anticipation, motivation, working memory (prefrontal cortex)"},
+    {"id": "dha", "name": "DHA (Docosahexaenoic Acid)", "label_th": "DHA โอเมก้า-3", "family": "omega-3 polyunsaturated fatty acid", "role": "Structural component of synaptosomal membranes (30-40%); anti-inflammatory; neuroprotectin D1 precursor"},
+    {"id": "epa", "name": "EPA (Eicosapentaenoic Acid)", "label_th": "EPA โอเมก้า-3", "family": "omega-3 polyunsaturated fatty acid", "role": "Anti-inflammatory via competitive inhibition of AA eicosanoids; antidepressant effects"},
+    {"id": "bhb", "name": "Beta-Hydroxybutyrate (BHB)", "label_th": "BHB คีโตน", "family": "ketone body", "role": "Alternative neuronal fuel; NLRP3 inhibitor; HDAC inhibitor; neuroprotective"},
+    {"id": "ngf", "name": "NGF (Nerve Growth Factor)", "label_th": "NGF ปัจจัยเติบโตประสาท", "family": "neurotrophin", "role": "Supports cholinergic neuron survival and neurite outgrowth; stimulated by Lion's Mane"},
+    {"id": "phosphatidylserine", "name": "Phosphatidylserine (PS)", "label_th": "ฟอสฟาไทดิลเซอรีน", "family": "phospholipid", "role": "Neuronal membrane cytosolic leaflet; neurotransmitter vesicle exocytosis; cortisol modulation"},
+    {"id": "alpha_gpc", "name": "Alpha-GPC (Alpha-glycerophosphocholine)", "label_th": "อัลฟา-GPC", "family": "choline compound", "role": "Highly bioavailable choline donor; crosses BBB; acetylcholine precursor; GH releasing"},
+    {"id": "bacopa", "name": "Bacopa monnieri (Bacosides A+B)", "label_th": "Bacopa มนิเอรา", "family": "herbal adaptogen", "role": "Dendritic branching in hippocampus CA3; AChE inhibition; GABAergic anxiety reduction"},
+    {"id": "lion_mane", "name": "Hericium erinaceus (Lion's Mane)", "label_th": "เห็ดสิงโต / Lion's Mane", "family": "medicinal mushroom", "role": "Hericenones + erinacines stimulate NGF; neurite outgrowth; possible MCI benefit"},
+    {"id": "l_tyrosine", "name": "L-Tyrosine", "label_th": "แอล-ไทโรซีน", "family": "amino acid", "role": "Precursor of dopamine and noradrenaline; replenishes catecholamines under acute stress"},
+    {"id": "rhodiola", "name": "Rhodiola rosea", "label_th": "โรดิโอล่า โรเซีย", "family": "adaptogen herb", "role": "MAO-A/B inhibition; serotonin + dopamine elevation; cortisol reduction; cognitive stress performance"},
+    {"id": "anthocyanin", "name": "Anthocyanins (blueberry/berry polyphenols)", "label_th": "แอนโทไซยานิน จากบลูเบอรี่", "family": "polyphenol flavonoid", "role": "Cerebral blood flow; BDNF; anti-inflammatory; processing speed improvement"}
+  ],
+  "organizations": [
+    {"id": "lancet_commission", "name": "Lancet Commission on Dementia Prevention, Intervention and Care", "type": "academic", "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30367-6/fulltext"},
+    {"id": "nia_nih", "name": "National Institute on Aging (NIA / NIH)", "type": "regulatory", "url": "https://www.nia.nih.gov/health/alzheimers"},
+    {"id": "alzheimer_association", "name": "Alzheimer's Association", "type": "academic", "url": "https://www.alz.org"},
+    {"id": "ihri_thailand", "name": "สถาบันวิจัยระบบสาธารณสุข (IHRI) Thailand", "type": "regulatory", "url": "https://www.hsri.or.th"},
+    {"id": "aric_study", "name": "Atherosclerosis Risk in Communities (ARIC) Study", "type": "research", "url": "https://www.cscc.unc.edu/aric"}
+  ],
+  "case_studies": [
+    {"id": "erickson_hippocampus", "name": "Erickson Hippocampus Aerobic Study (PNAS 2011)", "claim_to_fame": "120 ผู้สูงอายุ: aerobic exercise 1 ปี hippocampus โต 2% vs ลด 1.4% ในกลุ่มควบคุม", "year": 2011, "source": "Erickson KI et al., PNAS 2011 (PMID 21098233)"},
+    {"id": "bredesen_pilot", "name": "Bredesen ReCODE Pilot (Aging 2014)", "claim_to_fame": "10 ผู้ป่วย early Alzheimer: 9/10 cognitive improvement ด้วย 36-factor metabolic protocol", "year": 2014, "source": "Bredesen DE, Aging 2014 (PMID 25324467)"},
+    {"id": "mori_lion_mane", "name": "Mori Lion's Mane MCI RCT (Phytother Res 2009)", "claim_to_fame": "30 ผู้สูงอายุ MCI: 3g/day × 16 สัปดาห์ HDS-R ดีขึ้น; กลับแย่ลง 4 สัปดาห์หลังหยุด", "year": 2009, "source": "Mori K et al., Phytother Res 2009 (PMID 18844328)"}
+  ]
+}

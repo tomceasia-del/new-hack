@@ -1,0 +1,339 @@
+{
+  "domain_id": "hormones",
+  "_meta": {
+    "target_count": 12,
+    "current_count": 14,
+    "last_harvested": "2026-04-22"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_horm_001",
+      "label_th": "อินซูลิน → PI3K/Akt → HSL ถูกปิด → ไม่สลายไขมัน",
+      "label_en": "Insulin → PI3K/Akt → HSL suppression → no lipolysis",
+      "description_th": "อินซูลินจับ insulin receptor (IR) บนเซลล์ไขมัน → กระตุ้น PI3K/Akt → Akt phosphorylate PDE3B → ย่อย cAMP → PKA ไม่ active → HSL ไม่ถูก phosphorylate → triglyceride ไม่แตก; พร้อมกัน insulin เพิ่ม LPL + GLUT4 → ดูดน้ำตาล/FFA เข้าเก็บ",
+      "description_en": "Insulin binds IR on adipocytes → PI3K/Akt cascade → Akt phosphorylates PDE3B → degrades cAMP → PKA inactive → HSL unphosphorylated → triglyceride not hydrolyzed; simultaneously insulin upregulates LPL + GLUT4 → stores glucose and FFA as new fat.",
+      "chain": [
+        {"step": 1, "actor": "high-carb meal", "action": "raises", "target": "blood glucose", "effect": "β-cells secrete insulin"},
+        {"step": 2, "actor": "insulin", "action": "binds", "target": "IR on adipocyte", "effect": "PI3K/Akt activated"},
+        {"step": 3, "actor": "Akt", "action": "activates", "target": "PDE3B (degrades cAMP)", "effect": "PKA inactivated"},
+        {"step": 4, "actor": "inactive PKA", "action": "fails to phosphorylate", "target": "HSL + perilipin", "effect": "lipolysis stopped"},
+        {"step": 5, "actor": "insulin", "action": "upregulates", "target": "LPL + GLUT4", "effect": "FFA + glucose imported → stored as TG"}
+      ],
+      "analogies_th": [
+        "อินซูลินคือ 'ยามประตูคลังไขมัน' — ตราบใดที่ยามอยู่ ไม่มีใครออกได้",
+        "สวิตช์ 2 ขั้ว: อินซูลินสูง = เก็บ, อินซูลินต่ำ = เผา"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/", "org": "Endocrinol Metab / PMC (Halpern 2021)", "source_tier": "A", "year": 2021, "title": "Intermittent fasting for obesity: mechanisms", "access_date": "2026-04-22"},
+        {"url": "https://www.endocrine.org/patient-engagement/endocrine-library/hormones-and-endocrine-function/insulin-resistance", "org": "The Endocrine Society", "source_tier": "A", "year": 2022, "title": "Insulin Resistance (Endocrine Library)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_002",
+      "label_th": "Leptin → POMC/AgRP → สัญญาณอิ่ม (และ leptin resistance)",
+      "label_en": "Leptin → POMC/AgRP → satiety (and resistance)",
+      "description_th": "เซลล์ไขมันหลั่ง leptin ตามสัดส่วนมวลไขมัน → ข้าม BBB ไป hypothalamic arcuate nucleus → จับ LEPRb บน POMC neurons → JAK2/STAT3 signal → α-MSH ไป MC4R ใน PVN → ลดหิว + เพิ่ม energy expenditure; ในภาวะอ้วน hypothalamic inflammation + SOCS3/PTP1B สูง → ตัด signal = leptin resistance",
+      "description_en": "Adipocytes secrete leptin proportional to fat mass → crosses BBB → binds LEPRb on hypothalamic POMC neurons → JAK2/STAT3 → α-MSH acts at MC4R in PVN → suppresses appetite + raises EE; in obesity, neuroinflammation + SOCS3/PTP1B terminate signaling → leptin resistance.",
+      "chain": [
+        {"step": 1, "actor": "adipocyte", "action": "secretes", "target": "leptin (proportional to fat mass)", "effect": "circulating leptin reflects stores"},
+        {"step": 2, "actor": "leptin", "action": "binds", "target": "LEPRb on arcuate POMC neurons", "effect": "JAK2/STAT3 activation"},
+        {"step": 3, "actor": "POMC", "action": "cleaved to", "target": "α-MSH", "effect": "acts on MC4R in PVN"},
+        {"step": 4, "actor": "MC4R signaling", "action": "suppresses", "target": "appetite + raises EE", "effect": "homeostasis"},
+        {"step": 5, "actor": "obesity inflammation", "action": "upregulates", "target": "SOCS3 / PTP1B", "effect": "signal blocked → leptin resistance"}
+      ],
+      "analogies_th": [
+        "Leptin = Wi-Fi signal บอกสมอง 'อิ่มแล้ว' — คนอ้วน router พัง"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2793049/", "org": "PMC (Morris & Rui 2009)", "source_tier": "A", "year": 2009, "title": "Leptin signaling and leptin resistance review", "access_date": "2026-04-22"},
+        {"url": "https://www.sciencedirect.com/science/article/pii/S0026049524002531", "org": "Elsevier/Metabolism", "source_tier": "A", "year": 2024, "title": "History and future of leptin", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "leptin_signaling",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_003",
+      "label_th": "อด/นอนลึก → somatostatin ↓ + GHRH ↑ → GH pulse",
+      "label_en": "Fasting/deep sleep → somatostatin ↓ + GHRH ↑ → GH pulse",
+      "description_th": "Fasting และ SWS ทำ somatostatin tone ลด + GHRH ปล่อย → ต่อมใต้สมองส่วนหน้า pulse GH ออกมา → GH กระตุ้นตับผลิต IGF-1 + กระตุ้น lipolysis ในไขมันโดยตรง; ในทางกลับกัน insulin/glucose สูง/นอนตื้น = GH ถูกกด",
+      "description_en": "Fasting and SWS lower somatostatin tone and elevate GHRH → anterior pituitary pulses GH → GH drives hepatic IGF-1 and direct adipose lipolysis; conversely, high insulin/glucose and light sleep suppress GH.",
+      "chain": [
+        {"step": 1, "actor": "fasting / deep sleep", "action": "lowers", "target": "somatostatin tone", "effect": "GH disinhibited"},
+        {"step": 2, "actor": "hypothalamus", "action": "releases", "target": "GHRH", "effect": "anterior pituitary primed"},
+        {"step": 3, "actor": "anterior pituitary", "action": "pulses", "target": "GH (5.8→9.9 pulses/24h after 5-d fast; Ho 1988)", "effect": "circulating GH rises"},
+        {"step": 4, "actor": "GH", "action": "stimulates", "target": "adipocyte lipolysis + hepatic IGF-1", "effect": "fat oxidation + tissue repair"},
+        {"step": 5, "actor": "snacking / poor sleep", "action": "keeps high", "target": "insulin + somatostatin", "effect": "GH pulses flattened"}
+      ],
+      "analogies_th": [
+        "GH pulse = น้ำพุ ต้องมี 'ช่องว่าง' ถึงจะพุ่ง — กินตลอด = น้ำพุตาย",
+        "ร่างกายซ่อมตัวเองตอน 'หยุดรับงาน' (fast + หลับลึก)"
+      ],
+      "sources": [
+        {"url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC329619/", "org": "J Clin Invest / PMC", "source_tier": "A", "year": 1988, "title": "Ho KY et al. — Fasting enhances GH secretion", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10619963/", "org": "J Clin Endocrinol Metab / PubMed", "source_tier": "A", "year": 2000, "title": "Age-related decline in nocturnal GH release", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "growth_hormone",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_004",
+      "label_th": "HPG axis: GnRH → LH → Leydig → testosterone",
+      "label_en": "HPG axis: GnRH → LH → Leydig → testosterone",
+      "description_th": "Hypothalamus ปล่อย GnRH เป็น pulse → ต่อมใต้สมองปล่อย LH + FSH → LH กระตุ้น Leydig cells ในอัณฑะผลิต T; T → feedback ยับยั้ง GnRH/LH; การนอนไม่พอ, อ้วน, stress เรื้อรัง, หรือ insulin resistance ทุกตัวกด HPG → T ต่ำ",
+      "description_en": "Hypothalamus pulses GnRH → pituitary releases LH + FSH → LH stimulates testicular Leydig cells to produce T; T feeds back to suppress GnRH/LH; sleep loss, obesity, chronic stress, and insulin resistance each suppress the HPG → low T.",
+      "chain": [
+        {"step": 1, "actor": "hypothalamus", "action": "pulses", "target": "GnRH (every 60-90 min)", "effect": "pituitary stimulated"},
+        {"step": 2, "actor": "pituitary", "action": "secretes", "target": "LH + FSH", "effect": "testis stimulated"},
+        {"step": 3, "actor": "LH", "action": "binds", "target": "Leydig cells", "effect": "T synthesis from cholesterol"},
+        {"step": 4, "actor": "T", "action": "circulates bound to", "target": "SHBG + albumin", "effect": "only free T / bioavailable T acts at AR"},
+        {"step": 5, "actor": "chronic stress + obesity + sleep loss + IR", "action": "suppress", "target": "GnRH pulse frequency", "effect": "LH ↓ → T ↓"}
+      ],
+      "analogies_th": [
+        "HPG axis = สายโทรศัพท์ 3 ชั้น — ชั้นบน (สมอง) โทรหาชั้นกลาง (pituitary) → ชั้นล่าง (ลูกอัณฑะ) — stress/พุง/นอนน้อย = สัญญาณขาด"
+      ],
+      "sources": [
+        {"url": "https://academic.oup.com/jcem/article/103/5/1715/4939465", "org": "Endocrine Society / JCEM", "source_tier": "A", "year": 2018, "title": "Testosterone Therapy Guideline (Bhasin et al.)", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21632481/", "org": "JAMA", "source_tier": "A", "year": 2011, "title": "Leproult & Van Cauter — sleep restriction → T drop", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "testosterone_decline",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_005",
+      "label_th": "HPT axis: TRH → TSH → T4 → T3 (peripheral deiodinase)",
+      "label_en": "HPT axis: TRH → TSH → T4 → T3 (peripheral deiodinase)",
+      "description_th": "Hypothalamus ปล่อย TRH → pituitary ปล่อย TSH → ไทรอยด์ผลิต T4 เป็นหลัก (~90%) + T3 เล็กน้อย → T4 ถูก deiodinase (D1, D2) ในตับ/กล้าม/ไตแปลงเป็น T3 active; T3 จับ nuclear thyroid receptor → regulates BMR, thermogenesis, cardiac output; Hashimoto's = antibody ต่อ TPO ทำลาย follicle ทีละน้อย → T4 ต่ำ → TSH ขึ้น compensate",
+      "description_en": "Hypothalamus releases TRH → pituitary TSH → thyroid produces mostly T4 (~90%) + small T3; peripheral D1/D2 deiodinases convert T4 → active T3; T3 binds nuclear TR to regulate BMR, thermogenesis, cardiac output; Hashimoto's = anti-TPO antibodies slowly destroy follicles → low T4 → high TSH (compensation).",
+      "chain": [
+        {"step": 1, "actor": "hypothalamus", "action": "releases", "target": "TRH", "effect": "pituitary thyrotroph stimulated"},
+        {"step": 2, "actor": "pituitary", "action": "secretes", "target": "TSH", "effect": "thyroid follicles stimulated"},
+        {"step": 3, "actor": "thyroid follicles", "action": "synthesize + secrete", "target": "T4 > T3 (90:10 ratio)", "effect": "circulating thyroid hormone"},
+        {"step": 4, "actor": "peripheral D2 (muscle/brain)", "action": "deiodinates", "target": "T4 → T3 (active)", "effect": "tissue-specific T3 activation"},
+        {"step": 5, "actor": "T3", "action": "binds", "target": "nuclear TR", "effect": "regulates metabolism genes"},
+        {"step": 6, "actor": "Hashimoto's antibodies", "action": "destroy", "target": "thyroid follicles", "effect": "T4 ↓ → TSH ↑ (hypothyroidism)"}
+      ],
+      "analogies_th": [
+        "T4 = วัตถุดิบ, T3 = สินค้าสำเร็จ — ต้อง 'โรงงาน' (deiodinase) แปลง",
+        "TSH สูง = pituitary ตะโกน 'ไทรอยด์! เฮ่ย ผลิตสิ!'"
+      ],
+      "sources": [
+        {"url": "https://www.thyroid.org/professionals/ata-professional-guidelines/", "org": "American Thyroid Association", "source_tier": "A", "year": 2014, "title": "Guidelines for the Treatment of Hypothyroidism (Jonklaas et al.)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hypothyroidism",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_006",
+      "label_th": "HPA axis: CRH → ACTH → cortisol + circadian gating",
+      "label_en": "HPA axis: CRH → ACTH → cortisol + circadian gating",
+      "description_th": "SCN ใน hypothalamus ตั้ง clock → ตื่นเช้า SCN → PVN ปล่อย CRH → pituitary ปล่อย ACTH → adrenal cortex (zona fasciculata) ผลิต cortisol; negative feedback ผ่าน GR ที่ hypothalamus/pituitary; stress เรื้อรัง → GR downregulate → คอร์ติซอลไม่ถูกปิด → pattern พัง; 11β-HSD1 ใน visceral fat แปลง cortisone → cortisol → สะสมไขมันลงพุง",
+      "description_en": "SCN clock gates the HPA — morning SCN drive → PVN releases CRH → pituitary ACTH → adrenal cortex (zona fasciculata) → cortisol; negative feedback via GR in hypothalamus/pituitary; chronic stress downregulates GR → cortisol fails to self-terminate → rhythm flattens; 11β-HSD1 in visceral fat locally regenerates cortisol → preferential belly fat deposition.",
+      "chain": [
+        {"step": 1, "actor": "SCN clock + stressor", "action": "stimulates", "target": "PVN CRH release", "effect": "pituitary primed"},
+        {"step": 2, "actor": "pituitary", "action": "secretes", "target": "ACTH", "effect": "adrenal stimulated"},
+        {"step": 3, "actor": "adrenal cortex", "action": "produces", "target": "cortisol (AM peak, PM nadir)", "effect": "mobilizes glucose + suppresses immune"},
+        {"step": 4, "actor": "cortisol", "action": "feeds back via", "target": "GR on hypothalamus/pituitary", "effect": "terminates signal (homeostasis)"},
+        {"step": 5, "actor": "chronic stress", "action": "desensitizes", "target": "GR feedback", "effect": "HPA dysregulation"},
+        {"step": 6, "actor": "11β-HSD1 (visceral fat)", "action": "regenerates", "target": "cortisol from cortisone", "effect": "local hypercortisolism → visceral obesity"}
+      ],
+      "analogies_th": [
+        "HPA = ระบบเตือนภัย — ปกติดังตอนเช้า เงียบตอนนอน; stress เรื้อรัง = alarm ชำรุด ดังทั้งวัน",
+        "พุงเครียดมี 'โรงกลั่นคอร์ติซอล' ของตัวเอง"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK538239/", "org": "StatPearls (NCBI)", "source_tier": "A", "year": 2023, "title": "Physiology, Cortisol", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11344210/", "org": "J Clin Endocrinol Metab", "source_tier": "A", "year": 2001, "title": "Epel et al. — stress cortisol and abdominal fat", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cortisol_HPA",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_007",
+      "label_th": "นอนน้อย → cortisol ↑ + leptin ↓ + ghrelin ↑ → IR + หิว",
+      "label_en": "Sleep loss → cortisol ↑ + leptin ↓ + ghrelin ↑ → IR + hunger",
+      "description_th": "Sleep restriction (<6 ชม.) ทำ evening cortisol สูง (Van Cauter 1999) → hepatic gluconeogenesis + appetite เพิ่ม; พร้อมกัน leptin ลด 18% และ ghrelin เพิ่ม 28% (Spiegel 2004); muscle insulin sensitivity ลด 20-30%; endocannabinoid สูง → อยากของหวาน — ผลรวม = 'เครื่องจักรอ้วน' ตอนกลางวัน",
+      "description_en": "Sleep restriction (<6 h) elevates evening cortisol (Van Cauter 1999) → hepatic gluconeogenesis + appetite; leptin drops 18% and ghrelin rises 28% (Spiegel 2004); muscle insulin sensitivity falls 20-30%; endocannabinoid tone rises → carb cravings — a perfect obesogenic hormonal storm.",
+      "chain": [
+        {"step": 1, "actor": "sleep <6h", "action": "dysregulates", "target": "HPA axis", "effect": "evening cortisol ↑45%"},
+        {"step": 2, "actor": "cortisol", "action": "drives", "target": "gluconeogenesis + appetite + visceral fat", "effect": "glucose load + hunger"},
+        {"step": 3, "actor": "sleep loss", "action": "lowers", "target": "leptin 18%", "effect": "satiety weakened"},
+        {"step": 4, "actor": "sleep loss", "action": "raises", "target": "ghrelin 28%", "effect": "hunger intensified"},
+        {"step": 5, "actor": "chronic sleep debt", "action": "reduces", "target": "muscle insulin sensitivity 20-30%", "effect": "more insulin needed → fat storage"},
+        {"step": 6, "actor": "elevated endocannabinoids", "action": "target", "target": "hedonic eating circuits", "effect": "sugar/fat cravings"}
+      ],
+      "analogies_th": [
+        "นอนน้อย = เปิดสวิตช์ 'เก็บไขมัน' ของร่างกายเอง",
+        "Cortisol สูง + ghrelin สูง + leptin ต่ำ = เครื่องจักรอ้วนทำงานประสาน"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10543671/", "org": "Lancet", "source_tier": "A", "year": 1999, "title": "Spiegel, Leproult, Van Cauter — sleep debt metabolic effects", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15583226/", "org": "Ann Intern Med", "source_tier": "A", "year": 2004, "title": "Spiegel — sleep curtailment leptin ghrelin", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ghrelin_satiety",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_008",
+      "label_th": "Aromatase (adipose) — testosterone → estradiol; obesity loop",
+      "label_en": "Aromatase (adipose) — testosterone → estradiol; obesity loop",
+      "description_th": "เนื้อเยื่อไขมัน (โดยเฉพาะ subcutaneous + visceral) มี aromatase (CYP19A1) สูง → แปลง testosterone → estradiol; ชายอ้วน T ลด + E2 สูง → feedback กด LH/GnRH → T ต่ำอีก (hypogonadism ทุติยภูมิ); ลดน้ำหนัก 5-10 กก. → aromatase ลด → T กลับ",
+      "description_en": "Adipose tissue (especially SC + visceral) expresses high aromatase (CYP19A1) → converts T → estradiol; obese men have low T + high E2 → feedback suppresses LH/GnRH → further T decline (secondary hypogonadism); weight loss of 5-10 kg reduces aromatase activity and often restores T.",
+      "chain": [
+        {"step": 1, "actor": "adipose tissue", "action": "expresses", "target": "aromatase (CYP19A1)", "effect": "T → estradiol conversion"},
+        {"step": 2, "actor": "estradiol (high)", "action": "feedbacks on", "target": "hypothalamus/pituitary", "effect": "GnRH / LH suppressed"},
+        {"step": 3, "actor": "low LH", "action": "fails to stimulate", "target": "Leydig cells", "effect": "T production low"},
+        {"step": 4, "actor": "low T", "action": "worsens", "target": "muscle + insulin sensitivity", "effect": "more obesity → more aromatase (vicious cycle)"},
+        {"step": 5, "actor": "weight loss ≥5-10%", "action": "reduces", "target": "adipose aromatase activity", "effect": "T often recovers without drugs"}
+      ],
+      "analogies_th": [
+        "ไขมันหน้าท้อง = โรงงานแปลงเทส-เป็นเอส",
+        "พุงเกิด 'คุกขังเทส-' — ลดพุง = ปล่อยเทส-ออกมา"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27725389/", "org": "World J Mens Health", "source_tier": "A", "year": 2016, "title": "Schulster — role of estradiol in male reproductive function", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/18240898/", "org": "Aging Male", "source_tier": "A", "year": 2008, "title": "Cohen — aromatase and obesity", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "estrogen_metabolism",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_009",
+      "label_th": "Blue light → retinal ipRGC → SCN → pineal → melatonin suppressed",
+      "label_en": "Blue light → retinal ipRGC → SCN → pineal → melatonin suppressed",
+      "description_th": "แสงฟ้า (~480 nm) กระตุ้น melanopsin ใน ipRGC ของ retina → ส่งสัญญาณเข้า SCN (suprachiasmatic nucleus) → SCN ส่งต่อ pineal ผ่าน PVN + superior cervical ganglion → pineal ลดการผลิต melatonin; แสง 4 ชม. ก่อนนอน → onset ล่า 1.5 ชม. (Czeisler 2015)",
+      "description_en": "Blue light (~480 nm) activates melanopsin in retinal ipRGCs → SCN → via PVN and superior cervical ganglion → pineal melatonin production is suppressed; 4 h of evening light delays onset 1.5 h (Czeisler 2015).",
+      "chain": [
+        {"step": 1, "actor": "blue light ~480 nm", "action": "excites", "target": "melanopsin in ipRGCs", "effect": "circadian-specific signaling"},
+        {"step": 2, "actor": "ipRGC", "action": "signals", "target": "SCN (master clock)", "effect": "phase delayed"},
+        {"step": 3, "actor": "SCN", "action": "inhibits via", "target": "PVN → superior cervical ganglion → pineal", "effect": "melatonin synthesis suppressed"},
+        {"step": 4, "actor": "low melatonin", "action": "fails to phase", "target": "downstream hormones (cortisol, GH, reproductive)", "effect": "multi-hormone misalignment"}
+      ],
+      "analogies_th": [
+        "มือถือคือ 'แดดปลอม' — ร่างกายงงว่ากลางวันหรือกลางคืน",
+        "Pineal = นาฬิกาตัวใหญ่ของระบบ endocrine; มืด = 'ไปนอนได้'"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25535358/", "org": "PNAS", "source_tier": "A", "year": 2015, "title": "Chang, Aeschbach, Duffy, Czeisler — eReader melatonin", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "melatonin_circadian",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_010",
+      "label_th": "PCOS = insulin resistance + hyperandrogenism loop",
+      "label_en": "PCOS = insulin resistance + hyperandrogenism loop",
+      "description_th": "IR → hyperinsulinemia → ovary theca cells ผลิต androgen เยอะ + ตับลด SHBG → free T สูง; อินซูลินยังขยาย LH > FSH ratio → follicle ไม่พัฒนา = anovulation; insulin ยังเพิ่ม IGF-1 bioavail → amplify androgen production อีก — ทำให้ weight loss/metformin/myo-inositol (ที่ลดอินซูลิน) ทำงานได้",
+      "description_en": "PCOS core is IR → hyperinsulinemia → ovarian theca overproduces androgens + liver drops SHBG → high free T; insulin also amplifies LH>FSH ratio → follicles arrest = anovulation; insulin raises bioavailable IGF-1 → further androgen amplification — which is why weight loss / metformin / myo-inositol (insulin-lowering tools) work.",
+      "chain": [
+        {"step": 1, "actor": "genetic predisposition + obesity", "action": "drives", "target": "insulin resistance", "effect": "hyperinsulinemia"},
+        {"step": 2, "actor": "insulin", "action": "stimulates", "target": "theca cell androgen synthesis", "effect": "high ovarian T"},
+        {"step": 3, "actor": "insulin", "action": "suppresses", "target": "hepatic SHBG production", "effect": "high free T"},
+        {"step": 4, "actor": "insulin + elevated LH/FSH ratio", "action": "disrupts", "target": "follicle maturation", "effect": "anovulation + polycystic morphology"},
+        {"step": 5, "actor": "insulin-lowering tx (weight loss / inositol / metformin)", "action": "breaks", "target": "the loop", "effect": "ovulation restored in most"}
+      ],
+      "analogies_th": [
+        "PCOS = ไฟลามทุ่งที่จุดด้วย 'อินซูลิน' — ดับไฟเมื่อไหร่ ทุกอย่างค่อย ๆ คืนตัว"
+      ],
+      "sources": [
+        {"url": "https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome", "org": "WHO", "source_tier": "A", "year": 2023, "title": "Polycystic Ovary Syndrome fact sheet", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29460635/", "org": "Int J Endocrinol", "source_tier": "A", "year": 2016, "title": "Unfer — myo-inositol in PCOS review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "pcos",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_011",
+      "label_th": "DHEA pathway: cholesterol → pregnenolone → DHEA → T/E2",
+      "label_en": "DHEA pathway: cholesterol → pregnenolone → DHEA → T/E2",
+      "description_th": "ต่อมหมวกไต (zona reticularis) ผลิต DHEA/DHEAS จาก cholesterol ผ่าน pregnenolone → 17-OH-pregnenolone → DHEA (CYP17A1 lyase); DHEA เป็น precursor ของทั้ง T (3β-HSD, 17β-HSD) และ E2 (aromatase); peak อายุ 25-30 → ลด ~10%/decade; 'adrenopause' ทำ sex steroid precursor ลด",
+      "description_en": "Adrenal zona reticularis produces DHEA/DHEAS from cholesterol via pregnenolone → 17-OH pregnenolone → DHEA (CYP17A1 lyase); DHEA is precursor to both T (3β-HSD, 17β-HSD) and E2 (aromatase); peaks at 25-30 and declines ~10%/decade ('adrenopause').",
+      "chain": [
+        {"step": 1, "actor": "adrenal cortex (zona reticularis)", "action": "imports", "target": "cholesterol via StAR", "effect": "steroidogenesis begins"},
+        {"step": 2, "actor": "P450scc (CYP11A1)", "action": "cleaves", "target": "cholesterol → pregnenolone", "effect": "common steroid precursor"},
+        {"step": 3, "actor": "CYP17A1", "action": "hydroxylates + lyase cleaves", "target": "pregnenolone → 17-OH-preg → DHEA", "effect": "adrenal androgen precursor"},
+        {"step": 4, "actor": "SULT2A1", "action": "sulfates", "target": "DHEA → DHEAS", "effect": "long half-life circulating form"},
+        {"step": 5, "actor": "peripheral tissues", "action": "convert", "target": "DHEA → T + E2", "effect": "local sex steroid action (esp. postmenopause)"}
+      ],
+      "analogies_th": [
+        "DHEA = วัตถุดิบฮอร์โมน — ร่างกายเอาไปทำเป็นเทส-หรือเอสตาม context",
+        "อายุ 70 = คลัง DHEA เหลือแค่ 20% ของตอน 25"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23621575/", "org": "J Sex Med", "source_tier": "A", "year": 2013, "title": "Corona DHEA meta-analysis", "access_date": "2026-04-22"},
+        {"url": "https://www.endocrine.org/patient-engagement/endocrine-library/hormones-and-endocrine-function/steroid-hormones", "org": "The Endocrine Society", "source_tier": "A", "year": 2022, "title": "Steroid Hormones — Endocrine Library", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "dhea_adrenal",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_012",
+      "label_th": "Perimenopause → estradiol collapse → VMS + metabolic shift",
+      "label_en": "Perimenopause → estradiol collapse → VMS + metabolic shift",
+      "description_th": "Ovarian follicle depletion → E2 + progesterone ลด → FSH/LH ขึ้น (compensation); hypothalamic KNDy neurons hyperactivate → vasomotor symptoms (hot flashes); E2 ลดเปลี่ยน fat distribution ไป central, ลด insulin sensitivity, ลด bone density (RANK-L); HRT โดยเฉพาะ estradiol transdermal + micronized progesterone ช่วยเมื่อเริ่มใน window <60y หรือ <10 ปีหลัง menopause (NAMS 2022)",
+      "description_en": "Follicle depletion → falling E2 + progesterone → rising FSH/LH (compensation); hypothalamic KNDy neurons hyperactivate → vasomotor symptoms; lower E2 shifts fat to central depots, reduces insulin sensitivity and bone density (RANK-L); HRT (transdermal estradiol + micronized progesterone) works best within <60y or <10y post-menopause (NAMS 2022).",
+      "chain": [
+        {"step": 1, "actor": "ovarian follicles", "action": "deplete", "target": "with age", "effect": "E2 + progesterone fall"},
+        {"step": 2, "actor": "pituitary", "action": "compensates with", "target": "FSH/LH rise", "effect": "FSH >30 IU/L diagnostic"},
+        {"step": 3, "actor": "low E2", "action": "disinhibits", "target": "KNDy neurons", "effect": "vasomotor symptoms (hot flashes)"},
+        {"step": 4, "actor": "low E2", "action": "shifts", "target": "fat distribution to central + lowers insulin sensitivity + accelerates bone loss", "effect": "metabolic menopause syndrome"},
+        {"step": 5, "actor": "timely HRT (<60y)", "action": "replaces", "target": "E2 ± progesterone", "effect": "VMS + bone + cognition benefits; risk window-dependent"}
+      ],
+      "analogies_th": [
+        "Menopause = โรงงานเอสปิด — ระบบทั้งลำตัวต้อง reconfigure"
+      ],
+      "sources": [
+        {"url": "https://journals.lww.com/menopausejournal/fulltext/2022/07000/the_2022_hormone_therapy_position_statement_of_the.4.aspx", "org": "NAMS / Menopause", "source_tier": "A", "year": 2022, "title": "2022 Hormone Therapy Position Statement", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "menopause_hrt",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_013",
+      "label_th": "5α-reductase: T → DHT (most potent androgen)",
+      "label_en": "5α-reductase: T → DHT",
+      "description_th": "Enzyme 5α-reductase (type 1 skin/liver, type 2 prostate/hair follicle, type 3 other) แปลง testosterone → dihydrotestosterone (DHT) — ซึ่ง binds androgen receptor แรงกว่า T ~3-5 เท่า; DHT รับผิดชอบ secondary sex characteristics ของชาย: เสียงใหญ่, เครา, BPH, male-pattern baldness; Finasteride (type 2 inhibitor) ลด DHT ~70% ใน 1 เดือน, dutasteride (type 1+2) ลด ~90%",
+      "description_en": "The enzyme 5α-reductase (type 1 skin/liver, type 2 prostate/hair follicle, type 3 other) converts T → dihydrotestosterone (DHT), which binds the androgen receptor ~3-5× more potently than T; DHT drives male secondary sex traits: deep voice, beard, BPH, male-pattern baldness; finasteride (type 2) reduces DHT ~70% in 1 mo; dutasteride (type 1+2) ~90%.",
+      "chain": [
+        {"step": 1, "actor": "testosterone", "action": "enters", "target": "target tissue (prostate, hair follicle)", "effect": "substrate available"},
+        {"step": 2, "actor": "5α-reductase type 2", "action": "reduces", "target": "T → DHT", "effect": "3-5× potent androgen"},
+        {"step": 3, "actor": "DHT", "action": "binds", "target": "androgen receptor (AR)", "effect": "strong androgen signaling"},
+        {"step": 4, "actor": "finasteride", "action": "inhibits", "target": "5α-reductase type 2", "effect": "DHT ↓70% — treats BPH + AGA"}
+      ],
+      "analogies_th": [
+        "DHT = เทส-เวอร์ชัน 'โหดร้าย' — จับ receptor แรงกว่า แต่มาพร้อมหัวล้าน",
+        "Finasteride = ตัดวงจรเทส-ไปทำ DHT"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK557634/", "org": "StatPearls", "source_tier": "A", "year": 2023, "title": "Finasteride mechanism", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "testosterone_decline",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_horm_014",
+      "label_th": "Ghrelin: stomach X/A cells → GHSR → hunger + GH amplification",
+      "label_en": "Ghrelin: stomach X/A cells → GHSR → hunger + GH amplification",
+      "description_th": "Ghrelin ผลิตจาก X/A-like cells ใน oxyntic glands ของกระเพาะ → acylated โดย GOAT enzyme → acyl-ghrelin (active form) → ส่งผ่านเลือดไป hypothalamic arcuate AgRP neurons + pituitary; AgRP activate → หิว + ปล่อย NPY; pituitary → GH pulse amplified; empty stomach + learned schedule (pre-meal peak 15-30 นาที) → spike; fiber/protein ในมื้อกด ghrelin นานกว่า simple carb",
+      "description_en": "Ghrelin is secreted by gastric X/A-like cells → GOAT enzyme acylates it → acyl-ghrelin (active) → reaches hypothalamic arcuate AgRP neurons and pituitary; AgRP activation → hunger + NPY; pituitary → GH pulse amplification; empty stomach and learned schedules produce pre-meal peaks (15-30 min prior); fiber/protein suppress ghrelin longer than simple carbs.",
+      "chain": [
+        {"step": 1, "actor": "gastric X/A cells", "action": "secrete", "target": "des-acyl + acyl-ghrelin", "effect": "systemic ghrelin rises"},
+        {"step": 2, "actor": "GOAT enzyme", "action": "acylates", "target": "ghrelin", "effect": "activates GHSR binding"},
+        {"step": 3, "actor": "acyl-ghrelin", "action": "binds", "target": "GHSR on AgRP neurons", "effect": "hunger + NPY release"},
+        {"step": 4, "actor": "acyl-ghrelin", "action": "also stimulates", "target": "pituitary somatotroph", "effect": "GH pulse amplified"},
+        {"step": 5, "actor": "fiber/protein meal", "action": "distends + slows emptying", "target": "stomach", "effect": "ghrelin suppressed longer than after simple carb"}
+      ],
+      "analogies_th": [
+        "Ghrelin = 'นาฬิกาปลุกหิว' — ปลุกตามตารางที่เรียนไว้ ไม่ใช่ตามต้องการจริง",
+        "Fiber = หัวหน้าผู้สั่ง ghrelin 'หุบปาก' นานกว่าคาร์บเปล่า"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/14749224/", "org": "J Clin Endocrinol Metab", "source_tier": "A", "year": 2004, "title": "Cummings — meal-related ghrelin response", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/18448610/", "org": "Gastroenterology", "source_tier": "A", "year": 2008, "title": "Ghrelin and its role in appetite — review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ghrelin_satiety",
+      "confidence": "high"
+    }
+  ]
+}

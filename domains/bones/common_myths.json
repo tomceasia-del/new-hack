@@ -1,0 +1,161 @@
+{
+  "domain_id": "bones",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 9,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.bones"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_bone_001",
+      "popular_belief_th": "ดื่มนมวันละ 3 แก้วกระดูกแข็งแรง ไม่มีวันพรุน",
+      "popular_belief_en": "Three glasses of milk a day guarantees strong bones",
+      "truth_th": "Feskanich/Willett ใน Nurses' Health Study (77,761 ผู้หญิง, 12 ปี) ไม่พบว่านม ≥2 แก้ว/วันลดกระดูกสะโพกหัก; Michaëlsson 2014 (BMJ, ผู้ใหญ่สวีเดน ~106,000 คน) กลับพบความสัมพันธ์กับอัตราการเสียชีวิตและกระดูกหักสูงขึ้นในผู้หญิงที่ดื่มนมมาก — นมให้แคลเซียม แต่ต้องได้ K2/D3/protein/mechanical loading ครบ",
+      "truth_en": "Feskanich/Willett Nurses' Health Study (77,761 women, 12 y) found no protective effect of ≥2 glasses/day on hip fracture; Michaëlsson 2014 (BMJ, ~106,000 Swedish adults) even linked high milk intake to higher mortality and fracture in women — milk provides Ca but needs K2/D3/protein/mechanical loading to translate into bone.",
+      "why_popular": "โฆษณา Got Milk (1993-2014) + USDA MyPlate + คำสอนคุณหมอยุค 80s-90s",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9224182/", "org": "Am J Public Health / PubMed", "source_tier": "A", "year": 1997, "title": "Milk, dietary calcium, and bone fractures in women — Feskanich D, Willett WC et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.bmj.com/content/349/bmj.g6015", "org": "BMJ", "source_tier": "A", "year": 2014, "title": "Milk intake and risk of mortality and fractures in women and men: cohort studies — Michaëlsson K et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "osteoporosis_risk",
+      "counter_facts": ["bone_018", "bone_006"],
+      "composer_directive": "ห้ามขายแคลเซียมด้วยการด่านม แต่ให้ reframe ว่า 'แคลเซียม + K2 + D3 + load ต้องครบ ไม่ใช่นมแก้วเดียวจบ'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bone_002",
+      "popular_belief_th": "กระดูกพรุนเป็นโรคของผู้หญิงสูงวัยเท่านั้น ผู้ชายไม่ต้องห่วง",
+      "popular_belief_en": "Osteoporosis is a women's disease; men don't need to worry",
+      "truth_th": "IOF ประมาณ 1 ใน 5 ผู้ชาย ≥50 ปีจะมีกระดูกหักจากภาวะกระดูกเปราะในช่วงชีวิต; แย่กว่านั้นคือหลังกระดูกสะโพกหัก ผู้ชายมีอัตราตายปีแรกสูงกว่าคนวัยเดียวกัน 5-8 เท่า (Haentjens 2010) — สูงกว่าผู้หญิง; LIFTMOR-M (2020) แสดงว่าผู้ชายตอบสนองต่อการฝึก HIRT เช่นกัน",
+      "truth_en": "IOF estimates 1 in 5 men ≥50 will experience a fragility fracture; worse still, after hip fracture men have 5-8× higher 1-year mortality than peers (Haentjens 2010) — higher than women; LIFTMOR-M (2020) showed men also respond to HIRT.",
+      "why_popular": "ความคุ้นเคยกับภาพ 'ยายสะโพกหัก' + การตลาด supplement มักเจาะหญิงวัยทอง",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20231569/", "org": "Ann Intern Med / PubMed", "source_tier": "A", "year": 2010, "title": "Meta-analysis: Excess mortality after hip fracture among older women and men — Haentjens P et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/32224255/", "org": "Bone / PubMed", "source_tier": "A", "year": 2020, "title": "LIFTMOR-M — Harding AT et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "osteoporosis_risk",
+      "counter_facts": ["bone_007", "bone_020"],
+      "composer_directive": "ห้ามเฟรมกระดูกพรุนเป็นเรื่องผู้หญิงอย่างเดียว — ผู้ชายเป็น target group ที่ underserved ในตลาดไทย",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bone_003",
+      "popular_belief_th": "อายุเยอะแล้วแก้อะไรกระดูกไม่ได้ เสียแล้วเสียเลย",
+      "popular_belief_en": "Once you're old and bones are weak, there's nothing you can do",
+      "truth_th": "LIFTMOR (Beck 2018) ในผู้หญิงหลังวัยหมดประจำเดือนที่มีกระดูกบาง/กระดูกพรุน — HIRT 8 เดือนเพิ่ม lumbar BMD 2.9% (ไม่ใช่แค่ชะลอ — เพิ่ม); LIFTMOR-M (2020) ทำซ้ำในชายสูงอายุได้ผลคล้ายกัน — กระดูก 'สร้างใหม่' ได้แม้อายุมาก ถ้า load ถูกต้อง",
+      "truth_en": "LIFTMOR (Beck 2018) in postmenopausal women with low BMD — 8 months of HIRT increased lumbar BMD 2.9% (not just slowing — gaining); LIFTMOR-M (2020) replicated in older men — bone can be rebuilt in old age if loaded correctly.",
+      "why_popular": "วัฒนธรรมรักษาผู้สูงอายุแบบ 'protective'; หมอไทยยุคเก่าเตือน 'อย่ายกหนัก'",
+      "reveal_style": "awe",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28975661/", "org": "JBMR / PubMed", "source_tier": "A", "year": 2018, "title": "LIFTMOR — Watson, Beck et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/32224255/", "org": "Bone / PubMed", "source_tier": "A", "year": 2020, "title": "LIFTMOR-M — Harding AT et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "impact_loading_bone",
+      "counter_facts": ["bone_001", "bone_024"],
+      "composer_directive": "ใช้เป็น 'hope frame' สำหรับ senior audience — empower ไม่ใช่ scare",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bone_004",
+      "popular_belief_th": "กลูโคซามีน + คอนดรอยติน รักษาข้อเข่าเสื่อมได้ทุกคน",
+      "popular_belief_en": "Glucosamine + chondroitin works for everyone with knee OA",
+      "truth_th": "GAIT trial (Clegg, NEJM 2006; N=1,583) — combo ไม่ดีกว่ายาหลอกในภาพรวม (64.0% vs 60.1%); เห็นผลเฉพาะกลุ่มปวดปานกลาง-รุนแรง (79.2% vs 54.3%); และ crystalline glucosamine sulfate (Rotta) ต่างจาก glucosamine HCl — ไม่ใช่ทุกยี่ห้อเท่ากัน",
+      "truth_en": "GAIT trial (Clegg, NEJM 2006; N=1,583) — the combo was NOT superior to placebo overall (64.0% vs 60.1%); only the moderate-to-severe pain subgroup benefited (79.2% vs 54.3%); and crystalline glucosamine sulfate (Rotta) differs from glucosamine HCl — brand/form matters.",
+      "why_popular": "การตลาดแบบ universal claim ของแบรนด์ใหญ่ + ความคาดหวังแบบยา",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa052771", "org": "NEJM", "source_tier": "A", "year": 2006, "title": "Glucosamine, Chondroitin, and Combination — Clegg DO et al. (GAIT)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "osteoarthritis_mechanism",
+      "counter_facts": ["bone_004", "bone_016"],
+      "composer_directive": "ถ้าจะขาย glucosamine ต้อง frame เป็น 'สำหรับคนปวดปานกลาง-รุนแรง' ไม่ใช่ preventive universal",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bone_005",
+      "popular_belief_th": "อาหารเสริมกระดูกไม่จำเป็นถ้ากินอาหารครบ 5 หมู่",
+      "popular_belief_en": "You don't need bone supplements if you eat a balanced diet",
+      "truth_th": "การสำรวจของ NIH/USDA พบคนอเมริกัน ~48% ได้รับ Mg ต่ำกว่า RDA; Thai National Health Examination Survey พบ ≥50% ของผู้ใหญ่ไทย 25-OH-D <30 ng/mL (ขาดวิตามินดีเชิงเทคนิค); ขาดสารตัวใดตัวหนึ่งในห่วงโซ่ Ca-D-K2-Mg-protein แล้วกระดูกไม่ได้ประโยชน์เต็ม — real-world diet ในคนไทยไม่พอ",
+      "truth_en": "NIH/USDA surveys show ~48% of Americans fall below the Mg RDA; Thai National Health Examination Survey found ≥50% of Thai adults had 25-OH-D <30 ng/mL (technical vitamin D deficiency); missing any link in the Ca-D-K2-Mg-protein chain blunts the outcome — real-world diets fall short.",
+      "why_popular": "เชื่อว่า 'อาหารดี = ไม่ต้องกินเสริม' — จริงในทฤษฎี ไม่จริงในสถิติ",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3775240/", "org": "Nutrients / PMC", "source_tier": "A", "year": 2013, "title": "Magnesium in Prevention and Therapy — Gröber U et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26739527/", "org": "J Med Assoc Thai / PubMed", "source_tier": "D", "year": 2015, "title": "Prevalence of vitamin D insufficiency in Thai adults — Chailurkit LO et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "bone_remodeling",
+      "counter_facts": ["bone_011", "bone_005"],
+      "composer_directive": "ห้าม demonize อาหาร — frame: 'อาหารเป็นฐาน, อาหารเสริม fill gap'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bone_006",
+      "popular_belief_th": "แคลเซียมอะไรก็เหมือนกัน กินยี่ห้อไหนก็ได้",
+      "popular_belief_en": "All calcium supplements are the same — any brand will do",
+      "truth_th": "แคลเซียมคาร์บอเนตต้องการกรดในกระเพาะในการละลาย — ผู้สูงอายุและคนกินยา PPI (omeprazole ฯลฯ) ดูดซึมได้น้อย; แคลเซียมซิเตรตดูดซึมได้ทุกสภาพ; Ca coral/bone meal อาจมีสารปนเปื้อน; Heaney 1999 รายงานความแตกต่าง bioavailability ที่ชัดเจนระหว่างฟอร์ม",
+      "truth_en": "Calcium carbonate needs stomach acid to dissolve — older adults and PPI users absorb less; calcium citrate absorbs regardless of pH; coral/bone meal calcium may carry heavy-metal contamination; Heaney 1999 documented clear bioavailability differences between forms.",
+      "why_popular": "ราคา vs คุณภาพ — คาร์บอเนตถูกสุดเลยเต็มตลาดไทย",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10197288/", "org": "J Am Coll Nutr / PubMed", "source_tier": "A", "year": 1999, "title": "Calcium bioavailability: importance of chemical form — Heaney RP et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "bone_remodeling",
+      "counter_facts": ["bone_019"],
+      "composer_directive": "อนุญาตให้ differentiate form of calcium — แต่ห้าม bad-mouth เฉพาะคู่แข่ง",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bone_007",
+      "popular_belief_th": "แคลเซียมมาก ๆ = กระดูกแข็ง — กินเยอะไว้ก่อน",
+      "popular_belief_en": "More calcium = stronger bones — take as much as you can",
+      "truth_th": "Bolland meta-analysis (BMJ 2015) — ใน RCT และ cohort study ใหญ่ การเพิ่มแคลเซียมจากอาหารหรือเสริมเพียงอย่างเดียวไม่ได้ลดกระดูกหักอย่างมีนัยสำคัญ; กินเกิน 2,500 มก./วันเพิ่มความเสี่ยงนิ่วในไตและอาจ calcify arteries ถ้าขาด K2 — RDA adult 1,000-1,200 มก. ก็พอ",
+      "truth_en": "Bolland meta-analysis (BMJ 2015) — in large RCTs/cohorts, calcium alone (diet or supplement) did NOT significantly reduce fractures; >2,500 mg/day raises kidney-stone risk and may calcify arteries if K2 is low — adult RDA of 1,000-1,200 mg is sufficient.",
+      "why_popular": "คิดเชิงเส้น 'มาก = ดี' + โฆษณาเลข mg ใหญ่ ๆ",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.bmj.com/content/351/bmj.h4580", "org": "BMJ", "source_tier": "A", "year": 2015, "title": "Calcium intake and risk of fracture: systematic review — Bolland MJ et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "osteoporosis_risk",
+      "counter_facts": ["bone_002", "bone_006"],
+      "composer_directive": "บอกเพดาน 'ไม่เกิน 2,500 มก./วัน'; frame 'ปริมาณเหมาะ + K2 + D3 ครบ ไม่ใช่เยอะที่สุด'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bone_008",
+      "popular_belief_th": "'กระดูกลั่น' = กระดูกพรุน — ถ้ากระดูกไม่ลั่นก็ยังแข็งแรง",
+      "popular_belief_en": "'Crackling bones' means osteoporosis — no cracking means strong bones",
+      "truth_th": "เสียง 'กระดูกลั่น' (joint cracking) ส่วนใหญ่คือ gas bubble ใน synovial fluid (cavitation) ไม่ใช่กระดูกพรุน; กระดูกพรุนต้นไม่มีอาการจนกว่าจะหัก — ต้อง DEXA scan (T-score) ถึงจะรู้; ผู้หญิง ≥65 ปีควรทำทุก 2 ปี",
+      "truth_en": "'Bone cracking' noises are mostly gas cavitation in synovial fluid — not osteoporosis; osteoporosis is usually silent until a fracture happens — a DEXA scan (T-score) is the only way to know; women ≥65 should screen every 2 years.",
+      "why_popular": "UncleD clip 7599933960348519701 ('แก่แล้วกระดูกลั่น') = ใช้เป็น hook — folk symptom-style",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25875374/", "org": "PLoS ONE / PubMed", "source_tier": "A", "year": 2015, "title": "Real-time visualization of joint cavitation — Kawchuk GN et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/osteoporosis-screening", "org": "USPSTF", "source_tier": "A", "year": 2018, "title": "Final Recommendation: Osteoporosis to Prevent Fractures: Screening", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "synovial_fluid",
+      "counter_facts": ["bone_008", "bone_023"],
+      "composer_directive": "'กระดูกลั่น' = UncleD's metaphor, ใช้ได้ในสคริปต์ แต่ต้อง clarify ว่า 'เช็คจริง ๆ ต้อง DEXA'",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_bone_009",
+      "popular_belief_th": "คอลลาเจนกินได้หมด ยี่ห้อไหน type ไหนก็ได้ — ได้ทั้งผิวและข้อ",
+      "popular_belief_en": "Any collagen supplement helps both skin and joints",
+      "truth_th": "Collagen มี >28 ชนิดในร่างกาย: Type I = ผิว/กระดูก, Type II = กระดูกอ่อนข้อ; UC-II (undenatured type II) 40 มก. ทำงานต่างจาก hydrolyzed collagen 5-15 กรัม — UC-II ไม่ใช่ 'อาหารของข้อ' แต่เป็น 'สัญญาณ oral tolerance' ไปที่ภูมิคุ้มกัน; Crolla 2016 แสดงว่า 40 mg UC-II > 2,700 mg GC",
+      "truth_en": "Collagen has >28 types: Type I = skin/bone; Type II = joint cartilage; UC-II (undenatured type II) at 40 mg works by oral-tolerance signaling, NOT by providing building blocks — fundamentally different from 5-15 g hydrolyzed collagen; Crolla 2016 showed 40 mg UC-II outperformed 2,700 mg glucosamine+chondroitin.",
+      "why_popular": "การตลาดคอลลาเจนไทยมักรวม 'ผิว-ข้อ-ผม' เป็น one-size-fits-all",
+      "reveal_style": "curiosity",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26822714/", "org": "Nutr J / PubMed", "source_tier": "A", "year": 2016, "title": "UC-II vs glucosamine/chondroitin — Lugo JP et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK507709/", "org": "StatPearls", "source_tier": "A", "year": 2023, "title": "Histology, Collagen", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "joint_cartilage",
+      "counter_facts": ["bone_003", "bone_017"],
+      "composer_directive": "ห้ามใช้คำ 'คอลลาเจนทุกยี่ห้อได้ผลเหมือนกัน'; ต้องแยก type I (skin/bone peptide) vs type II undenatured (joint signal)",
+      "uncleped_debunked": false
+    }
+  ]
+}

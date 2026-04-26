@@ -1,0 +1,123 @@
+{
+  "domain_id": "blood",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.blood"
+  },
+  "sub_topics": [
+    {
+      "id": "endothelial_function",
+      "label_th": "การทำงานของผนังหลอดเลือด (เอนโดทีเลียม)",
+      "label_en": "Endothelial Function",
+      "description": "ชั้นเซลล์บาง ๆ ที่บุผนังด้านในของหลอดเลือดทุกเส้น — ควบคุมการขยาย/หดตัว, การแข็งตัวของเลือด, การอักเสบ และปล่อย NO ซึ่งเป็นสัญญาณ 'ผ่อนคลาย' ของหลอดเลือด ถือเป็น 'อวัยวะ' ที่ใหญ่ที่สุดในร่างกาย (~1.5 กก., ~6,000 m²) และเป็น earliest marker ของโรคหัวใจ-หลอดเลือด (Flammer 2012)",
+      "key_concepts": [
+        "flow-mediated dilation (FMD)",
+        "eNOS (endothelial nitric oxide synthase)",
+        "tetrahydrobiopterin (BH4)",
+        "shear stress",
+        "glycocalyx",
+        "endothelin-1",
+        "vWF / tissue factor",
+        "NO bioavailability"
+      ],
+      "related_sub_topics": ["nitric_oxide", "ApoB", "lipid_panel"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "nitric_oxide",
+      "label_th": "ไนตริกออกไซด์ (NO) และทางสร้าง",
+      "label_en": "Nitric Oxide",
+      "description": "ก๊าซโมเลกุลเล็ก (half-life ~2 วินาที) ที่หลอดเลือดสร้างเพื่อ 'ผ่อนคลาย' ตัวเอง — รางวัลโนเบล 1998 (Ignarro/Furchgott/Murad) ผลิตได้ 2 ทาง: (1) L-arginine → L-citrulline ผ่าน eNOS (ใช้ออกซิเจน, BH4) และ (2) ไนเตรตในอาหาร (ผักใบเขียว/บีทรูท) → ไนไตรต์ (โดยแบคทีเรียในปาก) → NO ในกระเพาะ/เส้นเลือด (Lundberg 2008 pathway)",
+      "key_concepts": [
+        "eNOS / nNOS / iNOS",
+        "L-arginine → L-citrulline",
+        "nitrate → nitrite → NO",
+        "dietary nitrate (beetroot, leafy greens)",
+        "oral nitrate-reducing bacteria",
+        "sGC / cGMP",
+        "PDE5 inhibitor overlap (sildenafil)",
+        "age-related NO decline"
+      ],
+      "related_sub_topics": ["endothelial_function", "lipid_panel"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "iron_metabolism",
+      "label_th": "เมตาบอลิซึมของเหล็ก + ภาวะโลหิตจาง",
+      "label_en": "Iron Metabolism & Anemia",
+      "description": "ธาตุเหล็กเป็นส่วนประกอบของ heme → oxygen delivery; ตับควบคุมผ่าน hepcidin ที่ block ferroportin บน enterocyte/macrophage; ขาดเหล็กทำให้ microcytic anemia, เกินเหล็ก (hemochromatosis/overload) ทำให้ตับ/ตับอ่อน/หัวใจพัง Anemia แบ่งตาม MCV: microcytic (<80 fL, ส่วนใหญ่ขาดเหล็ก), normocytic (80-100), macrocytic (>100, ส่วนใหญ่ขาด B12/folate)",
+      "key_concepts": [
+        "hepcidin (master iron regulator)",
+        "ferroportin",
+        "transferrin / TIBC",
+        "ferritin (storage + acute-phase reactant)",
+        "hemoglobin / MCV",
+        "HFE C282Y mutation (hemochromatosis)",
+        "microcytic / normocytic / macrocytic anemia",
+        "iron bisglycinate absorption"
+      ],
+      "related_sub_topics": ["homocysteine"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "lipid_panel",
+      "label_th": "ผลเลือดไขมัน (LDL/HDL/TG/non-HDL)",
+      "label_en": "Lipid Panel",
+      "description": "ชุดตรวจ LDL-C, HDL-C, triglycerides, total-cholesterol, non-HDL-C — LDL คำนวณจาก Friedewald (LDL = TC − HDL − TG/5) หรือวัดตรง (direct LDL); ในคนที่ TG สูง >400 mg/dL Friedewald ไม่แม่น ต้องใช้ non-HDL หรือ ApoB; non-HDL = TC − HDL เป็น proxy ของ atherogenic lipoprotein ทั้งหมด",
+      "key_concepts": [
+        "LDL-C (Friedewald vs direct)",
+        "HDL-C (quality vs quantity)",
+        "triglycerides (fasting)",
+        "non-HDL cholesterol",
+        "TG/HDL ratio (IR proxy)",
+        "Lp(a) lipoprotein(a)",
+        "total:HDL ratio",
+        "postprandial lipemia"
+      ],
+      "related_sub_topics": ["ApoB", "endothelial_function"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "homocysteine",
+      "label_th": "โฮโมซิสเทอีน (Hcy) — ตัวชี้วัดเงียบ",
+      "label_en": "Homocysteine",
+      "description": "กรดอะมิโนกำมะถันที่สะสมขึ้นเมื่อการทำ methylation พัง — ต้องการ B12, folate (5-MTHF), B6 เพื่อเปลี่ยนกลับเป็น methionine (remethylation) หรือ cysteine (transsulfuration); Hcy สูง (>15 μmol/L) สัมพันธ์กับ endothelial damage และความเสี่ยง CVD, dementia, neural tube defect — Boushey 1995 JAMA meta-analysis คือ landmark",
+      "key_concepts": [
+        "methionine → SAM → SAH → Hcy",
+        "remethylation (MTR/MTRR, folate, B12)",
+        "transsulfuration (CBS, B6 → cysteine)",
+        "MTHFR C677T polymorphism",
+        "methylfolate (5-MTHF) vs folic acid",
+        "methylcobalamin vs cyanocobalamin",
+        "betaine/TMG alternative pathway",
+        "endothelial ROS from Hcy"
+      ],
+      "related_sub_topics": ["endothelial_function", "iron_metabolism"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "ApoB",
+      "label_th": "ApoB — นับจำนวนลูกกระสุนแทน 'น้ำหนัก' คอเลสเตอรอล",
+      "label_en": "ApoB (Apolipoprotein B)",
+      "description": "ApoB-100 คือโปรตีนหลักบนอนุภาคที่ก่อโรค atherosclerosis (LDL, VLDL, IDL, Lp(a)) — 1 อนุภาค = 1 ApoB; ดังนั้น ApoB = 'จำนวนอนุภาคที่ยิงผนังหลอดเลือด' ในขณะที่ LDL-C = 'ไขมันหนักรวม' ของอนุภาคนั้น — ในคน IR/metabolic syndrome ApoB อาจสูงแม้ LDL-C ดูปกติ (small dense LDL) Sniderman 2019 JAMA Cardiol ยืนยันว่า ApoB = predictor ดีที่สุด",
+      "key_concepts": [
+        "ApoB-100 (hepatic)",
+        "ApoB-48 (intestinal chylomicron)",
+        "LDL particle count vs LDL-C",
+        "small dense LDL (pattern B)",
+        "discordance analysis (ApoB vs LDL-C)",
+        "Lp(a) — separate inherited risk",
+        "ApoA1 (HDL marker)",
+        "Allan Sniderman research"
+      ],
+      "related_sub_topics": ["lipid_panel", "endothelial_function"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    }
+  ]
+}

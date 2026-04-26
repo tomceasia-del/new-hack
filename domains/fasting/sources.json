@@ -1,0 +1,9 @@
+{
+  "domain_id": "fasting",
+  "authoritative_sources_expected": [
+    "Jason Fung",
+    "Valter Longo",
+    "Satchin Panda"
+  ],
+  "sources": []
+}

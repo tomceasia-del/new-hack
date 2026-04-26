@@ -1,0 +1,155 @@
+{
+  "domain_id": "blood",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 9,
+    "last_harvested": "2026-04-22"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_blood_001",
+      "popular_belief_th": "กินไข่เยอะ ๆ = คอเลสเตอรอลในเลือดขึ้น → เส้นเลือดอุดตัน",
+      "popular_belief_en": "Eating many eggs raises blood cholesterol → clogged arteries",
+      "truth_th": "ไข่ 1 ฟองมีคอเลสเตอรอล ~200 mg แต่ 'คอเลสเตอรอลในอาหาร' มีอิทธิพลต่อ LDL ในเลือดน้อย เฉลี่ย ~1-2 mg/dL ต่อ 100 mg cholesterol ใน hyper-responder (~25%) ส่วนใหญ่ไม่ขึ้น; ผลกระทบสำคัญกว่าคือไขมันอิ่มตัว + น้ำตาลในมื้ออาหารรวม (Hunninghake 1998)",
+      "truth_en": "One egg has ~200 mg cholesterol but dietary cholesterol has modest impact on serum LDL — ~1-2 mg/dL per 100 mg in ~25% 'hyper-responders', minimal in most. Meal saturated fat + sugar matter far more.",
+      "why_popular": "แนวคิด diet-heart hypothesis ยุค Ancel Keys + USDA Food Pyramid ปี 1992; คำแนะนำเก่าของ AHA 'ไม่เกิน 300 mg cholesterol/วัน' ถูกยกเลิกเงียบ ๆ ในปี 2015",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9887164/", "org": "J Nutr", "source_tier": "A", "year": 1998, "title": "Hunninghake egg cholesterol absorption", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "lipid_panel",
+      "counter_facts": ["blood_022"],
+      "composer_directive": "UncleD clip 7551668991102553364 debunk ไปแล้ว — ใช้ต่อได้แต่ไม่ overclaim 'กินไข่ได้ไม่จำกัด'. Hyper-responder + FH patient ต้องระวัง",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_blood_002",
+      "popular_belief_th": "ตรวจ LDL-C อย่างเดียวพอ — ถ้า LDL ปกติ = ปลอดภัย",
+      "popular_belief_en": "Just check LDL-C — if normal, you're safe",
+      "truth_th": "LDL-C เป็น 'น้ำหนักของคอเลสเตอรอลใน LDL ทั้งหมด' แต่ละคนอาจมีอนุภาค LDL เยอะ-เล็ก (pattern B) หรือใหญ่-น้อย (pattern A) แม้ LDL-C เท่ากัน ApoB = นับจำนวนอนุภาค atherogenic ทุกชนิดตรง ๆ เป็น predictor ดีกว่าในกรณี discordant (Sniderman 2019 JAMA Cardiol)",
+      "truth_en": "LDL-C is the cholesterol mass inside LDL particles, but two people with identical LDL-C can have very different particle numbers. ApoB directly counts atherogenic particles and is superior in discordance (Sniderman 2019).",
+      "why_popular": "Lipid panel มาตรฐานไทยไม่รวม ApoB — หมอ + lab ไทยโดยทั่วไปไม่ order",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2752979", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Sniderman ApoB meta-analysis", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ApoB",
+      "counter_facts": ["blood_010", "blood_015"],
+      "composer_directive": "อนุญาตให้ชวนผู้ชม 'ลองขอตรวจ ApoB ตอนตรวจสุขภาพ' — ห้ามบอกให้หยุด statin",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_blood_003",
+      "popular_belief_th": "HDL ยิ่งสูงยิ่งดี — เท่าไหร่ก็ได้",
+      "popular_belief_en": "The higher HDL, the better — any amount is good",
+      "truth_th": "HDL สูงเกิน ~90 mg/dL (ช) / ~100 mg/dL (ญ) ไม่ได้ลดความเสี่ยง CVD เพิ่ม และใน Mendelian randomization การเพิ่ม HDL ด้วย CETP inhibitor (torcetrapib, dalcetrapib) ไม่ลด event; 'คุณภาพ' (HDL reverse cholesterol transport function) สำคัญกว่า 'จำนวน'",
+      "truth_en": "HDL above ~90 mg/dL (men) / ~100 mg/dL (women) doesn't further reduce CVD risk. Mendelian randomization + CETP inhibitor trials (torcetrapib, dalcetrapib) show raising HDL doesn't reduce events. HDL 'quality' (function) matters more than 'quantity'.",
+      "why_popular": "คำสั้น ๆ 'HDL = ไขมันดี' ในโฆษณา/ใบ lab",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2752979", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Sniderman ApoB + HDL discussion", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "lipid_panel",
+      "counter_facts": ["blood_016"],
+      "composer_directive": "ใช้เพื่อ reframe — 'HDL สูงมาก อาจไม่ได้แปลว่าปลอดภัย ต้องดู ApoB/TG/HDL ratio'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_blood_004",
+      "popular_belief_th": "ผู้ชายต้องกินวิตามินรวมที่มีเหล็ก — ยิ่งกินยิ่งแข็งแรง",
+      "popular_belief_en": "Men should take multivitamins with iron — the more the better",
+      "truth_th": "ผู้ชายผู้ใหญ่ส่วนใหญ่ไม่ต้องการเหล็กเพิ่ม (ไม่มีประจำเดือน = loss น้อย) และการกินเหล็กโดยไม่ตรวจ ferritin เสี่ยง iron overload (hemochromatosis พบใน ~1 ใน 200 คนยุโรปเหนือ); ส่วนใหญ่ multivitamin for men ไม่ใส่เหล็กเลย (One A Day Men's ไม่มีเหล็ก)",
+      "truth_en": "Most adult men don't need extra iron (no menstrual loss) and unsupervised iron supplementation risks iron overload (hemochromatosis ~1 in 200 Northern Europeans). Most 'men's multivitamins' deliberately omit iron (e.g., One A Day Men's).",
+      "why_popular": "โฆษณายาบำรุง + ความเชื่อว่า 'เหล็กเยอะ = แข็งแรง'",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/17943995/", "org": "NEJM", "source_tier": "A", "year": 2004, "title": "Pietrangelo Hemochromatosis review", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26780889/", "org": "Blood", "source_tier": "A", "year": 2016, "title": "Goodnough iron review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "iron_metabolism",
+      "counter_facts": ["blood_012", "blood_013"],
+      "composer_directive": "อนุญาต shock angle แต่ frame 'ตรวจ ferritin ก่อน' ไม่ใช่ 'เหล็กอันตราย'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_blood_005",
+      "popular_belief_th": "L-arginine คือ 'ไวอากร้าธรรมชาติ' — กินได้ทุกคนไม่มีผลข้างเคียง",
+      "popular_belief_en": "L-arginine is 'natural Viagra' — safe for everyone with no side effects",
+      "truth_th": "VINTAGE-MI trial 2006 (JAMA) — L-arginine 9 g/วัน ในผู้ป่วยหลังหัวใจวาย เพิ่มอัตราเสียชีวิต งานถูกหยุดก่อน; การกิน L-arginine/citrulline คู่กับ PDE5 inhibitor (ไวอากร้า/Cialis) อาจทำให้ความดันตกรุนแรง/syncope — ไม่ใช่ 'natural' = ปลอดภัย",
+      "truth_en": "VINTAGE-MI (2006 JAMA) — 9 g/day L-arginine in post-MI patients increased mortality, trial stopped early. Stacking L-arginine/citrulline with PDE5 inhibitors can cause severe hypotension. 'Natural' does not mean 'safe'.",
+      "why_popular": "การตลาดอาหารเสริม ED ในต่างประเทศ",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/202418", "org": "JAMA", "source_tier": "A", "year": 2006, "title": "VINTAGE-MI L-arginine post-MI mortality", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "nitric_oxide",
+      "counter_facts": ["blood_024", "blood_008"],
+      "composer_directive": "ห้ามใช้ angle 'natural Viagra' กับ L-arginine/citrulline — ใช้ 'สนับสนุนหลอดเลือด' แทน",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_blood_006",
+      "popular_belief_th": "ถ้าความดันลดเท่ายาปกติ = หยุดยาได้",
+      "popular_belief_en": "If BP comes down to normal range, you can stop your meds",
+      "truth_th": "การที่ BP ปกติขณะกินยา หมายความว่า 'ยากำลังทำงาน' ไม่ใช่ 'โรคหายแล้ว' — การหยุดยาอย่างฉับพลัน (โดยเฉพาะ beta-blocker) อาจทำให้ rebound BP สูงขึ้น หรือเสี่ยง MI/stroke; ต้องลดภายใต้การดูแลแพทย์เสมอ",
+      "truth_en": "BP being in normal range ON medication means the drug is working, not that you're cured. Abrupt cessation (especially beta-blockers) can cause rebound hypertension or precipitate MI/stroke. Tapering must be physician-supervised.",
+      "why_popular": "ความเข้าใจผิดของ 'หาย = เลิกยา' โดยเฉพาะในคนสูงอายุ",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.nhlbi.nih.gov/health/high-blood-pressure", "org": "NHLBI", "source_tier": "A", "year": 2024, "title": "NHLBI hypertension guidance", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "endothelial_function",
+      "counter_facts": ["blood_003"],
+      "composer_directive": "CRITICAL — ห้าม script ชวนให้หยุดยาความดันทุกรูปแบบ. Validator block คำว่า 'หยุดยาความดัน/เลิกยาความดัน'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_blood_007",
+      "popular_belief_th": "โลหิตจาง = ขาดเหล็กเสมอ — กินยาเหล็กแก้ได้ทุกแบบ",
+      "popular_belief_en": "Anemia always means iron deficiency — iron supplements fix everything",
+      "truth_th": "โลหิตจาง microcytic (MCV<80) ส่วนใหญ่ขาดเหล็กจริง แต่ใน Thai population มีธาลัสซีเมีย common มาก (~20-30% เป็น carrier) — กินเหล็กในผู้ที่เป็นธาลัสซีเมีย minor โดยไม่จำเป็น = iron overload; macrocytic (MCV>100) = ขาด B12/folate ไม่ใช่เหล็ก",
+      "truth_en": "Microcytic anemia (MCV<80) is often iron deficiency, but in Thailand ~20-30% carry thalassemia — supplementing iron in thalassemia minor can cause iron overload. Macrocytic anemia (MCV>100) reflects B12/folate deficiency, not iron.",
+      "why_popular": "ความเชื่อทั่วไป 'ซีด = กินยาเหล็ก' + คลินิกทั่วไปไม่ตรวจ MCV แยก",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26780889/", "org": "Blood", "source_tier": "A", "year": 2016, "title": "Goodnough anemia classification", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "iron_metabolism",
+      "counter_facts": ["blood_014"],
+      "composer_directive": "ต้องพูดว่า 'ขอ CBC + MCV + ferritin ก่อนเสริมเหล็ก' — ห้าม blanket recommendation",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_blood_008",
+      "popular_belief_th": "ล้างเลือด / ดีท็อกซ์เลือด = ขจัดไขมัน/สารพิษได้",
+      "popular_belief_en": "Blood detox / blood cleanse removes fats and toxins",
+      "truth_th": "ร่างกายมีระบบกรองเลือดจริง คือตับ + ไต ซึ่งทำงานได้เองตลอด 24 ชม. 'ล้างเลือด' ในบริบทการแพทย์ = dialysis ในผู้ป่วยไตวาย หรือ apheresis ในผู้ป่วย FH รุนแรง — ไม่ใช่ smoothie/น้ำสมุนไพร; 'detox' เป็น wellness term ไม่ใช่ medical intervention ที่ขาย OTC ได้",
+      "truth_en": "The body already filters blood via liver + kidneys 24/7. 'Blood detox' in medical terms = dialysis (kidney failure) or apheresis (severe FH) — not smoothies or herbal drinks. 'Detox' as a supplement category is wellness marketing.",
+      "why_popular": "อุตสาหกรรม detox ไทย + ภาษาไทย 'ล้างเลือด' ดูชัดเจน แต่ไม่ตรงกับ medical meaning",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/expert-answers/detox-diets/faq-20058040", "org": "Mayo Clinic", "source_tier": "C", "year": 2023, "title": "Mayo Clinic — detox diet evidence", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "endothelial_function",
+      "counter_facts": [],
+      "composer_directive": "ท้าทายอุตสาหกรรม detox ได้ — ห้ามกลับไปขาย 'วิตามินตับดีท็อกซ์' แบบ pseudoscience",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_blood_009",
+      "popular_belief_th": "น้ำมันมะกอก / น้ำมันปลา = ลดคอเลสเตอรอลได้ทันที",
+      "popular_belief_en": "Olive oil / fish oil instantly lowers cholesterol",
+      "truth_th": "น้ำมันปลาขนาดสูง (EPA+DHA 2-4 g/วัน) ลด triglycerides ~20-30% แต่ไม่ลด LDL-C อย่างมีนัยสำคัญ (บางงานวิจัยแสดงว่า EPA+DHA อาจเพิ่ม LDL-C เล็กน้อย); น้ำมันมะกอกลด LDL ได้เพราะแทนที่ไขมันอิ่มตัว ไม่ใช่ 'ดีในตัวเอง'",
+      "truth_en": "High-dose fish oil (EPA+DHA 2-4 g/d) lowers triglycerides 20-30% but does NOT meaningfully lower LDL-C (can slightly raise it in some studies). Olive oil lowers LDL by replacing saturated fat, not by independent action.",
+      "why_popular": "การตลาดวิตามินรวม + โฆษณา 'ไขมันดีไล่ไขมันเลว' แบบสั้น ๆ",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000000709", "org": "Circulation (AHA)", "source_tier": "A", "year": 2019, "title": "AHA Science Advisory — Omega-3 Fatty Acids for Hypertriglyceridemia", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "lipid_panel",
+      "counter_facts": ["blood_017"],
+      "composer_directive": "ใช้ตรง target (TG) — ห้ามโฆษณาว่าลด LDL ด้วย fish oil",
+      "uncleped_debunked": false
+    }
+  ]
+}

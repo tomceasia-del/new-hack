@@ -1,0 +1,900 @@
+{
+  "domain_id": "liver",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 25,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.liver",
+    "notes": "Liver is high-risk domain — 'detox' is the #1 abused claim under อย. scrutiny. ≥35% of facts carry orange/red risk (EGCG hepatotoxicity, TUDCA-as-drug, drug interactions). Cross-ref with fat_metabolism.DiRECT and blood_sugar.insulin_resistance."
+  },
+  "facts": [
+    {
+      "fact_id": "liver_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "NAFLD",
+      "statement_th": "NAFLD (ชื่อใหม่ปี 2023 คือ MASLD) มี prevalence ทั่วโลกประมาณ 25.2% (95%CI 22.1-28.7) จาก meta-analysis 86 งานวิจัย N=8,515,431 คน — ตะวันออกกลางสูงสุด 31.8% เอเชียรองลงมา 27.4% (Younossi et al., Hepatology 2016)",
+      "statement_en": "NAFLD (renamed MASLD in 2023) has a global prevalence of roughly 25.2% (95%CI 22.1-28.7) per meta-analysis of 86 studies, N=8,515,431 — highest in the Middle East (31.8%) with Asia at 27.4% (Younossi et al., Hepatology 2016).",
+      "numeric_values": [
+        {"value": 25.2, "unit": "%", "label": "global NAFLD prevalence", "is_approximation": false},
+        {"value": 27.4, "unit": "%", "label": "Asia prevalence", "is_approximation": false},
+        {"value": 31.8, "unit": "%", "label": "Middle East prevalence (highest)", "is_approximation": false},
+        {"value": 8515431, "unit": "participants", "label": "meta-analysis N", "is_approximation": false},
+        {"value": 86, "unit": "studies", "label": "included studies", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_001",
+      "entities_mentioned": ["zobair_younossi"],
+      "sources": [
+        {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.28431", "org": "Hepatology / AASLD", "source_tier": "A", "year": 2016, "title": "Global epidemiology of nonalcoholic fatty liver disease — Younossi ZM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["1 ใน 4 คนทั่วโลก", "ไขมันพอกตับเงียบๆ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้าม round '25%' เป็น '30%' หรือ 'ครึ่งโลก' — เสีย T1 status. อนุญาตให้พูด '1 ใน 4 คน' (= 25%) ได้",
+      "usage_notes": "Opening hook ที่แข็งแรงที่สุดของ domain นี้ — UncleD coverage liver แค่ 5.3% → มี blue ocean ให้เล่น",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า '1 ใน 4 คนนี้จะเป็นมะเร็งตับ' — true rate ~2-3%", "ห้ามพูด 'ทุกคนต้องตรวจตับเดี๋ยวนี้' แบบสร้าง panic"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["มะเร็งตับแน่นอน", "รักษา NAFLD หายขาด"],
+        "regulatory_risk_notes": "ตัวเลข epidemiology ใช้ได้ปกติ — ไม่ใช่ medical claim"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "เกณฑ์วินิจฉัยไขมันพอกตับ: ไขมัน (triglyceride) ในเซลล์ตับ >5% ของน้ำหนักตับ (histology) หรือ >5.5% โดย MRI-PDFF — ต่ำกว่านี้ถือว่าปกติ (AASLD Practice Guidance 2018; Kleiner/Bedossa histology criteria)",
+      "statement_en": "NAFLD diagnostic threshold: hepatic triglyceride >5% of liver weight (histology) or >5.5% by MRI-PDFF — below this is considered normal (AASLD 2018 Practice Guidance).",
+      "numeric_values": [
+        {"value": 5, "unit": "%", "label": "histology threshold", "is_approximation": false},
+        {"value": 5.5, "unit": "%", "label": "MRI-PDFF threshold", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_001",
+      "entities_mentioned": ["roy_taylor"],
+      "sources": [
+        {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.29367", "org": "Hepatology / AASLD", "source_tier": "A", "year": 2018, "title": "The diagnosis and management of NAFLD: Practice Guidance — Chalasani N et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["แค่ 5% เกินมา", "เส้นบางเบาที่เปลี่ยนชีวิต"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้าม round เป็น 10% หรือใช้ '>5%' แล้ว scale up ตัวเลข",
+      "usage_notes": "Cross-ref กับ fat_metabolism.fat_007 (DiRECT 16% liver fat) — ใช้ pair เป็น comparison hook",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกให้ audience diagnose ตัวเอง — ต้อง imaging/biopsy"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["วินิจฉัยเอง", "รู้เองว่ามีไขมันพอกตับ"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_003",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "NAFLD",
+      "statement_th": "ในเอเชียตะวันออกเฉียงใต้ (รวมไทย) prevalence ของ NAFLD ประมาณ 27-30% — สูงกว่าค่าเฉลี่ยโลก; คนไทยมีความเสี่ยงเฉพาะจาก lean NAFLD (ผอมแต่ไขมันแทรกในตับ) เพราะ visceral fat pattern แบบเอเชีย",
+      "statement_en": "In Southeast Asia (including Thailand), NAFLD prevalence is approximately 27-30% — above the global average; Thais have specific risk for 'lean NAFLD' (normal BMI with ectopic liver fat) due to Asian visceral fat distribution.",
+      "numeric_values": [
+        {"value": "27-30", "unit": "%", "label": "SEA / Thai NAFLD prevalence", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_liver_002",
+      "entities_mentioned": ["zobair_younossi"],
+      "sources": [
+        {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.28431", "org": "Hepatology / AASLD", "source_tier": "A", "year": 2016, "title": "Global epidemiology of NAFLD — Younossi ZM et al. (Asia subgroup 27.4%)", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29458948/", "org": "Hepatology / PubMed", "source_tier": "A", "year": 2017, "title": "NAFLD in Southeast Asia — regional review", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["คนไทยผอมก็เป็นได้", "lean NAFLD"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'คนไทยทุกคนมีไขมันพอกตับ' — frame as 'ประมาณ 1 ใน 3'",
+      "usage_notes": "Localize message — จุดขายสำหรับคน Thai lean-looking ที่กิน rice/SSB เยอะ",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามสร้าง health panic 'ทุกคนต้อง US ตับเดี๋ยวนี้'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "Counterpoint study ของ Roy Taylor (Newcastle): ผู้ป่วย T2DM ทานเพียง 600-800 kcal/วัน — hepatic glucose output กลับมาปกติใน 7 วัน และไขมันในตับลดลง 30% ในสัปดาห์แรก (Lim EL et al., Diabetologia 2011)",
+      "statement_en": "Roy Taylor's Counterpoint study: T2DM patients on 600-800 kcal/day normalized hepatic glucose output within 7 days and dropped liver fat by 30% in the first week (Lim EL et al., Diabetologia 2011).",
+      "numeric_values": [
+        {"value": "600-800", "unit": "kcal/day", "label": "very-low-calorie diet", "is_approximation": false},
+        {"value": 7, "unit": "days", "label": "hepatic glucose normalization", "is_approximation": false},
+        {"value": 30, "unit": "%", "label": "liver fat reduction week 1", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_liver_003",
+      "entities_mentioned": ["roy_taylor", "jason_fung"],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8247294/", "org": "Diabet Med / PMC", "source_tier": "A", "year": 2021, "title": "Type 2 diabetes and remission: practical management guided by pathophysiology — Taylor R.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["7 วันตับเบาขึ้น", "ไขมันลดเร็วมาก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามชวน audience ทำ 600 kcal เอง — medical supervision. ห้ามใช้ว่า 'หายเบาหวานใน 7 วัน' (fact คือ hepatic glucose กลับปกติ ไม่ใช่ DM หาย)",
+      "usage_notes": "Primary evidence ว่าตับ reversible ได้ — cross-ref fat_metabolism.fat_006",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["type_2_diabetes_on_medication", "type_1_diabetes", "pregnancy_lactation", "eating_disorder_history", "elderly_frail"],
+        "drug_interactions": ["metformin (hypoglycemia)", "sulfonylurea (severe hypoglycemia)", "insulin (hypoglycemia)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอกให้หยุดยาเบาหวานแล้วกิน 600 kcal แทน", "ห้ามพูด 'หายเบาหวาน 7 วัน'", "ห้ามแนะนำ VLCD ให้คนทั่วไปทำเอง"],
+        "required_disclaimer_th": "diabetes_th",
+        "audience_exclusions": ["type_2_diabetes_on_medication", "type_1_diabetes", "pregnant_lactating", "eating_disorder_history", "elderly_65_plus_frail", "under_18"],
+        "validator_keywords_th": ["หายเบาหวาน", "600 แคลต่อวัน", "VLCD เอง"],
+        "regulatory_risk_notes": "VLCD เป็น medical intervention ไม่ใช่ lifestyle tip — อย. จะ scrutiny หนักถ้าขาย 'คอร์ส 600 kcal'"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_005",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "NAFLD",
+      "statement_th": "ฟรุกโตส 100% ถูกเมตาบอไลซ์ที่ตับ (กลูโคสเพียง 20%) — เมื่อฟรุกโตสเกิน ตับเร่ง de novo lipogenesis ผ่าน fructokinase-KHK → ไขมันในตับเพิ่ม; fructose กระตุ้น DNL 4-5 เท่าของ glucose ในปริมาณเท่ากัน (Lim JS et al., Hepatology 2014)",
+      "statement_en": "Virtually 100% of fructose is metabolized in the liver (glucose only ~20%) — excess fructose accelerates de novo lipogenesis via fructokinase (KHK), driving liver fat accumulation; fructose stimulates DNL ~4-5× more than equal-caloric glucose (Lim JS et al., Hepatology 2014).",
+      "numeric_values": [
+        {"value": 100, "unit": "%", "label": "fructose metabolized in liver", "is_approximation": false},
+        {"value": 20, "unit": "%", "label": "glucose share hepatic metabolism", "is_approximation": true},
+        {"value": "4-5", "unit": "x", "label": "fructose DNL boost vs glucose", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_liver_004",
+      "entities_mentioned": ["robert_lustig", "fructose"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25014002/", "org": "Hepatology / PubMed", "source_tier": "A", "year": 2014, "title": "The role of fructose in the pathogenesis of NAFLD and the metabolic syndrome — Lim JS et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.youtube.com/watch?v=dBnniua6-oM", "org": "UCSF / YouTube", "source_tier": "B", "year": 2009, "title": "Sugar: The Bitter Truth — Robert Lustig", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["น้ำตาลทุกชนิดไม่เหมือนกัน", "น้ำอัดลมวิ่งตรงเข้าตับ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ฟรุกโตสเป็นพิษ' แบบเหมารวม (ผลไม้ทั้งผลมีไฟเบอร์ + ปริมาณต่ำ) — frame 'ฟรุกโตสเหลว/เข้มข้น' จาก SSB คือปัญหา",
+      "usage_notes": "จุดขายสำหรับคนไทยที่ดื่มน้ำอัดลม/ชานมไข่มุก — Lustig framing",
+      "contradictions": ["Jang 2018 Cell Metab แสดงว่า fructose ปริมาณต่ำ (<~0.5 g/kg) ถูกเปลี่ยนเป็น glucose ที่ลำไส้เล็กก่อน — ไม่ถึงตับ"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_2_diabetes_on_medication", "gout_or_hyperuricemia"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า 'กินผลไม้เท่าไหร่ก็ไม่อ้วน' — ผลไม้สกัด/น้ำผลไม้เข้มข้นก็เป็นปัญหา", "ห้ามใช้คำว่า 'พิษ' (toxic) แบบ legal"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["น้ำตาลเป็นพิษ", "ฟรุกโตสฆ่าคน", "รักษาไขมันพอกตับด้วยเลิกน้ำอัดลม"],
+        "regulatory_risk_notes": "อย. ไทย — คำว่า 'พิษ' (toxic) ต้องระวังถ้าใช้กับอาหาร; prefer 'เสี่ยง/เพิ่มภาระตับ'"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hyperuricemia",
+      "statement_th": "ฟรุกโตสเป็นน้ำตาลชนิดเดียวที่ทำให้กรดยูริกสูงโดยตรง — fructose → fructokinase (KHK) ใช้ ATP อย่างรวดเร็วจน ATP ลดลง → AMP สะสม → IMP → xanthine → uric acid; pathway นี้กลูโคสไม่เข้า (Johnson RJ et al., Diabetes 2013)",
+      "statement_en": "Fructose is the only sugar that directly raises uric acid — fructose → fructokinase (KHK) rapidly depletes ATP → AMP accumulates → IMP → xanthine → uric acid; this pathway does not occur with glucose (Johnson RJ et al., Diabetes 2013).",
+      "numeric_values": [],
+      "mechanism_ref": "mech_liver_005",
+      "entities_mentioned": ["richard_johnson", "uric_acid", "fructose"],
+      "sources": [
+        {"url": "https://diabetesjournals.org/diabetes/article/62/10/3307/15988", "org": "Diabetes (ADA)", "source_tier": "A", "year": 2013, "title": "Sugar, uric acid, and the etiology of diabetes and obesity — Johnson RJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ฟรุกโตสคือผู้ร้ายตัวจริง", "แฉน้ำอัดลม", "ยูริกสูงไม่ใช่แค่เก๊าท์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Mechanism นี้ precise — ห้ามสลับลำดับ ATP → AMP → IMP → uric acid. ห้ามบอก 'กินน้ำตาลแล้วเก๊าท์' แบบเหมารวม (ต้อง specify ฟรุกโตสเข้มข้น)",
+      "usage_notes": "Landmark fact สำหรับ 'โยงแฉน้ำอัดลม' angle — UncleD ยังไม่พูด = blue ocean",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": ["gout_or_hyperuricemia"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'กินผลไม้ทำให้เก๊าท์' — whole fruit มี fiber + water ลดผลกระทบ", "ห้ามแทน allopurinol"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาเก๊าท์ด้วยอาหาร", "แทน allopurinol"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hyperuricemia",
+      "statement_th": "คนที่ดื่มน้ำอัดลมหรือเครื่องดื่มหวาน ≥2 แก้ว/วัน มีความเสี่ยงโรคเก๊าท์เพิ่มขึ้น 85% (RR 1.85, 95%CI 1.08-3.16) เทียบกับคนที่ดื่มน้อย — cohort Health Professionals Follow-Up Study N=46,393 ชาย ติดตาม 22 ปี (Choi & Curhan, BMJ 2008)",
+      "statement_en": "Men consuming ≥2 servings/day of sugar-sweetened beverages had 85% higher risk of gout (RR 1.85, 95%CI 1.08-3.16) — Health Professionals Follow-Up Study, N=46,393, 22-year follow-up (Choi & Curhan, BMJ 2008).",
+      "numeric_values": [
+        {"value": 85, "unit": "%", "label": "increased gout risk with 2+ SSB/day", "is_approximation": false},
+        {"value": 1.85, "unit": "RR", "label": "relative risk", "is_approximation": false},
+        {"value": 46393, "unit": "men", "label": "cohort size", "is_approximation": false},
+        {"value": 22, "unit": "years", "label": "follow-up", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_005",
+      "entities_mentioned": ["hyon_choi", "uric_acid", "fructose"],
+      "sources": [
+        {"url": "https://www.bmj.com/content/336/7639/309", "org": "BMJ", "source_tier": "A", "year": 2008, "title": "Soft drinks, fructose consumption, and the risk of gout in men — Choi HK & Curhan G", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["85% สูงขึ้น", "น้ำอัดลมคือตัวการ", "22 ปีแห่งหลักฐาน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 1.85 / 85% ต้องตรง. ห้าม scale ไปที่ '100% risk' หรือ 'กินแล้วเก๊าท์แน่'",
+      "usage_notes": "Landmark anchor ของ 'โยงแฉน้ำอัดลม' — pair กับ liver_006 ให้แรง",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า 'ดื่มน้ำอัดลม = เก๊าท์แน่ๆ' — เป็น RR ไม่ใช่ 100%", "ห้ามบอก 'เลิกน้ำอัดลมรักษาเก๊าท์หาย'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาเก๊าท์ด้วยเลิกน้ำอัดลม", "หยุดยาเก๊าท์"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_008",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "hyperuricemia",
+      "statement_th": "กรดยูริกสูงกว่า 5.5 mg/dL (หญิง) หรือ 6.0 mg/dL (ชาย) — แม้ยังไม่ถึงเกณฑ์เก๊าท์ — สัมพันธ์กับ hypertension, metabolic syndrome, CKD, และ NAFLD อย่างเป็นอิสระ (Kuwabara et al., Hypertension 2018 — cohort 5 ปี)",
+      "statement_en": "Uric acid above 5.5 mg/dL (women) or 6.0 mg/dL (men) — below the gout threshold — is independently associated with hypertension, metabolic syndrome, CKD, and NAFLD (Kuwabara et al., Hypertension 2018 — 5-year cohort).",
+      "numeric_values": [
+        {"value": 5.5, "unit": "mg/dL", "label": "threshold (women)", "is_approximation": false},
+        {"value": 6.0, "unit": "mg/dL", "label": "threshold (men)", "is_approximation": false},
+        {"value": 5, "unit": "years", "label": "cohort follow-up", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_005",
+      "entities_mentioned": ["masanori_kuwabara", "uric_acid"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29370766/", "org": "Hypertension / AHA", "source_tier": "A", "year": 2018, "title": "Asymptomatic hyperuricemia without comorbidities predicts cardiometabolic diseases — Kuwabara M et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยูริกสูงแต่ยังไม่ปวดข้อ", "สัญญาณเงียบที่คนมองข้าม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า '>5.5 = เป็น hypertension แน่นอน' — เป็น association ไม่ใช่ causation เด็ดขาด",
+      "usage_notes": "ใช้เสริม angle 'ยูริกสูงบอกว่าไตคุณกำลังจะพังเพราะฟรุกโตส'",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["gout_or_hyperuricemia", "chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": ["allopurinol (ห้ามทดแทน)", "febuxostat (ห้ามทดแทน)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกให้หยุดยา allopurinol/febuxostat แล้วใช้สารเสริมแทน", "ห้ามวินิจฉัย gout ให้ audience"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["แทน allopurinol", "แทน febuxostat", "หยุดยาเก๊าท์"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "Belfort trial (NEJM 2006): pioglitazone 45 mg/วัน × 6 เดือน ทำให้ 55% ของผู้ป่วย NASH หาย (resolved NASH) vs placebo 16% — ลด steatosis 54%, ลด inflammation 85% — แต่ weight gain เฉลี่ย +2.5 กก. (Belfort, Cusi et al., NEJM 2006)",
+      "statement_en": "Belfort trial (NEJM 2006): pioglitazone 45 mg/day × 6 months resolved NASH in 55% of patients vs 16% placebo — reduced steatosis by 54% and inflammation by 85% — but caused average +2.5 kg weight gain (Belfort, Cusi et al., NEJM 2006).",
+      "numeric_values": [
+        {"value": 45, "unit": "mg/day", "label": "pioglitazone dose", "is_approximation": false},
+        {"value": 6, "unit": "months", "label": "duration", "is_approximation": false},
+        {"value": 55, "unit": "%", "label": "NASH resolution rate (pioglitazone)", "is_approximation": false},
+        {"value": 16, "unit": "%", "label": "NASH resolution rate (placebo)", "is_approximation": false},
+        {"value": 2.5, "unit": "kg", "label": "average weight gain", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["kenneth_cusi"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa060326", "org": "NEJM", "source_tier": "A", "year": 2006, "title": "A placebo-controlled trial of pioglitazone in subjects with nonalcoholic steatohepatitis — Belfort R, Cusi K et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยาที่ reverse NASH ได้", "55% หาย"],
+      "dramatization_allowed": false,
+      "dramatization_limit": "Pioglitazone เป็น prescription drug — educational only, ห้ามใช้เป็น product angle",
+      "usage_notes": "Educational — แสดงว่า NASH reversible ด้วย insulin sensitizer; ห้าม frame เป็น 'ยาวิเศษ'",
+      "contradictions": ["Pioglitazone มี side effects: weight gain, bone loss, edema, และ bladder cancer concern (เล็กน้อย)"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "red",
+        "contraindications": ["type_2_diabetes_on_medication"],
+        "drug_interactions": ["insulin (edema risk)", "sulfonylurea (hypoglycemia synergy)", "gemfibrozil (↑pioglitazone 3×)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามแนะนำ pioglitazone ให้ใคร — prescription drug only", "ห้ามเปรียบเทียบสารเสริมว่าแทน pioglitazone", "ห้ามบอก 'รักษา NASH ได้แน่นอน'"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["on_prescription_medications", "active_cancer_treatment", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษา NASH", "แทน pioglitazone", "รักษาไขมันพอกตับหายขาด"],
+        "regulatory_risk_notes": "Pioglitazone เป็นยา prescription — ห้าม reference ในบริบทขายสินค้าเด็ดขาด. ใช้ได้เฉพาะ educational"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "PIVENS trial (NEJM 2010): วิตามินอี 800 IU/วัน × 96 สัปดาห์ ในผู้ป่วย NASH ที่ไม่เป็นเบาหวาน — ปรับปรุง histology 43% vs placebo 19% (p=0.001); ALT ลดเฉลี่ย 37 U/L — แต่วิตามินอีขนาดนี้อาจเพิ่ม all-cause mortality เล็กน้อยในบางกลุ่ม (Sanyal AJ et al., NEJM 2010)",
+      "statement_en": "PIVENS trial (NEJM 2010): vitamin E 800 IU/day × 96 weeks in non-diabetic NASH patients improved histology in 43% vs 19% placebo (p=0.001); ALT dropped ~37 U/L on average — but this dose may slightly raise all-cause mortality in some populations (Sanyal AJ et al., NEJM 2010).",
+      "numeric_values": [
+        {"value": 800, "unit": "IU/day", "label": "vitamin E dose", "is_approximation": false},
+        {"value": 96, "unit": "weeks", "label": "trial duration", "is_approximation": false},
+        {"value": 43, "unit": "%", "label": "histology improvement (vit E)", "is_approximation": false},
+        {"value": 19, "unit": "%", "label": "histology improvement (placebo)", "is_approximation": false},
+        {"value": 247, "unit": "participants", "label": "N (non-diabetic NASH)", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["arun_sanyal", "vitamin_e"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0907929", "org": "NEJM", "source_tier": "A", "year": 2010, "title": "Pioglitazone, vitamin E, or placebo for NASH — Sanyal AJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["วิตามินตัวเดียวที่ RCT รองรับ", "AASLD แนะนำ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุ 'เฉพาะคนไม่เป็นเบาหวาน' — diabetics excluded in PIVENS. ห้าม overclaim 'รักษา NASH'",
+      "usage_notes": "AASLD 2018 แนะนำ vitamin E 800 IU ใน biopsy-proven NASH non-diabetic — high-dose ต้องแพทย์กำกับ",
+      "contradictions": ["Meta-analysis Miller 2005 — vitamin E >400 IU/day อาจเพิ่ม all-cause mortality เล็กน้อย (relative risk ~1.04)"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_warfarin_or_anticoagulant", "type_2_diabetes_on_medication"],
+        "drug_interactions": ["warfarin (↑bleeding — vit E antagonizes vit K)", "statin (unclear)", "chemotherapy (vit E may antagonize some regimens)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอกให้กิน 800 IU เองโดยไม่มีการตรวจตับ", "ห้ามบอก 'วิตามินอีรักษา NASH หายขาด'", "ห้ามเสริมคู่กับ warfarin โดยไม่ปรึกษาแพทย์"],
+        "required_disclaimer_th": "high_dose_supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant", "type_2_diabetes_on_medication", "active_cancer_treatment", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษา NASH ด้วยวิตามินอี", "วิตามินอี 800 IU กินเอง", "รักษาไขมันพอกตับ"],
+        "regulatory_risk_notes": "อย. ไทย — วิตามินอี 800 IU เป็น high-dose เกิน RDA 15 mg (≈22 IU) มาก — ต้อง framing 'ข้อมูลเพื่อการศึกษา'"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "glutathione",
+      "statement_th": "N-acetylcysteine (NAC) คือยา antidote มาตรฐานของพิษจากยา paracetamol (acetaminophen) — ถ้าให้ภายใน 8-10 ชั่วโมงหลังโอเวอร์โดส survival เกือบ 100% (vs mortality ~5% ในยุคก่อน Prescott 1979); NAC เติม cysteine ที่ขาด → ฟื้น glutathione → quench NAPQI",
+      "statement_en": "N-acetylcysteine (NAC) is the gold-standard antidote for paracetamol (acetaminophen) overdose — given within 8-10 hours survival is nearly 100% (vs ~5% mortality pre-Prescott 1979); NAC replenishes cysteine → restores glutathione → quenches NAPQI.",
+      "numeric_values": [
+        {"value": "8-10", "unit": "hours", "label": "therapeutic window", "is_approximation": false},
+        {"value": 1979, "unit": "year", "label": "Prescott landmark", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_006",
+      "entities_mentioned": ["laurence_prescott", "nac", "glutathione", "napqi"],
+      "sources": [
+        {"url": "https://www.bmj.com/content/2/6198/1097", "org": "BMJ", "source_tier": "A", "year": 1979, "title": "Intravenous N-acetylcystine: the treatment of choice for paracetamol poisoning — Prescott LF et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยา antidote ยืนหนึ่ง", "NAC ช่วยตับ"],
+      "dramatization_allowed": false,
+      "dramatization_limit": "NAC เป็น antidote ไม่ใช่ daily supplement — ห้ามบอก 'กิน NAC คู่ paracetamol' = synergy (มันคือการแก้พิษ ไม่ใช่ protection)",
+      "usage_notes": "เป็น educational fact ที่สร้าง credibility ให้ NAC product angle — แต่ต้อง frame carefully",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "red",
+        "contraindications": [],
+        "drug_interactions": ["nitroglycerin (enhanced hypotension)", "activated charcoal (reduces NAC absorption)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอกให้กิน paracetamol เยอะแล้วกิน NAC ตาม", "ห้ามบอก 'NAC รักษาโรคตับ'", "ห้ามบอกว่าเป็น preventive สำหรับ overdose"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["active_cancer_treatment"],
+        "validator_keywords_th": ["NAC รักษาตับ", "กิน paracetamol แล้วกิน NAC", "NAC แก้พิษตับที่บ้าน"],
+        "regulatory_risk_notes": "NAC ใน Thailand ขึ้นทะเบียนเป็นทั้งยาและอาหารเสริม — ห้าม claim antidote ในบริบทขายอาหารเสริม"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_012",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "phase_1_2_detox",
+      "statement_th": "สารสกัดชาเขียวขนาดสูง (EGCG >800 mg/วัน) สัมพันธ์กับภาวะ idiosyncratic hepatotoxicity — FDA/USP ทบทวน adverse events >150 ราย — USP แนะนำ EGCG <338 mg/วัน และใส่คำเตือน (Oketch-Rabah et al., Toxicol Reports 2020)",
+      "statement_en": "High-dose green tea extract (EGCG >800 mg/day) is linked to idiosyncratic hepatotoxicity — FDA/USP reviewed >150 adverse event reports — USP advises EGCG <338 mg/day with a warning label (Oketch-Rabah et al., Toxicol Reports 2020).",
+      "numeric_values": [
+        {"value": 800, "unit": "mg/day", "label": "EGCG hepatotoxic threshold", "is_approximation": true},
+        {"value": 338, "unit": "mg/day", "label": "USP recommended max EGCG", "is_approximation": false},
+        {"value": 150, "unit": "cases", "label": "adverse events reviewed", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["hellen_oketch_rabah", "egcg"],
+      "sources": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/S2214750020300718", "org": "Toxicology Reports / USP", "source_tier": "A", "year": 2020, "title": "USP comprehensive safety review of green tea extract — Oketch-Rabah HA et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["สารเสริมที่คนคิดว่าปลอดภัย แต่ทำลายตับได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ดื่มชาเขียวทำลายตับ' — คือ concentrated extract ≠ ใบชาชง. Framing: 'สารเสริมขนาดสูง' ไม่ใช่ชาธรรมดา",
+      "usage_notes": "ใช้ต่อต้าน product angle ที่ overclaim 'fat burner + green tea extract 1000mg' — paradox education",
+      "contradictions": ["ดื่มชาเขียวชง (ไม่ใช่ extract) หลายแก้ว/วัน = ไม่มี hepatotoxicity pattern"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["liver_disease", "on_prescription_medications"],
+        "drug_interactions": ["warfarin", "nadolol (EGCG ↓ absorption)", "bortezomib (EGCG antagonism)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามขาย green tea extract >500 mg/วัน โดยไม่มี warning", "ห้ามบอก 'ชาเขียวดีต่อตับ' แบบไม่ระบุ form"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["liver_disease", "on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["ชาเขียวรักษาตับ", "EGCG รักษา NAFLD"],
+        "regulatory_risk_notes": "อย. ไทย/FDA — green tea extract มี adverse reports ที่ต้องใส่คำเตือน; Health Canada ถอนทะเบียนบางยี่ห้อ"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "Silybin-phosphatidylcholine + vitamin E (Realsil complex) 376 mg/วัน × 12 เดือน ในผู้ป่วย NAFLD N=138 — ลด hepatic steatosis (US score), ลด ALT, ลด HOMA-IR อย่างมีนัยสำคัญเมื่อเทียบกับการดูแลมาตรฐาน (Loguercio C et al., Free Radic Biol Med 2012)",
+      "statement_en": "Silybin-phosphatidylcholine + vitamin E (Realsil complex) 376 mg/day × 12 months in 138 NAFLD patients significantly reduced hepatic steatosis (ultrasound score), ALT, and HOMA-IR vs standard care (Loguercio C et al., Free Radic Biol Med 2012).",
+      "numeric_values": [
+        {"value": 376, "unit": "mg/day", "label": "Realsil dose", "is_approximation": false},
+        {"value": 12, "unit": "months", "label": "duration", "is_approximation": false},
+        {"value": 138, "unit": "patients", "label": "N", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_007",
+      "entities_mentioned": ["carolina_loguercio", "silymarin", "phosphatidylcholine"],
+      "sources": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/S0891584912000755", "org": "Free Radic Biol Med", "source_tier": "A", "year": 2012, "title": "The effect of a silybin-vitamin E-phospholipid complex on NAFLD — Loguercio C et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["มิลค์ทิสเซิลกับวิตามินอี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Loguercio 2012 เป็น open-label — ห้ามเปรียบกับ 'cure'. Framing 'supportive'",
+      "usage_notes": "Anchor หลักของ milk_thistle_silymarin product angle — ต้องใช้คู่กับ Cochrane limitation",
+      "contradictions": ["Cochrane review (Rambaldi 2007) สรุปว่า silymarin เดี่ยวใน alcoholic/viral liver disease ไม่มีหลักฐานเพียงพอว่าช่วยลด mortality"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant", "on_statin"],
+        "drug_interactions": ["warfarin (CYP2C9 inhibition by silybin)", "statin (CYP3A4 competition)", "oral contraceptive (weak induction)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามอ้าง 'silymarin รักษาไขมันพอกตับ'", "ห้ามพูด 'แทนยาลดไขมัน'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["silymarin รักษาตับ", "ไขมันพอกตับหายด้วยมิลค์ทิสเซิล"],
+        "regulatory_risk_notes": "อย. ไทย — milk thistle เป็นอาหารเสริม ห้าม claim 'รักษาตับอักเสบ/ไขมันพอกตับ' — ใช้ 'สนับสนุนการทำงานของตับ'"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_014",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "phase_1_2_detox",
+      "statement_th": "CYP3A4 คือ phase-1 enzyme ที่ metabolize ~50% ของยาทั้งหมดในท้องตลาด — ถูกยับยั้งด้วย furanocoumarin จากเกรปฟรุต (ทำให้ยาในเลือดสูงได้ 2-8 เท่า) และถูกเหนี่ยวนำโดย St. John's Wort, rifampin",
+      "statement_en": "CYP3A4 is the phase-1 enzyme that metabolizes ~50% of all marketed drugs — inhibited by grapefruit furanocoumarins (raising drug levels 2-8×) and induced by St. John's Wort and rifampin.",
+      "numeric_values": [
+        {"value": 50, "unit": "%", "label": "share of drugs metabolized by CYP3A4", "is_approximation": true},
+        {"value": "2-8", "unit": "x", "label": "drug level ↑ with grapefruit", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_liver_008",
+      "entities_mentioned": ["cyp3a4"],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK547852/", "org": "NIH LiverTox", "source_tier": "A", "year": 2024, "title": "LiverTox: Clinical and Research Information on Drug-Induced Liver Injury", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เกรปฟรุต + ยา = อันตราย", "เอนไซม์ตับเดี่ยวคุมครึ่งโลก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'กินเกรปฟรุตทำให้ตายได้' แบบไม่มี context — จริงเฉพาะบางยา (statin, calcium channel blocker)",
+      "usage_notes": "Educational foundation สำหรับ drug interaction claim — ไม่ใช่ product angle โดยตรง",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": ["statin", "calcium channel blocker", "immunosuppressant"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกชื่อยาเฉพาะเจาะจงที่ 'ห้ามกินคู่เกรปฟรุต' ใน ads — เป็น personalized medical advice"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_015",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "glutathione",
+      "statement_th": "ประมาณ 90% ของ glutathione (GSH) ทั้งร่างกายอยู่ในตับ — GSH ถูก synthesize ที่ hepatocyte จาก glutamate + cysteine + glycine โดย γ-glutamyl cysteine synthetase เป็น rate-limiting; ในภาวะ NAFLD/NASH พบ GSH ลดลงชัดเจน",
+      "statement_en": "About 90% of the body's glutathione (GSH) is stored in the liver — GSH is synthesized in hepatocytes from glutamate + cysteine + glycine, with γ-glutamyl cysteine synthetase as the rate-limiting enzyme; GSH is measurably depleted in NAFLD/NASH.",
+      "numeric_values": [
+        {"value": 90, "unit": "%", "label": "share of body GSH in liver", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_liver_006",
+      "entities_mentioned": ["glutathione"],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK547852/", "org": "NIH LiverTox", "source_tier": "A", "year": 2024, "title": "Glutathione — LiverTox reference", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตับคือคลังแอนตี้ออกซิแดนท์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'กิน glutathione แล้วตับเด็กลง' — oral GSH มี bioavailability ต่ำ",
+      "usage_notes": "Foundation ของ glutathione_liposomal + NAC product angles",
+      "contradictions": ["Oral glutathione มี bioavailability ต่ำมาก — liposomal/IV เท่านั้นที่เพิ่มระดับได้ชัด; NAC (precursor) มักมีประสิทธิภาพกว่า oral GSH"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามอ้าง 'glutathione = ผิวขาว' โดยไม่ระบุ context"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["glutathione รักษาตับ", "ฟื้นตับด้วย glutathione"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_016",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "bile_acid",
+      "statement_th": "Bile acid pool ในร่างกายหมุนเวียน enterohepatic cycle ประมาณ 6-10 รอบต่อวัน — 95% ของ bile acid ถูกดูดซึมกลับที่ terminal ileum และส่งกลับตับทาง portal vein; ตับสังเคราะห์ primary bile acids (CA, CDCA) จาก cholesterol ประมาณ 0.5 กรัม/วัน",
+      "statement_en": "The bile acid pool cycles through enterohepatic circulation ~6-10× per day — 95% is reabsorbed at the terminal ileum and returned to liver via portal vein; the liver synthesizes ~0.5 g/day of primary bile acids (CA, CDCA) from cholesterol.",
+      "numeric_values": [
+        {"value": "6-10", "unit": "cycles/day", "label": "enterohepatic circulation", "is_approximation": true},
+        {"value": 95, "unit": "%", "label": "reabsorption rate", "is_approximation": true},
+        {"value": 0.5, "unit": "g/day", "label": "primary bile acid synthesis", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_liver_009",
+      "entities_mentioned": ["udca", "tudca"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20359267/", "org": "J Pharmacol Exp Ther", "source_tier": "A", "year": 2010, "title": "TUDCA reduces ER stress in hepatocytes — Vang O, Jensen H et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตับรีไซเคิลน้ำดีทุกวัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ล้างน้ำดี = ล้างตับ' — น้ำดีไม่ได้ 'พิษ'",
+      "usage_notes": "Foundation สำหรับ TUDCA/bile acid product angle",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": ["cholestyramine (bile acid sequestrant)", "bile acid sequestrants ลดการดูดซึมยา lipophilic"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'ล้างน้ำดี' / 'gallbladder flush'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ล้างน้ำดี", "flush ถุงน้ำดี"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_017",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "Berberine 500 mg × 3 ครั้ง/วัน × 16 สัปดาห์ ในผู้ป่วย NAFLD N=184 — ลดไขมันในตับเฉลี่ย 52% (vs lifestyle-only 36%) และลด ALT, BW, HOMA-IR อย่างมีนัยสำคัญ (Yan HM et al., Metabolism 2015)",
+      "statement_en": "Berberine 500 mg × 3/day × 16 weeks in 184 NAFLD patients reduced hepatic fat by an average of 52% (vs 36% with lifestyle alone) and significantly lowered ALT, body weight, and HOMA-IR (Yan HM et al., Metabolism 2015).",
+      "numeric_values": [
+        {"value": 500, "unit": "mg × 3/day", "label": "berberine dose", "is_approximation": false},
+        {"value": 16, "unit": "weeks", "label": "duration", "is_approximation": false},
+        {"value": 52, "unit": "%", "label": "liver fat reduction (berberine)", "is_approximation": false},
+        {"value": 36, "unit": "%", "label": "liver fat reduction (lifestyle only)", "is_approximation": false},
+        {"value": 184, "unit": "patients", "label": "N", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_010",
+      "entities_mentioned": ["berberine"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26078460/", "org": "Metabolism / PubMed", "source_tier": "A", "year": 2015, "title": "Efficacy of berberine in patients with NAFLD — Yan HM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["สมุนไพรที่ RCT รับรอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'berberine = metformin' ตรงๆ; ห้ามบอก 'รักษาไขมันพอกตับหาย'",
+      "usage_notes": "Primary anchor สำหรับ berberine product angle — cross-ref blood_sugar",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["type_2_diabetes_on_medication", "pregnancy_lactation", "on_statin"],
+        "drug_interactions": ["metformin (synergistic hypoglycemia)", "cyclosporine (↑levels 2-3×)", "statin (CYP3A4)", "warfarin (CYP2C9)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอกว่า berberine = metformin", "ห้ามบอกให้หยุดยาเบาหวานแล้วกิน berberine", "ห้ามบอกรักษาไขมันพอกตับหายขาด"],
+        "required_disclaimer_th": "diabetes_th",
+        "audience_exclusions": ["type_2_diabetes_on_medication", "pregnant_lactating", "type_1_diabetes", "under_18"],
+        "validator_keywords_th": ["แทน metformin", "berberine รักษาเบาหวาน", "หยุดยาเบาหวาน"],
+        "regulatory_risk_notes": "อย. ไทย: berberine = อาหารเสริม ห้ามอ้างรักษา NAFLD/เบาหวาน"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "WELCOME trial: EPA+DHA (Omega-3) 4 g/วัน × 15-18 เดือน ในผู้ป่วย NAFLD — ลดไขมันในตับ (MR spectroscopy) เฉพาะในกลุ่มที่มี erythrocyte DHA สูง; ALT ปรับปรุงเล็กน้อย ไม่ชัดเจนเท่า primary outcome (Scorletti E et al., Clin Nutr 2014)",
+      "statement_en": "WELCOME trial: EPA+DHA omega-3 at 4 g/day × 15-18 months in NAFLD patients reduced liver fat (MR spectroscopy) only in those with high erythrocyte DHA; ALT improvement was modest, not meeting primary endpoint (Scorletti E et al., Clinical Nutrition 2014).",
+      "numeric_values": [
+        {"value": 4, "unit": "g/day", "label": "EPA+DHA dose", "is_approximation": false},
+        {"value": "15-18", "unit": "months", "label": "duration", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26783334/", "org": "Clinical Nutrition / PubMed", "source_tier": "A", "year": 2014, "title": "Effects of purified EPA and DHA in NAFLD — WELCOME study — Scorletti E et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["โอเมก้า 3 ช่วยตับ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "WELCOME primary endpoint ไม่ meet — ห้าม overclaim. ตัวเลข 4 g เป็น pharmacologic dose ไม่ใช่ daily fish oil ทั่วไป (~1 g)",
+      "usage_notes": "Anchor สำหรับ omega-3 product angle — frame 'supportive' ไม่ใช่ 'cure'",
+      "contradictions": ["Primary endpoint ไม่ significant — omega-3 บ dose ปกติ (1g/วัน) ผลต่อ liver fat น้อย"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (bleeding risk at high dose)", "aspirin (bleeding)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามอ้างรักษา NAFLD", "ห้ามบอกว่า 'โอเมก้า 3 ตัวเดียวแก้ตับ'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["โอเมก้า 3 รักษาไขมันพอกตับ"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "Curcumin (ขมิ้นชัน) meta-analysis 4 RCTs N=229 — ลด ALT เฉลี่ย ~11 U/L และ AST ~8 U/L ในผู้ป่วย NAFLD; ต้อง formulation แบบ piperine/phytosome/liposomal เพราะ bioavailability ของ curcumin ดิบต่ำ <1% (Zhong S et al., Phytomedicine 2017)",
+      "statement_en": "Curcumin meta-analysis (4 RCTs, N=229) reduced ALT by ~11 U/L and AST by ~8 U/L in NAFLD patients; requires piperine/phytosome/liposomal formulation because raw curcumin bioavailability is <1% (Zhong S et al., Phytomedicine 2017).",
+      "numeric_values": [
+        {"value": 11, "unit": "U/L", "label": "ALT reduction mean", "is_approximation": true},
+        {"value": 8, "unit": "U/L", "label": "AST reduction mean", "is_approximation": true},
+        {"value": 1, "unit": "%", "label": "raw curcumin bioavailability (upper bound)", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["curcumin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28714183/", "org": "Phytomedicine / PubMed", "source_tier": "A", "year": 2017, "title": "Curcumin in NAFLD: meta-analysis of RCTs — Zhong S et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ขมิ้นชันไม่ใช่แค่ของใช้ครัว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ขมิ้นชันรักษาตับ' — ใช้ 'สนับสนุน ALT/AST'",
+      "usage_notes": "Anchor สำหรับ curcumin product angle — ต้องเน้น formulation",
+      "contradictions": ["Raw/unformulated curcumin oral ≤1% bioavailability — หลาย study แสดงว่าผลจากสารประกอบใน extract ไม่ใช่ curcumin pure"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (bleeding risk)", "antiplatelet", "chemotherapy (potential interference)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามอ้างรักษาตับอักเสบ/มะเร็งตับ", "ห้ามบอกแทนยาลดไขมัน"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant", "pregnant_lactating"],
+        "validator_keywords_th": ["ขมิ้นชันรักษาตับ", "รักษามะเร็งตับ"],
+        "regulatory_risk_notes": "อย. ไทย: ขมิ้นชันเป็นสมุนไพร/อาหารเสริม; curcumin extract ขนาดสูง >1,500 mg/วัน มี isolated reports ของ hepatotoxicity (Italy 2019)"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_020",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "TUDCA (tauroursodeoxycholic acid) ลด ER stress ใน hepatocyte โดยทำหน้าที่เป็น chemical chaperone — ในจีน/อิตาลี TUDCA/UDCA ขึ้นทะเบียนเป็น prescription drug สำหรับ primary biliary cholangitis; dose clinical ~750 mg/วัน (Vang O et al., JPET 2010)",
+      "statement_en": "TUDCA (tauroursodeoxycholic acid) reduces ER stress in hepatocytes by acting as a chemical chaperone — in China/Italy TUDCA/UDCA are registered as prescription drugs for primary biliary cholangitis; clinical dose ~750 mg/day (Vang O et al., JPET 2010).",
+      "numeric_values": [
+        {"value": 750, "unit": "mg/day", "label": "typical clinical TUDCA dose", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_liver_009",
+      "entities_mentioned": ["tudca", "udca"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20359267/", "org": "J Pharmacol Exp Ther", "source_tier": "A", "year": 2010, "title": "TUDCA as an ER stress reducer — Vang O et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กรดน้ำดีที่คนรู้ว่าเป็นยาในบางประเทศ"],
+      "dramatization_allowed": false,
+      "dramatization_limit": "TUDCA เป็น prescription drug ในหลายประเทศ — ต้อง framing 'educational' + แนะนำ medical supervision",
+      "usage_notes": "Product angle TUDCA ต้อง orange — ห้ามขายแบบ casual supplement",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["pregnancy_lactation", "liver_disease"],
+        "drug_interactions": ["bile acid sequestrants (cholestyramine ลดการดูดซึม)", "aluminum antacids (ลดการดูดซึม)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก 'TUDCA ปลอดภัย 100%' — เป็นยาในหลายประเทศ", "ห้ามอ้าง 'รักษา primary biliary cholangitis'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "liver_disease", "active_cancer_treatment"],
+        "validator_keywords_th": ["TUDCA รักษาตับ", "ทดแทน UDCA"],
+        "regulatory_risk_notes": "TUDCA/UDCA เป็นยา prescription ในไทย — ห้ามขายเป็นอาหารเสริมและ claim รักษาโรค; supplement-grade TUDCA ต้อง framing 'supportive' + ไม่เป็นยา"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_021",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "โคลีน (choline) เป็นสารอาหารที่จำเป็นสำหรับการส่งออก triglyceride ออกจากตับในรูป VLDL — การขาดโคลีนในมนุษย์ทำให้เกิดไขมันพอกตับภายใน 2-3 สัปดาห์ (Zeisel 2003 J Nutr); RDA US: ชาย 550 mg/วัน หญิง 425 mg/วัน",
+      "statement_en": "Choline is essential for hepatic triglyceride export as VLDL — human choline deficiency induces fatty liver within 2-3 weeks (Zeisel 2003, J Nutr); US RDA: men 550 mg/day, women 425 mg/day.",
+      "numeric_values": [
+        {"value": "2-3", "unit": "weeks", "label": "time to fatty liver on deficient diet", "is_approximation": true},
+        {"value": 550, "unit": "mg/day", "label": "RDA men", "is_approximation": false},
+        {"value": 425, "unit": "mg/day", "label": "RDA women", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_011",
+      "entities_mentioned": ["choline", "phosphatidylcholine"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/14744487/", "org": "J Nutr / PubMed", "source_tier": "A", "year": 2003, "title": "Choline: an essential nutrient for humans — Zeisel SH", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["สารอาหารที่ขาดแล้วตับพัง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ไข่แดงรักษาไขมันพอกตับ' — ใช้ 'สนับสนุนการขับไขมันออกจากตับ'",
+      "usage_notes": "Cross-ref UncleD clip 7568287234546240786 'โคลีนช่วยสมอง + ตับ'",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": ["methotrexate (interference with folate/choline metabolism)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามอ้างรักษาไขมันพอกตับ", "ห้ามบอกว่า TMAO จาก choline ไม่มีปัญหาใน CVD (ยังเป็น controversy)"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาไขมันพอกตับด้วยโคลีน"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_022",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "NAFLD",
+      "statement_th": "Abdelmalek 2010 (Hepatology) — ใน 427 ผู้ป่วย biopsy-proven NAFLD การบริโภค fructose ≥7 ครั้ง/สัปดาห์ สัมพันธ์กับ fibrosis stage ที่รุนแรงกว่า (adjusted OR 1.65, 95%CI 1.05-2.59) — เป็นหลักฐานที่ Lustig-Johnson อ้างใน fructose → fibrosis pathway",
+      "statement_en": "Abdelmalek 2010 (Hepatology): in 427 biopsy-proven NAFLD patients, consuming fructose ≥7 times/week was associated with more advanced fibrosis (adjusted OR 1.65, 95%CI 1.05-2.59) — key evidence in the Lustig-Johnson fructose → fibrosis pathway.",
+      "numeric_values": [
+        {"value": 7, "unit": "servings/week", "label": "fructose threshold", "is_approximation": false},
+        {"value": 1.65, "unit": "OR", "label": "odds ratio for advanced fibrosis", "is_approximation": false},
+        {"value": 427, "unit": "patients", "label": "biopsy-proven NAFLD N", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_liver_004",
+      "entities_mentioned": ["fructose", "robert_lustig", "richard_johnson"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19233943/", "org": "Hepatology / PubMed", "source_tier": "A", "year": 2010, "title": "Increased fructose consumption associated with fibrosis severity in NAFLD — Abdelmalek MF et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ฟรุกโตสยิ่งกิน ตับยิ่งเป็นพังผืด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "OR 1.65 = 65% สูงขึ้น ห้ามพูด '2 เท่า' หรือ 'แน่นอน'",
+      "usage_notes": "Landmark fact — strong anchor สำหรับ 'ฟรุกโตสคือตัวเร่ง fibrosis' — โยงกับ SSB/น้ำหวาน",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'กินน้ำอัดลมแล้วตับพังแน่นอน'", "ห้ามให้ audience หยุดการรักษาเพื่อเลิกฟรุกโตสเท่านั้น"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ตับพังแน่นอน", "เลิกน้ำตาลแล้วตับหาย"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_023",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "phase_1_2_detox",
+      "statement_th": "ตับไม่ได้ 'ล้างพิษ' แบบที่โฆษณาบอก — ตับทำ biotransformation ตลอด 24/7 ผ่าน Phase 1 (CYP450 oxidation/reduction) + Phase 2 (glucuronidation, sulfation, glutathione conjugation) → ขับออกทางน้ำดี/ไต; ไม่มีระยะเวลา 'รีเซ็ต' หรือ 'คีนส์คลีน' ตามฤดู",
+      "statement_en": "The liver does not 'detox' as marketing claims — it performs biotransformation 24/7 via Phase 1 (CYP450 oxidation/reduction) + Phase 2 (glucuronidation, sulfation, glutathione conjugation) → excreted via bile/kidney; there is no scheduled 'reset' or 'cleanse' cycle.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_liver_008",
+      "entities_mentioned": ["cyp3a4", "cyp2e1", "glutathione"],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK547852/", "org": "NIH LiverTox", "source_tier": "A", "year": 2024, "title": "Hepatic biotransformation — LiverTox overview", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตับทำงาน 24 ชั่วโมง", "ล้างพิษคือคำโฆษณา ไม่ใช่วิทยาศาสตร์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Foundation fact สำหรับ anti-detox messaging — สำคัญมาก",
+      "usage_notes": "Core debunk fact — ใช้โต้ 'ชาล้างพิษ / ดีท็อกซ์ 3 วัน' — อย. ไทย scrutiny สูงกับคำนี้",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามใช้คำว่า 'ล้างพิษตับ' / 'detox cleanse' / 'รีเซ็ตตับ' เด็ดขาด", "ห้ามขาย 'คอร์ส 7 วัน รีเซ็ตตับ'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ล้างพิษตับ", "รีเซ็ตตับ", "ดีท็อกซ์ตับ", "ตับคลีน", "คอร์สล้างตับ"],
+        "regulatory_risk_notes": "อย. ไทย — คำว่า 'ล้างพิษ' เป็น high-scrutiny phrase; prefer 'สนับสนุนการทำงานของตับ'"
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_024",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "fatty_liver",
+      "statement_th": "ตับมีความสามารถ regenerate สูงมาก — หลังผ่าตัดเอาออก 70% ตับสามารถกลับมาเต็มปริมาตรภายใน 4-6 สัปดาห์ ในสุขภาพดี; แต่ถ้าเป็น cirrhosis (fibrosis F4) ความสามารถนี้ถูกทำลายและ reversibility ลดลงมาก",
+      "statement_en": "The liver has extraordinary regenerative capacity — after 70% resection it can return to full volume within 4-6 weeks in a healthy person; but with cirrhosis (fibrosis F4), this capacity is impaired and reversibility becomes minimal.",
+      "numeric_values": [
+        {"value": 70, "unit": "%", "label": "resection % compatible with regrowth", "is_approximation": false},
+        {"value": "4-6", "unit": "weeks", "label": "regeneration time", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK547852/", "org": "NIH LiverTox", "source_tier": "A", "year": 2024, "title": "Liver regeneration — physiology overview", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตับฟื้นเร็วที่สุดในอวัยวะ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'กิน X แล้วตับฟื้นภายใน Y วัน' — regeneration ไม่ต้องสารเสริมใดๆ",
+      "usage_notes": "Hope-framing สำหรับ early-stage NAFLD — pair กับ DiRECT reversibility",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก cirrhosis reversible", "ห้ามบอกให้คน cirrhosis หวัง"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["cirrhosis หาย", "รักษาตับแข็ง"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "liver_025",
+      "tier": "T4_COMMON_WISDOM",
+      "sub_topic_id": "NAFLD",
+      "statement_th": "Jason Fung และแพทย์ที่ทำเรื่อง therapeutic fasting แนะนำ intermittent fasting + low-carb เป็น 'first-line lifestyle intervention' สำหรับ NAFLD — rationale: ลด fructose/DNL + เพิ่ม autophagy + ลด hepatic insulin; แม้ยังไม่มี RCT ขนาดใหญ่เทียบตรง แต่ฐาน mechanism แข็งแรง",
+      "statement_en": "Jason Fung and therapeutic-fasting clinicians recommend intermittent fasting + low-carb as 'first-line lifestyle intervention' for NAFLD — rationale: reduces fructose/DNL, increases autophagy, lowers hepatic insulin; no large head-to-head RCT yet, but mechanistic basis is strong.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_liver_012",
+      "entities_mentioned": ["jason_fung"],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8247294/", "org": "Diabet Med / PMC", "source_tier": "A", "year": 2021, "title": "T2D remission via lifestyle — Taylor R. (supporting evidence for low-cal + liver fat)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["IF + low-carb = ตับเบา"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "T4 — ต้อง frame 'มีแพทย์แนะนำ / งานวิจัยกลไกสนับสนุน' ไม่ใช่ 'proven cure'",
+      "usage_notes": "Cross-ref fat_metabolism IF facts — โปรโมต lifestyle ก่อน supplement",
+      "contradictions": ["ไม่มี RCT ขนาดใหญ่ที่เทียบ IF vs standard care ใน NAFLD โดยตรง — ใช้ proxy evidence (DiRECT, DNL mechanism)"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "pregnancy_lactation", "eating_disorder_history"],
+        "drug_interactions": ["insulin", "sulfonylurea", "metformin"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอกให้ผู้ป่วยเบาหวาน fast โดยไม่ปรึกษาแพทย์", "ห้ามบอก 'IF รักษา NAFLD หาย' แบบ guarantee"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["type_1_diabetes", "type_2_diabetes_on_medication", "pregnant_lactating", "eating_disorder_history", "under_18"],
+        "validator_keywords_th": ["IF รักษาตับ", "อดอาหารหาย NAFLD"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.liver",
+      "harvested_at": "2026-04-22T12:00:00"
+    }
+  ]
+}

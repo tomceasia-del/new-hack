@@ -1,0 +1,154 @@
+{
+  "domain_id": "heart",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 9,
+    "last_harvested": "2026-04-22"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_heart_001",
+      "popular_belief_th": "คอเลสเตอรอลรวม (total cholesterol) ปกติ = ปลอดภัย ไม่ต้องกังวลโรคหัวใจ",
+      "popular_belief_en": "Normal total cholesterol = safe from heart disease",
+      "truth_th": "Total cholesterol ไม่ได้บอกอะไรชัดเจน — ต้องดู ApoB (จำนวนอนุภาคอะเทอโรเจนิก) และ Lp(a) ด้วย; Sniderman 2019 พบว่าคน LDL-C 'ปกติ' แต่ ApoB สูง ยังเสี่ยง CVD มาก — เพราะคน insulin resistance มักมีอนุภาค LDL เล็ก-หนาแน่น (sdLDL) ที่นับ particle มากขึ้นแม้ cholesterol mass ต่ำ",
+      "truth_en": "Total cholesterol is misleading — ApoB (atherogenic particle count) and Lp(a) matter much more. Sniderman 2019 found people with 'normal' LDL-C but elevated ApoB remain high-risk because insulin-resistant individuals often carry small-dense LDL particles that pack more particles per cholesterol mass.",
+      "why_popular": "โรงพยาบาลไทยส่วนใหญ่ตรวจแค่ total + LDL + HDL + TG panel มาตั้งแต่ยุค 80s; ApoB ยังไม่ mainstream",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2749203", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Apolipoprotein B Particles and Cardiovascular Disease — Sniderman AD et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ApoB_LDL",
+      "counter_facts": ["heart_003", "heart_005"],
+      "composer_directive": "ตอนพูดเรื่อง 'ตรวจเลือด' ห้าม LLM บอกว่า 'total cholesterol ปกติ = ปลอดภัย'; ต้อง mention ApoB/Lp(a) เสมอ",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_heart_002",
+      "popular_belief_th": "ไขมันดี (HDL) ยิ่งสูงยิ่งดี — ป้องกันโรคหัวใจได้",
+      "popular_belief_en": "Higher HDL is always better — it protects against heart disease",
+      "truth_th": "ความเชื่อนี้มาจาก epidemiology ยุค 80s แต่ RCT ที่เพิ่ม HDL ด้วย CETP inhibitors (REVEAL, ILLUMINATE, dal-OUTCOMES) ไม่ลด MACE เลย; Madsen 2017 (Eur Heart J) พบว่า HDL >100 mg/dL สัมพันธ์กับ all-cause mortality เพิ่ม — HDL เป็น 'marker' ของ metabolic health ไม่ใช่ 'cause' ของการป้องกัน",
+      "truth_en": "This belief dates to 1980s epidemiology, but RCTs raising HDL with CETP inhibitors (REVEAL, ILLUMINATE, dal-OUTCOMES) failed to reduce MACE. Madsen 2017 (Eur Heart J) showed HDL >100 mg/dL is associated with higher all-cause mortality. HDL is a marker of metabolic health, not a causal protector.",
+      "why_popular": "Framingham study 1977 coined 'good cholesterol' คำซึ่งติดในสมองคนทั่วไป 40+ ปี",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28977522/", "org": "European Heart Journal / PubMed", "source_tier": "A", "year": 2017, "title": "Extreme high HDL cholesterol paradoxically associated with high mortality — Madsen CM et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ApoB_LDL",
+      "counter_facts": ["heart_020", "heart_019"],
+      "composer_directive": "ห้าม LLM พูด 'HDL ยิ่งสูงยิ่งดี' แบบไม่มีเงื่อนไข — ต้อง frame ว่า 'HDL เป็น marker ไม่ใช่เป้าหมาย'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_heart_003",
+      "popular_belief_th": "กินไข่แดงทำให้คอเลสเตอรอลสูง → เป็นโรคหัวใจ",
+      "popular_belief_en": "Eating egg yolks raises cholesterol and causes heart disease",
+      "truth_th": "Dietary cholesterol ไม่ใช่ dominant driver ของ serum cholesterol ในคนส่วนใหญ่ — ตับควบคุม cholesterol synthesis ชดเชยได้; meta-analysis ~3 million คน (Dehghan 2020 BMJ) ไม่เจอ association ระหว่างการกินไข่ (สูงถึง 1 ฟอง/วัน) กับ CVD ในกลุ่มที่ไม่เป็นเบาหวาน; USDA 2015 ถอด cholesterol limit 300 mg/day ออกจาก guideline",
+      "truth_en": "Dietary cholesterol is not the dominant driver of serum cholesterol in most people — the liver compensates. Dehghan 2020 BMJ meta-analysis of ~3 million found no CVD association with egg consumption up to 1/day in non-diabetics. The USDA removed the 300 mg/day cholesterol limit from dietary guidelines in 2015.",
+      "why_popular": "Ancel Keys' diet-heart hypothesis + AHA 1960s warnings against egg; เชื่อต่อๆ กันมา 60 ปี",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.bmj.com/content/368/bmj.m513", "org": "BMJ", "source_tier": "A", "year": 2020, "title": "Association of egg intake with blood lipids, cardiovascular disease, and mortality — Dehghan M et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ApoB_LDL",
+      "counter_facts": ["heart_003"],
+      "composer_directive": "อนุญาตท้าทาย 'ไข่แดง = คอเลสเตอรอลสูง' สำหรับคนทั่วไป แต่ต้องเตือนกลุ่ม hyper-responder (~15-30% ประชากร) ที่ไวต่อ dietary cholesterol จริง",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_heart_004",
+      "popular_belief_th": "Aspirin วันละเม็ด = ป้องกันหัวใจวายได้ทุกคน",
+      "popular_belief_en": "A daily aspirin prevents heart attacks for everyone",
+      "truth_th": "สำหรับ primary prevention (คนไม่เคยเป็นหัวใจวาย) USPSTF 2022 ไม่แนะนำแล้วในคนอายุ >60 ปี — ASCEND/ARRIVE/ASPREE (2018-19) พบว่า bleeding risk (GI, hemorrhagic stroke) มากกว่า benefit; secondary prevention (เคยเป็น MI/stroke) ยังต้องกินต่อตามแพทย์สั่ง",
+      "truth_en": "For primary prevention (people who have never had a heart attack), USPSTF 2022 no longer recommends aspirin in adults >60 — the ASCEND, ARRIVE, and ASPREE trials (2018-19) found bleeding risk exceeded benefit. Secondary prevention (post-MI/stroke) still requires continued aspirin per physician.",
+      "why_popular": "Physicians Health Study 1988 + US Surgeon General recommendation ยุค 90s สอน generations ที่ผ่านมา",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/2791399", "org": "JAMA / USPSTF", "source_tier": "A", "year": 2022, "title": "Aspirin Use to Prevent Cardiovascular Disease — USPSTF Recommendation", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "atherosclerosis",
+      "counter_facts": ["heart_021"],
+      "composer_directive": "ห้าม LLM บอกให้คน 'เริ่มกิน aspirin เอง'; ต้องเตือนเรื่อง GI bleeding; คนที่กินอยู่แล้ว ห้ามบอกให้หยุด",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_heart_005",
+      "popular_belief_th": "กินอาหารเสริมธรรมชาติ (red yeast rice, bergamot) = ปลอดภัยกว่า statin",
+      "popular_belief_en": "Natural supplements (red yeast rice, bergamot) are safer than statins",
+      "truth_th": "Red yeast rice มี monacolin K = lovastatin แบบ molecule เดียวกันเปี๊ยบ — hepatotoxicity, rhabdomyolysis, drug interactions เหมือนกัน; EU 2022 ต้อง restrict <3 mg/day; ที่แย่กว่า OTC supplement ไม่มี QC เข้มแบบ pharmacological → dose มีตั้งแต่ 0 ถึง 20 mg ใน brand ต่างๆ — เสี่ยงมากกว่ายาเพราะไม่มี regulation",
+      "truth_en": "Red yeast rice contains monacolin K — the identical molecule as lovastatin — so hepatotoxicity, rhabdomyolysis, and drug interactions are identical. The EU restricted monacolin K to <3 mg/day in 2022. Worse, OTC supplements lack pharmaceutical QC: brands can range from 0 to 20 mg — arguably riskier than a prescribed statin.",
+      "why_popular": "คำว่า 'ธรรมชาติ' ขายดีและ narrative 'statin = ยา big pharma'",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://www.efsa.europa.eu/en/efsajournal/pub/6761", "org": "EFSA", "source_tier": "A", "year": 2022, "title": "Scientific opinion on the safety of monacolins in red yeast rice", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "atherosclerosis",
+      "counter_facts": ["heart_012"],
+      "composer_directive": "ห้าม LLM pitch red yeast rice เป็น 'natural, safer alternative to statin'; ต้อง frame ว่า 'กลไกเดียวกัน = ความเสี่ยงเหมือนกัน + QC น้อยกว่า'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_heart_006",
+      "popular_belief_th": "ออกกำลังกายเยอะๆ หรือ HIIT อย่างเดียวก็เพียงพอต่อสุขภาพหัวใจ",
+      "popular_belief_en": "HIIT or vigorous exercise alone is enough for heart health",
+      "truth_th": "HIIT เพิ่ม VO2max ได้ดี แต่ต้องมี 'aerobic base' จาก zone 2 (60-70% HRmax) ด้วย; งาน mitochondrial biogenesis + visceral fat loss + endothelial function เกิดได้ดีที่สุดที่ zone 2 — Attia framing 'pyramid' คือ zone 2 เป็นฐาน + HIIT 20% ด้านบน; ถ้าเล่น HIIT อย่างเดียวจะ high cortisol + ไม่ได้ mitochondria",
+      "truth_en": "HIIT effectively raises VO2max but requires a zone-2 aerobic base (60-70% HRmax) for mitochondrial biogenesis, visceral fat reduction, and endothelial improvement. Attia's 'pyramid' model places zone 2 as foundation with HIIT as the top ~20%; HIIT alone raises cortisol without mitochondrial adaptation.",
+      "why_popular": "Fitness influencers ที่โปรโมต HIIT เพราะสั้น + ขายง่าย",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://peterattiamd.com/category/exercise/zone-2/", "org": "Peter Attia MD", "source_tier": "B", "year": 2024, "title": "Zone 2 training explained — Peter Attia", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "endothelial_dysfunction",
+      "counter_facts": ["heart_022"],
+      "composer_directive": "LLM ห้ามบอก 'HIIT คือ gold standard ของ cardio' แบบไม่มี zone 2 base; ต้อง frame 2 ตัวทำงานคู่กัน",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_heart_007",
+      "popular_belief_th": "Lp(a) สูงเป็นโรคทางพันธุกรรม ทำอะไรไม่ได้ → ไม่ต้องตรวจ",
+      "popular_belief_en": "High Lp(a) is genetic and untreatable — no point testing",
+      "truth_th": "ผิด — แม้ Lp(a) เปลี่ยนด้วย diet/exercise ไม่ได้ แต่รู้ค่าทำให้: (1) treat ApoB/LDL เข้มขึ้น (เพราะ risk additive), (2) ทำ CAC scan เร็วขึ้น, (3) อนาคตมียา pelacarsen (antisense) Phase 3 HORIZON trial, (4) แจ้ง first-degree relative ให้ตรวจตาม — เป็น family info สำคัญ",
+      "truth_en": "False — though Lp(a) can't be lowered by diet/exercise, knowing your level matters: (1) treat ApoB/LDL more aggressively (risk adds), (2) schedule CAC earlier, (3) pelacarsen antisense is in Phase 3 HORIZON, (4) alert first-degree relatives for cascade screening.",
+      "why_popular": "ไม่มีการรักษาเฉพาะ Lp(a) ในไทย ทำให้คนคิดว่า 'ตรวจไปก็ไม่มีประโยชน์'",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.jacc.org/doi/10.1016/j.jacc.2016.11.042", "org": "JACC", "source_tier": "A", "year": 2017, "title": "A Test in Context: Lipoprotein(a) — Tsimikas S", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "lipoprotein_a",
+      "counter_facts": ["heart_005"],
+      "composer_directive": "LLM ต้องโปรโมต Lp(a) testing 'ครั้งเดียวในชีวิต' เป็น actionable + family-relevant",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_heart_008",
+      "popular_belief_th": "Nattokinase ละลายลิ่มเลือด → ใช้แทน warfarin ได้",
+      "popular_belief_en": "Nattokinase dissolves clots — it replaces warfarin",
+      "truth_th": "Nattokinase มี fibrinolytic activity เล็กน้อย (ลด fibrinogen ~9% ในงาน RCT 8 สัปดาห์) แต่กลไกไม่ใช่เดียวกับ warfarin (block vitamin K cycle) หรือ DOAC (block Factor Xa/IIa); ไม่มี RCT ยืนยันว่าใช้ทดแทน anticoagulant ใน atrial fibrillation ได้ — สลับเองเสี่ยง stroke อันตรายร้ายแรง",
+      "truth_en": "Nattokinase has modest fibrinolytic activity (~9% fibrinogen reduction in 8-week RCTs), but its mechanism differs entirely from warfarin (vitamin K cycle blockade) or DOACs (Factor Xa/IIa inhibition). No RCT supports substitution for anticoagulation in atrial fibrillation — swapping is life-threatening.",
+      "why_popular": "ตลาด natto + 'ธรรมชาติ' marketing + คนเกลียดการติดตาม INR ของ warfarin",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29666299/", "org": "Biomark Insights", "source_tier": "A", "year": 2018, "title": "Nattokinase: a promising alternative in CVD — Chen H et al. review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "atherosclerosis",
+      "counter_facts": ["heart_014"],
+      "composer_directive": "LLM ห้าม imply nattokinase แทน warfarin/DOAC ได้เด็ดขาด; ต้องเตือนผู้ป่วย AF/DVT เสมอ",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_heart_009",
+      "popular_belief_th": "หัวใจวาย = เกิดขึ้นแค่ไม่กี่นาที — ช่วงก่อนหน้าสุขภาพปกติ",
+      "popular_belief_en": "A heart attack is a sudden event — the person was healthy right up until it happened",
+      "truth_th": "Atherosclerosis สะสมในหลอดเลือดเงียบ ๆ 20-30 ปี ก่อนที่ plaque จะ rupture; PDAY study พบ fibrous plaque ใน coronary ของคนอายุ 25-34 ถึง 20-30%; 'heart attack' ที่ 'ทันใด' คือจุดสิ้นสุด 20 ปีของการสะสม — ป้องกันต้องเริ่มก่อนเห็นอาการ",
+      "truth_en": "Atherosclerosis accumulates silently in vessels for 20-30 years before plaque rupture. The PDAY autopsy study found coronary fibrous plaques in 20-30% of people aged 25-34. A 'sudden' heart attack is the endpoint of two decades of accumulation — prevention must start before symptoms appear.",
+      "why_popular": "Media narrative of 'heart attack survivor' focuses on the event not the 20-year buildup",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9874585/", "org": "Arterioscler Thromb Vasc Biol / PubMed", "source_tier": "A", "year": 1998, "title": "Natural History of Atherosclerosis in Young People — McGill HC et al. (PDAY)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "atherosclerosis",
+      "counter_facts": ["heart_017", "heart_009"],
+      "composer_directive": "LLM สามารถใช้ pattern 'สะสม 20 ปี ระเบิดใน 1 นาที' เป็น hook แรงได้ แต่ห้าม pair กับ 'supplement X ป้องกัน 100%'",
+      "uncleped_debunked": false
+    }
+  ]
+}

@@ -5,7 +5,7 @@
  * creates a signed session JWT, and sets a secure HttpOnly cookie.
  */
 'use strict';
-const { signJWT, parseCookies, setCookie, getBaseUrl, SESSION_COOKIE, SESSION_MAX_AGE } = require('./_helpers');
+const { signJWT, parseCookies, setCookie, getBaseUrl, SESSION_COOKIE, SESSION_MAX_AGE, isEmailAllowed } = require('./_helpers');
 
 module.exports = async function handler(req, res) {
   const { code, state, error } = req.query || {};
@@ -70,16 +70,34 @@ module.exports = async function handler(req, res) {
     return res.redirect(302, '/?error=id_token_decode_failed');
   }
 
+  const accountEmail = (profile.email && String(profile.email).trim()) || '';
+  if (!accountEmail) {
+    console.warn('[auth/callback] Google account has no email in id_token');
+    return res.redirect(302, '/?error=no_email');
+  }
+  if (!isEmailAllowed(accountEmail)) {
+    console.warn('[auth/callback] email not in AUTH_ALLOWED_EMAILS:', accountEmail);
+    return res.redirect(302, '/?error=email_not_approved');
+  }
+
   // ── Build + sign session JWT ────────────────────────────────────────────────
-  const now        = Math.floor(Date.now() / 1000);
-  const sessionJWT = signJWT({
-    sub:     profile.sub,
-    name:    profile.name    || '',
-    email:   profile.email   || '',
-    picture: profile.picture || '',
-    iat:     now,
-    exp:     now + SESSION_MAX_AGE,
-  }, secret);
+  // ไม่ใส่ picture ใน cookie — URL รูป Google ยาวมาก ทำให้ header Cookie รวมเกิน limit ของ
+  // edge (Vercel 494 REQUEST_HEADER_TOO_LARGE) ฝั่ง client ยังแสดง initial จากชื่อได้
+  const now = Math.floor(Date.now() / 1000);
+  const name = String(profile.name || '')
+    .trim()
+    .slice(0, 128);
+  const emailNorm = accountEmail.slice(0, 254);
+  const sessionJWT = signJWT(
+    {
+      sub:   profile.sub,
+      name,
+      email: emailNorm,
+      iat:   now,
+      exp:   now + SESSION_MAX_AGE,
+    },
+    secret
+  );
 
   // Clear CSRF cookie, set session cookie
   res.setHeader('Set-Cookie', [

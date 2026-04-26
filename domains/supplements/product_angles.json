@@ -1,0 +1,273 @@
+{
+  "domain_id": "supplements",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.supplements",
+    "product_categories_from_taxonomy": [
+      "vitamin_d3_k2_combo",
+      "magnesium_glycinate",
+      "magnesium_threonate",
+      "zinc_picolinate",
+      "omega_3_triglyceride_form",
+      "methyl_b_complex",
+      "multivitamin_basic",
+      "vitamin_c_liposomal",
+      "iron_bisglycinate",
+      "selenium_methylselenocysteine"
+    ],
+    "regulatory_note": "ทุก angle ในโดเมนนี้ต้องเคารพ อย. ประกาศกระทรวงสาธารณสุข (ฉบับที่ 293) พ.ศ. 2548 และประกาศฉบับปรับปรุง — ห้าม therapeutic claim ที่ระบุชื่อโรค"
+  },
+  "angles": [
+    {
+      "angle_id": "angle_supp_vitamin_d3_k2_combo",
+      "product_category": "vitamin_d3_k2_combo",
+      "problem_th": "45.2% ของผู้ใหญ่ไทยมี 25(OH)D <30 ng/mL แม้อยู่เขตร้อน (Chailurkit 2011) — เพราะคนเมืองอยู่ในร่ม 90%+ และ SPF 30+ บล็อก UVB >96%; เมื่อเสริม D เดี่ยวโดยไม่มี K2 อาจกระตุ้น calcium absorption โดยไม่ route เข้ากระดูก",
+      "mechanism_claim_th": "วิตามิน D3 เพิ่มการดูดซึมแคลเซียมที่ลำไส้ผ่าน calbindin; วิตามิน K2 (MK-7) กระตุ้น osteocalcin + Matrix Gla Protein ผ่าน γ-carboxylation → ส่งแคลเซียมเข้าโครงสร้างกระดูก/ฟัน แทนที่จะค้างในหลอดเลือด — เป็น duo ที่ Masterjohn และ Kate Rheaume-Bleue ผลักดัน; MK-7 half-life ~72 ชม. ต่างจาก MK-4 ~1-2 ชม. (Schurgers 2007)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในการดูดซึมแคลเซียมและฟอสฟอรัสของร่างกาย",
+        "มีส่วนช่วยในกระบวนการสร้างกระดูกและฟันที่แข็งแรง",
+        "สนับสนุนการทำงานของระบบกล้ามเนื้อตามปกติ",
+        "เหมาะกับผู้ที่ไม่ค่อยโดนแดด ทำงานในร่ม หรือใช้ครีมกันแดดเป็นประจำ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษา/ป้องกันโรคกระดูกพรุน osteoporosis",
+        "ห้ามอ้างว่ารักษา/ป้องกันโรคหลอดเลือด calcification",
+        "ห้ามอ้างว่า 'บูสต์ภูมิคุ้มกัน' แบบ medical claim — ใช้ 'สนับสนุน' แทน",
+        "ห้ามระบุตัวเลข 25(OH)D แบบเฉพาะเจาะจงในโฆษณา (เป็น medical test result)",
+        "ห้ามใช้คู่ warfarin โดยไม่แจ้งแพทย์ — ต้อง disclaim"
+      ],
+      "supporting_facts": ["supp_001", "supp_002", "supp_003", "supp_005", "supp_006", "supp_017"],
+      "narrative_frames": [
+        "อยู่ไทยแดดเยอะ แต่ 45% ของคนไทยยังขาด — แปลกไหม?",
+        "D + K2 = คู่หูที่ Dr. Chris Masterjohn กินทุกวัน — D เปิดประตูแคลเซียม, K2 บอกทางให้เข้ากระดูก",
+        "วิตามิน D ตัวเดียวอาจไม่พอ — ต้องมี K2 คอยชี้ทางแคลเซียม"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_magnesium_glycinate",
+      "product_category": "magnesium_glycinate",
+      "problem_th": "48% ของผู้ใหญ่สหรัฐ + เปอร์เซนต์คล้ายกันในคนไทยเมือง มี Mg intake ต่ำกว่า EAR (หลัก ๆ เพราะกินผักใบเขียวน้อย + ข้าวขัดขาว); นอนไม่หลับ ตะคริวกลางคืน ตึงไหล่ ความเครียดเรื้อรัง = สัญญาณ Mg ต่ำ; oxide ราคาถูก แต่ดูดซึมแค่ ~4% + ทำให้ท้องเสีย",
+      "mechanism_claim_th": "Magnesium glycinate = Mg²⁺ จับกับ glycine (amino acid ที่ช่วย inhibitory neurotransmission); ดูดซึมผ่าน peptide transporter ได้ดี (~50% absorption vs oxide ~4%), ไม่ทำให้ท้องเสีย, glycine เองสงบประสาท — double calming effect; Mg เป็น cofactor ของเอนไซม์ >300 ตัว + block NMDA receptor ลด over-excitation",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในการทำงานของระบบประสาทและกล้ามเนื้อ",
+        "ช่วยให้รู้สึกผ่อนคลายก่อนนอน",
+        "รูปแบบ chelate กับ glycine ดูดซึมได้ดีและอ่อนโยนต่อกระเพาะ",
+        "สนับสนุนการทำงานของระบบกล้ามเนื้อและการหดตัวของกล้ามเนื้อตามปกติ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษาโรคนอนไม่หลับ/ซึมเศร้า/วิตกกังวล (insomnia/depression/anxiety)",
+        "ห้ามอ้างว่ารักษาโรคตะคริวเรื้อรัง",
+        "ห้ามอ้างว่าดูดซึม '100%' หรือเกินจริง — ใช้ 'ดูดซึมได้ดีกว่า oxide หลายเท่า'",
+        "ห้ามอ้างลดความดันโลหิตสูง (hypertension) แบบ therapeutic"
+      ],
+      "supporting_facts": ["supp_007", "supp_008"],
+      "narrative_frames": [
+        "แมกนีเซียม oxide ดูดซึมแค่ 4% — คุณกำลังจ่ายเงินทิ้งหรือเปล่า?",
+        "Glycinate = Mg + glycine (amino acid ที่ทำให้สมองสงบ) — 2 in 1",
+        "ถ้าคุณนอนไม่หลับและเป็นตะคริวกลางคืน อาจขาด Mg โดยไม่รู้ตัว"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_magnesium_threonate",
+      "product_category": "magnesium_threonate",
+      "problem_th": "Magnesium ทั่วไปเข้าสมองได้น้อยเพราะ blood-brain barrier; ผู้ที่ต้องใช้สมาธิ/ความจำ (นักเรียน, ผู้สูงอายุ, worker สาย knowledge) รู้สึกว่า Mg ปกติไม่ช่วยด้าน cognitive",
+      "mechanism_claim_th": "Magnesium L-threonate พัฒนาโดยทีม MIT (Liu et al., Neuron 2010) — สัตว์ทดลองแสดงการเพิ่ม brain Mg, synaptic density และ learning; ในมนุษย์ Zhang et al. RCT เล็ก (2019) รายงานคะแนนความจำดีขึ้น — หลักฐานยังจำกัด แต่เป็น form เดียวที่ penetrate BBB ได้ดี",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในการทำงานของระบบประสาท",
+        "รูปแบบ threonate ได้รับการพัฒนาเพื่อการดูดซึมสู่ระบบประสาทส่วนกลาง",
+        "เหมาะสำหรับผู้ที่ต้องการสนับสนุนด้านสมองและความจำ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษา/ป้องกัน Alzheimer/dementia",
+        "ห้ามอ้างว่าเพิ่ม IQ / ฉลาดขึ้น",
+        "ห้ามอ้างว่ารักษาโรคสมาธิสั้น ADHD",
+        "ต้องระบุว่าหลักฐานในคนยังจำกัด (T3) — อย่าล้อเลียน Mg รูปอื่น"
+      ],
+      "supporting_facts": ["supp_009"],
+      "narrative_frames": [
+        "MIT พัฒนารูปแบบ Mg ตัวนี้มาโดยเฉพาะเพื่อให้ข้ามเข้าสมองได้",
+        "สำหรับคนที่ต้องการสนับสนุนความจำ + การนอน",
+        "Mg ทั่วไปช่วยกล้ามเนื้อ — threonate เน้นสมอง"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_zinc_picolinate",
+      "product_category": "zinc_picolinate",
+      "problem_th": "Zn ต่ำสัมพันธ์กับภูมิคุ้มกันอ่อน, สิวเรื้อรัง, แผลหายช้า, taste loss; แต่ Zn เสริมผิด form (oxide) ดูดซึมแย่ และเกินขนาด (>50 mg/วันเรื้อรัง) ทำให้ Cu ขาด → anemia + neuropathy",
+      "mechanism_claim_th": "Zinc picolinate = Zn²⁺ จับกับ picolinic acid → ดูดซึมผ่าน transporter ได้ดีกว่า gluconate/citrate (Barrie 1987); Zn เป็น cofactor ใน >300 enzyme รวมถึง metallothionein, DNA polymerase, zinc-finger transcription factors; จำเป็นต่อ immune T-cell function",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในการทำงานของระบบภูมิคุ้มกัน",
+        "มีส่วนช่วยในการบำรุงผิว เล็บ ผม",
+        "สนับสนุนการทำงานของระบบสืบพันธุ์ในผู้ชาย (testosterone synthesis cofactor)",
+        "รูปแบบ picolinate ได้รับการศึกษาว่าดูดซึมดีกว่ารูปแบบทั่วไป"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'รักษาหวัด' — ใช้ 'สนับสนุนระบบภูมิคุ้มกัน'",
+        "ห้ามอ้างว่ารักษาสิว / โรคผิวหนัง (dermatological disease)",
+        "ห้ามแนะนำ dose >40 mg/d โดยไม่มี copper balance warning",
+        "ห้ามอ้างว่าเพิ่ม testosterone หรือสมรรถภาพทางเพศแบบ therapeutic"
+      ],
+      "supporting_facts": ["supp_010", "supp_011"],
+      "narrative_frames": [
+        "Zn picolinate ดูดซึมดีกว่า Zn oxide — ถ้าไม่ดูฉลาก คุณอาจกิน 'หิน' แทนอาหารเสริม",
+        "เสริม Zn ต้องไม่เกิน 40 mg/วันเรื้อรัง ไม่งั้น Cu จะหายไปโดยไม่รู้ตัว",
+        "ภูมิคุ้มกันดี + ผิวดี + ชายหนุ่ม — Zn คือเสาหลัก"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_omega_3_triglyceride_form",
+      "product_category": "omega_3_triglyceride_form",
+      "problem_th": "ผู้บริโภคซื้อ fish oil ราคาถูกที่เป็น ethyl ester (EE) — ดูดซึมแค่ ~27% vs triglyceride form ~70% (Dyerberg 2010); + ยี่ห้อถูกมักมี TOTOX (oxidation) สูง กลิ่นเหม็นคาว = omega-3 หืนแล้ว; คนไทยส่วนใหญ่มี Omega-3 Index <4% (เสี่ยง CVD)",
+      "mechanism_claim_th": "Triglyceride form (rTG) ย่อยผ่าน pancreatic lipase ปลดปล่อย free fatty acids ได้ตรงๆ; EE form ต้อง re-esterify ก่อนดูดซึมทำให้ช้าลงและขึ้นกับไขมันในมื้อ; EPA/DHA → membrane phospholipid → SPMs (resolvins, protectins) ดับการอักเสบเฉียบพลัน; Omega-3 Index ≥8% สัมพันธ์กับ CVD death risk ต่ำ (Harris 2004)",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "EPA และ DHA มีส่วนช่วยในการทำงานของหัวใจตามปกติ (EU EFSA-approved wording)",
+        "DHA มีส่วนในการพัฒนาการมองเห็นและสมองในทารก/เด็ก",
+        "รูปแบบ triglyceride (rTG) ดูดซึมได้ดีกว่า ethyl ester อย่างชัดเจน",
+        "สนับสนุนการทำงานของหัวใจและสมอง"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษา/ป้องกันโรคหัวใจ (cardiovascular disease)",
+        "ห้ามอ้างว่าลด triglyceride ในเลือดแบบ therapeutic (เป็น pharmaceutical indication)",
+        "ห้ามอ้างว่ารักษาซึมเศร้า/ADHD/dementia",
+        "ต้องระบุคำเตือน bleeding risk ถ้า dose สูง + on anticoagulant"
+      ],
+      "supporting_facts": ["supp_014", "supp_015", "supp_016"],
+      "narrative_frames": [
+        "Fish oil ถูก vs แพง = คนละ form กัน — ดูดซึมต่างกันเกือบ 3 เท่า",
+        "Omega-3 Index คือ marker ที่แพทย์หัวใจระดับโลก William Harris ใช้",
+        "กลิ่นคาวในขวด = omega-3 หืนแล้ว กินแล้วได้ oxidative stress แทน"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_methyl_b_complex",
+      "product_category": "methyl_b_complex",
+      "problem_th": "~10-20% ของคนมี MTHFR C677T polymorphism (เปลี่ยน folic acid → 5-MTHF ได้ลดลง 30-70%); ผู้สูงอายุ, PPI users, metformin users, vegans มี B12 absorption ลดลง; อาการคือเพลียเรื้อรัง, brain fog, hyperhomocysteinemia",
+      "mechanism_claim_th": "Methylcobalamin (active B12) + 5-MTHF (active folate) + P5P (active B6) = รูปแบบที่ร่างกายใช้ได้ทันที ข้าม methylation step ที่อาจติดใน MTHFR mutation; Methylation Cycle: B12 รับ methyl จาก 5-MTHF → methionine → SAMe ('universal methyl donor' สำหรับ DNA, neurotransmitter, myelin)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในการทำงานของระบบประสาทและกล้ามเนื้อ",
+        "ช่วยในเรื่องของเมแทบอลิซึมของโฮโมซิสเทอีน",
+        "สนับสนุนการสร้างเม็ดเลือดแดง",
+        "รูปแบบ active/methyl เหมาะสำหรับผู้สูงอายุและผู้ที่มี MTHFR variant"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษา anemia / B12 deficiency (needs medical Dx)",
+        "ห้ามอ้างว่ารักษา depression / Alzheimer",
+        "ห้ามแนะนำให้ตรวจ MTHFR เอง — บอกว่า 'ปรึกษาแพทย์' เท่านั้น",
+        "ห้ามอ้างว่าเพิ่มพลังงาน/สมาธิแบบ therapeutic"
+      ],
+      "supporting_facts": ["supp_012", "supp_013"],
+      "narrative_frames": [
+        "B12 ปกติ ≠ B12 ทำงานปกติ — MMA คือมาร์เกอร์ที่ละเอียดกว่า",
+        "PPI + metformin + อายุ 60+ = สูตรของ B12 ที่ดูดซึมแย่",
+        "Methyl form = รูปที่ร่างกายใช้ได้ทันที ไม่ต้องแปลง"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_multivitamin_basic",
+      "product_category": "multivitamin_basic",
+      "problem_th": "คนทำงานออฟฟิศกินอาหารปรุงสำเร็จ/ข้าวกล่องเป็นประจำ → micronutrient gaps หลายตัวพร้อมกัน (Mg, K, folate, vitamin D, E, Ca); RCT PHS II (Gaziano 2012) พบ multivitamin daily ลด cancer incidence 8% และปลอดภัย 11 ปี",
+      "mechanism_claim_th": "Multivitamin basic daily = insurance policy ต่อ sub-optimal diet — ครอบคลุม 13 vitamins + 10-15 minerals ตาม RDA ส่วนใหญ่; ป้องกัน overt deficiency (scurvy, rickets) และแก้ sub-clinical gap; ไม่ใช่ 'substitute' อาหาร แต่เป็น 'safety net'",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยให้ร่างกายได้รับวิตามินและเกลือแร่ที่จำเป็นครบตาม RDA",
+        "เหมาะสำหรับผู้ที่กินอาหารไม่ครบ 5 หมู่ หรือทำงานหนัก",
+        "สนับสนุนการทำงานของระบบต่างๆ ในร่างกาย",
+        "ได้รับการศึกษาว่าใช้ทุกวันปลอดภัย (ที่ RDA)"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่าป้องกันมะเร็ง (แม้ PHS II พบ 8% — ไม่ใช่ therapeutic proof)",
+        "ห้ามอ้างว่าทดแทนมื้ออาหาร",
+        "ห้ามอ้างว่า 'กินแล้วแข็งแรงไม่ป่วย'",
+        "ห้ามขายให้เด็ก <4 ปี / หญิงตั้งครรภ์ โดยไม่มีฉลาก specific"
+      ],
+      "supporting_facts": ["supp_019", "supp_008"],
+      "narrative_frames": [
+        "กินอาหารสำเร็จรูป 5 วัน/สัปดาห์ = ได้วิตามินครบไหม?",
+        "Multivitamin = insurance policy ไม่ใช่ magic pill",
+        "RCT 11 ปีบอกว่าปลอดภัย ไม่ทำร้ายตับไตตามความเชื่อเก่า"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_vitamin_c_liposomal",
+      "product_category": "vitamin_c_liposomal",
+      "problem_th": "Vitamin C ธรรมดาดูดซึมผ่าน SVCT1 transporter ที่อิ่มตัว ~200-400 mg/dose — เกินนั้นขับออกทางปัสสาวะ; ผู้บริโภคที่อยากได้ high plasma level (เช่น ช่วงป่วย หรือ support immune) มักทานเยอะแต่ไม่ได้ผล",
+      "mechanism_claim_th": "Liposomal vitamin C = ascorbate ห่อใน phospholipid bilayer → ผ่าน gut barrier ได้โดยไม่ต้องแย่ง SVCT1 → ถูก endocytosed เข้าเซลล์โดยตรง; Davis et al. 2016 แสดง AUC ประมาณ 1.77 เท่าของ regular C ที่ dose 4g; Hickey 2008 แสดง plasma peak สูงกว่า oral ปกติ",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในการทำงานของระบบภูมิคุ้มกัน",
+        "มีส่วนช่วยในการสร้างคอลลาเจน",
+        "เป็น antioxidant ช่วยปกป้องเซลล์จาก oxidative stress",
+        "รูปแบบ liposomal ช่วยให้ระดับในเลือดขึ้นสูงกว่ารูปปกติ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษาหวัด / COVID / infection ใดๆ",
+        "ห้ามอ้างว่ารักษา/ป้องกันมะเร็ง (IV high-dose เป็น medical, ไม่ใช่ oral supplement)",
+        "ห้ามอ้างว่าเท่ากับ IV vitamin C",
+        "ห้ามอ้างว่า 'white skin' / ขาวใส แบบ cosmetic drug claim"
+      ],
+      "supporting_facts": ["supp_021"],
+      "narrative_frames": [
+        "กิน vitamin C 5,000 mg แต่ฉี่ทิ้งหมด? Liposomal เปลี่ยนเกม",
+        "Liposome = รถหุ้มเกราะที่พา C ผ่านลำไส้ได้เต็มโดส",
+        "ทานไม่เท่าไหร่ plasma level สูงกว่า regular C เกือบ 2 เท่า"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_iron_bisglycinate",
+      "product_category": "iron_bisglycinate",
+      "problem_th": "ผู้หญิงวัยเจริญพันธุ์ + นักวิ่ง + คนกินน้อยเหล็ก อาจมี iron deficiency → เพลีย, ผมร่วง, หัวใจเต้นแรง; Ferrous sulfate (รูปที่หมอสั่งบ่อย) มักก่ออาการข้างเคียง GI (คลื่นไส้, ท้องผูก, อุจจาระดำ) ทำให้คนกินไม่ครบคอร์ส",
+      "mechanism_claim_th": "Ferrous bisglycinate = Fe²⁺ chelate กับ glycine 2 โมเลกุล → ผ่าน gut ด้วย peptide transporter แทน DMT1 (โดน hepcidin block) → GI side-effect ต่ำกว่า sulfate อย่างชัดเจน (Bovell-Benjamin 2000; Milman 2014); bioavailability ใกล้เคียงหรือดีกว่า sulfate ในบางการศึกษา (Pineda 2001)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในการสร้างเม็ดเลือดแดง",
+        "มีส่วนช่วยในการขนส่งออกซิเจนในร่างกาย",
+        "รูปแบบ bisglycinate ก่ออาการข้างเคียงต่อระบบทางเดินอาหารน้อยกว่ารูปแบบ sulfate"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษา iron-deficiency anemia (ต้อง Dx ด้วยแพทย์)",
+        "ห้ามขาย Fe ให้ผู้ชาย/คนสูงอายุที่ไม่ได้ขาด — เสี่ยง hemochromatosis / oxidative stress",
+        "ต้องระบุคำเตือน 'ปรึกษาแพทย์หากสงสัยว่ามี iron overload'",
+        "ห้ามอ้างว่าแก้อาการผมร่วงจาก Fe deficiency โดยไม่มี Dx"
+      ],
+      "supporting_facts": ["supp_020"],
+      "narrative_frames": [
+        "กิน Fe แล้วคลื่นไส้อย่างนี้ = ใช้ sulfate; bisglycinate ไม่ทำให้รู้สึกแบบนั้น",
+        "ผู้หญิงมีรอบเดือน + นักวิ่ง = กลุ่มเสี่ยง Fe ต่ำ",
+        "Fe ไม่ได้ดีกับทุกคน — ถ้าไม่ขาด อย่ากิน"
+      ]
+    },
+    {
+      "angle_id": "angle_supp_selenium_methylselenocysteine",
+      "product_category": "selenium_methylselenocysteine",
+      "problem_th": "ซีลีเนียมเป็น cofactor ของ glutathione peroxidase + deiodinase (thyroid hormone conversion); ดินในเอเชียตะวันออกเฉียงใต้/จีนบางส่วน selenium ต่ำ; แต่ form ที่ใช้ใน SELECT 2011 (selenomethionine) ไม่แสดงผลลดมะเร็ง — methylselenocysteine (Se-methyl) เป็น form ที่ animal studies เสนอว่า bioactive กว่า",
+      "mechanism_claim_th": "Methylselenocysteine เปลี่ยนเป็น methylselenol ซึ่งเป็น redox-active form ที่กระตุ้น apoptosis เซลล์เสียหาย (in vitro/animal — Ip 2006); Se เป็นองค์ประกอบของ selenoprotein ~25 ชนิด รวมถึง GPx, TXNRD; RDA 55 µg/d, UL 400 µg/d",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "มีส่วนช่วยในการทำงานของระบบภูมิคุ้มกัน",
+        "เป็น cofactor สำหรับการทำงานของ thyroid (สนับสนุน)",
+        "antioxidant ช่วยปกป้องเซลล์จาก oxidative stress",
+        "รูปแบบ methylated ได้รับการศึกษาว่ามี bioactivity เฉพาะตัว"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่าป้องกัน/รักษามะเร็ง (SELECT 2011 ไม่พบผลลดมะเร็ง)",
+        "ห้ามอ้างว่ารักษา thyroid disease / Hashimoto",
+        "ห้ามให้เกิน UL 400 µg/d — เสี่ยง selenosis (ผมร่วง, เล็บเปราะ)",
+        "ห้ามโฆษณาเทียบตรง ๆ ว่า 'ดีกว่า' selenomethionine ถ้าไม่มี head-to-head RCT ในมนุษย์"
+      ],
+      "supporting_facts": ["supp_024"],
+      "narrative_frames": [
+        "บราซิลนัท 2 เม็ด = Se 1 วัน — แต่ไม่ใช่ทุกคนหาบราซิลนัทได้ทุกวัน",
+        "Selenium form matters — Se-methyl เป็นสายทดลองใหม่",
+        "น้อยเกินไป = ภูมิอ่อน, มากเกินไป = ผมร่วง — อยู่ใน sweet spot"
+      ]
+    }
+  ]
+}

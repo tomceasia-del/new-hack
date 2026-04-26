@@ -1,0 +1,65 @@
+{
+  "domain_id": "sleep",
+  "sub_topics": [
+    {
+      "id": "circadian_rhythm",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "melatonin_pathway",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "adenosine",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "sleep_stages",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "sleep_hygiene",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "blue_light",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    }
+  ]
+}

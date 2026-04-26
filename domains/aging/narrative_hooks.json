@@ -1,0 +1,107 @@
+{
+  "domain_id": "aging",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 12,
+    "last_harvested": "2026-04-22",
+    "notes": "Premium longevity audience = sophisticated. Hook with science credibility (Nobel, specific %, lab names). Every hook inherits safety_warning from facts_used via composer — never glamourize 'ย้อนวัย guaranteed'."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_aging_001_nobel_authority",
+      "style": "awe",
+      "pattern_th": "รางวัลโนเบล __X__ (__Y__) ยืนยันแล้วว่าเซลล์คุณ __Z__",
+      "example_th": "รางวัลโนเบล 2009 ยืนยันแล้วว่าเซลล์คุณมี 'นาฬิกานับถอยหลัง' ในตัว — เรียกว่า telomere และทุกครั้งที่เซลล์แบ่งตัว เข็มจะเดินไปอีกหนึ่งช่อง จนในที่สุดมันหยุดแบ่ง",
+      "facts_used": ["aging_003", "aging_017"],
+      "effectiveness_notes": "Nobel-authority hook = ใช้ได้กับ premium longevity buyer ที่ value science credibility; 3-sec retention สูงเพราะ 'โนเบล' เป็น trigger word"
+    },
+    {
+      "template_id": "hook_aging_002_50pct_drop",
+      "style": "shock",
+      "pattern_th": "มีโมเลกุลหนึ่งตัวในร่างกายคุณที่ลดลง __X__ % จากอายุ __Y__ ถึง __Z__ — และมันคือ __W__",
+      "example_th": "มีโมเลกุลหนึ่งตัวในร่างกายคุณที่ลดลง 50% จากอายุ 20 ถึง 60 — และมันคือ NAD+ โคเอนไซม์ที่ sirtuins (ยีนอายุยืน) ต้องใช้ในการทำงาน (Massudi 2012, PLoS ONE)",
+      "facts_used": ["aging_005"],
+      "effectiveness_notes": "Curiosity gap + numeric shock — ตัวเลข 50% specific enough ให้น่าเชื่อถือ; เปิดประตูสู่ NAD/NMN education"
+    },
+    {
+      "template_id": "hook_aging_003_biological_vs_calendar",
+      "style": "pain",
+      "pattern_th": "คุณอาจอายุ __X__ ปี แต่เซลล์คุณอายุ __Y__ — ถ้า __Z__",
+      "example_th": "คุณอาจอายุ 40 ปี แต่เซลล์คุณอายุ 55 — ถ้าคุณนอนน้อย, เครียดเรื้อรัง, inflammation สูง; ทดสอบด้วย epigenetic clock ของ Horvath (353 CpG sites)",
+      "facts_used": ["aging_017", "aging_009"],
+      "effectiveness_notes": "Pain-reframe hook — 'คุณอาจแก่เกินอายุ' สร้าง identity disruption; ดีสำหรับคน 35-55 ที่เริ่มคิดถึง longevity"
+    },
+    {
+      "template_id": "hook_aging_004_nobel_2016_autophagy",
+      "style": "awe",
+      "pattern_th": "รางวัลโนเบล 2016 บอกว่าเซลล์คุณมี __X__ — แต่ตอนอายุ __Y__ มันทำงานได้ __Z__ %",
+      "example_th": "รางวัลโนเบล 2016 (Yoshinori Ohsumi) ยืนยันว่าเซลล์คุณมี 'ระบบล้างบ้าน' เรียก autophagy — แต่ตอนอายุ 60 มันทำงานได้แค่ประมาณครึ่งหนึ่งของตอน 20 — เซลล์เสียค่อย ๆ สะสม",
+      "facts_used": ["aging_015"],
+      "effectiveness_notes": "Nobel + mechanism reveal — setup ที่ดีสำหรับ spermidine/fasting content"
+    },
+    {
+      "template_id": "hook_aging_005_zombie_cells",
+      "style": "shock",
+      "pattern_th": "ในร่างกายคุณตอนนี้ มี 'เซลล์ __X__' ที่ __Y__ — และมันทำให้คุณแก่เร็วขึ้น",
+      "example_th": "ในร่างกายคุณตอนนี้ มี 'เซลล์ซอมบี้' ที่หยุดแบ่งตัวแล้ว — แต่ไม่ยอมตาย — พ่น SASP (สารอักเสบ) ใส่เซลล์รอบข้าง ทำให้เซลล์ข้างเคียงแก่ตาม; Judith Campisi ที่ Buck Institute เรียกมันว่า 'inflammaging'",
+      "facts_used": ["aging_001", "aging_002"],
+      "effectiveness_notes": "Horror-metaphor ('ซอมบี้') + scientific authority — viral pattern; UncleD-compatible style; setup สำหรับ senolytic discussion (fisetin) — แต่ต้อง flag forbidden scripts ต่อเนื่อง"
+    },
+    {
+      "template_id": "hook_aging_006_blue_zones_shock",
+      "style": "curiosity",
+      "pattern_th": "มี __X__ ภูมิภาคในโลกที่คน อายุ 100 ปี มี __Y__ เท่าของค่าเฉลี่ย — และสิ่งที่พวกเขาทำเหมือนกันคือ __Z__",
+      "example_th": "มี 5 ภูมิภาคในโลกที่คนอายุ 100 ปีเยอะกว่าค่าเฉลี่ยหลายเท่า (Blue Zones: Okinawa, Sardinia, Nicoya, Ikaria, Loma Linda) — พวกเขาไม่ได้กินอาหารเสริมแพง ๆ; สิ่งที่เหมือนกันคือ กินพืชเป็นหลัก, เคลื่อนไหวทุกวัน, และมีเป้าหมายในชีวิต",
+      "facts_used": ["aging_025"],
+      "effectiveness_notes": "Lifestyle hook — green risk; ดีเป็น opening/outro ของ longevity content; ช่วยลดแรงกดดัน 'ซื้ออาหารเสริม' จาก content"
+    },
+    {
+      "template_id": "hook_aging_007_rapamycin_mouse",
+      "style": "awe",
+      "pattern_th": "ยาตัวหนึ่งที่ค้นพบในดินของเกาะ __X__ ยืดอายุหนูได้ __Y__ — แต่คุณห้ามซื้อเอง",
+      "example_th": "ยาตัวหนึ่งที่ค้นพบในดินของเกาะ Easter Island (Rapa Nui) ยืดอายุหนูได้ 9-14% แม้ให้ตอนหนูแก่แล้ว (Harrison 2009, Nature) — นั่นคือ rapamycin; แต่มันเป็นยาตามใบสั่งแพทย์เท่านั้น ห้ามซื้อกินเอง",
+      "facts_used": ["aging_008"],
+      "effectiveness_notes": "Educational 'awe' hook — แต่ต้องระวัง forbidden script; prescribed closing 'ห้ามซื้อกินเอง' จำเป็น; useful สำหรับ education credibility แต่ 0 product angle"
+    },
+    {
+      "template_id": "hook_aging_008_exercise_beats_all",
+      "style": "insult_reality",
+      "pattern_th": "ถ้าคุณเลือกได้ 1 อย่างสำหรับอายุยืน — ไม่ใช่ NMN ไม่ใช่ resveratrol — มันคือ __X__",
+      "example_th": "ถ้าคุณเลือกได้ 1 อย่างสำหรับอายุยืน — ไม่ใช่ NMN ไม่ใช่ resveratrol — มันคือ resistance training; meta-analysis (Momma 2022, BMJ) พบว่า weight training ~30-60 นาที/สัปดาห์ = all-cause mortality ลด 10-20%; ไม่มี supplement ตัวใดใน human RCT ทำได้แบบนี้",
+      "facts_used": ["aging_012"],
+      "effectiveness_notes": "Reframe hook ที่ 'ตบ' supplement industry — สร้าง trust เพราะไม่ขายของ; perfect opener สำหรับ premium audience ที่ skeptical"
+    },
+    {
+      "template_id": "hook_aging_009_valter_longo_fmd",
+      "style": "awe",
+      "pattern_th": "มีโปรโตคอลอดอาหาร __X__ วันที่ Valter Longo พบว่าลด biological age ~__Y__ ปี",
+      "example_th": "มีโปรโตคอลอดอาหาร 5 วัน (FMD: Fasting-Mimicking Diet) ที่ Valter Longo ที่ USC พบในการทดลองกับคน — ลด biological age markers ประมาณ 2.5 ปี; ทำ 3 ครั้ง/ปี (Wei 2017, Science Translational Med)",
+      "facts_used": ["aging_011"],
+      "effectiveness_notes": "Science authority (Longo/USC) + specific protocol — premium education hook; MUST pair with safety disclaimer (ไม่เหมาะกับ DM, eating disorder, elderly frail)"
+    },
+    {
+      "template_id": "hook_aging_010_sinclair_reversal",
+      "style": "curiosity",
+      "pattern_th": "ในปี __X__ David Sinclair ที่ Harvard พิสูจน์ว่าอายุ __Y__ — แต่ในหนู ไม่ใช่คน",
+      "example_th": "ในปี 2020 David Sinclair ที่ Harvard พิสูจน์ว่าอายุ 'ย้อนกลับ' ได้ในเซลล์ประสาทตาหนูแก่ โดยใช้ Yamanaka OSK factors (Lu et al., Nature) — แต่ยัง zero trial ในคน; สิ่งที่ใช้ได้ตอนนี้คือกลไกที่ใกล้เคียง: caloric restriction, exercise, sleep",
+      "facts_used": ["aging_009"],
+      "effectiveness_notes": "Authority + honesty hook — ยืนยันว่า 'ย้อนวัย' ในคนยังไม่มี; ดีมากสำหรับ building trust กับ skeptical premium audience; AVOID letting composer fall into 'ย้อนวัยได้แน่' forbidden script"
+    },
+    {
+      "template_id": "hook_aging_011_glutathione_master",
+      "style": "curiosity",
+      "pattern_th": "มี 'master antioxidant' ที่เซลล์คุณสร้างเอง — แต่หลังอายุ __X__ เหลือแค่ __Y__ %",
+      "example_th": "มี 'master antioxidant' ที่เซลล์คุณสร้างเอง — ชื่อ glutathione; หลังอายุ 60 เหลือประมาณครึ่งหนึ่งของวัย 20 — และงานวิจัย Kumar 2022 ที่ Baylor College พบว่าการเติม glycine + NAC กลับได้ใน 16 สัปดาห์",
+      "facts_used": ["aging_018"],
+      "effectiveness_notes": "Data-specific hook — Baylor authority + study design details ให้น้ำหนัก; ดีสำหรับ GlyNAC product angle"
+    },
+    {
+      "template_id": "hook_aging_012_sleep_anti_aging",
+      "style": "insult_reality",
+      "pattern_th": "ไม่มี supplement ตัวใดในโลกทำสิ่งนี้ได้เท่า __X__ — และมันฟรี",
+      "example_th": "ไม่มี supplement ตัวใดในโลกทำความสะอาดสมองแทน 'การนอน' ได้ — ระบบ glymphatic ขจัด amyloid-β เกือบ 2 เท่าตอนคุณหลับลึก เทียบกับตื่น (Xie 2013, Science); นอนน้อย 1 คืน ทำให้ amyloid ในสมองเพิ่มขึ้นวัดได้ (Shokri-Kojori 2018, PNAS)",
+      "facts_used": ["aging_013"],
+      "effectiveness_notes": "Trust-building hook ที่ 'ตบ' supplement; ดีเป็น outro หรือ story arc ปิด — reinforce ว่า lifestyle > pill"
+    }
+  ]
+}

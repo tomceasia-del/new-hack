@@ -1,0 +1,34 @@
+{
+  "product_id": "default_product",
+  "_meta": {
+    "notes": "Sample product facts for story-config-mock local injection."
+  },
+  "facts": [
+    {
+      "fact_id": "pf_001",
+      "statement_th": "ปริมาตรสุทธิ 150 มิลลิลิตรต่อขวด",
+      "numeric_values": [
+        { "value": 150, "unit": "ml", "label": "net_volume" }
+      ],
+      "source_confidence": "label_claim"
+    },
+    {
+      "fact_id": "pf_002",
+      "statement_th": "น้ำหนักสุทธิ 250 กรัม",
+      "numeric_values": [
+        { "value": 250, "unit": "g", "label": "net_weight" }
+      ],
+      "source_confidence": "label_claim"
+    },
+    {
+      "fact_id": "pf_003",
+      "statement_th": "ขนาดบรรจุภัณฑ์ กว้าง 6 ซม. ยาว 4 ซม. สูง 12 ซม.",
+      "numeric_values": [
+        { "value": 6, "unit": "cm", "label": "width" },
+        { "value": 4, "unit": "cm", "label": "length" },
+        { "value": 12, "unit": "cm", "label": "height" }
+      ],
+      "source_confidence": "measured"
+    }
+  ]
+}

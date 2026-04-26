@@ -1,0 +1,58 @@
+{
+  "domain_id": "fat_metabolism",
+  "_meta": {
+    "last_harvested": "2026-04-22"
+  },
+  "people": [
+    {"id": "yoshinori_ohsumi", "name": "Yoshinori Ohsumi", "title": "Professor Emeritus / Nobel Laureate", "affiliation": "Tokyo Institute of Technology", "known_for": "Discovery of autophagy mechanisms; 2016 Nobel Prize in Physiology or Medicine", "verifiable": true},
+    {"id": "roy_taylor", "name": "Roy Taylor", "title": "Professor of Medicine & Metabolism", "affiliation": "Newcastle University", "known_for": "Twin Cycle Hypothesis of T2D; Counterpoint + DiRECT trials showing T2D remission via weight loss", "verifiable": true},
+    {"id": "jason_fung", "name": "Jason Fung", "title": "Nephrologist, popular author", "affiliation": "Scarborough Health Network / Intensive Dietary Management", "known_for": "'The Obesity Code', 'The Diabetes Code' — popularizing insulin hypothesis and extended fasting", "verifiable": true},
+    {"id": "peter_attia", "name": "Peter Attia", "title": "Physician, longevity author", "affiliation": "Early Medical / Attia Medical", "known_for": "'Outlive'; ApoB-centric cardiometabolic risk; zone 2 training", "verifiable": true},
+    {"id": "valter_longo", "name": "Valter Longo", "title": "Professor of Gerontology and Biological Sciences", "affiliation": "USC Leonard Davis School", "known_for": "Fasting-Mimicking Diet (FMD); 'The Longevity Diet'", "verifiable": true},
+    {"id": "robert_lustig", "name": "Robert Lustig", "title": "Pediatric Endocrinologist, Emeritus", "affiliation": "UCSF", "known_for": "'Sugar: The Bitter Truth'; fructose-insulin hypothesis; metabolic health advocacy", "verifiable": true},
+    {"id": "andrew_huberman", "name": "Andrew Huberman", "title": "Associate Professor of Neurobiology", "affiliation": "Stanford University School of Medicine", "known_for": "Huberman Lab podcast — episodes on metabolism, BAT, fasting protocols", "verifiable": true},
+    {"id": "satchin_panda", "name": "Satchin Panda", "title": "Professor", "affiliation": "Salk Institute", "known_for": "Circadian biology and Time-Restricted Eating (TRE) research", "verifiable": true},
+    {"id": "jeff_friedman", "name": "Jeffrey Friedman", "title": "Professor of Molecular Genetics", "affiliation": "Rockefeller University", "known_for": "Discovery of leptin (ob gene) in 1994", "verifiable": true},
+    {"id": "ken_ho", "name": "Ken K.Y. Ho", "title": "Endocrinologist", "affiliation": "University of Virginia (1988); later Garvan Institute", "known_for": "1988 J Clin Invest paper on fasting-induced growth hormone pulse amplification", "verifiable": true},
+    {"id": "michael_thorner", "name": "Michael O. Thorner", "title": "Professor Emeritus, Endocrinology", "affiliation": "University of Virginia", "known_for": "Co-author on Ho et al. 1988 GH-fasting study; pioneer of growth hormone research", "verifiable": true},
+    {"id": "ben_bikman", "name": "Ben Bikman", "title": "Professor, Cell Biology & Physiology", "affiliation": "Brigham Young University", "known_for": "'Why We Get Sick' — insulin resistance researcher", "verifiable": true},
+    {"id": "van_marken_lichtenbelt", "name": "Wouter D. van Marken Lichtenbelt", "title": "Professor", "affiliation": "Maastricht University", "known_for": "2009 NEJM cold-activated BAT study in healthy men", "verifiable": true},
+    {"id": "stewart_fleming_1973", "name": "W.K. Stewart & L.W. Fleming", "title": "Physicians", "affiliation": "Maryfield Hospital / University of Dundee", "known_for": "Clinical report of Angus Barbieri's 382-day therapeutic fast (Postgrad Med J 1973)", "verifiable": true}
+  ],
+  "molecules": [
+    {"id": "insulin", "name": "Insulin", "label_th": "อินซูลิน", "family": "peptide hormone", "role": "Master 'storage' hormone — suppresses lipolysis, drives glucose uptake (GLUT4), activates DNL via SREBP-1c"},
+    {"id": "leptin", "name": "Leptin", "label_th": "เลปติน", "family": "adipokine (peptide hormone)", "role": "Adipose-derived satiety signal to hypothalamus — proportional to fat mass; resistance drives obesity"},
+    {"id": "growth_hormone", "name": "Growth Hormone (GH / somatotropin)", "label_th": "โกรทฮอร์โมน", "family": "peptide hormone (pituitary)", "role": "Pulsatile lipolytic + muscle-sparing hormone; amplified during fasting and deep sleep"},
+    {"id": "ghrelin", "name": "Ghrelin", "label_th": "เกรลิน", "family": "peptide hormone (gastric)", "role": "'Hunger hormone' from stomach — pre-meal spike; elevated by sleep deprivation"},
+    {"id": "cortisol", "name": "Cortisol", "label_th": "คอร์ติซอล", "family": "glucocorticoid", "role": "Stress hormone — raises hepatic glucose, promotes visceral fat deposition when chronically high"},
+    {"id": "glp_1", "name": "GLP-1 (Glucagon-like Peptide 1)", "label_th": "GLP-1", "family": "incretin peptide", "role": "Enhances insulin secretion, slows gastric emptying, reduces appetite (target of semaglutide/tirzepatide)"},
+    {"id": "adiponectin", "name": "Adiponectin", "label_th": "อะดิโพเนกติน", "family": "adipokine", "role": "Insulin-sensitizing, anti-inflammatory adipokine — inversely correlated with visceral fat"},
+    {"id": "hormone_sensitive_lipase", "name": "Hormone-Sensitive Lipase (HSL)", "label_th": "ฮอร์โมน-เซนซิทีฟไลเปส", "family": "enzyme (lipase)", "role": "Hydrolyzes stored triglyceride → FFA + glycerol; activated by PKA/catecholamines, suppressed by insulin"},
+    {"id": "adipose_triglyceride_lipase", "name": "Adipose Triglyceride Lipase (ATGL)", "label_th": "ATGL", "family": "enzyme (lipase)", "role": "Catalyzes the first and rate-limiting step of triglyceride hydrolysis in adipocytes"},
+    {"id": "lpl", "name": "Lipoprotein Lipase (LPL)", "label_th": "LPL", "family": "enzyme (lipase)", "role": "Hydrolyzes circulating TG in VLDL/chylomicrons → FFAs taken up by tissue; upregulated by insulin in adipose"},
+    {"id": "glut4", "name": "GLUT4", "label_th": "GLUT4", "family": "glucose transporter", "role": "Insulin-responsive glucose transporter in muscle + adipose; translocates to plasma membrane when insulin binds"},
+    {"id": "ucp1", "name": "UCP1 (Uncoupling Protein 1 / thermogenin)", "label_th": "UCP1", "family": "mitochondrial inner-membrane protein", "role": "Uncouples oxidative phosphorylation — dissipates proton gradient as heat; signature of brown adipocytes"},
+    {"id": "ampk", "name": "AMPK (AMP-activated protein kinase)", "label_th": "AMPK", "family": "serine/threonine kinase", "role": "'Fuel sensor' activated by low ATP — stimulates catabolism (fat oxidation) + inhibits anabolism (lipogenesis)"},
+    {"id": "mtor", "name": "mTOR (mechanistic target of rapamycin)", "label_th": "mTOR", "family": "serine/threonine kinase complex", "role": "Growth master-switch; when active suppresses autophagy; activated by amino acids/insulin"},
+    {"id": "srebp1c", "name": "SREBP-1c (Sterol Regulatory Element-Binding Protein 1c)", "label_th": "SREBP-1c", "family": "transcription factor", "role": "Insulin-activated master regulator of de novo lipogenesis genes (FAS, ACC, SCD-1)"},
+    {"id": "beta_hydroxybutyrate", "name": "β-Hydroxybutyrate (BHB)", "label_th": "เบตา-ไฮดรอกซีบิวทิเรต", "family": "ketone body", "role": "Dominant circulating ketone during fasting/keto; crosses BBB as brain fuel; also signaling molecule (HDAC inhibitor)"},
+    {"id": "acetoacetate", "name": "Acetoacetate", "label_th": "อะซีโตอะซีเตต", "family": "ketone body", "role": "Primary ketone produced in liver; converted to BHB or spontaneously decarboxylated to acetone"},
+    {"id": "glycogen", "name": "Glycogen", "label_th": "ไกลโคเจน", "family": "polysaccharide", "role": "Storage form of glucose (liver ~100-120 g, muscle ~400 g); first fuel depleted during fasting"}
+  ],
+  "organizations": [
+    {"id": "newcastle_university", "name": "Newcastle University", "type": "academic", "url": "https://www.ncl.ac.uk/magres/research/diabetes/reversal/"},
+    {"id": "salk_institute", "name": "Salk Institute for Biological Studies", "type": "research", "url": "https://www.salk.edu/scientist/satchidananda-panda/"},
+    {"id": "nih", "name": "National Institutes of Health", "type": "regulatory", "url": "https://www.nih.gov"},
+    {"id": "pubmed", "name": "PubMed / NCBI", "type": "research", "url": "https://pubmed.ncbi.nlm.nih.gov"},
+    {"id": "nobel_foundation", "name": "Nobel Foundation", "type": "academic", "url": "https://www.nobelprize.org"},
+    {"id": "huberman_lab", "name": "Huberman Lab (Stanford)", "type": "academic", "url": "https://hubermanlab.com"}
+  ],
+  "case_studies": [
+    {"id": "angus_barbieri", "name": "Angus Barbieri", "claim_to_fame": "Fasted 382 consecutive days (1965-66) under medical supervision at Maryfield Hospital; weight dropped from 456 lb (207 kg) to 180 lb (82 kg); maintained loss 5 years later", "year": 1973, "source": "Stewart WK & Fleming LW, Postgrad Med J 1973 (PMC2495396)"},
+    {"id": "counterpoint_study", "name": "Counterpoint Study (Lim et al. 2011)", "claim_to_fame": "8-week 600 kcal/day VLCD reversed T2D — liver glucose output normalized in 7 days; beta-cell function recovered over 8 weeks", "year": 2011, "source": "Lim EL et al., Diabetologia 2011; summarized in Taylor 2021 PMC8247294"},
+    {"id": "direct_trial", "name": "DiRECT Trial (Lean et al. 2018)", "claim_to_fame": "Primary-care VLCD program — 46% T2D remission at 12 months; 64% remission in those losing ≥10 kg", "year": 2018, "source": "Lean MEJ et al., Lancet 2018; summarized in Taylor 2021 PMC8247294"},
+    {"id": "van_marken_bat_2009", "name": "Cold-Activated BAT Study", "claim_to_fame": "24 healthy men, 16°C cold for 2h — 23/24 (96%) showed active BAT on PET-CT; lean had ~4× activity of obese", "year": 2009, "source": "van Marken Lichtenbelt WD et al., NEJM 2009 (NEJMoa0808718)"},
+    {"id": "ho_gh_1988", "name": "Ho 1988 GH-Fasting Study", "claim_to_fame": "6 healthy men — 5-day fast increased 24-hour GH pulse frequency from 5.8±0.7 to 9.9 pulses and amplified pulse amplitudes", "year": 1988, "source": "Ho KY et al., J Clin Invest 1988 (PMC329619)"},
+    {"id": "ohsumi_autophagy_nobel", "name": "Ohsumi Autophagy Work", "claim_to_fame": "Discovered ATG genes in yeast under starvation → mapped autophagosome formation machinery — basis of 2016 Nobel Prize in Medicine", "year": 2016, "source": "Nobel Committee Advanced Info 2016"}
+  ]
+}

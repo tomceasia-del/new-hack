@@ -1,0 +1,163 @@
+{
+  "domain_id": "bones",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.bones"
+  },
+  "sub_topics": [
+    {
+      "id": "bone_remodeling",
+      "label_th": "การปรับโครงกระดูก (bone remodeling cycle)",
+      "label_en": "Bone Remodeling",
+      "description": "วัฏจักรรื้อ-สร้างกระดูก ~10% ต่อปี โดย osteoclast ย่อยกระดูกเก่า (~3 สัปดาห์) → reversal → osteoblast สร้างกระดูกใหม่ (~3 เดือน) → osteocyte ฝังตัวในเมทริกซ์; สมดุลระหว่างการรื้อและสร้างคืออะไรที่กำหนดความหนาแน่น (BMD)",
+      "key_concepts": [
+        "basic multicellular unit (BMU)",
+        "resorption phase (osteoclast)",
+        "reversal phase",
+        "formation phase (osteoblast)",
+        "mineralization phase",
+        "osteocyte mechanosensor",
+        "coupling factor",
+        "bone turnover markers (CTX, P1NP)"
+      ],
+      "related_sub_topics": ["osteoclast_osteoblast", "osteoporosis_risk", "impact_loading_bone"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true,
+      "uncleped_notes": "UncleD clip 7599933960348519701 (black sesame) ชี้ Ca/Mg ในงาดำช่วยเรื่อง 'กระดูกลั่น/กระดูกเปราะ' ของผู้สูงอายุ — โยงกับ bone remodeling และการขาดแร่ธาตุ"
+    },
+    {
+      "id": "osteoclast_osteoblast",
+      "label_th": "สมดุลเซลล์รื้อ-สร้างกระดูก (RANKL/OPG axis)",
+      "label_en": "Osteoclast–Osteoblast Balance",
+      "description": "Osteoblast/stromal cells หลั่ง RANKL เพื่อกระตุ้น osteoclast differentiation ผ่าน receptor RANK; OPG เป็น 'decoy' ที่ดักจับ RANKL ป้องกันการสลายกระดูก — เอสโตรเจนเพิ่ม OPG และ apoptosis ของ osteoclast ดังนั้นหมดประจำเดือน (เอสโตรเจนลด) → RANKL/OPG เอียงไปทาง resorption → กระดูกบาง",
+      "key_concepts": [
+        "RANKL (osteoblast → osteoclast signal)",
+        "RANK (osteoclast receptor)",
+        "OPG (decoy receptor)",
+        "M-CSF",
+        "estrogen → OPG up-regulation",
+        "menopause → RANKL/OPG imbalance",
+        "denosumab (anti-RANKL monoclonal)",
+        "bisphosphonates"
+      ],
+      "related_sub_topics": ["bone_remodeling", "osteoporosis_risk"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "vitamin_K2",
+      "label_th": "วิตามินเค 2 — เส้นทางส่งแคลเซียมเข้ากระดูก",
+      "label_en": "Vitamin K2 and Calcium Routing",
+      "description": "วิตามินเค 2 (โดยเฉพาะ MK-7) เป็น cofactor ของ γ-glutamyl carboxylase ที่ 'เปิด' ออสเตโอแคลซิน (ส่งแคลเซียมเข้ากระดูก) และ MGP (ห้ามไม่ให้แคลเซียมเกาะผนังหลอดเลือด); ขาด K2 = แคลเซียมไปผิดที่ — arteries calcify ในขณะที่กระดูกพรุน (calcium paradox)",
+      "key_concepts": [
+        "γ-glutamyl carboxylase",
+        "Menaquinone-7 (MK-7, long half-life)",
+        "Menaquinone-4 (MK-4, short half-life)",
+        "osteocalcin carboxylation",
+        "matrix Gla-protein (MGP)",
+        "calcium paradox",
+        "Rotterdam Study vitamin K dietary intake",
+        "Knapen 3-year 180 µg/day RCT"
+      ],
+      "related_sub_topics": ["bone_remodeling", "osteoporosis_risk"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "joint_cartilage",
+      "label_th": "กระดูกอ่อนข้อต่อ (articular cartilage)",
+      "label_en": "Joint (Articular) Cartilage",
+      "description": "กระดูกอ่อน hyaline ที่ปลายกระดูกข้อต่อ — type II collagen (~90%) + aggrecan proteoglycan อุ้มน้ำ 70-80% → ช่วยกระจายแรงและลดแรงเสียดทาน; ไม่มีเส้นเลือด/เส้นประสาท chondrocyte อยู่อย่างเงียบๆ และซ่อมแซมช้ามาก — เมื่อสึกจึงเกิด osteoarthritis",
+      "key_concepts": [
+        "type II collagen",
+        "aggrecan (proteoglycan)",
+        "hyaluronic acid backbone",
+        "chondrocyte",
+        "water content 70-80%",
+        "avascular / aneural",
+        "cartilage turnover rate",
+        "MMP-13 (cartilage-degrading enzyme)"
+      ],
+      "related_sub_topics": ["synovial_fluid", "osteoarthritis_mechanism"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "synovial_fluid",
+      "label_th": "น้ำไขข้อ (synovial fluid)",
+      "label_en": "Synovial Fluid",
+      "description": "ของเหลวใสข้นในข้อ — hyaluronic acid เป็นแกน viscoelasticity; หลั่งจาก synoviocyte type B; ทำหน้าที่ lubrication (เคลื่อนที่ลื่น), shock absorption, และลำเลียงสารอาหารสู่กระดูกอ่อนที่ไม่มีเส้นเลือด; ปริมาณและคุณภาพลดลงตามอายุและการอักเสบ",
+      "key_concepts": [
+        "hyaluronic acid (hyaluronan)",
+        "lubricin (PRG4)",
+        "synoviocyte type A (macrophage-like)",
+        "synoviocyte type B (fibroblast-like)",
+        "viscoelasticity",
+        "boundary vs fluid-film lubrication",
+        "intra-articular HA injection",
+        "WOMAC / pain score"
+      ],
+      "related_sub_topics": ["joint_cartilage", "osteoarthritis_mechanism"],
+      "difficulty": "basic",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "osteoporosis_risk",
+      "label_th": "ความเสี่ยงกระดูกพรุนและกระดูกหัก",
+      "label_en": "Osteoporosis & Fracture Risk",
+      "description": "Osteoporosis นิยามจาก WHO: T-score ≤ -2.5 SD จาก young-adult mean (DEXA); Thailand มีผู้หญิงวัย ≥50 ปีเป็นกระดูกพรุน ~24% (IOF region report); hip fracture ปีแรกตายสูง ~20-25% โดยเฉพาะผู้ชาย; ปัจจัย: อายุ, หญิงหลังวัยหมดประจำเดือน, น้ำหนักตัวน้อย, ขาดวิตามินดี, สูบบุหรี่, steroid เรื้อรัง",
+      "key_concepts": [
+        "T-score / Z-score (DEXA)",
+        "FRAX fracture risk calculator",
+        "postmenopausal bone loss (~1-2%/y)",
+        "age-related bone loss (~0.5%/y after 30)",
+        "secondary osteoporosis (steroids, hyperthyroid)",
+        "fragility fracture sites (hip, vertebra, wrist)",
+        "mortality after hip fracture",
+        "refracture cascade"
+      ],
+      "related_sub_topics": ["bone_remodeling", "osteoclast_osteoblast", "impact_loading_bone"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true,
+      "uncleped_notes": "UncleD clips 7599933960348519701 (งาดำ แคลเซียม/แมกนีเซียม — กระดูกลั่น กระดูกเปราะในผู้สูงอายุ) และ 7589561037997804818 (silicon ในเบียร์ — สนับสนุนความหนาแน่นกระดูก)"
+    },
+    {
+      "id": "osteoarthritis_mechanism",
+      "label_th": "กลไกโรคข้อเสื่อม (osteoarthritis)",
+      "label_en": "Osteoarthritis Mechanism",
+      "description": "การเสียสมดุลระหว่าง cartilage anabolism และ catabolism — MMP-13, ADAMTS-5 ย่อย collagen/aggrecan เร็วกว่า chondrocyte synthesis; ผลที่ตามมา: cartilage บาง, subchondral bone sclerosis, osteophyte formation, synovitis; ปวดไม่ได้มาจากกระดูกอ่อน (ไม่มีเส้นประสาท) แต่มาจาก synovium, bone marrow edema, nerve sensitization",
+      "key_concepts": [
+        "MMP-13 (collagenase)",
+        "ADAMTS-5 (aggrecanase)",
+        "IL-1β, TNF-α cytokines",
+        "subchondral bone sclerosis",
+        "osteophyte (bone spur)",
+        "synovitis",
+        "Kellgren-Lawrence grade",
+        "WOMAC index"
+      ],
+      "related_sub_topics": ["joint_cartilage", "synovial_fluid"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "impact_loading_bone",
+      "label_th": "แรงกระแทก + ยกหนัก สร้างกระดูก (Wolff's law)",
+      "label_en": "Impact Loading & Resistance Training for Bone",
+      "description": "Wolff's law: กระดูกปรับตัวตามแรงที่กระทำ — strain ที่สูง (>2000 microstrain) + rate สูง + few cycles กระตุ้น osteocyte ปล่อย sclerostin ลดลง → Wnt signaling เพิ่ม → osteoblast ทำงาน; LIFTMOR แสดงว่า deadlift/squat/overhead press 85% 1RM + weighted jump 2×/สัปดาห์ 8 เดือนเพิ่ม lumbar BMD 2.9% ในผู้หญิงกระดูกพรุน",
+      "key_concepts": [
+        "Wolff's law",
+        "mechanostat theory (Frost)",
+        "microstrain threshold",
+        "high-intensity resistance + impact training (HiRIT)",
+        "LIFTMOR protocol (Beck 2018)",
+        "sclerostin suppression",
+        "Wnt/β-catenin activation",
+        "deadlift / weighted jump"
+      ],
+      "related_sub_topics": ["bone_remodeling", "osteoporosis_risk"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    }
+  ]
+}

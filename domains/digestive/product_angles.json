@@ -1,0 +1,353 @@
+{
+  "domain_id": "digestive",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.digestive",
+    "product_categories_from_taxonomy": [
+      "multi_strain_probiotic",
+      "prebiotic_inulin",
+      "psyllium_husk_fiber",
+      "L_glutamine",
+      "digestive_enzyme",
+      "betaine_HCL",
+      "zinc_carnosine",
+      "butyrate_supplement",
+      "polyphenols_curcumin"
+    ],
+    "notes": "Every angle carries full safety_warning object per safety_spec.md. Orange risk on betaine_HCL (if on PPI), butyrate direct supplementation (IBD context), L-glutamine (active cancer treatment). Yellow on probiotic + IBD flare, prebiotic + SIBO."
+  },
+  "angles": [
+    {
+      "angle_id": "angle_dig_multi_strain_probiotic",
+      "product_category": "multi_strain_probiotic",
+      "problem_th": "ลำไส้เสีย-ท้องอืด-ท้องผูกสลับท้องเสียบ่อย ตั้งแต่กินยาปฏิชีวนะครั้งล่าสุด / เครียดสะสม / อาหารซ้ำซาก — สัญญาณของ microbiome ไม่สมดุล",
+      "mechanism_claim_th": "Probiotic หลายสายพันธุ์ (Lactobacillus rhamnosus GG + Saccharomyces boulardii + Bifidobacterium spp.) เข้าไปอาศัยชั่วคราวในลำไส้ → แข่งที่กับเชื้อก่อโรค, ผลิต bacteriocins, กระตุ้น sIgA, ลด intestinal permeability; Cochrane 2019 แสดงลด antibiotic-associated diarrhoea ~50% เมื่อใช้ 10⁹-10¹⁰ CFU/วัน",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยดูแลความสมดุลของจุลินทรีย์ในลำไส้",
+        "เป็นตัวเสริมหลังกินยาปฏิชีวนะ (แบบ adjunct ไม่ใช่ทดแทนการรักษา)",
+        "ช่วยระบบขับถ่ายให้เป็นปกติ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim ว่ารักษา IBS / IBD / Crohn's ได้",
+        "ห้ามบอก 'หายจากภูมิแพ้' หรือ 'รักษา autoimmune'",
+        "ห้าม claim CFU สูงขึ้น = ผลดีขึ้นแบบ linear",
+        "ห้ามบอก 'แทนยาปฏิชีวนะ'"
+      ],
+      "supporting_facts": ["dig_019", "dig_016", "dig_022"],
+      "narrative_frames": [
+        "ยาปฏิชีวนะฆ่าทั้งเชื้อดีและเชื้อร้าย — probiotic คือทีมย้ายเข้ามาชั่วคราวให้ลำไส้ตั้งหลัก",
+        "ไม่มีสายพันธุ์เดียวครอบจักรวาล — ต้องดู strain ให้ตรงปัญหา"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["autoimmune_on_immunosuppressant", "post_bariatric_surgery", "cancer_active_treatment"],
+        "drug_interactions": ["immunosuppressant (theoretical bloodstream infection risk in immunocompromised)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "โปรไบโอติกรักษา IBS หาย",
+          "โปรไบโอติกแทนยาปฏิชีวนะ",
+          "โปรไบโอติกรักษาลำไส้อักเสบ (IBD) ได้"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["active_cancer_treatment", "post_surgical_6_months"],
+        "validator_keywords_th": ["รักษา IBS", "รักษา Crohn", "รักษาลำไส้อักเสบ", "แทนยาปฏิชีวนะ"],
+        "regulatory_risk_notes": "อย. ไทยอนุญาต probiotic ในอาหาร/อาหารเสริมแต่ห้าม claim เชิงรักษา; ใช้ framing 'ช่วยดูแลสมดุลจุลินทรีย์' / 'เหมาะสำหรับผู้ที่ต้องการเสริมสุขภาพลำไส้'"
+      }
+    },
+    {
+      "angle_id": "angle_dig_prebiotic_inulin",
+      "product_category": "prebiotic_inulin",
+      "problem_th": "กินผักน้อย ท้องผูก ไมโครไบโอมจืดชืด (low diversity) — ต้องการ 'อาหาร' ให้แบคทีเรียดีในลำไส้",
+      "mechanism_claim_th": "Inulin + FOS (5-10 g/วัน) ผ่านลำไส้เล็กไม่ถูกย่อย → ลำไส้ใหญ่หมักโดย Bifidobacterium/Faecalibacterium → ผลิต SCFAs (butyrate, acetate, propionate) → เลี้ยง colonocyte, เสริม tight junction, ลด inflammation; JAMA 2020 meta-analysis แสดงเพิ่ม Bifidobacterium relative abundance ชัดเจน",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "เป็นอาหารของจุลินทรีย์ดีในลำไส้",
+        "ช่วยให้ระบบขับถ่ายเป็นปกติ",
+        "สนับสนุนความหลากหลายของจุลินทรีย์"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim รักษาลำไส้อักเสบ",
+        "ห้าม claim 'เพิ่ม immunity 100%'",
+        "ห้ามบอกว่ากินได้ทุกคนไม่ว่ามีภาวะใด"
+      ],
+      "supporting_facts": ["dig_002", "dig_022"],
+      "narrative_frames": [
+        "ถ้า probiotic คือแบคทีเรียใหม่ ⇒ prebiotic คืออาหารของพวกมัน",
+        "จุลินทรีย์ไม่หิวข้าว หิว 'ไฟเบอร์' — ขาดไฟเบอร์ = อดตาย 3 รุ่น (Sonnenburg)"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "พรีไบโอติกรักษา SIBO",
+          "พรีไบโอติกแก้ลำไส้อักเสบทุกกรณี"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษา SIBO", "รักษา IBS หายขาด"],
+        "regulatory_risk_notes": "FODMAP sensitive (SIBO/IBS-D) อาจท้องอืดเพิ่ม — ต้อง warn ให้เริ่มจากขนาดต่ำและหยุดถ้าอาการแย่ลง"
+      }
+    },
+    {
+      "angle_id": "angle_dig_psyllium_husk_fiber",
+      "product_category": "psyllium_husk_fiber",
+      "problem_th": "ท้องผูกเรื้อรัง Bristol 1-2 / LDL สูง / อิ่มไม่นาน จุกจิก — ลำไส้ไม่ได้ 'เคลื่อน'",
+      "mechanism_claim_th": "Psyllium (10-15 g/วัน) คือ soluble + gel-forming fiber → ดูดน้ำ 40 เท่าของตัวมัน → อุจจาระนุ่ม-เพิ่มปริมาณ, กระตุ้น mechanoreceptor ในลำไส้ → peristalsis; FDA authorised health claim (1998): ลด LDL-C ผ่านการจับ bile acid → liver draw cholesterol เพื่อสังเคราะห์ bile acid ใหม่",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยระบบขับถ่าย — ท้องผูกดีขึ้น",
+        "ช่วยควบคุมคอเลสเตอรอลเมื่อใช้ร่วมกับอาหารไขมันต่ำ (FDA health claim)",
+        "ช่วยให้อิ่มนานหลังอาหาร"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim 'รักษาโรคริดสีดวง/ลำไส้อักเสบ'",
+        "ห้ามบอก 'ล้างลำไส้' / 'detox สารพิษ'",
+        "ห้าม claim ลดน้ำหนักโดยไม่ต้องคุมอาหาร"
+      ],
+      "supporting_facts": ["dig_015", "dig_005"],
+      "narrative_frames": [
+        "Psyllium = 'ไม้กวาด' + 'เจลล้าง' ในลำไส้เดียวกัน",
+        "ไฟเบอร์ที่จับ bile acid = ตับต้องใช้คอเลสเตอรอลในเลือดไปสร้าง bile ใหม่"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["thyroid (levothyroxine — แยกกิน 4 ชม.)", "antidiabetic (อาจลดการดูดซึมยาเบาหวานบางตัว)", "warfarin (แยกกิน)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ล้างลำไส้",
+          "รักษาริดสีดวง"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ล้างลำไส้", "detox ลำไส้", "รักษาริดสีดวง"],
+        "regulatory_risk_notes": "ต้องแจ้ง 'ดื่มน้ำตามอย่างน้อย 250 มล.' — มีรายงาน esophageal obstruction ในผู้ที่ดื่มน้ำไม่พอ"
+      }
+    },
+    {
+      "angle_id": "angle_dig_L_glutamine",
+      "product_category": "L_glutamine",
+      "problem_th": "ผนังลำไส้บาง-รั่ว (increased intestinal permeability), อาการ food sensitivity, ฟื้นตัวหลัง gastro infection ช้า",
+      "mechanism_claim_th": "L-glutamine คือ conditional essential amino acid — เชื้อเพลิงหลักของ enterocyte ในลำไส้เล็ก + เป็น precursor ของ glutathione; ในภาวะ stress/injury ร่างกายใช้มากกว่าที่สังเคราะห์ได้; supplementation (5-10 g/วัน) สนับสนุนการ regenerate mucosa และ tight junction integrity (Rao & Samak 2012)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "เป็นเชื้อเพลิงของเซลล์ผนังลำไส้",
+        "สนับสนุนการฟื้นตัวของผนังลำไส้",
+        "เหมาะสำหรับผู้ที่ออกกำลังกายหนัก/เจอ stress ลำไส้"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim รักษา leaky gut syndrome",
+        "ห้าม claim รักษา IBD / IBS",
+        "ห้าม claim ใช้ได้กับ cancer patient โดยไม่มี medical supervision"
+      ],
+      "supporting_facts": ["dig_020", "dig_004"],
+      "narrative_frames": [
+        "เซลล์ผนังลำไส้ใช้ glutamine เป็นอาหารอันดับ 1 — ไม่ใช่กลูโคส",
+        "ฟื้นผนังลำไส้ = ต้องเติมวัตถุดิบให้เซลล์ซ่อมตัวเอง"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["cancer_active_treatment", "liver_disease"],
+        "drug_interactions": ["chemotherapy (controversial — บางงานแสดง tumor glutamine uptake; consult oncologist)", "anticonvulsant (lactulose, lamotrigine: ระวัง ammonia build-up ในคนที่ liver function พัง)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "รักษา leaky gut",
+          "ใช้ได้กับคนเป็นมะเร็งทุกกรณี",
+          "ฟื้นฟูลำไส้ 100% ใน 30 วัน"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["active_cancer_treatment", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษา leaky gut", "ซ่อมลำไส้ 100%", "glutamine แทนเคมี"],
+        "regulatory_risk_notes": "ข้อถกเถียงด้าน cancer: glutamine เป็น fuel ของเซลล์มะเร็งบางชนิด — ควรปรึกษา oncologist; ห้ามใช้ในผู้ป่วยตับขั้นสูง (hepatic encephalopathy risk)"
+      }
+    },
+    {
+      "angle_id": "angle_dig_digestive_enzyme",
+      "product_category": "digestive_enzyme",
+      "problem_th": "ท้องอืดหลังกินอาหารมันๆ / กินโปรตีนแล้วปวดท้อง / ตดบ่อย — อาจ enzyme ย่อยไม่พอ เช่น lipase / protease / amylase",
+      "mechanism_claim_th": "Pancreatic enzyme blend (amylase, lipase, protease) + bromelain/papain เสริมการย่อยอาหารในลำไส้เล็ก → ลด undigested substrate ที่ไหลไป lower bowel → ลด fermentation gas + ลดภาระ microbiome; PEI (pancreatic exocrine insufficiency) คือ medical indication สำหรับ prescription enzyme (Creon)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยการย่อยอาหารหลังมื้อใหญ่",
+        "ช่วยลดอาการท้องอืด/ตดหลังอาหาร",
+        "เป็นตัวเสริมสำหรับผู้สูงอายุที่ enzyme ลดลงตามวัย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim แทน prescription pancrelipase",
+        "ห้าม claim รักษา pancreatitis",
+        "ห้าม claim ลดน้ำหนักโดยการไม่ย่อยอาหาร"
+      ],
+      "supporting_facts": ["dig_013", "dig_017"],
+      "narrative_frames": [
+        "อายุเพิ่ม = กระเพาะ + ตับอ่อน ผลิต enzyme น้อยลง — ไม่ใช่ 'อาหารสมัยนี้แย่ลง'",
+        "ท้องอืดไม่ใช่ทุกครั้งที่ต้อง probiotic — บางทีขาด enzyme"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["PPI (ลดการทำงานของ enteric-coated enzyme บางชนิด)", "warfarin (bromelain อาจเพิ่ม bleeding)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "แทนยาย่อยอาหารของโรงพยาบาล",
+          "รักษาตับอ่อนอักเสบ"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["แทน Creon", "รักษาตับอ่อนอักเสบ"],
+        "regulatory_risk_notes": "อย. ไทยกำกับว่า enzyme supplement claim ได้แค่ 'ช่วยการย่อยอาหาร' — ห้ามกล่าว 'รักษา'"
+      }
+    },
+    {
+      "angle_id": "angle_dig_betaine_HCL",
+      "product_category": "betaine_HCL",
+      "problem_th": "กรดในกระเพาะต่ำ (hypochlorhydria — พบในผู้สูงอายุ/คนกิน PPI นาน) → ย่อยโปรตีนไม่หมด, ดูดซึม B12 / Fe / Zn ได้น้อย, เสี่ยง SIBO",
+      "mechanism_claim_th": "Betaine HCl (600-1500 mg ก่อนอาหาร) ให้ exogenous HCl → เพิ่ม gastric pH จาก 5-6 เป็น ~2-3 ชั่วคราว → activate pepsinogen → pepsin, เพิ่มการย่อยโปรตีน, กระตุ้น intrinsic factor + cofactor การดูดซึม micronutrients (Yago et al., Mol Pharm 2013 แสดง re-acidify ในอาสาสมัคร PPI-treated)",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ช่วยการย่อยโปรตีนในผู้ที่กรดในกระเพาะต่ำ",
+        "ช่วยการดูดซึม B12 / iron เมื่อเสริมร่วมกับอาหาร",
+        "เหมาะสำหรับผู้สูงอายุที่ enzyme/กรดลดลง"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim รักษา GERD",
+        "ห้าม claim แทน PPI / antacid",
+        "ห้ามใช้ในผู้ที่มีแผลกระเพาะ (peptic ulcer)",
+        "ห้ามบอกว่าทุกคน 'กรดต่ำ'"
+      ],
+      "supporting_facts": ["dig_021"],
+      "narrative_frames": [
+        "กรดต่ำ ≠ GERD เสมอ — หลายคน GERD เพราะ sphincter ไม่ใช่กรดเกิน",
+        "ก่อนกิน betaine HCl ควร diagnose hypochlorhydria จริงก่อน"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["type_2_diabetes_on_medication", "chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": ["PPI (ทำลายจุดประสงค์ของยา + เสี่ยงแผลกระเพาะ)", "NSAIDs (เพิ่ม ulcer risk)", "corticosteroid (compound ulcer risk)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "แทนยาลดกรด",
+          "กินคู่กับ PPI ได้",
+          "รักษา GERD หาย"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["on_prescription_medications", "pregnant_lactating"],
+        "validator_keywords_th": ["แทน PPI", "แทน omeprazole", "รักษา GERD"],
+        "regulatory_risk_notes": "ห้ามขายคู่กับคนที่กำลังกิน PPI/H2 blocker — ต้อง screening ก่อน; ห้าม claim ด้านโรคกระเพาะ"
+      }
+    },
+    {
+      "angle_id": "angle_dig_zinc_carnosine",
+      "product_category": "zinc_carnosine",
+      "problem_th": "มีแผลกระเพาะเล็กน้อย / NSAID-induced gastropathy / mucosa อักเสบจาก H. pylori post-eradication",
+      "mechanism_claim_th": "Zinc-L-carnosine (75 mg × 2 /วัน) จับกับ mucosal cell damage site → antioxidant effect (scavenge ROS) + กระตุ้น HSP70 expression → เร่ง mucosal healing; ใช้เป็น 'polaprezinc' ในญี่ปุ่นมา 30+ ปี เป็น indication ulcer; Matsukura & Tanaka 2000 แสดงประสิทธิผลเทียบ H2 blocker",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนความสมบูรณ์ของผนังกระเพาะ",
+        "เสริมการฟื้นตัวหลัง NSAIDs / การระคายเคือง",
+        "เหมาะสำหรับผู้ที่ต้องการดูแลเยื่อบุกระเพาะ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim รักษาแผลกระเพาะ",
+        "ห้าม claim แทนการรักษา H. pylori eradication",
+        "ห้าม claim ป้องกันมะเร็งกระเพาะ"
+      ],
+      "supporting_facts": ["dig_009", "dig_010"],
+      "narrative_frames": [
+        "NSAIDs ระคาย mucosa ทุกคน — zinc-carnosine = 'ปูนซีเมนต์' ของผนังกระเพาะ",
+        "Polaprezinc ขึ้นทะเบียนเป็นยาในญี่ปุ่น แต่ในไทยยังเป็น supplement"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["antibiotic tetracycline / fluoroquinolone (zinc chelation — แยกกิน 2 ชม.)", "penicillamine"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "รักษาแผลกระเพาะ",
+          "แทนยา H. pylori",
+          "ป้องกันมะเร็งกระเพาะ"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาแผลกระเพาะ", "แทน antibiotic", "ป้องกันมะเร็งกระเพาะ"],
+        "regulatory_risk_notes": "อย. ไทยอนุญาตเป็น dietary supplement — ห้าม claim 'รักษา' หรือ 'ป้องกันโรค' โดยตรง"
+      }
+    },
+    {
+      "angle_id": "angle_dig_butyrate_supplement",
+      "product_category": "butyrate_supplement",
+      "problem_th": "ลำไส้ใหญ่อักเสบระดับ low-grade, ท้องเสียเรื้อรัง, หรือผู้ต้องการ maintenance ของ colonic mucosa โดยเฉพาะเมื่อกินไฟเบอร์น้อย",
+      "mechanism_claim_th": "Sodium/calcium butyrate (300-600 mg × 2 /วัน, delayed-release coating เพื่อรอด stomach) → release ในลำไส้ใหญ่ → colonocyte energy + HDAC inhibition → ลด NF-κB inflammatory pathway + เสริม tight junction (ZO-1, claudin); Banasiewicz 2013: microencapsulated sodium butyrate ในผู้ป่วย IBS แสดงลด frequency + urgency",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุนสุขภาพเซลล์ลำไส้ใหญ่",
+        "เหมาะเป็นตัวเสริมในกรณีกินไฟเบอร์ไม่พอ",
+        "ช่วยความสบายของลำไส้"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim รักษา ulcerative colitis / Crohn's",
+        "ห้าม claim แทน mesalamine / biologic",
+        "ห้าม claim ป้องกันมะเร็งลำไส้"
+      ],
+      "supporting_facts": ["dig_006", "dig_002"],
+      "narrative_frames": [
+        "Butyrate = 70% ของเชื้อเพลิงที่ลำไส้ใหญ่ใช้ — กินไฟเบอร์คือทางตรง, supplement คือทางลัด",
+        "ถ้าเชื้อชา Faecalibacterium ในตัวคุณผลิต butyrate ไม่พอ ก็ต้อง import"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": [],
+        "drug_interactions": ["mesalamine / 5-ASA (ยังไม่มีรายงาน negative interaction แต่ใช้ร่วมต้องปรึกษาแพทย์)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "รักษาลำไส้อักเสบ",
+          "แทน mesalamine",
+          "ป้องกันมะเร็งลำไส้"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["active_cancer_treatment"],
+        "validator_keywords_th": ["รักษา ulcerative colitis", "แทน mesalamine", "รักษา IBD หาย"],
+        "regulatory_risk_notes": "IBD ผู้ป่วยควรใช้ภายใต้ supervision ของ gastroenterologist — ห้าม replace prescribed therapy; อย. ไทยยังไม่ขึ้นทะเบียน butyrate เป็นยา"
+      }
+    },
+    {
+      "angle_id": "angle_dig_polyphenols_curcumin",
+      "product_category": "polyphenols_curcumin",
+      "problem_th": "อาการ low-grade inflammation ในลำไส้ (ท้องอืด-เฟ้อเรื้อรัง, ผิวพรรณแย่, พลังงานตก) ที่สัมพันธ์กับ LPS translocation / dysbiosis",
+      "mechanism_claim_th": "Curcumin (กับ piperine หรือ phytosome form 500-1000 mg/วัน) → ยับยั้ง NF-κB + JAK-STAT → ลด pro-inflammatory cytokines ในลำไส้; เป็น prebiotic-like substrate สำหรับ Bifido/Lactobacillus; Peterson 2018 แสดง modulation ของ gut microbiome และ mucosal barrier",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "เสริมการดูแลสุขภาพลำไส้",
+        "มีฤทธิ์ต้านอนุมูลอิสระ",
+        "สนับสนุนความสมดุลของ inflammatory response"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim รักษา IBD / ลำไส้อักเสบ",
+        "ห้าม claim รักษา Alzheimer / cancer",
+        "ห้าม claim แทน NSAIDs"
+      ],
+      "supporting_facts": ["dig_004", "dig_016"],
+      "narrative_frames": [
+        "ขมิ้นในอาหารไทยคือ 'anti-inflammatory' โบราณ — ตะวันตกเพิ่งพิสูจน์ในปี 2000s",
+        "โพลีฟีนอล = 'อาหารฟังก์ชัน' ของไมโครไบโอม"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant", "liver_disease"],
+        "drug_interactions": ["warfarin (bleeding risk)", "anticoagulant", "CYP3A4 substrates (ยา immunosuppressant บางตัว)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "รักษาลำไส้อักเสบ",
+          "แทน NSAIDs",
+          "รักษามะเร็ง"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "on_prescription_medications"],
+        "validator_keywords_th": ["รักษา IBD", "รักษามะเร็ง", "แทน NSAIDs"],
+        "regulatory_risk_notes": "รายงาน liver injury จาก curcumin/turmeric บางยี่ห้อในอเมริกา (NIH LiverTox 2023) — หลีกเลี่ยงในผู้มีปัญหาตับ; ห้ามเกิน 8 g/วัน"
+      }
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "domain_id": "life_coaching",
+  "_meta": {
+    "current_count": 7,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.life_coaching"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_lc_001",
+      "label_th": "Habit Loop — Basal Ganglia Automation",
+      "label_en": "Cue-Routine-Reward Loop and Basal Ganglia Encoding",
+      "description_th": "เมื่อพฤติกรรมถูกทำซ้ำในบริบทเดิม (Cue เดิม) → Dopamine ถูกปล่อยหลัง Reward → Basal Ganglia เก็บ pattern ลงเป็น chunked memory → Prefrontal Cortex ลดการควบคุม (chunking) → พฤติกรรมกลายเป็นอัตโนมัติ (Habit); Consolidation เริ่มชัดเจนหลัง ~30-66 วันขึ้นอยู่กับความซับซ้อนของพฤติกรรม",
+      "description_en": "Repeated behavior in consistent context → dopamine released on reward → basal ganglia encodes sequence as chunked memory → prefrontal cortex disengages → behavior becomes automatic. Consolidation takes ~30-250 days depending on complexity.",
+      "key_molecules_structures": ["Dopamine", "Basal Ganglia", "Prefrontal Cortex", "Striatum", "D1/D2 receptors"],
+      "trigger_conditions": ["Consistent cue", "reliable reward", "sufficient repetition"],
+      "time_course": "ช้า: สัปดาห์-เดือน; ขึ้นกับ complexity ของพฤติกรรม",
+      "relevance_to_content": "อธิบายว่าทำไมต้องใช้ cue และ reward เสมอ ไม่ใช่แค่ตั้งใจ",
+      "supporting_facts": ["lc_001", "lc_002", "lc_012", "lc_017", "lc_019"],
+      "sources": [
+        {
+          "url": "https://www.annualreviews.org/doi/10.1146/annurev.neuro.30.051606.094211",
+          "org": "Annual Review of Neuroscience",
+          "source_tier": "A",
+          "year": 2008,
+          "title": "Habits, Rituals, and the Evaluative Brain (Graybiel)"
+        }
+      ]
+    },
+    {
+      "mechanism_id": "mech_lc_002",
+      "label_th": "Mindset & Neuroplasticity — Self-Concept and Neural Pathway Formation",
+      "label_en": "Identity, Self-Concept, and Neural Pathway Modification",
+      "description_th": "Self-concept (ความเชื่อเกี่ยวกับตนเอง) ถูกจัดเก็บใน Medial Prefrontal Cortex → เมื่อ self-concept เปลี่ยน (Growth Mindset) → neural pathways ใหม่เกิดขึ้นผ่าน Neuroplasticity → brain ให้ความสำคัญกับ 'effort leads to improvement' pattern มากขึ้น → พฤติกรรมเปลี่ยนตาม; Cognitive Dissonance (Festinger) ทำให้ brain ต้องการ alignment ระหว่าง belief และ action",
+      "description_en": "Self-concept is stored in medial prefrontal cortex. Belief change (growth mindset) creates new neural pathways via neuroplasticity. Cognitive dissonance drives behavior to align with updated self-concept. Identity-based change is more durable than outcome-based.",
+      "key_molecules_structures": ["Medial Prefrontal Cortex", "Neural Synapses", "BDNF", "Default Mode Network"],
+      "trigger_conditions": ["Repeated challenge", "new evidence about ability", "explicit mindset intervention"],
+      "time_course": "เดือน-ปี; ต้องการ repeated experience ไม่ใช่ single insight",
+      "relevance_to_content": "อธิบาย identity-based habits และ growth mindset intervention",
+      "supporting_facts": ["lc_003", "lc_015", "lc_016", "lc_019"],
+      "sources": [
+        {
+          "url": "https://www.annualreviews.org/doi/10.1146/annurev.psych.54.101601.145237",
+          "org": "Annual Review of Psychology",
+          "source_tier": "A",
+          "year": 2003,
+          "title": "Social cognitive theory of personality (Bandura)"
+        }
+      ]
+    },
+    {
+      "mechanism_id": "mech_lc_003",
+      "label_th": "Self-Control — Prefrontal Cortex and Resource Model",
+      "label_en": "Executive Function, Glucose Model, and Ego Depletion",
+      "description_th": "การควบคุมตนเองอาศัย Prefrontal Cortex (PFC) เป็นหลัก → PFC ต้องการ Glucose สูงกว่าส่วนอื่น → Baumeister เสนอว่า self-control acts เหนื่อยล้าได้ (Ego Depletion) → หลัง multiple decisions, PFC efficiency ลดลง → brain default เป็น heuristic (System 1) มากขึ้น; Counter: environment design ลด demand บน PFC ได้",
+      "description_en": "Self-control relies on PFC; Baumeister's ego depletion model proposes glucose depletion reduces PFC efficiency. After multiple decisions, System 1 dominates. Counter-strategy: environment design reduces cognitive demand on PFC, making good behavior the default.",
+      "key_molecules_structures": ["Prefrontal Cortex", "Glucose", "Anterior Cingulate Cortex", "Dopamine"],
+      "trigger_conditions": ["Multiple sequential decisions", "emotional regulation demands", "low blood glucose"],
+      "time_course": "ชั่วโมง; ฟื้นฟูด้วยพัก, นอน, หรือ glucose replenishment",
+      "relevance_to_content": "justify environment design แทน relying on willpower",
+      "supporting_facts": ["lc_004", "lc_005", "lc_018"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10231267/",
+          "org": "Journal of Personality and Social Psychology",
+          "source_tier": "A",
+          "year": 1998,
+          "title": "Ego depletion (Baumeister et al.)"
+        }
+      ]
+    },
+    {
+      "mechanism_id": "mech_lc_004",
+      "label_th": "Behavior Design — Friction, Prompt, and Choice Architecture",
+      "label_en": "Fogg Behavior Model: Motivation × Ability × Prompt",
+      "description_th": "พฤติกรรมเกิดขึ้นเมื่อ Motivation + Ability + Prompt พร้อมกัน → การเพิ่ม Ability (ลด friction) เสถียรกว่าการเพิ่ม Motivation ที่ volatile → Implementation Intention ทำหน้าที่เป็น Prompt ที่ชัดเจน → Choice Architecture (Thaler & Sunstein's Nudge) เปลี่ยน default ของ environment เพื่อ guide behavior",
+      "description_en": "Behavior requires B=MAP (Motivation × Ability × Prompt simultaneously). Reducing friction (increasing Ability) is more reliable than amplifying motivation. Implementation intentions provide clear cognitive prompts. Choice architecture changes environment defaults.",
+      "key_molecules_structures": ["Anterior Cingulate Cortex", "Dopaminergic reward pathway", "Habit nodes (Basal Ganglia)"],
+      "trigger_conditions": ["Environmental prompt present", "low friction", "sufficient motivation threshold"],
+      "time_course": "ทันที — prompt + low friction = สูงมากที่จะเกิดพฤติกรรม",
+      "relevance_to_content": "core framework สำหรับ habit coaching products",
+      "supporting_facts": ["lc_006", "lc_007", "lc_017", "lc_020"],
+      "sources": [
+        {
+          "url": "https://behaviormodel.org/",
+          "org": "Stanford Persuasive Tech Lab",
+          "source_tier": "B",
+          "year": 2009,
+          "title": "Fogg Behavior Model (BJ Fogg)"
+        }
+      ]
+    },
+    {
+      "mechanism_id": "mech_lc_005",
+      "label_th": "Procrastination — Limbic System Override and Emotion Avoidance",
+      "label_en": "Amygdala-Mediated Task Aversion and Action-Motivation Loop",
+      "description_th": "เมื่อสมองประเมินว่างานก่อให้เกิด negative affect (anxiety, boredom, self-doubt) → Amygdala triggers avoidance response → ดูวิดีโอ/social media ให้ Dopamine ระยะสั้น → PFC ถูก override ชั่วคราว → ผัดวัน; Antidote: ลงมือเล็กน้อย (2-min rule) สร้าง 'exposure' ลด aversion, สมองประเมิน task ใหม่ว่า manageable",
+      "description_en": "Task-related negative affect triggers amygdala avoidance → dopamine-seeking behavior (phone/social media) provides relief → PFC override perpetuates cycle. Remedy: brief action exposure (2-min rule) reduces amygdala threat response through familiarity.",
+      "key_molecules_structures": ["Amygdala", "Dopamine", "Prefrontal Cortex", "Anterior Insula"],
+      "trigger_conditions": ["Task perceived as threatening/unpleasant", "immediate reward alternative available"],
+      "time_course": "วินาที-นาที (avoidance trigger); ชั่วโมง-วัน (chronic pattern)",
+      "relevance_to_content": "อธิบาย procrastination เป็น emotional problem ไม่ใช่ time management",
+      "supporting_facts": ["lc_008", "lc_009"],
+      "sources": [
+        {
+          "url": "https://doi.org/10.1080/15298868.2016.1160794",
+          "org": "Self and Identity",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Procrastination, Emotion Regulation and Well-Being (Sirois & Pychyl)"
+        }
+      ]
+    },
+    {
+      "mechanism_id": "mech_lc_006",
+      "label_th": "Motivation — Dopamine, SDT, and Intrinsic vs Extrinsic Reward",
+      "label_en": "Self-Determination Theory and Dopaminergic Motivation Circuit",
+      "description_th": "Intrinsic Motivation กระตุ้น Dopamine pathway ผ่าน Nucleus Accumbens โดยไม่ต้องพึ่ง external cue → SDT ระบุว่า Autonomy + Competence + Relatedness เป็นเงื่อนไขที่ทำให้ Intrinsic Motivation คงอยู่ → เมื่อ External Reward เข้ามา brain shift ไปใช้ extrinsic circuit → ถ้าหยุดให้ reward, motivation ลดลง (Overjustification Effect)",
+      "description_en": "Intrinsic motivation engages dopaminergic reward circuit (nucleus accumbens) autonomously. SDT's three needs (Autonomy, Competence, Relatedness) sustain intrinsic circuit. External rewards can shift circuit to extrinsic, causing overjustification effect when rewards cease.",
+      "key_molecules_structures": ["Dopamine", "Nucleus Accumbens", "Ventral Tegmental Area", "Prefrontal Cortex"],
+      "trigger_conditions": ["Autonomy satisfied", "competence challenge at right difficulty", "social connection"],
+      "time_course": "varies; intrinsic motivation builds over time with skill development",
+      "relevance_to_content": "อธิบายว่าทำไม coaching ต้องสร้าง autonomy ไม่ใช่แค่ external accountability",
+      "supporting_facts": ["lc_010", "lc_011"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11392867/",
+          "org": "Psychological Inquiry",
+          "source_tier": "A",
+          "year": 2000,
+          "title": "Self-Determination Theory (Deci & Ryan)"
+        }
+      ]
+    },
+    {
+      "mechanism_id": "mech_lc_007",
+      "label_th": "Decision Making — System 1/2, Cognitive Bias, and Decision Fatigue",
+      "label_en": "Dual Process Theory and Prefrontal Glucose Depletion",
+      "description_th": "Kahneman's Dual Process: System 1 (Amygdala + Limbic, เร็ว/อัตโนมัติ) และ System 2 (PFC, ช้า/ไตร่ตรอง) → การตัดสินใจหลายครั้งต่อเนื่อง depletes PFC glucose → brain defaults ไปใช้ System 1 เพิ่มขึ้น → เพิ่ม cognitive bias (Loss Aversion ผ่าน Amygdala, Present Bias ผ่าน Limbic) → คุณภาพการตัดสินใจลดลง (Decision Fatigue)",
+      "description_en": "Dual process: System 1 (amygdala/limbic, fast/automatic) vs System 2 (PFC, slow/deliberate). Sequential decisions deplete PFC glucose → increased System 1 dominance → amplified cognitive biases (loss aversion via amygdala, present bias via limbic) → decision quality degrades.",
+      "key_molecules_structures": ["Prefrontal Cortex", "Amygdala", "Glucose", "Norepinephrine", "Dopamine"],
+      "trigger_conditions": ["Multiple sequential decisions", "time pressure", "low energy state"],
+      "time_course": "ชั่วโมง; ฟื้นได้ด้วย break, food, หรือ sleep",
+      "relevance_to_content": "อธิบาย decision fatigue + loss aversion + timing สำหรับ important decisions",
+      "supporting_facts": ["lc_013", "lc_014", "lc_018"],
+      "sources": [
+        {
+          "url": "https://www.pnas.org/doi/10.1073/pnas.1018033108",
+          "org": "PNAS",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "Extraneous factors in judicial decisions (Danziger et al.)"
+        }
+      ]
+    }
+  ]
+}

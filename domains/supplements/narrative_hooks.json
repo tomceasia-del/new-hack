@@ -1,0 +1,92 @@
+{
+  "domain_id": "supplements",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.supplements",
+    "notes": "Hook templates optimized for supplement ads in Thai market — built on form-difference reveals, latitude paradox, and authority citation. Each must anchor to real fact_ids. Thai FDA claim boundaries respected (no medical claims in example_th)."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_supp_001_form_difference_reveal",
+      "style": "shock",
+      "pattern_th": "ยี่ห้อราคาถูกกับยี่ห้อพรีเมียมต่างกันแค่ __X__ — แต่ดูดซึมต่างกัน __Y__ เท่า",
+      "example_th": "แมกนีเซียมยี่ห้อถูกกับยี่ห้อพรีเมียมต่างกันแค่ตัว 'form' บนฉลาก — แต่ดูดซึมต่างกันถึง 10 เท่า! Oxide ดูดซึมแค่ ~4% ส่วน glycinate ~50% (Firoz & Graber 2001) — คุณอาจจ่ายเงินแค่ให้ท้องเสีย",
+      "facts_used": ["supp_007"],
+      "effectiveness_notes": "Form-difference reveal เป็น hook อันดับ 1 ของ supplement ads — ทำให้ viewer รู้สึกว่า 'เคยถูกหลอก' + เปิดช่องขายสินค้าพรีเมียมโดยไม่ต้องอ้างสรรพคุณรักษาโรค"
+    },
+    {
+      "template_id": "hook_supp_002_latitude_paradox",
+      "style": "awe",
+      "pattern_th": "แปลกไหมที่ประเทศไทยแดดเยอะขนาดนี้ แต่ __X__% ของคนไทยยัง __Y__",
+      "example_th": "แปลกไหมที่ประเทศไทยแดดเยอะขนาดนี้ แต่ 45.2% ของผู้ใหญ่ไทยยังมีวิตามิน D ต่ำกว่าระดับที่แนะนำ? (Chailurkit 2011) — เพราะคนเมืองอยู่ในร่ม 90% + SPF 30 บล็อก UVB ถึง 96%",
+      "facts_used": ["supp_003"],
+      "effectiveness_notes": "Paradox hook + Thai-specific stat = สะดุดหู; ใช้เปิดคลิป vitamin D ได้ดี เพราะทำลายข้ออ้าง 'ผมโดนแดดทุกวันไม่ต้องกิน'"
+    },
+    {
+      "template_id": "hook_supp_003_authority_citation",
+      "style": "awe",
+      "pattern_th": "Dr. __X__ กินแค่ __Y__ ตัวเดียวทุกวัน — เพราะเขาพบว่า __Z__",
+      "example_th": "Dr. Rhonda Patrick นักชีวเคมีจาก FoundMyFitness กินวิตามิน D3 ทุกวัน — เพราะงานของ Holick ปี 2007 ใน NEJM สรุปว่าเกือบ 1 พันล้านคนทั่วโลกมีระดับวิตามิน D ไม่พอ",
+      "facts_used": ["supp_001"],
+      "effectiveness_notes": "Expert-citation hook — UncleD ใช้บ่อย; ต้องใส่ disclaim ว่า 'ส่วนบุคคล' ไม่ใช่ medical recommendation เฉพาะโรค"
+    },
+    {
+      "template_id": "hook_supp_004_timing_mistake",
+      "style": "insult_reality",
+      "pattern_th": "ถ้าคุณกิน __X__ ผิดเวลา เท่ากับทิ้งเงินทิ้งเปล่า — เพราะ __Y__",
+      "example_th": "ถ้าคุณกินวิตามิน D ตอนเช้าพร้อมน้ำเปล่า เท่ากับทิ้งเงินทิ้งเปล่า! งานของ Mulligan & Licata 2010 พบว่ากินพร้อมมื้อใหญ่ที่สุด (ที่มีไขมัน) ทำให้ 25(OH)D สูงขึ้น +57%",
+      "facts_used": ["supp_017", "supp_018"],
+      "effectiveness_notes": "Regret-trigger hook — เปิดโอกาสสอน 'วิธีกินให้ถูก' + เชื่อมโยงกับ product fat-soluble vitamin"
+    },
+    {
+      "template_id": "hook_supp_005_myth_flip",
+      "style": "insult_reality",
+      "pattern_th": "คนส่วนใหญ่คิดว่า __X__ — แต่ความจริงคือ __Y__",
+      "example_th": "คนส่วนใหญ่คิดว่า omega-3 ทุกยี่ห้อเหมือนกัน — แต่ความจริงคือรูปแบบ triglyceride ดูดซึมได้ ~70% ขณะที่ ethyl ester เหลือแค่ ~27% (Dyerberg 2010) ต่างกันเกือบ 3 เท่า!",
+      "facts_used": ["supp_014"],
+      "effectiveness_notes": "Myth-correction เน้น form — ใช้ได้กับ fish oil, Mg, Zn, B12"
+    },
+    {
+      "template_id": "hook_supp_006_half_life_visualization",
+      "style": "curiosity",
+      "pattern_th": "รู้หรือเปล่า __X__ ตัวนี้อยู่ในร่างกาย __Y__ ชั่วโมง — ส่วนอีกรูปอยู่แค่ __Z__ ชั่วโมง?",
+      "example_th": "รู้หรือเปล่า วิตามิน K2 รูป MK-7 อยู่ในร่างกายนาน ~72 ชั่วโมง — ส่วน MK-4 อยู่แค่ 1-2 ชั่วโมง! (Schurgers 2007) นั่นคือเหตุผลที่ MK-7 กิน 1 ครั้ง/วันได้",
+      "facts_used": ["supp_005"],
+      "effectiveness_notes": "Numeric contrast hook — 72 vs 1-2 ชั่วโมงเป็น ratio ที่จำง่าย + justify premium pricing ของ MK-7"
+    },
+    {
+      "template_id": "hook_supp_007_silent_epidemic",
+      "style": "pain",
+      "pattern_th": "__X__% ของ __Y__ ขาด __Z__ โดยไม่รู้ตัว — และอาการคือ __W__",
+      "example_th": "ประมาณ 48% ของผู้ใหญ่มีแมกนีเซียมต่ำกว่า EAR ของสหรัฐฯ — และส่วนมาก 'ไม่รู้ตัว' เพราะอาการคือหลับไม่ลึก ตะคริวกลางคืน ไหล่ตึง — สิ่งที่เราคิดว่าเป็น 'ความเครียด'",
+      "facts_used": ["supp_008"],
+      "effectiveness_notes": "Silent-epidemic hook — pain-recognition + reframe เป็น nutrient gap; เข้ากับ lifestyle office worker"
+    },
+    {
+      "template_id": "hook_supp_008_marker_reveal",
+      "style": "curiosity",
+      "pattern_th": "ค่า __X__ 'ปกติ' ไม่ได้แปลว่าคุณ __Y__ จริงๆ — มาร์เกอร์ตัวจริงคือ __Z__",
+      "example_th": "ค่า vitamin B12 ในเลือด 'ปกติ' ไม่ได้แปลว่าร่างกายคุณใช้ B12 ได้จริง — มาร์เกอร์ตัวจริงคือ MMA (methylmalonic acid) ที่สูงขึ้นเมื่อ B12 ทำงานไม่พอ (Allen 2009)",
+      "facts_used": ["supp_012"],
+      "effectiveness_notes": "Insider-knowledge hook; เหมาะเปิดคลิป methyl-B complex สำหรับผู้สูงอายุ/PPI users"
+    },
+    {
+      "template_id": "hook_supp_009_hidden_danger",
+      "style": "shock",
+      "pattern_th": "การกิน __X__ เยอะเกินไปเรื้อรัง อาจทำให้ __Y__ — และคนส่วนใหญ่ไม่เคยรู้",
+      "example_th": "การกินสังกะสี (zinc) เกิน 50 mg ต่อวันเรื้อรังทำให้ทองแดง (copper) ในร่างกายขาด — เกิด sideroblastic anemia + neuropathy ที่อาจถาวร (Fosmire 1990); IOM ตั้ง UL ไว้แค่ 40 mg/d",
+      "facts_used": ["supp_010"],
+      "effectiveness_notes": "Hidden-danger hook — เน้น safety education, สามารถขาย balanced Zn+Cu formula ต่อได้ โดยไม่ต้องอ้าง therapeutic"
+    },
+    {
+      "template_id": "hook_supp_010_interaction_warning",
+      "style": "shock",
+      "pattern_th": "ถ้าคุณกิน __X__ กับ __Y__ ร่วมกัน อาจเกิด __Z__ — และหลายคนเห็นว่า 'ปลอดภัยเพราะเป็นวิตามิน'",
+      "example_th": "ถ้าคุณกินยาละลายลิ่มเลือด warfarin + วิตามิน K2 พร้อมกันโดยไม่ปรึกษาแพทย์ อาจทำให้ INR ตก เสี่ยงลิ่มเลือด — 'วิตามินธรรมชาติ' ไม่เท่ากับ 'ปลอดภัยเสมอ'",
+      "facts_used": ["supp_023"],
+      "effectiveness_notes": "Safety-warning hook — ใช้เปิดคลิปสำหรับ audience ที่มี chronic disease; ต้องใส่ 'ปรึกษาแพทย์' ชัดเจนตาม อย."
+    }
+  ]
+}

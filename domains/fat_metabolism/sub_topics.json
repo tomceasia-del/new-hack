@@ -1,0 +1,149 @@
+{
+  "domain_id": "fat_metabolism",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.fat_metabolism"
+  },
+  "sub_topics": [
+    {
+      "id": "insulin_resistance",
+      "label_th": "ภาวะดื้ออินซูลิน",
+      "label_en": "Insulin Resistance",
+      "description": "เซลล์กล้ามเนื้อ/ตับ/ไขมัน ตอบสนองต่ออินซูลินแย่ลง → ตับอ่อนบีบปล่อยอินซูลินมากขึ้น → อินซูลินสูงเรื้อรังกลายเป็นสวิตช์ 'เก็บไขมัน' ตลอดเวลา (Taylor twin cycle; Bikman)",
+      "key_concepts": [
+        "hyperinsulinemia",
+        "HOMA-IR",
+        "hepatic insulin resistance",
+        "de novo lipogenesis",
+        "portal triglyceride flux",
+        "beta-cell dedifferentiation"
+      ],
+      "related_sub_topics": ["metabolic_syndrome", "ectopic_fat", "leptin_resistance"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "ketosis",
+      "label_th": "ภาวะคีโตซิส",
+      "label_en": "Ketosis",
+      "description": "ตับผลิต ketone bodies (beta-hydroxybutyrate, acetoacetate, acetone) จาก acetyl-CoA ส่วนเกิน เมื่อคาร์บต่ำ/อดอาหาร — เป็นเชื้อเพลิงสำรองแทนกลูโคส โดยเฉพาะสำหรับสมอง (StatPearls; Cahill 1970)",
+      "key_concepts": [
+        "beta-hydroxybutyrate",
+        "acetoacetate",
+        "acetone breath",
+        "HMG-CoA",
+        "nutritional ketosis",
+        "liver lacks thiophorase",
+        "keto-adaptation"
+      ],
+      "related_sub_topics": ["autophagy", "ectopic_fat", "insulin_resistance"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "autophagy",
+      "label_th": "ออโตฟาจี (กระบวนการกินตัวเองของเซลล์)",
+      "label_en": "Autophagy",
+      "description": "กลไก 'ทิ้งขยะในเซลล์' โดยส่งส่วนของ cytoplasm เข้า autophagosome → lysosome ย่อย — ถูก mTOR ยับยั้งตอนอิ่ม และถูกกระตุ้นตอนอดอาหาร (Ohsumi, Nobel Prize 2016)",
+      "key_concepts": [
+        "ATG genes",
+        "autophagosome",
+        "lysosome",
+        "mTOR inhibition",
+        "Atg1/Atg13 kinase complex",
+        "self-eating"
+      ],
+      "related_sub_topics": ["ketosis", "ectopic_fat"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "leptin_resistance",
+      "label_th": "ภาวะดื้อเลปติน",
+      "label_en": "Leptin Resistance",
+      "description": "เลปตินจากเซลล์ไขมันส่งสัญญาณ 'อิ่ม/พอแล้ว' ไปไฮโปทาลามัส (POMC/AgRP neurons) — ในคนอ้วน เลปตินสูงแต่สมองไม่รับ ทำให้หิวตลอด กินไม่หยุด (Morris & Rui 2009; Friedman 2014)",
+      "key_concepts": [
+        "LEPRb receptor",
+        "JAK2/STAT3",
+        "SOCS3 negative feedback",
+        "POMC neurons",
+        "AgRP neurons",
+        "hypothalamic inflammation"
+      ],
+      "related_sub_topics": ["insulin_resistance", "white_adipose_tissue"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "brown_adipose_tissue",
+      "label_th": "ไขมันสีน้ำตาล (BAT)",
+      "label_en": "Brown Adipose Tissue",
+      "description": "ไขมันชนิด 'เผา' — มี mitochondria หนาแน่นและ UCP1 ซึ่งปลด uncouple oxidative phosphorylation เพื่อผลิตความร้อนแทน ATP; ถูกกระตุ้นด้วยความเย็น (van Marken 2009 NEJM — ตรวจพบใน 96% ของชายที่ถูกเย็น)",
+      "key_concepts": [
+        "UCP1",
+        "mitochondrial uncoupling",
+        "non-shivering thermogenesis",
+        "cold-induced thermogenesis",
+        "18F-FDG PET-CT",
+        "supraclavicular BAT"
+      ],
+      "related_sub_topics": ["white_adipose_tissue"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "white_adipose_tissue",
+      "label_th": "ไขมันสีขาว (WAT)",
+      "label_en": "White Adipose Tissue",
+      "description": "ไขมันปกติที่เก็บพลังงานเป็น triglyceride ใน adipocyte เดี่ยว (unilocular) — แบ่งย่อยเป็น subcutaneous (ใต้ผิว) และ visceral (ช่องท้อง/รอบอวัยวะ); หลั่ง leptin, adiponectin",
+      "key_concepts": [
+        "adipocyte hypertrophy",
+        "adipocyte hyperplasia",
+        "subcutaneous fat",
+        "visceral fat",
+        "adipokine",
+        "lipid droplet"
+      ],
+      "related_sub_topics": ["metabolic_syndrome", "ectopic_fat", "leptin_resistance"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "metabolic_syndrome",
+      "label_th": "เมตาโบลิกซินโดรม",
+      "label_en": "Metabolic Syndrome",
+      "description": "กลุ่มอาการ 5 ข้อ: รอบเอวเกิน, TG สูง, HDL ต่ำ, ความดันสูง, น้ำตาล fasting สูง — มีอย่างน้อย 3/5 = metabolic syndrome; ฐานคือ insulin resistance + visceral adiposity",
+      "key_concepts": [
+        "waist circumference",
+        "triglycerides",
+        "HDL cholesterol",
+        "hypertension",
+        "fasting glucose",
+        "HOMA-IR",
+        "ATP III criteria"
+      ],
+      "related_sub_topics": ["insulin_resistance", "ectopic_fat", "white_adipose_tissue"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "ectopic_fat",
+      "label_th": "ไขมันแทรกในอวัยวะ",
+      "label_en": "Ectopic Fat",
+      "description": "ไขมันที่สะสมผิดที่ — ในตับ (NAFLD), ตับอ่อน, กล้ามเนื้อ (IMCL), หัวใจ — เป็นต้นเหตุของ insulin resistance ตับและ T2D ตาม twin cycle hypothesis (Taylor) — ลดได้ด้วย caloric restriction",
+      "key_concepts": [
+        "NAFLD/MASLD",
+        "pancreatic fat",
+        "intramyocellular lipid",
+        "twin cycle hypothesis",
+        "personal fat threshold",
+        "VLDL-TG",
+        "Counterpoint study",
+        "DiRECT trial"
+      ],
+      "related_sub_topics": ["insulin_resistance", "metabolic_syndrome"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": true
+    }
+  ]
+}

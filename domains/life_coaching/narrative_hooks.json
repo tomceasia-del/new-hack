@@ -1,0 +1,61 @@
+{
+  "domain_id": "life_coaching",
+  "hook_templates": [
+    {
+      "template_id": "lc_hook_001",
+      "style": "shock",
+      "pattern_th": "สิ่งที่คุณเชื่อเรื่อง __X__ มาตลอดนั้น ผิดตั้งแต่ต้น — งานวิจัย __SOURCE__ พิสูจน์ว่า __TRUTH__",
+      "example_th": "สิ่งที่คุณเชื่อเรื่อง '21 วันสร้างนิสัย' นั้น ผิดตั้งแต่ต้น — งานวิจัย UCL พิสูจน์ว่าเฉลี่ย 66 วัน และบางคนต้องการ 254 วัน",
+      "facts_used": ["lc_001"],
+      "effectiveness_notes": "ใช้กับ myth-busting content — สร้าง engagement สูงเพราะ challenge assumption"
+    },
+    {
+      "template_id": "lc_hook_002",
+      "style": "curiosity",
+      "pattern_th": "ทำไม __กลุ่มคน__ ถึง __ผลลัพธ์ที่น่าแปลกใจ__ ทั้งที่ __เงื่อนไขที่น่าจะไม่ได้__ — เพราะ __MECHANISM__",
+      "example_th": "ทำไมผู้พิพากษาถึงตัดสินประโยคต่างกัน เพียงเพราะตำแหน่งคดีในวันนั้น — เพราะ Decision Fatigue ทำให้สมองเลือก default ที่ปลอดภัยที่สุด",
+      "facts_used": ["lc_018"],
+      "effectiveness_notes": "counter-intuitive fact สร้าง curiosity gap แรง"
+    },
+    {
+      "template_id": "lc_hook_003",
+      "style": "pain",
+      "pattern_th": "ถ้าคุณเคย __ล้มเหลวซ้ำๆ__ แล้วโทษตัวเอง — ผมบอกเลยว่าปัญหาไม่ได้อยู่ที่ __สิ่งที่คุณโทษ__ แต่อยู่ที่ __ROOT_CAUSE__",
+      "example_th": "ถ้าคุณเคยผัดวันซ้ำๆ แล้วโทษว่าตัวเองขี้เกียจ — ผมบอกเลยว่าปัญหาไม่ได้อยู่ที่ character แต่อยู่ที่คุณกำลัง avoid ความรู้สึกบางอย่างอยู่",
+      "facts_used": ["lc_008"],
+      "effectiveness_notes": "เหมาะกับ discipline_coach persona — reframe ความล้มเหลวให้ actionable"
+    },
+    {
+      "template_id": "lc_hook_004",
+      "style": "awe",
+      "pattern_th": "__ตัวเลขที่น่าตื่นเต้น__ — นี่คือผลของ __CONCEPT__ ที่ __MECHANISM__ ทบต้น __ระยะเวลา__",
+      "example_th": "37 เท่า — นี่คือผลของการพัฒนา 1% ต่อวัน ทบต้นใน 1 ปี — ไม่ใช่ magic แต่คือ math ของ marginal gains",
+      "facts_used": ["lc_012"],
+      "effectiveness_notes": "ตัวเลขใหญ่สร้าง awe — ต้อง frame ว่าเป็น theoretical model ด้วย"
+    },
+    {
+      "template_id": "lc_hook_005",
+      "style": "insult_reality",
+      "pattern_th": "คนส่วนใหญ่ __ทำสิ่งนี้__ เพราะคิดว่า __WRONG_BELIEF__ — แต่จริงๆ แล้ว __CORRECT_APPROACH__ ได้ผลกว่า __ตัวเลข/เหตุผล__",
+      "example_th": "คนส่วนใหญ่รอ Motivation ก่อนถึงจะลงมือทำ — แต่จริงๆ แล้ว Action มาก่อน Motivation เสมอ — งานวิจัยพิสูจน์ว่า 2 นาทีแรกคือทั้งหมดที่ต้องการ",
+      "facts_used": ["lc_009"],
+      "effectiveness_notes": "challenge audience directly — สร้าง scroll-stopping moment"
+    },
+    {
+      "template_id": "lc_hook_006",
+      "style": "curiosity",
+      "pattern_th": "Nobel Prize Winner พบว่า __COUNTERINTUITIVE_FACT__ — นี่คือเหตุผลที่ __BEHAVIOR_IMPLICATION__",
+      "example_th": "Nobel Prize Winner พบว่า เสีย 100 บาท เจ็บปวดกว่าได้ 100 บาทถึง 2 เท่า — นี่คือเหตุผลที่คุณไม่กล้าเปลี่ยนแปลงแม้รู้ว่าควรเปลี่ยน",
+      "facts_used": ["lc_014"],
+      "effectiveness_notes": "authority (Nobel) + counterintuitive = strong hook"
+    },
+    {
+      "template_id": "lc_hook_007",
+      "style": "correction",
+      "pattern_th": "คุณไม่ได้ขาด __ที่คนมักโทษ__ — คุณแค่ขาด __REAL_SOLUTION__ — __MECHANISM__ ทำให้ __WHAT_HAPPENS__",
+      "example_th": "คุณไม่ได้ขาด Willpower — คุณแค่ขาด system ที่ดี — Fogg Behavior Model บอกว่า Ability ต่ำ ไม่มีวัน Motivation พาไปถึง",
+      "facts_used": ["lc_006"],
+      "effectiveness_notes": "compassionate reframe ที่เหมาะกับ discipline_coach tone"
+    }
+  ]
+}

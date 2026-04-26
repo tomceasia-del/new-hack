@@ -1,0 +1,262 @@
+{
+  "domain_id": "blood_sugar",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 11,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.blood_sugar"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_bs_001",
+      "label_th": "อินซูลิน → PI3K/Akt → GLUT4 translocation → น้ำตาลเข้าเซลล์",
+      "label_en": "Insulin → PI3K/Akt → GLUT4 translocation → cellular glucose uptake",
+      "description_th": "อินซูลินจับกับ insulin receptor บนกล้ามเนื้อและเซลล์ไขมัน → กระตุ้น PI3K → Akt ถูก phosphorylate → vesicle ที่เก็บ GLUT4 ถูกนำออกมาเสียบที่ผิวเซลล์ → กลูโคสจากเลือดไหลเข้าเซลล์; ในภาวะดื้ออินซูลิน ขั้นตอนนี้ช้า/ไม่ครบ จึงต้องใช้ insulin มากขึ้นเพื่อดันน้ำตาลเข้าเซลล์เท่าเดิม",
+      "description_en": "Insulin binds its receptor on muscle/adipose cells → activates PI3K → phosphorylates Akt → intracellular GLUT4 storage vesicles translocate to the plasma membrane → glucose flows from blood into the cell; in insulin resistance, this cascade is blunted — more insulin is needed to achieve the same uptake.",
+      "chain": [
+        {"step": 1, "actor": "carb-rich meal", "action": "raises", "target": "blood glucose", "effect": "β-cells secrete insulin"},
+        {"step": 2, "actor": "insulin", "action": "binds", "target": "insulin receptor (IR) tyrosine kinase", "effect": "IRS-1 phosphorylation"},
+        {"step": 3, "actor": "IRS-1", "action": "activates", "target": "PI3K → Akt", "effect": "signaling cascade"},
+        {"step": 4, "actor": "Akt", "action": "triggers", "target": "GLUT4 vesicle translocation", "effect": "GLUT4 on plasma membrane"},
+        {"step": 5, "actor": "GLUT4", "action": "transports", "target": "glucose into muscle/adipocyte", "effect": "blood glucose normalizes"}
+      ],
+      "analogies_th": [
+        "อินซูลินคือ 'กุญแจ' ที่เปิดประตูให้น้ำตาลเข้าเซลล์ — คนดื้ออินซูลินเปรียบเหมือนกุญแจเก่าต้องหมุนหลายรอบ",
+        "เหมือน Uber ขนน้ำตาลจากถนนใหญ่ (เลือด) เข้าบ้าน (เซลล์) — พอประตูฝืด ก็ต้องส่ง Uber เพิ่มเรื่อย ๆ"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK279029/", "org": "Endotext / NIH", "source_tier": "A", "year": 2023, "title": "Insulin Action and Type 2 Diabetes — Saltiel AR", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bs_002",
+      "label_th": "Twin Cycle: ตับเต็ม → ตับอ่อนเต็ม → เบาหวาน (Taylor)",
+      "label_en": "Twin Cycle Hypothesis — liver fat → pancreatic fat → T2D",
+      "description_th": "กินเกินพลังงานเรื้อรัง → ตับสะสม triglyceride → hepatic insulin resistance → ตับผลิตน้ำตาลไม่หยุด → ตับอ่อนหลั่งอินซูลินชดเชยสูง → hyperinsulinemia → de novo lipogenesis → ตับอ้วนขึ้นอีก + VLDL export เพิ่ม → ไขมันล้นไปที่ตับอ่อน → β-cell dedifferentiation → หลั่งอินซูลินไม่ได้ = T2D เต็มรูปแบบ",
+      "description_en": "Chronic caloric surplus → hepatic triglyceride accumulates → hepatic insulin resistance → liver cannot suppress glucose output → β-cells hypersecrete insulin → hyperinsulinemia → DNL adds more liver fat + VLDL export rises → ectopic fat deposits in pancreas → β-cell dedifferentiation → insulin secretion fails = full T2D.",
+      "chain": [
+        {"step": 1, "actor": "chronic energy surplus", "action": "exceeds", "target": "personal fat threshold", "effect": "liver fat accumulates >5.5%"},
+        {"step": 2, "actor": "hepatic steatosis", "action": "induces", "target": "hepatic insulin resistance", "effect": "fasting glucose output not suppressed"},
+        {"step": 3, "actor": "β-cell", "action": "compensates with", "target": "higher basal insulin", "effect": "hyperinsulinemia"},
+        {"step": 4, "actor": "high portal insulin", "action": "drives", "target": "de novo lipogenesis (SREBP-1c)", "effect": "more liver TG + VLDL export"},
+        {"step": 5, "actor": "VLDL-TG", "action": "deposits in", "target": "pancreas islets", "effect": "lipotoxic β-cell dedifferentiation"},
+        {"step": 6, "actor": "β-cell", "action": "fails to produce", "target": "1st-phase insulin", "effect": "postprandial glucose unchecked = T2D"},
+        {"step": 7, "actor": "weight loss ≥15 kg", "action": "drains", "target": "liver + pancreatic ectopic fat", "effect": "remission in responders (DiRECT)"}
+      ],
+      "analogies_th": [
+        "เหมือน 2 คลังสินค้าที่ล้นต่อเนื่อง — ตับล้นก่อน แล้วของล้นไปสู่ตับอ่อน",
+        "ทั้ง 2 ล้อเฟืองหมุนผิดทิศ — ยิ่งนานยิ่งบิดพัง"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8247294/", "org": "Diabet Med / PMC", "source_tier": "A", "year": 2021, "title": "Type 2 diabetes and remission: practical management guided by pathophysiology — Taylor R.", "access_date": "2026-04-22"},
+        {"url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP092009", "org": "Experimental Physiology / Wiley", "source_tier": "A", "year": 2025, "title": "Twin Cycle Hypothesis — Taylor R.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hepatic_glucose",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bs_003",
+      "label_th": "Berberine → AMPK activation → ตับปล่อยน้ำตาลน้อยลง",
+      "label_en": "Berberine → AMPK activation → reduced hepatic glucose output",
+      "description_th": "Berberine เข้าสู่เซลล์ตับ/กล้ามเนื้อ → ยับยั้ง mitochondrial complex I อ่อน ๆ → AMP/ATP ratio ขึ้น → AMPK ถูกกระตุ้น → (1) ยับยั้ง gluconeogenesis enzymes (PEPCK, G6Pase), (2) กระตุ้น GLUT4 translocation, (3) ลด hepatic lipogenesis — mechanism คล้ายกับ metformin มาก",
+      "description_en": "Berberine enters hepatocytes/myocytes → mildly inhibits mitochondrial complex I → raises AMP/ATP ratio → activates AMPK → (1) suppresses gluconeogenic enzymes (PEPCK, G6Pase), (2) promotes GLUT4 translocation, (3) inhibits hepatic lipogenesis — mechanism strikingly similar to metformin.",
+      "chain": [
+        {"step": 1, "actor": "oral berberine (~500 mg)", "action": "absorbed into", "target": "hepatocytes", "effect": "intracellular accumulation"},
+        {"step": 2, "actor": "berberine", "action": "inhibits", "target": "mitochondrial complex I", "effect": "AMP/ATP ratio rises"},
+        {"step": 3, "actor": "AMP rise", "action": "activates", "target": "AMPK", "effect": "energy-sensor on"},
+        {"step": 4, "actor": "AMPK", "action": "down-regulates", "target": "PEPCK + G6Pase (gluconeogenesis)", "effect": "less hepatic glucose output"},
+        {"step": 5, "actor": "AMPK", "action": "up-regulates", "target": "GLUT4 translocation in muscle", "effect": "better peripheral uptake"}
+      ],
+      "analogies_th": [
+        "Berberine = 'เมทฟอร์มินจากธรรมชาติ' — สวิตช์เดียวกันคือ AMPK",
+        "AMPK คือ 'เซ็นเซอร์น้ำมันต่ำ' ของเซลล์ — เมื่อ berberine กด AMPK ขึ้น เซลล์เลิกผลิตน้ำตาลและดึงน้ำตาลจากเลือดมาใช้แทน"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2410097/", "org": "Metabolism / PMC", "source_tier": "A", "year": 2008, "title": "Efficacy of Berberine in Patients with Type 2 Diabetes — Yin J et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25498346/", "org": "J Ethnopharmacol / PubMed", "source_tier": "A", "year": 2015, "title": "Meta-analysis of the effect and safety of berberine in the treatment of type 2 diabetes mellitus — Lan J et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hepatic_glucose",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bs_004",
+      "label_th": "GLP-1 → insulin + ชะลอกระเพาะ + ส่งสัญญาณอิ่ม",
+      "label_en": "GLP-1 → insulin secretion + gastric delay + satiety",
+      "description_th": "L-cells ในลำไส้เล็กส่วนปลายปล่อย GLP-1 เมื่อเจออาหาร → (1) กระตุ้น β-cell หลั่ง insulin แบบ glucose-dependent (ไม่ทำน้ำตาลต่ำ), (2) ยับยั้ง glucagon, (3) ชะลอ gastric emptying, (4) กด appetite ที่ hypothalamus — DPP-4 ย่อย GLP-1 ใน ~2 นาที; semaglutide เลี่ยง DPP-4 ได้",
+      "description_en": "L-cells in the distal ileum release GLP-1 upon food contact → (1) stimulates β-cell insulin secretion (glucose-dependent, so no hypoglycemia), (2) suppresses glucagon, (3) slows gastric emptying, (4) acts on hypothalamus to reduce appetite — DPP-4 degrades GLP-1 in ~2 minutes; semaglutide resists DPP-4.",
+      "chain": [
+        {"step": 1, "actor": "ingested food", "action": "contacts", "target": "L-cells in distal ileum", "effect": "GLP-1 release"},
+        {"step": 2, "actor": "GLP-1", "action": "binds", "target": "GLP-1R on β-cells", "effect": "glucose-dependent insulin secretion"},
+        {"step": 3, "actor": "GLP-1", "action": "suppresses", "target": "pancreatic α-cell glucagon", "effect": "reduced hepatic glucose output"},
+        {"step": 4, "actor": "GLP-1", "action": "slows", "target": "pyloric gastric emptying", "effect": "flattened glucose curve"},
+        {"step": 5, "actor": "GLP-1", "action": "acts on", "target": "arcuate nucleus POMC neurons", "effect": "satiety + reduced food intake"},
+        {"step": 6, "actor": "DPP-4", "action": "degrades", "target": "native GLP-1 in ~2 min", "effect": "short native half-life; drug analogs mask cleavage site"}
+      ],
+      "analogies_th": [
+        "GLP-1 = 'เบรก' 4 ตัวในเครื่องเดียว — กดน้ำตาล + ชะลอกระเพาะ + ตัดความหิว + ปิดน้ำตาลจากตับ",
+        "Ozempic คือ GLP-1 ที่ทนทาน — คง effect ได้ 1 สัปดาห์แทนที่จะเป็น 2 นาที"
+      ],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183", "org": "NEJM", "source_tier": "A", "year": 2021, "title": "Once-Weekly Semaglutide in Adults with Overweight or Obesity — Wilding JPH et al. (STEP-1)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "GLP_1",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bs_005",
+      "label_th": "Dawn phenomenon — คอร์ติซอล + GH → ตับปล่อยน้ำตาลตอนเช้า",
+      "label_en": "Dawn phenomenon — cortisol + GH → morning hepatic glucose surge",
+      "description_th": "ช่วงตี 3-5 คอร์ติซอลเริ่มพุ่งตาม circadian rhythm; GH ยังสูงจาก pulse กลางคืน → ทั้ง 2 ตัวกระตุ้น gluconeogenesis และลดการใช้น้ำตาลของเซลล์ → ตับปล่อยน้ำตาลเพิ่ม → 4-8 โมง FBG สูงขึ้น 20-50 mg/dL ในคนเบาหวาน (น้อยกว่าในคนปกติเพราะอินซูลินพอจะกดได้)",
+      "description_en": "From ~3-5 AM, cortisol rises per circadian rhythm while GH is still elevated from nocturnal pulses → both counter-regulatory hormones stimulate gluconeogenesis and reduce peripheral glucose uptake → liver glucose output surges → 4-8 AM fasting glucose rises 20-50 mg/dL in diabetics (less in non-diabetics because insulin can suppress it).",
+      "chain": [
+        {"step": 1, "actor": "SCN circadian clock", "action": "triggers", "target": "ACTH→cortisol surge ~3-5 AM", "effect": "counter-regulatory hormones rise"},
+        {"step": 2, "actor": "nocturnal GH pulses", "action": "persist into", "target": "early morning", "effect": "dual counter-regulation"},
+        {"step": 3, "actor": "cortisol + GH", "action": "stimulate", "target": "hepatic gluconeogenesis + glycogenolysis", "effect": "glucose output rises"},
+        {"step": 4, "actor": "insulin resistance", "action": "prevents", "target": "β-cells from matching the output", "effect": "net FBG rise by morning"}
+      ],
+      "analogies_th": [
+        "ตับมีปุ่ม 'ตื่นเช้า' เปิดเอง — ปล่อยน้ำตาลเพื่อให้ร่างกายพร้อมเคลื่อนไหว",
+        "เหมือนนาฬิกาปลุก — แต่ของคนเบาหวานปลุกดังเกินไป"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK430893/", "org": "StatPearls", "source_tier": "A", "year": 2024, "title": "Dawn Phenomenon — Varghese RT, Jialal I", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "dawn_phenomenon",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bs_006",
+      "label_th": "Soluble fiber → gastric delay + SCFAs → กด glucose spike",
+      "label_en": "Soluble fiber → gastric delay + SCFAs → blunted glucose spike",
+      "description_th": "ไฟเบอร์ละลายน้ำ (psyllium, glucomannan, beta-glucan) ดูดน้ำเป็นเจลในกระเพาะ → ชะลอ gastric emptying → น้ำตาลไหลเข้ากระแสเลือดช้าลง; พอเข้าลำไส้ใหญ่ → bacteria หมักเป็น SCFAs (acetate, propionate, butyrate) → กระตุ้น GLP-1/PYY + เพิ่ม insulin sensitivity",
+      "description_en": "Soluble fibers (psyllium, glucomannan, beta-glucan) absorb water and form a gel in the stomach → slow gastric emptying → slower glucose absorption; reaching the colon, bacteria ferment them to SCFAs (acetate, propionate, butyrate) → stimulate GLP-1/PYY release + improve insulin sensitivity.",
+      "chain": [
+        {"step": 1, "actor": "soluble fiber", "action": "absorbs water to form", "target": "viscous gel in stomach", "effect": "slower gastric emptying"},
+        {"step": 2, "actor": "slower emptying", "action": "flattens", "target": "postprandial glucose curve", "effect": "lower peak and AUC"},
+        {"step": 3, "actor": "fiber enters", "action": "colon →", "target": "bacterial fermentation", "effect": "SCFAs produced"},
+        {"step": 4, "actor": "SCFAs (esp. propionate)", "action": "stimulate", "target": "FFAR2/3 on L-cells → GLP-1/PYY", "effect": "satiety + incretin amplification"}
+      ],
+      "analogies_th": [
+        "ไฟเบอร์ = 'เบรก' ของน้ำตาล ก่อนที่จะเข้าถนนใหญ่ (เลือด)",
+        "SCFAs = 'รางวัล' ที่ไมโครไบโอมจ่ายให้เมื่อเราเลี้ยงมันด้วยไฟเบอร์"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/30786393/", "org": "Lancet / PubMed", "source_tier": "A", "year": 2019, "title": "Carbohydrate quality and human health: a series of systematic reviews — Reynolds A et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "glucose_spike",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bs_007",
+      "label_th": "Acetic acid (น้ำส้มสายชู) → ยับยั้ง α-amylase + ชะลอกระเพาะ",
+      "label_en": "Acetic acid → α-amylase inhibition + delayed gastric emptying",
+      "description_th": "กรดอะซีติกในน้ำส้มสายชู 15-30 ml ก่อน/พร้อมมื้ออาหาร → (1) ยับยั้งเอนไซม์ α-amylase ในลำไส้ ทำให้แป้งย่อยเป็นน้ำตาลช้าลง, (2) ชะลอ gastric emptying → postprandial glucose ลดลง 20-34% ในคนปกติและคน IR (Johnston 2004; Shishehbor 2017 meta)",
+      "description_en": "Acetic acid (15-30 ml vinegar) taken with a carb meal → (1) inhibits α-amylase and reduces starch digestion, (2) slows gastric emptying → postprandial glucose drops 20-34% in both healthy and IR subjects (Johnston 2004; Shishehbor 2017 meta).",
+      "chain": [
+        {"step": 1, "actor": "vinegar (5% acetic acid) ~15-30 ml", "action": "ingested with", "target": "carb meal", "effect": "low-pH gastric contents"},
+        {"step": 2, "actor": "acetic acid", "action": "inhibits", "target": "intestinal α-amylase", "effect": "slower starch → glucose conversion"},
+        {"step": 3, "actor": "acetic acid", "action": "delays", "target": "gastric emptying", "effect": "lower glucose flux into blood"},
+        {"step": 4, "actor": "absorbed acetate", "action": "activates", "target": "AMPK in liver/muscle", "effect": "mild improvement in insulin sensitivity"}
+      ],
+      "analogies_th": [
+        "น้ำส้มสายชูก่อนมื้อ = เบรกแป้ง ไม่ให้แตกเป็นน้ำตาลเร็ว",
+        "เหมือนติดเบรก ABS ให้ข้าว — ช้าลงแต่ไม่ไถลหลุด"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/14694010/", "org": "Diabetes Care / PubMed", "source_tier": "A", "year": 2004, "title": "Vinegar improves insulin sensitivity to a high-carbohydrate meal — Johnston CS et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "glucose_spike",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bs_008",
+      "label_th": "Hyperinsulinemia มาก่อนเบาหวาน 10-20 ปี (Bikman)",
+      "label_en": "Hyperinsulinemia precedes T2D by 10-20 years (Bikman)",
+      "description_th": "ในคนพัฒนาเบาหวาน fasting insulin จะสูงขึ้นก่อน 10-20 ปี ขณะที่ FBG ยังปกติ — เพราะ β-cell ยัง compensate ได้; เมื่อ β-cell เริ่มเหนื่อย อินซูลินไม่พอที่จะกด fasting glucose → HbA1c ขึ้น → diagnosed diabetes — fasting insulin (ปกติ < 5-10 µU/mL) จึงเป็น 'สัญญาณเตือนล่วงหน้า' ที่ HbA1c ไม่จับ",
+      "description_en": "In the natural history of T2D, fasting insulin rises 10-20 years before FBG or HbA1c — because β-cells compensate for resistance; only when β-cells fatigue does glucose climb → formal diagnosis. Fasting insulin (normal <5-10 µU/mL) is the true early-warning sign that HbA1c misses.",
+      "chain": [
+        {"step": 1, "actor": "peripheral insulin resistance begins", "action": "forces", "target": "β-cells to compensate", "effect": "fasting insulin rises silently"},
+        {"step": 2, "actor": "hyperinsulinemia", "action": "maintains", "target": "normal FBG + HbA1c", "effect": "patient 'looks healthy' on standard labs"},
+        {"step": 3, "actor": "hyperinsulinemia", "action": "drives", "target": "visceral fat + liver fat storage", "effect": "metabolic syndrome develops"},
+        {"step": 4, "actor": "β-cell fatigue (years 10-20)", "action": "fails", "target": "to keep up", "effect": "FBG rises → prediabetes → T2D"}
+      ],
+      "analogies_th": [
+        "Hyperinsulinemia = ควันไฟไต่ขึ้นมาก่อนที่ไฟจะลุก — ถ้าดูแต่ HbA1c เรารอจน 'ไฟลุกแล้ว' ถึงตรวจ",
+        "ตับอ่อนทำ OT 10-20 ปีก่อนจะล้ม"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29453741/", "org": "Nat Rev Endocrinol / PubMed", "source_tier": "A", "year": 2018, "title": "Pathophysiology of type 2 diabetes mellitus — DeFronzo RA et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bs_009",
+      "label_th": "Chromium → amplify insulin receptor signaling (chromodulin)",
+      "label_en": "Chromium → amplifies insulin receptor signaling",
+      "description_th": "โครเมียม (III) จับกับ oligopeptide apo-chromodulin กลายเป็น holo-chromodulin → เข้าจับกับ insulin receptor ที่ถูก activated → amplify tyrosine kinase activity ของ receptor → signaling แรงขึ้นที่ dose เดิม — ผลคือ glucose uptake ดีขึ้นในคนที่ขาดโครเมียมหรือ IR (Vincent 2004; Anderson 1997)",
+      "description_en": "Chromium (III) binds apo-chromodulin to form holo-chromodulin → binds the activated insulin receptor → amplifies its tyrosine kinase activity → enhances downstream signaling at the same insulin dose — improved glucose uptake in chromium-deficient or IR subjects (Vincent 2004; Anderson 1997).",
+      "chain": [
+        {"step": 1, "actor": "oral chromium picolinate (200-1000 µg)", "action": "absorbed, binds", "target": "transferrin", "effect": "delivered to tissues"},
+        {"step": 2, "actor": "Cr(III)", "action": "binds", "target": "apo-chromodulin oligopeptide", "effect": "holo-chromodulin formed"},
+        {"step": 3, "actor": "holo-chromodulin", "action": "binds activated", "target": "insulin receptor β-subunit", "effect": "amplified autophosphorylation"},
+        {"step": 4, "actor": "amplified IRS-1/PI3K/Akt", "action": "drives", "target": "GLUT4 translocation", "effect": "modest HbA1c reduction"}
+      ],
+      "analogies_th": [
+        "Chromium = 'เครื่องขยายเสียง' ของสัญญาณอินซูลิน",
+        "ไม่ได้เพิ่มอินซูลิน แต่ทำให้อินซูลินที่มีทำงานเต็มเสียง"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9356027/", "org": "Diabetes / PubMed", "source_tier": "A", "year": 1997, "title": "Elevated intakes of supplemental chromium improve glucose and insulin variables in individuals with type 2 diabetes — Anderson RA et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_bs_010",
+      "label_th": "Inositol (myo + DCI) → insulin 2nd messenger restoration",
+      "label_en": "Inositol (myo + DCI) → restoration of insulin second messengers",
+      "description_th": "Inositol phosphoglycans (IPG) เป็น second messenger ของ insulin ที่ส่งสัญญาณต่อจาก IR; คน IR/PCOS มัก deficient ใน D-chiro inositol → insulin signal ตีต่อไม่ถึง mitochondria; การเสริม myo-inositol + DCI อัตราส่วน 40:1 → ฟื้น IPG pool → ลด IR, ลด HOMA-IR, ปรับรอบเดือนใน PCOS",
+      "description_en": "Inositol phosphoglycans (IPGs) are insulin second messengers that relay the signal downstream of IR; IR/PCOS patients are often deficient in D-chiro inositol → signal does not propagate to mitochondria; supplementing myo-inositol + DCI at a 40:1 ratio restores IPGs → lowers HOMA-IR and restores ovulation in PCOS.",
+      "chain": [
+        {"step": 1, "actor": "oral myo-inositol + D-chiro (40:1)", "action": "absorbed, accumulates in", "target": "tissues", "effect": "IPG substrate pool restored"},
+        {"step": 2, "actor": "insulin binding", "action": "releases", "target": "IPGs from membrane", "effect": "second messenger signaling"},
+        {"step": 3, "actor": "IPGs", "action": "activate", "target": "pyruvate dehydrogenase + GLUT4", "effect": "improved glucose disposal"},
+        {"step": 4, "actor": "net effect", "action": "lowers", "target": "HOMA-IR; restores ovulation in PCOS", "effect": "metabolic + reproductive benefit"}
+      ],
+      "analogies_th": [
+        "Inositol = ล่ามที่แปลคำสั่งอินซูลินเป็นภาษาในเซลล์ — ถ้าล่ามหาย คำสั่งถึงแต่ไม่มีใครเข้าใจ",
+        "เหมือนเติม 'วิทยุสื่อสาร' ให้ทีมในเซลล์"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/17952759/", "org": "Eur Rev Med Pharmacol Sci / PubMed", "source_tier": "A", "year": 2007, "title": "Metabolic and hormonal effects of myo-inositol in women with PCOS — Costantino D et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_bs_011",
+      "label_th": "Alpha-lipoic acid → มี antioxidant + AMPK + glucose uptake",
+      "label_en": "Alpha-Lipoic Acid → antioxidant + AMPK + glucose uptake",
+      "description_th": "ALA เป็น dithiol ที่ทำหน้าที่ cofactor ของ PDH complex; ในขนาด pharmacological (300-600 mg) → (1) regenerate vitamin C/E และ glutathione, (2) activate AMPK ในกล้ามเนื้อ → GLUT4 translocation โดยไม่พึ่งอินซูลิน, (3) ลด oxidative stress บน nerves → ใช้รักษา diabetic neuropathy ในยุโรป (ALADIN trials)",
+      "description_en": "ALA is a dithiol cofactor of the PDH complex; at pharmacologic doses (300-600 mg) it (1) regenerates vitamins C/E and glutathione, (2) activates AMPK in muscle → insulin-independent GLUT4 translocation, (3) reduces oxidative stress on nerves — approved in Europe for diabetic peripheral neuropathy (ALADIN studies).",
+      "chain": [
+        {"step": 1, "actor": "oral ALA (300-600 mg)", "action": "absorbed, transported to", "target": "muscle + nerves", "effect": "pharmacological plasma levels"},
+        {"step": 2, "actor": "ALA", "action": "activates", "target": "AMPK in myocytes", "effect": "GLUT4 to plasma membrane (insulin-independent)"},
+        {"step": 3, "actor": "ALA/DHLA cycle", "action": "regenerates", "target": "GSH, vit C, vit E", "effect": "antioxidant network replenished"},
+        {"step": 4, "actor": "reduced ROS on peripheral nerves", "action": "mitigates", "target": "diabetic neuropathy symptoms", "effect": "pain/paresthesia reduction (ALADIN)"}
+      ],
+      "analogies_th": [
+        "ALA = แบตเตอรี่สำรองของระบบ antioxidant — ชาร์จให้ C/E/glutathione ใช้งานต่อได้",
+        "ช่วยให้กล้ามเนื้อ 'ดึงน้ำตาลเอง' แม้อินซูลินไม่มากพอ"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21994478/", "org": "Diabetes Care / PubMed", "source_tier": "A", "year": 2011, "title": "Efficacy and safety of antioxidant treatment with α-lipoic acid over 4 years in diabetic polyneuropathy — Ziegler D et al. (NATHAN 1)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "confidence": "medium"
+    }
+  ]
+}

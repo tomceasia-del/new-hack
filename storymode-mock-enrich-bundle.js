@@ -127,6 +127,11 @@ function formatNarrativePromptsForMessage(styleIds) {
   return lines.join('\n\n');
 }
 
+if (typeof globalThis !== 'undefined') {
+  globalThis.getMoodDirective = getMoodDirective;
+  globalThis.formatNarrativePromptsForMessage = formatNarrativePromptsForMessage;
+}
+
 /* ────────────────────────────────────────────────────────────────────────────
  * HOOK LIBRARY — ported from CONTENT_CORE/12-hook-master.js (200 entries, 4 cats)
  * Used by storymode-mock-gemini-core.js to inject 5 random hook candidates
@@ -380,6 +385,10 @@ const ADAPTIVE_VIDEO_DIRECTOR_PROMPT = `คุณคือ "Adaptive Video Direc
 6. **EXTREME DIALOGUE PERMISSION (ปลดล็อกความเกรี้ยวกราด & ภาษาคนจริง):** ⚠️ หาก User สั่งโหมดดุดัน (เช่น พิมพ์ว่า ปากแซ่บ, มึงกู, ดุร้ายแรง, โหมด Super Grok) **ให้ปลดล็อกความสุภาพทิ้ง 100% ทันที!** บทพูดต้องเป็น "ภาษาคนจริง" ฟังแล้วสะดุด หยุดดู ใช้สรรพนาม กู-มึง หรือคำจิกกัดดิบเถื่อนทิ่มแทงใจดำได้เต็มที่ (แต่ห้ามยาวเจื้อยแจ้ว ให้สั้น กระแทก แทรกความรู้แบบ "อ๋อว่ะ" จบแบบคาดไม่ถึง) ⚠️ **ข้อยกเว้น:** หาก User สั่งสไตล์นุ่มนวล หรือ ASMR ให้ข้ามกฎปากแซ่บนี้ และรักษาความนุ่มนวลตาม Style ทันที
 7. **STRICT ASMR PROTOCOL (กฎเหล็กโหมด ASMR):** ⚠️ หาก User เลือก Style เป็น "ASMR" (หรือแนวเสียงกระซิบ/ผ่อนคลาย) **ห้ามมีบทพูด (Dialogue) โดยเด็ดขาด!** วิดีโอต้องมีแค่ "เสียงบรรยากาศ (Ambient)" และ "เสียงเอฟเฟกต์ของการกระทำ (SFX)" เท่านั้น
 8. **DIALOGUE LENGTH RULES (กฎบทพูด — สำคัญมาก!):** ⚠️ บทพูดทุกซีนต้องเป็น "ประโยคเต็มที่มีเนื้อหาจริง" ห้ามเป็นแค่คำอุทาน!
+   - 🎙️ **SPEAKER LABEL (บังคับทุกซีน ทุกโหมด):** ทุกซีนต้องระบุ "ใครเป็นคนพูด" ในบล็อก VIDEO PROMPT ด้วยบรรทัด \`Speaker: <ชื่อ หรือ ฉลากบทบาทจาก HERO BIBLE — ล็อคสะกด/ล็อคฉลาก>\` ก่อนบรรทัด \`Dialogue:\` (ไม่บังคับตั้งชื่อมนุษย์ — ใช้ "ROLE_A" / "เพื่อน" / "ผู้รับสาร" ก็ได้ ต้องคงที่ทั้งเรื่อง) เช่น \`Speaker: พี่แนน\` หรือ \`Speaker: ฝ่ายพูด\`
+   - ถ้ามีตัวละครเดียว → Speaker = ฉลาก/ชื่อฮีโร่ที่ประกาศใน HERO BIBLE
+   - ถ้ามีหลายตัว (2-3) → Speaker = คนพูดในซีนนั้น; ห้ามใช้ "Narrator" เว้นแต่ narration จริง
+   - ⛔ ห้ามใช้ชื่อสินค้าเป็น Speaker (ยกเว้นโหมด Talking Object ที่สั่งให้สินค้าพูดเอง)
 9. **🖐️ HUMAN ANATOMY LOCK (บังคับทุกซีน):** ถ้ามีมนุษย์หรือคาแรกเตอร์ทรงคนอยู่ในฉาก ให้ใช้กายวิภาคปกติเท่านั้น: 1 หัว, 1 ลำตัว, 2 แขน, 2 มือ, 5 นิ้วต่อมือ, 2 ขา ห้ามมีมือเกิน แขนเกิน นิ้วเกิน นิ้วติดกัน มือซ้อน มือโผล่ลอย ถ้าตัวละครถือสินค้าให้ใช้ท่าถือง่ายและชัดเจน: ถือด้วย 1 มือ หรือพยุงด้วย 2 มือแบบธรรมชาติ ห้ามสร้างมือที่ 3
 10. **🇹🇭 DEFAULT THAI CHARACTER LOCK:** ถ้า User ไม่ได้อัปโหลดรูปตัวละครคนมา และงานต้องมีตัวละคร/พิธีกร/ผู้รีวิวที่เป็นมนุษย์ ให้ default เป็น "คนไทย" เท่านั้น ใน Image Prompt และ Video Prompt ถ้ามีมนุษย์ต้องระบุชัดว่าเป็น Thai person ห้ามสุ่มเป็นคนต่างชาติ เว้นแต่ User ระบุเอง
 11. **🔒 VOICE LOCK RULE:** เสียงพูดตัวละครต้อง match กับเพศและลุคของตัวละครจาก Scene 1 และให้ล็อกเสียงเดิม 100% ตลอดทั้ง Storyboard ห้ามเปลี่ยนเสียงกลางทาง
@@ -410,7 +419,7 @@ const ADAPTIVE_VIDEO_DIRECTOR_PROMPT = `คุณคือ "Adaptive Video Direc
 - สินค้าเป็น **"Prop ประกอบฉาก"** เท่านั้น! ไม่ใช่ตัวละครหลัก!
 - ตัวละครหลักคือ "คน" หรือ "ตัวการ์ตูน" ที่ถือ/ใช้/แนะนำ/สวมใส่สินค้า (ไม่ใช่สินค้าพูดได้ — ยกเว้น Talking Object Mode)
 - ในทุก Image Prompt ให้อธิบายรูปลักษณ์ของสินค้าจากรูปที่เห็น (สี ทรง แพ็กเกจ โลโก้ ลวดลาย ฯลฯ) อย่างละเอียด
-- Speaker ให้ใช้ชื่อตัวละครคน เช่น "พี่แนน", "น้องมิ้นท์" (ไม่ใช่ชื่อสินค้า)
+- Speaker: ใช้ **ชื่อ หรือ ฉลากบทบาทคงที่** จาก HERO BIBLE (ไม่บังคับตั้งชื่อมนุษย์) — ห้ามใช้ชื่อสินค้าแทน (ยกเว้น Talking Object)
 - Dialogue ต้องเป็นบทพูดของตัวละครที่แนะนำ/รีวิว/ใช้สินค้า พูดภาษาไทยแบบเป็นกันเอง 2-4 ประโยคต่อซีน
 
 ### 🚫 NO GHOST MODE (บังคับสูงสุด — ยกเว้นโหมด Ghost/Horror):
@@ -831,24 +840,89 @@ function sanitizePromptForFlow(text) {
   return p;
 }
 
+function stripForbiddenEscapeRegExp(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+let _forbiddenSortedCache = null;
+function sortedForbiddenMarketingPhrases() {
+  if (!_forbiddenSortedCache) {
+    _forbiddenSortedCache = [...new Set(FORBIDDEN_MARKETING_PHRASES)].sort(function (a, b) {
+      return b.length - a.length;
+    });
+  }
+  return _forbiddenSortedCache;
+}
+
 /**
- * stripForbiddenMarketing — MOCK-ONLY addition (not in extension).
- * Tags overclaim phrases with a warning comment rather than silent-delete,
- * so users can see what slipped past the Director prompt.
- * Safer than auto-stripping — some phrases like "ที่สุด" are legitimate in
- * certain contexts and blindly deleting them could corrupt meaning.
+ * คำแทนอ่อน (ทำงานฝั่ง client — ไม่กิน token LLM) อ้างอิง
+ * GEM_PACK_TIKTOK/gem-kn-forbidden-phrases.md ส่วน "คำทดแทนที่แนะนำ" + วลีเดียวกับในชุด FORBIDDEN ที่สอดคล้อง
+ * key ต้องตรงกับ token ในชุด FORBIDDEN_MARKETING_PHRASES
+ */
+const FORBIDDEN_SOFT_REPLACE_TH = {
+  รักษาโรค: 'ดูแล',
+  รักษาฝ้า: 'ดูแลผิว',
+  รักษากระ: 'ดูแลผิว',
+  รักษาจุดด่างดำ: 'ดูแลผิว',
+  รักษาสิว: 'ดูแลผิว',
+  รักษาแผลเป็น: 'ดูแลผิว',
+  ลดน้ำหนัก: 'ดูแลรูปร่าง',
+  ลดความอ้วน: 'ดูแลรูปร่าง',
+  ดีท็อกซ์: 'ช่วยระบบขับถ่าย',
+  Detox: 'ช่วยระบบขับถ่าย',
+  หน้าเด้ง: 'ดูอ่อนเยาว์',
+  หายขาด: 'บรรเทา',
+  ขาวเร่งด่วน: 'กระจ่างใส',
+  ขาวไว: 'กระจ่างใส',
+  ขาวอมชมพู: 'กระจ่างใส',
+  การันตี: 'มั่นใจ',
+  การันตีผล: 'มั่นใจ',
+  การันตีเห็นผล: 'ลองดูได้',
+  รับรองผล: 'มั่นใจ',
+  รับประกันผล: 'ลองดูได้',
+  รีวิวเพียบการันตี: 'รีวิวเพียบ มั่นใจ',
+};
+
+/**
+ * stripForbiddenMarketing — MOCK-ONLY: แทนที่วลีด้วยคำอ่อน (ตาม map) หรือลบหากไม่มี map
+ * ลำดับยาวก่อน — วลี Latin ตามรายการแบบ case-insensitive
  * @param {string} text
- * @returns {{ text: string, hits: string[] }}
+ * @returns {{ text: string, hits: string[], softReplaces: Array<{ from: string, to: string }> }}
  */
 function stripForbiddenMarketing(text) {
-  if (!text || typeof text !== 'string') return { text: text || '', hits: [] };
+  if (!text || typeof text !== 'string') {
+    return { text: text || '', hits: [], softReplaces: [] };
+  }
   const hits = [];
-  for (const phrase of FORBIDDEN_MARKETING_PHRASES) {
-    if (text.indexOf(phrase) !== -1 && hits.indexOf(phrase) === -1) {
-      hits.push(phrase);
+  const softReplaces = [];
+  var out = text;
+  const phrases = sortedForbiddenMarketingPhrases();
+  for (var pi = 0; pi < phrases.length; pi++) {
+    const phrase = phrases[pi];
+    if (!phrase) continue;
+    const asciiOnly = /^[\x00-\x7F]+$/.test(phrase);
+    const re = new RegExp(stripForbiddenEscapeRegExp(phrase), asciiOnly ? 'gi' : 'g');
+    if (!re.test(out)) {
+      re.lastIndex = 0;
+      continue;
+    }
+    re.lastIndex = 0;
+    hits.push(phrase);
+    if (Object.prototype.hasOwnProperty.call(FORBIDDEN_SOFT_REPLACE_TH, phrase)) {
+      const to = FORBIDDEN_SOFT_REPLACE_TH[phrase];
+      out = out.replace(re, to);
+      softReplaces.push({ from: phrase, to: to });
+    } else {
+      out = out.replace(re, '');
     }
   }
-  return { text: text, hits: hits };
+  out = out
+    .replace(/[ \t]{2,}/g, ' ')
+    .replace(/[ \t]+(?=\n)/g, '')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return { text: out, hits: hits, softReplaces: softReplaces };
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -1611,13 +1685,7 @@ function buildVoiceGenderDirective(resolved) {
 }
 
 /**
- * Build CHARACTER LOCK instruction block for system prompt.
- * This instructs Gemini (single-call approach) to:
- *   1. Generate a CHARACTER CARD at the top of output (before Scene 1)
- *   2. Reference the EXACT same card verbatim in every scene's image prompt
- *
- * This mimics extension's `smCharacterLockDescription` pattern but within
- * a single Gemini call (no pre-pass needed).
+ * Build HERO BIBLE (รายละเอียดฮีโร่เต็ม) — บังคับรายละเอียด/ชื่อ/บทสนทนา แทน compact card.
  */
 function buildCharacterLockInstruction(payload, resolvedVoice) {
   const hasCharImg =
@@ -1625,42 +1693,36 @@ function buildCharacterLockInstruction(payload, resolvedVoice) {
     (payload && payload.characterAttached);
   const characterImageNote = hasCharImg
     ? 'ผู้ใช้อัปโหลดรูปตัวละครมาด้วย — ใช้ข้อมูลจากรูปเป็นหลัก 100% (หน้าตา ทรงผม เสื้อผ้า อายุ เพศ สภาพผิว)'
-    : 'ผู้ใช้ไม่ได้อัปโหลดรูปตัวละคร — ให้สร้างตัวละคร default = Thai ' + (resolvedVoice.gender || 'female') + ' age 22-28';
+    : 'ผู้ใช้ไม่ได้อัปโหลดรูปตัวละคร — ออกแบบตัวละครให้ตรง context ของเรื่อง/สินค้า/Style/Mood ที่เลือก ห้ามก็อปป้ายชุด/หน้า default ซ้ำ';
 
-  const voiceNote = resolvedVoice && resolvedVoice.voiceEn
-    ? resolvedVoice.voiceEn
-    : 'young Thai female voice';
+  const defaultVoice = resolvedVoice && resolvedVoice.voiceEn ? resolvedVoice.voiceEn : 'young Thai female voice';
 
   return [
-    '═══ 🔒 CHARACTER & VOICE LOCK (บังคับทุก scene) ═══',
+    '═══ HERO BIBLE (รายละเอียดตัวละคร + ล็อคบทสนทนา — ชื่อไม่บังคับ) ═══',
     '',
-    '⚠️ CHARACTER CARD (ประกาศก่อนทุก scene) — ขึ้นต้น output ด้วยบล็อกนี้เสมอ:',
+    '⛔ ห้ามใช้ "บัตรตัวละครแบบย่อ" (compact card) หรือช่องว่าง null หรืออ้าง "ดู card ข้างบน" แบบสั้นๆ',
+    '⛔ ห้ามล็อคเสียงเป็นวลีเดียวตายตัวเช่น "young Thai female voice" เป็นศูนย์กลาง — ให้ยึด **บทสนทนาไทย (Dialogue) ตามที่เขียนเป๊ะ** เป็นหลัก; **ไม่บังคับตั้งชื่อมนุษย์/ชื่อเล่น** — ถ้าไม่ต้องการตั้งชื่อ ใช้ **ฉลากบทบาทคงที่** แทน (เช่น "ฝ่ายพูด", "เพื่อน (หญิง วัย 20–25)", "คนรับสาร (ชาย)") แล้วล็อคฉลากนั้นให้ชี้ตัวคนเดิมทุกฉาก',
+    '    เลือกน้ำเสียง TTS ให้สอดคล้อง **อายุ/เพศ/บุคลิก** ของบทบาทนั้น (ค่าเริ่มต้นระบบ: ' + defaultVoice + ' = แค่ hint)',
+    '',
+    '✅ ขึ้นต้น output (ก่อน Scene 1) ด้วยบล็อก "HERO BIBLE" ยาว ชัดเจน ภาษาไทย+อังกฤษตามความเหมาะสม:',
+    '  • ทุก **ตัวละครที่พูดหรือสำคัญต่อภาพ** — อธิบาย **หน้า ทรงผม รูปร่าง อายุ เพศ ชุด จุดสังเกต** แยก paragraph; อาจใช้ **ฉลาก Role + รายละเอียด** แทนการตั้งชื่อ ห้ามย่อห้าม "…same as card…"',
+    '  • ถ้าไม่สร้างชื่อ: กำหนด "ROLE_A / ROLE_B" หรือ "ผู้พูด / คนรับสาร" แล้วใช้ฉลากนั้นใน `Speaker:` ซ้ำทุกฉาก ห้ามสลับว่า Role ไหนเป็นคนเดิม',
+    '  • ถ้าตัวเดิมออกฉากซ้ำ ให้ **ย้ำรายละเอียดเดิมซ้ำ** ตรงฉากนั้น (ต้องคัดลอกรายละเอียดจริง หรือพิมพ์ยาวเทียบเท่า) เพื่อ **consistency**',
+    '  • ล็อค **บรรทัดบทสนทนาไทย (Dialogue)** ใน video prompt ให้ตรงกับฉากนั้น ห้ามพาราเฟรสเอง ห้ามเพิ่มบท',
     '',
     '```',
     '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
-    'CHARACTER CARD — LOCKED ACROSS ALL SCENES',
-    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
-    'Name: [ชื่อไทยสั้นๆ เช่น "พี่แนน" "น้องมิ้นท์"]',
-    'Gender: ' + (resolvedVoice.gender || 'female'),
-    'Age: [อายุโดยประมาณ เช่น 24]',
-    'Appearance: [ลักษณะหน้า + ทรงผม + สภาพผิว (ละเอียด 2-3 บรรทัด)]',
-    'Outfit: [เสื้อผ้าเต็มชุด — บรรยายครบ สี ทรง วัสดุ]',
-    'Voice: ' + voiceNote,
+    'HERO BIBLE — ตัวอย่าง (มีชื่อ หรือ ใช้ ROLE ก็ได้ — รายละเอียดเต็ม ห้ามเว้นแบบย่อ)',
+    'SPEAKER_1: [ชื่อ หรือ ฉลากบทบาท] — อายุ/เพศ/หน้าตา/ผม/รูปร่าง/ชุด/สี/อุปกรณ์',
+    'SPEAKER_2: … (ถ้ามี)',
+    'ฝูง/ตัวประกอบ: … (ถ้ามีและมีบท/มีใบหน้า)',
     '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     '```',
     '',
     'SOURCE: ' + characterImageNote,
     '',
-    '✅ กฎบังคับใช้ CHARACTER CARD:',
-    '  1. ต้องเขียน CHARACTER CARD ให้ครบทุกช่อง **ก่อน** Scene 1 เสมอ',
-    '  2. ทุก Image Prompt ทุกซีน ต้องใช้ Appearance + Outfit เหมือน Scene 1 เป๊ะ',
-    '     ห้ามเปลี่ยนทรงผม ห้ามเปลี่ยนเสื้อผ้า ห้ามเปลี่ยนอายุ ห้ามเปลี่ยนหน้า',
-    '  3. ทุก Video Prompt ทุกซีน ต้องใช้ Voice ตาม CHARACTER CARD 100%',
-    '     VOICE LOCK: ใช้ "' + voiceNote + '" ต่อเนื่องจากซีน 1 จนจบ',
-    '  4. Scene 2+ ให้เขียน "CHARACTER: [Name] (as defined in CHARACTER CARD)" ในต้น image prompt',
-    '     ไม่ต้องบรรยายซ้ำ แต่ให้ reference กลับไปหา card',
-    '  5. ถ้ามี 2-3 ตัวละคร ให้ทำ CHARACTER CARD แยกแต่ละตัว แล้ว lock แต่ละตัวแยก',
-    '  6. ห้ามเพิ่มตัวละครใหม่กลางเรื่อง (เว้นแต่ blueprint/brief สั่งมา)',
+    '✅ ในทุกฉากที่มี IMAGE/VIDEO PROMPT: ใส่ "Speaker: <ชื่อ หรือ ฉลาก ROLE จาก HERO BIBLE>" แล้ว **ตามด้วยรายละเอียดบุคลิก/รูปร่าง (สำหรับฉากนี้) ยาว ชัด** — รวมตัวที่พูดและตัวที่เห็นในเฟรม; ตัวประกอบที่มองเห็นใบหน้าให้บรรยายสั้นๆ ให้สอดคล้อง HERO BIBLE',
+    '✅ ห้ามใส่ [Character Reference: …] สั้นๆ แทนการบรรยาย — ถ้าจำเป็นต้อง reference ใช้การ **copy ข้อความรายละเอียด** มาซ้ำในฉาก ไม่ใช่คำว่า "as above"',
     ''
   ].join('\n');
 }
@@ -1705,103 +1767,103 @@ const ROLE_DEFAULTS = {
     role_en: 'office woman',
     age_range: '25-30',
     appearance: 'Thai skin, long straight black hair, light natural makeup',
-    outfit: 'OUTFIT LOCKED: white long-sleeve blouse (plain), black knee-length pencil skirt, black low heels, silver stud earrings only, no jacket'
+    outfit: 'OUTFIT SUGGESTION: white long-sleeve blouse (plain), black knee-length pencil skirt, black low heels, silver stud earrings only, no jacket'
   },
   office_man: {
     role_en: 'office man',
     age_range: '28-33',
     appearance: 'Thai skin, short black hair, clean-shaven',
-    outfit: 'OUTFIT LOCKED: light blue long-sleeve dress shirt, charcoal straight slacks, black leather loafers, black belt, no tie, no hat'
+    outfit: 'OUTFIT SUGGESTION: light blue long-sleeve dress shirt, charcoal straight slacks, black leather loafers, black belt, no tie, no hat'
   },
   mother: {
     role_en: 'Thai mother',
     age_range: '30-38',
     appearance: 'Thai skin, shoulder-length black hair, warm friendly face',
-    outfit: 'OUTFIT LOCKED: pastel pink short-sleeve blouse, medium-blue straight jeans, white sneakers, thin silver bracelet only'
+    outfit: 'OUTFIT SUGGESTION: pastel pink short-sleeve blouse, medium-blue straight jeans, white sneakers, thin silver bracelet only'
   },
   father: {
     role_en: 'Thai father',
     age_range: '33-42',
     appearance: 'Thai skin, short black hair, calm expression',
-    outfit: 'OUTFIT LOCKED: navy polo shirt, khaki chinos, white low-top sneakers, black watch only'
+    outfit: 'OUTFIT SUGGESTION: navy polo shirt, khaki chinos, white low-top sneakers, black watch only'
   },
   student: {
     role_en: 'Thai student',
     age_range: '18-22',
     appearance: 'Thai skin, youthful fresh face, simple hair',
-    outfit: 'OUTFIT LOCKED: plain white t-shirt, light blue straight jeans, white canvas sneakers, black backpack, no extra jewelry'
+    outfit: 'OUTFIT SUGGESTION: plain white t-shirt, light blue straight jeans, white canvas sneakers, black backpack, no extra jewelry'
   },
   medical: {
     role_en: 'Thai medical professional',
     age_range: '28-35',
     appearance: 'Thai skin, neat short/tied-back black hair, trustworthy expression',
-    outfit: 'OUTFIT LOCKED: white medical coat over light blue scrubs, white clinic shoes, stethoscope, no additional accessories'
+    outfit: 'OUTFIT SUGGESTION: white medical coat over light blue scrubs, white clinic shoes, stethoscope, no additional accessories'
   },
   chef: {
     role_en: 'Thai chef',
     age_range: '28-40',
     appearance: 'Thai skin, neat hair tied back, focused expression',
-    outfit: 'OUTFIT LOCKED: white chef jacket, black apron, black chef pants, black non-slip kitchen shoes, no jewelry'
+    outfit: 'OUTFIT SUGGESTION: white chef jacket, black apron, black chef pants, black non-slip kitchen shoes, no jewelry'
   },
   beauty_expert: {
     role_en: 'Thai beauty expert',
     age_range: '24-30',
     appearance: 'Thai skin, glowing polished makeup, long styled black hair',
-    outfit: 'OUTFIT LOCKED: fitted beige blouse, white high-waist wide-leg pants, nude heels, small gold hoop earrings, delicate gold necklace'
+    outfit: 'OUTFIT SUGGESTION: fitted beige blouse, white high-waist wide-leg pants, nude heels, small gold hoop earrings, delicate gold necklace'
   },
   teen_girl: {
     role_en: 'Thai teenage girl',
     age_range: '16-20',
     appearance: 'Thai skin, youthful cute face, long straight black hair',
-    outfit: 'OUTFIT LOCKED: pastel blue baby tee, white pleated mini skirt, white sneakers, simple hair clip, no heavy jewelry'
+    outfit: 'OUTFIT SUGGESTION: pastel blue baby tee, white pleated mini skirt, white sneakers, simple hair clip, no heavy jewelry'
   },
   teen_boy: {
     role_en: 'Thai teenage boy',
     age_range: '16-20',
     appearance: 'Thai skin, short black hair, youthful face',
-    outfit: 'OUTFIT LOCKED: oversized gray t-shirt, dark blue relaxed jeans, white sneakers, black wristband only'
+    outfit: 'OUTFIT SUGGESTION: oversized gray t-shirt, dark blue relaxed jeans, white sneakers, black wristband only'
   },
   athlete: {
     role_en: 'Thai athlete',
     age_range: '22-30',
     appearance: 'Thai skin, toned build, sporty short hair',
-    outfit: 'OUTFIT LOCKED: black athletic tank top, black running shorts, white running shoes with black accents, sports watch only'
+    outfit: 'OUTFIT SUGGESTION: black athletic tank top, black running shorts, white running shoes with black accents, sports watch only'
   },
   elder_woman: {
     role_en: 'Thai elder woman',
     age_range: '55-65',
     appearance: 'Thai skin, graying short hair, kind face',
-    outfit: 'OUTFIT LOCKED: cream traditional Thai blouse, dark brown long skirt, black flat shoes, small pearl earrings'
+    outfit: 'OUTFIT SUGGESTION: cream traditional Thai blouse, dark brown long skirt, black flat shoes, small pearl earrings'
   },
   elder_man: {
     role_en: 'Thai elder man',
     age_range: '55-65',
     appearance: 'Thai skin, graying short hair, calm weathered face',
-    outfit: 'OUTFIT LOCKED: light gray short-sleeve button shirt, dark gray slacks, black slip-on shoes, no tie, no hat'
+    outfit: 'OUTFIT SUGGESTION: light gray short-sleeve button shirt, dark gray slacks, black slip-on shoes, no tie, no hat'
   },
   shop_owner: {
     role_en: 'Thai shop owner',
     age_range: '28-38',
     appearance: 'Thai skin, practical tied-back hair, energetic friendly face',
-    outfit: 'OUTFIT LOCKED: brand navy polo shirt, black apron, dark jeans, black sneakers, name tag, no extra accessories'
+    outfit: 'OUTFIT SUGGESTION: brand navy polo shirt, black apron, dark jeans, black sneakers, name tag, no extra accessories'
   },
   teacher: {
     role_en: 'Thai teacher',
     age_range: '28-40',
     appearance: 'Thai skin, neat hair, composed trustworthy expression',
-    outfit: 'OUTFIT LOCKED: light beige blouse, navy midi skirt, black low heels, small silver earrings, no outerwear'
+    outfit: 'OUTFIT SUGGESTION: light beige blouse, navy midi skirt, black low heels, small silver earrings, no outerwear'
   },
   generic_person_female: {
     role_en: 'Thai woman',
     age_range: '22-28',
     appearance: 'Thai skin, long black hair, natural makeup, friendly face',
-    outfit: 'OUTFIT LOCKED: white long-sleeve blouse (plain), medium-blue high-waist straight jeans, white sneakers, silver stud earrings only'
+    outfit: 'OUTFIT SUGGESTION: white long-sleeve blouse (plain), medium-blue high-waist straight jeans, white sneakers, silver stud earrings only'
   },
   generic_person_male: {
     role_en: 'Thai man',
     age_range: '22-30',
     appearance: 'Thai skin, short black hair, friendly face',
-    outfit: 'OUTFIT LOCKED: navy polo shirt, medium-blue straight jeans, white sneakers, black wristwatch only, no hat'
+    outfit: 'OUTFIT SUGGESTION: navy polo shirt, medium-blue straight jeans, white sneakers, black wristwatch only, no hat'
   }
 };
 
@@ -1872,7 +1934,8 @@ const OUTFIT_COLOR_HINTS = [
 ];
 
 function stripOutfitLockedPrefix(text) {
-  return String(text || '').replace(/^OUTFIT LOCKED:\s*/i, '').trim();
+  // Accept both legacy "OUTFIT LOCKED:" and new "OUTFIT SUGGESTION:" prefixes
+  return String(text || '').replace(/^OUTFIT\s+(?:LOCKED|SUGGESTION):\s*/i, '').trim();
 }
 
 function collectColorLabels(text) {
@@ -1919,9 +1982,9 @@ function stringifyLockedOutfit(spec) {
     s.shoes,
     s.accessories
   ];
-  if (s.colors.length) bits.push('color palette locked: ' + s.colors.join('/'));
+  if (s.colors.length) bits.push('color palette suggestion: ' + s.colors.join('/'));
   if (s.extra) bits.push(s.extra);
-  return 'OUTFIT LOCKED: ' + bits.join(', ');
+  return 'OUTFIT SUGGESTION: ' + bits.join(', ');
 }
 
 function resolveOutfitFromUserIntent(promptText, roleDefaultOutfit) {
@@ -2071,21 +2134,22 @@ function buildCompactCardInjectionBlock(cardResult, payload) {
   const hasBlueprint = isProductSell && payload.salesFormulaId;
 
   const lines = [
-    '═══ 🔒 CHARACTER CARD (LOCKED — apply to ALL scenes) ═══',
+    '═══ HERO BIBLE — seed (นำไปขยายเป็นย่อหน้าเต็ม ห้ามคงแค่ seed) ═══',
     '',
+    'Starting point from system (expand into full HERO BIBLE; age, look, outfit — **personal names optional**; use **stable role labels** if the user does not want named characters):',
     cardResult.cardTextEN,
     '',
     'RULES:',
-    '  1. Echo this CARD verbatim at the very top of output before Scene 1 (required for parser).',
-    '  2. Keep face/hair/voice IDENTICAL in every scene. Same character throughout.',
-    '  3. Outfit details are locked by default (top, bottom, shoes, accessories, and colors)' + (hasBlueprint
-        ? ' — EXCEPT when a sales-formula beat explicitly describes a before/after or transformation; in that case follow the beat\'s wardrobe note for that specific scene only.'
-        : ' across all scenes — do not change clothing.'),
-    '  4. Do NOT add/remove accessories or change color palette unless explicitly allowed by rule 3.',
-    '  5. Do NOT add new characters mid-clip (background extras OK).'
+    '  1. At output start, expand the seed above into a full **HERO BIBLE** in Thai+EN as needed: every speaking role + on-camera extras, full sentences — no "compact" tables.',
+    '  2. **LOCK** either **stable Thai names** OR **stable role labels (ROLE_A, “เพื่อน”, ฯลฯ)** — same person must map to the same label every scene. **LOCK** the **exact Thai dialogue** in each `Dialogue:` line (no paraphrase).',
+    '  3. **Voice (TTS)**: must match each speaker role age/gender/persona — not a one-line global default for everyone.',
+    '  4. Face, hair, outfit: consistent across scenes' + (hasBlueprint
+        ? ' — EXCEPT if a sales-formula beat says before/after wardrobe for one scene; then follow the beat and repeat full detail in that scene block.'
+        : ' — if a character reappears, **paste repeated full detail** in that scene block; do not write "same as above".'),
+    '  5. Do not add new heroes mid-story (extras without lines may be generic extras only).'
   ];
   if (hasRefImg) {
-    lines.push('  6. A character reference image is attached — use it as ground truth for face/hair; the CARD above fills any gaps.');
+    lines.push('  6. Character reference image attached: match face/hair; still write full verbal description in every scene that shows them.');
   }
   lines.push('');
   return lines.join('\n');
@@ -2097,5 +2161,5 @@ function buildCompactCardInjectionBlock(cardResult, payload) {
  */
 function buildCardUserReference(cardResult) {
   if (!cardResult || !cardResult.cardTextEN) return '';
-  return 'CHARACTER: follow the CHARACTER CARD defined in system prompt (same face/outfit/voice every scene).';
+  return 'HERO: expand the HERO BIBLE in system prompt (full look + outfit per role). Personal names are optional—use stable role labels if you must not name anyone. Lock those labels and exact Thai DIALOGUE lines. Repeat full detail in each scene. Voice per role—not one default for all.';
 }

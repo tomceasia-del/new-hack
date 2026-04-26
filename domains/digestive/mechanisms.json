@@ -1,0 +1,268 @@
+{
+  "domain_id": "digestive",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 11,
+    "last_harvested": "2026-04-22"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_dig_001",
+      "label_th": "ไฟเบอร์ → หมักด้วยจุลินทรีย์ → SCFA (butyrate chain)",
+      "label_en": "Dietary fiber → microbial fermentation → SCFA production",
+      "description_th": "ไฟเบอร์ที่มนุษย์ย่อยไม่ได้ (MAC — microbiota-accessible carbohydrates) ผ่านลำไส้เล็กโดยไม่ถูกดูดซึม → ถูกหมักในลำไส้ใหญ่โดยแบคทีเรียกลุ่ม Firmicutes (Faecalibacterium, Roseburia, Eubacterium) ผลิต SCFAs 3 ชนิดในสัดส่วน acetate:propionate:butyrate ~60:20:20; บิวทิเรตถูกดูดซึมและใช้เป็นเชื้อเพลิงของ colonocyte ทันที (~70% ของพลังงาน)",
+      "description_en": "Non-digestible fibers (MAC — microbiota-accessible carbohydrates) pass the small intestine intact → fermented in colon by Firmicutes (Faecalibacterium, Roseburia, Eubacterium) producing SCFAs in ~60:20:20 acetate:propionate:butyrate ratio; butyrate is absorbed apically and immediately oxidised by colonocytes (~70% of their energy).",
+      "chain": [
+        {"step": 1, "actor": "soluble fiber (inulin, β-glucan, psyllium, resistant starch)", "action": "passes undigested through", "target": "small intestine", "effect": "delivered intact to colon"},
+        {"step": 2, "actor": "cross-feeding consortium (Bacteroidetes + Firmicutes)", "action": "ferments", "target": "fiber polysaccharides", "effect": "intermediate sugars + H2/CO2/methane released"},
+        {"step": 3, "actor": "butyrogenic Firmicutes (F. prausnitzii, Roseburia)", "action": "produce", "target": "butyrate + acetate + propionate", "effect": "SCFA pool rises (20-140 mmol/L in colon lumen)"},
+        {"step": 4, "actor": "colonocyte apical MCT1", "action": "imports", "target": "butyrate", "effect": "enters β-oxidation → acetyl-CoA → TCA → ATP"},
+        {"step": 5, "actor": "residual SCFAs", "action": "enter portal vein", "target": "liver/systemic circulation", "effect": "FFAR2/3 signalling → GLP-1, PYY, insulin-sensitising effects"}
+      ],
+      "analogies_th": [
+        "ไมโครไบโอม = 'เตาหมัก' ในพุง — ไฟเบอร์คือฟืน, SCFA คือควัน/ความร้อนที่ได้",
+        "บิวทิเรตเหมือน 'ค่าข้าว' ที่ลำไส้จ่ายให้เซลล์ผนังตัวเองอยู่"
+      ],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nature13809", "org": "Nature (Sonnenburg)", "source_tier": "A", "year": 2014, "title": "Diet-microbiota interactions as moderators of human metabolism — Sonnenburg & Bäckhed", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24388214/", "org": "Cell Host & Microbe / PubMed", "source_tier": "A", "year": 2014, "title": "The microbial metabolites, short-chain fatty acids, regulate colonic Treg cell homeostasis — Smith et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "SCFA",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_002",
+      "label_th": "Butyrate → colonocyte fuel + HDAC inhibition + Treg induction",
+      "label_en": "Butyrate → colonocyte energy + HDAC inhibition + Treg induction",
+      "description_th": "บิวทิเรตมีบทบาทคู่: (1) ถูก oxidize เป็น ATP เป็นเชื้อเพลิงหลักของ colonocyte; (2) ในปริมาณ micromolar ทำหน้าที่เป็น HDAC inhibitor — เปิด acetylation ของ histone → กระตุ้น FOXP3 → สร้าง regulatory T cells (Tregs) ที่ควบคุมการอักเสบ",
+      "description_en": "Butyrate serves dual roles: (1) as the primary β-oxidation substrate giving ATP to colonocytes; (2) at micromolar concentrations acts as HDAC inhibitor — promoting histone acetylation → FOXP3 expression → induction of colonic regulatory T-cells (Tregs) that suppress inflammation.",
+      "chain": [
+        {"step": 1, "actor": "butyrate in lumen", "action": "absorbed via", "target": "colonocyte apical MCT1", "effect": "enters cell cytoplasm"},
+        {"step": 2, "actor": "colonocyte mitochondria", "action": "β-oxidises", "target": "butyrate → acetyl-CoA", "effect": "fuels TCA → ATP (~70% of colonocyte energy)"},
+        {"step": 3, "actor": "butyrate excess", "action": "inhibits", "target": "HDAC1/3 in CD4+ T cells", "effect": "histone H3 acetylation increased"},
+        {"step": 4, "actor": "acetylated chromatin", "action": "opens", "target": "FOXP3 locus", "effect": "peripherally-induced Tregs (pTregs) expand"},
+        {"step": 5, "actor": "colonic Tregs", "action": "secrete", "target": "IL-10 + TGF-β", "effect": "mucosal tolerance, barrier integrity maintained"}
+      ],
+      "analogies_th": [
+        "บิวทิเรต = 'ทั้งอาหารและตำรวจ' ของลำไส้ใหญ่",
+        "ไม่มีไฟเบอร์ = ไม่มีบิวทิเรต = เซลล์ลำไส้หิว + ตำรวจหายไป → อักเสบ"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24226770/", "org": "Nature / PubMed", "source_tier": "A", "year": 2013, "title": "Commensal microbe-derived butyrate induces the differentiation of colonic regulatory T cells — Furusawa et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24388214/", "org": "Cell Host & Microbe", "source_tier": "A", "year": 2014, "title": "SCFAs regulate colonic Treg cell homeostasis — Smith et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "SCFA",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_003",
+      "label_th": "Zonulin → tight junction → LPS translocation → systemic inflammation",
+      "label_en": "Zonulin → tight junction opening → LPS translocation → metabolic endotoxemia",
+      "description_th": "Triggers เช่น gliadin หรือแบคทีเรียบางชนิดจับ CXCR3 บน enterocyte → หลั่ง zonulin → zonulin แบบ autocrine/paracrine กระตุ้น PAR2 → EGFR transactivation → ZO-1 และ occludin ถูก disassemble → tight junctions เปิด → โมเลกุลใหญ่ (LPS, food antigens) เล็ดลอดเข้า lamina propria และกระแสเลือด → TLR4 กระตุ้น → low-grade systemic inflammation",
+      "description_en": "Triggers (gliadin, certain bacteria) engage CXCR3 on enterocytes → zonulin release → autocrine/paracrine activation of PAR2 → EGFR transactivation → ZO-1/occludin disassembly → tight junctions open → large molecules (LPS, food antigens) translocate into lamina propria and blood → TLR4 activation → metabolic endotoxemia / low-grade inflammation.",
+      "chain": [
+        {"step": 1, "actor": "gliadin / gram-neg bacteria", "action": "binds", "target": "CXCR3 on enterocyte apical membrane", "effect": "MyD88-dependent zonulin release"},
+        {"step": 2, "actor": "zonulin", "action": "activates", "target": "PAR2 → EGFR transactivation", "effect": "intracellular signalling cascade"},
+        {"step": 3, "actor": "EGFR signalling", "action": "phosphorylates", "target": "ZO-1, occludin, claudins", "effect": "tight junction proteins disassemble"},
+        {"step": 4, "actor": "widened paracellular space", "action": "permits", "target": "LPS, antigens to cross epithelium", "effect": "contact with lamina propria immune cells"},
+        {"step": 5, "actor": "LPS", "action": "binds", "target": "TLR4/CD14 on macrophages", "effect": "NF-κB → TNF-α, IL-6 → metabolic endotoxemia"}
+      ],
+      "analogies_th": [
+        "tight junction = 'ยางซีลประตูห้องเย็น' — zonulin เป็นกุญแจที่คลายซีล",
+        "LPS รั่วเข้าเลือด = 'ไซเรนไฟไหม้ดังค้างทั้งบ้าน' — ระบบภูมิคุ้มกันไม่ได้พัก"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3384703/", "org": "Physiol Rev / PMC", "source_tier": "A", "year": 2011, "title": "Zonulin and its regulation of intestinal barrier function — Fasano A", "access_date": "2026-04-22"},
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2886850/", "org": "Ann N Y Acad Sci / PMC", "source_tier": "A", "year": 2009, "title": "Leaky gut and autoimmune diseases — Fasano A", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "intestinal_permeability",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_004",
+      "label_th": "H. pylori urease → NH3 → mucus damage → ulcer",
+      "label_en": "H. pylori urease → ammonia → mucus damage → peptic ulcer",
+      "description_th": "H. pylori หลั่ง urease ที่เปลี่ยน urea ในกระเพาะเป็น ammonia + CO2 → สร้าง 'ฟองป้องกันด่าง' รอบตัวเอง ทำให้รอดใน pH 1-2; แอมโมเนียยังทำลาย mucus layer และ epithelium → กรดในกระเพาะสัมผัสเซลล์โดยตรง → inflammation → peptic ulcer; CagA virulence factor ฉีดเข้าเซลล์โฮสต์ผ่าน Type IV secretion system → กระตุ้น carcinogenesis",
+      "description_en": "H. pylori secretes urease converting gastric urea → ammonia + CO2, forming an alkaline cloud that shields it from pH 1-2; ammonia also damages the mucus bilayer and epithelium → acid contacts cells directly → gastritis → ulcer; CagA injected via T4SS into host cells promotes oncogenic signalling.",
+      "chain": [
+        {"step": 1, "actor": "ingested H. pylori", "action": "colonises", "target": "gastric antrum under mucus layer", "effect": "attaches via BabA to Lewis-b antigen"},
+        {"step": 2, "actor": "bacterial urease", "action": "hydrolyses", "target": "gastric urea → NH3 + CO2", "effect": "local pH rises around bacterium"},
+        {"step": 3, "actor": "NH3 / cytotoxins (VacA)", "action": "damage", "target": "mucus layer + epithelial tight junctions", "effect": "loss of protective barrier"},
+        {"step": 4, "actor": "HCl", "action": "reaches", "target": "exposed epithelium", "effect": "chronic gastritis → peptic ulcer"},
+        {"step": 5, "actor": "CagA (injected via T4SS)", "action": "disrupts", "target": "cell polarity / β-catenin", "effect": "increased gastric cancer risk (IARC Group 1 carcinogen)"}
+      ],
+      "analogies_th": [
+        "H. pylori = 'หนูที่แทะกระดาษซับ' — แล้วกระเพาะเลยไม่มีเกราะกัน HCl ของตัวเอง"
+      ],
+      "sources": [
+        {"url": "https://www.nobelprize.org/prizes/medicine/2005/press-release/", "org": "Nobel Foundation", "source_tier": "A", "year": 2005, "title": "The Nobel Prize in Physiology or Medicine 2005 — Marshall & Warren", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20152934/", "org": "Nat Rev Microbiol / PubMed", "source_tier": "A", "year": 2010, "title": "Helicobacter pylori virulence factors — Kusters JG et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "H_pylori",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_005",
+      "label_th": "Enterohepatic circulation + FXR signalling (bile acid)",
+      "label_en": "Enterohepatic circulation + FXR signalling",
+      "description_th": "ตับสังเคราะห์ cholic + chenodeoxycholic acid จาก cholesterol (rate-limited by CYP7A1), conjugate กับ glycine/taurine แล้วเก็บในถุงน้ำดี; หลังกินไขมัน CCK กระตุ้นปล่อยเข้าลำไส้เล็ก → emulsify ไขมันเป็น micelles; 95% reabsorb ที่ ileum terminal ผ่าน ASBT → กลับตับผ่าน portal vein; ส่วนเหลือถูกแบคทีเรียทำ 7α-dehydroxylation เป็น DCA/LCA ที่จับ FXR และ TGR5",
+      "description_en": "Liver synthesises cholic + chenodeoxycholic acid from cholesterol (rate-limited by CYP7A1), conjugates with glycine/taurine, stores in gallbladder; post-meal CCK triggers release into duodenum → emulsifies fat into micelles; 95% reabsorbed at terminal ileum via ASBT → returns to liver via portal vein; remaining ~5% is 7α-dehydroxylated by gut bacteria into DCA/LCA which ligate FXR and TGR5.",
+      "chain": [
+        {"step": 1, "actor": "hepatocytes (CYP7A1)", "action": "synthesise", "target": "primary bile acids from cholesterol", "effect": "bile acid pool maintained"},
+        {"step": 2, "actor": "BAAT enzyme", "action": "conjugates", "target": "bile acid + glycine/taurine", "effect": "water-soluble bile salts formed"},
+        {"step": 3, "actor": "meal / CCK", "action": "contracts", "target": "gallbladder", "effect": "bile released into duodenum; emulsifies fat"},
+        {"step": 4, "actor": "ileal ASBT + OSTα/β", "action": "reabsorbs", "target": "95% of bile acids", "effect": "returned to liver via portal blood"},
+        {"step": 5, "actor": "gut bacteria (Clostridium scindens, C. hiranonis)", "action": "7α-dehydroxylates", "target": "primary → secondary bile acids (DCA, LCA)", "effect": "FXR/TGR5 ligands modulate metabolism"},
+        {"step": 6, "actor": "ileal FXR activation", "action": "induces", "target": "FGF19 → hepatic CYP7A1 feedback suppression", "effect": "bile acid homeostasis"}
+      ],
+      "analogies_th": [
+        "น้ำดี = 'น้ำยาล้างจาน' ที่ตับผสมให้ลำไส้ใช้ต่อครั้ง — แล้วหมุนกลับมาใช้ใหม่ 95%",
+        "แบคทีเรียในลำไส้เป็น 'ช่างแต่งเติม' — เปลี่ยน bile acid ธรรมดาให้เป็น hormone (FXR ligand)"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4329460/", "org": "Cell Metab / PMC", "source_tier": "A", "year": 2013, "title": "Bile Acids as Regulatory Molecules — Fiorucci & Distrutti", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/31582021/", "org": "Nat Rev Microbiol / PubMed", "source_tier": "A", "year": 2019, "title": "Bile acids and the gut microbiota — Wahlström A et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "bile_acid",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_006",
+      "label_th": "Vagus nerve → brain-gut axis (80% afferent)",
+      "label_en": "Vagus nerve → brain-gut axis (80% afferent)",
+      "description_th": "เส้นประสาทเวกัส cranial X ~80% ของใยเป็น afferent (ลำไส้→สมอง): sensory endings ใน mucosa และ muscle รับสัญญาณ mechanical stretch + SCFA + 5-HT จาก enterochromaffin cells + LPS; ส่งผ่าน nodose ganglion → NTS → hypothalamus/amygdala; vagal efferent ~20% ควบคุม motility, secretion และ anti-inflammatory reflex ผ่าน α7-nAChR บน macrophages",
+      "description_en": "The vagus nerve (CN X) is ~80% afferent (gut→brain): mucosal and muscle endings sense mechanical stretch, SCFAs, 5-HT from enterochromaffin cells, and LPS; signals travel through nodose ganglion → NTS → hypothalamus/amygdala; vagal efferents (~20%) control motility/secretion and drive the cholinergic anti-inflammatory reflex via α7-nAChR on macrophages.",
+      "chain": [
+        {"step": 1, "actor": "enterochromaffin cells / mechanoreceptors", "action": "release / sense", "target": "5-HT, SCFA, stretch", "effect": "vagal afferent firing"},
+        {"step": 2, "actor": "nodose ganglion afferents", "action": "relay to", "target": "Nucleus Tractus Solitarius (NTS)", "effect": "brainstem integration"},
+        {"step": 3, "actor": "NTS", "action": "projects to", "target": "hypothalamus / amygdala / insula", "effect": "appetite, mood, interoception"},
+        {"step": 4, "actor": "vagal efferent (DMN)", "action": "releases", "target": "ACh onto gut smooth muscle + macrophages", "effect": "motility ↑ / cytokine release ↓ via α7-nAChR"},
+        {"step": 5, "actor": "measurable output", "action": "reflected in", "target": "Heart Rate Variability (HRV)", "effect": "HRV as proxy for vagal tone"}
+      ],
+      "analogies_th": [
+        "เส้นประสาทเวกัส = 'สายเคเบิล 4G' ระหว่างลำไส้กับสมอง — 80% ส่งข้อมูลขึ้น, 20% ส่งคำสั่งลง",
+        "HRV = 'สัญญาณไฟสถานะ' ว่าสายยัง responsive อยู่หรือไม่"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6007674/", "org": "Front Psychiatry / PMC", "source_tier": "A", "year": 2018, "title": "The vagus nerve at the interface of the microbiota-gut-brain axis — Breit S et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11029752/", "org": "Nature / PubMed", "source_tier": "A", "year": 2000, "title": "Vagus nerve stimulation attenuates the systemic inflammatory response to endotoxin — Borovikova LV et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "vagal_tone",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_007",
+      "label_th": "Colonic transit time → Bristol Stool Form",
+      "label_en": "Colonic transit time → Bristol Stool Form",
+      "description_th": "ลำไส้ใหญ่ดูดน้ำกลับระหว่างการเคลื่อนตัวของอุจจาระ — ยิ่ง transit time นาน ยิ่งดูดน้ำมาก อุจจาระแข็ง (Bristol 1-2); ยิ่งเร็วยิ่งเหลว (5-7); Bristol 3-4 = optimal (~24-48 ชั่วโมง transit); radiopaque marker studies แสดงว่า transit >72 ชั่วโมงสัมพันธ์กับ constipation และ dysbiosis (สัดส่วน proteolytic bacteria เพิ่ม)",
+      "description_en": "The colon reabsorbs water as stool progresses — longer transit → more water removed → harder stool (Bristol 1-2); faster transit → looser stool (5-7); Bristol 3-4 = optimal (~24-48h transit); radiopaque-marker studies show >72h transit correlates with constipation and dysbiosis (shift to proteolytic fermentation).",
+      "chain": [
+        {"step": 1, "actor": "ingested food residue", "action": "reaches", "target": "cecum within 6-8 h", "effect": "fermentation begins"},
+        {"step": 2, "actor": "colonic peristalsis (high-amplitude propagating contractions, 4-6/day)", "action": "moves", "target": "bolus toward rectum", "effect": "transit 24-72 h typical"},
+        {"step": 3, "actor": "colonic epithelium", "action": "reabsorbs", "target": "water + electrolytes", "effect": "stool water content drops 90% → 75%"},
+        {"step": 4, "actor": "transit time >72 h", "action": "results in", "target": "extensive water removal + proteolytic fermentation", "effect": "Bristol 1-2 hard pellets + p-cresol, indole"},
+        {"step": 5, "actor": "transit <12 h", "action": "leaves", "target": "insufficient water reabsorption", "effect": "Bristol 6-7 watery stool; nutrient/bile malabsorption"}
+      ],
+      "analogies_th": [
+        "ลำไส้ใหญ่ = 'สายพานอบแห้ง' — ยิ่งช้ายิ่งแห้ง, ยิ่งเร็วยิ่งเปียก"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9299672/", "org": "Scand J Gastroenterol / PubMed", "source_tier": "A", "year": 1997, "title": "Stool form scale as a useful guide to intestinal transit time — Lewis SJ & Heaton KW", "access_date": "2026-04-22"},
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5102849/", "org": "Gut / PMC", "source_tier": "A", "year": 2016, "title": "Stool consistency is strongly associated with gut microbiota richness and composition — Vandeputte D et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "stool_analysis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_008",
+      "label_th": "Psyllium → gel water-binding + bile-acid sequestration",
+      "label_en": "Psyllium → gel water-binding + bile-acid sequestration",
+      "description_th": "Psyllium (Plantago ovata) เป็น soluble viscous fiber — ในลำไส้ใหญ่ดูดน้ำได้ ~40× น้ำหนักตัวเอง สร้าง gel → เพิ่มปริมาณอุจจาระ (bulking) ในท้องผูก + ทำให้อุจจาระเป็นรูปดีในท้องเสีย (dual action); gel จับ bile acids → ขัดขวาง enterohepatic circulation → ตับดึง cholesterol มาสร้าง bile acid ใหม่ → LDL ลดลง ~7%",
+      "description_en": "Psyllium is a soluble viscous fiber — in the colon it binds ~40× its weight in water, forming a gel → increases stool bulk (for constipation) and firms watery stool (for diarrhea — dual action); the gel sequesters bile acids → interrupts enterohepatic circulation → hepatic cholesterol is drawn down to synthesise new bile acids → LDL falls ~7%.",
+      "chain": [
+        {"step": 1, "actor": "psyllium husk (arabinoxylan)", "action": "hydrates in", "target": "small and large intestine", "effect": "forms viscous gel (~40× water)"},
+        {"step": 2, "actor": "gel matrix", "action": "entraps", "target": "bile acids + water", "effect": "reduces reabsorption at ileum"},
+        {"step": 3, "actor": "hepatic bile acid loss", "action": "induces", "target": "CYP7A1 upregulation", "effect": "hepatic LDL receptor increased → LDL-C cleared"},
+        {"step": 4, "actor": "gel bulk reaches rectum", "action": "triggers", "target": "mechanosensory defecation reflex", "effect": "normal stool form (Bristol 3-4)"}
+      ],
+      "analogies_th": [
+        "Psyllium = 'สปันจ์อัจฉริยะ' ในลำไส้ — ดูดน้ำส่วนเกินตอนท้องเสีย, เพิ่มน้ำตอนท้องผูก"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/30019741/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 2018, "title": "The effect of psyllium on LDL cholesterol: a systematic review and meta-analysis of randomized controlled trials — Jovanovski E et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9925120/", "org": "Aliment Pharmacol Ther", "source_tier": "A", "year": 1998, "title": "Psyllium is superior to docusate sodium for treatment of chronic constipation — McRorie JW et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "stool_analysis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_009",
+      "label_th": "Probiotic → colonization resistance + competitive exclusion",
+      "label_en": "Probiotic → colonization resistance + competitive exclusion",
+      "description_th": "Probiotic strain (เช่น L. rhamnosus GG, S. boulardii) ส่วนใหญ่ไม่ 'ปักหลัก' ถาวรแต่ยังทำงานได้ 3 ทาง: (1) แย่ง nutrient + attachment sites กับ pathogen (competitive exclusion); (2) หลั่ง bacteriocins + lactic acid ลด pH → ยับยั้ง pathogen; (3) กระตุ้น mucin expression + defensins + sIgA — effect จำกัดเฉพาะขณะกิน และเฉพาะ strain (ไม่ใช่ species-level effect)",
+      "description_en": "Probiotic strains (e.g., L. rhamnosus GG, S. boulardii) generally don't permanently engraft but still act through 3 modes: (1) compete for nutrients + adhesion sites with pathogens; (2) secrete bacteriocins + lactic acid lowering pH → inhibit pathogens; (3) induce mucin, defensin, and sIgA secretion — effects are transient (persist while consumed) and strain-specific (not species-level).",
+      "chain": [
+        {"step": 1, "actor": "probiotic strain (live, ≥10^9 CFU/day)", "action": "transits through", "target": "stomach + small intestine", "effect": "reaches colon mostly alive (if acid-resistant/enteric coated)"},
+        {"step": 2, "actor": "probiotic", "action": "competes with", "target": "Clostridioides difficile / E. coli for nutrients + epithelial adhesion sites", "effect": "colonisation resistance"},
+        {"step": 3, "actor": "probiotic", "action": "secretes", "target": "bacteriocins, lactate, acetate", "effect": "luminal pH drops → inhibits pathogens"},
+        {"step": 4, "actor": "probiotic surface molecules", "action": "engage", "target": "epithelial TLR2 + Paneth cell defensin release", "effect": "barrier strengthening, sIgA up"},
+        {"step": 5, "actor": "cessation of intake", "action": "ends", "target": "detectable strain presence in days-weeks", "effect": "effect reversible; not permanent engraftment"}
+      ],
+      "analogies_th": [
+        "probiotic = 'รปภ.ชั่วคราว' ที่จ้างมาเดิน ไม่ใช่ผู้อยู่อาศัยถาวร — ต้องกินต่อถึงมีประโยชน์"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25033057/", "org": "Nat Rev Gastroenterol Hepatol / PubMed", "source_tier": "A", "year": 2014, "title": "The International Scientific Association for Probiotics and Prebiotics consensus statement — Hill C et al.", "access_date": "2026-04-22"},
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6723656/", "org": "Cell / PMC", "source_tier": "A", "year": 2018, "title": "Personalized Gut Mucosal Colonization Resistance to Empiric Probiotics — Zmora N et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "gut_microbiome",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_010",
+      "label_th": "GERD: LES dysfunction + transient relaxation → acid reflux",
+      "label_en": "GERD: LES dysfunction + transient relaxations → acid reflux",
+      "description_th": "Lower Esophageal Sphincter (LES) คือกล้ามเนื้อวงแหวนที่รอยต่อหลอดอาหาร-กระเพาะ; GERD เกิดจาก transient LES relaxations (TLESRs) ที่บ่อยผิดปกติ + LES pressure ต่ำ + hiatal hernia → กรด + pepsin ไหลย้อนสัมผัสเยื่อบุหลอดอาหาร; ปัจจัยกระตุ้น: อาหารไขมันสูง, คาเฟอีน, แอลกอฮอล์, ช็อกโกแลต, obesity (intra-abdominal pressure), การนอนหลังกินทันที, โรคกระเพาะ",
+      "description_en": "The Lower Esophageal Sphincter (LES) is a muscular ring at the gastroesophageal junction; GERD arises from pathologically frequent transient LES relaxations (TLESRs), low resting LES pressure, and/or hiatal hernia → acid + pepsin reflux onto esophageal mucosa; triggers include high-fat meals, caffeine, alcohol, chocolate, obesity (raised intra-abdominal pressure), recumbency after meals.",
+      "chain": [
+        {"step": 1, "actor": "large/high-fat meal", "action": "delays", "target": "gastric emptying + distends fundus", "effect": "mechanical trigger for TLESRs"},
+        {"step": 2, "actor": "vagal reflex", "action": "triggers", "target": "transient LES relaxation", "effect": "brief 5-30 s opening of LES"},
+        {"step": 3, "actor": "gastric acid + pepsin", "action": "reflux into", "target": "distal esophagus", "effect": "mucosal irritation; heartburn"},
+        {"step": 4, "actor": "chronic exposure", "action": "damages", "target": "esophageal epithelium", "effect": "erosive esophagitis → Barrett's metaplasia (risk) → esophageal adenocarcinoma (rare)"},
+        {"step": 5, "actor": "lifestyle (weight loss, elevate bed, 3 h no-food-before-bed)", "action": "reduces", "target": "intra-abdominal pressure + TLESRs", "effect": "symptom reduction often without PPI"}
+      ],
+      "analogies_th": [
+        "LES = 'ลิ้นย้อนกลับ' ระหว่างถังน้ำกรด — ถ้าหย่อนหรือเปิดถี่ไป กรดก็พุ่งขึ้นคอ"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29458157/", "org": "Am J Gastroenterol / PubMed", "source_tier": "A", "year": 2022, "title": "ACG Clinical Guideline for the Diagnosis and Management of GERD — Katz PO et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMra0802697", "org": "NEJM", "source_tier": "A", "year": 2008, "title": "Pathophysiology of gastroesophageal reflux disease — Kahrilas PJ", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "H_pylori",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_dig_011",
+      "label_th": "SIBO → hydrogen/methane overproduction → bloating",
+      "label_en": "SIBO → hydrogen/methane overproduction → bloating",
+      "description_th": "Small Intestinal Bacterial Overgrowth (SIBO) = แบคทีเรียลำไส้ใหญ่อพยพขึ้นลำไส้เล็กในปริมาณ ≥10^3 CFU/mL → หมักคาร์โบไฮเดรตในลำไส้เล็กก่อนถึงลำไส้ใหญ่ → ผลิต H2 (มักจากแบคทีเรียกลุ่ม Klebsiella, E. coli) หรือ CH4 (methanogens — Methanobrevibacter smithii) → ท้องอืดหลังอาหาร, ท้องผูก (methane) / ท้องเสีย (hydrogen); วินิจฉัยด้วย glucose/lactulose breath test (Pimentel)",
+      "description_en": "Small Intestinal Bacterial Overgrowth (SIBO) = migration of colonic bacteria into small intestine at ≥10^3 CFU/mL → ferments carbs in the small bowel before reaching colon → produces H2 (from Klebsiella, E. coli) or CH4 (methanogens — Methanobrevibacter smithii) → post-meal bloating, constipation (methane) / diarrhea (hydrogen); diagnosed by glucose or lactulose breath test (Pimentel).",
+      "chain": [
+        {"step": 1, "actor": "disrupted MMC (migrating motor complex) + low gastric acid", "action": "permits", "target": "retrograde bacterial migration", "effect": "colonic bacteria ascend into small bowel"},
+        {"step": 2, "actor": "small-bowel bacteria", "action": "ferment", "target": "dietary carbohydrates (fructose, lactose, inulin)", "effect": "premature H2 or CH4 production"},
+        {"step": 3, "actor": "gas production in small bowel", "action": "distends", "target": "small intestinal wall", "effect": "post-meal bloating, pain"},
+        {"step": 4, "actor": "methane (M. smithii)", "action": "slows", "target": "intestinal transit via altered motility", "effect": "constipation-predominant IBS pattern"},
+        {"step": 5, "actor": "H2-dominant SIBO", "action": "accelerates", "target": "transit + secretion", "effect": "diarrhea-predominant pattern"}
+      ],
+      "analogies_th": [
+        "SIBO = 'แบคทีเรียตั้งโรงหมักผิดชั้น' — ชั้นที่ต้องเงียบกลับมีปาร์ตี้ปล่อยแก๊ส"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/32247735/", "org": "Am J Gastroenterol / PubMed", "source_tier": "A", "year": 2020, "title": "ACG Clinical Guideline: Small Intestinal Bacterial Overgrowth — Pimentel M et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28323273/", "org": "Gut / PubMed", "source_tier": "A", "year": 2017, "title": "Hydrogen and methane-based breath testing in gastrointestinal disorders — Rezaie A et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "H_pylori",
+      "confidence": "high"
+    }
+  ]
+}

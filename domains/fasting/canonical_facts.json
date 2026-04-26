@@ -1,0 +1,844 @@
+{
+  "domain_id": "fasting",
+  "_meta": {
+    "target_count": 18,
+    "current_count": 20,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.fasting",
+    "notes": "Landmark facts: Longo autophagy discovery, NEJM Mattson 2019 IF review, CALERIE trial, Harvie 5:2 RCT, Klempel IF+weight loss, Sutton early TRE insulin, Alirezaei 24h autophagy, Madeo spermidine. Safety warnings critical for diabetes, T1D, eating disorder populations."
+  },
+  "facts": [
+    {
+      "fact_id": "fast_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy",
+      "statement_th": "Yoshinori Ohsumi (Nobel Prize Physiology/Medicine 2016) — ค้นพบกลไก autophagy ใน yeast (1990s) และขยายไปยัง mammals: เซลล์ที่ขาด nutrients กระตุ้น autophagosome ห่อหุ้มและย่อย organelles เสื่อม, protein aggregates, pathogens → recycle amino acids + ATP; ใน mammals autophagy เพิ่มขึ้นอย่างมีนัยสำคัญหลังอด 12-24 ชั่วโมง (Alirezaei et al. 2010: neurons เพิ่ม autophagy ภายใน 24h of fasting)",
+      "statement_en": "Yoshinori Ohsumi (Nobel 2016) — discovered autophagy mechanism in yeast; cells deprived of nutrients activate autophagosomes to wrap and digest damaged organelles, protein aggregates, and pathogens → recycling amino acids and ATP; in mammals autophagy significantly increases after 12-24h fasting (Alirezaei et al. 2010: neurons show elevated autophagy within 24h).",
+      "numeric_values": [
+        {"value": 24, "unit": "hours", "label": "fasting duration for significant neuronal autophagy increase", "is_approximation": true},
+        {"value": 2016, "unit": "year", "label": "Ohsumi Nobel Prize", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fast_001",
+      "entities_mentioned": ["ohsumi", "autophagy"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20534972/",
+          "org": "Autophagy / PubMed",
+          "source_tier": "A",
+          "year": 2010,
+          "title": "Short-term fasting induces profound neuronal autophagy — Alirezaei M et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นักวิทยาศาสตร์ Nobel ค้นพบว่าเซลล์กิน 'ตัวเอง' เพื่อรอดชีวิต", "autophagy = โรงงาน recycling ระดับเซลล์ที่เปิดเมื่อหิว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'autophagy รักษามะเร็ง'; autophagy ใน cancer เป็น double-edged (อาจเสริมการอยู่รอดของ tumor cells ด้วย); ห้ามบอก 'อด 12h แล้ว autophagy ครบ 100%'",
+      "usage_notes": "Flagship anchor สำหรับ fasting domain; Nobel = credibility สูง",
+      "contradictions": ["ใน cancer autophagy อาจเสริม tumor survival — ระวัง framing"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "eating_disorder_history", "pregnancy_lactation"],
+        "drug_interactions": ["antidiabetic (hypoglycemia risk)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'autophagy รักษามะเร็ง'", "ห้ามบอก 'อดอาหารรักษาโรคได้ทุกอย่าง'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "history_of_eating_disorder", "type_1_diabetes"],
+        "validator_keywords_th": ["รักษามะเร็ง", "รักษาโรคได้แน่นอน"],
+        "regulatory_risk_notes": "ระวัง claim 'autophagy รักษาโรค' — ขัด พรบ.ยา ไทย"
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "metabolic_switch",
+      "statement_th": "Mattson et al. (NEJM 2019 review) — เมื่ออดอาหาร 12-36h ร่างกายเปลี่ยน 'metabolic switch' จาก glucose → ketone bodies; ตับสร้าง BHB สูงถึง 0.5-5 mM; BHB ลด neuroinflammation, เพิ่ม BDNF, ลด oxidative stress, ปรับปรุง metabolic markers (insulin, blood pressure, body weight) ในหลายกลุ่มประชากร",
+      "statement_en": "Mattson et al. (NEJM 2019 review) — after 12-36h fasting, the body's 'metabolic switch' activates: glucose → ketone bodies; liver produces BHB up to 0.5-5 mM; BHB reduces neuroinflammation, increases BDNF, lowers oxidative stress, and improves metabolic markers across populations.",
+      "numeric_values": [
+        {"value": "12-36", "unit": "hours", "label": "fasting duration to activate metabolic switch", "is_approximation": true},
+        {"value": "0.5-5", "unit": "mM BHB", "label": "blood ketone range during fasting", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fast_002",
+      "entities_mentioned": ["mattson", "bhb"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31881139/",
+          "org": "New England Journal of Medicine / PubMed",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Effects of Intermittent Fasting on Health, Aging, and Disease — Mattson MP, Longo VD, Harvie M",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["12 ชั่วโมงไม่กิน = สวิตช์สมองและร่างกายเปลี่ยน", "NEJM รายงานประโยชน์ IF แบบครบถ้วน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'IF ใช้รักษา ALS/Alzheimer/cancer'; Mattson review เป็น scientific review ไม่ใช่ RCT outcome; ห้ามบอก 'ทุกคนต้อง IF'",
+      "usage_notes": "NEJM anchor — credibility สูง; ใช้เปิด IF segment",
+      "contradictions": ["Longo เน้น longer fasting/FMD มากกว่า daily IF; Mattson เน้น daily IF/TRE — ยังถกเถียงกันเรื่อง optimal protocol"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "eating_disorder_history", "pregnancy_lactation"],
+        "drug_interactions": ["antidiabetic (hypoglycemia)", "insulin"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'IF รักษาโรค'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "history_of_eating_disorder"],
+        "validator_keywords_th": ["รักษาเบาหวาน", "รักษาโรค"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "TRE",
+      "statement_th": "Sutton et al. (Cell Metab 2018) — Early Time-Restricted Eating (eTRE) RCT: ชายที่มี prediabetes 8 คน กิน 6h window (7AM-3PM) × 5 สัปดาห์: fasting insulin ลด 3.4 µU/mL, ความดันโลหิต ลด 11 mmHg, oxidative stress ลด — โดยไม่ลดน้ำหนัก เทียบกลุ่มกิน 12h window; แสดงว่า timing ของ eating window สำคัญมากกว่าแค่ calorie restriction",
+      "statement_en": "Sutton et al. (Cell Metab 2018) — eTRE RCT: 8 prediabetic men eating in a 6h window (7AM-3PM) for 5 weeks: fasting insulin fell 3.4 µU/mL, BP dropped 11 mmHg, oxidative stress fell — without weight loss compared to a 12h window group; eating window timing matters independently of calories.",
+      "numeric_values": [
+        {"value": 6, "unit": "hours", "label": "early TRE eating window", "is_approximation": false},
+        {"value": 3.4, "unit": "µU/mL", "label": "fasting insulin reduction", "is_approximation": false},
+        {"value": 11, "unit": "mmHg", "label": "blood pressure reduction", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fast_003",
+      "entities_mentioned": ["sutton", "insulin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29754952/",
+          "org": "Cell Metabolism / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Early Time-Restricted Feeding Improves Insulin Sensitivity, Blood Pressure, and Oxidative Stress Even without Weight Loss in Men with Prediabetes — Sutton EF et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กิน 6h แรกของวัน อินซูลินลด ความดันลด — โดยไม่ต้องลดน้ำหนัก", "timing ของมื้ออาหารเปลี่ยนร่างกายได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=8 เล็กมาก; ชายเท่านั้น; 7AM-3PM อาจไม่ practical สำหรับทุกคน; ห้ามบอก 'eTRE รักษาเบาหวาน'",
+      "usage_notes": "Flagship eTRE fact; bridge fasting → blood_sugar",
+      "contradictions": ["n=8 เล็กมาก; ผลหญิงยังไม่ชัด"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_2_diabetes_on_medication", "type_1_diabetes"],
+        "drug_interactions": ["antidiabetic (insulin reduction effect may require dose adjustment)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'eTRE รักษาเบาหวาน'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["type_2_diabetes_on_medication", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษาเบาหวาน"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "TRE",
+      "statement_th": "Harvie et al. (Int J Obes 2011) — 5:2 IF RCT: ผู้หญิงน้ำหนักเกิน 107 คน แบ่งเป็น 2:5 fasting (500 kcal/2วัน) vs continuous caloric restriction (25% ลด): ทั้งสองกลุ่มลดน้ำหนักได้เท่ากัน (~6 กก. ใน 6 เดือน) แต่กลุ่ม IF ลด fasting insulin และ insulin resistance ได้มากกว่า (HOMA-IR ลดมากกว่า); IF ยืดหยุ่นกว่าสำหรับระยะยาว",
+      "statement_en": "Harvie et al. (Int J Obes 2011) — 5:2 IF RCT: 107 overweight women; 2-day fasting (500 kcal) vs continuous 25% caloric restriction: both lost ~6 kg in 6 months but IF group had greater reduction in fasting insulin and HOMA-IR; IF may be more sustainable long-term.",
+      "numeric_values": [
+        {"value": 107, "unit": "overweight women", "label": "sample size", "is_approximation": false},
+        {"value": 500, "unit": "kcal on fasting days", "label": "5:2 protocol fasting day calorie", "is_approximation": false},
+        {"value": 6, "unit": "kg", "label": "weight loss in 6 months (both groups)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fast_004",
+      "entities_mentioned": ["harvie", "insulin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20921964/",
+          "org": "International Journal of Obesity / PubMed",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "The effects of intermittent or continuous energy restriction on weight loss and metabolic disease risk markers — Harvie MN et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["5:2 ลดน้ำหนักได้เท่าคุมแคลทุกวัน แต่ง่ายกว่า", "อด 2 วัน กิน 5 วัน — งานวิจัยบอกว่าได้ผล"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ผู้หญิงเท่านั้น; ห้ามบอก '5:2 ดีกว่า daily caloric restriction สมบูรณ์แบบ'; ห้ามบอก 'อด 500 kcal ใครก็ทำได้' (eating disorder risk)",
+      "usage_notes": "5:2 protocol anchor; bridge fasting → fat_metabolism",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["eating_disorder_history", "type_1_diabetes", "type_2_diabetes_on_medication", "pregnancy_lactation", "elderly_frail"],
+        "drug_interactions": ["insulin", "sulfonylurea"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก '500 kcal วันไหนก็ได้'", "ห้ามบอก 'ทุกคนทำ 5:2 ได้'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["history_of_eating_disorder", "type_1_diabetes", "pregnant_lactating", "under_18"],
+        "validator_keywords_th": ["อดอาหาร", "500 กิโลแคลอรี่"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy",
+      "statement_th": "Longo & Mattson (Cell Metab 2014 review) — Fasting Mimicking Diet (FMD) ใน humans: 5 วัน/เดือน ได้ 700-1,000 kcal จาก plant-based อาหาร (low protein, low carb, high fat): ลด IGF-1, ลด IGFBP-1, เพิ่ม stem cell regeneration, ลด abdominal fat, ลด systolic BP ~6 mmHg ใน RCT Phase II; กระตุ้น autophagy เทียบเท่า extended fast",
+      "statement_en": "Longo & Mattson (Cell Metab 2014 review) — Fasting Mimicking Diet (FMD): 5 days/month at 700-1,000 kcal (low protein, low carb, high plant fat): reduces IGF-1, raises IGFBP-1, enhances stem cell regeneration, reduces abdominal fat, lowers systolic BP ~6 mmHg in Phase II RCT; mimics extended fasting autophagy benefits.",
+      "numeric_values": [
+        {"value": "700-1000", "unit": "kcal/day", "label": "FMD calorie range", "is_approximation": false},
+        {"value": 5, "unit": "days/month", "label": "FMD protocol duration", "is_approximation": false},
+        {"value": 6, "unit": "mmHg", "label": "systolic BP reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fast_001",
+      "entities_mentioned": ["valter_longo", "igf1"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25896083/",
+          "org": "Cell Metabolism / PubMed",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "Fasting-Mimicking Diet and Markers/Risk Factors for Aging, Diabetes, Cancer, and Cardiovascular Disease — Brandhorst S, Longo VD et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["อด 5 วัน/เดือน stem cell regenerate", "FMD — กิน แต่ร่างกายคิดว่าอด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'FMD รักษามะเร็ง'; ห้ามทำ FMD โดยไม่ปรึกษาแพทย์ (700 kcal/day); ใน cancer Longo ยังอยู่ใน trial phase",
+      "usage_notes": "Premium fasting protocol anchor; cross-domain กับ aging",
+      "contradictions": ["FMD ใน cancer ยังเป็น investigational; ห้าม claim anti-cancer"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "eating_disorder_history", "pregnancy_lactation", "elderly_frail", "cancer_active_treatment"],
+        "drug_interactions": ["insulin", "antidiabetic"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก 'FMD รักษามะเร็ง'", "ห้ามทำเอง 700 kcal/day โดยไม่ปรึกษาแพทย์"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["cancer_active_treatment", "type_1_diabetes", "pregnant_lactating", "under_18"],
+        "validator_keywords_th": ["รักษามะเร็ง", "รักษาโรค"],
+        "regulatory_risk_notes": "FMD ใน cancer context — ระวัง claim ทางการรักษา"
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "growth_hormone_fasting",
+      "statement_th": "Ho et al. (JCEM 1988) — การอดอาหาร 5 วัน: ชายสุขภาพดี GH secretion เพิ่มขึ้น ~5 เท่า (300% สูงกว่าค่าปกติ); กลไกผ่าน IGF-1 ลดลง → negative feedback ลด → GH pulse ถี่ขึ้น; fasting ระยะสั้น (24-48h) ก็เพิ่ม GH pulse ได้ ~2 เท่า",
+      "statement_en": "Ho et al. (JCEM 1988) — 5-day fast in healthy men: GH secretion increased ~5-fold; mechanism via IGF-1 decline → reduced negative feedback → more frequent GH pulses; even 24-48h fasting approximately doubles GH pulsatility.",
+      "numeric_values": [
+        {"value": 5, "unit": "fold increase", "label": "GH secretion increase during 5-day fast", "is_approximation": true},
+        {"value": 2, "unit": "fold", "label": "approximate GH increase during 24-48h fast", "is_approximation": true }
+      ],
+      "mechanism_ref": "mech_fast_005",
+      "entities_mentioned": ["growth_hormone", "igf1"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2745740/",
+          "org": "Journal of Clinical Endocrinology & Metabolism / PubMed",
+          "source_tier": "A",
+          "year": 1988,
+          "title": "Fasting enhances growth hormone secretion and amplifies the complex rhythms of growth hormone secretion in man — Ho KY et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["อดอาหาร 24h GH พุ่ง 2 เท่า", "fasting = growth hormone protocol ธรรมชาติ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'fasting = HGH injection'; GH เพิ่มระหว่างอด แต่ลดกลับเมื่อกินใหม่; ผลต่อ muscle growth ระยะยาวยังถกเถียง",
+      "usage_notes": "Hook สำหรับ male fitness audience; bridge fasting → muscle/hormones",
+      "contradictions": ["ผล anabolic ของ GH spike ระหว่าง IF ยังไม่ชัดเจนกว่า resistance training + protein intake"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_1_diabetes", "under_18"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'fasting = HGH injection'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "TRE",
+      "statement_th": "Wilkinson et al. (Cell Metab 2020) — 10-hour TRE RCT: metabolic syndrome ผู้ป่วย 19 คน × 12 สัปดาห์ (กิน 10h/วัน ตามเวลาตนเองเลือก): น้ำหนักลด 3.3%, fasting blood glucose ลด 3.8%, hemoglobin A1c ลด 0.1%, LDL ลด 11.1%, BP systolic ลด 5 mmHg; ไม่ได้ควบคุม calorie",
+      "statement_en": "Wilkinson et al. (Cell Metab 2020) — 10-hour TRE RCT: 19 metabolic syndrome patients for 12 weeks: body weight fell 3.3%, fasting blood glucose down 3.8%, HbA1c down 0.1%, LDL down 11.1%, systolic BP down 5 mmHg — without calorie counting.",
+      "numeric_values": [
+        {"value": 10, "unit": "hours", "label": "TRE eating window", "is_approximation": false},
+        {"value": 12, "unit": "weeks", "label": "study duration", "is_approximation": false},
+        {"value": 3.3, "unit": "% weight loss", "label": "body weight reduction", "is_approximation": false},
+        {"value": 11.1, "unit": "% reduction", "label": "LDL-C reduction", "is_approximation": false }
+      ],
+      "mechanism_ref": "mech_fast_003",
+      "entities_mentioned": ["wilkinson", "insulin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31813625/",
+          "org": "Cell Metabolism / PubMed",
+          "source_tier": "A",
+          "year": 2020,
+          "title": "Ten-Hour Time-Restricted Eating Reduces Weight, Blood Pressure, and Atherogenic Lipids in Patients with Metabolic Syndrome — Wilkinson MJ et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กิน 10h/วัน ไม่ต้องนับแคล น้ำหนักลด LDL ลด", "TRE เปลี่ยน metabolic syndrome ใน 3 เดือน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=19 เล็ก; ไม่มี control group; ห้ามบอก '10-hour TRE รักษา metabolic syndrome แน่'",
+      "usage_notes": "TRE anchor ที่ practical สำหรับ Thai audience",
+      "contradictions": ["ไม่มี control group; calorie ลดไปด้วยโดยไม่ได้ตั้งใจ"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_2_diabetes_on_medication", "type_1_diabetes"],
+        "drug_interactions": ["antidiabetic"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'TRE รักษา metabolic syndrome'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["pregnant_lactating", "history_of_eating_disorder"],
+        "validator_keywords_th": ["รักษา metabolic syndrome"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "ketogenesis",
+      "statement_th": "Anton et al. (Obesity 2018) — IF meta-analysis: 12 RCTs: การทำ IF (16:8, ADF, 5:2) ลดน้ำหนักเฉลี่ย 0.8-13% ใน 2-104 สัปดาห์; ผลเทียบเท่ากับ continuous caloric restriction ในแง่ weight loss; แต่ IF มี adherence ดีกว่าในบาง protocol",
+      "statement_en": "Anton et al. (Obesity 2018) — IF meta-analysis: 12 RCTs: various IF protocols (16:8, ADF, 5:2) produced 0.8-13% weight loss over 2-104 weeks; outcomes comparable to continuous caloric restriction but IF may have better adherence in some protocols.",
+      "numeric_values": [
+        {"value": 12, "unit": "RCTs", "label": "meta-analysis scope", "is_approximation": false},
+        {"value": "0.8-13", "unit": "% weight loss", "label": "range across IF protocols/durations", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fast_004",
+      "entities_mentioned": ["anton"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29419624/",
+          "org": "Obesity / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Flipping the Metabolic Switch: Understanding and Applying the Health Benefits of Fasting — Anton SD et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["IF ลดน้ำหนักเทียบเท่าคุมแคล แต่ง่ายกว่า"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'IF ดีกว่า caloric restriction สมบูรณ์แบบ'; adherence แตกต่างกันตามคน",
+      "usage_notes": "Weight loss anchor สำหรับ IF; ใช้ pair กับ fat_metabolism",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["eating_disorder_history", "type_1_diabetes", "pregnancy_lactation"],
+        "drug_interactions": ["antidiabetic"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["history_of_eating_disorder", "pregnant_lactating", "under_18"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_009",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "metabolic_switch",
+      "statement_th": "Panda (Salk Institute, 2019) — Satchin Panda พบว่า Time-Restricted Eating ใน mice ที่กินอาหาร high-fat แต่จำกัด 8h window: ป้องกันโรคอ้วน, metabolic syndrome, liver disease เทียบกับ ad libitum control; human TRE studies ยืนยัน principle แม้ effect size เล็กกว่า",
+      "statement_en": "Panda (Salk Institute, 2019) — TRE in high-fat-diet mice restricted to 8h window: prevented obesity, metabolic syndrome and liver disease vs ad libitum controls; human TRE studies confirm the principle at smaller effect sizes.",
+      "numeric_values": [
+        {"value": 8, "unit": "hours", "label": "TRE window in Panda mouse studies", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fast_003",
+      "entities_mentioned": ["satchin_panda"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23044161/",
+          "org": "Cell / PubMed",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "Time-Restricted Feeding without Reducing Caloric Intake Prevents Metabolic Diseases in Mice Fed a High-Fat Diet — Hatori M et al. (Panda lab)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กิน 8 ชั่วโมง/วัน ไม่ต้องคุมแคล แต่ปลอดโรคเมตาบอลิก", "นาฬิกาชีวิต + เวลากิน = health equation"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ผลใน mice — human studies เล็กกว่า; ห้าม direct translate mouse data",
+      "usage_notes": "TRE principle foundation; Panda = credible researcher",
+      "contradictions": ["Mice data ≠ Human data; human TRE effect size เล็กกว่ามาก"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["eating_disorder_history", "type_2_diabetes_on_medication"],
+        "drug_interactions": ["antidiabetic"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["history_of_eating_disorder", "pregnant_lactating"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_010",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "autophagy",
+      "statement_th": "Madeo et al. (Science 2018) — Spermidine (found in aged cheese, soy, legumes): กระตุ้น autophagy ผ่าน inhibition of EP300 acetyltransferase; ในสัตว์ทดลอง ยืด lifespan 10-25%; spermidine ในอาหาร associate กับ ลด cardiovascular mortality 40% ใน observational study ออสเตรีย (Kiechl 2018)",
+      "statement_en": "Madeo et al. (Science 2018) — spermidine (in aged cheese, soy, legumes): induces autophagy via EP300 inhibition; extends lifespan 10-25% in animal models; dietary spermidine associated with 40% lower cardiovascular mortality in Austrian observational study (Kiechl 2018).",
+      "numeric_values": [
+        {"value": "10-25", "unit": "% lifespan extension", "label": "spermidine effect in animal models", "is_approximation": true},
+        {"value": 40, "unit": "% lower", "label": "cardiovascular mortality association with high dietary spermidine (observational)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fast_001",
+      "entities_mentioned": ["madeo", "spermidine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29786099/",
+          "org": "Science / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Spermidine delays aging in humans — Madeo F et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["spermidine ในเนยแก่ กระตุ้น autophagy เหมือนอดอาหาร", "กินอาหาร 'เก่า' เพื่อ anti-aging"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Animal data — human RCT จำกัด; 40% CVD เป็น observational; ห้ามบอก 'spermidine รักษา aging'",
+      "usage_notes": "Bridge fasting → aging; spermidine supplement emerging angle",
+      "contradictions": ["Human RCT ขนาดใหญ่ยังขาด"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'spermidine รักษา aging'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษา aging"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_011",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "ketogenesis",
+      "statement_th": "Volek et al. (Nutr Metab 2004) — Ketogenic diet (CHO <50g/day) × 6 สัปดาห์ ในผู้ชายน้ำหนักเกิน: ลด body weight 6.2 kg, ลด fat mass 4.7 kg, ลด triglycerides 33%, เพิ่ม HDL 12%, ลด insulin 33%; สำคัญ: ผล keto บาง marker ดีกว่า low-fat แต่ long-term adherence ต่ำกว่า",
+      "statement_en": "Volek et al. (Nutr Metab 2004) — ketogenic diet (<50g carbs/day) for 6 weeks in overweight men: body weight down 6.2 kg, fat mass down 4.7 kg, triglycerides down 33%, HDL up 12%, insulin down 33%; note: some markers better than low-fat but long-term adherence is lower.",
+      "numeric_values": [
+        {"value": 6.2, "unit": "kg", "label": "total weight loss (6 weeks keto)", "is_approximation": false},
+        {"value": 33, "unit": "% reduction", "label": "triglyceride reduction", "is_approximation": false},
+        {"value": 12, "unit": "% increase", "label": "HDL-C increase", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fast_002",
+      "entities_mentioned": ["volek", "ketones"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15533250/",
+          "org": "Nutrition and Metabolism / PubMed",
+          "source_tier": "A",
+          "year": 2004,
+          "title": "Comparison of energy-restricted very low-carbohydrate and low-fat diets on weight loss and body composition in overweight men and women — Volek JS et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["Keto 6 สัปดาห์: TG ลด 33%, HDL ขึ้น 12%", "ไขมันดี ไขมันเลว ปรับด้วย ketogenic"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'keto ปลอดภัยกับทุกคน'; T1D/T2D on meds ต้อง medical supervision; LDL อาจสูงขึ้นใน subgroup (APOE4)",
+      "usage_notes": "Keto + fasting bridge fact; anchor สำหรับ keto product",
+      "contradictions": ["LDL อาจสูงใน some individuals on keto; ไม่เหมาะกับ familial hypercholesterolemia"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "eating_disorder_history", "liver_disease"],
+        "drug_interactions": ["insulin", "antidiabetic (hypoglycemia risk on keto)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'keto ปลอดภัยกับทุกคน'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["type_1_diabetes", "pregnant_lactating"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "prolonged_fast",
+      "statement_th": "Cahill (Ann Rev Nutr 2006) — การอดอาหาร 24-72h: ใน 24h แรก glycogen หมด → gluconeogenesis จาก protein + glycerol; 24-72h: ร่างกายเปลี่ยน primary fuel เป็น FFA + ketones; protein catabolism ลดลงหลังวันที่ 3 (protein sparing effect ของ ketones); extended fast >72h ต้องการ electrolyte (Na, K, Mg)",
+      "statement_en": "Cahill (Ann Rev Nutr 2006) — 24-72h fasting: first 24h glycogen depletes → gluconeogenesis from protein/glycerol; 24-72h: primary fuel shifts to FFA + ketones; protein catabolism decreases after day 3 (protein-sparing ketosis); extended fasting >72h requires electrolyte supplementation (Na, K, Mg).",
+      "numeric_values": [
+        {"value": 24, "unit": "hours", "label": "glycogen depletion timeline", "is_approximation": true},
+        {"value": 72, "unit": "hours", "label": "protein-sparing ketosis onset", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_fast_002",
+      "entities_mentioned": ["cahill", "ketones"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16848706/",
+          "org": "Annual Review of Nutrition / PubMed",
+          "source_tier": "A",
+          "year": 2006,
+          "title": "Fuel metabolism in starvation — Cahill GF",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["3 วันไม่กิน ร่างกายเปลี่ยนโมดเองจาก glucose → ketone", "วันที่ 3 ของการอด ร่างกายหยุดกินกล้ามเนื้อตัวเอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Extended fast >72h เป็น orange risk; ห้ามแนะนำให้ทำเองโดยไม่มีแพทย์ดูแล; electrolyte สำคัญมาก",
+      "usage_notes": "Physiology anchor สำหรับ extended fasting; product angle electrolytes",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "eating_disorder_history", "pregnancy_lactation", "elderly_frail", "cardiac_arrhythmia"],
+        "drug_interactions": ["antidiabetic", "cardiac medication (electrolyte imbalance risk)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก 'อด 72h เองได้ปลอดภัย'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "type_1_diabetes"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_013",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "TRE",
+      "statement_th": "Jason Fung (The Obesity Code 2016, The Complete Guide to Fasting 2016): ทฤษฎี 'ระดับ insulin เรื้อรัง = โรคอ้วน' — การ IF เป็นวิธีลดอินซูลินที่มีประสิทธิภาพสูงสุดเพราะหยุด secretion ทั้งหมด; แนะนำ 16:8 เป็นขั้นต่ำ, 20:4 สำหรับ therapeutic, 36-42h/สัปดาห์ สำหรับ T2D remission",
+      "statement_en": "Jason Fung (2016): chronic hyperinsulinemia → obesity; IF is the most effective insulin-lowering intervention because it eliminates all secretion; recommends 16:8 minimum, 20:4 for therapeutic, 36-42h/week for T2D remission.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fast_003",
+      "entities_mentioned": ["jason_fung"],
+      "sources": [
+        {
+          "url": "https://www.thefastingmethod.com",
+          "org": "The Fasting Method / IDM (Jason Fung)",
+          "source_tier": "B",
+          "year": 2023,
+          "title": "The Fasting Method — Intensive Dietary Management",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["Jason Fung: อินซูลินคือตัวร้ายของโรคอ้วน ไม่ใช่แคล", "IF ลดอินซูลินได้ตรงที่สุด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'หยุดยาแล้วทำ IF'; Fung framework มี controversy; ห้าม T1D แน่นอน; ใช้ framing 'emerging framework'",
+      "usage_notes": "Thought-leader hook สำหรับ insulin-centric audience",
+      "contradictions": ["ADA ไม่ recommend extended fasting as standard care; Fung protocol for T2D ต้องมีแพทย์กำกับ"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication"],
+        "drug_interactions": ["insulin", "antidiabetic"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก 'หยุดยาเบาหวานแล้วทำ IF'"],
+        "required_disclaimer_th": "diabetes_th",
+        "audience_exclusions": ["type_1_diabetes", "pregnant_lactating"],
+        "validator_keywords_th": ["หยุดยา", "แทน insulin", "แทน metformin"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_014",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "TRE",
+      "statement_th": "Electrolytes ระหว่าง fasting: เมื่ออดอาหาร insulin ลด → ไต reabsorb sodium น้อยลง → natriuresis; ในช่วง 1-2 สัปดาห์แรกของ extended fasting หรือ keto อาจสูญเสีย sodium, potassium, magnesium สูง → อาการ 'keto flu' (ปวดหัว, เหนื่อย, เป็นตะคริว); electrolyte supplement ป้องกันได้",
+      "statement_en": "During fasting, insulin falls → kidney reduces sodium reabsorption → natriuresis; in the first 1-2 weeks of extended fasting/keto, significant loss of sodium, potassium, magnesium → 'keto flu' (headache, fatigue, cramps); electrolyte supplementation prevents this.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fast_002",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/1548337/",
+          "org": "American Journal of Physiology / PubMed",
+          "source_tier": "A",
+          "year": 1992,
+          "title": "Mechanisms of renal sodium retention during fasting — Kwakernaak AJ et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["อดอาหารแล้วปวดหัว? คุณขาด electrolyte ไม่ใช่หิว", "keto flu ป้องกันได้ง่ายๆ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'electrolyte แก้ได้ทุกอาการ'; หากมีโรคไต/หัวใจ ต้องปรึกษาแพทย์",
+      "usage_notes": "Product anchor สำหรับ electrolyte supplement ระหว่าง fasting/keto",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["chronic_kidney_disease_stage_3_plus", "hypertension_uncontrolled"],
+        "drug_interactions": ["antihypertensive (electrolyte interaction)", "potassium-sparing diuretic (hyperkalemia risk)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["chronic_kidney_disease_stage_3_plus"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_015",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "TRE",
+      "statement_th": "CALERIE Phase 2 Trial (Ravussin et al., JAMA Intern Med 2015) — 2-year caloric restriction (25% CR) ใน non-obese adults 218 คน: น้ำหนักลด 7.6 kg, fat mass ลด 5.5 kg, cardiometabolic markers ดีขึ้น, mood ดีขึ้น, quality of life ดีขึ้น; แสดงว่า CR ทำได้และปลอดภัยใน healthy non-obese population",
+      "statement_en": "CALERIE Phase 2 (Ravussin 2015) — 2-year 25% caloric restriction in 218 non-obese adults: weight down 7.6 kg, fat mass down 5.5 kg, improved cardiometabolic markers, mood, and quality of life; demonstrates that sustained CR is feasible and safe in healthy adults.",
+      "numeric_values": [
+        {"value": 218, "unit": "non-obese adults", "label": "sample size", "is_approximation": false},
+        {"value": 25, "unit": "% caloric restriction", "label": "CALERIE intervention level", "is_approximation": false},
+        {"value": 7.6, "unit": "kg", "label": "total weight loss (2 years)", "is_approximation": false }
+      ],
+      "mechanism_ref": "mech_fast_004",
+      "entities_mentioned": ["ravussin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26186798/",
+          "org": "JAMA Internal Medicine / PubMed",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "A 2-Year Randomized Controlled Pilot Study of Human Caloric Restriction: Feasibility and Effects on Predictors of Health Span and Longevity — Ravussin E et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["CR 25% ทำได้จริง 2 ปี — มีงานวิจัยยืนยัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'อดแคล 25% คือสูตรความอมตะ'; ผลระยะยาว >2 ปีในมนุษย์ยังไม่ทราบ; bone density ลดลงได้",
+      "usage_notes": "Caloric restriction general anchor; ใช้สนับสนุน IF ว่า calorie/metabolic modulation มีประโยชน์จริง",
+      "contradictions": ["ลด bone density เล็กน้อย; ความหิวเป็นปัญหา adherence"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["eating_disorder_history", "elderly_frail"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "autophagy",
+      "statement_th": "Morselli et al. (Cell Death Dis 2010) — spermidine, resveratrol และ rapalogs กระตุ้น autophagy ผ่าน epigenetic pathways เดียวกับ caloric restriction → 'CR mimetics'; spermidine ยับยั้ง EP300 acetyltransferase → เปิด autophagy genes; แนวทางนี้เปิดพื้นที่สำหรับ supplement-based autophagy induction โดยไม่ต้องอดอาหาร",
+      "statement_en": "Morselli et al. (Cell Death Dis 2010) — spermidine, resveratrol, and rapalogs induce autophagy via same epigenetic pathways as caloric restriction → 'CR mimetics'; spermidine inhibits EP300 acetyltransferase → opens autophagy genes; this enables supplement-based autophagy induction without fasting.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fast_001",
+      "entities_mentioned": ["spermidine", "madeo"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20454427/",
+          "org": "Cell Death & Disease / PubMed",
+          "source_tier": "A",
+          "year": 2010,
+          "title": "Caloric restriction and resveratrol promote longevity through the sirtuin-1-dependent induction of autophagy — Morselli E et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กิน spermidine = กระตุ้น autophagy โดยไม่ต้องอด", "CR mimetics — เทียบเท่า caloric restriction แต่ไม่หิว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "animal data predominantly; ห้าม overclaim human longevity",
+      "usage_notes": "Bridge fasting → supplement autophagy products",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_017",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "TRE",
+      "statement_th": "16:8 Protocol (Leangains / Martin Berkhan): กิน 8h window, อด 16h; เป็น IF protocol ที่ได้รับความนิยมสูงสุดในโลกเพราะ practical; สำหรับคนทั่วไป: skip อาหารเช้า กินมื้อแรก 11AM-12PM, กินมื้อสุดท้ายไม่เกิน 7-8PM; งานวิจัย: ช่วย fat loss โดยไม่เสีย muscle ถ้ากิน protein พอ",
+      "statement_en": "16:8 protocol (Leangains/Martin Berkhan): 8h eating window, 16h fast; the most popular IF protocol globally due to practicality; typical: skip breakfast, first meal at 11AM-12PM, last meal by 7-8PM; research supports fat loss without muscle loss when protein intake is adequate.",
+      "numeric_values": [
+        {"value": 16, "unit": "hours", "label": "fasting window", "is_approximation": false},
+        {"value": 8, "unit": "hours", "label": "eating window", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_fast_003",
+      "entities_mentioned": ["berkhan"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27737674/",
+          "org": "Translational Research / PubMed",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Alternate day fasting and endurance exercise combine to reduce body weight and favorably alter plasma lipids in obese humans — Bhutani S et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["16:8 — IF ที่ง่ายที่สุดในโลก", "skip breakfast = เปลี่ยนชีวิต"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ทุกคนต้อง skip อาหารเช้า'; ผู้มีความดัน/เบาหวานต้องระวัง; เช้าเลิกงานบางอาชีพอาจไม่เหมาะ",
+      "usage_notes": "Entry-level IF anchor สำหรับ general audience",
+      "contradictions": ["Meta-analysis TREAT (JAMA 2020): 16:8 ไม่ได้ผลดีกว่า CER ใน obese individuals — adherence เป็น key"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["eating_disorder_history", "type_2_diabetes_on_medication", "pregnancy_lactation"],
+        "drug_interactions": ["antidiabetic"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "history_of_eating_disorder"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "metabolic_switch",
+      "statement_th": "Gabel et al. (Nutr Healthy Aging 2018) — 16:8 TRE pilot: ผู้ใหญ่น้ำหนักเกิน 23 คน × 12 สัปดาห์: น้ำหนักลด 2.6%, calorie intake ลดเอง 350 kcal/วัน (spontaneous), BP systolic ลด 7 mmHg; ไม่มี adverse effects; confirming 16:8 feasibility ใน free-living conditions",
+      "statement_en": "Gabel et al. (Nutr Healthy Aging 2018) — 16:8 TRE pilot: 23 overweight adults × 12 weeks: body weight fell 2.6%, spontaneous calorie intake reduced 350 kcal/day, systolic BP fell 7 mmHg; no adverse effects; confirming 16:8 feasibility in free-living.",
+      "numeric_values": [
+        {"value": 2.6, "unit": "% weight loss", "label": "16:8 TRE body weight reduction", "is_approximation": false},
+        {"value": 350, "unit": "kcal/day", "label": "spontaneous calorie reduction", "is_approximation": false},
+        {"value": 7, "unit": "mmHg", "label": "systolic BP reduction", "is_approximation": false }
+      ],
+      "mechanism_ref": "mech_fast_003",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29951594/",
+          "org": "Nutrition and Healthy Aging / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Effects of 8-hour time restricted feeding on body weight and metabolic disease risk factors in obese adults — Gabel K et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กิน 8 ชั่วโมง กินน้อยลง 350 แคลอัตโนมัติ", "body ปรับเองเมื่อมีหน้าต่างกิน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=23 เล็กมาก; pilot study; calorie ลดอัตโนมัติ (calorie restriction confound)",
+      "usage_notes": "Practical 16:8 evidence; น้ำหนักลดโดยไม่นับแคล",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["eating_disorder_history", "type_2_diabetes_on_medication"],
+        "drug_interactions": ["antidiabetic"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "history_of_eating_disorder"],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "autophagy",
+      "statement_th": "Bergamini et al. (Exp Gerontol 2007) — นักวิจัย Pisa: คาดการณ์ว่า autophagy ที่ถูกกระตุ้นจาก periodic fasting มีส่วนใน lifespan extension ใน animal models (CR + autophagy ยัดเยียด CR benefit); ใน human: fasting-induced autophagy อาจช่วย clearance ของ misfolded proteins ที่เกี่ยวข้องกับ neurodegeneration (Parkinson, Huntington, Alzheimer)",
+      "statement_en": "Bergamini et al. (Exp Gerontol 2007) — fasting-induced autophagy contributes to lifespan extension in animal CR models; in humans, fasting autophagy may accelerate clearance of misfolded proteins implicated in neurodegeneration (Parkinson, Huntington, Alzheimer).",
+      "numeric_values": [],
+      "mechanism_ref": "mech_fast_001",
+      "entities_mentioned": ["bergamini", "autophagy"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17482786/",
+          "org": "Experimental Gerontology / PubMed",
+          "source_tier": "A",
+          "year": 2007,
+          "title": "The anti-aging drug: effects of calorie restriction and starvation on autophagy in rodents — Bergamini E et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["autophagy ล้าง protein ผิดรูปที่ทำให้สมองเสื่อม", "IF = การกำจัดขยะ molecular ในสมอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'IF รักษา Parkinson/Alzheimer'; evidence ใน humans จำกัด; animal data ต้อง frame ชัด",
+      "usage_notes": "Advanced brain-fasting cross-domain hook",
+      "contradictions": ["ใน cancer: autophagy ช่วย tumor survival — double-edged"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["type_1_diabetes", "eating_disorder_history"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'IF รักษา Parkinson/Alzheimer'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษา Alzheimer", "รักษา Parkinson"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "fast_020",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "TRE",
+      "statement_th": "Contraindications สำคัญของ IF ตาม Mattson et al. (NEJM 2019) และ Longo: ห้ามทำ IF ใน: T1D ทุกกรณี; T2D ที่กินยา insulin/sulfonylurea/SGLT2 โดยไม่ปรึกษาแพทย์; เด็กและวัยรุ่น; หญิงตั้งครรภ์; ประวัติ eating disorder; ผู้ที่ต้องกินยากับอาหาร; อายุ >70 ปีที่ sarcopenic",
+      "statement_en": "Key IF contraindications per Mattson/Longo: absolute contraindications — T1D; T2D on insulin/sulfonylurea/SGLT2 without medical supervision; children/adolescents; pregnancy; history of eating disorders; patients on food-dependent medications; elderly >70 with sarcopenia.",
+      "numeric_values": [],
+      "mechanism_ref": null,
+      "entities_mentioned": ["mattson", "valter_longo"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31881139/",
+          "org": "NEJM / PubMed",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Effects of Intermittent Fasting on Health, Aging, and Disease — Mattson MP et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["IF ดีกับคนส่วนใหญ่ แต่กลุ่มนี้ต้องระวัง"],
+      "dramatization_allowed": false,
+      "dramatization_limit": "ต้องใช้ fact นี้ as-is สำหรับ safety framing",
+      "usage_notes": "Mandatory safety framing ก่อนทุก IF content",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "red",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "eating_disorder_history", "pregnancy_lactation", "under_18", "elderly_frail"],
+        "drug_interactions": ["insulin", "antidiabetic", "all medications requiring food"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": ["ห้ามบอก 'ทุกคนทำ IF ได้'", "ห้ามบอก 'IF ปลอดภัยแน่นอน 100%'"],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "history_of_eating_disorder", "type_1_diabetes"],
+        "validator_keywords_th": ["ทุกคนทำได้", "ปลอดภัย 100%"],
+        "regulatory_risk_notes": "IF ใน T2D patients — ต้องมีแพทย์ติดตาม; อย. ไทย ห้าม claim รักษาโรคจาก IF"
+      },
+      "harvested_by": "domain_harvester.fasting",
+      "harvested_at": "2026-04-22T15:00:00"
+    }
+  ]
+}

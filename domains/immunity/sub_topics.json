@@ -1,0 +1,55 @@
+{
+  "domain_id": "immunity",
+  "sub_topics": [
+    {
+      "id": "innate_immunity",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "adaptive_immunity",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "inflammasome",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "NK_cells",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "gut_immunity",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    }
+  ]
+}

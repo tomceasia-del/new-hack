@@ -54,6 +54,7 @@ module.exports = async function handler(req, res) {
   const systemPrompt = body.systemPrompt != null ? String(body.systemPrompt) : '';
   const userText = body.userText != null ? String(body.userText) : '';
   const images = Array.isArray(body.images) ? body.images : [];
+  const clientGen = body.generationConfig && typeof body.generationConfig === 'object' ? body.generationConfig : {};
 
   if (!userText.trim()) {
     return res.status(400).json({ error: 'userText ว่าง' });
@@ -82,6 +83,12 @@ module.exports = async function handler(req, res) {
       b.generationConfig.maxOutputTokens = 16384;
       b.generationConfig.temperature = 0.55;
       b.generationConfig.topP = 0.85;
+      const allowed = ['temperature', 'maxOutputTokens', 'topP', 'topK'];
+      for (const k of allowed) {
+        if (Object.prototype.hasOwnProperty.call(clientGen, k) && clientGen[k] != null) {
+          b.generationConfig[k] = clientGen[k];
+        }
+      }
 
       const url =
         'https://generativelanguage.googleapis.com/v1beta/models/' +

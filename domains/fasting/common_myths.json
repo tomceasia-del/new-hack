@@ -1,0 +1,117 @@
+{
+  "domain_id": "fasting",
+  "_meta": {"current_count": 9, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.fasting"},
+  "myths": [
+    {
+      "myth_id": "myth_fast_001",
+      "myth_statement_th": "อดอาหารทำให้ร่างกายเข้า 'starvation mode' และเผาผลาญกล้ามเนื้อทันที",
+      "myth_statement_en": "Skipping meals triggers immediate 'starvation mode' causing muscle loss.",
+      "reality_th": "ผิด: starvation mode จริง (adaptive thermogenesis) ใช้เวลาหลายวัน-สัปดาห์ของ caloric deficit รุนแรงต่อเนื่อง ไม่ใช่ 16-18h fast; ระหว่าง IF: GH ขึ้น → protein sparing; กล้ามเนื้อลดเป็นปัญหาเฉพาะ extended fasting >72h โดยไม่มี resistance training + protein intake พอ",
+      "reality_en": "False: true starvation mode (adaptive thermogenesis) requires days-weeks of severe caloric restriction. During 16-18h IF, GH rises → protein sparing effect; muscle loss is only a concern with extended fasting >72h without resistance training and adequate protein.",
+      "mechanism_refs": ["mech_fast_002", "mech_fast_005"],
+      "evidence_quality": "high",
+      "myth_origin_th": "สับสนระหว่าง short-term IF กับ chronic severe starvation; media exaggeration",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_fast_001", "fact_fast_003"]
+    },
+    {
+      "myth_id": "myth_fast_002",
+      "myth_statement_th": "ต้องกินทุก 2-3 ชั่วโมงเพื่อ 'keep metabolism high'",
+      "myth_statement_en": "You must eat every 2-3 hours to keep your metabolism elevated.",
+      "reality_th": "ผิด: thermic effect of food (TEF) เพิ่ม metabolic rate ชั่วคราว แต่ ไม่มีหลักฐาน ว่าการกินถี่ขึ้น = metabolic rate สูงขึ้น long-term; review (Bellisle 1997, Schoenfeld 2015) พบ meal frequency ไม่มีผลต่อ total daily energy expenditure; กินถี่ + แคลอรี่เท่ากัน ≠ เผาผลาญเร็วกว่า",
+      "reality_en": "False: TEF is temporary and total daily TEF equals ~10% of total calories regardless of meal frequency; no evidence frequent eating raises long-term metabolic rate; meal frequency does not significantly affect total energy expenditure (Bellisle 1997, Schoenfeld 2015).",
+      "mechanism_refs": ["mech_fast_004"],
+      "evidence_quality": "high",
+      "myth_origin_th": "fitness culture + supplement industry (protein shakes ทุก 2h); misapplication ของ research bodybuilding",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_fast_005"]
+    },
+    {
+      "myth_id": "myth_fast_003",
+      "myth_statement_th": "Intermittent fasting เหมาะกับทุกคน รวมถึงเด็ก, หญิงตั้งครรภ์, และผู้ป่วยเบาหวานชนิด 1",
+      "myth_statement_en": "Intermittent fasting is safe for everyone, including children, pregnant women, and Type 1 diabetics.",
+      "reality_th": "ผิดอันตราย: T1D + insulin therapy → fasting เพิ่มความเสี่ยง hypoglycemia รุนแรง; หญิงตั้งครรภ์/ให้นม → อาจกระทบ fetal development; เด็กและวัยรุ่น → ยังเจริญเติบโต ต้องการ caloric intake สม่ำเสมอ; ผู้มีประวัติ eating disorders → IF อาจกระตุ้น relapse",
+      "reality_en": "Dangerously false: T1D patients on insulin → fasting increases severe hypoglycemia risk; pregnant/breastfeeding women → potential impact on fetal development; children/adolescents in growth phases require consistent caloric intake; history of eating disorders → IF may trigger relapse.",
+      "mechanism_refs": ["mech_fast_002"],
+      "evidence_quality": "high",
+      "myth_origin_th": "oversimplification ใน wellness content; influencer culture ที่ promote one-size-fits-all",
+      "dangerous_if_believed": true,
+      "safety_warning": "อย่า recommend IF กับ T1D, หญิงตั้งครรภ์, เด็ก, หรือผู้มีประวัติ eating disorder — ต้องปรึกษาแพทย์เสมอ",
+      "fact_refs": ["fact_fast_020"]
+    },
+    {
+      "myth_id": "myth_fast_004",
+      "myth_statement_th": "'Keto flu' คือ detox ที่ดีหมายความว่ามันทำงาน",
+      "myth_statement_en": "'Keto flu' is a good detox sign that your body is working correctly.",
+      "reality_th": "ผิด: keto flu (ปวดหัว, อ่อนแรง, ตะคริว) เกิดจาก electrolyte + น้ำขาด (natriuresis ตาม insulin ลด) ไม่ใช่ 'detox'; แก้ได้ด้วย sodium 2-3g/d, potassium 1g/d, magnesium 300mg/d และ hydration; ไม่แก้ = ความเสี่ยง cardiac arrhythmia (hypokalemia)",
+      "reality_en": "False: keto flu symptoms arise from electrolyte depletion (natriuresis from low insulin), not detox; corrected by sodium 2-3g/d + potassium 1g/d + magnesium 300mg/d + hydration; uncorrected electrolyte loss → cardiac arrhythmia risk.",
+      "mechanism_refs": ["mech_fast_008"],
+      "evidence_quality": "high",
+      "myth_origin_th": "wellness culture ที่ประกาศว่า 'รู้สึกแย่ก่อน = กำลังดีขึ้น'; misattribution ของ symptoms",
+      "dangerous_if_believed": true,
+      "safety_warning": "Keto flu ที่ไม่ได้รับการแก้ไข electrolyte อาจนำไปสู่ arrhythmia — ไม่ใช่ detox ปกติ",
+      "fact_refs": ["fact_fast_019"]
+    },
+    {
+      "myth_id": "myth_fast_005",
+      "myth_statement_th": "Autophagy เริ่มทันทีเมื่ออดอาหาร 12 ชั่วโมง และผลิตภัณฑ์ใดก็ 'boost autophagy' ได้",
+      "myth_statement_en": "Autophagy starts at exactly 12 hours and any supplement can boost it significantly.",
+      "reality_th": "ผิด: autophagy เป็น continuum ที่มีอยู่ตลอดเวลา; baseline autophagy มีเสมอ; fasting เพิ่มระดับ; ใน humans มีหลักฐาน autophagy ที่ชัดเจนหลัง ~24-48h; ไม่มี biomarker ที่วัด autophagy ใน living humans แบบง่าย; claim 'boosts autophagy X%' จาก supplement ส่วนใหญ่ไม่มี human clinical evidence",
+      "reality_en": "False: autophagy is a continuous process; fasting upregulates it; in humans, significant autophagy increases require ~24-48h fasting; no simple biomarker validates autophagy levels in living humans; most supplement 'boosts autophagy' claims lack human clinical evidence.",
+      "mechanism_refs": ["mech_fast_001"],
+      "evidence_quality": "high",
+      "myth_origin_th": "oversimplification ของ Ohsumi Nobel research ใน wellness/biohacking community; supplement marketing",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_fast_002", "fact_fast_011"]
+    },
+    {
+      "myth_id": "myth_fast_006",
+      "myth_statement_th": "ถ้า fasting แล้วออกกำลังกาย จะเผาไขมันได้มากกว่า 2 เท่า",
+      "myth_statement_en": "Fasted cardio burns twice as much fat as fed-state exercise.",
+      "reality_th": "บางส่วนถูก บางส่วนผิด: fasted cardio เพิ่ม fat oxidation rate ระหว่างออกกำลังกายจริง แต่ total 24h fat oxidation ไม่แตกต่างจากกลุ่ม fed cardio อย่างมีนัยสำคัญ (Schoenfeld 2011 review); fat oxidation ระหว่าง exercise ≠ total fat loss outcome; body composition แตกต่างเล็กน้อย หลายคน fasted cardio ออก harder time เพราะพลังงานน้อยกว่า",
+      "reality_en": "Partially false: fasted cardio increases fat oxidation DURING exercise, but 24h total fat oxidation shows no significant difference vs fed exercise (Schoenfeld 2011); acute fat oxidation rate ≠ total fat loss outcome; many find fasted exercise harder to sustain at high intensity.",
+      "mechanism_refs": ["mech_fast_002"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "bodybuilding culture; misapplication ของ respiratory exchange ratio data",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_fast_007",
+      "myth_statement_th": "วิตามินและแร่ธาตุจะ 'break the fast'",
+      "myth_statement_en": "Taking vitamins and minerals will break your fast.",
+      "reality_th": "ส่วนใหญ่ผิด: วิตามินและแร่ธาตุที่ไม่มีแคลอรี่ (electrolytes, Vitamin D, Omega-3) ไม่กระตุ้น insulin spike หรือหยุด autophagy อย่างมีนัยสำคัญ; อย่างไรก็ตาม: gummy vitamins มีน้ำตาล → อาจ break fast; amino acids และ BCAAs ขนาดเต็มกระตุ้น mTOR → หยุด autophagy; ต้องเลือกตามวัตถุประสงค์ (metabolic health vs autophagy)",
+      "reality_en": "Mostly false: calorie-free vitamins/minerals (electrolytes, Vitamin D, Omega-3) don't significantly spike insulin or halt autophagy; however, gummy vitamins (contain sugar) may break the fast; full-dose amino acids/BCAAs activate mTOR → suppress autophagy; choice depends on fasting objective.",
+      "mechanism_refs": ["mech_fast_001", "mech_fast_008"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "fasting community oversimplification + confusion ระหว่าง 'caloric fast' กับ 'autophagy fast'",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_fast_008",
+      "myth_statement_th": "5:2 fasting (กิน 500 kcal 2 วัน) ปลอดภัยและดีกว่า 16:8 เสมอ",
+      "myth_statement_en": "5:2 fasting (500 kcal on 2 days) is always safer and superior to 16:8 TRE.",
+      "reality_th": "ผิด: 5:2 ดีสำหรับบางคน แต่ 500 kcal/day binge-restriction pattern เพิ่มความเสี่ยง eating disorder ใน vulnerable individuals; คนที่มี gallstones → VLCD/rapid weight loss เพิ่มความเสี่ยง gallstone complications; 16:8 TRE มี compliance ดีกว่าในระยะยาว (Lowe 2020); superiority ขึ้นกับ individual compliance, health status, lifestyle",
+      "reality_en": "False: 5:2 suits some people but extreme restriction-feeding pattern increases eating disorder risk in vulnerable individuals; gallstone risk increases with rapid weight loss (VLCD pattern); 16:8 TRE shows better long-term compliance (Lowe 2020); superiority depends on individual compliance, health status, and lifestyle.",
+      "mechanism_refs": ["mech_fast_004"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "Harvie 5:2 research media coverage oversimplification; 5:2 book/diet trend",
+      "dangerous_if_believed": true,
+      "safety_warning": "5:2 อาจไม่เหมาะสำหรับผู้มีความเสี่ยง eating disorder หรือ gallstones — ควรปรึกษาแพทย์",
+      "fact_refs": ["fact_fast_004"]
+    },
+    {
+      "myth_id": "myth_fast_009",
+      "myth_statement_th": "กาแฟดำ (ไม่ใส่น้ำตาล/นม) หยุด fasting",
+      "myth_statement_en": "Black coffee (no sugar/milk) breaks your fast.",
+      "reality_th": "ผิด: กาแฟดำ (~2 kcal/cup) ไม่กระตุ้น insulin อย่างมีนัยสำคัญ; caffeine เพิ่ม AMPK และ fat oxidation; ไม่หยุด autophagy pathway ในระดับที่วัดได้; คำพิพากษาส่วนใหญ่: กาแฟดำ 1-2 แก้ว ระหว่าง fasting window = acceptable; แต่: คนที่ fasting เพื่อ เลือด lab ต้องงด ALL liquids ยกเว้นน้ำ ตามคำสั่งแพทย์",
+      "reality_en": "False: black coffee (~2 kcal/cup) does not significantly spike insulin; caffeine may increase AMPK and fat oxidation; does not measurably halt autophagy; consensus: 1-2 cups black coffee during fasting window = acceptable for metabolic fasting; exception: patients fasting for blood lab tests must follow specific medical instructions.",
+      "mechanism_refs": ["mech_fast_001", "mech_fast_007"],
+      "evidence_quality": "high",
+      "myth_origin_th": "strict fasting purists; confusion ระหว่าง religious fast (ห้ามทุกอย่าง) กับ metabolic IF",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "domain_id": "heart",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "target_count": 8,
+    "current_count": 10,
+    "product_categories_from_taxonomy": [
+      "omega_3_epa_high_dose",
+      "CoQ10_ubiquinol",
+      "nattokinase",
+      "bergamot_extract",
+      "vitamin_K2_MK7",
+      "niacin_flush_free",
+      "L_citrulline_arginine",
+      "red_yeast_rice",
+      "berberine",
+      "garlic_aged_extract"
+    ],
+    "safety_note": "Every cardiovascular angle MUST include safety_warning with drug_interactions. Audience likely includes people on statin/warfarin/antihypertensive — high harm potential."
+  },
+  "angles": [
+    {
+      "angle_id": "angle_heart_omega_3_epa_high_dose",
+      "product_category": "omega_3_epa_high_dose",
+      "problem_th": "คนที่ triglyceride สูง (>150 mg/dL) แม้คุม LDL แล้วด้วย statin ก็ยังเสี่ยง CVD (residual risk) — ไขมันในเลือดไม่ได้หายจริง อักเสบในหลอดเลือดยังทำงาน",
+      "mechanism_claim_th": "EPA dose สูง (2-4 g/day) ลด TG ~20-30% ผ่านการลด hepatic VLDL synthesis + เพิ่ม fatty acid oxidation; EPA ฝังใน membrane ของ endothelium → ลด inflammation + เพิ่ม resolvin E1/E2 (SPMs) ที่ช่วย resolve plaque inflammation — REDUCE-IT (Bhatt 2019, N=8,179) พบลด MACE 25% ในคนที่ใช้ statin + icosapent ethyl 4g/day",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยลด triglyceride ในคนที่ค่าสูง",
+        "ช่วย resolve การอักเสบในหลอดเลือด (ในคน high-risk ตามงาน REDUCE-IT)",
+        "เป็น 'add-on' กับ statin ไม่ใช่ 'replacement'"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างป้องกันหัวใจวาย 100%",
+        "ห้ามบอกให้คนหยุด statin แล้วกิน omega-3 แทน",
+        "ห้ามบอกว่าทดแทนยาความดัน/aspirin/warfarin",
+        "ห้ามขาย omega-3 ธรรมดา (ที่เป็น EPA+DHA mix 300 mg/เม็ด) แล้วอ้างผลเทียบ REDUCE-IT (ซึ่งใช้ EPA เดี่ยว 4g)",
+        "ห้ามใช้ 'ฟื้นฟูหลอดเลือด' โดยไม่มีเงื่อนไข"
+      ],
+      "supporting_facts": ["heart_004", "heart_019"],
+      "narrative_frames": [
+        "หลังกิน statin คุม LDL แล้ว ยังเหลืออะไร? → triglyceride + inflammation — นั่นคือที่ EPA เข้ามา",
+        "EPA 4g คือ 'ยา' ที่ FDA อนุมัติ ไม่ใช่ omega-3 capsule 1 g ที่ขายข้างโต๊ะ"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["active_bleeding_disorder", "upcoming_surgery_2weeks"],
+        "drug_interactions": ["warfarin", "doac_rivaroxaban_apixaban", "aspirin_high_dose", "antiplatelet_clopidogrel"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "หยุด statin แล้วกิน omega-3 แทน",
+          "แทน warfarin",
+          "ละลายลิ่มเลือด ป้องกัน stroke แน่นอน",
+          "ขนาด 4 g/day ปลอดภัยกับทุกคน"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th", "anticoagulant_th"],
+        "audience_exclusions": ["on_warfarin_or_anticoagulant", "bleeding_disorder", "pre_surgery"],
+        "validator_keywords_th": ["ปรึกษาแพทย์", "ถ้ากำลังกินยาละลายลิ่มเลือด", "ขนาดสูงต้องอยู่ภายใต้การดูแล"],
+        "regulatory_risk_notes": "EPA high-dose (icosapent ethyl / Vascepa) เป็นยา prescription ใน US/EU — การขาย OTC 4 g/day แล้ว claim REDUCE-IT โดยตรงอาจเป็น off-label / medical claim"
+      }
+    },
+    {
+      "angle_id": "angle_heart_CoQ10_ubiquinol",
+      "product_category": "CoQ10_ubiquinol",
+      "problem_th": "คนกิน statin แล้วปวดกล้ามเนื้อ (statin-associated muscle symptoms / SAMS) หรือเหนื่อยผิดปกติ เพราะ statin block mevalonate pathway → CoQ10 ในกล้ามเนื้อ + ATP ลดลง",
+      "mechanism_claim_th": "Statin block HMG-CoA reductase ลด cholesterol และ CoQ10 synthesis พร้อมกัน; CoQ10 เป็น electron carrier ใน mitochondrial ETC chain (complex I→III) — สูญเสียทำให้ ATP ผลิตน้อยลง โดยเฉพาะในกล้ามเนื้อและหัวใจ; ubiquinol (reduced form) bioavailable มากกว่า ubiquinone โดยเฉพาะในคนอายุ >50",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลดอาการปวดเมื่อยกล้ามเนื้อจาก statin ในบางคน (CoQ10 Qureshi 2022 meta-analysis)",
+        "ช่วยเพิ่ม myocardial efficiency ใน heart failure (Q-SYMBIO trial 2014)",
+        "ubiquinol (>40 ปี) ดูดซึมดีกว่า ubiquinone"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกให้หยุด statin แล้วกิน CoQ10 แทน",
+        "ห้ามอ้างรักษา heart failure (prescription domain)",
+        "ห้าม claim ลด LDL หรือลดความดัน"
+      ],
+      "supporting_facts": ["heart_013"],
+      "narrative_frames": [
+        "Statin 'ยืม' จาก pathway ที่ผลิตทั้ง cholesterol และ CoQ10 — เอา cholesterol ออกได้ แต่ CoQ10 ไปด้วย",
+        "ถ้าปวดกล้ามเนื้อหลังกิน statin อย่าเพิ่งหยุดยา — ลอง CoQ10 ก่อน แล้วปรึกษาแพทย์"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["warfarin", "antihypertensive"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "หยุด statin แล้วกิน CoQ10",
+          "CoQ10 รักษา heart failure ได้"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th"],
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["ควรปรึกษาแพทย์", "ไม่ใช่การรักษา"],
+        "regulatory_risk_notes": "CoQ10 ลด INR ใน warfarin บางคน; อาจลดความดันโลหิตเล็กน้อย — คน BP ต่ำอยู่แล้วต้องระวัง"
+      }
+    },
+    {
+      "angle_id": "angle_heart_nattokinase",
+      "product_category": "nattokinase",
+      "problem_th": "คนกลัว 'ลิ่มเลือด' จากนั่งนานๆ (DVT), หลัง COVID, หรือกลัว stroke; อยากมี 'natural blood thinner' โดยไม่ต้องใช้ warfarin",
+      "mechanism_claim_th": "Nattokinase (enzyme จาก fermented natto) มี serine protease activity ที่ cleave fibrin + ลด fibrinogen plasma; RCT 8 สัปดาห์พบลด fibrinogen ~9%, ลด systolic BP ~5 mmHg; ไม่ใช่ anticoagulant แต่เป็น 'fibrinolytic enhancer' อ่อนๆ",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ช่วยลด fibrinogen ใน RCT ขนาดเล็ก",
+        "ช่วยลดความดันโลหิตเล็กน้อย (~5 mmHg)",
+        "ใช้เป็น 'แนวทางเสริม' ในคนที่ไม่มีข้อห้าม"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามใช้ทดแทน warfarin / DOAC (apixaban/rivaroxaban/dabigatran)",
+        "ห้าม claim ละลายลิ่มใน atrial fibrillation / DVT / stroke",
+        "ห้าม claim ป้องกันหัวใจวาย/stroke 100%",
+        "ห้ามแนะนำให้คนที่กำลังใช้ anticoagulant กินเพิ่ม (double anticoagulation)"
+      ],
+      "supporting_facts": ["heart_014"],
+      "narrative_frames": [
+        "Nattokinase ≠ warfarin — กลไกคนละชนิด ใช้ทดแทนไม่ได้",
+        "ถ้ากำลังกิน warfarin อยู่ ห้ามเพิ่ม nattokinase เอง"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["active_bleeding_disorder", "recent_stroke", "peptic_ulcer_active", "upcoming_surgery_2weeks"],
+        "drug_interactions": ["warfarin", "doac_rivaroxaban_apixaban", "aspirin_high_dose", "antiplatelet_clopidogrel", "nsaid_chronic_use"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ใช้ nattokinase แทน warfarin",
+          "nattokinase ละลายลิ่มได้แน่นอน",
+          "ไม่ต้องกิน aspirin แล้ว",
+          "ป้องกัน stroke 100%"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th", "anticoagulant_th"],
+        "audience_exclusions": ["on_warfarin_or_anticoagulant", "bleeding_disorder", "pre_surgery", "recent_stroke"],
+        "validator_keywords_th": ["ห้ามใช้ทดแทนยา", "ปรึกษาแพทย์", "หยุดก่อนผ่าตัด 2 สัปดาห์"],
+        "regulatory_risk_notes": "Nattokinase ไม่มี therapeutic equivalence กับ anticoagulant — การ claim แทน warfarin = medical claim + ชีวิต/ตาย risk; Thai FDA ไม่อนุมัติเป็นยา"
+      }
+    },
+    {
+      "angle_id": "angle_heart_bergamot_extract",
+      "product_category": "bergamot_extract",
+      "problem_th": "คนที่ LDL สูงระดับกลาง (130-160 mg/dL) ที่แพทย์ยังไม่สั่ง statin หรือคนที่ทน statin ไม่ไหวต้องการ alternative",
+      "mechanism_claim_th": "Bergamot polyphenolic fraction (BPF, ~500 mg standardized) มี brutieridin + melitidin — อนาล็อกโครงสร้าง statin อ่อนๆ inhibit HMG-CoA reductase ~25%; meta-analysis 12 RCT (Gliozzi 2013, Mollace 2020) พบลด LDL ~20-25%, TG ~20%, เพิ่ม HDL ~10% หลังใช้ 4-12 สัปดาห์",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลด LDL ~20-25% ในคนที่ยังไม่ถึงเกณฑ์ statin",
+        "ลด TG + เพิ่ม HDL เล็กน้อย",
+        "เหมาะสำหรับ mild dyslipidemia"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามแทน statin ในคน high-risk / secondary prevention",
+        "ห้าม claim ป้องกันหัวใจวาย",
+        "ห้ามใช้คู่กับ statin โดยไม่ปรึกษาแพทย์ (duplicate mechanism)"
+      ],
+      "supporting_facts": ["heart_015"],
+      "narrative_frames": [
+        "Bergamot = statin อ่อนๆ จากธรรมชาติ — ไม่ใช่ miracle แต่เป็นตัวช่วยคน borderline",
+        "ถ้า LDL >160 + คน high-risk — statin คือ first line; bergamot ไม่พอ"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["liver_disease_active"],
+        "drug_interactions": ["statin", "warfarin"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "หยุด statin แล้วกิน bergamot",
+          "bergamot ปลอดภัยกว่า statin 100%",
+          "ป้องกันหัวใจวายได้"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th"],
+        "audience_exclusions": ["on_statin", "liver_disease"],
+        "validator_keywords_th": ["ไม่ใช่การรักษา", "ปรึกษาแพทย์ถ้ากินยา statin อยู่"],
+        "regulatory_risk_notes": "Bergamot กับ statin = duplicate mechanism (HMG-CoA inhibition) → อาจเพิ่มเสี่ยง rhabdomyolysis"
+      }
+    },
+    {
+      "angle_id": "angle_heart_vitamin_K2_MK7",
+      "product_category": "vitamin_K2_MK7",
+      "problem_th": "หลอดเลือดแข็งเพราะ calcium ไปสะสมใน arteries แทนที่จะไปที่กระดูก — 'calcium paradox' — คน Asian แกนอาหารที่มี K2 น้อย (ไม่กิน natto, หมักน้อย) เสี่ยงสะสมเร็ว",
+      "mechanism_claim_th": "Vitamin K2 (MK-7) activate Matrix Gla Protein (MGP) ผ่าน γ-carboxylation — MGP ดึง calcium ออกจาก vascular smooth muscle กลับไปยังกระดูก; Rotterdam Study (Geleijnse 2004) พบคนกิน K2 >32 μg/day ลด CVD mortality 57% vs กลุ่มกินน้อย; RCT Knapen 2015: MK-7 180 μg/day × 3 ปี ลด arterial stiffness",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลดการสะสม calcium ในหลอดเลือด (vs กระดูก)",
+        "ลด arterial stiffness ตาม RCT 3 ปี",
+        "synergy กับ Vitamin D3 (ป้องกัน soft tissue calcification จาก D3 สูง)"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim ลด CAC score ที่มีอยู่แล้ว (K2 ไม่ reverse plaque)",
+        "ห้ามใช้คนกิน warfarin (K2 ลบล้างฤทธิ์ warfarin)",
+        "ห้าม claim ป้องกันหัวใจวาย"
+      ],
+      "supporting_facts": ["heart_016"],
+      "narrative_frames": [
+        "แคลเซียมของคุณไปที่กระดูก หรือ ไปที่หลอดเลือด? — K2 คือคนตัดสิน",
+        "D3 + K2 = ทีม; D3 เดี่ยว dose สูง → calcium ไปผิดที่"
+      ],
+      "safety_warning": {
+        "risk_level": "red",
+        "contraindications": ["on_warfarin"],
+        "drug_interactions": ["warfarin"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "K2 กินคู่ warfarin ได้ไม่มีปัญหา",
+          "K2 ไม่เกี่ยวกับยาละลายลิ่ม"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th", "anticoagulant_th"],
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["ถ้ากินยา warfarin ห้ามใช้โดยไม่ปรึกษาแพทย์", "K2 ลดฤทธิ์ยาละลายลิ่ม"],
+        "regulatory_risk_notes": "K2 MK-7 antagonize warfarin โดยตรง — INR drop → clot risk; RED risk ใน audience นี้"
+      }
+    },
+    {
+      "angle_id": "angle_heart_niacin_flush_free",
+      "product_category": "niacin_flush_free",
+      "problem_th": "คนที่ Lp(a) สูง / HDL ต่ำ / ต้องการ lipid profile modifier ที่ไม่ใช่ statin",
+      "mechanism_claim_th": "Niacin (B3) dose pharmacological (500-2000 mg) ลด LDL ~10%, TG ~20%, Lp(a) ~20-30% (เป็นตัวเดียวที่ลด Lp(a) ได้ก่อน pelacarsen), เพิ่ม HDL ~15-20% ผ่าน HM74A receptor; 'flush-free' (inositol hexanicotinate) ดูดซึมช้า → flush น้อย แต่ efficacy lipid น้อยลงด้วย (controversial)",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "niacin regular release ลด Lp(a) ได้",
+        "ลด TG + เพิ่ม HDL",
+        "เหมาะเสริมใน combined dyslipidemia"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างลด CVD outcomes (AIM-HIGH + HPS2-THRIVE ล้มเหลว)",
+        "ห้ามใช้ในคนเป็นเบาหวาน/gout ที่ยังไม่ stable (niacin เพิ่ม glucose + uric acid)",
+        "ห้ามบอกว่า 'flush-free' efficacy เทียบกับ regular niacin"
+      ],
+      "supporting_facts": ["heart_020"],
+      "narrative_frames": [
+        "Niacin = ตัวเดียวในร้านขายยาที่ลด Lp(a) ได้ แต่ CV outcome trial ไม่ชัด",
+        "Flush = mechanism กำลังทำงาน; flush-free = อาจไม่ได้ efficacy เท่า"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["liver_disease_active", "peptic_ulcer_active", "gout_active", "diabetes_uncontrolled"],
+        "drug_interactions": ["statin", "antihypertensive"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "niacin ป้องกันหัวใจวายได้",
+          "niacin ทดแทน statin",
+          "flush-free ประสิทธิภาพเท่า regular"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th"],
+        "audience_exclusions": ["liver_disease", "on_statin", "diabetes_type2", "gout_history"],
+        "validator_keywords_th": ["ต้องตรวจค่าตับ", "ปรึกษาแพทย์", "ขนาดสูงต้องอยู่ภายใต้การดูแล"],
+        "regulatory_risk_notes": "Niacin dose pharmacological (>500 mg) = hepatotoxicity risk; flush response severe ในบางคน → syncope"
+      }
+    },
+    {
+      "angle_id": "angle_heart_L_citrulline_arginine",
+      "product_category": "L_citrulline_arginine",
+      "problem_th": "คนอายุ 40+ ที่ NO availability ลดลง → endothelial function เสื่อม → blood pressure สูงขึ้น, erection dysfunction, exercise tolerance ลด",
+      "mechanism_claim_th": "L-citrulline 3-6 g/day converted เป็น L-arginine ในไต (bypass first-pass hepatic uptake ที่กิน arginine โดยตรงจะโดน) → substrate ของ eNOS → ผลิต NO → vasodilation; meta-analysis 12 RCT (Barkhidarian 2021) พบลด systolic BP ~4.1 mmHg, diastolic ~2.8 mmHg",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลดความดันเล็กน้อย (~4 mmHg systolic)",
+        "ช่วย endothelial function ในคน middle-aged",
+        "เหมาะ pre-workout (เพิ่ม blood flow)"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามใช้แทนยา antihypertensive",
+        "ห้าม claim ป้องกันหัวใจวาย",
+        "ห้ามใช้ในคน sildenafil/tadalafil (nitrate-like interaction)"
+      ],
+      "supporting_facts": ["heart_006", "heart_011"],
+      "narrative_frames": [
+        "หลอดเลือดเหมือนท่อยางที่แข็งตามอายุ — NO คือสารที่ทำให้ท่อยืดหยุ่น",
+        "Citrulline ใหญ่กว่า arginine เพราะผ่านตับแล้วไม่เสียหาย"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["hypotension_orthostatic"],
+        "drug_interactions": ["antihypertensive", "nitrate_nitroglycerin", "pde5_inhibitor_sildenafil"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "หยุดยาความดันแล้วกิน citrulline",
+          "citrulline ปลอดภัยกินกับ viagra ได้"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th"],
+        "audience_exclusions": ["hypertension_uncontrolled", "hypotension"],
+        "validator_keywords_th": ["ถ้ากินยาความดันอยู่ ปรึกษาแพทย์", "ห้ามรวมกับ sildenafil/ไนเตรต"],
+        "regulatory_risk_notes": "Citrulline/arginine + nitrate/PDE5-inhibitor = severe hypotension + MI risk"
+      }
+    },
+    {
+      "angle_id": "angle_heart_red_yeast_rice",
+      "product_category": "red_yeast_rice",
+      "problem_th": "คนที่อยากลด LDL แบบ 'ธรรมชาติ' และกลัว statin",
+      "mechanism_claim_th": "Monacolin K ใน red yeast rice = lovastatin (molecule เดียวกัน) — inhibit HMG-CoA reductase → ลด hepatic cholesterol synthesis → upregulate LDL receptor → ลด LDL ~15-25% (dose-dependent); Chinese Coronary Secondary Prevention Study (CCSPS 2008) ลด MACE ~45% แต่ quality control OTC ต่ำมาก dose ต่างกัน 0-20 mg ต่อ brand",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ลด LDL ได้ (กลไกเดียวกับ statin)",
+        "เลือก brand ที่มี COA บอก monacolin K ชัด"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม claim 'natural safer than statin' (ผิดสมมติฐาน — กลไกเดียวกัน → ความเสี่ยงเหมือนกัน)",
+        "ห้ามใช้คู่กับ statin (rhabdomyolysis risk เพิ่ม 2x)",
+        "ห้ามใช้ใน liver disease / pregnancy",
+        "ห้าม claim 'ไม่มีผลข้างเคียงเพราะธรรมชาติ'"
+      ],
+      "supporting_facts": ["heart_012"],
+      "narrative_frames": [
+        "Red yeast rice ≠ herbal gentle — มันคือ lovastatin dose หลอด + QC ต่ำกว่ายา",
+        "คนที่เกลียด statin ควรคุยแพทย์ lower-dose หรือเปลี่ยนชนิด ไม่ใช่ DIY กับ red yeast rice"
+      ],
+      "safety_warning": {
+        "risk_level": "red",
+        "contraindications": ["liver_disease_active", "pregnancy", "on_statin", "cyp3a4_inhibitor_grapefruit"],
+        "drug_interactions": ["statin", "fibrate_gemfibrozil", "cyclosporine", "warfarin", "cyp3a4_inhibitor"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "red yeast rice ปลอดภัยกว่า statin",
+          "หยุด statin แล้วกิน red yeast rice",
+          "ธรรมชาติ 100% ไม่มีผลข้างเคียง",
+          "ไม่ต้องตรวจเลือด"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th"],
+        "audience_exclusions": ["on_statin", "liver_disease", "pregnancy", "breastfeeding"],
+        "validator_keywords_th": ["กลไกเดียวกับ statin", "มีผลข้างเคียงได้เหมือนยา", "ต้องตรวจค่าตับ"],
+        "regulatory_risk_notes": "EU จำกัด monacolin K <3 mg/day (2022) เพราะเสี่ยงตับ/กล้ามเนื้อ; FDA US 2007 เรียกคืน brand ที่มี lovastatin เกิน threshold; อาจผิดกฎหมายในบางประเทศ"
+      }
+    },
+    {
+      "angle_id": "angle_heart_berberine",
+      "product_category": "berberine",
+      "problem_th": "คนที่มี metabolic dyslipidemia (LDL สูง + TG สูง + blood glucose สูง) รวมกัน ต้องการ 1 ตัวจัดการหลายเรื่อง",
+      "mechanism_claim_th": "Berberine 1000-1500 mg/day activate AMPK → ลด lipogenesis + เพิ่ม LDL receptor expression ใน hepatocyte (คนละ pathway กับ statin); meta-analysis 27 RCT (Dong 2013) ลด total cholesterol ~0.61 mmol/L, LDL ~0.65 mmol/L, TG ~0.34 mmol/L; bonus: ลด HbA1c ~0.7% ใน type 2 diabetes",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ลด LDL ~15-20% คนละกลไกจาก statin",
+        "ช่วย glycemic control ไปด้วย",
+        "เหมาะ combined dyslipidemia / prediabetic"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามใช้แทน metformin ในคน diabetic severe",
+        "ห้าม claim รักษาเบาหวาน",
+        "ห้ามใช้ใน pregnancy/breastfeeding (kernicterus risk)"
+      ],
+      "supporting_facts": ["heart_012"],
+      "narrative_frames": [
+        "Berberine = AMPK activator — เหมือน 'simulate caloric restriction' molecular ระดับ",
+        "ลด LDL โดยไม่แตะ statin mechanism = option สำหรับคน statin intolerance"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["pregnancy", "breastfeeding", "neonatal_use"],
+        "drug_interactions": ["cyclosporine", "metformin", "cyp3a4_cyp2d6_substrates", "warfarin"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "berberine รักษาเบาหวานแทน metformin",
+          "ปลอดภัยในคนท้อง"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th"],
+        "audience_exclusions": ["pregnancy", "breastfeeding", "children_under_12"],
+        "validator_keywords_th": ["ไม่ใช่ยารักษาเบาหวาน", "ห้ามในคนท้อง"],
+        "regulatory_risk_notes": "Berberine inhibit CYP3A4/CYP2D6 → drug interactions กว้าง; ใน neonate = kernicterus (displace bilirubin)"
+      }
+    },
+    {
+      "angle_id": "angle_heart_garlic_aged_extract",
+      "product_category": "garlic_aged_extract",
+      "problem_th": "คนความดันสูงระดับกลาง (130-140 systolic) ที่หมอยังไม่สั่งยา แต่ต้องการ intervention เสริม",
+      "mechanism_claim_th": "Aged garlic extract (AGE) 600-1200 mg/day — S-allyl cysteine (SAC) เพิ่ม H2S signaling + เพิ่ม NO bioavailability → vasodilation; meta-analysis 12 RCT (Ried 2016) ลด systolic BP ~8.7 mmHg ใน hypertensive, ~5 mmHg ใน prehypertensive; bonus: slow CAC progression (Budoff 2009 RCT 1 ปี)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ลด systolic BP ~5-8 mmHg ในคน hypertensive",
+        "slow CAC progression (Budoff 2009)",
+        "aged extract (AGE) > fresh garlic เรื่อง odor + bioavailability"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามใช้แทน antihypertensive ในคน BP >160",
+        "ห้าม claim ป้องกัน stroke",
+        "ห้ามใช้ร่วม warfarin (bleeding risk)"
+      ],
+      "supporting_facts": ["heart_018"],
+      "narrative_frames": [
+        "Aged garlic = mild antihypertensive + mild anti-calcification = 'ตัวเสริม' ในคน borderline",
+        "ตัวช่วยสำหรับคนไม่ยังไม่ถึงเกณฑ์กินยา"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["active_bleeding_disorder", "upcoming_surgery_2weeks"],
+        "drug_interactions": ["warfarin", "doac_rivaroxaban_apixaban", "aspirin_high_dose", "antihypertensive"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "แทนยาความดัน",
+          "ปลอดภัย 100% กินมากเท่าไหร่ก็ได้",
+          "กระเทียมแทน warfarin"
+        ],
+        "required_disclaimer_th": ["cardiovascular_th", "anticoagulant_th"],
+        "audience_exclusions": ["on_warfarin_or_anticoagulant", "bleeding_disorder", "pre_surgery"],
+        "validator_keywords_th": ["หยุดก่อนผ่าตัด 1-2 สัปดาห์", "ปรึกษาแพทย์ถ้ากินยาความดัน"],
+        "regulatory_risk_notes": "Garlic ดลต่อ platelet function; ร่วมกับ warfarin/aspirin = bleeding risk"
+      }
+    }
+  ]
+}

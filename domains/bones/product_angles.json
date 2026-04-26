@@ -1,0 +1,261 @@
+{
+  "domain_id": "bones",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.bones",
+    "product_categories_from_taxonomy": ["calcium_citrate", "vitamin_D3", "vitamin_K2_MK7", "magnesium_glycinate", "glucosamine_sulfate", "chondroitin", "UC_II_collagen", "MSM", "collagen_peptides", "hyaluronic_acid", "boron"],
+    "notes": "All angles calibrated for Thai senior market (50+) — warm caring tone, family/grandchildren framing, no fear-mongering. Forbidden claims strict per Thai FDA: no 'รักษา', no 'กระดูกงอกใหม่', no 'แทนยาได้'."
+  },
+  "angles": [
+    {
+      "angle_id": "angle_bone_calcium_citrate",
+      "product_category": "calcium_citrate",
+      "problem_th": "ผู้สูงอายุและคนกินยาลดกรด (omeprazole, ยาโรคกระเพาะ) ดูดซึมแคลเซียมคาร์บอเนตได้น้อยเพราะกรดในกระเพาะน้อย — กินแคลเซียมเยอะแต่ไม่เข้ากระดูก เหมือนไม่ได้กิน",
+      "mechanism_claim_th": "แคลเซียมซิเตรตละลายและดูดซึมได้แม้กระเพาะไม่มีกรด (Heaney 1999); เหมาะกับผู้สูงอายุ, คนกิน PPI, คนกรดน้อย; ควรรวมกับวิตามินดี 800 IU + K2 MK-7 เพื่อให้แคลเซียมเข้ากระดูก ไม่ไปหลอดเลือด",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยให้ร่างกายดูดซึมแคลเซียมได้ดีขึ้น (สำหรับผู้สูงอายุ/คนกรดในกระเพาะน้อย)",
+        "เหมาะเป็นทางเลือกสำหรับคนที่กินยาโรคกระเพาะประจำ",
+        "ช่วยเสริมแคลเซียมร่วมกับอาหารที่หลากหลาย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า 'รักษากระดูกพรุน' หรือ 'กระดูกงอกใหม่'",
+        "ห้ามบอกว่าแทนยารักษากระดูกพรุน (alendronate, denosumab) ได้",
+        "ห้ามอ้างตัวเลข bioavailability เกินงานวิจัย",
+        "ห้ามขายด้วยการ bad-mouth ยี่ห้ออื่น"
+      ],
+      "supporting_facts": ["bone_006", "bone_019"],
+      "narrative_frames": [
+        "กินแคลเซียมมา 10 ปี — แต่กระดูกยังบาง อาจเป็นเพราะร่างกายดูดไม่เข้า",
+        "ไม่ใช่แคลเซียมทุกชนิดเหมือนกัน — ผู้สูงอายุต้องเลือกรูปที่ดูดซึมได้"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_vitamin_d3",
+      "product_category": "vitamin_D3",
+      "problem_th": "คนไทยวัย 50+ เกิน 50% มีวิตามินดีต่ำกว่า 30 ng/mL (Chailurkit 2011) — ส่งผลให้ PTH สูงเรื้อรัง กินแคลเซียมเข้าไป แต่ร่างกายหยิบคืนจากกระดูก",
+      "mechanism_claim_th": "วิตามินดี 3 → 25-OH-D → calcitriol เปิดให้ลำไส้ดูดซึมแคลเซียมและฟอสเฟต (Bischoff-Ferrari 2012: ≥800 IU/วัน ลดกระดูกสะโพกหัก ~30% ในผู้สูงอายุ); ผสานกับ Mg เป็น cofactor",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยการดูดซึมแคลเซียมจากอาหาร",
+        "ช่วยบำรุงสุขภาพกระดูกและฟัน (อ้างตามประกาศ สธ. ไทย)",
+        "เหมาะสำหรับผู้สูงอายุที่ไม่ออกแดด"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า 'ลดกระดูกหัก X%' เป็นการันตีบุคคล",
+        "ห้ามแนะนำขนาด >4,000 IU/วัน โดยไม่มีคำแนะนำแพทย์",
+        "ห้ามบอกว่า 'รักษาโรคซึมเศร้า/มะเร็ง/โควิด' — off-label",
+        "ห้ามบอกว่าแทนการออกแดดได้ 100%"
+      ],
+      "supporting_facts": ["bone_005", "bone_006", "bone_011"],
+      "narrative_frames": [
+        "แดดเมืองไทยแรง — แต่คนทำงานในออฟฟิศ/ใส่แขนยาว ยังขาดวิตามินดี",
+        "800 IU = เกณฑ์ขั้นต่ำที่งานวิจัยเห็นผล ต่ำกว่านี้เหมือนไม่ได้กิน"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_vitamin_k2",
+      "product_category": "vitamin_K2_MK7",
+      "problem_th": "กินแคลเซียม + วิตามินดีครบ แต่แคลเซียมไปผิดที่ — ไปเกาะหลอดเลือดแทนกระดูก ('calcium paradox')",
+      "mechanism_claim_th": "K2 MK-7 carboxylate osteocalcin (ส่ง Ca เข้ากระดูก) + MGP (กัน Ca เกาะผนังหลอดเลือด); Knapen 3-y RCT: 180 µg/วัน MK-7 ชะลอการสูญเสีย BMD ที่สันหลังและคอสะโพกในผู้หญิงหลังวัยหมดประจำเดือน; Rotterdam Study เชื่อม K2 สูงกับ CHD ลด 57%",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยให้แคลเซียมเข้ากระดูก (กลไก carboxylation of osteocalcin)",
+        "ร่วมกับแคลเซียม + วิตามินดีเป็นทีมกระดูก",
+        "เหมาะสำหรับคนกินแคลเซียมสูงที่กังวลเรื่อง calcification ของหลอดเลือด"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษาโรคหัวใจ/หลอดเลือดตีบ'",
+        "ห้ามใช้ตัวเลข Rotterdam 57% เป็น causation (เป็น observational)",
+        "ห้ามบอก 'MK-7 สร้างกระดูกใหม่' — Knapen เห็น preservation ไม่ใช่ gain",
+        "ห้ามใช้ร่วมกับ warfarin โดยไม่ปรึกษาแพทย์"
+      ],
+      "supporting_facts": ["bone_002", "bone_022"],
+      "narrative_frames": [
+        "K2 = 'ไปรษณีย์' ที่ส่งแคลเซียมเข้าที่ถูก",
+        "ขาด K2 — แคลเซียมสะสมผิดที่ ทั้งกระดูกพรุน ทั้งหลอดเลือดแข็ง"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_magnesium_glycinate",
+      "product_category": "magnesium_glycinate",
+      "problem_th": "กินวิตามินดีตั้งนานแต่ค่าเลือดไม่ขึ้น ปวดหลัง ตะคริวกลางคืน — อาจเพราะขาดแมกนีเซียม ซึ่งเป็น cofactor ที่ 'เปิดสวิตช์' วิตามินดี",
+      "mechanism_claim_th": "Mg เป็น cofactor ของ 25-hydroxylase (ตับ) และ 1α-hydroxylase (ไต) เปลี่ยน D3 → active calcitriol (Uwitonze 2018); ~60% ของ Mg ในร่างกายอยู่ในกระดูก; Mg glycinate chelate ดูดซึมสูงโดยไม่ laxative effect",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยให้วิตามินดีทำงานเต็มประสิทธิภาพ (cofactor)",
+        "ช่วยบรรเทาตะคริวกลางคืน (ถ้าเกิดจาก Mg ต่ำ)",
+        "ช่วยผ่อนคลายกล้ามเนื้อและสนับสนุนการนอนหลับ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษาโรคซึมเศร้า/ไมเกรน/ความดัน'",
+        "ห้ามบอกว่ารักษากระดูกพรุน",
+        "ห้ามบอกว่าแทนยาคลายกล้ามเนื้อได้",
+        "ผู้ป่วยโรคไตต้องปรึกษาแพทย์ก่อน"
+      ],
+      "supporting_facts": ["bone_011"],
+      "narrative_frames": [
+        "กินวิตามินดีมา 6 เดือน ค่ายังไม่ขึ้น? — อาจขาด Mg สวิตช์ไม่ทำงาน",
+        "Mg = ช่างไฟที่เปิดวงจรให้วิตามินดี"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_glucosamine_sulfate",
+      "product_category": "glucosamine_sulfate",
+      "problem_th": "ปวดข้อเข่าเป็นประจำ ขึ้นบันไดยาก เดินไกลไม่ได้ — กลัวต้องผ่าเปลี่ยนข้อ",
+      "mechanism_claim_th": "Crystalline glucosamine sulfate 1,500 มก./วัน (Rotta) เป็น precursor ของ glycosaminoglycans ในกระดูกอ่อน; Bruyère 2008 แสดงว่ากินต่อเนื่อง ≥12 เดือนลดความเสี่ยงผ่าตัดเปลี่ยนข้อเข่า ~50% ที่ 5 ปี; GAIT 2006 เห็นผลชัดใน moderate-severe pain subgroup",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยบำรุงกระดูกอ่อนและน้ำไขข้อ",
+        "เหมาะกับผู้ที่ปวดข้อเข่าระดับปานกลาง-รุนแรง (GAIT evidence)",
+        "ใช้ต่อเนื่อง ≥3 เดือนจึงเห็นผล"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษาข้อเข่าเสื่อมหายขาด' หรือ 'สร้างกระดูกอ่อนใหม่'",
+        "ห้ามอ้างตัวเลข 50% reduction ถ้าไม่ใช่ crystalline glucosamine sulfate (Rotta equivalent)",
+        "ห้ามบอกว่าแทนการผ่าตัดได้",
+        "ผู้แพ้ shellfish / กินยาละลายลิ่มเลือด ควรปรึกษาแพทย์"
+      ],
+      "supporting_facts": ["bone_004", "bone_016"],
+      "narrative_frames": [
+        "ไม่ใช่กลูโคซามีนทุกยี่ห้อเท่ากัน — รูป sulfate ต่างจาก HCl",
+        "ลงทุนตอนยังปวดไม่มาก ก่อนต้องผ่าตัด"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_chondroitin",
+      "product_category": "chondroitin",
+      "problem_th": "กระดูกอ่อนบางลง ปวดหลังยืน/เดินนาน เข่าบวม — ต้องการตัวช่วยลดการอักเสบและคงโครงสร้างกระดูกอ่อน",
+      "mechanism_claim_th": "Chondroitin sulfate 800-1,200 มก./วัน เป็น GAG หลักในเมทริกซ์กระดูกอ่อน; Cochrane 2015 (Singh et al.) พบลด pain และ slow joint space narrowing เล็กน้อยแต่มีนัยสำคัญ; มักรวมกับ glucosamine เพื่อเพิ่มผลใน moderate-severe OA subgroup (GAIT 2006)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยบำรุงและคงโครงสร้างกระดูกอ่อน",
+        "ช่วยลดอาการปวดข้อ (เห็นผลในงานวิจัยเมื่อใช้ ≥6 เดือน)",
+        "เสริมกับ glucosamine ในคนที่ปวดปานกลาง-รุนแรง"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'ซ่อมกระดูกอ่อนที่สึกให้กลับมา'",
+        "ห้ามบอกว่าแทน NSAIDs ได้",
+        "ห้ามอ้างผลเร็วใน <4 สัปดาห์",
+        "แหล่งที่มา (bovine, shark) ต้องระบุชัดเจน"
+      ],
+      "supporting_facts": ["bone_004"],
+      "narrative_frames": [
+        "คอนดรอยตินคืออิฐในกำแพงกระดูกอ่อน",
+        "กินคู่กลูโคซามีนได้ผลชัดในคนปวดเยอะ"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_uc_ii",
+      "product_category": "UC_II_collagen",
+      "problem_th": "ปวดข้อเข่ามานาน กินกลูโคซามีน+คอนดรอยตินแล้วไม่ดีขึ้น — ต้องการกลไกที่ต่างออกไป",
+      "mechanism_claim_th": "UC-II 40 มก./วัน (ต่างจากคอลลาเจนทั่วไป) ไม่ใช่วัตถุดิบสร้างข้อ แต่เป็นสัญญาณ 'oral tolerance' ที่ลำไส้ → สอน Treg ไม่ให้ภูมิคุ้มกันโจมตี type II collagen ในข้อ; Crolla 2016 RCT: 40 มก. ลด WOMAC 39% เทียบ 18% ของ glucosamine 1,500 + chondroitin 1,200 มก.",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลดอาการปวด/ข้อตึงและเพิ่ม function (WOMAC)",
+        "โดสเล็ก (40 มก.) เพราะกลไกต่างจาก hydrolyzed collagen",
+        "เหมาะสำหรับผู้ที่ตอบสนองไม่ดีต่อ glucosamine/chondroitin"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษาข้อเข่าเสื่อม' / 'สร้างกระดูกอ่อนใหม่'",
+        "ห้ามเปรียบเทียบลบแบบเจาะจงยี่ห้อคู่แข่ง",
+        "ห้ามใช้ตัวเลข 39% ถ้าไม่ใช่ UC-II แท้ (undenatured) ที่เท่ากับ Lugo/Crolla formulation",
+        "ผู้แพ้ไก่ควรหลีกเลี่ยง (UC-II ส่วนใหญ่มาจาก chicken sternum)"
+      ],
+      "supporting_facts": ["bone_003", "bone_017"],
+      "narrative_frames": [
+        "40 มิลลิกรัมเอาชนะ 2,700 มิลลิกรัม — เพราะกลไกต่าง",
+        "UC-II = สัญญาณ ไม่ใช่อิฐ"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_msm",
+      "product_category": "MSM",
+      "problem_th": "ปวดข้อเรื้อรัง ข้อตึงตอนเช้า ต้องการตัวช่วยธรรมชาติ ที่ปลอดภัย ใช้ร่วมกับตัวอื่นได้",
+      "mechanism_claim_th": "MSM (methylsulfonylmethane) เป็นแหล่งกำมะถันสำหรับ GAGs และ cysteine; Debbi 2011 RCT 12 สัปดาห์: 3-6 ก./วันลด WOMAC pain/function อย่างมีนัยสำคัญ; กลไกบางส่วนต้าน NF-κB inflammation",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ช่วยลดอาการปวดข้อและข้อตึง",
+        "เป็นแหล่งกำมะถันสำหรับเนื้อเยื่อเกี่ยวพัน",
+        "ใช้ร่วมกับ glucosamine/chondroitin/UC-II ได้"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอก 'รักษาข้อเสื่อม' หรือ 'ลดการอักเสบในระดับโรคข้ออักเสบรูมาตอยด์'",
+        "ห้ามอ้างผล anti-aging skin ที่ไม่มีหลักฐาน",
+        "ห้ามใช้ขนาด >6 ก./วัน โดยไม่ปรึกษาแพทย์"
+      ],
+      "supporting_facts": ["bone_015"],
+      "narrative_frames": [
+        "กำมะถันธรรมชาติ — ธาตุที่คนลืม แต่ข้อของคุณรู้จักมานาน",
+        "MSM คือทีมงานเงียบ ๆ ของข้อ"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_collagen_peptides",
+      "product_category": "collagen_peptides",
+      "problem_th": "อายุ 50+ กระดูกบาง ผิวหย่อน ข้อเอี๊ยด — อยากได้ตัวเดียวที่ดูแลได้หลายจุด",
+      "mechanism_claim_th": "Specific collagen peptides 5 ก./วัน 12 เดือน (König 2018) เพิ่ม BMD ที่สันหลัง/คอสะโพกในผู้หญิงหลังหมดประจำเดือน; Baar protocol: 15 ก. + Vit C 30-60 นาทีก่อนฝึก → peptide peak ตรง window ที่ fibroblast ถูก load → สังเคราะห์คอลลาเจนเพิ่มเท่าตัว",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยบำรุงกระดูก เอ็น และผิวหนัง",
+        "ใช้ร่วมกับ Vit C เพิ่มการสังเคราะห์คอลลาเจน",
+        "ต่อเนื่อง ≥3 เดือนจึงเห็นผล"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า 'ลดริ้วรอยใน 7 วัน' — เกินจริง",
+        "ห้ามอ้างผลเฉพาะ (König) ถ้าไม่ใช่ 'specific collagen peptides' ขนาดและเกรดเท่ากัน",
+        "ห้ามบอกว่ารักษากระดูกพรุน / ข้อเสื่อม",
+        "ระบุแหล่งที่มา (bovine, marine) ให้ชัดเจน"
+      ],
+      "supporting_facts": ["bone_012", "bone_013", "bone_017"],
+      "narrative_frames": [
+        "คอลลาเจนไม่ใช่แค่เรื่องผิว — 90% ของกระดูกก็เป็นคอลลาเจน",
+        "5 กรัมต่อวัน 12 เดือน — กระดูกเปลี่ยน"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_hyaluronic_acid",
+      "product_category": "hyaluronic_acid",
+      "problem_th": "ข้อแห้ง เอี๊ยด เคลื่อนไหวฝืด — น้ำไขข้อเสื่อมตามอายุ",
+      "mechanism_claim_th": "HA เป็นแกน viscoelasticity ของน้ำไขข้อ; ในข้อเสื่อม ความเข้มข้นและ MW ของ HA ลดลงครึ่งหนึ่ง; oral HA 80-240 มก./วัน ถูกดูดซึมและอาจช่วยลดปวด (meta-analyses ให้ effect เล็ก-กลาง); intra-articular injection เป็นหลักฐานแข็งกว่า",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ช่วยสนับสนุนน้ำไขข้อและความยืดหยุ่นของข้อ",
+        "ใช้ร่วมกับ glucosamine/UC-II",
+        "เหมาะกับคนข้อแห้ง/ปวดระดับน้อย-ปานกลาง"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า 'oral HA = ฉีดข้อ' — คนละกลไก, oral หลักฐานอ่อนกว่า",
+        "ห้ามบอก 'สร้างน้ำไขข้อใหม่'",
+        "ห้ามอ้าง anti-aging skin ที่ไม่มีหลักฐานเชิง oral supplementation"
+      ],
+      "supporting_facts": ["bone_014", "bone_023"],
+      "narrative_frames": [
+        "ข้อคุณลื่นกว่า Teflon — ถ้ามี HA พอ",
+        "HA คือน้ำมันเครื่องของข้อ — แก่ขึ้นน้ำมันเริ่มแห้ง"
+      ]
+    },
+    {
+      "angle_id": "angle_bone_boron",
+      "product_category": "boron",
+      "problem_th": "กินแคลเซียม, วิตามินดี, K2 ครบแล้ว — อยากเสริมแร่ธาตุปริมาณน้อยที่มี evidence สำหรับกระดูก",
+      "mechanism_claim_th": "Boron 3 มก./วัน ส่งเสริม steroid hormone metabolism และลดการขับ Ca/Mg ออกทางปัสสาวะ (Nielsen studies); หลักฐานในมนุษย์ยังจำกัด (tier C) — เป็น adjunct เท่านั้น",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ช่วยรักษาระดับแคลเซียม/แมกนีเซียมในร่างกาย",
+        "แร่ธาตุ trace ที่มักขาดในอาหารสมัยใหม่",
+        "ใช้ร่วมกับ Ca + D + K2 เป็น background support"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่ารักษากระดูกพรุน / ข้อเสื่อม",
+        "ห้ามอ้างเพิ่มฮอร์โมนเพศ / testosterone booster",
+        "ห้ามใช้ >10 มก./วันโดยไม่มีคำแนะนำแพทย์",
+        "สตรีมีครรภ์ควรหลีกเลี่ยง (high-dose)"
+      ],
+      "supporting_facts": [],
+      "narrative_frames": [
+        "Boron คือตัวเติมเต็มในสูตรกระดูก — ไม่เด่นแต่ขาดไม่ได้"
+      ]
+    }
+  ]
+}

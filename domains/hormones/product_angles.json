@@ -1,0 +1,234 @@
+{
+  "domain_id": "hormones",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "product_categories_from_taxonomy": ["testosterone_booster", "adaptogen", "thyroid_support", "DIM", "ashwagandha"],
+    "extra_categories_added": ["inositol_pcos", "magnesium_glycinate", "vitamin_d", "zinc", "melatonin_low_dose", "maca"]
+  },
+  "angles": [
+    {
+      "angle_id": "angle_hormone_ashwagandha_001",
+      "product_category": "adaptogen",
+      "problem_th": "เครียดเรื้อรัง → cortisol พัง → นอนไม่หลับ ลงพุง ไฟตก เทสตก ไม่มี motivation — คนวัยทำงาน 30-50 ปีโดนเต็ม ๆ",
+      "mechanism_claim_th": "Ashwagandha (KSM-66) 300-600 mg/วัน ลด serum cortisol 14-27% ใน 8 สัปดาห์ (Pratte 2014 systematic review; Salve 2019 Cureus) — restore HPA rhythm, ไม่ใช่กด cortisol ทั้งวัน",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยจัดการความเครียด / ผ่อนคลาย",
+        "ช่วยให้หลับดีขึ้น",
+        "สนับสนุนการทำงานของต่อมหมวกไตในภาวะเครียด",
+        "ใช้ต่อเนื่อง 4-8 สัปดาห์ขึ้นไปเพื่อผลเต็มที่"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา anxiety disorder / depression",
+        "ห้ามอ้างเพิ่ม testosterone แบบ direct (evidence อ่อน)",
+        "ห้ามใช้คำ 'adrenal fatigue cure' — ไม่ใช่ diagnosis",
+        "ห้าม imply แทนยานอนหลับ"
+      ],
+      "supporting_facts": ["horm_006", "horm_015", "horm_022"],
+      "narrative_frames": [
+        "ไม่ใช่คุณ 'อ่อนแอ' — เป็น HPA rhythm ของคุณพัง",
+        "Ashwagandha = 'จูนนาฬิกา cortisol' ไม่ใช่ 'ปิดสวิตช์ stress'",
+        "ลด cortisol 20% = ลดพุงเครียดได้จริงใน 8 สัปดาห์"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_zinc_001",
+      "product_category": "zinc",
+      "problem_th": "ผู้ชาย 30+ รู้สึกพลังตก ไฟตก นอนดี แต่ไม่สดชื่น — อาจขาด zinc ที่คนไทยกินจากเนื้อสัตว์/อาหารทะเลน้อยลง",
+      "mechanism_claim_th": "Zinc เป็น cofactor ของ steroidogenesis enzymes; การขาด zinc (<70 μg/dL) สัมพันธ์กับ T ต่ำ; เสริม 30-50 mg/วัน × 6-12 สัปดาห์เพิ่ม T ในผู้ขาดได้ชัดเจน (Prasad 1996)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยสนับสนุนการสร้างฮอร์โมนเพศชาย (ในผู้ที่มี zinc ไม่เพียงพอ)",
+        "ช่วยภูมิต้านทาน",
+        "ช่วยการทำงานของระบบสืบพันธุ์"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้าง 'testosterone booster' สำหรับทุกคน (ผลเฉพาะในผู้ขาด)",
+        "ห้ามอ้างเพิ่ม libido แบบการันตี",
+        "ห้ามกิน >40 mg/วันระยะยาว (copper deficiency risk)"
+      ],
+      "supporting_facts": ["horm_003", "horm_014", "horm_016"],
+      "narrative_frames": [
+        "'T-booster' ที่ทำงานจริง = zinc (ถ้าคุณขาด) ไม่ใช่ยากระตุ้นแพง",
+        "ลองตรวจเลือด zinc ก่อน — แก้ต้นเหตุถูก"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_vitd_001",
+      "product_category": "vitamin_d",
+      "problem_th": "คนไทยอยู่ในออฟฟิศ 10 ชม./วัน + ครีมกันแดด SPF 50 → 25-OH Vit D <20 ng/mL พบสูงถึง 30-50% ของคนเมือง (Chailurkit 2011) → เทสตก, ไฟตก, อารมณ์แปรปรวน",
+      "mechanism_claim_th": "Vitamin D receptor (VDR) พบใน Leydig cells + pituitary; RCT Pilz 2011 ให้ 3332 IU/วัน × 1 ปีในชายขาด → total T +10%, free T +20%; ไม่เพิ่ม T ในผู้ vit D ปกติ",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยสนับสนุนการสร้างฮอร์โมน (ในผู้ขาด)",
+        "ช่วยสุขภาพกระดูก + ภูมิต้านทาน",
+        "เหมาะสำหรับคนทำงานในร่ม + คนไทยที่หลีกเลี่ยงแดด"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้าง 'T-booster'",
+        "ห้ามแนะนำ dose >4000 IU/วัน โดยไม่ตรวจ",
+        "ห้ามอ้างรักษาโรคอะไร"
+      ],
+      "supporting_facts": ["horm_017"],
+      "narrative_frames": [
+        "พลังงานตก = ตรวจ vit D ก่อนซื้อ T-booster",
+        "ไปตากแดด 15 นาที/วัน = ยาลดเทสต่ำแบบฟรี"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_dim_001",
+      "product_category": "DIM",
+      "problem_th": "ผู้หญิงก่อนเมนส์ปวดหัว คัดเต้า PMS รุนแรง + ผู้ชายอ้วนลงพุง estradiol สูง → 'estrogen dominance' — ต้องการตับชิฟต์ estrogen metabolism ไปทาง 2-OH ที่ปลอดภัย",
+      "mechanism_claim_th": "DIM (Diindolylmethane) จาก cruciferous ชิฟต์ estrogen hydroxylation ไปทาง 2-OH (protective) vs 16-OH (proliferative) — Bradlow 1999 เพิ่ม 2-OHE/16α-OHE ratio ~75% หลัง 300 mg/วัน",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ช่วยสนับสนุนการเมตาบอไลซ์เอสโตรเจนในตับ",
+        "ช่วยระบบสืบพันธุ์และความสมดุลฮอร์โมน",
+        "เหมาะสำหรับคนที่กินผักตระกูลกะหล่ำน้อย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา fibroid / endometriosis / breast cancer",
+        "ห้ามอ้างลด estrogen 'dominance' แบบ medical diagnosis",
+        "ห้ามให้ผู้หญิงตั้งครรภ์"
+      ],
+      "supporting_facts": ["horm_018", "horm_023"],
+      "narrative_frames": [
+        "ไม่ใช่ลดเอสโตรเจน — แต่ 'เลือกทางเดิน' ของมัน",
+        "กะหล่ำปลีเข้มข้นในแคปซูล — สำหรับคนไม่ค่อยกินผัก"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_thyroid_support_001",
+      "product_category": "thyroid_support",
+      "problem_th": "รู้สึกเหนื่อยง่าย เพลีย ตัวเย็น ผมร่วง ท้องผูก น้ำหนักขึ้นง่าย — แต่ไปหาหมอแล้ว TSH ยัง 'ปกติ' (2.5-4.5) อยู่; subclinical hypothyroidism เป็นไปได้",
+      "mechanism_claim_th": "Selenium, iodine, tyrosine, zinc เป็น co-factor ของการสร้าง T4 และ conversion T4→T3 ผ่าน deiodinase (D1/D2); selenium ขาด → deiodinase activity ลด → rT3/T3 ratio พัง (Ventura 2017)",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานของไทรอยด์ตามปกติ",
+        "สนับสนุนกระบวนการเปลี่ยน T4 → T3",
+        "เหมาะสำหรับผู้ที่กิน selenium/iodine ไม่เพียงพอ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา Hashimoto's / hypothyroidism",
+        "ห้ามแนะนำให้เลิก levothyroxine",
+        "ห้าม overdose iodine >150 μg/วัน (Hashimoto flare risk)",
+        "ห้ามอ้าง 'แก้อ้วนด้วยไทรอยด์' — evidence บอก 2-4 กก.เท่านั้น"
+      ],
+      "supporting_facts": ["horm_005", "horm_024"],
+      "narrative_frames": [
+        "ไทรอยด์ปกติแบบ 'borderline' คือจุดที่ 60% ของคนค้างอยู่ — supplement สนับสนุน",
+        "ไม่ใช่ supplement ทดแทนหมอ — แต่สนับสนุนระหว่างการติดตาม"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_inositol_pcos_001",
+      "product_category": "inositol_pcos",
+      "problem_th": "ผู้หญิง 6-13% ของวัยเจริญพันธุ์มี PCOS — สิว ผมร่วง ประจำเดือนไม่มา น้ำหนักขึ้นง่าย insulin resistance; metformin ท้องเสีย",
+      "mechanism_claim_th": "Myo-inositol + D-chiro-inositol ratio 40:1 (4 g myo + 100 mg D-chiro/วัน) ปรับ insulin sensitivity + LH/FSH ratio → คืน ovulation ใน 12 สัปดาห์ (Unfer 2017 review); ประสิทธิภาพเทียบเท่า metformin บาง outcome โดยไม่มี GI SE",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานของรังไข่ + insulin sensitivity",
+        "สนับสนุนการตกไข่และรอบเดือน",
+        "เหมาะสำหรับผู้หญิงที่ได้รับการวินิจฉัย PCOS"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา PCOS",
+        "ห้ามใช้แทน metformin โดยไม่ปรึกษาหมอ",
+        "ห้ามอ้าง 'ช่วยให้ตั้งครรภ์'"
+      ],
+      "supporting_facts": ["horm_010", "horm_019"],
+      "narrative_frames": [
+        "PCOS ไม่ใช่ทางตัน — inositol ratio 40:1 คือทางเลือกที่คุยกับหมอได้",
+        "ราก PCOS = insulin resistance; แก้รากตรงจุดดีกว่า cover อาการ"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_melatonin_low_001",
+      "product_category": "melatonin_low_dose",
+      "problem_th": "หลับยาก ตื่นกลางดึก jet lag — 5-10 mg melatonin ทำตื่นเช้าง่วง + headache; คนซื้อ dose สูงเพราะคิดว่า 'ยิ่งมาก ยิ่งดี'",
+      "mechanism_claim_th": "Physiological peak melatonin = 0.3-0.5 nmol/L; oral 0.3-1 mg ก็ทำถึง; 5-10 mg ทำ serum 20× ของ physiological → side effects; Zhdanova 2001 พิสูจน์ว่า 0.3 mg มีประสิทธิภาพสำหรับ age-related insomnia",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยให้หลับเร็วขึ้น + ปรับ jet lag",
+        "ช่วยชิฟต์ circadian rhythm",
+        "Low-dose (0.3-1 mg) ปลอดภัยกว่าและ effective พอ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างเป็นยารักษา insomnia disorder",
+        "ห้ามให้เด็ก <2 ปีโดยไม่ปรึกษาแพทย์",
+        "ห้ามแนะนำ dose >3 mg แบบ routine"
+      ],
+      "supporting_facts": ["horm_009", "horm_026"],
+      "narrative_frames": [
+        "Melatonin ไม่ใช่ 'ยานอน' — แต่เป็น 'นาฬิกาปลุก' ของระบบฮอร์โมน",
+        "0.3 mg ทำงานดี — 10 mg คือ 'overkill' ที่ทำให้ตื่นเช้าพัง"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_maca_001",
+      "product_category": "maca",
+      "problem_th": "ผู้ชายวัยทอง/ผู้หญิงเมโนพอส libido ตก อารมณ์แปรปรวน — ต้องการ non-hormonal option",
+      "mechanism_claim_th": "Maca (Lepidium meyenii) ไม่มี phytoestrogen / hormone precursor แต่ RCTs (Shin 2010 BMC Complement Altern Med) พบ improvement ใน sexual desire ใน men + menopausal women โดยไม่เปลี่ยน T/E2 level — mechanism เสนอว่าเป็น neurotransmitter-related (serotonin/dopamine)",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุน libido / mood / energy",
+        "เหมาะสำหรับผู้ที่ต้องการทางเลือก non-hormonal",
+        "ใช้ต่อเนื่อง 6-12 สัปดาห์"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างเพิ่ม testosterone / estradiol (evidence = no hormone change)",
+        "ห้ามอ้างรักษา ED",
+        "ห้ามให้ผู้มีปัญหาต่อมไทรอยด์ทานโดยไม่ปรึกษา (goitrogen content)"
+      ],
+      "supporting_facts": ["horm_012", "horm_020"],
+      "narrative_frames": [
+        "Maca ไม่เพิ่มเทส-/เอส — แต่ช่วยสมองเรื่อง desire โดยตรง",
+        "พืชเปรูโบราณสำหรับคนที่ไม่อยาก/ยังไม่พร้อม HRT"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_mg_glycinate_001",
+      "product_category": "magnesium_glycinate",
+      "problem_th": "นอนหลับยาก + cortisol ตอนกลางคืนสูง + เทสตก + muscle tension — 50% ของคนเมืองได้ Mg ต่ำกว่า RDA (USDA surveys)",
+      "mechanism_claim_th": "Mg เป็น cofactor ของ 300+ enzyme รวมถึง ATP metabolism + NMDA receptor modulation + GABA-A potentiation; RCT Abbasi 2012 — 500 mg/วัน × 8 สัปดาห์ในผู้สูงอายุนอนไม่หลับ ปรับปรุง subjective sleep; Mg ยัง support testosterone in athletes (Cinar 2011)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยการนอนหลับ / ผ่อนคลายกล้ามเนื้อ",
+        "สนับสนุนการทำงานของ nervous system",
+        "สนับสนุนการฟื้นตัวหลังออกกำลังกาย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา insomnia / anxiety disorder",
+        "ห้าม overdose >400 mg elemental Mg ต่อวัน (diarrhea)",
+        "ห้ามแนะนำสำหรับผู้ป่วย CKD โดยไม่ปรึกษา"
+      ],
+      "supporting_facts": ["horm_007", "horm_014"],
+      "narrative_frames": [
+        "'นอนหลับไม่ลึก' บ่อยครั้ง = Mg ขาด; ไม่ใช่ melatonin",
+        "Glycinate = รูปที่ดูดซึมดี + glycine เองช่วยลด core body temp"
+      ]
+    },
+    {
+      "angle_id": "angle_hormone_electrolyte_if_001",
+      "product_category": "keto_support",
+      "problem_th": "ทำ IF 16/8 แล้วปวดหัว เหนื่อย สมองเบลอ — เกลือแร่หาย + hormone transition (insulin ลด → Na excretion เพิ่ม)",
+      "mechanism_claim_th": "Insulin low → kidney สนองตอบด้วยการขับ Na มากขึ้น → Mg/K follow → electrolyte imbalance → headache + fatigue; เกลือแร่เสริม Na/Mg/K bridging ช่วงปรับตัว (2-4 สัปดาห์) ให้ GH/insulin/cortisol rebalance ได้",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลดอาการของการเริ่ม IF (keto flu-like symptoms)",
+        "สนับสนุนการทำงานของกล้ามเนื้อ + hydration",
+        "เหมาะระหว่างช่วงปรับตัว 2-4 สัปดาห์"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้าง 'เผาไขมัน' โดยตรง",
+        "ห้ามอ้างเพิ่ม GH / ลดอินซูลิน (electrolyte เป็น support ไม่ใช่ driver)",
+        "ห้ามใช้แทนอาหารจริง"
+      ],
+      "supporting_facts": ["horm_001", "horm_013"],
+      "narrative_frames": [
+        "IF flu ไม่ใช่ IF ล้มเหลว — เป็นสัญญาณ insulin กำลังตก ต้องเติมเกลือ",
+        "เติม electrolyte = pass หุบเหว 2 สัปดาห์แรกสู่โหมดฮอร์โมนใหม่"
+      ]
+    }
+  ]
+}

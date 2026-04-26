@@ -1,0 +1,982 @@
+{
+  "domain_id": "blood",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 26,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.blood",
+    "notes": "Emphasis on NO pathway + endothelial/ApoB/iron/homocysteine. ≥60% tier A sources. All facts have safety_warning. Key drug-interaction categories flagged: antihypertensive, PDE5 inhibitor, anticoagulant, statin."
+  },
+  "facts": [
+    {
+      "fact_id": "blood_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "nitric_oxide",
+      "statement_th": "ปี 1998 โนเบลสาขาการแพทย์มอบให้ Furchgott, Ignarro และ Murad จากการค้นพบว่า 'ไนตริกออกไซด์' (NO) เป็นโมเลกุลสัญญาณในระบบหัวใจหลอดเลือด — เป็นครั้งแรกในประวัติศาสตร์ที่ 'ก๊าซ' ถูกยอมรับว่าเป็นฮอร์โมน",
+      "statement_en": "The 1998 Nobel Prize in Physiology or Medicine was awarded to Furchgott, Ignarro and Murad for the discovery that nitric oxide (NO) acts as a signaling molecule in the cardiovascular system — the first time a gas was recognized as a hormone.",
+      "numeric_values": [
+        {"value": 1998, "unit": "year", "label": "Nobel Prize year", "is_approximation": false},
+        {"value": 3, "unit": "laureates", "label": "co-recipients (Furchgott, Ignarro, Murad)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_001",
+      "entities_mentioned": ["louis_ignarro", "robert_furchgott", "ferid_murad", "nitric_oxide"],
+      "sources": [
+        {"url": "https://www.nobelprize.org/prizes/medicine/1998/summary/", "org": "Nobel Foundation", "source_tier": "A", "year": 1998, "title": "The Nobel Prize in Physiology or Medicine 1998", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["โนเบล", "ก๊าซที่เป็นฮอร์โมน", "จุดเริ่มวงการ NO"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'โนเบล = รับรองว่าอาหารเสริม NO รักษาโรคได้' — โนเบลรับรองการค้นพบ signaling เท่านั้น",
+      "usage_notes": "ใช้เป็น credibility anchor ก่อนพูดเรื่อง NO หรือ beetroot/L-citrulline",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามใช้ 'โนเบล' เพื่อ endorse แบรนด์อาหารเสริมโดยตรง"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["โนเบลรับรองสินค้า", "โนเบลแนะนำยี่ห้อ"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "nitric_oxide",
+      "statement_th": "ในงานวิจัย BMJ/Hypertension 2008 (Webb et al.) คนสุขภาพดีดื่มน้ำบีทรูท 500 มล. ความดันซิสโตลิกลดลงสูงสุด ~10.4 mmHg ที่เวลา 2.5 ชั่วโมง และยังลดได้ ~5 mmHg ที่ 24 ชั่วโมง",
+      "statement_en": "In Webb et al. 2008 (Hypertension/BMJ), healthy volunteers who drank 500 mL beetroot juice showed peak systolic BP reduction of ~10.4 mmHg at 2.5 hours, with ~5 mmHg still present at 24 hours.",
+      "numeric_values": [
+        {"value": 500, "unit": "mL", "label": "beetroot juice dose", "is_approximation": false},
+        {"value": 10.4, "unit": "mmHg", "label": "peak SBP drop", "is_approximation": false},
+        {"value": 2.5, "unit": "hours", "label": "time to peak", "is_approximation": false},
+        {"value": 24, "unit": "hours", "label": "effect still present", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_002",
+      "entities_mentioned": ["andrew_webb", "dietary_nitrate", "nitric_oxide"],
+      "sources": [
+        {"url": "https://www.ahajournals.org/doi/10.1161/HYPERTENSIONAHA.107.103523", "org": "Hypertension (AHA)", "source_tier": "A", "year": 2008, "title": "Acute Blood Pressure Lowering, Vasoprotective, and Antiplatelet Properties of Dietary Nitrate via Bioconversion to Nitrite — Webb AJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["10 mmHg ใน 2.5 ชม.", "น้ำผักที่ลดความดันเท่ายา low-dose"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 10.4 mmHg เป็นค่าสูงสุดในกลุ่ม healthy normotensive — ในคน HTN ขนาดผลต่างกัน; ห้ามบอก 'ใครก็ลด 10'",
+      "usage_notes": "Landmark anchor สำหรับ beetroot/nitrate product angles และ hook กินผักใบเขียว",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["hypertension_uncontrolled", "chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": ["ACE inhibitor (additive hypotension)", "ARB (additive hypotension)", "calcium channel blocker (additive hypotension)", "PDE5 inhibitor — sildenafil/tadalafil (severe hypotension/syncope)", "nitrate medications (absolute contraindication)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'หยุดยาความดันแล้วกินบีทรูท'",
+          "ห้ามพูดว่า 'บีทรูท = แทนยาความดัน'",
+          "ห้ามแนะนำบีทรูทคู่กับไวอากร้า/cialis (ความดันตกฮวบ)"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications", "chronic_disease_multimorbidity"],
+        "validator_keywords_th": ["หยุดยาความดัน", "แทนยาความดัน", "บีทรูท+ไวอากร้า"],
+        "regulatory_risk_notes": "อย. ไทย: น้ำบีทรูทเป็นอาหาร/เครื่องดื่ม ห้ามอ้าง 'รักษาความดัน' — ใช้ 'สนับสนุนหลอดเลือด'. ผู้ป่วย CKD ระวัง oxalate load"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "endothelial_function",
+      "statement_th": "DASH diet trial (Sacks et al., NEJM 1997) — ในผู้ป่วยความดันสูง กินอาหาร DASH (ผัก ผลไม้ นมไขมันต่ำ) 8 สัปดาห์ ลด SBP ได้ 11.4 mmHg และ DBP 5.5 mmHg เทียบกับอาหารควบคุม — เท่ากับยาลดความดัน 1 ขนาน",
+      "statement_en": "DASH diet trial (Sacks et al., NEJM 1997) — in hypertensive patients, the DASH eating pattern (fruits, vegetables, low-fat dairy) for 8 weeks lowered SBP by 11.4 mmHg and DBP by 5.5 mmHg vs control — comparable to single-agent antihypertensive therapy.",
+      "numeric_values": [
+        {"value": 11.4, "unit": "mmHg", "label": "SBP reduction (hypertensive subgroup)", "is_approximation": false},
+        {"value": 5.5, "unit": "mmHg", "label": "DBP reduction (hypertensive subgroup)", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "intervention duration", "is_approximation": false},
+        {"value": 459, "unit": "subjects", "label": "total N", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_003",
+      "entities_mentioned": ["yoshinori_seto"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJM199704173361601", "org": "NEJM", "source_tier": "A", "year": 1997, "title": "A Clinical Trial of the Effects of Dietary Patterns on Blood Pressure — Sacks FM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["อาหาร = ยาลดความดัน 1 ขนาน", "11 mmHg ใน 8 สัปดาห์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 11.4 mmHg เฉพาะกลุ่ม HTN ในงานนี้ — กลุ่ม normotensive ลดแค่ 3.5/2.1 mmHg. ห้ามเหมาว่า 'ทุกคนลด 11'",
+      "usage_notes": "ใช้ frame ว่า 'อาหารเปลี่ยนความดันได้จริง' ก่อนพูดเรื่องผลิตภัณฑ์",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": ["antihypertensive (additive BP drop — may need dose adjustment by MD)", "warfarin (increased vitamin K from leafy greens)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'DASH แทนยาความดันได้'",
+          "ห้ามแนะนำให้ผู้ป่วย CKD ระยะ 3+ โหลด potassium"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["chronic_disease_multimorbidity", "on_prescription_medications"],
+        "validator_keywords_th": ["DASH แทนยา", "ไม่ต้องกินยาความดัน"],
+        "regulatory_risk_notes": "DASH เป็น dietary pattern — ไม่ใช่ยา; ผู้ป่วยไตต้องปรึกษาแพทย์เพราะ K+/Mg²+/phosphorus load"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "nitric_oxide",
+      "statement_th": "Lundberg, Weitzberg & Gladwin 2008 (Nature Reviews Drug Discovery) — เสนอ 'ทางสร้าง NO แบบที่ 2' คือ nitrate จากผัก → nitrite โดยแบคทีเรียในปาก → NO ในกระเพาะ/เลือด — เป็นทางที่ไม่ต้องใช้ออกซิเจน/eNOS แต่ต้องอาศัยแบคทีเรียคอมเมนซัลที่หลังลิ้น",
+      "statement_en": "Lundberg, Weitzberg & Gladwin 2008 (Nature Reviews Drug Discovery) described the alternative 'nitrate-nitrite-NO' pathway — dietary nitrate is reduced to nitrite by oral commensal bacteria on the tongue, then to NO in the stomach and hypoxic tissue, bypassing eNOS and oxygen entirely.",
+      "numeric_values": [
+        {"value": 25, "unit": "%", "label": "plasma nitrate concentrated into saliva via enterosalivary circulation", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_002",
+      "entities_mentioned": ["jon_lundberg", "eddie_weitzberg", "dietary_nitrate", "dietary_nitrite"],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nrd2466", "org": "Nature Reviews Drug Discovery", "source_tier": "A", "year": 2008, "title": "The nitrate-nitrite-nitric oxide pathway in physiology and therapeutics — Lundberg JO, Weitzberg E, Gladwin MT", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ทางลัด NO ที่ไม่ต้องใช้ eNOS", "แบคทีเรียในปาก = โรงงาน NO"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามโปรโมต 'ไม่ต้องแปรงฟัน' — oral hygiene สำคัญแค่เลี่ยง antibacterial mouthwash เข้มข้น",
+      "usage_notes": "ใช้อธิบายทำไมน้ำยาบ้วนปาก/ยาปฏิชีวนะกระทบ BP",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามพูดว่า 'ไม่ต้องแปรงฟันเพื่อรักษาความดัน'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ไม่ต้องแปรงฟัน", "ไม่ต้องทันตกรรม"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_005",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "endothelial_function",
+      "statement_th": "Endothelial NO bioavailability ลดลงอย่างชัดเจนตามอายุ — งาน Celermajer 1994 และ review Flammer 2012 ชี้ว่า FMD ของ brachial artery ลดลง ~0.2-0.5% per decade ในคนสุขภาพดี และลดเร็วขึ้นถ้ามี HTN/DM/smoking — เป็น earliest CVD marker ก่อน LDL/BP ผิดปกติ",
+      "statement_en": "Endothelial NO bioavailability declines markedly with age — Celermajer 1994 and Flammer 2012 review indicate FMD of the brachial artery decreases ~0.2-0.5% per decade in healthy adults, and faster with HTN/DM/smoking — appearing before conventional risk factors become abnormal.",
+      "numeric_values": [
+        {"value": "0.2-0.5", "unit": "%/decade", "label": "FMD decline per decade (healthy)", "is_approximation": true},
+        {"value": 5, "unit": "%", "label": "FMD cut-off for CVD risk (<5% = high)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_003",
+      "entities_mentioned": ["nitric_oxide", "enos"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11823084/", "org": "Circulation / PubMed", "source_tier": "A", "year": 1994, "title": "Celermajer DS — Endothelium-dependent dilation in the systemic arteries of asymptomatic subjects relates to coronary risk factors and age", "access_date": "2026-04-22"},
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.112.093245", "org": "Circulation", "source_tier": "A", "year": 2012, "title": "Flammer et al. — The Assessment of Endothelial Function", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["NO ลดตามอายุ", "สัญญาณแรกของหลอดเลือดเสื่อม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามใช้ตัวเลข '85% ลดลงที่อายุ 40' แบบ precise — เป็นวลี UncleD-style ที่ไม่มี hard data เดียวระบุ; ใช้ 'เริ่มลดชัดเจนตั้งแต่วัย 30-40'",
+      "usage_notes": "Hook material — 'มีสารที่ทำให้คุณแก่เร็ว มันลดลงตามอายุ' NO-decline narrative",
+      "contradictions": ["ตัวเลขแน่นอนของ NO decline ในมนุษย์ยังอภิปราย — ส่วนใหญ่วัดทางอ้อมผ่าน FMD/plasma nitrite"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้าม overstate ด้วย '%' แบบ precise ที่ไม่มีแหล่งอ้างอิง"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["NO ลด 90%", "อายุ 40 NO หายไปหมด"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "nitric_oxide",
+      "statement_th": "ผักใบเขียวเป็นแหล่ง nitrate ธรรมชาติที่หนาแน่นที่สุด — ผักโขม (spinach) มี ~400-500 mg nitrate ต่อ 100 g, rucola/arugula ~480 mg/100 g, บีทรูท ~110-300 mg/100 g (Hord, Tang & Bryan 2009, Am J Clin Nutr)",
+      "statement_en": "Leafy greens are the densest natural sources of dietary nitrate — spinach ~400-500 mg nitrate/100 g, arugula ~480 mg/100 g, beetroot ~110-300 mg/100 g (Hord NG, Tang Y, Bryan NS 2009, Am J Clin Nutr).",
+      "numeric_values": [
+        {"value": "400-500", "unit": "mg/100 g", "label": "spinach nitrate content", "is_approximation": true},
+        {"value": 480, "unit": "mg/100 g", "label": "arugula nitrate content", "is_approximation": true},
+        {"value": "110-300", "unit": "mg/100 g", "label": "beetroot nitrate content", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_002",
+      "entities_mentioned": ["nathan_bryan", "dietary_nitrate"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19439460/", "org": "American Journal of Clinical Nutrition", "source_tier": "A", "year": 2009, "title": "Food sources of nitrates and nitrites: the physiologic context for potential health benefits — Hord NG, Tang Y, Bryan NS", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ผักใบเขียว 100 g = พอจริงจัง", "บีทรูทไม่ใช่คำตอบเดียว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลขแตกต่างตามดิน/ฤดู/ปุ๋ย — ไม่ควรการันตีเป็น point estimate",
+      "usage_notes": "Answer the 'ต้องกินบีทรูทเท่านั้นหรือ' question — ผักใบเขียวเข้มข้นไม่แพ้กัน",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (vitamin K from leafy greens affects INR — consistency matters)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำผู้กิน warfarin ให้ 'ตะบันกินผักโขมวันละ 500 g' โดยไม่พูดถึง INR",
+          "ห้ามพูดว่า 'กินผักเยอะเท่าไหร่ก็ไม่มีผลข้างเคียง'"
+        ],
+        "required_disclaimer_th": "anticoagulant_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["กินผักใบเขียวไม่จำกัด", "ผักไม่มีผลต่อยา"],
+        "regulatory_risk_notes": "ผู้กิน warfarin ต้องกินผักใบเขียวปริมาณคงที่ — เปลี่ยนแปลงอย่างเฉียบพลันกระทบ INR"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "nitric_oxide",
+      "statement_th": "Kapil et al. 2013 (Free Radic Biol Med) — คนสุขภาพดีใช้น้ำยาบ้วนปากฆ่าเชื้อ (chlorhexidine) 7 วัน ความดันซิสโตลิกเพิ่มขึ้น ~3.5 mmHg และ nitrite ในพลาสม่าลดลง 90% เพราะฆ่าแบคทีเรียในปากที่เปลี่ยน nitrate → nitrite",
+      "statement_en": "Kapil et al. 2013 — healthy subjects using antibacterial (chlorhexidine) mouthwash for 7 days had SBP rise ~3.5 mmHg and plasma nitrite fall ~90%, because the mouthwash killed oral nitrate-reducing bacteria (breaking Lundberg pathway).",
+      "numeric_values": [
+        {"value": 3.5, "unit": "mmHg", "label": "SBP rise from mouthwash", "is_approximation": false},
+        {"value": 90, "unit": "%", "label": "drop in plasma nitrite", "is_approximation": true},
+        {"value": 7, "unit": "days", "label": "duration of mouthwash use", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_002",
+      "entities_mentioned": ["dietary_nitrate", "dietary_nitrite"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23183324/", "org": "Free Radic Biol Med / PubMed", "source_tier": "A", "year": 2013, "title": "Physiological role for nitrate-reducing oral bacteria in blood pressure control — Kapil V et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["น้ำยาบ้วนปากทำให้ความดันขึ้น", "จุลชีพในช่องปาก = เพื่อนของหัวใจ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เฉพาะ antibacterial mouthwash เข้มข้น (chlorhexidine) — ไม่เกี่ยวกับน้ำยาบ้วนปาก fluoride ทั่วไป",
+      "usage_notes": "Unexpected 'everyday product raises BP' hook — ใช้ได้ดีสำหรับ shock style",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า 'เลิกใช้น้ำยาบ้วนปากเด็ดขาด' ถ้าแพทย์สั่ง (เช่น หลังผ่าตัดช่องปาก)"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ห้ามใช้น้ำยาบ้วนปาก", "น้ำยาบ้วนปากเป็นอันตราย"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_008",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "nitric_oxide",
+      "statement_th": "L-citrulline 3-6 กรัม/วัน ~4-8 สัปดาห์ ลดความดันซิสโตลิกประมาณ 7 mmHg และ DBP ~4 mmHg ในผู้มี pre-hypertension (Figueroa et al. 2017 pooled analysis) — ผลเกิดเพราะ citrulline bypass first-pass arginase ทำให้ plasma arginine ขึ้นจริง",
+      "statement_en": "L-citrulline 3-6 g/day for 4-8 weeks lowers SBP by ~7 mmHg and DBP by ~4 mmHg in pre-hypertensives (Figueroa et al. 2017 pooled review), because citrulline bypasses first-pass arginase and raises plasma arginine effectively.",
+      "numeric_values": [
+        {"value": "3-6", "unit": "g/day", "label": "effective citrulline dose", "is_approximation": true},
+        {"value": 7, "unit": "mmHg", "label": "approximate SBP reduction", "is_approximation": true},
+        {"value": 4, "unit": "mmHg", "label": "approximate DBP reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_008",
+      "entities_mentioned": ["l_citrulline", "l_arginine", "enos"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29040417/", "org": "Nutrition Reviews / PubMed", "source_tier": "A", "year": 2017, "title": "Watermelon extract/L-citrulline supplementation and blood pressure — Figueroa A et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["L-citrulline > L-arginine", "จุดลัดของ NO"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 7/4 เป็น pooled mean — ผลจริง individual variable สูง",
+      "usage_notes": "Primary evidence for L-citrulline product angle",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["hypertension_uncontrolled"],
+        "drug_interactions": ["PDE5 inhibitor — sildenafil/tadalafil (severe hypotension/syncope)", "antihypertensive: ACE-I/ARB/CCB (additive BP drop)", "nitrate medications (absolute contraindication)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'L-citrulline = ไวอากร้าธรรมชาติ กินคู่ได้'",
+          "ห้ามแนะนำให้ผู้กินยาความดันเริ่มเองโดยไม่ปรึกษา",
+          "ห้ามอ้างว่า 'รักษาความดัน'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications", "chronic_disease_multimorbidity"],
+        "validator_keywords_th": ["ไวอากร้าธรรมชาติ", "รักษาหย่อนสมรรถภาพ", "citrulline+sildenafil"],
+        "regulatory_risk_notes": "อย. ไทย: L-citrulline เป็นอาหารเสริม — ห้ามอ้างรักษา ED/ความดัน. ผู้ใช้ PDE5 inhibitor ร่วมมี case report ของภาวะความดันตกรุนแรง"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "endothelial_function",
+      "statement_th": "Heiss et al. 2005 (JACC) — เครื่องดื่ม cocoa flavanol (~176 mg) เพิ่ม Flow-Mediated Dilation (FMD) จาก 3.4% เป็น 6.4% ภายใน 2 ชั่วโมง และเพิ่ม nitric oxide metabolite ในเลือดอย่างมีนัยสำคัญ — ยืนยันว่า flavanol กระตุ้น eNOS ได้เฉียบพลัน",
+      "statement_en": "Heiss et al. 2005 (JACC) — a cocoa flavanol beverage (~176 mg) acutely increased brachial Flow-Mediated Dilation from 3.4% to 6.4% within 2 hours and significantly raised circulating nitric oxide metabolites, confirming acute eNOS activation.",
+      "numeric_values": [
+        {"value": 176, "unit": "mg", "label": "cocoa flavanol dose", "is_approximation": false},
+        {"value": 3.4, "unit": "%", "label": "baseline FMD", "is_approximation": false},
+        {"value": 6.4, "unit": "%", "label": "post-cocoa FMD", "is_approximation": false},
+        {"value": 2, "unit": "hours", "label": "time to peak", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_001",
+      "entities_mentioned": ["christian_heiss", "cocoa_flavanol", "enos"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/16198843/", "org": "J Am Coll Cardiol", "source_tier": "A", "year": 2005, "title": "Acute consumption of flavanol-rich cocoa and the reversal of endothelial dysfunction in smokers — Heiss C et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ช็อกโกแลตที่ช่วยหัวใจ", "FMD เปลี่ยนใน 2 ชม."],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องเน้น 'high-flavanol cocoa' — ช็อกโกแลตนมทั่วไปมี flavanol ต่ำมากและน้ำตาลสูง",
+      "usage_notes": "Anchor สำหรับ dark chocolate cocoa flavanol product angle",
+      "contradictions": ["ช็อกโกแลตขายปลีกส่วนใหญ่มี flavanol <50 mg/ชิ้น — ต้อง >85% cacao + Dutch-processing ไม่หนัก"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า 'กินช็อกโกแลตนมยี่ห้อไหนก็ได้เพราะช่วยหัวใจ'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ช็อกโกแลตรักษาหัวใจ"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "ApoB",
+      "statement_th": "Sniderman et al. 2019 (JAMA Cardiology) — meta-analysis + Mendelian randomization ยืนยัน ApoB เป็น atherogenic metric ที่ดีที่สุดในบรรดา LDL-C, non-HDL-C และ ApoB; ในกรณีที่ LDL-C กับ ApoB 'discordant' ApoB เป็นตัวพยากรณ์ความเสี่ยงได้แม่นยำกว่า",
+      "statement_en": "Sniderman et al. 2019 (JAMA Cardiology) — meta-analysis + Mendelian randomization showing ApoB is the superior atherogenic-lipoprotein metric among LDL-C, non-HDL-C, and ApoB; when LDL-C and ApoB are discordant, ApoB predicts events more accurately.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_blood_006",
+      "entities_mentioned": ["allan_sniderman", "peter_attia", "thomas_dayspring", "apob_100"],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2752979", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Apolipoprotein B Particles and Cardiovascular Disease — Sniderman AD et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตัวเลขที่หมอไม่ค่อยสั่งตรวจ", "ApoB > LDL-C"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'LDL ไร้ความหมาย' — LDL-C ยังดีพอในคนไม่ discordant; frame เป็น 'ApoB แม่นยำกว่าเมื่อมีข้อสงสัย'",
+      "usage_notes": "Use ก่อนแนะนำให้ผู้ชม 'ลองขอตรวจ ApoB เพิ่ม'",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'ไม่ต้องฟังหมอให้กินยา ถ้า ApoB ปกติ'",
+          "ห้ามแนะนำให้หยุด statin เพราะ ApoB ดูดี"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["หยุด statin", "ไม่ต้องลดไขมัน"],
+        "regulatory_risk_notes": "ApoB ยังไม่ standard ใน routine check-up ในไทย — ต้อง request เฉพาะ หรือ lipid clinic"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "homocysteine",
+      "statement_th": "Boushey et al. 1995 (JAMA) — meta-analysis ของ 27 งานวิจัย แสดงว่าการที่ plasma homocysteine เพิ่มขึ้นทุก 5 μmol/L สัมพันธ์กับความเสี่ยง coronary artery disease เพิ่มขึ้นประมาณ 60% ในผู้ชาย และ 80% ในผู้หญิง",
+      "statement_en": "Boushey et al. 1995 (JAMA) — meta-analysis of 27 studies showing each 5 μmol/L increase in plasma homocysteine was associated with ~60% increase in CAD risk in men and ~80% in women.",
+      "numeric_values": [
+        {"value": 5, "unit": "μmol/L", "label": "Hcy increment", "is_approximation": false},
+        {"value": 60, "unit": "%", "label": "CAD risk increase per 5 μmol/L (men)", "is_approximation": true},
+        {"value": 80, "unit": "%", "label": "CAD risk increase per 5 μmol/L (women)", "is_approximation": true},
+        {"value": 27, "unit": "studies", "label": "meta-analysis inclusion", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_005",
+      "entities_mentioned": ["boushey_1995", "homocysteine", "methylfolate", "methylcobalamin"],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/388260", "org": "JAMA", "source_tier": "A", "year": 1995, "title": "A quantitative assessment of plasma homocysteine as a risk factor for vascular disease — Boushey CJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตัวชี้วัดที่หมอไม่สั่งตรวจ", "Hcy เพิ่ม 5 = CVD ขึ้น 60%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "หลังปี 2000 RCTs ของ folate/B12 ลด Hcy ไม่ได้ลด CV events เสมอ — direction ถูก แต่กลไกอาจ reverse causation บางส่วน",
+      "usage_notes": "Anchor สำหรับ methylfolate/B12 product angle + educational about silent marker",
+      "contradictions": ["งาน RCT หลังปี 2000 (HOPE-2, NORVIT) ลด Hcy ด้วย B vitamins แต่ไม่ลด CV events อย่างมีนัยสำคัญ — อาจ biomarker มากกว่า cause"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["methotrexate (folate antagonist — need MTX-coordinated folate)", "anticonvulsants (phenytoin, carbamazepine deplete folate)", "PPI (chronic use deplete B12)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'กินเมธิลโฟเลต = ป้องกันโรคหัวใจแน่นอน'",
+          "ห้ามพูดว่า 'Hcy สูง = จะเป็นโรคหัวใจแน่'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ป้องกันโรคหัวใจ 100%", "เมธิลโฟเลตรักษาโรคหัวใจ"],
+        "regulatory_risk_notes": "B12/folate เป็นวิตามินทั่วไป — อย. อนุญาตให้อ้าง 'สนับสนุนการสร้างเม็ดเลือด' แต่ไม่อ้าง 'ลดความเสี่ยงโรคหัวใจ'"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_012",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "iron_metabolism",
+      "statement_th": "Hereditary hemochromatosis (HFE C282Y homozygote) พบในคน Northern European ~1 ใน 200-250 คน (allele frequency C282Y ~6% ใน Ireland, Scotland); คนไทย/เอเชียอุบัติน้อยมาก (<1 ใน 10,000) — แต่ 'iron overload' จาก supplement/วิตามินรวม + ยาเหล็กโดยไม่ตรวจ ferritin ยังเกิดได้ทุกกลุ่มเชื้อชาติ",
+      "statement_en": "Hereditary hemochromatosis (HFE C282Y homozygote) affects ~1 in 200-250 Northern Europeans (C282Y allele frequency ~6% in Ireland/Scotland). In Thai/Asian populations the genetic form is rare (<1 in 10,000), but iron overload from unsupervised supplementation remains a risk across ethnicities.",
+      "numeric_values": [
+        {"value": "1 in 200-250", "unit": "prevalence", "label": "C282Y homozygote in Northern Europeans", "is_approximation": true},
+        {"value": 6, "unit": "%", "label": "C282Y allele frequency (Ireland/Scotland)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_004",
+      "entities_mentioned": ["hepcidin", "ferroportin", "ferritin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/17943995/", "org": "NEJM / PubMed", "source_tier": "A", "year": 2004, "title": "Hereditary Hemochromatosis — Pietrangelo A", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไม่ใช่ทุกคนต้องกินเหล็ก", "ผู้ชายวัยกลางคนอาจเหล็กเกินแล้ว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกคนไทย 'ต้องกังวล hemochromatosis' เหมือนคนฝรั่ง — เรียกความสนใจที่ 'ตรวจ ferritin ก่อนกินเหล็ก' แทน",
+      "usage_notes": "ใช้เป็น frame สำหรับ iron bisglycinate product angle — ต้องเช็ค ferritin ก่อนเสมอ",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": [],
+        "drug_interactions": ["levothyroxine (iron reduces absorption — 4h gap)", "tetracycline / fluoroquinolone (chelation)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'ผู้ชายก็กินเหล็กได้เลย — ยิ่งกินยิ่งดี'",
+          "ห้ามแนะนำให้กินยาเหล็กโดยไม่ตรวจ ferritin/CBC",
+          "ห้ามพูดว่า 'เหล็กเกินรักษาไม่ยาก'"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["กินเหล็กเยอะๆดี", "เหล็กไม่มีผลข้างเคียง"],
+        "regulatory_risk_notes": "อย. ไทย: ยาเหล็กและอาหารเสริมเหล็ก dose สูง ต้องมีคำเตือน; ผู้ชาย + หญิงหมดประจำเดือนไม่ควรกินเหล็กโดยไม่มี indication"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "iron_metabolism",
+      "statement_th": "ค่า ferritin 'ต่ำ' <30 ng/mL บ่งชี้ absolute iron deficiency แม้ Hb ยังปกติ (Goodnough 2016 Blood); ferritin 'เหมาะสม' สำหรับผู้ใหญ่สุขภาพดีคือช่วง 30-100 ng/mL; ferritin >300 ng/mL (ช) / >200 ng/mL (ญ) ต้องสงสัย iron overload / อักเสบเรื้อรัง",
+      "statement_en": "Ferritin <30 ng/mL indicates absolute iron deficiency even with normal Hb (Goodnough 2016, Blood); 'optimal' adult range is roughly 30-100 ng/mL; ferritin >300 ng/mL (men) or >200 ng/mL (women) warrants evaluation for iron overload or chronic inflammation.",
+      "numeric_values": [
+        {"value": 30, "unit": "ng/mL", "label": "absolute deficiency threshold", "is_approximation": false},
+        {"value": "30-100", "unit": "ng/mL", "label": "optimal range (adult)", "is_approximation": true},
+        {"value": 300, "unit": "ng/mL", "label": "male upper concerning limit", "is_approximation": true},
+        {"value": 200, "unit": "ng/mL", "label": "female upper concerning limit", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_004",
+      "entities_mentioned": ["jerry_goodnough", "ferritin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26780889/", "org": "Blood (ASH)", "source_tier": "A", "year": 2016, "title": "Evaluation and management of anemia in the elderly — Goodnough LT, Schrier SL", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตัวเลขที่บอกว่าคุณเหล็กเกินแล้ว", "ferritin = แบตเตอรี่เหล็ก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ferritin เป็น acute-phase reactant — สูงในภาวะอักเสบ/ไวรัส ไม่ต้องเสมอคือ overload; ห้ามเหมา",
+      "usage_notes": "Educational anchor ก่อน iron bisglycinate pitch",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามตีความ lab ผู้ชมแบบสูตรตายตัว — แนะให้ปรึกษาแพทย์"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ferritin 30 = ต้องกินเหล็กทุกคน"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_014",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "iron_metabolism",
+      "statement_th": "ภาวะโลหิตจางแบ่งตาม MCV: microcytic (MCV <80 fL — ส่วนใหญ่ขาดเหล็ก/ธาลัสซีเมีย), normocytic (80-100 fL — chronic disease, blood loss, hemolysis), macrocytic (MCV >100 fL — ขาด B12/folate, hypothyroid, alcohol) — การรักษาต่างกันโดยสิ้นเชิง",
+      "statement_en": "Anemia is classified by MCV: microcytic (MCV <80 fL — usually iron deficiency or thalassemia), normocytic (80-100 fL — chronic disease, blood loss, hemolysis), macrocytic (MCV >100 fL — B12/folate deficiency, hypothyroidism, alcohol). Treatment differs entirely by class.",
+      "numeric_values": [
+        {"value": 80, "unit": "fL", "label": "microcytic upper cutoff", "is_approximation": false},
+        {"value": 100, "unit": "fL", "label": "macrocytic lower cutoff", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_004",
+      "entities_mentioned": ["hemoglobin", "ferritin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26780889/", "org": "Blood (ASH)", "source_tier": "A", "year": 2016, "title": "Goodnough anemia review", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["โลหิตจางไม่ใช่ 'ขาดเหล็ก' เสมอ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "",
+      "usage_notes": "Education to debunk 'ซีด = กินเหล็ก' reflex",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามแนะนำให้ตัดสินใจกินเหล็ก/B12 โดยไม่มี lab"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ซีด=กินเหล็ก"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_015",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "lipid_panel",
+      "statement_th": "Friedewald formula: LDL-C ≈ TC − HDL − (TG / 5) (ในหน่วย mg/dL) — สูตรนี้ไม่แม่นเมื่อ TG >400 mg/dL หรือเมื่อมี chylomicron หลัง อาหาร; ในกรณีนั้นต้องใช้ direct LDL หรือ non-HDL cholesterol (= TC − HDL) หรือ ApoB",
+      "statement_en": "Friedewald formula: LDL-C ≈ TC − HDL − (TG/5) in mg/dL; it breaks down when TG >400 mg/dL or in postprandial chylomicronemia — in those cases use direct LDL, non-HDL cholesterol (TC − HDL), or ApoB.",
+      "numeric_values": [
+        {"value": 400, "unit": "mg/dL", "label": "TG threshold beyond which Friedewald invalid", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_006",
+      "entities_mentioned": ["apob_100"],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2752979", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Sniderman ApoB vs LDL-C", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["LDL ที่คุณอ่านเป็นค่าประมาณ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "",
+      "usage_notes": "Technical education — ใช้ก่อนขึ้น ApoB argument",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "lipid_panel",
+      "statement_th": "Triglyceride / HDL-C ratio เป็น proxy ของ insulin resistance และ small dense LDL — ratio >3.0 (mg/dL units) สัมพันธ์กับความเสี่ยง CVD สูงและ IR; คนที่ TG สูง HDL ต่ำมักมี small dense LDL pattern B แม้ LDL-C จะปกติ",
+      "statement_en": "Triglyceride/HDL-C ratio serves as a proxy for insulin resistance and small dense LDL — ratio >3.0 (mg/dL units) is associated with higher CVD risk and IR; patients with high TG + low HDL typically show small dense LDL pattern B even with 'normal' LDL-C.",
+      "numeric_values": [
+        {"value": 3.0, "unit": "ratio", "label": "TG/HDL threshold (mg/dL)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_006",
+      "entities_mentioned": ["peter_attia", "thomas_dayspring"],
+      "sources": [
+        {"url": "https://peterattiamd.com", "org": "Peter Attia MD", "source_tier": "B", "reliability_notes": "Aggregates primary literature on TG/HDL ratio as IR marker", "year": 2023, "title": "Lipid deep-dives (content aggregator)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตัวเลขที่บอกว่าคุณดื้ออินซูลิน", "LDL ปกติแต่ก็ยังอันตราย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ใช้หน่วย mg/dL ไทยใช้ mg/dL ตามปกติ; หน่วย mmol/L ratio ≈ 1.35",
+      "usage_notes": "Bridge ระหว่าง lipid และ insulin resistance",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_017",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "lipid_panel",
+      "statement_th": "Omega-3 EPA+DHA ขนาดสูง (2-4 g/วัน) ลดระดับ triglycerides ได้ ~20-30% และอาจมากกว่านั้นในผู้มี TG >500 mg/dL; ไม่ค่อยมีผลต่อ LDL-C/HDL ขนาดใหญ่ — ใช้กรณีที่ TG เป็นปัญหาหลัก",
+      "statement_en": "High-dose omega-3 (EPA+DHA 2-4 g/day) reduces triglycerides by ~20-30%, and more in severe hypertriglyceridemia (TG >500 mg/dL); minimal effect on LDL-C/HDL — used when TG is the primary issue.",
+      "numeric_values": [
+        {"value": "2-4", "unit": "g/day", "label": "effective EPA+DHA dose", "is_approximation": true},
+        {"value": "20-30", "unit": "%", "label": "TG reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_010",
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000000709", "org": "Circulation (AHA)", "source_tier": "A", "year": 2019, "title": "Omega-3 Fatty Acids for the Management of Hypertriglyceridemia — AHA Science Advisory", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["น้ำมันปลา = มีด SEAL สำหรับ TG"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ขนาดที่ลด TG คือ 2-4 g EPA+DHA — ไม่ใช่ 1,000 mg fish oil ทั่วไป (มี EPA+DHA ~300 mg เท่านั้น); ห้ามสับสน",
+      "usage_notes": "Use เมื่อพูดถึง TG-forward lipid problem",
+      "contradictions": ["VITAL trial / STRENGTH trial — omega-3 ลด TG ได้ แต่ไม่ลด CV outcome อย่างชัดเจน (ยกเว้น REDUCE-IT ที่ใช้ icosapent ethyl)"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin/anticoagulant (additive bleeding risk at >3 g/d)", "antiplatelet (aspirin, clopidogrel)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำ omega-3 ขนาดสูงคู่ warfarin โดยไม่ปรึกษา",
+          "ห้ามบอกว่า 'น้ำมันปลารักษาโรคหัวใจ'"
+        ],
+        "required_disclaimer_th": "anticoagulant_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["fish oil รักษาโรคหัวใจ", "กินน้ำมันปลาเยอะๆ"],
+        "regulatory_risk_notes": "อย.: น้ำมันปลาเป็นอาหารเสริม — 'ช่วยบำรุงหัวใจ' OK, 'รักษา' ไม่ OK"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_018",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "endothelial_function",
+      "statement_th": "Rotterdam Study (Geleijnse et al. 2004, J Nutr) — ผู้ที่กิน vitamin K2 (menaquinone) ในกลุ่มสูงสุด (tertile สูง) มีความเสี่ยงเสียชีวิตจากโรคหัวใจต่ำกว่ากลุ่มต่ำสุด 57% และมี severe aortic calcification น้อยกว่าอย่างชัดเจน",
+      "statement_en": "Rotterdam Study (Geleijnse et al. 2004, J Nutr) — participants in the highest tertile of dietary vitamin K2 (menaquinone) intake had a 57% lower risk of coronary heart disease mortality and significantly less severe aortic calcification vs the lowest tertile.",
+      "numeric_values": [
+        {"value": 57, "unit": "%", "label": "reduction in CHD mortality (highest vs lowest tertile)", "is_approximation": false},
+        {"value": 4807, "unit": "subjects", "label": "Rotterdam cohort size", "is_approximation": false},
+        {"value": 7, "unit": "years", "label": "follow-up median", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_009",
+      "entities_mentioned": ["vitamin_k2_mk7"],
+      "sources": [
+        {"url": "https://academic.oup.com/jn/article/134/11/3100/4688424", "org": "Journal of Nutrition / Oxford Academic", "source_tier": "A", "year": 2004, "title": "Dietary intake of menaquinone is associated with a reduced risk of coronary heart disease — Geleijnse JM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["วิตามินที่คนไทยไม่เคยได้ยิน", "57% ลดเสียชีวิตหัวใจ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เป็น observational cohort (ไม่ใช่ RCT) — direction ถูก แต่ causation ต้องระวัง. RCT ยืนยันผลต่อ arterial stiffness (Knapen 2015) แต่ยังไม่ยืนยัน mortality outcome",
+      "usage_notes": "Anchor สำหรับ vitamin K2 product angle",
+      "contradictions": ["RCT ยืนยันผลต่อ arterial stiffness แต่ยังขาดงานใหญ่ยืนยัน CVD mortality outcome"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (vitamin K antagonist — K2 will reduce warfarin effect, may need dose adjustment)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำ vitamin K2 ให้ผู้กิน warfarin โดยไม่ปรึกษาแพทย์",
+          "ห้ามบอกว่า 'K2 ป้องกันหัวใจวาย'"
+        ],
+        "required_disclaimer_th": "anticoagulant_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["K2 รักษาโรคหัวใจ", "K2 แทน warfarin"],
+        "regulatory_risk_notes": "K2 เป็นวิตามิน — อย. ห้ามอ้างรักษาโรคหัวใจ; warfarin interaction สำคัญที่สุด"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "endothelial_function",
+      "statement_th": "Enseleit et al. 2012 (J Cardiovasc Pharmacol) — Pycnogenol 200 mg/วัน 8 สัปดาห์ ในผู้ป่วย stable CAD ทำให้ FMD เพิ่มขึ้นอย่างมีนัยสำคัญ และลด oxidized LDL; กลไกสัมพันธ์กับการเพิ่ม eNOS activity และลด ROS",
+      "statement_en": "Enseleit et al. 2012 (J Cardiovasc Pharmacol) — Pycnogenol 200 mg/day for 8 weeks in stable CAD patients significantly improved FMD and lowered oxidized LDL; mechanism linked to increased eNOS activity + reduced ROS.",
+      "numeric_values": [
+        {"value": 200, "unit": "mg/day", "label": "pycnogenol dose", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_003",
+      "entities_mentioned": ["pycnogenol", "enos"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22411870/", "org": "J Cardiovasc Pharmacol / PubMed", "source_tier": "A", "year": 2012, "title": "Effects of Pycnogenol on endothelial function in patients with stable coronary artery disease — Enseleit F et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["สารสกัดจากต้นสนที่หัวใจชอบ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "",
+      "usage_notes": "Anchor for pycnogenol product angle",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["antiplatelet/anticoagulant (mild antiplatelet activity)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามอ้างว่า 'Pycnogenol รักษา CAD'"],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["Pycnogenol รักษาหัวใจ"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_020",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "lipid_panel",
+      "statement_th": "Niacin ขนาดสูง (1-3 g/วัน) ลด LDL-C ~10-20%, TG ~20-50%, Lp(a) ~20-30% และเพิ่ม HDL ~15-30% — แต่ AIM-HIGH trial (NEJM 2011) พบว่าการเพิ่ม niacin บน statin ไม่ลด CV event เพิ่มเติม",
+      "statement_en": "High-dose niacin (1-3 g/d) lowers LDL-C ~10-20%, TG ~20-50%, Lp(a) ~20-30%, and raises HDL ~15-30% — however the AIM-HIGH trial (NEJM 2011) showed adding niacin to statin did not further reduce CV events.",
+      "numeric_values": [
+        {"value": "1-3", "unit": "g/day", "label": "effective niacin dose", "is_approximation": true},
+        {"value": "10-20", "unit": "%", "label": "LDL-C reduction", "is_approximation": true},
+        {"value": "20-50", "unit": "%", "label": "TG reduction", "is_approximation": true},
+        {"value": "20-30", "unit": "%", "label": "Lp(a) reduction", "is_approximation": true},
+        {"value": "15-30", "unit": "%", "label": "HDL increase", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_010",
+      "entities_mentioned": ["niacin_b3"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1107579", "org": "NEJM", "source_tier": "A", "year": 2011, "title": "Niacin in Patients with Low HDL Cholesterol Levels Receiving Intensive Statin Therapy (AIM-HIGH) — Boden WE et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยาเก่าที่ทำ Lp(a) ลงได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "AIM-HIGH จุดสำคัญ: numbers เปลี่ยน ≠ outcome เปลี่ยน",
+      "usage_notes": "Educational anchor สำหรับ niacin flush-free product + caveat",
+      "contradictions": ["AIM-HIGH + HPS2-THRIVE ไม่พบ CV benefit เพิ่มเติมบน statin — ห้ามเคลม 'niacin ป้องกันหัวใจ'"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["liver_disease", "gout_or_hyperuricemia"],
+        "drug_interactions": ["statin (possible myopathy at high niacin dose)", "antidiabetic (niacin raises glucose ~5-10 mg/dL)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำ niacin ขนาดสูงคู่ statin โดยไม่ปรึกษาแพทย์",
+          "ห้ามบอกว่า 'niacin รักษาไขมันในเลือด'",
+          "ห้ามใช้ flush-free (inositol hexanicotinate) โดยอ้างว่ามีฤทธิ์ลดไขมันเท่า immediate-release niacin"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["niacin รักษาไขมัน", "niacin แทน statin"],
+        "regulatory_risk_notes": "Niacin ขนาดสูง >500 mg ถือเป็นระดับยา ไม่ใช่อาหารเสริมทั่วไป; 'flush-free' niacin (inositol hexanicotinate) ไม่มีหลักฐานฤทธิ์ลดไขมัน"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_021",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "lipid_panel",
+      "statement_th": "Statin ลด LDL-C 30-50% (ตามยาและขนาด) ผ่านการยับยั้ง HMG-CoA reductase — ผลข้างเคียง: ลด CoQ10 ในเลือด/กล้ามเนื้อ ~30-40% ซึ่งอาจสัมพันธ์กับ statin-associated muscle symptoms; ubiquinol 100-200 mg/วัน มักใช้เสริม แต่ RCT หลายตัว (Taylor 2015) ไม่ยืนยัน myalgia ชัดเจน",
+      "statement_en": "Statins lower LDL-C 30-50% (drug/dose dependent) via HMG-CoA reductase inhibition — side effect: plasma/muscle CoQ10 drops ~30-40%, possibly contributing to statin-associated muscle symptoms; ubiquinol 100-200 mg/d is commonly added, though RCTs (Taylor 2015) show mixed benefit for myalgia.",
+      "numeric_values": [
+        {"value": "30-50", "unit": "%", "label": "LDL-C reduction (statin dose-dependent)", "is_approximation": true},
+        {"value": "30-40", "unit": "%", "label": "CoQ10 reduction with statin", "is_approximation": true},
+        {"value": "100-200", "unit": "mg/day", "label": "typical ubiquinol adjunct dose", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_011",
+      "entities_mentioned": ["coq10_ubiquinol"],
+      "sources": [
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.108.776203", "org": "Circulation", "source_tier": "A", "year": 2012, "title": "Ference Mendelian randomization LDL-C/ApoB", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ทำไมคนกิน statin บางคนปวดกล้าม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'statin ทำลายกล้ามเนื้อ' ตรง ๆ — myalgia เกิดส่วนน้อย, nocebo effect สูง",
+      "usage_notes": "Use เป็น angle สำหรับ CoQ10 ubiquinol product",
+      "contradictions": ["Taylor 2015 RCT ไม่พบว่า CoQ10 ลด statin myalgia อย่างชัดเจน — direction สมเหตุสมผล แต่ magnitude ไม่แน่"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["warfarin (may reduce anticoagulation)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำให้หยุด statin แล้วกิน CoQ10 แทน",
+          "ห้ามบอกว่า 'CoQ10 รักษาโรคหัวใจ'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["หยุด statin", "CoQ10 แทน statin"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_022",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "lipid_panel",
+      "statement_th": "คอเลสเตอรอลในอาหาร (เช่น ไข่ 1 ฟอง ~200 mg) มีอิทธิพลต่อ LDL ในเลือดน้อยกว่า 'ไขมันอิ่มตัว + น้ำตาล' ในอาหารทั้งมื้อ — คน 'hyper-responder' (~25%) LDL อาจขึ้นไข่ 1-2 mg/dL ต่อ 100 mg cholesterol; ส่วนใหญ่ไม่ขึ้น",
+      "statement_en": "Dietary cholesterol (e.g., one egg ~200 mg) has less impact on serum LDL than the saturated-fat + sugar composition of the meal — in the ~25% who are 'hyper-responders', LDL may rise 1-2 mg/dL per 100 mg dietary cholesterol; in most people, minimal change.",
+      "numeric_values": [
+        {"value": 200, "unit": "mg", "label": "cholesterol in 1 egg", "is_approximation": false},
+        {"value": "1-2", "unit": "mg/dL per 100 mg dietary cholesterol", "label": "LDL response in hyper-responders", "is_approximation": true},
+        {"value": 25, "unit": "%", "label": "hyper-responder subset approximate share", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_006",
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9887164/", "org": "J Nutr / PubMed", "source_tier": "A", "year": 1998, "title": "Dietary cholesterol and plasma LDL concentration — Hunninghake DB", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไข่ไม่ใช่ศัตรู", "หมอพูดถูกครึ่งหนึ่ง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ไข่กินได้ไม่จำกัด' สำหรับทุกคน — hyper-responder 25% + FH patients ต้องระวัง",
+      "usage_notes": "UncleD clip 7551668991102553364 'ไข่ต้มเยอะๆ' — มีการ debunk cholesterol myth อยู่แล้ว. เชื่อมได้",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'ทุกคนกินไข่วันละ 5 ฟองได้ ไม่มี risk'",
+          "ห้ามบอกว่า 'คอเลสเตอรอลในเลือดสูงเพราะยีน ไม่เกี่ยวกับอาหาร 100%'"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ไข่กินไม่จำกัด", "คอเลสเตอรอลไม่ต้องกังวล"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_023",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "homocysteine",
+      "statement_th": "MTHFR C677T โฮโมไซโกต (TT genotype) พบในคนไทย ~5-10% และลดประสิทธิภาพเอนไซม์ MTHFR ลง ~70% ทำให้ folate (กรดโฟลิก) ทั่วไปเปลี่ยนเป็น 5-MTHF ได้ช้า — คนกลุ่มนี้ต้องการ methylfolate (L-5-MTHF) หรือ methyl-B12 โดยตรงจึงจะลด Hcy ได้ดี",
+      "statement_en": "MTHFR C677T homozygotes (TT genotype) occur in ~5-10% of Thais; the variant reduces MTHFR enzyme activity by ~70%, slowing conversion of folic acid to active 5-MTHF. These individuals respond better to direct methylfolate (L-5-MTHF) or methyl-B12 for lowering homocysteine.",
+      "numeric_values": [
+        {"value": "5-10", "unit": "%", "label": "TT homozygote in Thai population", "is_approximation": true},
+        {"value": 70, "unit": "%", "label": "activity reduction in TT", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_005",
+      "entities_mentioned": ["methylfolate", "methylcobalamin", "homocysteine"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12163577/", "org": "Am J Clin Nutr", "source_tier": "A", "year": 2005, "title": "Homocysteine Lowering Trialists Collaboration — meta of B-vitamin trials", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["1 ใน 10 คนไทยเปลี่ยนโฟเลตไม่ได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 5-10% เป็น estimate คร่าว ๆ — ไม่มี Thai gene survey ขนาดใหญ่เท่า NHANES",
+      "usage_notes": "Product angle anchor สำหรับ methylfolate/B12",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["methotrexate (folate antagonist)", "anticonvulsants (folate depletion)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามอ้างว่า 'ตรวจ MTHFR เปลี่ยนชีวิต' หรือ 'methylfolate รักษา depression'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["MTHFR รักษา depression", "methylfolate รักษาซึมเศร้า"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_024",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "nitric_oxide",
+      "statement_th": "L-arginine ขนาดสูง (>9 g/วัน) ในผู้ป่วยหลัง myocardial infarction (VINTAGE-MI, Schulman 2006 JAMA) เพิ่มอัตราการเสียชีวิตเทียบ placebo — การศึกษาถูกหยุดก่อนเวลา; ตั้งแต่นั้นมา L-arginine ขนาดสูงถูกแนะนำให้หลีกเลี่ยงในผู้ป่วย CVD acute",
+      "statement_en": "High-dose L-arginine (>9 g/day) after myocardial infarction (VINTAGE-MI, Schulman 2006 JAMA) increased mortality vs placebo — the trial was terminated early. Since then high-dose L-arginine is generally avoided in acute CVD populations.",
+      "numeric_values": [
+        {"value": 9, "unit": "g/day", "label": "L-arginine dose in VINTAGE-MI", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_blood_001",
+      "entities_mentioned": ["l_arginine"],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/202418", "org": "JAMA", "source_tier": "A", "year": 2006, "title": "L-Arginine Therapy in Acute Myocardial Infarction (VINTAGE-MI) — Schulman SP et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["อาหารเสริมที่ 'ธรรมชาติ' ไม่ได้แปลว่าปลอดภัย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เน้น setting = post-MI — ไม่ใช่ในคนสุขภาพดี. ห้าม demonize L-arginine ทั้งหมด",
+      "usage_notes": "Important counter-balance เพื่อ frame L-arginine angle อย่างปลอดภัย",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["cancer_active_treatment", "post_surgical_6_months"],
+        "drug_interactions": ["PDE5 inhibitor (hypotension)", "antihypertensive (additive BP drop)", "nitrate medications (absolute CI)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำ L-arginine ให้ผู้ป่วยหลังหัวใจวาย/stroke acute",
+          "ห้ามบอกว่า 'L-arginine = ไวอากร้าธรรมชาติ ไม่มีความเสี่ยง'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications", "chronic_disease_multimorbidity", "post_surgical_6_months"],
+        "validator_keywords_th": ["L-arginine ปลอดภัย 100%", "arginine ไม่มีผลข้างเคียง"],
+        "regulatory_risk_notes": "VINTAGE-MI trial stopped early for excess mortality — ใช้เป็นหลักฐานห้าม dose สูงในผู้ป่วย CVD; อาหารเสริม L-arginine ในไทยต้องมีคำเตือน"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_025",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "ApoB",
+      "statement_th": "Lp(a) คือ 'LDL ที่มี apolipoprotein(a) ติดอยู่' — ระดับถูกกำหนดทางพันธุกรรม ~90% และแทบไม่เปลี่ยนตามไลฟ์สไตล์; 20% ของประชากรโลกมี Lp(a) สูง (>50 mg/dL) และมีความเสี่ยง CVD เพิ่ม ~2 เท่า — ตรวจครั้งเดียวในชีวิตก็พอ",
+      "statement_en": "Lp(a) is 'an LDL particle with apolipoprotein(a) attached' — levels are ~90% genetically determined and barely change with lifestyle. ~20% of the global population has elevated Lp(a) (>50 mg/dL) with ~2-fold higher CVD risk. Lp(a) needs to be tested only once in a lifetime.",
+      "numeric_values": [
+        {"value": 90, "unit": "%", "label": "genetic determination of Lp(a)", "is_approximation": true},
+        {"value": 50, "unit": "mg/dL", "label": "elevated Lp(a) cutoff", "is_approximation": true},
+        {"value": 20, "unit": "%", "label": "population with elevated Lp(a)", "is_approximation": true},
+        {"value": 2, "unit": "fold", "label": "CVD risk increase if elevated", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_006",
+      "entities_mentioned": ["apob_100", "peter_attia", "allan_sniderman"],
+      "sources": [
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.108.776203", "org": "Circulation", "source_tier": "A", "year": 2012, "title": "Ference LDL/ApoB Mendelian randomization", "access_date": "2026-04-22"},
+        {"url": "https://peterattiamd.com", "org": "Peter Attia MD", "source_tier": "B", "year": 2023, "title": "Lp(a) overview (aggregator)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตัวเลข 1 ครั้งในชีวิต", "ความเสี่ยงที่ยีนซ่อนไว้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'lifestyle เปลี่ยน Lp(a) ได้' — เปลี่ยนน้อยมาก",
+      "usage_notes": "Educational frame before any 'ไม่รู้ทำไมหัวใจพัง' story",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า 'อาหารเสริมลด Lp(a) ได้' (niacin + PCSK9 เท่านั้นที่ลดได้)"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "blood_026",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "iron_metabolism",
+      "statement_th": "Iron bisglycinate (ferrous bisglycinate chelate) มี bioavailability สูงกว่า ferrous sulfate ~2-4 เท่า ในงานวิจัย side-by-side (Bovell-Benjamin 2000 Am J Clin Nutr) และระคายกระเพาะน้อยกว่า — ทำให้ compliance ดีขึ้นในผู้สตรีมีประจำเดือนหนัก/มังสวิรัติที่ต้องเสริมเหล็ก",
+      "statement_en": "Ferrous bisglycinate chelate shows ~2-4× higher bioavailability than ferrous sulfate in side-by-side studies (Bovell-Benjamin 2000 Am J Clin Nutr) and causes less GI irritation — improving compliance for women with heavy periods/vegetarians requiring iron supplementation.",
+      "numeric_values": [
+        {"value": "2-4", "unit": "fold", "label": "bioavailability vs ferrous sulfate", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_blood_004",
+      "entities_mentioned": ["ferritin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10919943/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 2000, "title": "Iron absorption from ferrous bisglycinate and ferric trisglycinate — Bovell-Benjamin AC et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เหล็กที่กระเพาะไม่เจ็บ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "",
+      "usage_notes": "Product angle anchor for iron bisglycinate",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["levothyroxine (4h gap)", "tetracycline/fluoroquinolone (chelation)", "PPI (reduces iron absorption over months)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'bisglycinate ปลอดภัยกับทุกคน — กินได้เรื่อย ๆ'"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["bisglycinate กินไม่จำกัด"],
+        "regulatory_risk_notes": "ยังคงต้องตรวจ ferritin ก่อนเสมอ แม้ bisglycinate จะ tolerable กว่า"
+      },
+      "harvested_by": "domain_harvester.blood",
+      "harvested_at": "2026-04-22T13:00:00"
+    }
+  ]
+}

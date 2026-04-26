@@ -1,0 +1,254 @@
+{
+  "domain_id": "heart",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 11,
+    "last_harvested": "2026-04-22"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_heart_001",
+      "label_th": "ApoB lipoprotein → subendothelial retention → foam cell → plaque",
+      "label_en": "ApoB particle retention → atherosclerosis cascade",
+      "description_th": "ApoB-containing lipoprotein (LDL/VLDL/Lp(a)) ลอดผ่าน endothelium โดยเฉพาะจุด shear stress ผิดปกติ → ติดกับ proteoglycan ใน intima → ถูก oxidize → scavenger receptor ของ macrophage (CD36, SR-A) กิน → กลายเป็น 'foam cell' → สะสมเป็น fatty streak → fibrous cap → plaque ที่พร้อม rupture ได้ทุกเมื่อ",
+      "description_en": "ApoB-containing lipoproteins (LDL, VLDL remnants, Lp(a)) cross the endothelium — preferentially at sites of disturbed shear — and are retained in the intima by proteoglycan binding. Oxidation of these particles turns macrophage scavenger receptors (CD36, SR-A) on, producing foam cells. Foam cells accumulate into fatty streaks, then fibroatheromas with a lipid/necrotic core and fibrous cap that can rupture.",
+      "chain": [
+        {"step": 1, "actor": "elevated ApoB particles", "action": "circulate and penetrate", "target": "endothelial barrier at bifurcations", "effect": "subendothelial retention"},
+        {"step": 2, "actor": "ROS in intima", "action": "oxidize", "target": "LDL → oxLDL", "effect": "creates damage-associated molecular patterns"},
+        {"step": 3, "actor": "macrophages", "action": "engulf via CD36/SR-A", "target": "oxLDL", "effect": "foam cell formation"},
+        {"step": 4, "actor": "foam cells + smooth muscle migration", "action": "form", "target": "fatty streak → fibrous cap", "effect": "atheromatous plaque established"},
+        {"step": 5, "actor": "inflammatory triggers (infection, BP spike, stress)", "action": "destabilize", "target": "thin fibrous cap", "effect": "plaque rupture → thrombus → MI/stroke"}
+      ],
+      "analogies_th": [
+        "เหมือน 'ขยะฝังในผนังท่อน้ำ' — ลูกลอยเล็กๆ ลอดผ่านรอยรั่วจนกลายเป็นตะกรันหนา",
+        "foam cell = ทหารยามที่กินขยะจนอ้วนจนระเบิดเป็นตะกอน"
+      ],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nrcardio.2009.40", "org": "Nature Reviews Cardiology", "source_tier": "A", "year": 2009, "title": "Hemodynamic shear stress and the endothelium in atherosclerotic pathogenesis — Davies PF", "access_date": "2026-04-22"},
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2749203", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Apolipoprotein B Particles and Cardiovascular Disease — Sniderman AD et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "atherosclerosis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_002",
+      "label_th": "Endothelial shear stress — laminar ปกป้อง, disturbed ทำลาย",
+      "label_en": "Laminar vs disturbed shear stress on endothelium",
+      "description_th": "ในส่วนตรงของหลอดเลือด เลือดไหลเป็น laminar flow → endothelial cell อ่านแรง shear ผ่าน PIEZO1/primary cilia → กระตุ้น KLF2/KLF4 transcription factor → eNOS สูง, anti-inflammatory; ที่ bifurcation/bend มี disturbed flow → ROS สูง, NF-κB active, VCAM-1 ขึ้น = เปิดประตูให้ LDL ลอดเข้า — จึงเห็นว่า plaque มักเกิดที่ 'โค้ง' ของ carotid, LAD, iliac",
+      "description_en": "In straight arterial segments, laminar shear stress activates mechanosensors (PIEZO1, primary cilia) in endothelial cells → KLF2/KLF4 transcription factors maintain eNOS expression, NO production, and an anti-inflammatory phenotype. At bifurcations and curves, disturbed/oscillatory flow triggers ROS, NF-κB, and adhesion molecules (VCAM-1, E-selectin), priming LDL retention and monocyte recruitment — explaining why plaques localize to specific 'bends'.",
+      "chain": [
+        {"step": 1, "actor": "laminar flow", "action": "deforms glycocalyx/PIEZO1", "target": "endothelial mechanotransduction", "effect": "KLF2/KLF4 activated"},
+        {"step": 2, "actor": "KLF2/KLF4", "action": "upregulate", "target": "eNOS + thrombomodulin", "effect": "vaso-protective phenotype"},
+        {"step": 3, "actor": "disturbed flow at bifurcation", "action": "fails to activate KLF2", "target": "endothelium at bend", "effect": "VCAM-1 + ROS rise, 'pro-inflammatory' zone"},
+        {"step": 4, "actor": "LDL/monocytes", "action": "accumulate", "target": "exactly the 'bend' zones", "effect": "plaque predilection at carotid bulb, LAD, iliac"}
+      ],
+      "analogies_th": [
+        "เหมือนน้ำในท่อ — ตรงตรงก็ใส เจอโค้งเจอบ่าก็เกิดตะกอน",
+        "หลอดเลือดเหมือนถนน — ทางตรงรถวิ่งเรียบ เจอสามแยกถึงชน"
+      ],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nrcardio.2009.40", "org": "Nature Reviews Cardiology", "source_tier": "A", "year": 2009, "title": "Hemodynamic shear stress and the endothelium — Davies PF", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "endothelial_dysfunction",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_003",
+      "label_th": "NO pathway: L-arginine → eNOS → NO → หลอดเลือดขยาย",
+      "label_en": "L-arginine → eNOS → NO → vasodilation",
+      "description_th": "eNOS ใน endothelium ใช้ L-arginine + O2 + NADPH + cofactor BH4 → NO + L-citrulline; NO แพร่เข้ากล้ามเนื้อเรียบ → activate guanylyl cyclase → cGMP สูง → PKG phosphorylate → myosin light chain phosphatase active → กล้ามเนื้อเรียบคลายตัว → หลอดเลือดขยาย; เมื่อ BH4 ถูก oxidize (diabetes, HTN, smoking) eNOS 'uncoupled' กลับผลิต superoxide แทน NO — เป็นการเปลี่ยนจากเพื่อนเป็นศัตรู",
+      "description_en": "In healthy endothelium, eNOS uses L-arginine + O2 + NADPH with BH4 cofactor to produce NO + L-citrulline. NO diffuses into vascular smooth muscle, activates soluble guanylyl cyclase → cGMP → PKG → relaxation. Under oxidative stress, BH4 is oxidized to BH2 and eNOS becomes 'uncoupled,' producing superoxide instead of NO — accelerating dysfunction.",
+      "chain": [
+        {"step": 1, "actor": "shear stress / insulin / bradykinin", "action": "activate", "target": "eNOS (phosphorylation at Ser1177)", "effect": "NO production"},
+        {"step": 2, "actor": "NO", "action": "diffuses into", "target": "vascular smooth muscle cells", "effect": "sGC → cGMP rise"},
+        {"step": 3, "actor": "cGMP/PKG", "action": "relaxes", "target": "smooth muscle actin-myosin", "effect": "vasodilation + anti-platelet effect"},
+        {"step": 4, "actor": "oxidative stress (oxLDL, AGE, smoking)", "action": "oxidizes", "target": "BH4 → BH2", "effect": "eNOS uncoupled — produces superoxide"}
+      ],
+      "analogies_th": [
+        "NO = ท่อปล่อย air ให้หลอดเลือดผ่อนคลาย — ขาดเมื่อไหร่ ท่อแข็งทันที",
+        "eNOS uncoupled = พนักงานเปลี่ยนใจจากส่งของให้ลูกค้า → ขว้างของทำลายเอง"
+      ],
+      "sources": [
+        {"url": "https://www.nobelprize.org/prizes/medicine/1998/summary/", "org": "Nobel Foundation", "source_tier": "A", "year": 1998, "title": "Nobel Prize in Physiology or Medicine 1998 — NO signaling (Furchgott, Ignarro, Murad)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "endothelial_dysfunction",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_004",
+      "label_th": "HMG-CoA reductase → cholesterol synthesis → LDL receptor → blood LDL",
+      "label_en": "Statin pathway (HMG-CoA → LDL receptor upregulation)",
+      "description_th": "ตับสร้าง cholesterol ผ่าน HMG-CoA reductase ใน mevalonate pathway; statin (atorvastatin, rosuvastatin) หรือ monacolin K (red yeast rice) ยับยั้งเอนไซม์นี้ → intracellular cholesterol ลด → SREBP2 ถูก activate → LDLR (LDL receptor) ขึ้นสูงที่ผิวตับ → ดึง LDL ในเลือดเข้าย่อย → serum LDL ลด 30-55%; side effect ของ pathway เดียวกัน: CoQ10 (ubiquinone) ถูก synthesize จาก mevalonate ด้วย จึงลดลง — อธิบายอาการกล้ามอ่อนแรงบางส่วน",
+      "description_en": "Hepatic cholesterol synthesis requires HMG-CoA reductase in the mevalonate pathway. Statins (and naturally occurring monacolin K in red yeast rice) block this enzyme, reducing intracellular cholesterol. SREBP-2 transcription activates LDL receptor expression on hepatocytes, pulling circulating LDL from blood and lowering serum LDL 30-55%. Because CoQ10 is also synthesized from mevalonate, statins can modestly deplete CoQ10 — plausibly contributing to a fraction of statin-associated muscle symptoms.",
+      "chain": [
+        {"step": 1, "actor": "statin / monacolin K", "action": "competitively inhibit", "target": "HMG-CoA reductase", "effect": "hepatic cholesterol synthesis falls"},
+        {"step": 2, "actor": "low intracellular cholesterol", "action": "activates", "target": "SREBP-2 cleavage", "effect": "LDL receptor gene transcription ↑"},
+        {"step": 3, "actor": "upregulated hepatic LDLR", "action": "binds/endocytoses", "target": "circulating LDL + IDL + VLDL remnants", "effect": "serum LDL-C/ApoB fall 30-55%"},
+        {"step": 4, "actor": "same mevalonate block", "action": "reduces", "target": "CoQ10 and dolichol synthesis", "effect": "CoQ10 depletion in mitochondria — possible contribution to myalgia"}
+      ],
+      "analogies_th": [
+        "statin = ปิดโรงงานผลิต → ตับต้องไปช็อปปิ้ง LDL จากถนน → เลือดสะอาดขึ้น",
+        "CoQ10 depletion = ผลพลอยเสียจากการปิดโรงงานเดียวกัน"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15383514/", "org": "Brown & Goldstein — Science (classic reference)", "source_tier": "A", "year": 1986, "title": "A receptor-mediated pathway for cholesterol homeostasis — Brown MS & Goldstein JL", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ApoB_LDL",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_005",
+      "label_th": "EPA high-dose → membrane stabilization + resolvins → anti-atherogenic",
+      "label_en": "High-dose EPA → resolvin pathway",
+      "description_th": "Icosapent ethyl (pure EPA, 4 g/วัน) แทรกใน phospholipid membrane → เสริม fluidity และลด arachidonic acid turnover; EPA ถูก convert เป็น resolvin E1/E2 ผ่าน 15-LOX/COX-2 → resolvin กด inflammation, เพิ่ม efferocytosis (macrophage กิน apoptotic foam cell), ลด platelet activation — REDUCE-IT ยืนยัน MACE ลด 25% แม้ LDL ไม่เปลี่ยน",
+      "description_en": "High-dose pure EPA (icosapent ethyl 4 g/day) incorporates into membrane phospholipids, tempering arachidonic acid-derived eicosanoids. EPA is metabolized by COX-2 and 15-LOX into E-series resolvins, which dampen inflammation, promote efferocytosis (clearance of apoptotic foam cells), and reduce platelet activation. REDUCE-IT (2019) demonstrated 25% MACE reduction beyond statin therapy.",
+      "chain": [
+        {"step": 1, "actor": "icosapent ethyl 4 g/day", "action": "enriches", "target": "phospholipid membrane EPA content", "effect": "fluidity ↑; AA availability ↓"},
+        {"step": 2, "actor": "COX-2 / 15-LOX", "action": "metabolize", "target": "EPA → resolvin E1/E2", "effect": "pro-resolving lipid mediators"},
+        {"step": 3, "actor": "resolvin E1/E2", "action": "stimulates", "target": "macrophage efferocytosis + suppresses NF-κB", "effect": "plaque inflammation resolved"},
+        {"step": 4, "actor": "reduced platelet TxA2", "action": "lowers", "target": "platelet aggregation", "effect": "thrombosis risk ↓"}
+      ],
+      "analogies_th": [
+        "EPA = คนเก็บขยะในเมือง plaque — มาแล้วก็ปิดไฟสงคราม",
+        "เปลี่ยนจากน้ำมันแข็ง (AA) เป็นน้ำมันลื่น (EPA) ในโครงสร้างเซลล์"
+      ],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1812792", "org": "NEJM", "source_tier": "A", "year": 2019, "title": "Cardiovascular Risk Reduction with Icosapent Ethyl for Hypertriglyceridemia — Bhatt DL et al. (REDUCE-IT)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "atherosclerosis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_006",
+      "label_th": "Vitamin K2 (MK-7) → activate MGP → ยับยั้ง vascular calcification",
+      "label_en": "Vitamin K2 → MGP activation → vascular calcification inhibition",
+      "description_th": "Matrix Gla protein (MGP) ที่หลั่งโดย vascular smooth muscle cell ต้องถูก γ-carboxylate โดยใช้ vitamin K2 เป็น cofactor จึงจะจับ Ca²⁺ ได้; ถ้า K2 ไม่พอ MGP จะอยู่ในรูปที่ไม่ active (dp-ucMGP สูง) → calcium ลงเกาะที่ผนังหลอดเลือด; Rotterdam Study (Geleijnse 2004) พบว่า K2 สูง = aortic calcification และ CHD ลดเกือบครึ่ง",
+      "description_en": "Matrix Gla protein (MGP) is secreted by vascular smooth muscle and requires γ-carboxylation (K2-dependent) to bind calcium and inhibit ectopic vascular calcification. Insufficient K2 leaves MGP as dp-ucMGP (undercarboxylated), permitting arterial calcium deposition. The Rotterdam Study (Geleijnse 2004) linked highest tertile dietary K2 intake to ~50% reduction in severe aortic calcification and CHD mortality.",
+      "chain": [
+        {"step": 1, "actor": "dietary K2 (natto, hard cheese, egg yolk)", "action": "absorbed", "target": "small intestine → liver → peripheral tissues", "effect": "K2 bioavailable at vascular level"},
+        {"step": 2, "actor": "γ-glutamyl carboxylase", "action": "carboxylates", "target": "Gla domain of MGP (with K2 as cofactor)", "effect": "active MGP"},
+        {"step": 3, "actor": "active MGP", "action": "binds + inhibits", "target": "hydroxyapatite nucleation in media", "effect": "vascular calcification suppressed"},
+        {"step": 4, "actor": "K2 deficiency", "action": "leaves", "target": "dp-ucMGP accumulating", "effect": "calcium deposits in intima + media"}
+      ],
+      "analogies_th": [
+        "K2 = 'GPS' ที่ชี้ให้แคลเซียมเข้ากระดูกไม่ใช่เข้าผนังหลอดเลือด",
+        "ขาด K2 = แคลเซียมเดินผิดซอย ไปก่อตะกรันในหลอดเลือดแทน"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15514282/", "org": "Journal of Nutrition", "source_tier": "A", "year": 2004, "title": "Dietary intake of menaquinone is associated with a reduced risk of coronary heart disease (Rotterdam Study) — Geleijnse JM et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "calcium_score",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_007",
+      "label_th": "Lp(a) — pro-atherogenic + pro-thrombotic 2-in-1",
+      "label_en": "Lp(a) dual pro-atherogenic and pro-thrombotic",
+      "description_th": "Lp(a) = LDL particle + apolipoprotein(a) เชื่อม disulfide; apo(a) มีโครงสร้างคล้าย plasminogen → แย่งที่ binding กับ fibrin → ยับยั้ง fibrinolysis → ทำให้ clot สลายช้าลง; ขณะเดียวกัน Lp(a) พกพา oxidized phospholipid มากกว่า LDL ปกติ 2-3 เท่า → atherogenic สูงกว่า; ระดับกำหนดโดยยีน LPA เกือบทั้งหมด — diet/exercise/statin แทบไม่เปลี่ยน",
+      "description_en": "Lp(a) is an LDL-like particle covalently linked to apolipoprotein(a) which structurally mimics plasminogen and competitively inhibits fibrinolysis, slowing clot breakdown. Lp(a) also carries 2-3× more oxidized phospholipids than typical LDL, amplifying atherogenicity. Plasma Lp(a) level is ~90% genetically determined by the LPA gene — essentially unmodifiable by diet, exercise, or statins (statins can mildly raise it).",
+      "chain": [
+        {"step": 1, "actor": "LPA gene genotype", "action": "determines", "target": "kringle IV-2 repeats of apo(a)", "effect": "plasma Lp(a) ~90% inherited"},
+        {"step": 2, "actor": "apo(a) kringle domains", "action": "bind", "target": "fibrin (mimic plasminogen)", "effect": "tPA-plasmin fibrinolysis blocked"},
+        {"step": 3, "actor": "Lp(a)-bound oxidized phospholipids", "action": "accumulate", "target": "aortic valve + arterial intima", "effect": "valve calcification + atherogenesis"},
+        {"step": 4, "actor": "standard therapies (diet, statin)", "action": "fail to lower", "target": "Lp(a)", "effect": "pelacarsen antisense being trialed"}
+      ],
+      "analogies_th": [
+        "Lp(a) = 'LDL version double-duty' — พกไขมันเลว + ขัดขวางร่างกายละลายลิ่ม",
+        "ยีน LPA = สัมภาระที่ติดมาตั้งแต่เกิด — test ครั้งเดียวในชีวิตก็พอ"
+      ],
+      "sources": [
+        {"url": "https://www.jacc.org/doi/10.1016/j.jacc.2016.11.042", "org": "JACC", "source_tier": "A", "year": 2017, "title": "A Test in Context: Lipoprotein(a) — Tsimikas S", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "lipoprotein_a",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_008",
+      "label_th": "Calcium score (CAC) — แคลเซียมเป็นรอยเท้าของ plaque เก่า",
+      "label_en": "CAC scoring — calcium as fossil footprint of plaque",
+      "description_th": "ในระยะ 'healing' ของ atherosclerotic plaque vascular smooth muscle cell เปลี่ยน phenotype เป็น osteoblast-like → สะสม hydroxyapatite ใน plaque; calcium ที่ CT จับได้คือ 'รอยเท้า' ของ plaque ที่เคยมี — Agatston score รวมพื้นที่ × density ใน Hounsfield units; MESA: CAC=0 ใน primary prevention ให้ 10-year event rate <1% แม้ LDL สูง (Blaha 2017)",
+      "description_en": "During plaque 'healing,' vascular smooth muscle cells transdifferentiate into osteoblast-like cells depositing hydroxyapatite within atheroma. Non-contrast CT quantifies this calcium (Agatston score = area × density in Hounsfield units). MESA data show a CAC of zero in primary prevention confers <1% 10-year ASCVD event rate, even with otherwise elevated risk factors (Blaha et al. 2017).",
+      "chain": [
+        {"step": 1, "actor": "atherosclerotic injury", "action": "triggers", "target": "VSMC trans-differentiation to osteoblast-like", "effect": "hydroxyapatite nucleation"},
+        {"step": 2, "actor": "calcium deposition", "action": "accumulates in", "target": "necrotic core of plaque", "effect": "visible on non-contrast CT"},
+        {"step": 3, "actor": "Agatston algorithm", "action": "quantifies", "target": "lesion area × density (Hounsfield)", "effect": "CAC score 0-1000+"},
+        {"step": 4, "actor": "CAC=0 result", "action": "reclassifies", "target": "patient risk downward", "effect": "'warranty period' ~10 years of low risk"}
+      ],
+      "analogies_th": [
+        "CAC = รอยเท้า plaque เก่า ที่บันทึกเอาไว้ให้เราเห็น",
+        "แคลเซียมในหลอดเลือด = ปูนที่เริ่มเคลือบรอยร้าวเก่า"
+      ],
+      "sources": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/0735109790907824", "org": "JACC (Agatston 1990)", "source_tier": "A", "year": 1990, "title": "Quantification of coronary artery calcium using ultrafast computed tomography — Agatston AS et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "calcium_score",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_009",
+      "label_th": "Inflammatory residual risk — IL-1β → IL-6 → hs-CRP → MACE",
+      "label_en": "Inflammatory axis of residual cardiovascular risk",
+      "description_th": "แม้ LDL จะต่ำแล้ว ก็ยังมี 'residual risk' จาก inflammation; plaque ปล่อย IL-1β ผ่าน NLRP3 inflammasome → IL-6 → ตับผลิต CRP + fibrinogen; CANTOS trial (Ridker 2017) ฉีด anti-IL-1β (canakinumab) ลดน้ำตาล LDL = 0 แต่ MACE ลด 15% — พิสูจน์ว่า inflammation เป็นตัวแปรที่ 'อยู่คู่' LDL",
+      "description_en": "Residual cardiovascular risk persists after LDL is well-controlled because plaque itself produces IL-1β via the NLRP3 inflammasome → IL-6 → hepatic CRP/fibrinogen. CANTOS (Ridker 2017) used anti-IL-1β antibody canakinumab with no LDL change but reduced MACE by 15%, proving the inflammatory axis is independently causal.",
+      "chain": [
+        {"step": 1, "actor": "cholesterol crystals + oxLDL", "action": "activate", "target": "NLRP3 inflammasome in macrophages", "effect": "caspase-1 cleaves pro-IL-1β → IL-1β"},
+        {"step": 2, "actor": "IL-1β + IL-6", "action": "stimulate", "target": "hepatocyte acute-phase response", "effect": "hs-CRP + fibrinogen rise"},
+        {"step": 3, "actor": "systemic inflammation", "action": "promotes", "target": "plaque instability + endothelial dysfunction", "effect": "MACE risk maintained even at low LDL"},
+        {"step": 4, "actor": "canakinumab (anti-IL-1β)", "action": "blocks", "target": "upstream of IL-6/CRP", "effect": "15% MACE reduction without LDL change (CANTOS)"}
+      ],
+      "analogies_th": [
+        "LDL = เชื้อเพลิงไฟ; inflammation = ลมที่โหม — ดับเชื้อเพลิงอย่างเดียวไม่พอ",
+        "hs-CRP = เทอร์โมมิเตอร์วัด 'อุณหภูมิของหลอดเลือด'"
+      ],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1707914", "org": "NEJM (CANTOS)", "source_tier": "A", "year": 2017, "title": "Antiinflammatory Therapy with Canakinumab for Atherosclerotic Disease — Ridker PM et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "atherosclerosis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_heart_010",
+      "label_th": "Fibrinolysis — t-PA + plasmin → ละลายลิ่มเลือด",
+      "label_en": "Fibrinolysis pathway (t-PA / plasmin)",
+      "description_th": "เมื่อหลอดเลือดได้รับบาดเจ็บ clotting cascade สร้าง fibrin clot; tPA (ปล่อยจาก endothelium) activate plasminogen → plasmin ซึ่งตัด fibrin crosslinks → D-dimer; nattokinase (serine protease จาก natto) มี fibrinolytic activity เล็กน้อยในหลอดทดลอง + บางงาน clinical ลด fibrinogen ได้; แต่ไม่ได้ทำงานเหมือน warfarin/DOAC ที่ block intrinsic/extrinsic pathway — ห้ามสลับแทนเด็ดขาด",
+      "description_en": "Upon vascular injury, the clotting cascade produces cross-linked fibrin. Endothelial tPA activates plasminogen → plasmin cleaves fibrin into D-dimer fragments. Nattokinase (Bacillus subtilis serine protease) has modest in-vitro fibrinolytic activity and some clinical evidence of reducing fibrinogen/BP; however, it does NOT act like warfarin/DOACs which block clotting factor synthesis or function. Substituting nattokinase for prescription anticoagulants is dangerous.",
+      "chain": [
+        {"step": 1, "actor": "endothelial injury", "action": "exposes", "target": "tissue factor / collagen", "effect": "coagulation cascade + thrombin + fibrin"},
+        {"step": 2, "actor": "endothelial tPA", "action": "activates", "target": "plasminogen → plasmin", "effect": "fibrin cleaved, clot lysed"},
+        {"step": 3, "actor": "nattokinase (oral)", "action": "partially degrades", "target": "fibrin + activates plasminogen in vitro", "effect": "modest systemic fibrinolytic tone"},
+        {"step": 4, "actor": "warfarin/DOAC (prescription)", "action": "blocks", "target": "vitamin K cycle / Factor Xa / thrombin", "effect": "pharmacologic anticoagulation — NOT replaceable by nattokinase"}
+      ],
+      "analogies_th": [
+        "fibrinolysis = ระบบกำจัดลิ่ม — มีในร่างกายอยู่แล้ว",
+        "nattokinase = 'คนช่วยงาน' เล็กๆ ไม่ใช่ 'ยาต้านการแข็งตัว' เต็มตัว"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/32408051/", "org": "Biomark Insights (Chen et al. review 2018)", "source_tier": "A", "year": 2018, "title": "Nattokinase: A Promising Alternative in Prevention and Treatment of Cardiovascular Diseases — Chen H et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "atherosclerosis",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_heart_011",
+      "label_th": "Insulin resistance → TG สูง + small-dense LDL + low HDL = atherogenic triad",
+      "label_en": "Insulin resistance → atherogenic dyslipidemia triad",
+      "description_th": "ภาวะดื้ออินซูลิน (visceral fat + fatty liver) → hepatic VLDL overproduction + CETP เปลี่ยน cholesterol-TG ระหว่าง lipoproteins → ผลคือ TG สูง, HDL ต่ำ, LDL มี 'particle เล็ก-หนาแน่น' (small-dense LDL, sdLDL) ที่เจาะผนังหลอดเลือดได้ง่ายกว่า — จึง ApoB สูงแม้ LDL-C อาจดู 'ปกติ' (discordance); เป็น pattern ที่คนไทย/เอเชียพบบ่อยเพราะ insulin resistance สูงโดยที่ BMI ไม่สูง",
+      "description_en": "Insulin resistance (driven by visceral adiposity and hepatic steatosis) accelerates VLDL secretion. CETP exchanges cholesterol for TG between lipoproteins, yielding the 'atherogenic triad': high TG, low HDL-C, and small-dense LDL particles that penetrate the arterial intima more readily. ApoB counts are elevated even when LDL-C appears average — a key LDL-C/ApoB discordance, particularly common in South/Southeast Asian populations at normal BMI.",
+      "chain": [
+        {"step": 1, "actor": "insulin resistance (visceral fat)", "action": "drives", "target": "hepatic VLDL overproduction", "effect": "serum TG rises"},
+        {"step": 2, "actor": "CETP", "action": "exchanges", "target": "TG→HDL/LDL, cholesterol→VLDL", "effect": "HDL falls; LDL becomes TG-enriched"},
+        {"step": 3, "actor": "hepatic lipase", "action": "hydrolyzes", "target": "TG-enriched LDL", "effect": "small-dense LDL particles formed"},
+        {"step": 4, "actor": "sdLDL", "action": "penetrates", "target": "endothelium more readily than large buoyant LDL", "effect": "high ApoB burden despite 'normal' LDL-C"}
+      ],
+      "analogies_th": [
+        "LDL-C = 'น้ำหนักรถรวม'; ApoB = 'จำนวนคันรถ' — รถเล็กหนาแน่นเจาะง่ายกว่า",
+        "ดื้ออินซูลิน = โรงงาน VLDL ผลิต overtime"
+      ],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2749203", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Apolipoprotein B Particles and Cardiovascular Disease — Sniderman AD et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ApoB_LDL",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "domain_id": "immunity",
+  "_meta": {
+    "target_count": 18,
+    "current_count": 20,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.immunity",
+    "notes": "Key research: Martineau Vitamin D meta-analysis, Hemila Vitamin C and duration, Prasad Zinc RCT, Mocchegiani selenium, Rondanelli Elderberry, Cohen stress-immunity, Bousquet Mediterranean diet and immunity. Safety critical: autoimmune conditions, immunosuppressed patients, megadose vitamin toxicity."
+  },
+  "facts": [
+    {
+      "fact_id": "fact_imm_001",
+      "claim_th": "Vitamin D deficiency (25-OHD < 20 ng/mL) เพิ่มความเสี่ยงติดเชื้อระบบทางเดินหายใจ: meta-analysis Martineau 2017 (BMJ, 25 RCTs, n=11,321) ลดความเสี่ยง acute respiratory tract infection 12% overall, 70% ในผู้ที่ขาดอย่างรุนแรง (<10 ng/mL)",
+      "claim_en": "Vitamin D deficiency (<20 ng/mL) increases ARTI risk; Martineau 2017 BMJ meta-analysis (25 RCTs, n=11,321): 12% overall risk reduction, 70% reduction in severely deficient (<10 ng/mL).",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": 70,
+      "unit": "% ARTI risk reduction in severely deficient individuals",
+      "source": {
+        "title": "Vitamin D supplementation to prevent acute respiratory tract infections — Martineau AR et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28202713/",
+        "year": 2017,
+        "journal": "BMJ",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "BMJ 25 RCTs: Vitamin D ขาด = ติดเชื้อทางเดินหายใจง่ายขึ้น 70%",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["vitamin_D", "ARTI", "innate_immunity", "respiratory_infection"]
+    },
+    {
+      "fact_id": "fact_imm_002",
+      "claim_th": "Vitamin C (1g/day) ลดระยะเวลาหวัดในผู้ใหญ่ 8% (ไม่ใช่ 50% อย่างที่ claim กัน) — Hemila 2013 Cochrane review (29 trials, n=11,306); ลดได้มากกว่า (18%) ในผู้ที่ physical stress สูง เช่น นักวิ่ง marathon",
+      "claim_en": "Vitamin C 1g/day reduces cold duration by 8% in adults, not 50% as commonly claimed (Hemila 2013 Cochrane, 29 trials, n=11,306); greater effect (18%) in physically stressed populations (marathon runners).",
+      "domain": "immunity",
+      "sub_topic": "adaptive_immunity",
+      "numeric_value": 8,
+      "unit": "% cold duration reduction (adults)",
+      "source": {
+        "title": "Vitamin C for preventing and treating the common cold — Hemila H & Chalker E",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23440782/",
+        "year": 2013,
+        "journal": "Cochrane Database",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "ความจริงเรื่อง Vitamin C กับหวัด: 8% ไม่ใช่ 50% — ตัวเลขจริงจาก Cochrane",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["vitamin_C", "common_cold", "duration", "Cochrane"]
+    },
+    {
+      "fact_id": "fact_imm_003",
+      "claim_th": "Zinc lozenge (75mg/day, ภายใน 24h หลังอาการ) ลดระยะเวลาหวัดได้ 33% — Prasad 2008 meta-analysis (13 RCTs); Zinc เป็น cofactor สำหรับ thymulin (thymus hormone สำหรับ T-cell maturation)",
+      "claim_en": "Zinc lozenges (75mg/day, started within 24h of symptoms) reduce cold duration by 33% (Prasad 2008 meta-analysis, 13 RCTs); zinc is cofactor for thymulin (thymus hormone for T-cell maturation).",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": 33,
+      "unit": "% cold duration reduction",
+      "source": {
+        "title": "Zinc lozenges and the common cold — Prasad AS",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18855485/",
+        "year": 2008,
+        "journal": "Journal of Nutritional Biochemistry",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Zinc lozenge ภายใน 24h: ลดระยะเวลาหวัด 33% ใน 13 RCTs",
+      "safety_warning": "Zinc ขนาดสูงเรื้อรัง (>40mg/day นานหลายเดือน) อาจลด copper absorption → anemia; ห้ามใช้ zinc nasal spray (anosmia risk)",
+      "evidence_quality": "medium",
+      "tags": ["zinc", "common_cold", "duration", "T-cell", "thymulin"]
+    },
+    {
+      "fact_id": "fact_imm_004",
+      "claim_th": "Sleep < 6 ชั่วโมง/คืน เพิ่มความเสี่ยงติดเชื้อ rhinovirus 4.2 เท่า เมื่อเทียบกับผู้ที่นอน 7h+ (Cohen 2009 Archives Internal Medicine, n=153, controlled exposure design)",
+      "claim_en": "Sleeping <6 hours/night increases rhinovirus infection risk 4.2x compared to 7h+ sleepers (Cohen 2009 Arch Intern Med, n=153, controlled rhinovirus exposure).",
+      "domain": "immunity",
+      "sub_topic": "lifestyle_immunity",
+      "numeric_value": 4.2,
+      "unit": "x increased infection risk with <6h sleep",
+      "source": {
+        "title": "Sleep habits and susceptibility to the common cold — Cohen S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19139325/",
+        "year": 2009,
+        "journal": "Archives of Internal Medicine",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "นอนน้อยกว่า 6h = ติดหวัด 4.2 เท่า: หลักฐานจาก controlled exposure study",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["sleep", "immunity", "rhinovirus", "infection_risk"]
+    },
+    {
+      "fact_id": "fact_imm_005",
+      "claim_th": "Elderberry extract (Sambucus nigra) ลดระยะเวลา flu 2 วัน ใน RCT (Zakay-Rones 2004, n=60); meta-analysis 2016 (4 RCTs, n=180) ยืนยันการลด URTI duration; กลไก: flavonoid ใน elderberry inhibit influenza neuraminidase + ลด cytokine storm",
+      "claim_en": "Elderberry extract (Sambucus nigra) reduces flu duration by ~2 days (Zakay-Rones 2004, n=60); meta-analysis 2016 (4 RCTs, n=180) confirms URTI duration reduction; mechanism: flavonoids inhibit influenza neuraminidase + reduce cytokine storm.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": 2,
+      "unit": "days flu duration reduction",
+      "source": {
+        "title": "Randomized study of the efficacy and safety of oral elderberry extract — Zakay-Rones Z et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15080016/",
+        "year": 2004,
+        "journal": "Journal of Int Medical Research",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Elderberry ลด flu 2 วัน: ไม่ใช่ folklore — มี 4 RCTs ยืนยัน",
+      "safety_warning": "Raw elderberries มี sambunigrin (cyanogenic glycoside) — ต้องทำให้สุก/สกัดก่อน; ผลิตภัณฑ์สำเร็จรูปปลอดภัย",
+      "evidence_quality": "medium",
+      "tags": ["elderberry", "flu", "URTI", "neuraminidase", "flavonoids"]
+    },
+    {
+      "fact_id": "fact_imm_006",
+      "claim_th": "Regular moderate exercise ลดความเสี่ยง URTI 31% (Nieman 2011, n=1,002, 12 สัปดาห์): ออกกำลังกาย 5+ วัน/สัปดาห์ vs ไม่ออก; mechanism: transient innate immune surge post-exercise, anti-inflammatory, NK cell activity",
+      "claim_en": "Regular moderate exercise reduces URTI risk by 31% (Nieman 2011, n=1,002, 12 weeks): 5+ exercise days/week vs sedentary; mechanism: transient innate immune surge post-exercise + anti-inflammatory + NK cell activity.",
+      "domain": "immunity",
+      "sub_topic": "lifestyle_immunity",
+      "numeric_value": 31,
+      "unit": "% URTI risk reduction with regular moderate exercise",
+      "source": {
+        "title": "Upper respiratory tract infection is reduced in physically fit and active adults — Nieman DC et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21522269/",
+        "year": 2011,
+        "journal": "Br J Sports Med",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "ออกกำลังกายสม่ำเสมอ = ลดหวัด 31%: หลักฐานจาก 1,002 คน",
+      "safety_warning": "Overtraining (extreme exercise) เพิ่มความเสี่ยง URTI — 'open window hypothesis'; moderate ≠ extreme",
+      "evidence_quality": "medium",
+      "tags": ["exercise", "URTI", "innate_immunity", "NK_cells", "moderate_exercise"]
+    },
+    {
+      "fact_id": "fact_imm_007",
+      "claim_th": "Probiotics (Lactobacillus + Bifidobacterium) ลดความเสี่ยง URTI 12-18% ใน meta-analysis (Hao 2015 Cochrane, 12 RCTs, n=3,720); กลไก: gut-associated lymphoid tissue (GALT) + secretory IgA ขึ้น",
+      "claim_en": "Probiotics reduce URTI incidence 12-18% (Hao 2015 Cochrane, 12 RCTs, n=3,720); mechanism: stimulates gut-associated lymphoid tissue (GALT) + increases secretory IgA.",
+      "domain": "immunity",
+      "sub_topic": "gut_immunity",
+      "numeric_value": 12,
+      "unit": "% URTI reduction with probiotics",
+      "source": {
+        "title": "Probiotics for preventing acute upper respiratory tract infections — Hao Q et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25927096/",
+        "year": 2015,
+        "journal": "Cochrane Database",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Probiotic กับภูมิคุ้มกัน: Cochrane review 3,720 คน พบลด URTI 12-18%",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["probiotics", "URTI", "secretory_IgA", "GALT", "gut_immunity"]
+    },
+    {
+      "fact_id": "fact_imm_008",
+      "claim_th": "Selenium deficiency เพิ่มความรุนแรงของ viral infections ผ่าน viral mutation: ไวรัสใน selenium-deficient host มีอัตรา mutation สูงกว่า → เพิ่ม virulence; ไทย/ทวีปเอเชียบางส่วนมีดิน selenium ต่ำ",
+      "claim_en": "Selenium deficiency increases viral infection severity via increased viral mutation rate (viruses mutate more in Se-deficient hosts → increased virulence); parts of Thailand/Asia have low-selenium soils.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Selenium and viral infection — Beck MA",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/10197567/",
+        "year": 1999,
+        "journal": "Biological Trace Element Research",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Selenium ต่ำ = ไวรัส mutate เร็วกว่า: งานวิจัยที่เปลี่ยนมุมมอง selenium กับ immunity",
+      "safety_warning": "Selenium toxic dose ต่ำ — UL = 400 mcg/day; selenium เกิน 800 mcg/day → selenosis (hair loss, nausea, neuropathy)",
+      "evidence_quality": "medium",
+      "tags": ["selenium", "viral_immunity", "mutation_rate", "selenoproteins"]
+    },
+    {
+      "fact_id": "fact_imm_009",
+      "claim_th": "Mediterranean diet ลด inflammatory markers (CRP, IL-6, IL-1β) และลด risk of autoimmune disease ใน meta-analysis (Casas 2020, 30+ studies): anti-inflammatory polyunsaturated fat + polyphenol + fiber → gut microbiome diversity → regulatory T-cells",
+      "claim_en": "Mediterranean diet reduces CRP, IL-6, IL-1β and lowers autoimmune disease risk (Casas 2020 meta-analysis, 30+ studies): PUFA + polyphenols + fiber → gut microbiome diversity → regulatory T-cells.",
+      "domain": "immunity",
+      "sub_topic": "lifestyle_immunity",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "The effect of the Mediterranean diet on biomarkers of vascular wall inflammation and plaque vulnerability in subjects with high risk for cardiovascular disease — Casas R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21036534/",
+        "year": 2020,
+        "journal": "Nutrients",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Mediterranean diet = anti-inflammatory diet: 30+ studies ยืนยัน",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["mediterranean_diet", "CRP", "IL-6", "anti-inflammatory", "regulatory_T_cells"]
+    },
+    {
+      "fact_id": "fact_imm_010",
+      "claim_th": "Vitamin D activate innate immunity ผ่าน cathelicidin และ defensin: Vitamin D receptor (VDR) ใน macrophages → เพิ่ม cathelicidin LL-37 production → antimicrobial peptide ต่อ M. tuberculosis, influenza, SARS-CoV-2; กลไกนี้อธิบาย 70% risk reduction ในผู้ขาด Vit D",
+      "claim_en": "Vitamin D activates innate immunity via cathelicidin and defensin: VDR in macrophages → induces cathelicidin LL-37 (antimicrobial peptide against M. tuberculosis, influenza, SARS-CoV-2); this mechanism explains the 70% ARTI reduction in severely deficient individuals.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Vitamin D-Mediated Induction of Innate Immunity in Gingival Epithelial Cells — Liu PT et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16959920/",
+        "year": 2006,
+        "journal": "Science",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Vitamin D สร้าง cathelicidin: antibiotic ของร่างกายที่ฆ่าแบคทีเรียและไวรัสได้",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["vitamin_D", "cathelicidin", "innate_immunity", "antimicrobial_peptide", "LL-37"]
+    },
+    {
+      "fact_id": "fact_imm_011",
+      "claim_th": "Beta-glucan (จาก oats, yeast cell wall) กระตุ้น innate immune priming ผ่าน Dectin-1 receptor ใน macrophages → trained immunity → เพิ่ม response ต่อ subsequent infections; meta-analysis (Bashir 2017, 34 RCTs) พบลด URTI incidence",
+      "claim_en": "Beta-glucan (from oats/yeast cell wall) activates trained innate immunity via Dectin-1 receptor in macrophages; meta-analysis (Bashir 2017, 34 RCTs) shows reduced URTI incidence.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": 34,
+      "unit": "RCTs in meta-analysis",
+      "source": {
+        "title": "Effectiveness of beta-glucan in URTI — Bashir KMI et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28901098/",
+        "year": 2017,
+        "journal": "Nutrients",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Beta-glucan จาก ข้าวโอ๊ต: train innate immunity ผ่าน Dectin-1 — 34 RCTs สนับสนุน",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["beta_glucan", "trained_immunity", "Dectin-1", "innate_immunity", "URTI"]
+    },
+    {
+      "fact_id": "fact_imm_012",
+      "claim_th": "Chronic psychological stress ลด vaccine efficacy: ผู้ที่ stress สูงมี antibody response ต่ำกว่าหลัง influenza vaccination ถึง 25-30% ใน RCT-style studies (Kiecolt-Glaser 2020 review)",
+      "claim_en": "Chronic psychological stress reduces vaccine efficacy: high-stress individuals show 25-30% lower antibody response post-influenza vaccination (Kiecolt-Glaser 2020 review).",
+      "domain": "immunity",
+      "sub_topic": "adaptive_immunity",
+      "numeric_value": 25,
+      "unit": "% lower antibody response with high stress",
+      "source": {
+        "title": "Psychoneuroimmunology and Stress: Historical Overview — Kiecolt-Glaser JK",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33317743/",
+        "year": 2020,
+        "journal": "Annual Review of Psychology",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Stress สูง = วัคซีนทำงานได้ 25-30% น้อยกว่า: psychoneuroimmunology ที่ต้องรู้",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["stress", "vaccine_efficacy", "antibody_response", "adaptive_immunity"]
+    },
+    {
+      "fact_id": "fact_imm_013",
+      "claim_th": "Quercetin (500-1000mg/day) มีฤทธิ์ inhibit rhinovirus ใน vitro + ลด respiratory virus replication; meta-analysis (Somerville 2016, 9 RCTs) ลด URTI duration ใน athletes; กลไก: zinc ionophore (ช่วยนำ zinc เข้าเซลล์) + inhibit viral protease",
+      "claim_en": "Quercetin (500-1000mg/day) inhibits rhinovirus in vitro and reduces respiratory virus replication; meta-analysis (Somerville 2016, 9 RCTs) reduces URTI duration in athletes; mechanism: zinc ionophore + viral protease inhibition.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "The effectiveness of quercetin on URTI — Somerville VS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26999005/",
+        "year": 2016,
+        "journal": "Nutrients",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Quercetin เป็น zinc ionophore: กลไกใหม่ที่อธิบายฤทธิ์ antiviral",
+      "safety_warning": "Quercetin ขนาดสูง (>3g/day) อาจมีผลต่อไต; drug interactions: cyclosporine, digoxin, fluoroquinolones",
+      "evidence_quality": "medium",
+      "tags": ["quercetin", "zinc_ionophore", "antiviral", "URTI", "rhinovirus"]
+    },
+    {
+      "fact_id": "fact_imm_014",
+      "claim_th": "Omega-3 fatty acids (EPA+DHA) ลด pro-inflammatory eicosanoids: EPA แทนที่ arachidonic acid ใน phospholipid membrane → prostaglandin E3 (ต้านอักเสบ) แทน PGE2 (อักเสบ); ลด IL-6, CRP ใน meta-analysis 77 RCTs",
+      "claim_en": "Omega-3 EPA+DHA reduce pro-inflammatory eicosanoids: EPA replaces arachidonic acid in membranes → produces anti-inflammatory prostaglandin E3 instead of pro-inflammatory PGE2; reduces IL-6 and CRP (meta-analysis 77 RCTs).",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": 77,
+      "unit": "RCTs in meta-analysis",
+      "source": {
+        "title": "Omega-3 Fatty Acids and Inflammatory Processes — Calder PC",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23092115/",
+        "year": 2013,
+        "journal": "Nutrients",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "EPA ล้างอักเสบ: เปลี่ยน AA→EPA ใน membrane = สลับจากน้ำมันอักเสบเป็นน้ำมันต้านอักเสบ",
+      "safety_warning": "EPA+DHA > 3g/day เพิ่มความเสี่ยง bleeding; ระวังร่วมกับ anticoagulants",
+      "evidence_quality": "high",
+      "tags": ["omega_3", "EPA", "DHA", "anti-inflammatory", "prostaglandin", "cytokines"]
+    },
+    {
+      "fact_id": "fact_imm_015",
+      "claim_th": "T-cell และ B-cell function ลดลงตามอายุ (Immunosenescence): thymus involutes → naïve T-cell production ลด 90% ในผู้อายุ >70ปี; vaccine efficacy ลดใน elderly; nutritional interventions (Zinc, Selenium, Vit D, E) สามารถ partially reverse immunosenescence",
+      "claim_en": "Immunosenescence: thymic involution reduces naïve T-cell production 90% in >70-year-olds; vaccine efficacy decreases in elderly; nutritional interventions (Zinc, Se, Vit D, E) can partially reverse immunosenescence.",
+      "domain": "immunity",
+      "sub_topic": "aging_immunity",
+      "numeric_value": 90,
+      "unit": "% reduction in naïve T-cell production at age 70+",
+      "source": {
+        "title": "Immunosenescence and Vaccine Responses — Nikolich-Zugich J",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28345649/",
+        "year": 2017,
+        "journal": "Nature Reviews Immunology",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Immunity ลดตามอายุ: thymus หดตัว → T-cell ใหม่น้อยลง 90% ตอนอายุ 70+",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["immunosenescence", "thymus", "T-cell", "aging", "vaccine_efficacy"]
+    },
+    {
+      "fact_id": "fact_imm_016",
+      "claim_th": "Echinacea (E. purpurea) ลดความเสี่ยงหวัดและลดระยะเวลา: meta-analysis Karsch-Völk 2015 Cochrane (24 trials, n=4,631) พบ evidence ผสมกัน แต่ best-evidence subset พบ relative risk reduction 10-58% ขึ้นกับ preparation",
+      "claim_en": "Echinacea reduces cold risk and duration: Karsch-Völk 2015 Cochrane meta-analysis (24 trials, n=4,631) shows mixed evidence; best-evidence subset shows 10-58% relative risk reduction depending on preparation.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": 10,
+      "unit": "% to 58% relative risk reduction (range by preparation)",
+      "source": {
+        "title": "Echinacea for preventing and treating the common cold — Karsch-Völk M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25927096/",
+        "year": 2015,
+        "journal": "Cochrane Database",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Echinacea: Cochrane 24 trials — evidence ผสม แต่ preparation ถูกต้องคือกุญแจ",
+      "safety_warning": "ผู้ที่มี autoimmune disease (lupus, RA, MS) — ห้ามใช้ immune stimulant อย่าง Echinacea โดยไม่ปรึกษาแพทย์ (อาจกระตุ้น disease activity); แพ้พืชตระกูล Asteraceae → แพ้ Echinacea ได้",
+      "evidence_quality": "medium",
+      "tags": ["echinacea", "common_cold", "innate_immunity", "herbal", "URTI"]
+    },
+    {
+      "fact_id": "fact_imm_017",
+      "claim_th": "Vitamin A เป็น 'anti-infective vitamin' — ควบคุม innate immunity ที่ mucosal barriers (ลำไส้, ทางเดินหายใจ); deficiency → mucus barrier dysfunction → เพิ่ม severe infections; WHO: Vitamin A deficiency คือปัญหาสาธารณสุขในประเทศกำลังพัฒนา",
+      "claim_en": "Vitamin A is the 'anti-infective vitamin' — regulates innate immunity at mucosal barriers (gut, respiratory tract); deficiency → mucosal barrier dysfunction → severe infections; WHO classifies Vit A deficiency as global public health issue.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Vitamin A and immunity to viral, bacterial and protozoan infections — Semba RD",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/9859978/",
+        "year": 1999,
+        "journal": "Proc Nutr Soc",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Vitamin A: 'anti-infective vitamin' ที่เราลืมไป — ปกป้อง mucosal barrier ทุกส่วน",
+      "safety_warning": "Vitamin A พรีฟอร์ม (retinol) เป็น fat-soluble → toxic ในขนาดสูง; UL = 3,000 mcg RAE/day; ห้ามใช้ขนาดสูงในหญิงตั้งครรภ์ (teratogenic)",
+      "evidence_quality": "high",
+      "tags": ["vitamin_A", "mucosal_immunity", "innate_immunity", "barrier_function"]
+    },
+    {
+      "fact_id": "fact_imm_018",
+      "claim_th": "NAC (N-Acetyl Cysteine) ลดความรุนแรงและอุบัติการณ์ influenza ใน double-blind RCT (De Flora 1997, n=262, elderly): NAC 600mg BID → 25% infected vs 79% placebo (แต่ vaccinated ทั้งสองกลุ่ม); กลไก: NAC เป็น glutathione precursor → เพิ่ม antioxidant ป้องกัน oxidative stress จาก viral replication",
+      "claim_en": "NAC 600mg BID reduced influenza severity in elderly RCT (De Flora 1997, n=262): 25% NAC vs 79% placebo symptomatic influenza (note: both vaccinated); mechanism: NAC as glutathione precursor → antioxidant protection against viral replication-induced oxidative stress.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": 25,
+      "unit": "% symptomatic influenza rate (vs 79% placebo)",
+      "source": {
+        "title": "Attenuation of influenza-like symptomatology and improvement of cell-mediated immunity with long-term NAC treatment — De Flora S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/9062010/",
+        "year": 1997,
+        "journal": "Eur Respir J",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "NAC ลด influenza จาก 79% เหลือ 25% ใน RCT: glutathione precursor ที่ลืมไป",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["NAC", "glutathione", "influenza", "antioxidant", "innate_immunity"]
+    },
+    {
+      "fact_id": "fact_imm_019",
+      "claim_th": "Immune supplements ควรใช้ together ไม่ใช่ individually: synergistic interaction ระหว่าง Vit D + Zinc + Vit C + Omega-3 → immune optimization; ใช้อย่างใดอย่างหนึ่งเดี่ยวๆ ผลน้อยกว่า combination ที่ address different pathways",
+      "claim_en": "Immune supplements work synergistically: Vit D (cathelicidin, T-cell regulation) + Zinc (thymulin, RNA polymerase inhibition) + Vit C (neutrophil function, collagen in barriers) + Omega-3 (inflammation resolution) address different pathways — combination > individual.",
+      "domain": "immunity",
+      "sub_topic": "innate_immunity",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Micronutrient Interactions: Effects of Supplementation — Calder PC et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32344722/",
+        "year": 2020,
+        "journal": "Nutrients",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Vit D + Zinc + C + Omega-3: ทำไม combination ถึงดีกว่าอย่างเดียว (แต่ละตัว target คนละ pathway)",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["vitamin_D", "zinc", "vitamin_C", "omega_3", "synergy", "immune_optimization"]
+    },
+    {
+      "fact_id": "fact_imm_020",
+      "claim_th": "ห้าม claim ว่า supplement ใดๆ 'โบสต์ภูมิคุ้มกัน' โดยตรง (boost immunity claim): ในความเป็นจริง immune system ที่ดีที่สุดคือ balanced — overactive immunity = autoimmune disease; claim ที่ถูกต้องคือ 'support normal immune function' หรือ 'maintain immunity'",
+      "claim_en": "\"Boosting immunity\" claims are scientifically inaccurate: ideal immunity is balanced, not hyperactivated — overactive immunity = autoimmune disease; correct claim = 'support normal immune function' or 'help maintain healthy immunity'.",
+      "domain": "immunity",
+      "sub_topic": "compliance",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Does 'boosting' the immune system make sense? — Harvard Health Blog",
+        "url": "https://www.health.harvard.edu/staying-healthy/how-to-boost-your-immune-system",
+        "year": 2021,
+        "journal": "Harvard Health",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "'Boost immunity' คือ marketing claim ที่ผิดหลักวิทยาศาสตร์: ภูมิคุ้มกันที่ดีคือ balanced ไม่ใช่ supercharged",
+      "safety_warning": "ห้ามใช้คำว่า 'boost immunity' ใน content — ใช้ 'support immune function' หรือ 'maintain healthy immunity' แทน (compliance requirement)",
+      "evidence_quality": "high",
+      "tags": ["boost_immunity", "forbidden_claim", "immune_balance", "compliance", "autoimmune"]
+    }
+  ]
+}

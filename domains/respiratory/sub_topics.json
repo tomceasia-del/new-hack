@@ -1,0 +1,55 @@
+{
+  "domain_id": "respiratory",
+  "sub_topics": [
+    {
+      "id": "nasal_breathing",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "CO2_tolerance",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "mast_cells",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "mucus_clearance",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "diaphragmatic_breathing",
+      "label_th": "",
+      "label_en": "",
+      "description": "",
+      "key_concepts": [],
+      "related_sub_topics": [],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    }
+  ]
+}

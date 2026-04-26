@@ -1,0 +1,114 @@
+{
+  "domain_id": "life_coaching",
+  "authoritative_sources_expected": [
+    "James Clear", "BJ Fogg", "Carol Dweck", "Daniel Kahneman", "Martin Seligman",
+    "Roy Baumeister", "Phillippa Lally", "Timothy Pychyl", "Peter Gollwitzer", "Kristin Neff"
+  ],
+  "sources": [
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/10.1002/ejsp.674",
+      "org": "European Journal of Social Psychology",
+      "tier": "A",
+      "reliability_notes": "Peer-reviewed — definitive habit formation timeline study",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10231267/",
+      "org": "Journal of Personality and Social Psychology",
+      "tier": "A",
+      "reliability_notes": "Baumeister ego depletion original paper — controversial but highly cited",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16817867/",
+      "org": "American Psychologist",
+      "tier": "A",
+      "reliability_notes": "Gollwitzer implementation intention meta-analysis — highly replicable",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://www.jstor.org/stable/1914185",
+      "org": "Econometrica",
+      "tier": "A",
+      "reliability_notes": "Kahneman & Tversky Prospect Theory — Nobel Prize basis",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11392867/",
+      "org": "Psychological Inquiry",
+      "tier": "A",
+      "reliability_notes": "Self-Determination Theory (Deci & Ryan) — robust across cultures",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1018033108",
+      "org": "PNAS",
+      "tier": "A",
+      "reliability_notes": "Danziger decision fatigue — compelling but interpretation debated",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://doi.org/10.1037/h0024514",
+      "org": "Journal of Experimental Psychology",
+      "tier": "A",
+      "reliability_notes": "Seligman learned helplessness original study",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://doi.org/10.1080/15298868.2016.1160794",
+      "org": "Self and Identity",
+      "tier": "A",
+      "reliability_notes": "Sirois & Pychyl procrastination as emotion regulation — well-replicated",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://www.science.org/doi/10.1126/science.2658056",
+      "org": "Science",
+      "tier": "A",
+      "reliability_notes": "Mischel marshmallow test — foundational; 2018 replication adds nuance",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://www.tandfonline.com/doi/abs/10.1080/0022027980300403",
+      "org": "Journal of Experimental Psychology",
+      "tier": "A",
+      "reliability_notes": "Mueller & Dweck praise type and mindset — replication mixed but directionally consistent",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25402680/",
+      "org": "Journal of Personality and Social Psychology",
+      "tier": "A",
+      "reliability_notes": "Galla & Duckworth — self-control via habits not willpower suppression",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://behaviormodel.org/",
+      "org": "Stanford Persuasive Tech Lab",
+      "tier": "B",
+      "reliability_notes": "BJ Fogg Behavior Model — practitioner framework with research basis",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://jamesclear.com/atomic-habits",
+      "org": "James Clear",
+      "tier": "B",
+      "reliability_notes": "Popularization of behavior science — not original research but excellent synthesis",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://self-compassion.org/the-research/",
+      "org": "University of Texas at Austin",
+      "tier": "B",
+      "reliability_notes": "Kristin Neff self-compassion research hub",
+      "last_accessed": "2026-04-22"
+    },
+    {
+      "url": "https://www.icf.org/about/about-icf/ethics/code-of-ethics",
+      "org": "International Coaching Federation",
+      "tier": "B",
+      "reliability_notes": "ICF Code of Ethics — scope of coaching practice",
+      "last_accessed": "2026-04-22"
+    }
+  ]
+}

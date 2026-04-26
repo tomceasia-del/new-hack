@@ -1,0 +1,122 @@
+{
+  "domain_id": "aging",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.aging"
+  },
+  "sub_topics": [
+    {
+      "id": "cellular_senescence",
+      "label_th": "เซลล์ชราภาพ (เซลล์ซอมบี้)",
+      "label_en": "Cellular Senescence",
+      "description": "เซลล์ที่หยุดแบ่งตัวถาวรแต่ 'ไม่ยอมตาย' — ปล่อย SASP (senescence-associated secretory phenotype: IL-6, IL-8, MMPs, TNF-α) ที่สร้างการอักเสบเรื้อรังและทำให้เซลล์ข้างเคียงแก่ตาม (Campisi, Buck Institute; ฟิเซทิน senolytic: Yousefzadeh 2018)",
+      "key_concepts": [
+        "senescence-associated secretory phenotype (SASP)",
+        "p16INK4a marker",
+        "p21 pathway",
+        "Hayflick limit (replicative senescence)",
+        "senolytic compounds (fisetin, dasatinib+quercetin)",
+        "zombie cells",
+        "chronic low-grade inflammation (inflammaging)",
+        "Bcl-2 family anti-apoptotic proteins"
+      ],
+      "related_sub_topics": ["telomere_shortening", "autophagy_aging", "epigenetic_clock"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "telomere_shortening",
+      "label_th": "เทโลเมียร์สั้นลงตามอายุ",
+      "label_en": "Telomere Shortening",
+      "description": "เทโลเมียร์คือปลาย DNA ที่ป้องกันการพังของโครโมโซม — ทุกครั้งที่เซลล์แบ่งตัว เทโลเมียร์จะสั้นลงประมาณ 50-200 bp (Hayflick limit ~50 ครั้ง); Elizabeth Blackburn ได้ Nobel 2009 จากการค้นพบ telomerase (TERT) ที่ต่อเทโลเมียร์; ความเครียดเรื้อรังและการอักเสบเร่งการสั้นลง",
+      "key_concepts": [
+        "Hayflick limit (1961)",
+        "telomerase / TERT enzyme",
+        "50-200 bp loss per division",
+        "stress-induced shortening (Epel 2004)",
+        "leukocyte telomere length (LTL) marker",
+        "alternative lengthening of telomeres (ALT)",
+        "telomere-to-telomere cellular crisis"
+      ],
+      "related_sub_topics": ["cellular_senescence", "epigenetic_clock"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "NAD_decline",
+      "label_th": "NAD+ ที่ลดลงตามอายุ",
+      "label_en": "NAD+ Decline with Age",
+      "description": "NAD+ (nicotinamide adenine dinucleotide) เป็นโคเอนไซม์กลางของ sirtuins, PARP, CD38 — ระดับ NAD ลดลงประมาณ 50% จากอายุ 20 ถึง 60 (Massudi 2012); CD38 (ที่เพิ่มตามอายุ) กิน NAD จนหมด; NMN/NR เป็น precursor ที่ Sinclair lab ศึกษา — Yoshino 2021 Science แสดงว่า NMN ช่วย insulin sensitivity ในหญิงวัยหลังหมดประจำเดือน",
+      "key_concepts": [
+        "NAD+ salvage pathway",
+        "NMN (nicotinamide mononucleotide) precursor",
+        "NR (nicotinamide riboside) precursor",
+        "sirtuins SIRT1-7",
+        "CD38 NAD consumer",
+        "PARP DNA repair consumer",
+        "Preiss-Handler pathway",
+        "Massudi 2012 NAD decline 50%"
+      ],
+      "related_sub_topics": ["mTOR_aging", "autophagy_aging", "cellular_senescence"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "mTOR_aging",
+      "label_th": "mTOR กับความชรา (rapamycin pathway)",
+      "label_en": "mTOR & Aging (Rapamycin Pathway)",
+      "description": "mTOR (mechanistic target of rapamycin) เป็น master growth switch — active ตอนมีสารอาหารเยอะ จะกระตุ้น anabolism และยับยั้ง autophagy; Harrison et al. NIA ITP 2009 (Nature) พิสูจน์ว่า rapamycin ยืดอายุหนู (+9% males, +14% females) — เป็นโมเลกุลแรกที่ยืดอายุเลี้ยงลูกด้วยนม; caloric restriction ลด mTOR ทำให้เกิดผลคล้ายกัน",
+      "key_concepts": [
+        "mTORC1 / mTORC2 complexes",
+        "rapamycin (prescription — sirolimus)",
+        "Harrison 2009 ITP study",
+        "caloric restriction mimetics",
+        "S6K1 downstream target",
+        "4E-BP1 downstream target",
+        "leucine sensor Sestrin2",
+        "autophagy suppression"
+      ],
+      "related_sub_topics": ["autophagy_aging", "NAD_decline"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "autophagy_aging",
+      "label_th": "ออโตฟาจีลดลงตามอายุ",
+      "label_en": "Autophagy Decline with Aging",
+      "description": "ออโตฟาจี (Ohsumi, Nobel 2016) คือกระบวนการเซลล์ 'ล้างขยะ' — กิจกรรมลดลงตามอายุ (~50% จากอายุกลางเป็นอายุมาก) ทำให้โปรตีน/ออร์แกเนลล์เสียสะสม; สารกระตุ้น autophagy เช่น spermidine (Madeo/Kroemer), rapamycin, urolithin A (mitophagy); caloric restriction และ fasting เป็นตัวกระตุ้นหลัก",
+      "key_concepts": [
+        "macroautophagy decline with age",
+        "chaperone-mediated autophagy (CMA)",
+        "mitophagy (urolithin A)",
+        "spermidine inducer",
+        "LC3-II marker",
+        "p62/SQSTM1 marker",
+        "lysosomal biogenesis TFEB",
+        "proteostasis collapse"
+      ],
+      "related_sub_topics": ["mTOR_aging", "cellular_senescence"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "epigenetic_clock",
+      "label_th": "นาฬิกา Epigenetic (อายุชีวภาพจริง)",
+      "label_en": "Epigenetic Clock (Biological Age)",
+      "description": "Horvath clock (Steve Horvath, UCLA, 2013 Genome Biology) ใช้ระดับ methylation ที่ 353 CpG sites บนจีโนมเพื่อทำนาย 'อายุชีวภาพ' แม่นยำกว่าอายุปฏิทิน — ต่อมามี GrimAge (ทำนายอัตราตาย), PhenoAge, DunedinPACE; CALERIE-2 trial (Waziry 2023) แสดงว่า 12% CR ชะลอ DunedinPACE; Sinclair OSK reprogramming (Cell 2023) reset clock ในหนู",
+      "key_concepts": [
+        "Horvath clock 2013 — 353 CpG sites",
+        "GrimAge mortality predictor",
+        "PhenoAge",
+        "DunedinPACE rate-of-aging",
+        "DNA methylation (CpG)",
+        "biological age vs chronological age",
+        "OSK (Oct4/Sox2/Klf4) reprogramming",
+        "epigenetic drift"
+      ],
+      "related_sub_topics": ["NAD_decline", "cellular_senescence", "telomere_shortening"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    }
+  ]
+}

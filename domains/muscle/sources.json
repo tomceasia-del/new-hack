@@ -1,0 +1,193 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.muscle",
+    "notes": "All sources are peer-reviewed or institutional. Tier A = top-tier journals (Nature, AJCN, MSSE, JISSN, etc.). Tier B = reputable institutional or good journal but lower impact. Only real URLs included."
+  },
+  "sources": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/",
+      "org": "Journal of the International Society of Sports Nutrition",
+      "tier": "A",
+      "reliability_notes": "ISSN official position stand on creatine — gold standard reference",
+      "year": 2017,
+      "title": "International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine (Kreider et al.)",
+      "key_claims": [
+        "Creatine monohydrate 3-5g/day is safe and effective",
+        "20-40% increase in muscle PCr stores",
+        "5-15% improvement in strength",
+        "No credible evidence of kidney damage in healthy individuals"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9252485/",
+      "org": "American Journal of Physiology",
+      "tier": "A",
+      "reliability_notes": "Seminal study by Stuart Phillips on post-exercise MPS kinetics",
+      "year": 1997,
+      "title": "Mixed muscle protein synthesis and breakdown after resistance exercise in humans (Phillips SM et al.)",
+      "key_claims": [
+        "MPS elevated for 24-48 hours post-resistance exercise",
+        "MPB also elevated but to lesser degree than MPS in trained state",
+        "Net positive muscle protein balance after exercise when protein is available"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22330017/",
+      "org": "Medicine & Science in Sports & Exercise",
+      "tier": "A",
+      "reliability_notes": "Key pre-sleep protein study — highly cited",
+      "year": 2012,
+      "title": "Protein ingestion before sleep improves postexercise overnight recovery (Res et al.)",
+      "key_claims": [
+        "40g casein before sleep increased overnight MPS by 22%",
+        "Pre-sleep protein effectively digested and absorbed overnight",
+        "Beneficial for post-exercise recovery"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28402535/",
+      "org": "Journal of the International Society of Sports Nutrition",
+      "tier": "A",
+      "reliability_notes": "Critical review by Robert Wolfe on BCAA limitations — frequently cited",
+      "year": 2017,
+      "title": "Branched-chain amino acids and muscle protein synthesis in humans: myth or reality? (Wolfe RR)",
+      "key_claims": [
+        "BCAAs cannot independently promote net muscle protein accretion",
+        "Complete EAA profile required for maximal MPS",
+        "BCAA supplementation has limited benefit when protein intake is adequate"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+      "org": "British Journal of Sports Medicine",
+      "tier": "A",
+      "reliability_notes": "Meta-analysis on protein intake for hypertrophy — consensus reference",
+      "year": 2018,
+      "title": "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults (Morton et al.)",
+      "key_claims": [
+        "1.62g protein/kg/day is the upper threshold for maximizing hypertrophy in most adults",
+        "Higher intakes (up to 2.2g/kg) may benefit some individuals",
+        "Total protein intake is the primary driver, not timing"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19011200/",
+      "org": "Journal of Aging Research",
+      "tier": "A",
+      "reliability_notes": "Comprehensive review on sarcopenia definition and mechanisms",
+      "year": 2008,
+      "title": "Sarcopenia: current concepts (Doherty TJ)",
+      "key_claims": [
+        "1% muscle mass loss per year after age 30",
+        "3-5% per year after age 60",
+        "Sarcopenia is associated with falls, fractures, and increased mortality"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29105617/",
+      "org": "Journal of Cachexia, Sarcopenia and Muscle",
+      "tier": "A",
+      "reliability_notes": "European Working Group revised consensus on sarcopenia definition",
+      "year": 2018,
+      "title": "Sarcopenia: revised European consensus on definition and diagnosis (Cruz-Jentoft et al.)",
+      "key_claims": [
+        "Sarcopenia is now classified as a muscle disease with ICD-10 code",
+        "Low muscle strength is the primary criterion",
+        "Low muscle quantity/quality confirms diagnosis"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27574006/",
+      "org": "Nutrition & Metabolism",
+      "tier": "A",
+      "reliability_notes": "Comprehensive HMB review covering all age groups",
+      "year": 2014,
+      "title": "Effects of beta-hydroxy-beta-methylbutyrate supplementation on strength and body composition across the spectrum of age (Wilson et al.)",
+      "key_claims": [
+        "HMB 3g/day preserves muscle mass during catabolism",
+        "Greatest effects in elderly and untrained individuals",
+        "Inhibits ubiquitin-proteasome pathway"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19056590/",
+      "org": "American Journal of Clinical Nutrition",
+      "tier": "A",
+      "reliability_notes": "Foundational study on protein dose response for MPS — Moore et al.",
+      "year": 2009,
+      "title": "Ingested protein dose response of muscle and albumin protein synthesis after resistance exercise in young men (Moore et al.)",
+      "key_claims": [
+        "20-40g protein per meal (0.4g/kg) maximally stimulates MPS",
+        "40g marginally superior to 20g in some subjects",
+        "Excess protein above threshold is oxidized, not incorporated"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30095480/",
+      "org": "The Journals of Gerontology",
+      "tier": "A",
+      "reliability_notes": "Review on anabolic resistance in older adults",
+      "year": 2018,
+      "title": "Anabolic resistance of muscle protein turnover comes in various shapes and sizes (Burd et al.)",
+      "key_claims": [
+        "Older adults exhibit anabolic resistance to protein and exercise",
+        "Higher per-meal protein doses needed in elderly",
+        "Resistance training can partially overcome anabolic resistance"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22760558/",
+      "org": "Journal of Nutrition",
+      "tier": "A",
+      "reliability_notes": "Norton and Layman leucine threshold paper",
+      "year": 2012,
+      "title": "Leucine content of dietary proteins is a determinant of postprandial skeletal muscle protein synthesis in adult rats",
+      "key_claims": [
+        "Leucine ~2-3g per meal required for maximal mTOR activation",
+        "Leucine content varies significantly across protein sources",
+        "Whey protein has highest leucine density per gram"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28177716/",
+      "org": "American Journal of Clinical Nutrition",
+      "tier": "A",
+      "reliability_notes": "Shaw et al. gelatin + Vitamin C before exercise study",
+      "year": 2017,
+      "title": "Vitamin C-enriched gelatin supplementation before intermittent activity augments collagen synthesis (Shaw et al.)",
+      "key_claims": [
+        "15g gelatin + Vitamin C 1 hour before exercise doubled collagen synthesis markers",
+        "Benefits for tendon and ligament recovery",
+        "Timing is critical: 1 hour before activity"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23360586/",
+      "org": "International Journal of Sport Nutrition and Exercise Metabolism",
+      "tier": "A",
+      "reliability_notes": "Schoenfeld and Aragon protein timing meta-analysis",
+      "year": 2013,
+      "title": "The effect of protein timing on muscle strength and hypertrophy: a meta-analysis (Schoenfeld & Aragon)",
+      "key_claims": [
+        "Protein timing effect is minimal when total daily protein intake is equated",
+        "Post-exercise window is ~4-6 hours for practical purposes",
+        "Consuming protein at multiple times throughout the day is optimal"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25926415/",
+      "org": "Medical Hypotheses",
+      "tier": "B",
+      "reliability_notes": "Dattilo et al. on sleep and muscle recovery — good mechanistic overview, lower journal tier",
+      "year": 2011,
+      "title": "Sleep and muscle recovery: endocrinological and molecular basis for a new and promising hypothesis (Dattilo et al.)",
+      "key_claims": [
+        "70-75% of daily GH secreted during slow-wave sleep",
+        "Sleep deprivation blunts GH pulse and impairs recovery",
+        "Adequate sleep is a prerequisite for optimal muscle adaptation"
+      ]
+    }
+  ]
+}

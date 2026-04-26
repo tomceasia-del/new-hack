@@ -1,0 +1,269 @@
+{
+  "domain_id": "supplements",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 11,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.supplements"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_supp_001",
+      "label_th": "วิตามิน D: ผิวหนัง → ตับ → ไต → ยีน 2,000+ ตัว",
+      "label_en": "Vitamin D: skin → liver → kidney → 2,000+ genes",
+      "description_th": "UVB (290-315 nm) เปลี่ยน 7-dehydrocholesterol ที่ผิวเป็น previtamin D3 → D3; ตับไฮดรอกซีเลชันเป็น 25(OH)D (รูปหลักในเลือด วัดค่าสถานะ); ไตเติม OH ที่คาร์บอน 1 ผ่าน CYP27B1 → 1,25(OH)2D — จับ VDR ใน nucleus ควบคุมการแสดงออกของยีนกว่า 2,000 ตัว (calcium, immune, muscle)",
+      "description_en": "UVB (290-315 nm) converts skin 7-dehydrocholesterol to previtamin D3 → D3; liver 25-hydroxylates to 25(OH)D (main circulating form / status marker); kidney CYP27B1 adds 1α-OH → 1,25(OH)2D (calcitriol) which binds VDR in the nucleus and regulates >2,000 genes (calcium, immune, muscle).",
+      "chain": [
+        {"step": 1, "actor": "UVB photons", "action": "cleave", "target": "7-dehydrocholesterol in skin", "effect": "pre-D3 → D3 (heat-driven isomerization)"},
+        {"step": 2, "actor": "liver CYP2R1", "action": "hydroxylates", "target": "D3 → 25(OH)D", "effect": "main circulating storage form"},
+        {"step": 3, "actor": "kidney CYP27B1", "action": "1α-hydroxylates", "target": "25(OH)D → 1,25(OH)2D", "effect": "active hormone (calcitriol)"},
+        {"step": 4, "actor": "calcitriol", "action": "binds", "target": "Vitamin D Receptor (VDR) in nucleus", "effect": "heterodimerizes with RXR"},
+        {"step": 5, "actor": "VDR-RXR complex", "action": "binds", "target": "vitamin D response elements (VDRE)", "effect": "up/down-regulates >2,000 genes"}
+      ],
+      "analogies_th": [
+        "วิตามิน D คือ 'ผู้อำนวยการโรงงาน' ที่สั่งยีนกว่า 2,000 ยีนในเซลล์",
+        "ผิว = โรงงาน, ตับ = โกดัง (25-OH), ไต = ปุ่มเปิด (active)"
+      ],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMra070553", "org": "NEJM", "source_tier": "A", "year": 2007, "title": "Vitamin D Deficiency — Holick MF", "access_date": "2026-04-22"},
+        {"url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Vitamin D — Health Professional Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "vitamin_D3",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_supp_002",
+      "label_th": "K2 'routing' แคลเซียม: ยีน Gla → กระดูก, ไม่เข้าหลอดเลือด",
+      "label_en": "K2 calcium routing — bone yes, artery no",
+      "description_th": "Vitamin K2 เป็น cofactor ของ γ-glutamyl carboxylase (GGCX) ซึ่งเพิ่มกลุ่ม COOH ให้กรดกลูตามิกใน Matrix Gla Protein (MGP) และ osteocalcin — ทำให้ MGP 'จับ' แคลเซียมออกจากผนังหลอดเลือดและ osteocalcin 'ดึง' แคลเซียมเข้ากระดูก; MK-7 ครึ่งชีวิต 72 ชม. vs MK-4 1-2 ชม. — MK-7 จึงรักษา carboxylation ได้สม่ำเสมอ",
+      "description_en": "Vitamin K2 is a cofactor for γ-glutamyl carboxylase (GGCX), which adds COOH groups to glutamate residues in Matrix Gla Protein (MGP) and osteocalcin — activated MGP sequesters calcium away from arterial walls and osteocalcin directs calcium into bone matrix; MK-7 half-life ~72 h vs MK-4 ~1-2 h, enabling steady-state carboxylation with once-daily MK-7.",
+      "chain": [
+        {"step": 1, "actor": "dietary MK-7 (natto) or MK-4", "action": "absorbs via", "target": "chylomicrons (fat-dependent)", "effect": "enters lymph → circulation"},
+        {"step": 2, "actor": "GGCX enzyme", "action": "uses K2 as cofactor to carboxylate", "target": "Glu residues → Gla in MGP/osteocalcin", "effect": "Gla proteins now bind Ca2+"},
+        {"step": 3, "actor": "active MGP", "action": "binds", "target": "arterial wall Ca2+ / hydroxyapatite crystals", "effect": "calcium kept OUT of vascular intima"},
+        {"step": 4, "actor": "active osteocalcin", "action": "deposits", "target": "Ca2+ into bone matrix", "effect": "bone mineral density supported"},
+        {"step": 5, "actor": "MK-7 long half-life", "action": "sustains", "target": "carboxylation 24h between doses", "effect": "only MK-7 (not MK-4) effective at low single dose"}
+      ],
+      "analogies_th": [
+        "K2 = 'GPS' ของแคลเซียม — บอกทิศทางว่าต้องไปกระดูก ไม่ใช่หลอดเลือด",
+        "ร่างกายมี 'ผู้ส่งของ' (แคลเซียม) แต่ไม่มี 'คนขับ' (K2) ของก็ไปผิดที่"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/17138823/", "org": "Blood (Journal)", "source_tier": "A", "year": 2007, "title": "Vitamin K-containing dietary supplements: comparison of synthetic vitamin K1 and natto-derived menaquinone-7 — Schurgers LJ et al.", "access_date": "2026-04-22"},
+        {"url": "https://lpi.oregonstate.edu/mic/vitamins/vitamin-K", "org": "Linus Pauling Institute", "source_tier": "B", "year": 2023, "title": "Vitamin K — Micronutrient Information Center", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "vitamin_K2",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_supp_003",
+      "label_th": "แมกนีเซียม: 'ผู้ช่วย' ของเอนไซม์ >300 ตัว + NMDA receptor",
+      "label_en": "Magnesium: cofactor of 300+ enzymes + NMDA gate",
+      "description_th": "Mg2+ เป็น cofactor ของ >300 เอนไซม์รวมถึง ATP synthesis (ATP ต้องอยู่ในรูป Mg-ATP), DNA polymerase, protein synthesis; ในสมอง Mg2+ อุดช่อง NMDA receptor ที่ voltage gate — ลด neuronal excitability → calming/sleep; รูปแบบ oxide ดูดซึมเพียง ~4% เพราะละลายน้ำต่ำ, chelate forms (glycinate, citrate) ดูดซึมดีกว่า 4-10 เท่า",
+      "description_en": "Mg2+ cofactors >300 enzymes including ATP synthesis (ATP functions as Mg-ATP), DNA polymerase, protein synthesis; in the brain Mg2+ plugs the NMDA receptor voltage gate — reducing neuronal excitability → calming/sleep; oxide form has ~4% bioavailability due to low solubility, whereas chelated forms (glycinate, citrate) absorb 4-10× better.",
+      "chain": [
+        {"step": 1, "actor": "dietary Mg salt", "action": "dissociates in stomach acid", "target": "Mg2+ ions", "effect": "solubility determines absorption (oxide ~4%, citrate/glycinate much higher)"},
+        {"step": 2, "actor": "Mg2+", "action": "absorbed via", "target": "TRPM6/7 channels + paracellular", "effect": "enters portal circulation"},
+        {"step": 3, "actor": "Mg-ATP complex", "action": "powers", "target": "kinases + all ATP-requiring enzymes", "effect": "systemic energy metabolism"},
+        {"step": 4, "actor": "Mg2+ in CNS", "action": "blocks", "target": "NMDA receptor pore (voltage-dependent)", "effect": "reduces glutamate excitotoxicity → sleep/calm"},
+        {"step": 5, "actor": "Mg2+ in bone", "action": "substitutes/co-deposits with", "target": "hydroxyapatite Ca2+", "effect": "bone quality; ~60% body Mg is in bone"}
+      ],
+      "analogies_th": [
+        "แมกนีเซียมเป็น 'ผู้ช่วย' ของเอนไซม์กว่า 300 ตัว — ขาดตัวนี้เอนไซม์ไม่ทำงาน",
+        "oxide = ก้อนหิน, glycinate = ก้อนหินที่เคลือบกระดาษห่อให้เซลล์รับ"
+      ],
+      "sources": [
+        {"url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Magnesium — Health Professional Fact Sheet", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11794633/", "org": "Magnes Res / PubMed", "source_tier": "A", "year": 2001, "title": "Bioavailability of US commercial magnesium preparations — Firoz M & Graber M", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "magnesium_forms",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_supp_004",
+      "label_th": "Zn → metallothionein → Cu ถูกดัก → โลหิตจาง + neuropathy",
+      "label_en": "Zn → metallothionein → Cu trapping → anemia + neuropathy",
+      "description_th": "การกิน Zn >50 mg/day เรื้อรัง → ลำไส้ตอบสนองด้วยการเพิ่ม metallothionein (MT) → MT จับ Cu มากกว่า Zn → Cu ติดอยู่ใน enterocyte แล้วหลุดออกเมื่อเซลล์ลอก → Cu ขาดในระบบ → ceruloplasmin ต่ำ → iron utilization บกพร่อง → sideroblastic anemia + demyelinating myeloneuropathy (case reports: denture-cream zinc overuse)",
+      "description_en": "Chronic Zn intake >50 mg/day induces enterocyte metallothionein (MT) → MT binds Cu with higher affinity than Zn → Cu is trapped in intestinal cells and shed when cells slough → systemic Cu deficiency → low ceruloplasmin → iron utilization impaired → sideroblastic anemia + demyelinating myeloneuropathy (well-documented in denture-cream zinc-overuse cases).",
+      "chain": [
+        {"step": 1, "actor": "high-dose Zn (>50 mg/d chronic)", "action": "induces", "target": "metallothionein (MT) in enterocytes", "effect": "MT upregulated"},
+        {"step": 2, "actor": "MT", "action": "preferentially binds", "target": "Cu > Zn (higher affinity)", "effect": "Cu trapped intracellularly"},
+        {"step": 3, "actor": "enterocyte turnover (~3-5 d)", "action": "sheds", "target": "Cu-loaded cells into lumen", "effect": "Cu excreted in stool"},
+        {"step": 4, "actor": "Cu deficiency", "action": "lowers", "target": "ceruloplasmin (ferroxidase)", "effect": "Fe2+ cannot be oxidized to Fe3+ for transferrin → anemia"},
+        {"step": 5, "actor": "chronic Cu deficit", "action": "damages", "target": "myelin synthesis (lysyl oxidase-dependent)", "effect": "peripheral neuropathy + myelopathy"}
+      ],
+      "analogies_th": [
+        "Zn เยอะเกิน = 'นักบอดี้การ์ด' (MT) ดักจับทั้ง Zn และ Cu — แต่ดัก Cu แรงกว่า",
+        "เหมือนรับสมัครพนักงานใหม่เยอะเกินจนคนเก่า (Cu) ไม่มีที่ยืน"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/2407097/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 1990, "title": "Zinc toxicity — Fosmire GJ", "access_date": "2026-04-22"},
+        {"url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Zinc — Health Professional Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "zinc_copper_ratio",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_supp_005",
+      "label_th": "B12 → Methylation Cycle → SAMe (สมอง, DNA, ไมอีลิน)",
+      "label_en": "B12 → methylation cycle → SAMe",
+      "description_th": "Methylcobalamin (MeCbl) เป็น cofactor ของ methionine synthase ซึ่งแปลง homocysteine + 5-MTHF → methionine (กำจัด HCy); methionine → SAMe (ตัวให้เมทิลสากล) — ใช้ methylate DNA, neurotransmitters, phospholipid (myelin); adenosylcobalamin (AdoCbl) ทำใน mitochondria แปลง methylmalonyl-CoA → succinyl-CoA — ขาด → MMA สูง (sensitive marker)",
+      "description_en": "Methylcobalamin cofactors methionine synthase converting homocysteine + 5-MTHF → methionine (eliminates HCy); methionine → SAMe (universal methyl donor) methylating DNA, neurotransmitters, phospholipids (myelin); adenosylcobalamin mitochondrial reaction converts methylmalonyl-CoA → succinyl-CoA — deficiency elevates MMA (sensitive biomarker).",
+      "chain": [
+        {"step": 1, "actor": "dietary B12 (or supplement)", "action": "binds", "target": "intrinsic factor (stomach)", "effect": "absorbed in terminal ileum via cubilin"},
+        {"step": 2, "actor": "MeCbl in cytosol", "action": "cofactors", "target": "methionine synthase", "effect": "homocysteine + 5-MTHF → methionine + THF"},
+        {"step": 3, "actor": "methionine + ATP", "action": "→ S-adenosylmethionine", "target": "cytosolic SAMe pool", "effect": "universal methyl donor to >100 methyltransferases"},
+        {"step": 4, "actor": "AdoCbl in mitochondria", "action": "cofactors", "target": "methylmalonyl-CoA mutase", "effect": "MM-CoA → succinyl-CoA → TCA cycle"},
+        {"step": 5, "actor": "B12 deficiency", "action": "blocks", "target": "both reactions", "effect": "homocysteine + MMA rise → anemia + neuropathy"}
+      ],
+      "analogies_th": [
+        "B12 = 'หัวใจ' ของ methylation cycle — ถ้าขาด methylation รวนทั้งระบบ (DNA, เซลล์ประสาท, ผิว)",
+        "MMA เป็น 'ไฟเตือน' เปิดเมื่อ B12 ต่ำก่อนเลือดจะแสดงอาการ"
+      ],
+      "sources": [
+        {"url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Vitamin B12 — Health Professional Fact Sheet", "access_date": "2026-04-22"},
+        {"url": "https://lpi.oregonstate.edu/mic/vitamins/vitamin-B12", "org": "Linus Pauling Institute", "source_tier": "B", "year": 2023, "title": "Vitamin B12 — Micronutrient Information Center", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "B12_methyl",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_supp_006",
+      "label_th": "Omega-3 EPA/DHA → SPMs (resolvins) → ดับการอักเสบ",
+      "label_en": "Omega-3 → SPMs (resolvins) → inflammation resolution",
+      "description_th": "EPA/DHA ถูกนำเข้าใน cell membrane phospholipids แทนที่ arachidonic acid (omega-6); เมื่อเซลล์อักเสบ phospholipase A2 ปลด EPA/DHA → COX-2/LOX แปลงเป็น specialized pro-resolving mediators (SPMs): E-series resolvins (จาก EPA), D-series resolvins, protectins, maresins (จาก DHA) — SPMs ไม่ใช่แค่ยับยั้งการอักเสบ แต่ 'actively resolve' ให้กลับ homeostasis",
+      "description_en": "EPA/DHA are incorporated into cell membrane phospholipids, partially displacing arachidonic acid (omega-6); upon inflammatory stimulus, phospholipase A2 releases EPA/DHA → COX-2/LOX enzymes convert them into Specialized Pro-resolving Mediators (SPMs): E-series resolvins (from EPA), D-series resolvins, protectins, maresins (from DHA) — SPMs don't just suppress inflammation but actively drive resolution back to homeostasis.",
+      "chain": [
+        {"step": 1, "actor": "dietary EPA/DHA (rTG form preferred)", "action": "incorporates into", "target": "cell membrane phospholipids (over weeks)", "effect": "membrane composition shifts n-6 → n-3"},
+        {"step": 2, "actor": "inflammatory signal", "action": "activates", "target": "PLA2", "effect": "releases EPA/DHA from membrane"},
+        {"step": 3, "actor": "COX-2 + LOX-5/15", "action": "oxygenate", "target": "EPA → E-resolvins; DHA → D-resolvins/protectins/maresins", "effect": "SPM synthesis"},
+        {"step": 4, "actor": "SPMs", "action": "bind", "target": "ChemR23, ALX/FPR2, GPR32 receptors", "effect": "decrease neutrophil infiltration, increase macrophage efferocytosis"},
+        {"step": 5, "actor": "active resolution", "action": "restores", "target": "tissue homeostasis", "effect": "inflammation ends, not just suppressed"}
+      ],
+      "analogies_th": [
+        "Omega-3 = 'หน่วยดับเพลิง' ของร่างกาย — ไม่ใช่แค่ห้ามไฟ แต่มาเก็บซากหลังไฟดับ",
+        "เมมเบรนของเซลล์ = 'บุฟเฟ่ต์' ของเอนไซม์อักเสบ — ถ้าบุฟเฟ่ต์เป็น omega-6 ล้วน = อักเสบเรื้อรัง"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24482663/", "org": "J Clin Invest / PubMed", "source_tier": "A", "year": 2018, "title": "Specialized pro-resolving mediators in inflammation — Serhan CN et al.", "access_date": "2026-04-22"},
+        {"url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Omega-3 Fatty Acids — Health Professional Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "omega_3_EPA_DHA",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_supp_007",
+      "label_th": "TG vs EE fish oil — ดูดซึมต่างกัน 2.5 เท่า",
+      "label_en": "TG vs EE fish oil — 2.5× absorption gap",
+      "description_th": "Triglyceride-form (rTG/TG) fish oil มีกรดไขมัน 3 ตัวติดกับ glycerol backbone — lipase ตัดง่าย → FA + monoglyceride ดูดซึมพร้อมกัน; Ethyl Ester (EE) form FA ติดกับ ethanol — lipase ย่อยช้ากว่า + ไม่มี monoglyceride ช่วย emulsify → ต้องกินคู่ไขมันเพื่อให้ bile มา emulsify; Dyerberg 2010 พบ TG absorption ~70% vs EE ~27% ใน 2 สัปดาห์",
+      "description_en": "Triglyceride-form (rTG/TG) fish oil has 3 fatty acids on a glycerol backbone — pancreatic lipase cleaves easily → FA + monoglyceride absorbed together; Ethyl Ester (EE) has FA bound to ethanol — lipase is slower and lacks monoglyceride co-emulsifier → requires a fat meal for bile emulsification; Dyerberg 2010 measured TG absorption ~70% vs EE ~27% over 2 weeks.",
+      "chain": [
+        {"step": 1, "actor": "TG fish oil + bile", "action": "emulsified by", "target": "bile salts", "effect": "micelles form readily"},
+        {"step": 2, "actor": "pancreatic lipase", "action": "hydrolyzes", "target": "TG → 2 FA + monoglyceride", "effect": "monoglyceride co-emulsifies remaining FA"},
+        {"step": 3, "actor": "enterocyte", "action": "absorbs", "target": "FA + 2-MG", "effect": "reassembled to TG → chylomicrons"},
+        {"step": 4, "actor": "EE fish oil", "action": "requires", "target": "carboxyl ester lipase (slower)", "effect": "FA + ethanol released; no MG co-emulsifier"},
+        {"step": 5, "actor": "low-fat meal", "action": "limits", "target": "bile release", "effect": "EE absorption drops further (~3-5× gap reported)"}
+      ],
+      "analogies_th": [
+        "TG = 'ของที่แกะง่าย' เอนไซม์ลำไส้แกะปุ๊บดูดซึม; EE = 'ของในพลาสติก' ต้องใช้แรงงานเยอะ",
+        "กิน EE ตอนท้องว่าง = เหมือนดื่มน้ำมันลงไป (แต่ไม่ดูดซึม)"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20638827/", "org": "Prostaglandins Leukot Essent Fatty Acids / PubMed", "source_tier": "A", "year": 2010, "title": "Bioavailability of marine n-3 fatty acid formulations — Dyerberg J et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "omega_3_EPA_DHA",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_supp_008",
+      "label_th": "Fat-soluble vitamins (ADEK) — bile + chylomicron pathway",
+      "label_en": "Fat-soluble vitamins (ADEK) — bile + chylomicron",
+      "description_th": "วิตามิน A, D, E, K กินแบบ pill ถ้าไม่มีไขมันในมื้อ → bile ปล่อยน้อย → ไม่ mellsify → ดูดซึมต่ำมาก; มีไขมัน ~5-10 g → bile salts ละลาย → micelle → enterocyte → packed เป็น chylomicron → lymph → circulation; การศึกษา (Mulligan 2010) พบการดูดซึม D3 เพิ่มขึ้น ~32-50% เมื่อกินคู่มื้อใหญ่ที่สุดของวัน",
+      "description_en": "Vitamins A, D, E, K taken as a pill without dietary fat → minimal bile release → poor micellization → very low absorption; with ~5-10 g fat in the meal → bile salts → micelles → enterocyte → packaged into chylomicrons → lymph → circulation; Mulligan & Licata 2010 showed ~32-50% greater 25(OH)D rise when D3 was taken with the largest meal of the day.",
+      "chain": [
+        {"step": 1, "actor": "ADEK vitamin (or carotenoid)", "action": "enters", "target": "duodenum with/without fat", "effect": "fate determined by bile availability"},
+        {"step": 2, "actor": "dietary fat", "action": "triggers", "target": "CCK release", "effect": "bile + pancreatic lipase released"},
+        {"step": 3, "actor": "bile salts + MG + FA", "action": "form", "target": "mixed micelles", "effect": "ADEK vitamin solubilized in micelle core"},
+        {"step": 4, "actor": "enterocyte", "action": "absorbs micelle contents", "target": "vitamin + FA", "effect": "re-esterification; packaged in chylomicron"},
+        {"step": 5, "actor": "chylomicron", "action": "travels via", "target": "lacteals → thoracic duct → blood", "effect": "vitamin delivered to tissues"}
+      ],
+      "analogies_th": [
+        "ADEK = 'แขกที่มาพร้อมรถส่ง' — ไม่มีไขมัน = ไม่มีรถ = ไม่ถึงที่หมาย",
+        "กินวิตามิน D ตอนท้องว่าง = ทิ้งเงินทิ้ง เพราะดูดซึมได้แค่เศษเสี้ยว"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20200983/", "org": "J Bone Miner Res / PubMed", "source_tier": "A", "year": 2010, "title": "Taking vitamin D with the largest meal improves absorption — Mulligan GB, Licata A", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "vitamin_absorption_timing",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_supp_009",
+      "label_th": "Iron bisglycinate — by-pass hepcidin block & GI irritation",
+      "label_en": "Iron bisglycinate — bypass hepcidin & GI irritation",
+      "description_th": "Fe(II) sulfate ปกติปล่อย Fe2+ อิสระในลำไส้ → สร้าง ROS → ระคายเยื่อบุ (ท้องอืด คลื่นไส้) + ดูดซึมผ่าน DMT1 ที่ถูก hepcidin down-regulate; Fe bisglycinate (Fe จับกับ glycine 2 ตัว) คงสภาพ chelate จนเข้าเซลล์ → bypass DMT1 บางส่วน + ปลดปล่อย Fe ในเซลล์ → side effect น้อย (Bovell-Benjamin 2000) + absorption เทียบเท่าหรือดีกว่าในบางการศึกษา",
+      "description_en": "Ferrous sulfate releases free Fe2+ in the gut lumen → generates ROS → irritates mucosa (bloating, nausea) + absorbed via DMT1 which is down-regulated by hepcidin; Fe bisglycinate (Fe chelated to 2 glycines) remains chelated until intracellular entry → partial bypass of DMT1 + Fe released inside the enterocyte → fewer side effects (Bovell-Benjamin 2000) + equivalent or better absorption in several studies.",
+      "chain": [
+        {"step": 1, "actor": "FeSO4", "action": "dissociates", "target": "Fe2+ in gut lumen", "effect": "Fe2+ reacts with O2 → ROS → mucosal irritation"},
+        {"step": 2, "actor": "hepcidin (elevated in inflammation)", "action": "degrades", "target": "ferroportin", "effect": "Fe exit from enterocyte blocked"},
+        {"step": 3, "actor": "Fe bisglycinate", "action": "stays chelated through", "target": "lumen + brush border", "effect": "minimal free Fe2+ → less ROS"},
+        {"step": 4, "actor": "bisglycinate", "action": "may enter via", "target": "peptide transporter (PEPT1) partial route", "effect": "partial DMT1 bypass"},
+        {"step": 5, "actor": "intracellular release", "action": "frees", "target": "Fe for ferritin storage / export", "effect": "GI tolerance better at equivalent bioavailability"}
+      ],
+      "analogies_th": [
+        "FeSO4 = 'เหล็กเปลือย' ทำให้เยื่อบุลำไส้ไหม้ — bisglycinate = 'เหล็กห่อไหม' เข้าเซลล์แล้วค่อยแกะ"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11029276/", "org": "Nutrition / PubMed", "source_tier": "A", "year": 2000, "title": "Iron absorption from ferrous bisglycinate and ferric trisglycinate in whole maize is regulated by iron status — Bovell-Benjamin AC et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "multivitamin_basic",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_supp_010",
+      "label_th": "Liposomal vitamin C — phospholipid bilayer protects ascorbate",
+      "label_en": "Liposomal vitamin C — PC bilayer protects ascorbate",
+      "description_th": "Vitamin C ปกติดูดซึมผ่าน SVCT1 transporter ใน ileum ที่ saturate ประมาณ 200-400 mg/dose — เกินนั้นขับออกทางปัสสาวะ; liposomal (ห่อด้วย phosphatidylcholine bilayer) เลี่ยง SVCT1 saturation บางส่วน + ป้องกัน oxidation ในลำไส้ → plasma AUC สูงกว่า ~1.77 เท่าที่ dose 4g (Davis 2016) — แต่ข้อมูลยังจำกัด",
+      "description_en": "Normal vitamin C is absorbed via SVCT1 transporter in the ileum which saturates at ~200-400 mg/dose — excess is excreted in urine; liposomal forms (encapsulated in phosphatidylcholine bilayer) partially bypass SVCT1 saturation + protect ascorbate from gut oxidation → plasma AUC ~1.77× higher at 4 g dose (Davis 2016) — though data remain limited.",
+      "chain": [
+        {"step": 1, "actor": "regular ascorbate", "action": "absorbs via", "target": "SVCT1 (saturable)", "effect": "uptake plateaus above ~400 mg/dose"},
+        {"step": 2, "actor": "excess oral dose", "action": "causes", "target": "osmotic diarrhea (bowel tolerance)", "effect": "dose-limiting"},
+        {"step": 3, "actor": "liposomal PC bilayer", "action": "encapsulates", "target": "ascorbate in hydrophilic core", "effect": "protects from oxidation + enables passive fusion/uptake"},
+        {"step": 4, "actor": "liposome", "action": "merges with", "target": "enterocyte membrane / lymphatic uptake", "effect": "partial SVCT1 bypass"},
+        {"step": 5, "actor": "plasma ascorbate AUC", "action": "increases", "target": "~1.77× at 4g (Davis 2016)", "effect": "sustained higher plasma level vs same oral dose"}
+      ],
+      "analogies_th": [
+        "Liposomal = 'กล่องของขวัญ' ห่อ vitamin C ให้ไม่พังในลำไส้",
+        "ปกติกิน C 2,000 mg = ส่วนใหญ่กลายเป็นฉี่ราคาแพง"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27915091/", "org": "Nutr Metab Insights / PubMed", "source_tier": "A", "year": 2016, "title": "Liposomal-encapsulated ascorbic acid: influence on vitamin C bioavailability and capacity to protect against ischemia-reperfusion injury — Davis JL et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "vitamin_absorption_timing",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_supp_011",
+      "label_th": "Thai latitude paradox — แดดเยอะ แต่ D ยังขาด",
+      "label_en": "Thai latitude paradox — sunny but still D-deficient",
+      "description_th": "ผิวคนเอเชีย/ผิวคล้ำมี melanin สูง → UVB filter 2-6 เท่าของผิวขาว; เมือง (กรุงเทพ) = อยู่ในอาคาร 90%+, ใช้ SPF 30+ (ตัด UVB >96%); แม้ละติจูด 13-15°N จะมี UVB ตลอดปี การสัมผัสแดดจริงต่ำจน 45% ของผู้ใหญ่ไทยมี 25(OH)D <30 ng/mL (Chailurkit 2011)",
+      "description_en": "Asian/darker skin has more melanin → UVB filtered 2-6× more than fair skin; urban Bangkokians spend >90% of day indoors, use SPF 30+ (blocks >96% UVB); despite latitude 13-15°N with year-round UVB, actual sun exposure is so low that 45% of Thai adults have 25(OH)D <30 ng/mL (Chailurkit 2011).",
+      "chain": [
+        {"step": 1, "actor": "UVB (290-315 nm)", "action": "requires", "target": "solar zenith angle <45°", "effect": "Thailand has this year-round"},
+        {"step": 2, "actor": "melanin (Fitzpatrick III-V skin)", "action": "absorbs", "target": "UVB", "effect": "2-6× longer exposure needed vs type I-II"},
+        {"step": 3, "actor": "SPF 30+ sunscreen", "action": "blocks", "target": ">96% UVB", "effect": "near-total block of D synthesis"},
+        {"step": 4, "actor": "urban indoor lifestyle", "action": "limits", "target": "skin exposure", "effect": "<15 min midday sun/day typical"},
+        {"step": 5, "actor": "net effect", "action": "produces", "target": "population 25(OH)D median ~25 ng/mL", "effect": "45% <30, 5.7% <20 ng/mL deficient"}
+      ],
+      "analogies_th": [
+        "ไทยแดดแรง แต่คนไทยแดดน้อย — เหมือนอยู่ข้างบึงแต่ตายเพราะกระหายน้ำ",
+        "ครีมกันแดด SPF 30 = ปิดโรงงานผลิต D ไป 96%"
+      ],
+      "sources": [
+        {"url": "https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-11-853", "org": "BMC Public Health", "source_tier": "A", "year": 2011, "title": "Regional variation and determinants of vitamin D status in sunshine-abundant Thailand — Chailurkit LO, Aekplakorn W, Ongphiphadhanakul B", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "deficiency_prevalence_thailand",
+      "confidence": "high"
+    }
+  ]
+}

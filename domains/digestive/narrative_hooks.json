@@ -1,0 +1,91 @@
+{
+  "domain_id": "digestive",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "notes": "Hook templates aligned with UncleD's hook_primitives.json patterns + anchored to digestive tier-A facts. Each template deployable with fact_id substitution."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_dig_001_worlds_record",
+      "style": "awe",
+      "pattern_th": "คุณรู้มั้ยว่าในพุงของคุณมีสิ่งมีชีวิตอยู่ __X__ ล้านล้านตัว — หนักรวมกันประมาณ __Y__ กิโล?",
+      "example_th": "คุณรู้มั้ยว่าในพุงของคุณมีแบคทีเรียอยู่ประมาณ 38 ล้านล้านตัว — หนักรวมกัน 1.5-2 กิโล เท่ากับสมองของคุณเลย? มันคือ 'อวัยวะที่ 2' ที่คนส่วนใหญ่ไม่เคยดูแล",
+      "facts_used": ["dig_008"],
+      "effectiveness_notes": "Hook 'ที่สุดในโลก/ตัวเลขมหาศาล' เป็น pattern ทอง — UncleD ใช้ได้ดีใน 3-sec retention; เปิดคลิปแรกของ thread ดีมาก"
+    },
+    {
+      "template_id": "hook_dig_002_myth_flip",
+      "style": "insult_reality",
+      "pattern_th": "คนส่วนใหญ่คิดว่า __X__ แต่ความจริงคือ __Y__",
+      "example_th": "คนส่วนใหญ่คิดว่าแผลในกระเพาะเกิดจากเครียดและกินเผ็ด — แต่ความจริงคือมันเกิดจากแบคทีเรียตัวหนึ่งชื่อ H. pylori! หมอ Barry Marshall ดื่มเชื้อเข้าไปเองเพื่อพิสูจน์ จนได้โนเบล 2005",
+      "facts_used": ["dig_009"],
+      "effectiveness_notes": "Myth-flip + historic drama — Marshall self-inoculation เป็นเรื่องเล่าสุด iconic ที่ viewer ไทยส่วนใหญ่ไม่รู้"
+    },
+    {
+      "template_id": "hook_dig_003_body_is_smart",
+      "style": "awe",
+      "pattern_th": "ร่างกายคุณฉลาดกว่าที่คิด — เซลล์ลำไส้ใหญ่ใช้พลังงาน __X__% จาก __Y__ ไม่ใช่จากเลือด",
+      "example_th": "ร่างกายคุณฉลาดกว่าที่คิด — เซลล์ในลำไส้ใหญ่ใช้พลังงานถึง 70% จากสารที่แบคทีเรียดีในพุงคุณผลิตให้ ชื่อ butyrate — ถ้าไม่กินไฟเบอร์ แบคทีเรียอดตาย = เซลล์ลำไส้คุณก็อดตาย",
+      "facts_used": ["dig_006"],
+      "effectiveness_notes": "Awe + symbiotic framing — ทำให้ viewer รู้สึกลำไส้กับจุลินทรีย์คือ 'ทีมเดียวกัน'"
+    },
+    {
+      "template_id": "hook_dig_004_number_shock",
+      "style": "shock",
+      "pattern_th": "งานวิจัย __X__ ศึกษาคน __Y__ คนแล้วพบว่า __Z__",
+      "example_th": "งานวิจัย ZOE PREDICT 2 ที่ Nature Medicine 2021 ศึกษาคน 1,098 คนแล้วพบว่า คนสองคนกินอาหารเหมือนกันเป๊ะ น้ำตาลในเลือดขึ้นต่างกันได้ถึง 10 เท่า — ตัวกำหนดคือจุลินทรีย์ในพุงของเราต่างกัน",
+      "facts_used": ["dig_001"],
+      "effectiveness_notes": "Numeric shock + personalisation angle — ตัวเลข 1,098 เจาะจง ทำให้ฟังน่าเชื่อ"
+    },
+    {
+      "template_id": "hook_dig_005_pain_recognition",
+      "style": "pain",
+      "pattern_th": "ถ้าคุณ __X__ แต่ยังไม่ดีขึ้น นั่นไม่ใช่เพราะคุณอ่อนแอ — มันคือ __Y__",
+      "example_th": "ถ้าคุณกินยาลดกรดมา 3 ปี แต่กรดไหลย้อนยังกำเริบ — นั่นไม่ใช่เพราะยาคุณคุณภาพต่ำ มันคือ GERD ส่วนใหญ่ไม่ได้เกิดจากกรดเกิน แต่เกิดจากกล้ามเนื้อปากกระเพาะหย่อน PPI ลดกรดแต่ไม่ได้ซ่อม sphincter",
+      "facts_used": ["dig_018"],
+      "effectiveness_notes": "Pain-recognition + mechanism reframe — ตรง pain point ของกลุ่มอายุ 40+ ที่กิน PPI ยาว"
+    },
+    {
+      "template_id": "hook_dig_006_curiosity_gap",
+      "style": "curiosity",
+      "pattern_th": "มีโปรตีนตัวหนึ่งชื่อ __X__ ที่เปิด-ปิด 'ประตู' ของลำไส้คุณได้ — และเกือบทุกคนไม่รู้ว่ามันมีจริง",
+      "example_th": "มีโปรตีนตัวหนึ่งชื่อ zonulin ที่เปิด-ปิด 'ประตูระหว่างเซลล์' ในลำไส้ได้ — ถ้าเปิดนานเกินไป ของที่ไม่ควรเข้าเลือดก็เข้าได้ หมอ Alessio Fasano ค้นพบมันปี 2000 และคนไทยเรียกว่า 'ลำไส้รั่ว'",
+      "facts_used": ["dig_004"],
+      "effectiveness_notes": "Curiosity gap + entity-naming — ปกปิดคำว่า zonulin จนถึงวินาทีเปิด"
+    },
+    {
+      "template_id": "hook_dig_007_historic_framing",
+      "style": "awe",
+      "pattern_th": "ในปี __X__ นักวิทยาศาสตร์คนหนึ่งทำเรื่องบ้าที่สุด — เขา __Y__",
+      "example_th": "ในปี 1984 หมอชาวออสเตรเลีย Barry Marshall ดื่มน้ำที่มีเชื้อแบคทีเรียในกระเพาะเข้าไปเอง — เพื่อพิสูจน์ว่าเชื้อนี้ทำให้เป็นแผลในกระเพาะ ไม่ใช่ความเครียด; 21 ปีต่อมา เขาได้โนเบลสาขาการแพทย์",
+      "facts_used": ["dig_009"],
+      "effectiveness_notes": "Historic framing + personal sacrifice — storytelling arc ที่แข็งแรง, ใช้ใน long-form ดีมาก"
+    },
+    {
+      "template_id": "hook_dig_008_counterintuitive",
+      "style": "curiosity",
+      "pattern_th": "แปลกไหม — __X__ ที่ดูเหมือนของเสีย จริง ๆ แล้วคือ __Y__",
+      "example_th": "แปลกไหม — ขี้ของคุณจริง ๆ แล้วเป็น 60% แบคทีเรีย ไม่ใช่เศษอาหาร และรูปของมันบอกสุขภาพลำไส้คุณได้ตามมาตรฐาน Bristol Stool Scale ที่หมออังกฤษสร้างไว้ปี 1997",
+      "facts_used": ["dig_005"],
+      "effectiveness_notes": "Counterintuitive + 'gross but science' hook — UncleD ใช้ได้ดีเมื่อ set up ด้วย framing 'วิทยาศาสตร์ไม่ใช่น่ากลัว'"
+    },
+    {
+      "template_id": "hook_dig_009_challenge",
+      "style": "challenge",
+      "pattern_th": "ลองนับดูว่าในอาทิตย์ที่ผ่านมาคุณกินพืชชนิดต่างกันกี่ชนิด — ถ้าต่ำกว่า __X__ ระวังไว้",
+      "example_th": "ลองนับดูว่าในอาทิตย์ที่ผ่านมาคุณกินพืชต่างชนิดกันกี่อย่าง — ผัก/ผลไม้/ธัญพืช/เมล็ด/สมุนไพร? งานวิจัย American Gut Project (N=11,000) แสดงว่าคนที่กินพืช 30+ ชนิดต่อสัปดาห์ มีไมโครไบโอมหลากหลายกว่าคนที่กิน <10 อย่างมีนัยสำคัญ",
+      "facts_used": ["dig_007"],
+      "effectiveness_notes": "Actionable challenge hook — viewer ทำตามได้ทันที (นับพืช); UncleD ใช้ได้ใน thread กลางเพื่อ convert viewer → active participant"
+    },
+    {
+      "template_id": "hook_dig_010_antithesis",
+      "style": "reframe",
+      "pattern_th": "__X__ ไม่ใช่ __Y__ — ที่จริงมันคือ __Z__",
+      "example_th": "ท้องอืดหลังกินพรีไบโอติก ไม่ใช่สัญญาณว่า 'มันทำงาน' — ที่จริงถ้าเกิน 2 สัปดาห์ มันคือสัญญาณ SIBO หรือ FODMAP intolerance ต้องไป breath test กับหมอ",
+      "facts_used": ["dig_013"],
+      "effectiveness_notes": "Antithesis reframe — แก้ myth เก่าที่ wellness industry ใช้กันมาก ('detox reaction = ดี'), ตรงกับ UncleD tone ที่ตรงไปตรงมา"
+    }
+  ]
+}

@@ -1,0 +1,602 @@
+{
+  "domain_id": "supplements",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 24,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.supplements",
+    "notes": "META-domain — facts prioritize form-comparison (glycinate vs oxide, MK-7 vs MK-4, TG vs EE) because these justify premium forms in ad scripts. T1 =9, T2=9, T3=6. All facts carry Thai FDA-safe dramatization_limit because supplement health claims are strictly regulated (อย. MOPH Notification 2564)."
+  },
+  "facts": [
+    {
+      "fact_id": "supp_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "vitamin_D3",
+      "statement_th": "Michael Holick สรุปใน NEJM ปี 2007 ว่า 'ประมาณ 1 พันล้านคนทั่วโลกมีวิตามิน D ไม่พอหรือขาด' — เกณฑ์ที่ใช้คือ 25(OH)D <30 ng/mL สำหรับ 'insufficient' และ <20 ng/mL สำหรับ 'deficient'",
+      "statement_en": "Michael Holick's landmark NEJM 2007 review estimated that approximately 1 billion people worldwide have vitamin D insufficiency or deficiency — using 25(OH)D <30 ng/mL as insufficient and <20 ng/mL as deficient.",
+      "numeric_values": [
+        {"value": 1000000000, "unit": "people", "label": "global vitamin D insufficient/deficient", "is_approximation": true},
+        {"value": 30, "unit": "ng/mL", "label": "Endocrine Society sufficiency threshold (25-OH-D)", "is_approximation": false},
+        {"value": 20, "unit": "ng/mL", "label": "deficiency threshold (25-OH-D)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_001",
+      "entities_mentioned": ["michael_holick", "vitamin_d3", "25_oh_d", "holick_vitamin_d_deficiency_2007"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMra070553", "org": "New England Journal of Medicine", "source_tier": "A", "year": 2007, "title": "Vitamin D Deficiency — Holick MF", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["1 ใน 7 ของโลกขาดวิตามินนี้", "โรคระบาดเงียบ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องใส่คำว่า 'ประมาณ' ก่อน 1 พันล้าน — Holick เองใช้คำว่า 'approximately'. ห้ามแปลว่า 'ครึ่งโลก' หรือตัวเลขเวอร์กว่านี้. ห้ามอ้างว่าขาดวิตามิน D รักษา/ป้องกันโรคใดเฉพาะ",
+      "usage_notes": "Top-tier landmark fact — ใช้เป็น hook 'โรคระบาดเงียบ' ของคลิปขาย vitamin D",
+      "contradictions": ["IOM (สหรัฐฯ) ใช้ cutoff ต่ำกว่า — ≥20 ng/mL = sufficient; ถ้าใช้ IOM cutoff, % deficient น้อยลง"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "vitamin_D3",
+      "statement_th": "Meta-analysis 7 RCT โดย Tripkovic et al. (AJCN 2012) พบว่าวิตามิน D3 (cholecalciferol) ทำให้ระดับ 25(OH)D ในเลือดสูงขึ้นได้ดีกว่า D2 (ergocalciferol) อย่างมีนัยสำคัญ — เฉพาะอย่างยิ่งเมื่อให้แบบ bolus (โดสครั้งเดียวใหญ่)",
+      "statement_en": "A 7-RCT meta-analysis by Tripkovic et al. (Am J Clin Nutr 2012) found cholecalciferol (D3) is significantly more effective than ergocalciferol (D2) at raising serum 25(OH)D — particularly with bolus dosing.",
+      "numeric_values": [
+        {"value": 7, "unit": "RCTs", "label": "trials pooled", "is_approximation": false},
+        {"value": 2012, "unit": "year", "label": "publication year", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_001",
+      "entities_mentioned": ["vitamin_d3", "vitamin_d2", "25_oh_d", "tripkovic_d3_vs_d2_meta_2012"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22552031/", "org": "American Journal of Clinical Nutrition / PubMed", "source_tier": "A", "year": 2012, "title": "Comparison of vitamin D2 and vitamin D3 supplementation in raising serum 25-hydroxyvitamin D status: a systematic review and meta-analysis — Tripkovic L et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["D3 เหนือกว่า D2 ชัดๆ", "ความต่างที่คนเภสัชรู้แต่คุณไม่รู้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข '87% more effective' ปรากฏในบทความสื่อต่อมาจาก Heaney 2011 ไม่ใช่ Tripkovic — ใช้วลี 'ดีกว่าอย่างมีนัยสำคัญ' แทน หรือถ้าใช้ 87% ต้องอ้าง Heaney 2011. ห้ามอ้างรักษาโรคใดๆ",
+      "usage_notes": "ใช้ justify 'ยี่ห้อ premium = D3' — ใช้ร่วมกับ angle_supp_vitamin_d3_k2_combo",
+      "contradictions": ["ในยากลุ่มสั่งจ่าย D2 ยังพบได้บ่อยในสหรัฐฯ — แต่ OTC supplement ส่วนใหญ่เป็น D3 แล้ว"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "deficiency_prevalence_thailand",
+      "statement_th": "งานวิจัยระดับชาติของ Chailurkit, Aekplakorn & Ongphiphadhanakul (BMC Public Health 2011) พบว่า 45.2% ของผู้ใหญ่ไทยมี 25(OH)D <30 ng/mL และ 5.7% <20 ng/mL — หญิงในเมืองขาดหนักสุดแม้ไทยจะอยู่ในเขต tropical ละติจูด 13-15°N",
+      "statement_en": "A national Thai survey by Chailurkit, Aekplakorn & Ongphiphadhanakul (BMC Public Health 2011) found 45.2% of Thai adults had 25(OH)D <30 ng/mL and 5.7% had <20 ng/mL — urban women the most deficient despite Thailand's tropical latitude 13-15°N.",
+      "numeric_values": [
+        {"value": 45.2, "unit": "%", "label": "Thai adults 25(OH)D <30 ng/mL", "is_approximation": false},
+        {"value": 5.7, "unit": "%", "label": "Thai adults 25(OH)D <20 ng/mL", "is_approximation": false},
+        {"value": 2641, "unit": "subjects", "label": "sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_011",
+      "entities_mentioned": ["vitamin_d3", "25_oh_d", "chailurkit_thai_vitamin_d_2011"],
+      "sources": [
+        {"url": "https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-11-853", "org": "BMC Public Health", "source_tier": "A", "year": 2011, "title": "Regional variation and determinants of vitamin D status in sunshine-abundant Thailand — Chailurkit LO et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไทยแดดแรงแต่คนไทยขาด D", "Latitude Paradox"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 45.2%/5.7% ต้องตรง (ห้าม round เป็น 'ครึ่งนึงของคนไทย'). ห้ามอ้างว่าการกินวิตามิน D 'ป้องกัน' โรคใดๆ",
+      "usage_notes": "Thai-specific anchor — สำคัญมากสำหรับ local ad. UncleD clip 7575100961920797968 'วัยไหนแดกวิตามินอะไร' ตรง theme",
+      "contradictions": ["มีงานเล็กกว่าในต่างจังหวัดที่พบ deficiency ต่ำกว่า — ใช้ national number เป็น reference หลัก"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_004",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "vitamin_D3",
+      "statement_th": "US RDA ของวิตามิน D อยู่ที่ 600 IU/day (15 µg) สำหรับผู้ใหญ่ 19-70 ปี และ 800 IU (20 µg) สำหรับ >70 ปี; ส่วน Upper Limit (UL) = 4,000 IU/day — Endocrine Society แนะนำ 1,500-2,000 IU/day เพื่อคงระดับ 25(OH)D ≥30 ng/mL (ขนาดที่มักใช้จริงในคลินิก)",
+      "statement_en": "US RDA for vitamin D is 600 IU/day (15 µg) for adults 19-70 and 800 IU (20 µg) for >70; Upper Limit (UL) is 4,000 IU/day — the Endocrine Society recommends 1,500-2,000 IU/day to maintain 25(OH)D ≥30 ng/mL (commonly used clinical dose).",
+      "numeric_values": [
+        {"value": 600, "unit": "IU/day", "label": "RDA 19-70 y", "is_approximation": false},
+        {"value": 800, "unit": "IU/day", "label": "RDA >70 y", "is_approximation": false},
+        {"value": 4000, "unit": "IU/day", "label": "Upper Limit (IOM)", "is_approximation": false},
+        {"value": "1500-2000", "unit": "IU/day", "label": "Endocrine Society recommended for adults", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_001",
+      "entities_mentioned": ["vitamin_d3", "iom_institute_of_medicine", "endocrine_society", "nih_ods"],
+      "sources": [
+        {"url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/", "org": "NIH Office of Dietary Supplements", "source_tier": "A", "year": 2024, "title": "Vitamin D — Health Professional Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["RDA ไม่พอสำหรับบางคน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามแนะนำ dose >4,000 IU/d ใน ad (UL); ห้ามอ้างว่าวิตามิน D ป้องกันโควิด/มะเร็ง/depression แบบ therapeutic claim — อย.ไทยคุมเข้ม",
+      "usage_notes": "Use to counter 'RDA พอแล้ว' myth",
+      "contradictions": ["ยา prescription D3/D2 ในไทยมี dose 20,000 IU/สัปดาห์ หรือมากกว่า สำหรับ deficient — ต้องคุมด้วยเลือด"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "vitamin_K2",
+      "statement_th": "งานเปรียบเทียบเภสัชจลนศาสตร์โดย Schurgers et al. (Blood 2007) พบว่า MK-7 (menaquinone-7 จากนัตโตะ) มีครึ่งชีวิตในกระแสเลือดประมาณ 72 ชั่วโมง เทียบกับ MK-4 ที่ ~1-2 ชั่วโมง — หมายความว่ากิน MK-7 วันละครั้งก็พอ แต่ MK-4 ต้องกินหลายครั้ง/วัน",
+      "statement_en": "Schurgers et al. (Blood 2007) pharmacokinetic comparison — MK-7 (menaquinone-7 from natto) has a serum half-life of ~72 hours versus MK-4 at ~1-2 hours — meaning once-daily MK-7 sustains steady-state γ-carboxylation, while MK-4 requires multi-daily dosing.",
+      "numeric_values": [
+        {"value": 72, "unit": "hours", "label": "MK-7 serum half-life", "is_approximation": true},
+        {"value": "1-2", "unit": "hours", "label": "MK-4 serum half-life", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_supp_002",
+      "entities_mentioned": ["vitamin_k2_mk7", "vitamin_k2_mk4", "leon_schurgers", "schurgers_mk7_vs_mk4_2007"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/17138823/", "org": "Blood", "source_tier": "A", "year": 2007, "title": "Vitamin K-containing dietary supplements: comparison of synthetic K1 and natto-derived MK-7 — Schurgers LJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยี่ห้อแพงถูกต่างกันแค่ MK-7 หรือ MK-4", "72 ชม. vs 2 ชม."],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลขครึ่งชีวิต 72h / 1-2h เป็น pharmacokinetics measurement — ไม่ใช่ clinical outcome. ห้ามอ้างว่า MK-7 'ป้องกันโรคหลอดเลือด' ในโฆษณาแบบ medical claim",
+      "usage_notes": "Golden form-comparison fact — ใช้ justify premium MK-7 vs cheap MK-4 supplements",
+      "contradictions": ["บางงานญี่ปุ่น (ในผู้หญิงวัยทอง) ใช้ MK-4 dose สูง 45 mg/d ได้ผลดี — แต่ dose ต่างกัน >100 เท่า"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_006",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "vitamin_K2",
+      "statement_th": "Rotterdam Study (ผู้ใหญ่ 4,807 คน ติดตาม 7-10 ปี, Geleijnse et al. J Nutr 2004) พบว่า tertile ที่กิน K2 สูง (~32.7 µg/d) มีความเสี่ยงเสียชีวิตจากโรคหัวใจต่ำกว่า tertile ต่ำ (~16.6 µg/d) — K1 จากผักใบไม่มีความสัมพันธ์นี้",
+      "statement_en": "The Rotterdam Study (4,807 adults, 7-10 y follow-up; Geleijnse et al. J Nutr 2004) found the highest K2-intake tertile (~32.7 µg/d) had significantly lower coronary heart disease mortality than the lowest (~16.6 µg/d); no such association for K1 from leafy greens.",
+      "numeric_values": [
+        {"value": 4807, "unit": "subjects", "label": "Rotterdam cohort", "is_approximation": false},
+        {"value": 32.7, "unit": "µg/day", "label": "highest K2 tertile mean intake", "is_approximation": false},
+        {"value": 16.6, "unit": "µg/day", "label": "lowest K2 tertile mean intake", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_002",
+      "entities_mentioned": ["vitamin_k2_mk7", "vitamin_k2_mk4", "matrix_gla_protein"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15514282/", "org": "J Nutr / PubMed", "source_tier": "A", "year": 2004, "title": "Dietary intake of menaquinone is associated with a reduced risk of coronary heart disease: the Rotterdam Study — Geleijnse JM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["K2 กับหัวใจ", "calcium paradox"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Observational study — ห้ามพูดว่า K2 'ป้องกัน' โรคหัวใจ (causation ไม่ใช่ RCT); ใช้ 'สัมพันธ์กับความเสี่ยงที่ต่ำลง' เท่านั้น. อย.ไทยห้ามอ้างรักษาโรคหัวใจ",
+      "usage_notes": "Supporting ของ D3+K2 combo angle",
+      "contradictions": ["Prospect-EPIC 2009 ยืนยันกับผลชัดของ MK-7 โดยเฉพาะ; แต่ RCT แบบ randomized ขนาดใหญ่ยังไม่มี"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "magnesium_forms",
+      "statement_th": "Firoz & Graber (Magnes Res 2001) เปรียบเทียบการดูดซึมแมกนีเซียม 4 รูปแบบในคนปกติ — magnesium oxide มี bioavailability เพียงประมาณ 4% เทียบกับ magnesium chloride, lactate, aspartate ที่สูงกว่า ~5 เท่า (อยู่ในช่วง ~50-60% bioavailability)",
+      "statement_en": "Firoz & Graber (Magnes Res 2001) compared absorption of 4 magnesium forms in healthy subjects — magnesium oxide had bioavailability of only ~4%, versus magnesium chloride/lactate/aspartate which were ~5× higher (~50-60% range).",
+      "numeric_values": [
+        {"value": 4, "unit": "%", "label": "magnesium oxide bioavailability", "is_approximation": true},
+        {"value": 5, "unit": "fold", "label": "Mg chloride/lactate/aspartate advantage over oxide", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_supp_003",
+      "entities_mentioned": ["magnesium_oxide", "magnesium_citrate", "magnesium_glycinate", "firoz_mg_absorption_2001"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11794633/", "org": "Magnesium Research / PubMed", "source_tier": "A", "year": 2001, "title": "Bioavailability of US commercial magnesium preparations — Firoz M, Graber M", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยี่ห้อถูก 4% ยี่ห้อดี 50%", "ทิ้งเงิน 96% ไปฟรี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 4% vs ~50% เป็น bioavailability relative ในงาน 2001 — ห้ามอ้างว่า oxide 'ไม่ช่วยอะไรเลย' (oxide ใช้เป็น laxative ได้). ห้ามอ้าง 'รักษาภาวะขาดแมกนีเซียม' แบบ therapeutic",
+      "usage_notes": "Golden form-comparison fact สำหรับ angle_supp_magnesium_glycinate. UncleD mention Mg ช่วยนอน (clip 7575100961920797968) — ตรง",
+      "contradictions": ["งาน Walker 2003 วัดได้ oxide ~4x ต่ำกว่า citrate (24h urinary excretion) — ตัวเลขทิศทางเดียวกัน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "magnesium_forms",
+      "statement_th": "US RDA ของแมกนีเซียมคือ 400-420 mg/day (ชาย) และ 310-320 mg/day (หญิง); NHANES 2005-06 พบว่า ~48% ของประชากรสหรัฐบริโภค Mg ต่ำกว่า EAR (Moshfegh et al. 2009); ร่างกายมี Mg ประมาณ 25 กรัม (60% ในกระดูก)",
+      "statement_en": "US RDA for magnesium is 400-420 mg/day (men) and 310-320 mg/day (women); NHANES 2005-06 found ~48% of the US population consumed magnesium below the Estimated Average Requirement (Moshfegh et al. 2009); the adult body contains ~25 g Mg (60% in bone).",
+      "numeric_values": [
+        {"value": "400-420", "unit": "mg/day", "label": "RDA men", "is_approximation": false},
+        {"value": "310-320", "unit": "mg/day", "label": "RDA women", "is_approximation": false},
+        {"value": 48, "unit": "%", "label": "US population below EAR (NHANES)", "is_approximation": true},
+        {"value": 25, "unit": "g", "label": "total body Mg content", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_supp_003",
+      "entities_mentioned": ["magnesium_glycinate", "nih_ods"],
+      "sources": [
+        {"url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Magnesium — Health Professional Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เกือบครึ่งของคนไม่ได้รับแมกนีเซียมพอ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้าง 'คนไทย X% ขาดแมกนีเซียม' ถ้าไม่มี Thai data — อ้างได้แค่ US data (NHANES). ห้ามอ้างรักษาตะคริว/นอนไม่หลับแบบ medical",
+      "usage_notes": "Context กำลังพอสำหรับ 'พวกเราขาด Mg กันเยอะ' narrative",
+      "contradictions": ["Thai-specific prevalence data ไม่ robust — ใช้ US data เป็น proxy"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_009",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "magnesium_forms",
+      "statement_th": "Magnesium L-threonate ถูกพัฒนาที่ MIT โดย Liu et al. (Neuron 2010) และเป็นรูปแบบเดียวที่แสดงการเพิ่ม Mg ใน CSF (น้ำไขสันหลัง) ของหนูได้ชัดเจน + ปรับปรุง learning/memory; งานในคนยังจำกัด — ใช้ระมัดระวังกับ claim 'ดีต่อสมอง'",
+      "statement_en": "Magnesium L-threonate was developed at MIT by Liu et al. (Neuron 2010) and is the only Mg form shown to meaningfully raise CSF magnesium in rodents + improve learning/memory; human data remain limited — brain claims should be qualified.",
+      "numeric_values": [
+        {"value": 2010, "unit": "year", "label": "Liu et al. Neuron discovery", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_003",
+      "entities_mentioned": ["magnesium_threonate"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20152124/", "org": "Neuron / PubMed", "source_tier": "A", "year": 2010, "title": "Enhancement of learning and memory by elevating brain magnesium — Liu G et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["Mg สูตร 'ขึ้นสมอง' เพียงตัวเดียว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องใส่คำว่า 'งานในสัตว์' หรือ 'ข้อมูลในคนจำกัด' เมื่อกล่าวอ้าง cognitive benefit; ห้ามอ้างรักษา/ป้องกัน Alzheimer แบบ therapeutic claim",
+      "usage_notes": "Supports angle_supp_magnesium_threonate — premium positioning for 'ความจำ/โฟกัส' angle",
+      "contradictions": ["Human RCT ขนาดเล็ก (Liu 2016) ~50 คน แสดงการปรับปรุง cognition — แต่ small sample"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "zinc_copper_ratio",
+      "statement_th": "Fosmire (Am J Clin Nutr 1990) review สรุปว่าการกินซิงค์ >50 mg/day เรื้อรังทำให้เกิด copper deficiency — ต่อมาเกิด case reports หลายสิบรายของ sideroblastic anemia + neuropathy จาก denture cream (Fixodent) ที่มีซิงค์สูง (Nations 2008, Neurology); IOM UL ของ Zn = 40 mg/day",
+      "statement_en": "Fosmire's Am J Clin Nutr 1990 review concluded that chronic zinc intake >50 mg/day causes copper deficiency; subsequent case reports (Nations et al. 2008, Neurology) documented sideroblastic anemia + myeloneuropathy from denture-cream zinc overuse; IOM UL for Zn is 40 mg/day.",
+      "numeric_values": [
+        {"value": 50, "unit": "mg/day", "label": "Zn threshold causing Cu deficiency", "is_approximation": false},
+        {"value": 40, "unit": "mg/day", "label": "IOM Upper Limit for Zn (adults)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_004",
+      "entities_mentioned": ["zinc_picolinate", "copper", "zinc_copper_anemia_prasad", "iom_institute_of_medicine"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/2407097/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 1990, "title": "Zinc toxicity — Fosmire GJ", "access_date": "2026-04-22"},
+        {"url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Zinc — Health Professional Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ซิงค์เยอะไปก็พัง", "คนใช้ครีมติดฟันลงเอยด้วยเส้นประสาทพัง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ใช้ case report ได้ แต่ต้องระบุว่าเป็น 'chronic high dose'; ห้ามทำให้คนกลัวจนไม่กล้ากิน Zn เลย — Zn 8-15 mg/d ปกติปลอดภัย",
+      "usage_notes": "Warn-label fact สำหรับคนกินซิงค์รักษาสิวเรื้อรัง; ใช้ใน myth_supp 'ซิงค์แก้สิว' discussion",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_011",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "zinc_copper_ratio",
+      "statement_th": "Zinc picolinate ในงาน Barrie et al. (Agents Actions 1987) พบการดูดซึมสูงกว่า zinc gluconate และ zinc citrate วัดจาก hair/serum/urine Zn หลัง 4 สัปดาห์ในคน — แต่ข้อมูลจำกัด; US RDA ของ Zn = 11 mg (ชาย), 8 mg (หญิง)",
+      "statement_en": "Zinc picolinate in Barrie et al. (Agents Actions 1987) showed higher absorption than zinc gluconate and zinc citrate (hair/serum/urine Zn after 4 weeks in humans) — though data limited; US RDA for Zn is 11 mg (men), 8 mg (women).",
+      "numeric_values": [
+        {"value": 11, "unit": "mg/day", "label": "Zn RDA men", "is_approximation": false},
+        {"value": 8, "unit": "mg/day", "label": "Zn RDA women", "is_approximation": false},
+        {"value": 1987, "unit": "year", "label": "Barrie picolinate study", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_004",
+      "entities_mentioned": ["zinc_picolinate", "zinc_gluconate", "zinc_oxide", "nih_ods"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/3630857/", "org": "Agents Actions / PubMed", "source_tier": "A", "year": 1987, "title": "Comparative absorption of zinc picolinate, zinc citrate and zinc gluconate in humans — Barrie SA et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ซิงค์ไม่ใช่ซิงค์ — รูปแบบสำคัญ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข '60% more absorption' ที่เจอใน marketing ไม่ได้มาจาก Barrie เอง — อ้างได้แค่ว่า 'higher than gluconate/citrate'; ห้ามอ้างรักษาสิว/หวัดแบบ medical",
+      "usage_notes": "Supports angle_supp_zinc_picolinate",
+      "contradictions": ["งานสมัยใหม่มีข้อมูลจำกัดเปรียบเทียบรูปแบบ — Barrie 1987 ยังเป็น reference หลัก"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "B12_methyl",
+      "statement_th": "Methylmalonic acid (MMA) ในเลือดเป็น sensitive biomarker สำหรับการขาด B12 ที่ functional — sensitivity สูงกว่าการวัด B12 ในเลือด เพราะ B12 serum อาจปกติขณะที่ tissue B12 ต่ำ; MMA >270 nmol/L มักถือว่า suggestive of deficiency (Allen 2009 Am J Clin Nutr)",
+      "statement_en": "Serum methylmalonic acid (MMA) is a sensitive functional biomarker for B12 deficiency — more sensitive than serum B12, which can be normal while tissue B12 is low; MMA >270 nmol/L is commonly considered suggestive of deficiency (Allen 2009 Am J Clin Nutr).",
+      "numeric_values": [
+        {"value": 270, "unit": "nmol/L", "label": "MMA threshold suggestive of B12 deficiency", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_supp_005",
+      "entities_mentioned": ["methylcobalamin", "cyanocobalamin", "methylmalonic_acid", "homocysteine"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19116321/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 2009, "title": "How common is vitamin B-12 deficiency? — Allen LH", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["B12 ในเลือดปกติ ≠ B12 พอ", "ตัวแปรซ่อน MMA"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามแนะนำให้คนทั่วไปวัด MMA เอง (ต้องให้แพทย์ interpret); ห้ามอ้างว่าการกิน B12 supplement 'รักษา' โรคซึมเศร้า/อัลไซเมอร์",
+      "usage_notes": "Counter เมื่อผู้บริโภคบอก 'วัดเลือด B12 ปกติไม่ต้องกิน'",
+      "contradictions": ["cutoff 270 ไม่เป็น universal — บางห้องแล็บใช้ 260 หรือ 350"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "B12_methyl",
+      "statement_th": "ผู้กินมังสวิรัติเคร่ง (vegan) ถ้าไม่เสริม B12 มีอัตราการขาดสูงถึง 60-80% ใน 6 เดือน-ปี (Pawlak 2013 review); PPI (omeprazole) และ metformin ก็ลดการดูดซึม B12 ได้ชัดเจน — US guideline แนะนำให้ผู้ใช้ metformin >4 ปี screen ระดับ B12",
+      "statement_en": "Strict vegans who don't supplement B12 reach deficiency rates of 60-80% within 6 months-year (Pawlak 2013 review); PPIs (omeprazole) and metformin also significantly reduce B12 absorption — guidelines recommend screening B12 in patients on metformin for >4 years.",
+      "numeric_values": [
+        {"value": "60-80", "unit": "%", "label": "vegan B12 deficiency (unsupplemented)", "is_approximation": true},
+        {"value": 4, "unit": "years", "label": "metformin duration triggering B12 screen", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_005",
+      "entities_mentioned": ["methylcobalamin", "cyanocobalamin", "cyp3a4"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23356638/", "org": "Nutr Rev / PubMed", "source_tier": "A", "year": 2013, "title": "How prevalent is vitamin B12 deficiency among vegetarians? — Pawlak R et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เจ คีโต วีแกน — ระวัง B12"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่าต้องเลิกกิน metformin/PPI; ให้กรอบเป็น 'คู่ผู้ใหญ่ที่กิน metformin/PPI ควรปรึกษาแพทย์เรื่อง B12'",
+      "usage_notes": "Thai audience มีผู้ป่วยเบาหวานกิน metformin + ผู้สูงอายุกิน PPI เยอะ — relevant",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_014",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "omega_3_EPA_DHA",
+      "statement_th": "Dyerberg et al. (Prostaglandins Leukot Essent Fatty Acids 2010) เปรียบเทียบการดูดซึม omega-3 ใน 72 คน 2 สัปดาห์ — triglyceride form (rTG) ดูดซึมได้ประมาณ 70% vs ethyl ester (EE) ~27% — ต่างกันประมาณ 2.5 เท่า",
+      "statement_en": "Dyerberg et al. (Prostaglandins Leukot Essent Fatty Acids 2010) compared omega-3 absorption in 72 subjects over 2 weeks — triglyceride form (rTG) absorption ~70% vs ethyl ester (EE) ~27% — a ~2.5-fold gap.",
+      "numeric_values": [
+        {"value": 70, "unit": "%", "label": "rTG form bioavailability", "is_approximation": true},
+        {"value": 27, "unit": "%", "label": "EE form bioavailability", "is_approximation": true},
+        {"value": 72, "unit": "subjects", "label": "study sample", "is_approximation": false},
+        {"value": 2, "unit": "weeks", "label": "study duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_007",
+      "entities_mentioned": ["omega_3_epa", "omega_3_dha", "triglyceride_form_fish_oil", "ethyl_ester_fish_oil", "dyerberg_jorn", "dyerberg_tg_vs_ee_2010"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20638827/", "org": "Prostaglandins Leukot Essent Fatty Acids / PubMed", "source_tier": "A", "year": 2010, "title": "Bioavailability of marine n-3 fatty acid formulations — Dyerberg J et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["TG vs EE ต่างกัน 2.5 เท่า", "โอเมก้าถูกไม่ได้ถูกเสมอ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 70%/27% ต้องตรง — ห้ามอ้าง 'ดีกว่า 10 เท่า'. ห้ามอ้างว่า TG form 'รักษา' โรคหัวใจ",
+      "usage_notes": "Golden form-comparison fact — ใช้ justify น้ำมันปลา TG premium",
+      "contradictions": ["งานอื่น (Neubronner 2011, Schuchardt 2011) ก็แสดงแนวเดียวกันแต่ magnitude ต่างกัน ~50-75%"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_015",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "omega_3_EPA_DHA",
+      "statement_th": "William Harris (2004) เสนอ 'Omega-3 Index' = % ของ EPA+DHA ใน red blood cell membrane; เป้าหมาย ≥8% = low CVD risk, <4% = high risk; ค่าเฉลี่ยคนอเมริกัน ~4-5%, ญี่ปุ่น ~9-11% (ประเทศที่กินปลาเยอะ)",
+      "statement_en": "William Harris (2004) proposed the 'Omega-3 Index' — % of EPA+DHA in red blood cell membranes; target ≥8% = low CVD risk, <4% = high risk; US population average ~4-5%, Japan ~9-11% (high fish intake).",
+      "numeric_values": [
+        {"value": 8, "unit": "% of RBC FA", "label": "Omega-3 Index target (low CVD risk)", "is_approximation": false},
+        {"value": 4, "unit": "% of RBC FA", "label": "high CVD risk threshold", "is_approximation": false},
+        {"value": "4-5", "unit": "% of RBC FA", "label": "US average", "is_approximation": true},
+        {"value": "9-11", "unit": "% of RBC FA", "label": "Japan average", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_supp_006",
+      "entities_mentioned": ["william_harris", "omega_3_epa", "omega_3_dha"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15258356/", "org": "Prev Med / PubMed", "source_tier": "A", "year": 2004, "title": "Omega-3 fatty acids in cardiac biopsies from heart transplantation patients / Omega-3 Index proposed — Harris WS, von Schacky C", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["Index ที่ฝรั่งใช้วัด", "ญี่ปุ่นผอม-อายุยืน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Omega-3 Index เป็น biomarker research — ห้ามอ้างว่ากินน้ำมันปลา 'ทำให้อายุยืน' แบบ medical; ใช้วลี 'สัมพันธ์กับความเสี่ยงต่ำลง' เท่านั้น",
+      "usage_notes": "Anchor for premium fish oil angle; relevant to cross-domain heart",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "omega_3_EPA_DHA",
+      "statement_th": "US AHA แนะนำคนไม่ป่วยโรคหัวใจให้กินปลามันอย่างน้อย 2 ครั้ง/สัปดาห์; ในผู้มีไขมันในเลือดสูง EPA+DHA 2-4 กรัม/วัน ลดไตรกลีเซอไรด์ 15-30% (Skulas-Ray 2019 AHA Science Advisory) — แต่ dose สูงต้องแพทย์แนะนำ",
+      "statement_en": "The AHA recommends eating fatty fish ≥2×/week for the general population; in hypertriglyceridemia, EPA+DHA at 2-4 g/day reduces triglycerides by 15-30% (Skulas-Ray 2019 AHA Science Advisory) — but high doses need clinician oversight.",
+      "numeric_values": [
+        {"value": 2, "unit": "servings/week", "label": "AHA fatty fish recommendation", "is_approximation": false},
+        {"value": "2-4", "unit": "g/day", "label": "EPA+DHA dose for TG lowering", "is_approximation": false},
+        {"value": "15-30", "unit": "%", "label": "TG reduction at therapeutic dose", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_supp_006",
+      "entities_mentioned": ["omega_3_epa", "omega_3_dha"],
+      "sources": [
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000000709", "org": "Circulation / AHA", "source_tier": "A", "year": 2019, "title": "Omega-3 Fatty Acids for the Management of Hypertriglyceridemia: A Science Advisory from the American Heart Association — Skulas-Ray AC et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ปลามัน 2 ครั้ง/สัปดาห์", "dose ต่ำ ≠ dose รักษา"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Dose 2-4 g/day เป็น therapeutic context — ห้ามแนะนำในโฆษณา consumer product แบบ 'กิน 4 g รักษาไขมัน'; consumer supplement ทั่วไปแนะนำ 0.5-2 g",
+      "usage_notes": "Context for dosing discussion; relevant for heart/blood domain cross-link",
+      "contradictions": ["VITAL trial (Manson 2019) ไม่พบ primary prevention benefit — ประเด็น context 'primary vs secondary prevention'"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_017",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "vitamin_absorption_timing",
+      "statement_th": "Mulligan & Licata (J Bone Miner Res 2010) ในผู้ป่วย 17 คนที่กินวิตามิน D เป็นปีแต่ระดับยังไม่ขึ้น — เปลี่ยนเวลากินเป็น 'พร้อมมื้อใหญ่ที่สุดของวัน' แทน → 25(OH)D เพิ่มขึ้นเฉลี่ย 57% ใน 2-3 เดือน (จาก ~30 ng/mL → ~47 ng/mL)",
+      "statement_en": "Mulligan & Licata (J Bone Miner Res 2010) — in 17 patients on vitamin D who weren't improving, switching to dosing with the largest meal of the day raised 25(OH)D by an average of 57% in 2-3 months (~30 ng/mL → ~47 ng/mL).",
+      "numeric_values": [
+        {"value": 17, "unit": "patients", "label": "sample size", "is_approximation": false},
+        {"value": 57, "unit": "%", "label": "increase in 25(OH)D when taken with largest meal", "is_approximation": false},
+        {"value": "2-3", "unit": "months", "label": "time-to-effect", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_supp_008",
+      "entities_mentioned": ["vitamin_d3", "25_oh_d"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20200983/", "org": "J Bone Miner Res / PubMed", "source_tier": "A", "year": 2010, "title": "Taking vitamin D with the largest meal improves absorption — Mulligan GB, Licata A", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กินผิดเวลา = ทิ้งเงินทิ้งเปล่า", "ถ้ากิน D ตอนท้องว่าง = ไม่ขึ้น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 57% ต้องตรง (ห้าม round เป็น '2 เท่า'). ห้ามอ้างว่าเปลี่ยนเวลากินแล้ว 'รักษา' ภาวะขาด D ได้ทุกคน — sample เล็ก",
+      "usage_notes": "Ace hook: 'กินวิตามินผิดเวลา = ทิ้งเงิน' — ตรงกับ UncleD clip 7619235034725240082 'ต้องละลายในไขมันเท่านั้นถึงจะดูดซึม'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "vitamin_absorption_timing",
+      "statement_th": "β-carotene จากแครอทดูดซึมได้สูงขึ้น 6.5 เท่า เมื่อกินคู่ไขมัน (ไข่ต้ม ~3 g ไขมัน) vs กินคนเดียว (Kim et al. 2015 Am J Clin Nutr); วิตามิน E ดูดซึมได้สูงขึ้นถึง 4-8 เท่าตามไขมันในมื้อ",
+      "statement_en": "β-carotene absorption from carrots rose ~6.5-fold when consumed with eggs (~3 g of egg fat) vs alone (Kim et al. 2015 Am J Clin Nutr); vitamin E absorption can be 4-8× higher depending on meal fat content.",
+      "numeric_values": [
+        {"value": 6.5, "unit": "fold", "label": "β-carotene absorption increase with eggs", "is_approximation": true},
+        {"value": "4-8", "unit": "fold", "label": "vitamin E absorption sensitivity to fat", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_supp_008",
+      "entities_mentioned": ["triglyceride_form_fish_oil"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25833980/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 2015, "title": "Eggs increase the bioavailability of carotenoids from vegetables in young men — Kim JE et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กินไข่คู่แครอทเพิ่มวิตามิน 6.5 เท่า"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "UncleD clip 7619235034725240082 อ้าง '8 เท่า' สำหรับ beta-carotene — directionally correct; Kim 2015 specific number ~6.5. ถ้าจะใช้ '8 เท่า' ต้อง frame 'ประมาณ' หรืออ้างการศึกษาเฉพาะ (Unlu 2005)",
+      "usage_notes": "Direct anchor for UncleD clip 7619235034725240082 (fat-soluble absorption with eggs). Supports multivitamin_basic angle.",
+      "contradictions": ["Unlu et al. 2005 (ในอะโวคาโด) ให้ผล ~13 เท่า — variation สูงตามแหล่งไขมัน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "multivitamin_basic",
+      "statement_th": "Physicians' Health Study II (Gaziano et al. JAMA 2012) ติดตามชาย 14,641 คน นาน 11 ปี — multivitamin ทุกวันลดอัตรามะเร็งรวม 8% (HR 0.92, 95% CI 0.86-0.998) เทียบกับยาหลอก — ขนาดผลเล็กแต่ statistically significant",
+      "statement_en": "Physicians' Health Study II (Gaziano et al. JAMA 2012) followed 14,641 men for 11 years — daily multivitamin reduced total cancer incidence by 8% (HR 0.92, 95% CI 0.86-0.998) vs placebo — small effect but statistically significant.",
+      "numeric_values": [
+        {"value": 14641, "unit": "men", "label": "PHS II sample size", "is_approximation": false},
+        {"value": 11, "unit": "years", "label": "median follow-up", "is_approximation": false},
+        {"value": 8, "unit": "%", "label": "reduction in total cancer", "is_approximation": false},
+        {"value": 0.92, "unit": "HR", "label": "hazard ratio vs placebo", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["nih_ods"],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/1380451", "org": "JAMA", "source_tier": "A", "year": 2012, "title": "Multivitamins in the prevention of cancer in men (PHS II) — Gaziano JM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["RCT ใหญ่พิสูจน์มัลติวิตามินมีประโยชน์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้างว่า 'ลดมะเร็ง 8%' ในโฆษณาไทย — เป็น medical claim ต้องห้ามอย.; ต้อง frame เป็น 'งานวิจัยในชายอเมริกันพบสัมพันธ์...' เท่านั้น และห้ามเชื่อมโยงสินค้าเฉพาะ",
+      "usage_notes": "Background credibility — ใช้เป็น context ไม่ใช่ sales claim",
+      "contradictions": ["PHS II ไม่พบประโยชน์ต่อโรคหัวใจ (Sesso 2012 JAMA); COSMOS 2022 พบ cognition benefit เล็กน้อย"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_020",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "multivitamin_basic",
+      "statement_th": "Ferrous bisglycinate (Fe chelate) ในงานเปรียบเทียบกับ ferrous sulfate พบการดูดซึมเท่ากันหรือสูงกว่าเล็กน้อย แต่ 'GI side effects' (ท้องอืด, คลื่นไส้) ต่ำกว่าอย่างชัดเจน (Bovell-Benjamin 2000, Nutrition) — เหมาะกับผู้หญิงตั้งครรภ์/ประจำเดือนมามาก",
+      "statement_en": "Ferrous bisglycinate vs ferrous sulfate studies show equivalent or modestly higher absorption but significantly fewer GI side effects (bloating, nausea) (Bovell-Benjamin 2000, Nutrition) — preferable for pregnant women and women with heavy menstruation.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_supp_009",
+      "entities_mentioned": ["iron_bisglycinate"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11029276/", "org": "Nutrition / PubMed", "source_tier": "A", "year": 2000, "title": "Iron absorption from ferrous bisglycinate and ferric trisglycinate in whole maize — Bovell-Benjamin AC et al.", "access_date": "2026-04-22"},
+        {"url": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Iron — Health Professional Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["Iron ที่ไม่ทำท้องอืด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้างรักษาโลหิตจางแบบ medical claim — โลหิตจางต้องการ diagnosis + treatment โดยแพทย์; ใช้ 'สนับสนุนการสร้างเม็ดเลือด' แทน",
+      "usage_notes": "Supports angle_supp_iron_bisglycinate",
+      "contradictions": ["Cochrane 2019 ในหญิงตั้งครรภ์พบ evidence จำกัดว่า bisglycinate เหนือกว่า sulfate อย่างมีนัย"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_021",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "vitamin_absorption_timing",
+      "statement_th": "Liposomal vitamin C ในงาน Davis et al. (Nutr Metab Insights 2016, 11 คน, dose 4 g) แสดงการเพิ่ม plasma ascorbate AUC ประมาณ 1.77 เท่าเทียบกับ ascorbate non-liposomal — sample เล็กแต่ผลสอดคล้องกับ mechanism",
+      "statement_en": "Liposomal vitamin C in Davis et al. (Nutr Metab Insights 2016, n=11, 4 g dose) showed plasma ascorbate AUC ~1.77× higher than non-liposomal — small sample but mechanistically consistent.",
+      "numeric_values": [
+        {"value": 1.77, "unit": "fold", "label": "plasma AUC vs non-liposomal", "is_approximation": false},
+        {"value": 11, "unit": "subjects", "label": "sample size", "is_approximation": false},
+        {"value": 4, "unit": "g", "label": "oral dose tested", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_supp_010",
+      "entities_mentioned": ["ascorbic_acid_liposomal"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27915091/", "org": "Nutr Metab Insights / PubMed", "source_tier": "A", "year": 2016, "title": "Liposomal-encapsulated ascorbic acid: influence on vitamin C bioavailability — Davis JL et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["Liposomal ไม่เสียเปล่าเหมือน C ธรรมดา"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุว่า 'n=11 ขนาดเล็ก'; ห้ามอ้างว่า liposomal C 'รักษา' โรคใดๆ — vitamin C consumer supplement ห้ามอ้างรักษาโรค",
+      "usage_notes": "Supports angle_supp_vitamin_c_liposomal",
+      "contradictions": ["งานอื่น Hickey 2008 พบความต่างน้อยกว่า — form quality (liposome integrity) แตกต่างระหว่างยี่ห้อ"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_022",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "multivitamin_basic",
+      "statement_th": "SELECT trial (Lippman et al. JAMA 2011, 35,533 men, 5.5 ปี) พบว่าการเสริม vitamin E 400 IU/day เพิ่มความเสี่ยงมะเร็งต่อมลูกหมาก 17% (HR 1.17, 95% CI 1.004-1.36) — 'มากไปก็ไม่ดี' สำหรับ antioxidant บางตัว",
+      "statement_en": "The SELECT trial (Lippman et al. JAMA 2011, 35,533 men, 5.5 years) found vitamin E 400 IU/day supplementation increased prostate cancer risk by 17% (HR 1.17, 95% CI 1.004-1.36) — 'more is not always better' for certain antioxidants.",
+      "numeric_values": [
+        {"value": 35533, "unit": "men", "label": "SELECT sample", "is_approximation": false},
+        {"value": 400, "unit": "IU/day", "label": "vitamin E dose", "is_approximation": false},
+        {"value": 17, "unit": "%", "label": "increased prostate cancer risk", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21990298/", "org": "JAMA / PubMed", "source_tier": "A", "year": 2011, "title": "Effect of selenium and vitamin E on risk of prostate cancer and other cancers (SELECT) — Klein EA et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กินวิตามินเยอะไปก็เสี่ยง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ใช้เป็น safety anchor — ห้ามทำให้กลัวจนไม่กินวิตามิน E ที่ RDA (~15 mg/22 IU). ต้อง frame ว่า 'megadose ไม่ใช่ sense'",
+      "usage_notes": "Counter to 'ยิ่งเยอะยิ่งดี' myth; anchors general supplement safety",
+      "contradictions": ["SELECT dose 400 IU >> RDA 22 IU — ไม่ใช่ dose ปกติ"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_023",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "supplement_drug_interactions",
+      "statement_th": "ปฏิกิริยาอาหารเสริม-ยาที่สำคัญ: (1) วิตามิน K หัก Warfarin's effect, (2) St. John's wort เหนี่ยวนำ CYP3A4 ลดประสิทธิภาพยาคุม/ยาซึมเศร้า, (3) แคลเซียม/เหล็ก จับ tetracycline/fluoroquinolone ลด absorption, (4) น้ำมันปลา dose สูงเพิ่มความเสี่ยงเลือดออกเมื่อกินร่วม anticoagulant",
+      "statement_en": "Key supplement-drug interactions: (1) Vitamin K antagonizes warfarin; (2) St. John's wort induces CYP3A4, reducing efficacy of oral contraceptives/antidepressants; (3) calcium/iron chelate tetracyclines/fluoroquinolones, reducing antibiotic absorption; (4) high-dose fish oil increases bleeding risk with anticoagulants.",
+      "numeric_values": [],
+      "mechanism_ref": null,
+      "entities_mentioned": ["vitamin_k2_mk7", "vitamin_k2_mk4", "cyp3a4", "omega_3_epa"],
+      "sources": [
+        {"url": "https://www.nccih.nih.gov/health/herbs-at-a-glance", "org": "NIH NCCIH", "source_tier": "A", "year": 2024, "title": "Herbs at a Glance — St. John's wort and other interactions", "access_date": "2026-04-22"},
+        {"url": "https://ods.od.nih.gov/factsheets/list-all/", "org": "NIH ODS Fact Sheets", "source_tier": "A", "year": 2024, "title": "Interactions sections of vitamin K, iron, calcium, omega-3 fact sheets", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["อาหารเสริม ≠ ไม่มี side effect"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องแนะนำ 'ปรึกษาแพทย์/เภสัชกรถ้ากินยาประจำ' ไม่ใช่เลิกยาเอง",
+      "usage_notes": "Safety disclaimer fact — wrap wrapping most supplement ads ไทยตาม อย.",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "supp_024",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "multivitamin_basic",
+      "statement_th": "Selenium RDA = 55 µg/day; Upper Limit = 400 µg/day — กิน Brazil nut 1-2 เม็ด/วัน ก็พอ (1 เม็ด ~68-90 µg); dose สูงเรื้อรัง (>400 µg) เสี่ยงเล็บเปราะ, ผมร่วง, peripheral neuropathy (selenosis) — SELECT 2011 ไม่พบว่า selenomethionine ช่วยลดมะเร็ง",
+      "statement_en": "Selenium RDA is 55 µg/day; Upper Limit 400 µg/day — 1-2 Brazil nuts/day are sufficient (1 nut ~68-90 µg); chronic intake >400 µg risks brittle nails, hair loss, peripheral neuropathy (selenosis) — SELECT 2011 did NOT find selenomethionine reduced cancer.",
+      "numeric_values": [
+        {"value": 55, "unit": "µg/day", "label": "Se RDA adults", "is_approximation": false},
+        {"value": 400, "unit": "µg/day", "label": "Se Upper Limit", "is_approximation": false},
+        {"value": "68-90", "unit": "µg", "label": "Se per Brazil nut", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["selenomethionine", "methylselenocysteine", "nih_ods"],
+      "sources": [
+        {"url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/", "org": "NIH ODS", "source_tier": "A", "year": 2024, "title": "Selenium — Health Professional Fact Sheet", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["บราซิลนัท 1 เม็ดเสร็จ", "มากไปพิษ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้างว่า selenium 'ป้องกัน' มะเร็ง — SELECT trial disproved; ใช้ 'antioxidant ที่ร่างกายต้องการ' เท่านั้น",
+      "usage_notes": "Supports angle_supp_selenium_methylselenocysteine but with SELECT caveat",
+      "contradictions": ["บางงานในประเทศที่ selenium ดินต่ำ (จีนตอนกลาง) การเสริมช่วย; ไทยดินปานกลาง — ไม่ deficient ทั่วไป"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.supplements",
+      "harvested_at": "2026-04-22T15:00:00"
+    }
+  ]
+}

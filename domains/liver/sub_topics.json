@@ -1,0 +1,124 @@
+{
+  "domain_id": "liver",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.liver",
+    "notes": "6 sub-topics รวม hyperuricemia ที่เพิ่งเพิ่มใหม่ (user explicit request) — ใช้ Lustig/Johnson fructose → uric acid pathway เป็นแกน 'โยงแฉน้ำอัดลม'"
+  },
+  "sub_topics": [
+    {
+      "id": "NAFLD",
+      "label_th": "ไขมันพอกตับที่ไม่ได้เกิดจากสุรา (NAFLD → MASLD)",
+      "label_en": "Non-Alcoholic Fatty Liver Disease (MASLD)",
+      "description": "ภาวะไขมันสะสมในเซลล์ตับ >5% โดยไม่ได้เกิดจากการดื่มสุรา — ปี 2023 AASLD เปลี่ยนชื่อเป็น MASLD (Metabolic dysfunction-Associated Steatotic Liver Disease) เน้นว่าเกิดจากภาวะ metabolic dysfunction เป็นหลัก prevalence ~25% ทั่วโลก (Younossi 2016 Hepatology)",
+      "key_concepts": [
+        "MASLD rename 2023 (AASLD/EASL/ALEH consensus)",
+        "hepatic steatosis >5%",
+        "NASH (non-alcoholic steatohepatitis) = inflammation + fibrosis",
+        "NAS score (NAFLD Activity Score)",
+        "F0-F4 fibrosis staging",
+        "Younossi 2016 global prevalence meta-analysis",
+        "FIB-4 + NFS non-invasive scoring"
+      ],
+      "related_sub_topics": ["fatty_liver", "phase_1_2_detox", "hyperuricemia"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "phase_1_2_detox",
+      "label_th": "ระบบกำจัดสารพิษของตับ Phase 1 + Phase 2",
+      "label_en": "Hepatic Detoxification (Phase 1 CYP450 + Phase 2 conjugation)",
+      "description": "Phase 1: CYP450 enzymes (CYP3A4 หลัก ~50% ของยา) oxidize สารแปลกปลอม → intermediate ที่ reactive; Phase 2: glucuronidation, sulfation, glutathione conjugation → hydrophilic → ขับออกทางน้ำดี/ปัสสาวะ — 'detox' ที่แท้จริงคือ pathway นี้ ไม่ใช่ชาล้างพิษ",
+      "key_concepts": [
+        "CYP3A4 (50% of drug metabolism)",
+        "CYP2D6, CYP2C9, CYP2E1 (alcohol)",
+        "UGT (UDP-glucuronosyltransferase)",
+        "SULT (sulfotransferase)",
+        "GST (glutathione-S-transferase)",
+        "reactive intermediates (NAPQI from acetaminophen)",
+        "grapefruit-furanocoumarin → CYP3A4 inhibition"
+      ],
+      "related_sub_topics": ["glutathione", "bile_acid"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "glutathione",
+      "label_th": "กลูต้าไธโอน (GSH) — แอนตี้ออกซิแดนท์หลักของตับ",
+      "label_en": "Glutathione — Master Antioxidant",
+      "description": "ไตรเปปไทด์ (glutamate-cysteine-glycine) ที่สร้างในตับ — 90% ของ GSH ทั้งร่างกายอยู่ในตับ; ใช้ neutralize ROS, conjugate กับ NAPQI (acetaminophen), และ recycle vitamin C/E; NAC เป็น precursor ของ cysteine ซึ่งเป็น rate-limiting amino acid",
+      "key_concepts": [
+        "GSH → GSSG redox cycle",
+        "cysteine as rate-limiting AA",
+        "NAC (N-acetylcysteine) precursor",
+        "GPx (glutathione peroxidase)",
+        "GSH depletion in NAFLD/NASH",
+        "liposomal vs oral bioavailability",
+        "Prescott 1979 NAC antidote protocol"
+      ],
+      "related_sub_topics": ["phase_1_2_detox", "fatty_liver"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "bile_acid",
+      "label_th": "กรดน้ำดี (Bile Acids) และ enterohepatic cycle",
+      "label_en": "Bile Acid Metabolism & Enterohepatic Circulation",
+      "description": "ตับสังเคราะห์ primary bile acids (cholic acid/CA + chenodeoxycholic acid/CDCA) จาก cholesterol → เก็บในถุงน้ำดี → หลั่งสู่ duodenum ช่วยย่อยไขมัน → 95% ถูก reabsorb ที่ terminal ileum → กลับตับ (enterohepatic cycle 6-10×/วัน); bile acids signal ผ่าน FXR + TGR5 ควบคุมไขมัน/น้ำตาล",
+      "key_concepts": [
+        "primary: cholic acid (CA) + chenodeoxycholic acid (CDCA)",
+        "secondary: deoxycholic (DCA) + lithocholic (LCA) — gut bacteria 7α-dehydroxylation",
+        "enterohepatic circulation 6-10× daily",
+        "FXR (farnesoid X receptor) signaling",
+        "TGR5 (membrane bile acid receptor)",
+        "UDCA/TUDCA as pharmacological agents",
+        "bile acid sequestrants (cholestyramine)",
+        "cholesterol 7α-hydroxylase (CYP7A1) rate-limiting"
+      ],
+      "related_sub_topics": ["fatty_liver", "phase_1_2_detox"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "fatty_liver",
+      "label_th": "ภาวะไขมันพอกตับ (Hepatic Steatosis)",
+      "label_en": "Hepatic Steatosis → NASH progression",
+      "description": "ไขมันในตับ >5% ของน้ำหนักตับ = steatosis; ลักษณะ macrovesicular (droplet ใหญ่) พบบ่อยที่สุด; pattern lobular/centrilobular (zone 3) จากภาวะ hypoxia; ~20-30% ของคน NAFLD พัฒนาเป็น NASH (inflammation + hepatocyte ballooning + fibrosis) และ 20% ของ NASH → cirrhosis ใน 10 ปี",
+      "key_concepts": [
+        "5% threshold for diagnosis (Kleiner/Bedossa)",
+        "macrovesicular vs microvesicular",
+        "centrilobular (zone 3) pattern",
+        "hepatocyte ballooning",
+        "Mallory-Denk bodies",
+        "FibroScan / transient elastography",
+        "NASH → cirrhosis → HCC pathway",
+        "Roy Taylor twin cycle (liver fat → T2D)",
+        "DiRECT reversal (16.2 kg responder)"
+      ],
+      "related_sub_topics": ["NAFLD", "hyperuricemia", "bile_acid"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "hyperuricemia",
+      "label_th": "ภาวะกรดยูริกสูงในเลือด (Hyperuricemia) — ตัวบ่งชี้ fructose overload",
+      "label_en": "Hyperuricemia — Fructose-Driven Metabolic Marker",
+      "description": "ระดับ uric acid >6.0 mg/dL (หญิง) / >7.0 mg/dL (ชาย) = ภาวะเก๊าท์ แต่ >5.5/6.0 ก็สัมพันธ์กับ metabolic syndrome แล้ว; glossary สำคัญ: fructose → fructokinase → ใช้ ATP → AMP → IMP → xanthine → uric acid — pathway นี้เฉพาะ fructose (กลูโคสไม่ทำ) ทำให้ 'น้ำอัดลม/น้ำผึ้ง' เป็น driver หลัก (Johnson 2013 Diabetes; Choi BMJ 2008 N=46,393)",
+      "key_concepts": [
+        "fructose → fructokinase (KHK) → ATP depletion → AMP → IMP → uric acid",
+        "glucose does NOT deplete ATP in hepatocytes the same way",
+        "Choi 2008 BMJ — SSB → hyperuricemia +85% risk",
+        "uric acid 5.5 mg/dL threshold for metabolic syndrome (Kuwabara 2018)",
+        "xanthine oxidase (XO) inhibitor allopurinol",
+        "MSU crystal deposition in gout",
+        "Johnson 2013 Diabetes — fructose as 'cause' of metabolic syndrome",
+        "uric acid + endothelial dysfunction (nitric oxide inhibition)",
+        "Robert Lustig — Sugar: The Bitter Truth (UCSF 2009, 100M+ views)"
+      ],
+      "related_sub_topics": ["fatty_liver", "NAFLD", "phase_1_2_detox"],
+      "cross_domain_refs": ["blood_sugar.sub_topics.insulin_resistance", "fat_metabolism.sub_topics.metabolic_syndrome"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    }
+  ]
+}

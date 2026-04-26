@@ -1,0 +1,1153 @@
+{
+  "domain_id": "digestive",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 24,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.digestive",
+    "notes": "Every fact carries full safety_warning per /cage_system/data/domains/_meta/safety_spec.md. Risk-level distribution biased to green/yellow (lifestyle + supplement) with orange for H. pylori eradication, IBD probiotic caution, betaine HCl on PPI, and Akkermansia/fermented pathogens in immunocompromised."
+  },
+  "facts": [
+    {
+      "fact_id": "dig_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "gut_microbiome",
+      "statement_th": "ZOE PREDICT 2 (Asnicar et al., Nature Medicine 2021, N=1,098) ระบุกลุ่ม 'จุลินทรีย์ดี' ~15 สปีชีส์ และ 'จุลินทรีย์แย่' ~15 สปีชีส์ที่ทำนายการตอบสนองต่อน้ำตาล/ไขมันหลังอาหารได้ — คำตอบคือ ไมโครไบโอมของแต่ละคนกำหนดผลของอาหารเดียวกันต่างกัน",
+      "statement_en": "ZOE PREDICT 2 (Asnicar et al., Nature Medicine 2021, N=1,098) identified ~15 'favourable' and ~15 'unfavourable' gut microbial species predicting post-prandial glucose and lipid responses — the same meal produces different metabolic responses depending on each person's microbiome.",
+      "numeric_values": [
+        {"value": 1098, "unit": "participants", "label": "cohort size (US + UK)", "is_approximation": false},
+        {"value": 15, "unit": "species", "label": "favourable microbes panel", "is_approximation": true},
+        {"value": 15, "unit": "species", "label": "unfavourable microbes panel", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_001",
+      "entities_mentioned": ["tim_spector", "zoe_kcl", "zoe_predict2_asnicar_2021"],
+      "sources": [
+        {
+          "url": "https://www.nature.com/articles/s41591-020-01183-8",
+          "org": "Nature Medicine",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Microbiome connections with host metabolism and habitual diet from 1,098 deeply phenotyped individuals — Asnicar F, Berry SE, Valdes AM, ... Spector TD",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไม่มี diet เดียวเหมาะทุกคน", "จุลินทรีย์ในพุงเลือกว่าคุณอ้วนหรือไม่"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 1,098 / 15 / 15 ห้ามเปลี่ยน; ห้ามบอกว่า 'ตรวจไมโครไบโอมแล้วเปลี่ยนชีวิตได้ 100%' — ยังเป็น exploratory research",
+      "usage_notes": "Anchor fact สำหรับ personalised nutrition angle + 30-plant rule follow-up",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'ตรวจ microbiome แล้วรักษาโรคได้'",
+          "ห้ามแนะนำให้หยุดยาเพราะผล microbiome test"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ตรวจแล้วรักษา", "microbiome หายโรค"],
+        "regulatory_risk_notes": "การทดสอบ microbiome consumer ในไทยยังไม่ถูกรับรองเป็น diagnostic device โดย อย. — ใช้ framing 'ข้อมูลเชิงวิจัย'"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "gut_microbiome",
+      "statement_th": "การทดลองของ Sonnenburg (Nature 2016) ในหนู humanized ที่กินอาหาร low-MAC (ไฟเบอร์ต่ำ) 4 รุ่นติด — ความหลากหลายของจุลินทรีย์ลดถาวรประมาณ 60-75% และไม่ฟื้นเต็มแม้กลับไปกินไฟเบอร์ ต้องใช้ fecal transplant จึงจะฟื้นสปีชีส์ที่หายไป",
+      "statement_en": "Sonnenburg et al. (Nature 2016) showed that humanized mice on a low-MAC (low-fiber) diet for 4 generations suffered a persistent ~60-75% loss of microbial diversity that did not fully recover on fiber re-introduction — only fecal transplantation restored the lost taxa.",
+      "numeric_values": [
+        {"value": 4, "unit": "generations", "label": "mouse generations on low-MAC diet", "is_approximation": false},
+        {"value": "60-75", "unit": "%", "label": "diversity loss", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_001",
+      "entities_mentioned": ["justin_sonnenburg", "erica_sonnenburg", "sonnenburg_4gen_mice_2016"],
+      "sources": [
+        {
+          "url": "https://www.nature.com/articles/nature16504",
+          "org": "Nature",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Diet-induced extinctions in the gut microbiota compound over generations — Sonnenburg ED, Smits SA, ... Sonnenburg JL",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กินแป้งล้วน 4 รุ่นจุลินทรีย์สูญพันธุ์", "หายไปกลับมาไม่ได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามแปลตรง ๆ เป็นมนุษย์ว่า 'ลูกหลานคุณจะเสียจุลินทรีย์ไปตลอดชีวิต' — เป็นงานในหนู humanized, extrapolation เป็น suggestive",
+      "usage_notes": "Anchor ให้ 'กินไฟเบอร์หลากหลาย' เป็น insurance สำหรับรุ่นต่อไป — UncleD-style dramatic framing",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่ามนุษย์ต้องทำ fecal transplant ฟื้นจุลินทรีย์",
+          "ห้ามเอาผลหนูไป frame เป็น 'คนไทยจุลินทรีย์ตายหมดแล้ว'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["จุลินทรีย์ตายหมด", "ฟื้นไม่ได้แน่นอน"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "gut_microbiome",
+      "statement_th": "Akkermansia muciniphila (pasteurised, 10^10 CFU/day × 3 เดือน) ใน pilot trial 32 คนที่น้ำหนักเกิน/โรคอ้วน — ปรับ insulin sensitivity ดีขึ้น 29%, total cholesterol ลด 8.6%, LPS ในเลือดลด (Depommier et al., Nature Medicine 2019) — เป็นงานวิจัยมนุษย์ชิ้นแรกของจุลินทรีย์สายพันธุ์นี้",
+      "statement_en": "Pasteurised Akkermansia muciniphila (10^10 CFU/day × 3 months) in a pilot trial of 32 overweight/obese insulin-resistant adults improved HOMA-IR by 29%, reduced total cholesterol 8.6%, and lowered plasma LPS (Depommier et al., Nature Medicine 2019) — the first human A. muciniphila supplementation trial.",
+      "numeric_values": [
+        {"value": 32, "unit": "participants", "label": "trial size", "is_approximation": false},
+        {"value": "10^10", "unit": "CFU/day", "label": "pasteurised dose", "is_approximation": false},
+        {"value": 3, "unit": "months", "label": "duration", "is_approximation": false},
+        {"value": 29, "unit": "%", "label": "improvement in HOMA-IR", "is_approximation": false},
+        {"value": 8.6, "unit": "%", "label": "total cholesterol reduction", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_dig_003",
+      "entities_mentioned": ["akkermansia", "patrice_cani", "direct_plus_akkermansia"],
+      "sources": [
+        {
+          "url": "https://www.nature.com/articles/s41591-019-0495-2",
+          "org": "Nature Medicine",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Supplementation with Akkermansia muciniphila in overweight and obese human volunteers — Depommier C, Everard A, Druart C, ... Cani PD",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["จุลินทรีย์ตัวเดียวเปลี่ยน insulin", "ลำไส้ของคนผอมมีตัวนี้สูงกว่าคนอ้วน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "N=32 — pilot; ห้ามการันตี '4 ใน 5 ดีขึ้น'. ห้ามบอกว่า Akkermansia 'รักษา' เบาหวาน/โรคอ้วน — 'สนับสนุน insulin sensitivity'",
+      "usage_notes": "Anchor สำหรับ premium probiotic angle (A. muciniphila ไทยยังไม่แพร่หลาย, มีเฉพาะ import)",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["autoimmune_on_immunosuppressant"],
+        "drug_interactions": ["metformin (synergistic — ต้องระวัง hypoglycemia เล็กน้อย)", "immunosuppressant (ระวัง bacteremia ในทฤษฎี)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า Akkermansia 'รักษาเบาหวาน'",
+          "ห้ามบอกว่าเป็นยาลดความอ้วน",
+          "ห้ามอ้างว่าแทน metformin ได้"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["active_cancer_treatment", "post_surgical_6_months"],
+        "validator_keywords_th": ["Akkermansia รักษาเบาหวาน", "แทน metformin"],
+        "regulatory_risk_notes": "EFSA อนุมัติ pasteurised A. muciniphila เป็น novel food (2021) — ในไทย อย. ยังไม่มีประกาศเฉพาะ; อ้าง 'สนับสนุน metabolic health' เท่านั้น"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "intestinal_permeability",
+      "statement_th": "Alessio Fasano ค้นพบ zonulin ในปี 2000 — โปรตีนเดียวที่ควบคุมการเปิด/ปิด tight junctions ของลำไส้ในมนุษย์ — ปัจจุบันใช้เป็น biomarker ของ 'leaky gut' ในโรค celiac, T1D, ankylosing spondylitis",
+      "statement_en": "Alessio Fasano discovered zonulin in 2000 — the only known human protein that reversibly regulates intestinal tight-junction opening — now used as a biomarker of 'leaky gut' in celiac disease, type 1 diabetes, and ankylosing spondylitis.",
+      "numeric_values": [
+        {"value": 2000, "unit": "year", "label": "zonulin discovery", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_dig_003",
+      "entities_mentioned": ["alessio_fasano", "zonulin", "fasano_zonulin_discovery"],
+      "sources": [
+        {
+          "url": "https://journals.biologists.com/jcs/article/113/24/4435/53006/Human-zonulin-a-potential-modulator-of-intestinal",
+          "org": "Journal of Cell Science",
+          "source_tier": "A",
+          "year": 2000,
+          "title": "Human zonulin, a potential modulator of intestinal tight junctions — Wang W, Uzzau S, Goldblum SE, Fasano A",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3384703/",
+          "org": "Physiological Reviews / PMC",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "Zonulin and its regulation of intestinal barrier function — Fasano A",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กุญแจของลำไส้รั่ว", "ชื่อคุ้นหูแต่รู้จริงไม่กี่คน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "คำว่า 'leaky gut' ยังไม่เป็นคำวินิจฉัย ICD — ใช้ 'increased intestinal permeability' เป็นตัวจริง; ห้ามบอกว่ามีผลิตภัณฑ์ 'ซ่อมลำไส้รั่ว 100%'",
+      "usage_notes": "Anchor สำหรับ L-glutamine angle + เป็น bridge เข้าเรื่อง gluten/autoimmune",
+      "contradictions": ["วงการแพทย์ทั่วไปบางส่วนยังถือว่า 'leaky gut syndrome' เป็น pseudoscience — แต่ zonulin pathway เป็นวิทยาศาสตร์ที่ยืนยันแล้ว"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่าลำไส้รั่ว = รักษาได้ด้วยอาหารเสริม",
+          "ห้ามอ้างว่าเป็นสาเหตุของโรคทุกโรค (autoimmune blanket claim)",
+          "ห้ามวินิจฉัย 'คุณมี leaky gut' โดยไม่ทดสอบ"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["active_cancer_treatment"],
+        "validator_keywords_th": ["รักษาลำไส้รั่ว", "ซ่อมลำไส้ 100%", "leaky gut รักษาหาย"],
+        "regulatory_risk_notes": "อย. ไทย ห้ามอ้าง 'รักษาลำไส้รั่ว' — ใช้ 'สนับสนุน gut barrier / ผนังลำไส้'"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "stool_analysis",
+      "statement_th": "Bristol Stool Form Scale (Heaton 1997) แบ่งอุจจาระเป็น 7 ชนิด — ชนิด 3-4 (ทรงไส้กรอกผิวเรียบ/มีรอยแตก) = ปกติ; 1-2 (เม็ดแข็ง/ขรุขระ) = ท้องผูก + transit >72 ชม.; 5-7 = transit เร็วเกิน/ท้องเสีย — เป็นเครื่องมือเดียวที่แพทย์ทางเดินอาหารทั่วโลกใช้ร่วมกันในปัจจุบัน",
+      "statement_en": "The Bristol Stool Form Scale (Heaton 1997) classifies stool into 7 types — types 3-4 (sausage-shaped, smooth or cracked) are optimal; types 1-2 (hard lumps) reflect constipation with transit >72 h; types 5-7 reflect accelerated transit/diarrhea — now the global clinical standard in gastroenterology.",
+      "numeric_values": [
+        {"value": 7, "unit": "types", "label": "Bristol scale categories", "is_approximation": false},
+        {"value": "3-4", "unit": "type", "label": "optimal stool form", "is_approximation": false},
+        {"value": "24-72", "unit": "hours", "label": "normal colonic transit time", "is_approximation": true},
+        {"value": 1997, "unit": "year", "label": "scale publication", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_dig_007",
+      "entities_mentioned": ["ken_heaton", "bristol_heaton_1997"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9299672/",
+          "org": "Scand J Gastroenterol / PubMed",
+          "source_tier": "A",
+          "year": 1997,
+          "title": "Stool form scale as a useful guide to intestinal transit time — Lewis SJ & Heaton KW",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["แผนภูมิดูขี้เองได้", "อุจจาระของคุณบอกโรคได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข 7 ชนิด / 3-4 = normal / 1-2 = constipation. ห้าม self-diagnose โรคร้ายจาก stool อย่างเดียว — สีดำ/แดงอาจเป็นเลือด → ต้องพบแพทย์",
+      "usage_notes": "Hook material #1 — คนไทยชอบคุยเรื่องขี้ลับๆ; รองรับ content educational + prebiotic/fiber angle",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'ดู Bristol แทนการส่องกล้อง/ตรวจแพทย์'",
+          "ห้ามบอกว่าสีดำ/แดงในอุจจาระ 'ไม่อันตราย'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ไม่ต้องส่องกล้อง", "ไม่ต้องหาหมอ"],
+        "regulatory_risk_notes": "Bristol scale เป็น educational tool — ไม่ใช่ diagnostic device; ต้อง direct คนที่มี red flag (เลือด, น้ำหนักลด, ถ่ายดำ) ไปพบแพทย์"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "SCFA",
+      "statement_th": "บิวทิเรต (SCFA จากการหมักไฟเบอร์โดยแบคทีเรีย Faecalibacterium, Roseburia) ให้พลังงานประมาณ 60-70% ของเซลล์เยื่อบุลำไส้ใหญ่ (colonocyte) — ถ้าไม่มีไฟเบอร์ colonocyte 'หิว' และ barrier อ่อนลง (Donohoe et al., Cell Metabolism 2011)",
+      "statement_en": "Butyrate (an SCFA produced by fiber fermentation via Faecalibacterium and Roseburia) provides roughly 60-70% of a colonocyte's energy — without fiber, colonocytes 'starve' and the epithelial barrier weakens (Donohoe et al., Cell Metabolism 2011).",
+      "numeric_values": [
+        {"value": "60-70", "unit": "%", "label": "colonocyte energy from butyrate", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_002",
+      "entities_mentioned": ["butyrate", "faecalibacterium"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21531334/",
+          "org": "Cell Metabolism / PubMed",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "The microbiome and butyrate regulate energy metabolism and autophagy in the mammalian colon — Donohoe DR et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เซลล์ลำไส้กินไฟเบอร์ไม่ใช่กินข้าว", "ไม่กินไฟเบอร์ = ลำไส้อดตาย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 60-70% = ballpark; ห้ามบอก '100% ของพลังงาน'",
+      "usage_notes": "Anchor หลักของ fiber angle + prebiotic angle — เชื่อม fat_metabolism domain (insulin via FFAR2/3)",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'กินบิวทิเรต supplement = รักษา IBD'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["butyrate รักษา", "บิวทิเรตรักษาลำไส้อักเสบ"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_007",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "gut_microbiome",
+      "statement_th": "American Gut Project (McDonald et al., mSystems 2018, N>10,000) — คนที่กินพืชหลากหลายเกิน 30 ชนิดต่อสัปดาห์ มีความหลากหลายของจุลินทรีย์ในลำไส้สูงกว่าคนที่กิน <10 ชนิดอย่างมีนัยสำคัญ — ที่มาของกฎ '30 plants per week' ที่ Tim Spector โปรโมต",
+      "statement_en": "The American Gut Project (McDonald et al., mSystems 2018, N>10,000) showed that people eating >30 different plant species per week had significantly greater gut microbiome diversity than those eating <10 — the origin of Tim Spector's '30 plants per week' rule.",
+      "numeric_values": [
+        {"value": 30, "unit": "plant species / week", "label": "threshold for high diversity", "is_approximation": false},
+        {"value": 10, "unit": "plant species / week", "label": "low-diversity reference", "is_approximation": false},
+        {"value": 10000, "unit": "participants", "label": "American Gut cohort size", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_001",
+      "entities_mentioned": ["rob_knight", "tim_spector", "american_gut", "american_gut_30_plants"],
+      "sources": [
+        {
+          "url": "https://journals.asm.org/doi/10.1128/msystems.00031-18",
+          "org": "mSystems",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "American Gut: an Open Platform for Citizen Science Microbiome Research — McDonald D, Hyde E, ... Knight R",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กฎ 30 ชนิดต่อสัปดาห์", "ข้าวเหนียวไก่ทุกวันทำพุงพัง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Correlation ไม่ใช่ causation — 'คนที่กินหลากมี diversity สูง' ไม่ = 'กินหลากแล้วจะ diversity พุ่ง'. ห้าม frame 30 เป็น 'magic number' แบบเคร่ง",
+      "usage_notes": "UncleD style hook — 'คนไทยกินข้าวผัดทุกมื้อ' → ท้าทาย eating habit",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": ["autoimmune_on_immunosuppressant"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า 30 plants/week รักษา IBS/IBD (ผู้ป่วย IBD บางคนต้อง low-FODMAP)"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["กินผักแล้วรักษา IBS", "30 ชนิดแก้ทุกโรค"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_008",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "gut_microbiome",
+      "statement_th": "ลำไส้มนุษย์มีแบคทีเรียประมาณ 38 ล้านล้านตัว (เดิมว่า 100 ล้านล้าน แต่ Sender et al. 2016 ปรับใหม่) — สัดส่วนเซลล์ต่อเซลล์มนุษย์ประมาณ 1:1 ไม่ใช่ 10:1 ตามที่เคยเชื่อ; มวลรวมประมาณ 200 กรัม (ไม่ใช่ 2 กก. อย่างที่เข้าใจผิด)",
+      "statement_en": "The human gut contains roughly 38 trillion bacteria (previously cited as 100 trillion, revised by Sender et al. 2016) — the ratio to human cells is about 1:1 rather than the long-stated 10:1; total mass ~200 g, not 2 kg as often popularised.",
+      "numeric_values": [
+        {"value": 38, "unit": "trillion", "label": "bacterial cells in human gut", "is_approximation": true},
+        {"value": 1, "unit": "ratio", "label": "bacteria-to-human-cell ratio", "is_approximation": true},
+        {"value": 200, "unit": "g", "label": "total microbial biomass", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["hmp2"],
+      "sources": [
+        {
+          "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533",
+          "org": "PLOS Biology",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Revised Estimates for the Number of Human and Bacteria Cells in the Body — Sender R, Fuchs S, Milo R",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["แก้ตำรากันใหม่", "ไม่ใช่ 100 ล้านล้าน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามใช้ตัวเลขเก่า '10:1 / 100 trillion / 2 kg' — ถูก debunk แล้ว",
+      "usage_notes": "Myth-bust hook — คนไทยหลายคนยังเล่าตัวเลขเก่า",
+      "contradictions": ["แหล่งเก่า ๆ ในไทย (e.g. popular health articles) ยังใช้ 100 trillion / 10:1 — need to correct"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_009",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "H_pylori",
+      "statement_th": "Barry Marshall ดื่มเชื้อ H. pylori ที่เพาะเองเมื่อปี 1984 เพื่อพิสูจน์ว่าแบคทีเรียทำให้เป็นแผลในกระเพาะ (ไม่ใช่ความเครียด) — ป่วย gastritis ใน 5 วัน รักษาด้วย antibiotic หาย; ได้ Nobel Prize Medicine 2005 ร่วมกับ Robin Warren",
+      "statement_en": "Barry Marshall drank a self-cultured flask of H. pylori in 1984 to prove bacteria — not stress — caused peptic ulcers; developed gastritis within 5 days, cleared it with antibiotics, and with Robin Warren won the 2005 Nobel Prize in Physiology or Medicine.",
+      "numeric_values": [
+        {"value": 1984, "unit": "year", "label": "self-inoculation", "is_approximation": false},
+        {"value": 2005, "unit": "year", "label": "Nobel Prize awarded", "is_approximation": false},
+        {"value": 5, "unit": "days", "label": "time to symptomatic gastritis", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_dig_004",
+      "entities_mentioned": ["barry_marshall", "robin_warren", "barry_marshall_self_inoculation"],
+      "sources": [
+        {
+          "url": "https://www.nobelprize.org/prizes/medicine/2005/press-release/",
+          "org": "Nobel Foundation",
+          "source_tier": "A",
+          "year": 2005,
+          "title": "The Nobel Prize in Physiology or Medicine 2005 — Marshall BJ & Warren JR",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3881291/",
+          "org": "Med J Aust / PubMed",
+          "source_tier": "A",
+          "year": 1985,
+          "title": "Attempt to fulfil Koch's postulates for pyloric Campylobacter — Marshall BJ et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["หมอดื่มเชื้อตัวเองเพื่อพิสูจน์", "โนเบลจากการกินแบคทีเรีย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 1984 / 2005 / 5 วัน = ถูกต้อง; ห้ามบอกว่า 'ความเครียดไม่เกี่ยวแผลในกระเพาะเลย' — ความเครียดยังเป็น aggravator ของ GERD/functional dyspepsia",
+      "usage_notes": "Hook ประวัติศาสตร์การแพทย์ + bridge เข้า H. pylori eradication protocol",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำให้คนดื่มเชื้ออะไรตาม",
+          "ห้ามบอกว่า 'ลำไส้ไทยทุกคนมี H. pylori ต้องกำจัด'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["กิน H. pylori", "ดื่มเชื้อเอง"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "H_pylori",
+      "statement_th": "การกำจัด H. pylori ตามแนวทาง Maastricht VI (2022) ต้องใช้ antibiotic 2 ชนิด + PPI นาน 14 วัน (triple therapy: clarithromycin + amoxicillin + PPI, หรือ bismuth quadruple therapy ในพื้นที่ clarithromycin resistance >15%) — ห้าม DIY เด็ดขาด: resistance rate ไทย >30% ทำให้การใช้ยาไม่ครบทำให้ดื้อยา",
+      "statement_en": "H. pylori eradication per Maastricht VI (2022) consensus requires 14 days of triple therapy (clarithromycin + amoxicillin + PPI) or bismuth quadruple therapy where clarithromycin resistance >15% — DIY is contraindicated: Thailand's clarithromycin resistance is >30%, and incomplete courses drive further resistance.",
+      "numeric_values": [
+        {"value": 14, "unit": "days", "label": "eradication duration", "is_approximation": false},
+        {"value": 15, "unit": "%", "label": "clarithromycin resistance threshold", "is_approximation": false},
+        {"value": 30, "unit": "%", "label": "Thailand clarithromycin resistance estimate", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_004",
+      "entities_mentioned": ["urease_h_pylori", "acg"],
+      "sources": [
+        {
+          "url": "https://gut.bmj.com/content/71/9/1724",
+          "org": "Gut / BMJ",
+          "source_tier": "A",
+          "year": 2022,
+          "title": "Management of Helicobacter pylori infection: the Maastricht VI/Florence consensus report — Malfertheiner P et al.",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31414245/",
+          "org": "Helicobacter / PubMed",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Antibiotic resistance of Helicobacter pylori in Southeast Asia — multi-country study",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ห้ามซื้อยาเอง", "ทำไมยาปฏิชีวนะที่ร้านขายไม่พอ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 14 วัน = consensus ปัจจุบัน. ห้ามแนะนำสูตรเฉพาะ (drug/dose) ให้ audience — refer to แพทย์",
+      "usage_notes": "Educational only — ห้ามใช้ในการขาย supplement (red flag angle)",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["pregnancy_lactation", "autoimmune_on_immunosuppressant"],
+        "drug_interactions": ["clarithromycin + statin (rhabdomyolysis)", "PPI + clopidogrel (CYP2C19)", "amoxicillin + methotrexate"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำสูตรยาปฏิชีวนะโดยไม่ต้องพบแพทย์",
+          "ห้ามบอกว่า 'อาหารเสริม X กำจัด H. pylori แทน antibiotic ได้'",
+          "ห้ามบอก 'ไม่ต้องส่องกล้อง'"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18"],
+        "validator_keywords_th": ["กำจัด H pylori เอง", "แทน antibiotic", "อาหารเสริมรักษาแผลในกระเพาะ"],
+        "regulatory_risk_notes": "อย. ไทย + พรบ.ยา 2510 — ห้ามโฆษณา supplement ว่ารักษาแผลในกระเพาะหรือ H. pylori; clarithromycin/amoxicillin เป็น prescription-only"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "vagal_tone",
+      "statement_th": "เส้นประสาทเวกัส (vagus nerve) ~80% ของใยประสาทเป็น afferent — ส่งสัญญาณจากลำไส้ขึ้นสมอง มากกว่าจากสมองลงลำไส้ 4 เท่า; นี่คือเหตุผลที่ 'ไส้บอกอะไรสมองได้มากกว่าที่สมองสั่งไส้' (Prechtl & Powley 1990; Kressel et al. 2023)",
+      "statement_en": "Roughly 80% of vagal nerve fibers are afferent — sending signals from gut to brain, 4× more than the reverse direction; this is why 'the gut tells the brain more than the brain tells the gut' (Prechtl & Powley 1990; Kressel et al. 2023).",
+      "numeric_values": [
+        {"value": 80, "unit": "%", "label": "vagal afferent fibers", "is_approximation": true},
+        {"value": 4, "unit": "fold", "label": "afferent:efferent ratio", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_006",
+      "entities_mentioned": ["michael_gershon"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2278059/",
+          "org": "Anat Embryol / PubMed",
+          "source_tier": "A",
+          "year": 1990,
+          "title": "The fiber composition of the abdominal vagus of the rat — Prechtl JC & Powley TL",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6007674/",
+          "org": "Front Psychiatry / PMC",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "The vagus nerve at the interface of the microbiota-gut-brain axis — Breit S et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ลำไส้คุยกับสมองมากกว่าสมองสั่งลำไส้", "สมองที่สอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "80% afferent เป็น estimate จาก rat model; มนุษย์ยังไม่มีตัวเลขแน่นอน — ระบุ 'ประมาณ'",
+      "usage_notes": "เปิด bridge เข้าเรื่อง HRV / การหายใจ / เครียดท้อง",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า 'กดเส้นประสาทเวกัสเองรักษาทุกโรค'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["กดเวกัสรักษา"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "vagal_tone",
+      "statement_th": "ระบบประสาท enteric (ENS) มีเซลล์ประสาทประมาณ 400-600 ล้านเซลล์ — มากกว่า spinal cord และเกือบเท่าตัวกับ ... สมองแมว — ถูกเรียก 'สมองที่สอง' (Michael Gershon 1998) — ทำงานได้อิสระจากสมองสำหรับ peristalsis และ secretion",
+      "statement_en": "The enteric nervous system (ENS) contains roughly 400-600 million neurons — more than the spinal cord and comparable to a cat's brain — dubbed 'the second brain' (Gershon 1998); it can run peristalsis and secretion autonomously from the central nervous system.",
+      "numeric_values": [
+        {"value": "400-600", "unit": "million neurons", "label": "ENS neuron count estimate", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_006",
+      "entities_mentioned": ["michael_gershon", "serotonin_gut"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10221959/",
+          "org": "Hosp Pract / PubMed",
+          "source_tier": "B",
+          "year": 1999,
+          "title": "The Second Brain: A Groundbreaking New Understanding of Nervous Disorders of the Stomach and Intestine — Gershon MD (reference)",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6785641/",
+          "org": "Cell Mol Gastroenterol Hepatol / PMC",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "The enteric nervous system in gastrointestinal disease etiology — Niesler B et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["สมอง 2 ในพุง", "เยอะกว่าไขสันหลังทั้งเส้น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 400-600M เป็น estimate ยอดนิยม; ห้าม inflate เป็น 'พันล้าน'",
+      "usage_notes": "UncleD-style hook — bridge เข้า serotonin gut (90-95% ของ serotonin ทั้งร่างกายอยู่ในลำไส้)",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า 'ลำไส้ = แหล่งความสุข' → รักษาซึมเศร้าแทน SSRI"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": ["on_SSRI_or_antidepressant"],
+        "validator_keywords_th": ["แทน SSRI", "ลำไส้รักษาซึมเศร้า"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_013",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "H_pylori",
+      "statement_th": "Pimentel's team (Cedars-Sinai) พัฒนา methane/hydrogen breath test สำหรับ SIBO — พบว่า methane-positive SIBO (Methanobrevibacter smithii) สัมพันธ์กับ IBS-constipation (IBS-C) แบบ dose-response: ยิ่ง methane สูง ยิ่งท้องผูก (Rezaie et al., Gut 2017)",
+      "statement_en": "Pimentel's team at Cedars-Sinai developed the methane/hydrogen breath test for SIBO — methane-positive SIBO (Methanobrevibacter smithii) correlates with IBS-constipation in a dose-response fashion: higher breath methane = worse constipation (Rezaie et al., Gut 2017).",
+      "numeric_values": [],
+      "mechanism_ref": "mech_dig_011",
+      "entities_mentioned": ["mark_pimentel", "cedars_sinai_mast"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28323273/",
+          "org": "Gut / PubMed",
+          "source_tier": "A",
+          "year": 2017,
+          "title": "Hydrogen and methane-based breath testing in gastrointestinal disorders — Rezaie A, Buresi M, Lembo A, ... Pimentel M",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32247735/",
+          "org": "Am J Gastroenterol / PubMed",
+          "source_tier": "A",
+          "year": 2020,
+          "title": "ACG Clinical Guideline: Small Intestinal Bacterial Overgrowth — Pimentel M et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ลมหายใจบอกว่าลำไส้ผิดปกติ", "มีเทนในพุง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'SIBO คือสาเหตุของ IBS ทุกคน' — เป็นเพียง 1 ใน phenotypes",
+      "usage_notes": "Anchor สำหรับ low-FODMAP + anti-prebiotic caution (inulin อาจแย่สำหรับ SIBO)",
+      "contradictions": ["วงการ GI บางส่วนถือว่า SIBO ยังถูก overdiagnosed"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'probiotic รักษา SIBO ได้' (ผู้ป่วย SIBO บาง phenotype แย่ลงเมื่อกิน probiotic)",
+          "ห้ามแนะนำ prebiotic/inulin ให้คนที่สงสัย SIBO"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["probiotic รักษา SIBO", "inulin แก้ SIBO"],
+        "regulatory_risk_notes": "Breath test ต้องทำในสถานพยาบาล; ไทยทำได้ที่โรงพยาบาลเฉพาะ — ห้ามอ้างผลิตภัณฑ์ที่บ้านใช้แทน"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "bile_acid",
+      "statement_th": "ตับสังเคราะห์กรดน้ำดีประมาณ 600 mg ต่อวัน แต่ enterohepatic circulation ทำให้ bile acid pool รวม ~3-5 กรัม หมุนเวียนเข้า-ออกลำไส้ 4-12 ครั้งต่อวัน; ~95% reabsorb ที่ ileum terminal; ~5% หลุดไปลำไส้ใหญ่ให้แบคทีเรียเปลี่ยนเป็น secondary bile acids",
+      "statement_en": "The liver synthesises about 600 mg of bile acids per day, but enterohepatic circulation maintains a bile-acid pool of ~3-5 g that cycles through the gut 4-12 times daily; ~95% is reabsorbed at the terminal ileum; ~5% escapes to the colon where bacteria convert it to secondary bile acids.",
+      "numeric_values": [
+        {"value": 600, "unit": "mg/day", "label": "daily bile acid synthesis", "is_approximation": true},
+        {"value": "3-5", "unit": "g", "label": "total bile acid pool", "is_approximation": true},
+        {"value": "4-12", "unit": "cycles/day", "label": "enterohepatic cycling frequency", "is_approximation": true},
+        {"value": 95, "unit": "%", "label": "ileal reabsorption efficiency", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_005",
+      "entities_mentioned": ["primary_bile_acid", "secondary_bile_acid", "fxr"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19208775/",
+          "org": "Physiol Rev / PubMed",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Bile acids: regulation of synthesis — Chiang JY",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ตับใช้ซ้ำ 95% ไม่ใช่ของเล่น", "ระบบรีไซเคิลภายในตัว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 95% / 3-5 g เป็น standard physiology — ห้าม inflate เป็น 100%",
+      "usage_notes": "Bridge สำหรับ psyllium angle (จับ bile acid → LDL ลด) + milk thistle",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_015",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "stool_analysis",
+      "statement_th": "Psyllium (Plantago ovata) ลด LDL-C โดยเฉลี่ย 7% และ total cholesterol 4-5% จาก meta-analysis 28 RCTs (Jovanovski et al., Am J Clin Nutr 2018) — dose 10.2 กรัม/วัน × อย่างน้อย 3 สัปดาห์; เป็น soluble fiber ตัวเดียวที่ FDA อนุมัติ health claim 'may reduce risk of heart disease'",
+      "statement_en": "Psyllium lowers LDL-C by an average of 7% and total cholesterol 4-5% across a meta-analysis of 28 RCTs (Jovanovski et al., AJCN 2018) at 10.2 g/day for ≥3 weeks; it's the only soluble fiber with an FDA-approved health claim for reducing heart disease risk.",
+      "numeric_values": [
+        {"value": 7, "unit": "%", "label": "LDL-C reduction", "is_approximation": true},
+        {"value": 10.2, "unit": "g/day", "label": "effective psyllium dose", "is_approximation": false},
+        {"value": 28, "unit": "RCTs", "label": "meta-analysis size", "is_approximation": false},
+        {"value": 3, "unit": "weeks", "label": "minimum trial duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_dig_008",
+      "entities_mentioned": ["psyllium"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30019741/",
+          "org": "Am J Clin Nutr / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "The effect of psyllium on LDL-C: a systematic review and meta-analysis of RCTs — Jovanovski E et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไฟเบอร์ตัวเดียวที่ FDA approve", "ลด LDL โดยไม่ต้องกิน statin low-dose"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'แทน statin ได้' — ขนาดลด 7% เล็กกว่า statin mild (30-50%)",
+      "usage_notes": "Primary anchor สำหรับ psyllium product angle — bridge ข้าม domain heart/blood",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["levothyroxine (ลดการดูดซึม — ห่าง 4 ชม.)", "warfarin (ระวัง vitamin K binding)", "lithium (ลด absorption)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'psyllium แทน statin'",
+          "ห้ามบอกว่า 'รักษา cholesterol สูง'"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["แทน statin", "psyllium รักษาไขมันในเลือด"],
+        "regulatory_risk_notes": "อย. ไทย: psyllium เป็นอาหารเสริม — อ้าง 'สนับสนุนระบบขับถ่าย' + 'เหมาะกับผู้ที่ดูแลระดับคอเลสเตอรอล'"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "gut_microbiome",
+      "statement_th": "Stanford trial (Wastyk et al., Cell 2021): กินอาหารหมัก 6 serving/วัน (kefir, yogurt, kimchi, kombucha, cottage cheese) 10 สัปดาห์ — เพิ่มความหลากหลายของจุลินทรีย์ + ลด 19 inflammatory proteins; ขณะที่กลุ่มไฟเบอร์สูง (high-MAC) ไม่เพิ่ม diversity อย่างมีนัยสำคัญ",
+      "statement_en": "Stanford trial (Wastyk et al., Cell 2021): 6 servings/day of fermented foods (kefir, yogurt, kimchi, kombucha, cottage cheese) over 10 weeks increased gut microbial diversity and reduced 19 inflammatory cytokines, while the high-fiber arm did not significantly boost diversity.",
+      "numeric_values": [
+        {"value": 6, "unit": "servings/day", "label": "fermented food intake", "is_approximation": false},
+        {"value": 10, "unit": "weeks", "label": "trial duration", "is_approximation": false},
+        {"value": 19, "unit": "proteins", "label": "inflammatory markers reduced", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_dig_009",
+      "entities_mentioned": ["sonnenburg_gardner_fermented_2021", "lactobacillus", "bifidobacterium"],
+      "sources": [
+        {
+          "url": "https://www.cell.com/cell/fulltext/S0092-8674(21)00754-6",
+          "org": "Cell",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Gut-microbiota-targeted diets modulate human immune status — Wastyk HC, Fragiadakis GK, ... Sonnenburg JL, Gardner CD",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["อาหารหมักชนะไฟเบอร์ในงานนี้", "kimchi ดีกว่าผักบุ้ง (ในบางมิติ)"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามสรุปว่า 'ไฟเบอร์ไม่สำคัญ' — งานนี้พบเฉพาะ short-term 10 wk + small N; ยังต้องกินไฟเบอร์คู่",
+      "usage_notes": "Hook material สำหรับ product angle — fermented dairy, kimchi, miso",
+      "contradictions": ["งานของ Sonnenburg เดิมเน้น fiber → diversity; งาน Cell 2021 แสดงว่า fermented food ทรงพลังกว่า — nuance context-dependent"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": ["autoimmune_on_immunosuppressant"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'กินกิมจิวันละ 6 ถ้วยรักษาโรคอักเสบ'",
+          "ห้ามแนะนำอาหารหมัก unpasteurised ให้หญิงตั้งครรภ์/immunocompromised"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": ["pregnant_lactating", "active_cancer_treatment"],
+        "validator_keywords_th": ["kimchi รักษาโรค", "kombucha รักษามะเร็ง"],
+        "regulatory_risk_notes": "Unpasteurised fermented food มี Listeria/E.coli risk ในบาง audience — Thailand frame 'อาหารทั่วไป' ไม่เป็น medical claim"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_017",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "gut_microbiome",
+      "statement_th": "คนไทยโดยเฉลี่ยกินไฟเบอร์ประมาณ 10-12 กรัม/วัน (InterHEART Thailand, 2019 / NFIET survey) — ต่ำกว่าคำแนะนำ 25-38 กรัม/วัน (Institute of Medicine) เกือบ 2-3 เท่า; เป็นเหตุผลที่ท้องผูก + dysbiosis ระบาดในกลุ่มคนเมือง",
+      "statement_en": "Thai adults average only 10-12 g/day of dietary fiber (InterHEART Thailand survey / NFIET) — 2-3× lower than the 25-38 g/day recommendation (Institute of Medicine) — explaining the high prevalence of constipation and dysbiosis among urban populations.",
+      "numeric_values": [
+        {"value": "10-12", "unit": "g/day", "label": "average Thai fiber intake", "is_approximation": true},
+        {"value": "25-38", "unit": "g/day", "label": "IOM recommendation (women / men)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_dig_001",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://www.who.int/publications/i/item/9789241549028",
+          "org": "WHO / IOM reference",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "Dietary Reference Intakes: Macronutrients — Institute of Medicine",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19576255/",
+          "org": "Asia Pac J Clin Nutr / PubMed",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Dietary fiber intake in Thai adults — Rojroongwasinkul N et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["คนไทยขาดไฟเบอร์ 2 เท่า", "ข้าวผัดไม่ใช่ไฟเบอร์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 10-12 vs 25-38 = ballpark Thailand-specific; ห้ามบอก 'คนไทยทุกคนขาดไฟเบอร์'",
+      "usage_notes": "Primary hook ให้ Thai audience — 'ขาด' framing + bridge เข้า fiber/prebiotic product",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "H_pylori",
+      "statement_th": "PPI (omeprazole, esomeprazole) ใช้ต่อเนื่อง >1 ปี สัมพันธ์กับการดูดซึม B12 ลด 30%, Mg ต่ำ, Ca ลดลง, และเสี่ยง C. difficile infection เพิ่ม 1.7 เท่า (FDA warning 2010-2012); ไม่ใช่ข้อห้ามแต่ต้อง re-evaluate ความจำเป็นเป็นระยะ",
+      "statement_en": "Long-term PPI use (>1 year, e.g., omeprazole, esomeprazole) is linked to 30% lower B12 absorption, hypomagnesemia, reduced calcium absorption, and a ~1.7× increased risk of C. difficile infection (FDA warnings 2010-2012); not an absolute contraindication but needs periodic re-evaluation.",
+      "numeric_values": [
+        {"value": 30, "unit": "%", "label": "B12 absorption reduction on chronic PPI", "is_approximation": true},
+        {"value": 1.7, "unit": "× risk", "label": "C. difficile infection hazard ratio", "is_approximation": true},
+        {"value": 1, "unit": "year", "label": "duration threshold for concern", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_010",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24247287/",
+          "org": "JAMA / PubMed",
+          "source_tier": "A",
+          "year": 2013,
+          "title": "Proton Pump Inhibitor Use and the Risk of Hypomagnesemia — Hoorn EJ et al.",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-clostridium-difficile-associated-diarrhea-can-be-associated-stomach",
+          "org": "US FDA",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "FDA Drug Safety Communication: C. difficile-associated diarrhea can be associated with PPI therapy",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ยาลดกรดมีราคา", "ทุกยามี trade-off"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'หยุด PPI เด็ดขาด' — ต้อง taper under doctor supervision; ห้ามอ้าง supplement แทน PPI",
+      "usage_notes": "Educational only — ไม่ใช้ในการขาย 'แทนยา'; อาจ bridge เข้า betaine HCl angle แต่ระวังมาก",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["clopidogrel (PPI ↓ efficacy via CYP2C19)", "digoxin", "methotrexate"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำให้หยุดยา PPI ด้วยตนเอง",
+          "ห้ามบอกว่า 'อาหารเสริมแทน PPI'",
+          "ห้ามบอกว่า PPI รักษาไม่หาย — ต้องกินอาหารเสริมแทน"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["หยุด PPI", "เลิก omeprazole", "แทนยาลดกรด"],
+        "regulatory_risk_notes": "อย. ไทย: ห้ามโฆษณาอาหารเสริมว่าทดแทนยา PPI"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "gut_microbiome",
+      "statement_th": "ประโยชน์ของ probiotic เป็น strain-specific ไม่ใช่ species-level — เช่น Lactobacillus rhamnosus GG ลดท้องเสียจาก antibiotic ได้ (NNT ~13), แต่ L. rhamnosus สายอื่นอาจไม่ทำ; ดังนั้นต้องอ่านฉลากเลขสายพันธุ์ (strain ID เช่น 'GG', 'DSM 17938') ไม่ใช่แค่ 'Lactobacillus'",
+      "statement_en": "Probiotic benefits are strain-specific, not species-wide — e.g., Lactobacillus rhamnosus GG reduces antibiotic-associated diarrhea (NNT ~13), but other L. rhamnosus strains may not; labels must specify strain ID ('GG', 'DSM 17938') not just the species.",
+      "numeric_values": [
+        {"value": 13, "unit": "NNT", "label": "L. rhamnosus GG for antibiotic-associated diarrhea prevention", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_009",
+      "entities_mentioned": ["lactobacillus", "bifidobacterium"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25033057/",
+          "org": "Nat Rev Gastroenterol Hepatol / PubMed",
+          "source_tier": "A",
+          "year": 2014,
+          "title": "ISAPP consensus statement on probiotics — Hill C et al.",
+          "access_date": "2026-04-22"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31039284/",
+          "org": "Cochrane Database Syst Rev / PubMed",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Probiotics for the prevention of antibiotic-associated diarrhea — Goldenberg JZ et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ยี่ห้อคุณใส่สายไหน?", "โปรไบโอติกไม่ใช่ของเล่น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้าม frame ว่า 'probiotic ทุกยี่ห้อใช้ได้เหมือนกัน' หรือ 'ยี่ห้อ X ดีที่สุดสำหรับทุกอาการ'",
+      "usage_notes": "Anchor สำหรับ multi-strain probiotic product angle — bridge เข้า IBS/AAD/C. diff",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["autoimmune_on_immunosuppressant", "post_bariatric_surgery"],
+        "drug_interactions": ["immunosuppressant (theoretical bacteremia risk)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'probiotic รักษา IBS/IBD หายขาด'",
+          "ห้ามแนะนำ probiotic ให้ผู้ป่วยมะเร็ง/HIV ที่ neutropenic"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["active_cancer_treatment", "on_prescription_medications"],
+        "validator_keywords_th": ["probiotic รักษา IBS", "โปรไบโอติก แก้ IBD"],
+        "regulatory_risk_notes": "อย. ไทย: probiotic เป็น 'อาหารเสริม' — อ้าง 'สนับสนุนสมดุลจุลินทรีย์'; ห้าม 'รักษาโรคลำไส้'"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_020",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "intestinal_permeability",
+      "statement_th": "L-glutamine เป็นเชื้อเพลิงหลักของ enterocyte (เซลล์เยื่อบุลำไส้เล็ก) — ในภาวะ critical illness / sepsis ร่างกายขาดได้ (conditionally essential); supplement 20-30 g/วัน × 8 สัปดาห์ ลด gut permeability ใน IBS-D + endurance athletes (Zhou et al., Aliment Pharmacol Ther 2019)",
+      "statement_en": "L-glutamine is the primary fuel for small-intestine enterocytes — conditionally essential in critical illness or sepsis; supplementation at 20-30 g/day for 8 weeks reduced gut permeability in IBS-D and endurance athletes (Zhou et al., Aliment Pharmacol Ther 2019).",
+      "numeric_values": [
+        {"value": "20-30", "unit": "g/day", "label": "therapeutic dose range", "is_approximation": true},
+        {"value": 8, "unit": "weeks", "label": "trial duration", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_003",
+      "entities_mentioned": ["l_glutamine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31016733/",
+          "org": "Aliment Pharmacol Ther / PubMed",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Randomised placebo-controlled trial of dietary glutamine supplements for postinfectious irritable bowel syndrome — Zhou Q et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กรดอะมิโนที่ลำไส้ต้องการมากสุด", "ไม่ใช่แค่ของนักกล้าม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก '100% rebuild ลำไส้' หรือ 'รักษา leaky gut หายขาด'",
+      "usage_notes": "Primary anchor สำหรับ L-glutamine product angle",
+      "contradictions": ["Huberman podcast ท้าทายว่า L-glutamine effect เล็กในคนปกติ — เฉพาะ IBS-D/critical illness ชัดเจน"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["cancer_active_treatment", "liver_disease"],
+        "drug_interactions": ["lactulose (theoretical ammonia load in hepatic impairment)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า glutamine 'รักษาลำไส้รั่ว 100%'",
+          "ห้ามแนะนำ high-dose ให้ผู้ป่วยมะเร็ง (theoretical tumour fuel concern)"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["active_cancer_treatment"],
+        "validator_keywords_th": ["รักษาลำไส้รั่ว", "glutamine ทำให้ลำไส้หาย"],
+        "regulatory_risk_notes": "อย. ไทย: L-glutamine อาหารเสริม — ใช้ 'สนับสนุน gut barrier / สุขภาพลำไส้'"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_021",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "H_pylori",
+      "statement_th": "Zinc-L-carnosine (polaprezinc) 150 mg/วัน — ยาที่อนุมัติในญี่ปุ่นสำหรับ peptic ulcer ตั้งแต่ปี 1994 — ลดอาการ dyspepsia, ป้องกัน NSAID-induced gut permeability ในงาน Mahmood et al. (Gut 2007) และมีฤทธิ์ bacteriostatic ต่อ H. pylori",
+      "statement_en": "Zinc-L-carnosine (polaprezinc) 150 mg/day — approved in Japan for peptic ulcer since 1994 — reduces dyspepsia, prevents NSAID-induced gut permeability (Mahmood et al., Gut 2007), and has bacteriostatic activity against H. pylori.",
+      "numeric_values": [
+        {"value": 150, "unit": "mg/day", "label": "standard adult dose", "is_approximation": false},
+        {"value": 1994, "unit": "year", "label": "Japan approval for ulcer", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_dig_004",
+      "entities_mentioned": ["zinc_carnosine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17135307/",
+          "org": "Gut / PubMed",
+          "source_tier": "A",
+          "year": 2007,
+          "title": "Zinc carnosine, a health food supplement that stabilises small bowel integrity and stimulates gut repair processes — Mahmood A, Fitzgerald AJ, ... Playford RJ",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ญี่ปุ่นใช้เป็นยามากว่า 30 ปี", "zinc ที่เกาะ L-carnosine = ยาเฉพาะ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ในไทย zinc-carnosine เป็นอาหารเสริม ไม่ใช่ยา — ห้ามอ้าง 'รักษาแผลในกระเพาะ'",
+      "usage_notes": "Anchor สำหรับ zinc-carnosine angle — niche premium product",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["tetracycline / fluoroquinolone (zinc chelation — ห่าง 2 ชม.)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'รักษาแผลในกระเพาะ' ในไทย",
+          "ห้ามอ้างว่ากำจัด H. pylori แทน antibiotic"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาแผลในกระเพาะ", "แทน antibiotic", "แทน PPI"],
+        "regulatory_risk_notes": "อย. ไทย: zinc-carnosine ขึ้นทะเบียนเป็นอาหารเสริม — แม้ในญี่ปุ่นเป็นยา ไทยห้ามอ้างสรรพคุณยา"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_022",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "SCFA",
+      "statement_th": "Inulin / FOS (prebiotic) 10-15 g/วัน เพิ่ม Bifidobacterium อย่างมีนัยสำคัญ (bifidogenic effect) ภายใน 2 สัปดาห์ (Kolida 2007); แต่ในผู้มี SIBO หรือ IBS-D ขนาดนี้กระตุ้นท้องอืด/ปวดท้องได้ เพราะหมักใน small bowel → แก๊ส — ต้องเริ่มจาก 2-3 g แล้วค่อยเพิ่ม",
+      "statement_en": "Inulin / FOS prebiotics at 10-15 g/day significantly increase Bifidobacterium within 2 weeks (bifidogenic effect, Kolida 2007); but in SIBO or IBS-D this dose triggers bloating/pain via small-bowel fermentation — start at 2-3 g and titrate.",
+      "numeric_values": [
+        {"value": "10-15", "unit": "g/day", "label": "standard bifidogenic dose", "is_approximation": true},
+        {"value": 2, "unit": "weeks", "label": "time-to-effect", "is_approximation": false},
+        {"value": "2-3", "unit": "g/day", "label": "starting dose for sensitive gut", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_001",
+      "entities_mentioned": ["inulin", "bifidobacterium"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17510492/",
+          "org": "Proc Nutr Soc / PubMed",
+          "source_tier": "A",
+          "year": 2007,
+          "title": "Prebiotic capacity of inulin-type fructans — Kolida S & Gibson GR",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เริ่มน้อยแล้วค่อยเพิ่ม", "ไม่ใช่ทุกคนกินได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'prebiotic ปลอดภัย 100%' — FODMAP; ห้ามแนะนำให้คนสงสัย SIBO กิน inulin",
+      "usage_notes": "Primary anchor ของ prebiotic inulin product angle + caution",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำ inulin dose สูงให้ผู้มี IBS/SIBO",
+          "ห้ามบอกว่า 'inulin รักษา IBS หาย'"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["inulin รักษา", "prebiotic แก้ IBS"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_023",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "vagal_tone",
+      "statement_th": "การหายใจช้าด้วยกะบังลม (6 breaths/minute) 5-10 นาทีก่อนอาหาร กระตุ้น parasympathetic tone (vagus) — เพิ่ม HRV, กระตุ้นการหลั่งน้ำลาย/น้ำย่อย/gastric motility; เป็น evidence-backed 'free tool' ที่ใช้ได้กับทุก audience",
+      "statement_en": "Slow diaphragmatic breathing (6 breaths per minute) for 5-10 minutes before meals engages parasympathetic (vagal) tone — raises HRV, promotes salivary/gastric secretion and motility; an evidence-backed 'free tool' for any audience.",
+      "numeric_values": [
+        {"value": 6, "unit": "breaths/minute", "label": "resonance frequency breathing", "is_approximation": false},
+        {"value": "5-10", "unit": "minutes", "label": "practice duration", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_dig_006",
+      "entities_mentioned": ["andrew_huberman"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28900385/",
+          "org": "Front Public Health / PubMed",
+          "source_tier": "A",
+          "year": 2017,
+          "title": "How Breath-Control Can Change Your Life: A Systematic Review on Psycho-Physiological Correlates of Slow Breathing — Zaccaro A et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ฟรี ๆ ที่ทุกคนใช้ได้", "วิธีโบราณ + หลักฐาน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'หายใจอย่างเดียวรักษา GERD/IBS ได้' — เป็น adjunct",
+      "usage_notes": "Green-tier lifestyle content — ใช้ทุก niche ได้; bridge เข้า stress domain",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    },
+    {
+      "fact_id": "dig_024",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "bile_acid",
+      "statement_th": "กรดน้ำดีทุติยภูมิ (secondary bile acids — deoxycholic acid, lithocholic acid) ที่เกิดจากการ 7α-dehydroxylation ของจุลินทรีย์ (Clostridium scindens) — ในปริมาณสูงสัมพันธ์กับความเสี่ยง colon cancer ในงาน prospective cohort (Jia et al., Nat Rev Gastroenterol Hepatol 2018); ไฟเบอร์สูงลดการสะสม DCA",
+      "statement_en": "Secondary bile acids (deoxycholic acid, lithocholic acid) produced by bacterial 7α-dehydroxylation (Clostridium scindens) correlate at high levels with colon cancer risk in prospective cohorts (Jia et al., Nat Rev Gastroenterol Hepatol 2018); high fiber intake reduces DCA accumulation.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_dig_005",
+      "entities_mentioned": ["secondary_bile_acid", "primary_bile_acid"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29091072/",
+          "org": "Nat Rev Gastroenterol Hepatol / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Bile acid-microbiota crosstalk in gastrointestinal inflammation and carcinogenesis — Jia W, Xie G, Jia W",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["พุงล้นฟัง: เนื้อแดงเยอะ + ไฟเบอร์น้อย = bile acid เปลี่ยนรูป"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'DCA = ทำให้เป็นมะเร็ง 100%' — correlation ไม่ใช่ causation direct",
+      "usage_notes": "Educational high-tier science — ใช้เป็น bridge ให้ fiber angle ในกลุ่มอายุ 40+",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'กินเนื้อแดงเท่ากับเป็นมะเร็งลำไส้'",
+          "ห้ามอ้างว่า supplement X ลด bile acid carcinogen — ไม่มีหลักฐานมนุษย์"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["active_cancer_treatment"],
+        "validator_keywords_th": ["ป้องกันมะเร็งลำไส้แน่นอน", "กินเนื้อ = มะเร็ง"],
+        "regulatory_risk_notes": "อย. ไทย / WHO classification: processed meat = IARC Group 1; ทำ reference ทางระบาดได้ แต่ห้าม claim 'อาหารเสริมป้องกันมะเร็ง'"
+      },
+      "harvested_by": "domain_harvester.digestive",
+      "harvested_at": "2026-04-22T13:00:00"
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "domain_id": "life_coaching",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.life_coaching"
+  },
+  "key_people": [
+    {
+      "id": "james_clear",
+      "name_en": "James Clear",
+      "name_th": "เจมส์ เคลียร์",
+      "role": "Author, Habit researcher",
+      "known_for": "Atomic Habits (2018), 1% Better Every Day, Identity-Based Habits, Habit Stacking",
+      "credibility_note": "NYT #1 bestseller — แม้ไม่ใช่ academic แต่ synthesis มาจาก peer-reviewed research"
+    },
+    {
+      "id": "bj_fogg",
+      "name_en": "BJ Fogg",
+      "name_th": "บีเจ ฟ็อก",
+      "role": "Behavioral Scientist, Stanford",
+      "known_for": "Fogg Behavior Model (B=MAP), Tiny Habits, Persuasive Technology Lab",
+      "credibility_note": "Stanford faculty — Behavior Model ใช้กันอย่างแพร่หลายใน tech และ UX design"
+    },
+    {
+      "id": "carol_dweck",
+      "name_en": "Carol S. Dweck",
+      "name_th": "แครอล ดเว็ค",
+      "role": "Professor of Psychology, Stanford",
+      "known_for": "Growth Mindset vs Fixed Mindset, Mindset (2006)",
+      "credibility_note": "Stanford Professor, Lewis and Virginia Eaton Professor of Psychology — highly cited researcher"
+    },
+    {
+      "id": "daniel_kahneman",
+      "name_en": "Daniel Kahneman",
+      "name_th": "แดเนียล คาห์เนแมน",
+      "role": "Nobel Laureate Economist, Princeton",
+      "known_for": "System 1 / System 2, Prospect Theory, Thinking Fast and Slow (2011), Loss Aversion",
+      "credibility_note": "Nobel Prize in Economics 2002 — ผลงาน foundational ด้าน behavioral economics"
+    },
+    {
+      "id": "martin_seligman",
+      "name_en": "Martin E. P. Seligman",
+      "name_th": "มาร์ติน เซลิกแมน",
+      "role": "Professor of Psychology, University of Pennsylvania",
+      "known_for": "Learned Helplessness, Learned Optimism, PERMA model, Positive Psychology",
+      "credibility_note": "Past President of APA — founder of Positive Psychology movement"
+    },
+    {
+      "id": "roy_baumeister",
+      "name_en": "Roy F. Baumeister",
+      "name_th": "รอย บาวไมสเตอร์",
+      "role": "Social Psychologist",
+      "known_for": "Ego Depletion, Willpower (book), Self-Regulation research",
+      "credibility_note": "One of most-cited social psychologists — ego depletion findings controversial but influential"
+    },
+    {
+      "id": "phillippa_lally",
+      "name_en": "Phillippa Lally",
+      "name_th": "ฟิลิปปา ลาลลี",
+      "role": "Health Psychology Researcher, UCL",
+      "known_for": "66-day habit formation study (2010), EJSP",
+      "credibility_note": "University College London — definitive study on real-world habit formation timeline"
+    },
+    {
+      "id": "timothy_pychyl",
+      "name_en": "Timothy A. Pychyl",
+      "name_th": "ทิโมที พิชิล",
+      "role": "Procrastination Researcher, Carleton University",
+      "known_for": "Procrastination as emotion regulation problem, iProcrastinate Podcast",
+      "credibility_note": "Leading academic researcher on procrastination — co-author with Sirois"
+    },
+    {
+      "id": "fuschia_sirois",
+      "name_en": "Fuschia M. Sirois",
+      "name_th": "ฟูเชีย ซีรัวส์",
+      "role": "Health Psychologist, Durham University",
+      "known_for": "Procrastination and emotion regulation, health procrastination",
+      "credibility_note": "Collaborates with Pychyl on procrastination-emotion research"
+    },
+    {
+      "id": "peter_gollwitzer",
+      "name_en": "Peter M. Gollwitzer",
+      "name_th": "ปีเตอร์ กอลวิทเซอร์",
+      "role": "Professor, NYU",
+      "known_for": "Implementation Intention research — meta-analysis of 94 studies",
+      "credibility_note": "NYU Psychology — if-then planning is one of most replicated behavioral interventions"
+    },
+    {
+      "id": "walter_mischel",
+      "name_en": "Walter Mischel",
+      "name_th": "วอลเตอร์ มิสเชล",
+      "role": "Psychologist, Stanford",
+      "known_for": "Marshmallow Test, Delayed Gratification research, The Marshmallow Test (book)",
+      "credibility_note": "Iconic study — though 2018 replication raised SES confounding questions"
+    },
+    {
+      "id": "kristin_neff",
+      "name_en": "Kristin D. Neff",
+      "name_th": "คริสติน เนฟฟ์",
+      "role": "Associate Professor, University of Texas Austin",
+      "known_for": "Self-Compassion Scale, Self-Compassion research, self-compassion.org",
+      "credibility_note": "Pioneer of self-compassion research — highly cited in clinical and positive psychology"
+    },
+    {
+      "id": "edward_deci",
+      "name_en": "Edward L. Deci",
+      "name_th": "เอ็ดเวิร์ด เดซี",
+      "role": "Professor Emeritus, University of Rochester",
+      "known_for": "Self-Determination Theory (with Richard Ryan)",
+      "credibility_note": "Co-developer of SDT — one of most empirically validated motivation theories"
+    },
+    {
+      "id": "richard_ryan",
+      "name_en": "Richard M. Ryan",
+      "name_th": "ริชาร์ด ไรอัน",
+      "role": "Professor, Australian Catholic University",
+      "known_for": "Self-Determination Theory (with Edward Deci)",
+      "credibility_note": "Co-developer of SDT"
+    },
+    {
+      "id": "daniel_pink",
+      "name_en": "Daniel H. Pink",
+      "name_th": "แดเนียล พิงค์",
+      "role": "Author",
+      "known_for": "Drive (2009) — synthesis of motivation research; Overjustification Effect popularization",
+      "credibility_note": "NYT bestselling author — synthesizes academic research for popular audience; not original researcher"
+    },
+    {
+      "id": "david_allen",
+      "name_en": "David Allen",
+      "name_th": "เดวิด อัลเลน",
+      "role": "Productivity Consultant, Author",
+      "known_for": "Getting Things Done (GTD), 2-Minute Rule",
+      "credibility_note": "GTD methodology — practitioner framework ไม่ใช่ academic แต่ widely adopted"
+    },
+    {
+      "id": "shai_danziger",
+      "name_en": "Shai Danziger",
+      "name_th": "ชาย แดนซิเกอร์",
+      "role": "Professor, Tel Aviv University",
+      "known_for": "1,112 parole hearings decision fatigue study (PNAS 2011)",
+      "credibility_note": "Originally Ben-Gurion University — landmark decision fatigue study"
+    },
+    {
+      "id": "amos_tversky",
+      "name_en": "Amos Tversky",
+      "name_th": "อาโมส ทเวอร์สกี",
+      "role": "Cognitive Psychologist, Stanford",
+      "known_for": "Prospect Theory (with Kahneman), Loss Aversion, Heuristics and Biases",
+      "credibility_note": "Co-founder of behavioral economics with Kahneman"
+    },
+    {
+      "id": "dave_brailsford",
+      "name_en": "Dave Brailsford",
+      "name_th": "เดฟ เบรลส์ฟอร์ด",
+      "role": "Performance Director, British Cycling",
+      "known_for": "Marginal Gains strategy — British Cycling's Tour de France wins 2012+",
+      "credibility_note": "Real-world application of marginal gains / 1% improvement concept"
+    },
+    {
+      "id": "leon_festinger",
+      "name_en": "Leon Festinger",
+      "name_th": "ลีออน เฟสทิงเกอร์",
+      "role": "Social Psychologist",
+      "known_for": "Cognitive Dissonance Theory (1957)",
+      "credibility_note": "Classic social psychology — cognitive dissonance basis for identity-based habits"
+    }
+  ],
+  "key_concepts": [
+    {
+      "id": "habit_loop",
+      "label_th": "Habit Loop (วงจรนิสัย)",
+      "label_en": "Habit Loop",
+      "family": "behavior_mechanism",
+      "role": "Cue → Routine → Reward cycle that encodes behavior in Basal Ganglia"
+    },
+    {
+      "id": "implementation_intention",
+      "label_th": "Implementation Intention (ถ้า X ฉันทำ Y)",
+      "label_en": "Implementation Intention",
+      "family": "planning_mechanism",
+      "role": "If-then plan that increases goal achievement 2-3x"
+    },
+    {
+      "id": "ego_depletion",
+      "label_th": "Ego Depletion (ความอ่อนล้าของ Willpower)",
+      "label_en": "Ego Depletion",
+      "family": "self_control_mechanism",
+      "role": "Proposed depletion of self-control resource through repeated use"
+    },
+    {
+      "id": "growth_mindset",
+      "label_th": "Growth Mindset (กรอบความคิดเติบโต)",
+      "label_en": "Growth Mindset",
+      "family": "mindset_construct",
+      "role": "Belief that abilities develop through effort and strategy"
+    },
+    {
+      "id": "loss_aversion",
+      "label_th": "Loss Aversion (ความกลัวการสูญเสีย)",
+      "label_en": "Loss Aversion",
+      "family": "cognitive_bias",
+      "role": "Losses feel ~2x more painful than equivalent gains — Kahneman & Tversky"
+    },
+    {
+      "id": "intrinsic_motivation",
+      "label_th": "Intrinsic Motivation (แรงจูงใจภายใน)",
+      "label_en": "Intrinsic Motivation",
+      "family": "motivation_construct",
+      "role": "Self-driven motivation from autonomy, mastery, and purpose"
+    },
+    {
+      "id": "system_1_system_2",
+      "label_th": "System 1 / System 2 (สมองด่วน / สมองช้า)",
+      "label_en": "System 1 / System 2 (Dual Process Theory)",
+      "family": "cognitive_mechanism",
+      "role": "Fast automatic vs slow deliberate thinking — Kahneman"
+    },
+    {
+      "id": "self_compassion",
+      "label_th": "Self-Compassion (ความเมตตาต่อตนเอง)",
+      "label_en": "Self-Compassion",
+      "family": "resilience_construct",
+      "role": "Treating oneself kindly when failing — linked to higher motivation than self-criticism"
+    },
+    {
+      "id": "learned_helplessness",
+      "label_th": "Learned Helplessness (ความสิ้นหวังที่เรียนรู้)",
+      "label_en": "Learned Helplessness",
+      "family": "resilience_mechanism",
+      "role": "Learned belief that outcomes are uncontrollable — leads to giving up"
+    },
+    {
+      "id": "fogg_behavior_model",
+      "label_th": "Fogg Behavior Model (B = MAP)",
+      "label_en": "Fogg Behavior Model",
+      "family": "behavior_design_framework",
+      "role": "Behavior = Motivation × Ability × Prompt — BJ Fogg's framework"
+    }
+  ],
+  "organizations": [
+    {
+      "id": "stanford_behavior_lab",
+      "name": "Stanford Persuasive Technology Lab / Behavior Design Lab",
+      "type": "academic",
+      "url": "https://behaviordesign.stanford.edu/"
+    },
+    {
+      "id": "ucl_health_behaviour",
+      "name": "University College London — Health Behaviour Research Centre",
+      "type": "academic",
+      "url": "https://www.ucl.ac.uk/epidemiology-health-care/research/behavioural-science-and-health"
+    },
+    {
+      "id": "icf",
+      "name": "International Coaching Federation (ICF)",
+      "type": "regulatory",
+      "url": "https://www.icf.org/"
+    },
+    {
+      "id": "university_of_pennsylvania",
+      "name": "University of Pennsylvania — Positive Psychology Center",
+      "type": "academic",
+      "url": "https://ppc.sas.upenn.edu/"
+    },
+    {
+      "id": "university_of_rochester",
+      "name": "University of Rochester — SDT Research Group",
+      "type": "academic",
+      "url": "https://selfdeterminationtheory.org/"
+    },
+    {
+      "id": "ut_austin",
+      "name": "University of Texas at Austin — Self-Compassion Lab",
+      "type": "academic",
+      "url": "https://self-compassion.org/"
+    },
+    {
+      "id": "princeton",
+      "name": "Princeton University",
+      "type": "academic",
+      "url": "https://www.princeton.edu/"
+    },
+    {
+      "id": "ben_gurion_university",
+      "name": "Ben-Gurion University of the Negev",
+      "type": "academic",
+      "url": "https://www.bgu.ac.il/"
+    },
+    {
+      "id": "mit",
+      "name": "Massachusetts Institute of Technology — Picower Institute",
+      "type": "academic",
+      "url": "https://picower.mit.edu/"
+    }
+  ],
+  "case_studies": [
+    {
+      "id": "british_cycling_marginal_gains",
+      "name": "British Cycling — Marginal Gains (2002-2012)",
+      "claim_to_fame": "Dave Brailsford ปรับปรุงทุกอย่าง 1% — จากยาสีฟัน ไปถึงวิธีล้างมือ — ทำให้ British Cycling ชนะ Tour de France 2012 และ Olympic Gold",
+      "year": 2012,
+      "source": "Harvard Business Review, Multiple cycling journals"
+    },
+    {
+      "id": "angela_duckworth_grit",
+      "name": "Angela Duckworth — Grit & West Point Study",
+      "claim_to_fame": "Duckworth พบว่า Grit (passion + perseverance) ทำนาย graduation rate ของ West Point cadets ได้ดีกว่า IQ หรือ physical fitness — 10% dropout ในปีแรก, grit ทำนายผู้รอด",
+      "year": 2007,
+      "source": "Journal of Personality and Social Psychology (Duckworth et al. 2007)"
+    },
+    {
+      "id": "marshmallow_test",
+      "name": "Stanford Marshmallow Experiment",
+      "claim_to_fame": "เด็กอายุ 4 ขวบที่รอมาร์ชเมลโลว์ได้ มีแนวโน้ม SAT สูงกว่า, สุขภาพดีกว่า, และ career outcomes ดีกว่าในอีก 40 ปีต่อมา",
+      "year": 1972,
+      "source": "Science 1989 (Mischel et al.) — though 2018 replication raised SES confound questions"
+    },
+    {
+      "id": "parole_decision_fatigue",
+      "name": "Israeli Parole Board — Decision Fatigue Study",
+      "claim_to_fame": "ผู้พิพากษา approve parole 65% ตอนเช้า ลดเหลือ ~0% ก่อนพัก แล้วกลับ 65% หลังพัก — 1,112 คดี ใน 10 เดือน",
+      "year": 2011,
+      "source": "PNAS (Danziger et al. 2011)"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "domain_id": "aging",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_aging_001",
+      "popular_belief_th": "collagen กินเข้าไปแล้วไปถึงผิวโดยตรง ทำให้ผิวเด้งขึ้น",
+      "popular_belief_en": "Eating collagen travels directly to the skin and plumps it up",
+      "truth_th": "Collagen ถูกย่อยเป็น peptide + amino acid (glycine, proline, hydroxyproline) — ร่างกายเลือกใช้ที่ไหนก็ได้ ไม่ได้ส่งตรงผิว; งานวิจัย hydrolyzed collagen (Choi 2019, Proksch 2014) เห็น elasticity/hydration เพิ่มจริง แต่ mechanism คือ signaling (proline-hydroxyproline di-peptide กระตุ้น fibroblast) — ไม่ใช่ 'วัสดุ' ที่ถูกเอาไปสร้างคอลลาเจนผิวโดยตรง",
+      "truth_en": "Collagen is digested into peptides + amino acids (glycine, proline, hydroxyproline) which the body allocates anywhere — not shipped straight to skin. Hydrolyzed collagen trials (Choi 2019, Proksch 2014) do show improved elasticity/hydration, but the mechanism is signaling (pro-hyp dipeptides activate fibroblasts) — not raw material delivery.",
+      "why_popular": "โฆษณา collagen drink ยุค 2015-2025 ในไทย + เกาหลี ใช้ภาพเจลาตินไหลลงผิว",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/31627309/", "org": "J Med Food / PubMed", "source_tier": "A", "year": 2019, "title": "Choi hydrolyzed collagen skin", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24401291/", "org": "Skin Pharmacol Physiol", "source_tier": "A", "year": 2014, "title": "Proksch oral collagen peptides", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cellular_senescence",
+      "counter_facts": ["aging_020"],
+      "composer_directive": "อนุญาตให้พูด 'collagen peptide ช่วยกระตุ้น fibroblast' — ห้ามบอก 'collagen ไปเสริมที่ผิวตรงๆ'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_aging_002",
+      "popular_belief_th": "NMN ย้อนวัย biological age กลับไปเป็นหนุ่มสาวได้",
+      "popular_belief_en": "NMN reverses biological age back to youth",
+      "truth_th": "NMN เพิ่ม NAD+ ในเลือด/เนื้อเยื่อได้จริง (Yoshino 2021, Irie 2020) และมี surrogate markers ดีขึ้น (insulin sensitivity, walking speed) — แต่ 'biological age reversal' ต้องวัดด้วย epigenetic clock (Horvath/GrimAge/DunedinPACE) ซึ่ง RCT ยังไม่เสร็จ การอ้าง 'ย้อนวัย' ผิดทั้งทางวิทยาศาสตร์และทางกฎหมาย อย. ไทย",
+      "truth_en": "NMN does raise blood/tissue NAD+ (Yoshino 2021, Irie 2020) and improves surrogate markers (insulin sensitivity, walking speed) — but 'biological age reversal' requires epigenetic clock measurement (Horvath/GrimAge/DunedinPACE) and those human RCTs are incomplete. Claiming reversal is both scientifically premature and an อย. Thailand violation.",
+      "why_popular": "Sinclair interview + longevity influencers ใช้คำ 'reversing aging' อย่างหลวม + การตลาด NMN supplement",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://www.science.org/doi/10.1126/science.abe9985", "org": "Science", "source_tier": "A", "year": 2021, "title": "Yoshino NMN prediabetic women — insulin sensitivity only", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAD_decline",
+      "counter_facts": ["aging_006", "aging_007"],
+      "composer_directive": "ห้ามเขียน 'NMN ย้อนวัย' หรือ 'NMN ลด biological age' — ใช้ 'สนับสนุนระดับ NAD+ ซึ่งเป็น coenzyme ของ sirtuins'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_aging_003",
+      "popular_belief_th": "resveratrol จากไวน์แดง 1-2 แก้วต่อวัน = ยืดอายุ (French Paradox)",
+      "popular_belief_en": "1-2 glasses of red wine a day = longer life (French Paradox)",
+      "truth_th": "ปริมาณ resveratrol ในไวน์แดงประมาณ 0.2-2 mg/แก้ว — ต่ำกว่าขนาดที่ทำ SIRT1 activation ใน lab 100-1000 เท่า (Howitz 2003 ใช้ micromolar); แอลกอฮอล์เองเป็น Class 1 carcinogen (WHO/IARC 2023) + ทำลาย liver/brain; benefit ของไวน์ในงาน observational อาจมาจาก polyphenols + lifestyle confounders ไม่ใช่ resveratrol",
+      "truth_en": "Resveratrol in red wine is ~0.2-2 mg/glass — 100-1000× below the micromolar doses that activate SIRT1 in vitro (Howitz 2003); alcohol itself is a WHO/IARC Class 1 carcinogen that damages liver/brain; any wine benefit in observational data likely stems from polyphenols + lifestyle confounders, not resveratrol.",
+      "why_popular": "60 Minutes Sinclair interview 2009 + 'French Paradox' marketing",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.who.int/news/item/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health", "org": "WHO", "source_tier": "A", "year": 2023, "title": "No safe level of alcohol — WHO 2023", "access_date": "2026-04-22"},
+        {"url": "https://www.nature.com/articles/nature01960", "org": "Nature", "source_tier": "A", "year": 2003, "title": "Howitz resveratrol SIRT1 — in vitro only", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAD_decline",
+      "counter_facts": ["aging_014"],
+      "composer_directive": "ห้าม glamourize ไวน์แดง — ถ้าพูดถึง resveratrol ต้องแยกจากไวน์และระบุว่า alcohol = carcinogen",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_aging_004",
+      "popular_belief_th": "กินเยอะ ๆ = อ้วนอย่างเดียว / กินน้อย = สุขภาพดีที่สุดเสมอ",
+      "popular_belief_en": "Eating more = just fat; eating less = always healthier",
+      "truth_th": "Caloric restriction ยืดอายุใน rodents ได้จริง แต่ใน CALERIE-2 มนุษย์ 2 ปี (Waziry 2023) ลด DunedinPACE เพียง 2-3% — ไม่ใช่ 'ย้อนวัย'; ถ้าลดแคลอรี่มากเกินไปในคนอายุ 65+ → sarcopenia + bone loss + immune suppression อันตรายกว่ากินปกติ; protein ≥1.2 g/kg/day สำคัญกว่าการลดแคลอรี่ในคนสูงอายุ",
+      "truth_en": "Caloric restriction extends lifespan in rodents, but CALERIE-2 (Waziry 2023) showed only 2-3% DunedinPACE slowing in 2-year human trial — not dramatic. In adults 65+, aggressive CR risks sarcopenia + bone loss + immune suppression — protein ≥1.2 g/kg/day matters more.",
+      "why_popular": "rodent CR papers popularized by media as 'cut calories = live forever'",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.nature.com/articles/s43587-022-00357-y", "org": "Nature Aging", "source_tier": "A", "year": 2023, "title": "Waziry CALERIE-2 DunedinPACE", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "mTOR_aging",
+      "counter_facts": ["aging_011"],
+      "composer_directive": "ห้ามแนะนำ 'อดอาหาร/ลดแคลอรี่รุนแรง' ในคนสูงอายุ — เน้น protein adequate",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_aging_005",
+      "popular_belief_th": "rapamycin หรือ metformin ซื้อกินเองได้ ช่วยให้อายุยืน",
+      "popular_belief_en": "You can self-medicate with rapamycin or metformin to live longer",
+      "truth_th": "Rapamycin (sirolimus) เป็นยา immunosuppressant ตามใบสั่งแพทย์ในไทย — ห้ามซื้อ/ใช้เอง; ผลข้างเคียง: stomatitis, glucose intolerance, infections, proteinuria; metformin เป็นยารักษาเบาหวาน — ในคนไม่มีเบาหวาน TAME trial ยังไม่เสร็จ + ATTR-study พบ metformin อาจลด exercise benefit (Konopka 2019); การอ้างว่า 'ยาอายุยืน' กินเองได้ = ผิดกฎหมายและอันตราย",
+      "truth_en": "Rapamycin (sirolimus) is a prescription immunosuppressant in Thailand — NOT for self-use. Side effects: stomatitis, glucose intolerance, infections, proteinuria. Metformin is a diabetes drug — TAME trial not yet complete, and Konopka 2019 showed metformin may blunt exercise benefit in healthy adults. Self-medicating as 'longevity drugs' is illegal and dangerous.",
+      "why_popular": "Attia podcast + longevity biohacker Twitter discussing 'rapa' / 'met' openly",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://onlinelibrary.wiley.com/doi/10.1111/acel.12880", "org": "Aging Cell", "source_tier": "A", "year": 2019, "title": "Konopka metformin blunts exercise benefit", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "mTOR_aging",
+      "counter_facts": ["aging_008"],
+      "composer_directive": "ห้าม LLM พูดถึง rapamycin/metformin แบบ 'ซื้อกินเอง' เด็ดขาด — ถ้าพูดต้องใส่ 'ภายใต้แพทย์' + 'prescription only'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_aging_006",
+      "popular_belief_th": "อาหารเสริมทดแทนการออกกำลังกายได้ / กิน NMN = ไม่ต้องยกเวท",
+      "popular_belief_en": "Supplements replace exercise / NMN means you don't need to lift weights",
+      "truth_th": "Exercise เป็น intervention เดียวที่พิสูจน์แล้วว่าลด all-cause mortality อย่างมีนัยสำคัญ (HR 0.7-0.8 ใน meta-analysis หลายตัว); resistance training ยังเป็น 'วัคซีน' สำหรับ sarcopenia + osteoporosis; ไม่มี supplement ตัวใดเทียบได้ — NMN, NR, resveratrol, urolithin A ทั้งหมดยัง tier ต่ำกว่า exercise มาก",
+      "truth_en": "Exercise is the only intervention with proven all-cause mortality reduction (HR 0.7-0.8 across meta-analyses); resistance training is the 'vaccine' for sarcopenia + osteoporosis; no supplement matches it — NMN, NR, resveratrol, urolithin A all rank lower.",
+      "why_popular": "Supplement marketing exploits fantasy of effortless longevity",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://bjsm.bmj.com/content/56/13/755", "org": "Br J Sports Med", "source_tier": "A", "year": 2022, "title": "Momma resistance training mortality meta-analysis", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "mTOR_aging",
+      "counter_facts": ["aging_012"],
+      "composer_directive": "ห้ามเขียน 'NMN แทน exercise' — forbidden script; supplement ต้องอยู่เสริม ไม่ใช่แทน",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_aging_007",
+      "popular_belief_th": "telomere test บอก 'อายุจริง' ของคุณ — ยาว = แข็งแรง ยืนยัน",
+      "popular_belief_en": "A telomere test tells your 'true biological age' — longer = healthier, guaranteed",
+      "truth_th": "Telomere length วัดได้ (qPCR, flow-FISH) แต่ variation ภายในคนเดียวกันสูง (8-15% test-retest) และ J-curve: ยาวเกิน (hyper-long) เกี่ยวกับมะเร็งเพิ่ม (Bojesen 2013); epigenetic clock (Horvath/GrimAge/DunedinPACE) แม่นกว่า telomere length เป็น biomarker ของ mortality",
+      "truth_en": "Telomere length can be measured (qPCR, flow-FISH), but within-person variation is high (8-15% test-retest) and there's a J-curve — hyper-long telomeres correlate with cancer risk (Bojesen 2013); epigenetic clocks (Horvath/GrimAge/DunedinPACE) are more robust mortality biomarkers.",
+      "why_popular": "DTC telomere testing startups 2010-2020 pitched 'longer = younger'",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24222571/", "org": "JNCI / PubMed", "source_tier": "A", "year": 2013, "title": "Bojesen short telomeres cancer", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "telomere_shortening",
+      "counter_facts": ["aging_003", "aging_017"],
+      "composer_directive": "อนุญาตให้พูด telomere ทั่วไป — ห้ามโปรโมต telomere test เป็น 'อายุจริง' ยืนยัน",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_aging_008",
+      "popular_belief_th": "fisetin/quercetin dose สูงสุดสัปดาห์ = ล้างเซลล์ชราทิ้งได้แน่",
+      "popular_belief_en": "A weekly high-dose fisetin/quercetin pulse guarantees senescent cell clearance",
+      "truth_th": "Fisetin senolytic protocol (20 mg/kg × 2 วัน — Yousefzadeh 2018) ทำใน mice; human trial (Hickson 2019) ใช้ Dasatinib + Quercetin ใน 14 IPF patients จำนวนน้อย; dosing, timing, safety ของ senolytic pulse ในมนุษย์ทั่วไป 'ยัง unresolved' — กินตามสูตร biohacker อาจทำให้ tissue repair ลดลงด้วย (เซลล์ senescent บางอย่างจำเป็นต่อการซ่อมแผล)",
+      "truth_en": "Fisetin senolytic protocol (20 mg/kg × 2 days — Yousefzadeh 2018) is from mice; the human trial (Hickson 2019) was 14 IPF patients with D+Q — dosing, timing, and safety of senolytic pulses in healthy adults remain unresolved. Self-dosing may also impair tissue repair (some senescent cells are needed for wound healing).",
+      "why_popular": "biohacker protocols popularized 'fisetin weekend' on Huberman/Attia podcasts",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/S2352396418303736", "org": "EBioMedicine", "source_tier": "A", "year": 2018, "title": "Yousefzadeh fisetin senolytic — mice", "access_date": "2026-04-22"},
+        {"url": "https://www.sciencedirect.com/science/article/pii/S2352396419305912", "org": "EBioMedicine", "source_tier": "A", "year": 2019, "title": "Hickson D+Q IPF n=14", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cellular_senescence",
+      "counter_facts": ["aging_004", "aging_019"],
+      "composer_directive": "ห้ามแนะนำ 'fisetin pulse สูง 20 mg/kg' โดยไม่บอกว่าเป็น mouse dose + unresolved ในคน",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_aging_009",
+      "popular_belief_th": "antioxidant (vit E, vit C, beta-carotene) ขนาดสูง = ป้องกันแก่",
+      "popular_belief_en": "High-dose antioxidants (vit E, C, beta-carotene) prevent aging",
+      "truth_th": "Meta-analysis Bjelakovic 2012 (Cochrane 78 trials, 296,707 คน) พบ: beta-carotene + vit E ขนาดสูง 'เพิ่ม' all-cause mortality; vit C ไม่มีประโยชน์; high-dose antioxidants รบกวน hormesis — ROS ในระดับต่ำเป็นสัญญาณ adaptation; การดับ ROS ทั้งหมดลบผลดีของการออกกำลังกาย (Ristow 2009)",
+      "truth_en": "Cochrane meta-analysis Bjelakovic 2012 (78 trials, n=296,707): high-dose beta-carotene + vit E INCREASED all-cause mortality; vit C showed no benefit. High-dose antioxidants disrupt hormesis — low-level ROS is an adaptation signal, and quenching it removes exercise benefit (Ristow 2009).",
+      "why_popular": "วิตามินขนาดสูงขายง่ายตั้งแต่ยุค Linus Pauling 1970s",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007176.pub2/full", "org": "Cochrane", "source_tier": "A", "year": 2012, "title": "Bjelakovic antioxidant mortality meta-analysis", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cellular_senescence",
+      "counter_facts": ["aging_022"],
+      "composer_directive": "ห้ามเขียน 'กิน vit E/beta-carotene เยอะๆ ป้องกันแก่' — ตรงข้าม อาจเพิ่ม mortality",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_aging_010",
+      "popular_belief_th": "stem cell infusion ราคาแพงจากคลินิก = ย้อนวัย guaranteed",
+      "popular_belief_en": "Expensive stem cell infusions = guaranteed rejuvenation",
+      "truth_th": "Most 'stem cell' injections ที่ขายในคลินิกยังไม่ผ่าน FDA / อย.; รายงาน serious adverse events: blindness จาก intraocular (Kuriyan 2017), tumors, infections; Knoepfler 2015 ระบุคลินิก 'stem cell tourism' จำนวนมากให้ MSCs ที่ไม่ได้ characterized; benefit เทียบกับ sham ใน RCT controlled น้อยมาก",
+      "truth_en": "Most 'stem cell' clinic injections are not FDA/อย.-approved; serious adverse events reported — blindness from intraocular injection (Kuriyan 2017), tumors, infections. Knoepfler 2015 documented rampant 'stem cell tourism' with uncharacterized MSCs. Controlled-RCT benefit is minimal.",
+      "why_popular": "wellness tourism + celebrity endorsements",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1609583", "org": "NEJM", "source_tier": "A", "year": 2017, "title": "Kuriyan stem cell blindness NEJM", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cellular_senescence",
+      "counter_facts": [],
+      "composer_directive": "ห้าม endorse stem cell tourism / clinic infusions เป็น anti-aging — ชี้ adverse events",
+      "uncleped_debunked": false
+    }
+  ]
+}

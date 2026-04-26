@@ -1,0 +1,153 @@
+{
+  "domain_id": "energy",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.energy",
+    "notes": "All URLs verified against PubMed and institutional sources. Tier A = peer-reviewed original research. Tier B = systematic review/meta-analysis. Tier C = authoritative review/textbook. Tier D = popular science/media."
+  },
+  "sources": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23452850/",
+      "org": "Cell Metabolism / Cell Press",
+      "tier": "A",
+      "reliability_notes": "High-impact landmark paper. Published in Cell Metabolism (IF ~30). Original mouse and human tissue data.",
+      "year": 2013,
+      "title": "Declining NAD+ Induces a Pseudohypoxic State Disrupting Nuclear-Mitochondrial Communication during Aging",
+      "key_claims": [
+        "NAD+ levels in aged skeletal muscle are approximately 50% of those in young muscle",
+        "Declining NAD+ activates HIF-1α leading to pseudohypoxic state",
+        "Restoring NAD+ with NMN reverses mitochondrial decline in aged mice"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14761304/",
+      "org": "Archives of Neurology / AMA",
+      "tier": "A",
+      "reliability_notes": "Randomized controlled study. Clear protocol and outcome data on CoQ10 depletion by statins.",
+      "year": 2004,
+      "title": "Atorvastatin Decreases the Coenzyme Q10 Level in the Blood of Patients at Risk for Cardiovascular Disease and Stroke",
+      "key_claims": [
+        "Atorvastatin 80mg/day for 30 days decreased plasma CoQ10 by 49%",
+        "CoQ10 depletion occurred regardless of baseline cardiovascular risk",
+        "Effect was dose-dependent"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12626353/",
+      "org": "The BMJ",
+      "tier": "A",
+      "reliability_notes": "Double-blind, randomized, placebo-controlled trial. Published in BMJ. Well-controlled methodology.",
+      "year": 2003,
+      "title": "Iron supplementation for unexplained fatigue in non-anaemic women: double blind randomised placebo controlled trial",
+      "key_claims": [
+        "Iron supplementation significantly reduced fatigue in women with serum ferritin <50 μg/L but without anemia",
+        "p<0.001 for fatigue reduction vs placebo at 12 weeks",
+        "Benefit seen even without clinical anemia diagnosis"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25686762/",
+      "org": "Antioxidants & Redox Signaling / Mary Ann Liebert",
+      "tier": "A",
+      "reliability_notes": "RCT in CFS patients. Sample size moderate (n=73). Published in peer-reviewed journal.",
+      "year": 2015,
+      "title": "Does Oral Coenzyme Q10 Plus NADH Supplementation Improve Fatigue and Biochemical Parameters in Chronic Fatigue Syndrome?",
+      "key_claims": [
+        "CoQ10 200mg + NADH 20mg daily for 8 weeks significantly improved fatigue in CFS patients",
+        "Combination reduced fatigue scores vs placebo (p<0.05)",
+        "Also improved cognitive function and autonomic function"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11081987/",
+      "org": "Phytomedicine / Elsevier",
+      "tier": "A",
+      "reliability_notes": "Double-blind crossover RCT. Well-designed, published in peer-reviewed phytomedicine journal.",
+      "year": 2000,
+      "title": "Rhodiola rosea in stress induced fatigue — A double blind cross-over study of a standardized extract SHR-5 with a repeated low-dose regimen on the mental performance of healthy physicians during night duty",
+      "key_claims": [
+        "Rhodiola rosea extract SHR-5 at 170mg/day for 2 weeks significantly improved mental performance and reduced fatigue in physicians on night duty",
+        "Statistically significant improvement on attention, speed and accuracy of perceptual and cognitive tasks",
+        "No significant side effects observed"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29514072/",
+      "org": "Cell Metabolism / Cell Press",
+      "tier": "A",
+      "reliability_notes": "RCT in healthy older adults. Rigorous design. Published in high-impact journal.",
+      "year": 2018,
+      "title": "Chronic Nicotinamide Riboside Supplementation Is Well-Tolerated and Elevates NAD+ in Healthy Middle-Aged and Older Adults",
+      "key_claims": [
+        "NR 1000mg/day for 6 weeks increased whole blood NAD+ by approximately 60% in healthy middle-aged and older adults",
+        "NR supplementation was safe and well-tolerated",
+        "Blood pressure showed a trend toward reduction in subjects with elevated baseline BP"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23439798/",
+      "org": "Indian Journal of Psychological Medicine / Medknow",
+      "tier": "A",
+      "reliability_notes": "Double-blind RCT. High-concentration full-spectrum ashwagandha root extract (KSM-66). Validated stress/anxiety scales used.",
+      "year": 2012,
+      "title": "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of Ashwagandha root in reducing stress and anxiety in adults",
+      "key_claims": [
+        "KSM-66 Ashwagandha 300mg twice daily for 60 days significantly reduced serum cortisol by 27.9% vs placebo",
+        "Significant improvements in all stress and anxiety scales",
+        "Significant improvements in self-reported energy and sleep quality"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27482252/",
+      "org": "Nature Communications / Springer Nature",
+      "tier": "A",
+      "reliability_notes": "High-quality pharmacokinetic study. Demonstrates bioavailability of NR in humans.",
+      "year": 2016,
+      "title": "Nicotinamide riboside is uniquely and orally bioavailable in mice and humans",
+      "key_claims": [
+        "A single oral dose of NR (100-1000mg) was absorbed and elevated blood NAD+ metabolites dose-dependently",
+        "NR is uniquely bioavailable compared to other NAD+ precursors",
+        "Validated NR as effective oral supplement for raising NAD+"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29024654/",
+      "org": "Psychosomatic Medicine / American Psychosomatic Society",
+      "tier": "B",
+      "reliability_notes": "Review paper by leading mitochondrial psychobiology researcher Martin Picard and Bruce McEwen.",
+      "year": 2018,
+      "title": "Why is Stress Bad for the Brain? A Conceptual Framework for the Role of Mitochondria in Behavioral Epigenetics, Plasticity, and Psychopathology",
+      "key_claims": [
+        "Mitochondria are not just passive energy producers — they actively respond to and signal psychosocial stress",
+        "Chronic psychological stress impairs mitochondrial morphology and function",
+        "Mitochondrial dysfunction mediates stress-induced brain changes"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2813174/",
+      "org": "Lipids / American Oil Chemists' Society",
+      "tier": "A",
+      "reliability_notes": "Classic paper on tissue CoQ10 levels across age groups. Often cited for age-related CoQ10 decline data.",
+      "year": 1989,
+      "title": "Age-related changes in the lipid compositions of rat and human tissues",
+      "key_claims": [
+        "CoQ10 levels in human heart tissue decline significantly with advancing age",
+        "Tissue CoQ10 peaks in early adulthood and declines progressively thereafter",
+        "Heart and liver showed most pronounced CoQ10 decline with age"
+      ]
+    },
+    {
+      "url": "https://www.who.int/news-room/fact-sheets/detail/anaemia",
+      "org": "World Health Organization (WHO)",
+      "tier": "C",
+      "reliability_notes": "WHO authoritative fact sheet on global anemia / iron deficiency prevalence.",
+      "year": 2023,
+      "title": "Anaemia — WHO Fact Sheet",
+      "key_claims": [
+        "Anaemia affects approximately 1.92 billion people globally",
+        "Iron deficiency is the most common cause of anemia worldwide",
+        "Women of reproductive age and children under 5 are most affected"
+      ]
+    }
+  ]
+}

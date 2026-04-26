@@ -63,9 +63,15 @@ def make_mock_project_handler(root: str):
                 self.end_headers()
                 return
             name = c[1:] if c.startswith("/") else c
-            if not name or ".." in name or "/" in name:
+            if not name or ".." in name:
                 self.send_error(400, "Bad path")
                 return
+            if "/" in name:
+                # อนุญาตเฉพาะ tree ใต้ domains/ (โหลด domain knowledge ตอน local mock)
+                if not name.startswith("domains/") or ".." in name:
+                    self.send_error(400, "Bad path")
+                    return
+                return super().do_GET()
             if name in ALLOWED_ROOT_FILES:
                 self._send_root_file(name)
                 return

@@ -1,0 +1,67 @@
+{
+  "domain_id": "liver",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.liver"
+  },
+  "people": [
+    {"id": "robert_lustig", "name": "Robert H. Lustig", "title": "Pediatric Endocrinologist, Professor Emeritus", "affiliation": "UCSF School of Medicine", "known_for": "'Sugar: The Bitter Truth' (UCSF 2009, 100M+ YouTube views); fructose–NAFLD hypothesis; 'Metabolical' (2021)", "verifiable": true},
+    {"id": "richard_johnson", "name": "Richard J. Johnson", "title": "Professor of Medicine (Renal Diseases & Hypertension)", "affiliation": "University of Colorado Anschutz", "known_for": "Fructose → uric acid → metabolic syndrome pathway; 'The Fat Switch' (2012); Johnson 2013 Diabetes review", "verifiable": true},
+    {"id": "jason_fung", "name": "Jason Fung", "title": "Nephrologist & Author", "affiliation": "Scarborough Health Network / Intensive Dietary Management", "known_for": "NAFLD reversal via extended fasting; 'The Obesity Code'; 'The Diabetes Code'", "verifiable": true},
+    {"id": "kenneth_cusi", "name": "Kenneth Cusi", "title": "Professor of Medicine (Endocrinology, Diabetes & Metabolism)", "affiliation": "University of Florida", "known_for": "Pioglitazone for NASH (Belfort 2006 NEJM, Cusi 2016 Ann Intern Med); AASLD guideline co-author", "verifiable": true},
+    {"id": "roy_taylor", "name": "Roy Taylor", "title": "Professor of Medicine & Metabolism", "affiliation": "Newcastle University", "known_for": "Twin Cycle Hypothesis — liver fat as root cause of T2D; Counterpoint + DiRECT trials", "verifiable": true},
+    {"id": "zobair_younossi", "name": "Zobair M. Younossi", "title": "Professor of Medicine, Hepatologist", "affiliation": "Inova Fairfax / Virginia Commonwealth", "known_for": "Global NAFLD prevalence meta-analysis (Hepatology 2016, ~25% worldwide)", "verifiable": true},
+    {"id": "arun_sanyal", "name": "Arun J. Sanyal", "title": "Professor of Medicine (Gastroenterology & Hepatology)", "affiliation": "Virginia Commonwealth University", "known_for": "PIVENS trial (NEJM 2010) — vitamin E 800 IU for NASH; AASLD past president", "verifiable": true},
+    {"id": "hyon_choi", "name": "Hyon K. Choi", "title": "Professor of Medicine, Rheumatologist", "affiliation": "Harvard / Massachusetts General Hospital", "known_for": "Choi BMJ 2008 — sugar-sweetened beverages → hyperuricemia (N=46,393, 22y)", "verifiable": true},
+    {"id": "masanori_kuwabara", "name": "Masanori Kuwabara", "title": "Cardiologist & Researcher", "affiliation": "Toranomon Hospital, Tokyo / University of Colorado", "known_for": "Hyperuricemia as independent metabolic-syndrome risk factor below gout threshold (Kuwabara 2018)", "verifiable": true},
+    {"id": "laurence_prescott", "name": "Laurence F. Prescott", "title": "Clinical Pharmacologist", "affiliation": "University of Edinburgh", "known_for": "Prescott 1979 BMJ — IV NAC as acetaminophen antidote protocol (still gold standard)", "verifiable": true},
+    {"id": "hellen_oketch_rabah", "name": "Hellen A. Oketch-Rabah", "title": "Senior Scientist", "affiliation": "US Pharmacopeia (USP)", "known_for": "USP/FDA systematic review of green tea extract hepatotoxicity (Toxicol Reports 2020)", "verifiable": true},
+    {"id": "peter_ferenci", "name": "Peter Ferenci", "title": "Professor of Gastroenterology & Hepatology", "affiliation": "Medical University of Vienna", "known_for": "Silymarin/milk thistle clinical research; Cochrane reviews of silymarin in liver disease", "verifiable": true},
+    {"id": "carolina_loguercio", "name": "Carmelina Loguercio", "title": "Professor of Gastroenterology", "affiliation": "Second University of Naples", "known_for": "Silybin-phosphatidylcholine-vitamin E trial in NAFLD (Loguercio 2012 Free Radic Biol Med)", "verifiable": true}
+  ],
+  "molecules": [
+    {"id": "glutathione", "name": "Glutathione (GSH)", "label_th": "กลูต้าไธโอน", "family": "tripeptide antioxidant (Glu-Cys-Gly)", "role": "Master hepatic antioxidant; conjugates NAPQI (from acetaminophen); 90% of body GSH in liver"},
+    {"id": "nac", "name": "N-Acetylcysteine (NAC)", "label_th": "เอ็น-อะเซทิลซิสเทอีน", "family": "amino-acid derivative", "role": "Cysteine precursor → replenishes GSH; FDA-approved antidote for acetaminophen overdose; mucolytic"},
+    {"id": "silymarin", "name": "Silymarin (Silybin complex)", "label_th": "ซิลิมาริน", "family": "flavonolignan mix (from Silybum marianum seed)", "role": "Antioxidant + anti-fibrotic; membrane-stabilizing; weakly inhibits CYP2C9 + P-glycoprotein"},
+    {"id": "tudca", "name": "Tauroursodeoxycholic Acid (TUDCA)", "label_th": "TUDCA", "family": "conjugated secondary bile acid", "role": "ER-stress reducer; hepatoprotective; prescription drug in China/Italy for cholestasis"},
+    {"id": "udca", "name": "Ursodeoxycholic Acid (UDCA)", "label_th": "UDCA", "family": "hydrophilic bile acid", "role": "FDA-approved for primary biliary cholangitis; displaces toxic hydrophobic bile acids"},
+    {"id": "choline", "name": "Choline", "label_th": "โคลีน", "family": "essential nutrient (precursor of PC)", "role": "Required for VLDL export of liver TG; deficiency → fatty liver (Zeisel 2003)"},
+    {"id": "phosphatidylcholine", "name": "Phosphatidylcholine (PC)", "label_th": "ฟอสฟาติดิลโคลีน", "family": "phospholipid", "role": "Main component of cell membranes; essential for VLDL assembly; hepatic ratio PC/PE regulates steatosis"},
+    {"id": "berberine", "name": "Berberine", "label_th": "เบอร์เบอรีน", "family": "isoquinoline alkaloid", "role": "AMPK activator; reduces hepatic DNL; hypoglycemic; inhibits DPP-4"},
+    {"id": "vitamin_e", "name": "α-Tocopherol (Vitamin E)", "label_th": "วิตามินอี", "family": "fat-soluble antioxidant", "role": "PIVENS trial — 800 IU/day improved NAS in non-diabetic NASH adults (Sanyal 2010 NEJM)"},
+    {"id": "curcumin", "name": "Curcumin", "label_th": "เคอร์คูมิน", "family": "polyphenol from Curcuma longa", "role": "Anti-inflammatory; NF-κB inhibitor; poor oral bioavailability without piperine/liposomal"},
+    {"id": "uric_acid", "name": "Uric Acid", "label_th": "กรดยูริก", "family": "purine end-product", "role": "Final product of purine catabolism; elevated by fructose-induced ATP → AMP → IMP pathway; MSU crystals → gout"},
+    {"id": "fructose", "name": "Fructose", "label_th": "ฟรุกโตส", "family": "monosaccharide", "role": "Metabolized almost exclusively in liver via fructokinase (KHK); drives DNL + uric acid production; bypasses PFK regulation"},
+    {"id": "alt", "name": "ALT (Alanine Aminotransferase)", "label_th": "ALT / SGPT", "family": "hepatocyte enzyme", "role": "Leaks into blood when hepatocytes are damaged; liver-function test marker (normal <33-40 U/L)"},
+    {"id": "ast", "name": "AST (Aspartate Aminotransferase)", "label_th": "AST / SGOT", "family": "enzyme (liver/muscle/heart)", "role": "Less liver-specific than ALT; AST:ALT ratio >2 suggests alcoholic damage"},
+    {"id": "ggt", "name": "GGT (γ-Glutamyltransferase)", "label_th": "GGT", "family": "hepatobiliary enzyme", "role": "Marker of biliary obstruction + alcohol exposure; inducible by CYP450"},
+    {"id": "cyp3a4", "name": "CYP3A4", "label_th": "CYP3A4", "family": "cytochrome P450 enzyme", "role": "Phase-1 enzyme responsible for ~50% of drug metabolism; inhibited by grapefruit furanocoumarins"},
+    {"id": "cyp2e1", "name": "CYP2E1", "label_th": "CYP2E1", "family": "cytochrome P450 enzyme", "role": "Metabolizes ethanol + generates NAPQI from acetaminophen; induced by fasting + alcohol"},
+    {"id": "fxr", "name": "FXR (Farnesoid X Receptor / NR1H4)", "label_th": "FXR", "family": "nuclear receptor", "role": "Bile acid sensor; suppresses bile acid synthesis (CYP7A1); regulates lipid + glucose homeostasis"},
+    {"id": "tgr5", "name": "TGR5 (GPBAR1)", "label_th": "TGR5", "family": "membrane bile acid receptor", "role": "Stimulates GLP-1 release, energy expenditure, brown fat activity"},
+    {"id": "napqi", "name": "NAPQI", "label_th": "NAPQI", "family": "reactive drug metabolite", "role": "Toxic intermediate of acetaminophen via CYP2E1; binds hepatocyte proteins → necrosis unless quenched by GSH"},
+    {"id": "egcg", "name": "EGCG (Epigallocatechin-3-gallate)", "label_th": "EGCG", "family": "green-tea catechin polyphenol", "role": "Dose-dependent hepatotoxicity at >800 mg/day extract (USP/FDA warning 2018)"}
+  ],
+  "organizations": [
+    {"id": "aasld", "name": "American Association for the Study of Liver Diseases (AASLD)", "type": "academic", "url": "https://www.aasld.org"},
+    {"id": "easl", "name": "European Association for the Study of the Liver (EASL)", "type": "academic", "url": "https://easl.eu"},
+    {"id": "hepatology_journal", "name": "Hepatology (AASLD journal)", "type": "academic", "url": "https://aasldpubs.onlinelibrary.wiley.com/journal/15273350"},
+    {"id": "journal_of_hepatology", "name": "Journal of Hepatology (EASL journal)", "type": "academic", "url": "https://www.journal-of-hepatology.eu"},
+    {"id": "usp", "name": "US Pharmacopeia (USP)", "type": "regulatory", "url": "https://www.usp.org"},
+    {"id": "fda_liver_tox", "name": "FDA LiverTox Database", "type": "regulatory", "url": "https://www.ncbi.nlm.nih.gov/books/NBK547852/"},
+    {"id": "ucsf_metabolic", "name": "UCSF Pediatric Endocrinology", "type": "academic", "url": "https://pediatrics.ucsf.edu/research-programs/pediatric-endocrinology"},
+    {"id": "johnson_lab_colorado", "name": "Johnson Lab, University of Colorado Anschutz", "type": "academic", "url": "https://medschool.cuanschutz.edu"},
+    {"id": "fda_thailand", "name": "สำนักงานคณะกรรมการอาหารและยา (อย. ไทย)", "type": "regulatory", "url": "https://www.fda.moph.go.th"}
+  ],
+  "case_studies": [
+    {"id": "younossi_2016_prevalence", "name": "Younossi NAFLD Global Prevalence Meta-Analysis", "claim_to_fame": "ทบทวนงานวิจัย 86 รายการ รวม N=8,515,431 — NAFLD prevalence ทั่วโลก 25.24% (95%CI 22.10-28.65); ตะวันออกกลางสูงสุด 31.8%, Asia 27.4%", "year": 2016, "source": "Younossi ZM et al., Hepatology 2016;64:73-84"},
+    {"id": "pivens_trial_2010", "name": "PIVENS Trial — Vitamin E for NASH", "claim_to_fame": "RCT N=247 non-diabetic NASH adults — Vitamin E 800 IU/day × 96 weeks ปรับปรุง histology 43% vs placebo 19% (p=0.001); pioglitazone 34%", "year": 2010, "source": "Sanyal AJ et al., NEJM 2010;362:1675-85"},
+    {"id": "belfort_pioglitazone_2006", "name": "Belfort Pioglitazone NASH Trial", "claim_to_fame": "RCT — pioglitazone 45 mg/day × 6 months ปรับปรุง steatosis (-54%) + necroinflammation (-85%) + resolved NASH 55% vs placebo", "year": 2006, "source": "Belfort R, Cusi K et al., NEJM 2006;355:2297-307"},
+    {"id": "choi_ssb_bmj_2008", "name": "Choi Sugar-Sweetened Beverage Gout Study", "claim_to_fame": "Health Professionals Follow-Up Study N=46,393 men × 22 ปี — SSB ≥2 servings/วัน → gout relative risk 1.85 (95%CI 1.08-3.16)", "year": 2008, "source": "Choi HK & Curhan G, BMJ 2008;336:309-12"},
+    {"id": "johnson_fructose_diabetes_2013", "name": "Johnson Fructose → Uric Acid Pathway Review", "claim_to_fame": "Mechanistic review — fructose เป็น 'ชนิดน้ำตาลเดียวที่ active gout pathway' ผ่าน ATP/AMP/IMP → uric acid; proposes uric acid เป็น 'cause' ของ metabolic syndrome ไม่ใช่ผลข้างเคียง", "year": 2013, "source": "Johnson RJ et al., Diabetes 2013;62:3307-15"},
+    {"id": "lustig_bitter_truth_2009", "name": "Lustig 'Sugar: The Bitter Truth' Lecture", "claim_to_fame": "UCSF 1h 30min lecture (YouTube 100M+ views) โต้แย้งว่าฟรุกโตสคือ 'พิษเรื้อรัง' — เป็นจุดเริ่ม mainstream anti-sugar movement", "year": 2009, "source": "UCSF/YouTube 2009; Lustig 'Fat Chance' 2013; 'Metabolical' 2021"},
+    {"id": "prescott_nac_antidote_1979", "name": "Prescott NAC Acetaminophen Antidote Protocol", "claim_to_fame": "IV N-acetylcysteine (Prescott protocol) ลด hepatic necrosis จาก paracetamol overdose — survival ~100% ถ้าให้ภายใน 8-10 ชม. (vs 5% mortality เดิม)", "year": 1979, "source": "Prescott LF et al., BMJ 1979;2:1097-1100"},
+    {"id": "oketch_egcg_hepatotoxicity_2020", "name": "USP Green Tea Extract Hepatotoxicity Review", "claim_to_fame": "ทบทวน adverse events >150 cases — EGCG >800 mg/วัน สัมพันธ์กับ idiosyncratic hepatotoxicity; USP แนะ <338 mg/วัน + warning label", "year": 2020, "source": "Oketch-Rabah HA et al., Toxicol Rep 2020;7:386-402"},
+    {"id": "loguercio_silybin_2012", "name": "Loguercio Silybin-PC-Vitamin-E NAFLD Trial", "claim_to_fame": "RCT N=138 NAFLD — Realsil (silybin 94 mg + PC + vit E) × 12 mo ลด steatosis, ALT, HOMA-IR อย่างมีนัยสำคัญ", "year": 2012, "source": "Loguercio C et al., Free Radic Biol Med 2012;52:1658-65"}
+  ]
+}

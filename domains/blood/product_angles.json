@@ -1,0 +1,442 @@
+{
+  "domain_id": "blood",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "product_categories_from_taxonomy": [
+      "L_citrulline",
+      "beetroot_nitrate_extract",
+      "L_arginine",
+      "iron_bisglycinate",
+      "methylfolate_B12",
+      "niacin_flush_free",
+      "CoQ10_ubiquinol",
+      "vitamin_K2",
+      "pycnogenol",
+      "dark_chocolate_cocoa_flavanol"
+    ]
+  },
+  "angles": [
+    {
+      "angle_id": "angle_blood_L_citrulline",
+      "product_category": "L_citrulline",
+      "problem_th": "อายุเริ่ม 40+ ปลายเท้าเย็น ชา หลับยาก ออกกำลังแล้วเหนื่อยเร็ว — สัญญาณของ endothelial function เสื่อม: eNOS ผลิต NO ลดลง, หลอดเลือดขยายได้น้อยลง",
+      "mechanism_claim_th": "L-citrulline ถูกเปลี่ยนเป็น L-arginine ที่ไต → substrate ของ eNOS → เพิ่ม NO bioavailability โดยไม่ถูก first-pass metabolism ทำลายที่ลำไส้/ตับเหมือน L-arginine; ขนาด 3-6 g/วัน ใน meta-analysis (Bailey 2010, Schwedhelm 2008) เพิ่ม plasma arginine และลด SBP ~4-8 mmHg ในคนความดันสูงเล็กน้อย",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยสนับสนุนการทำงานของหลอดเลือด",
+        "ช่วยเพิ่ม NO bioavailability (วิทยาศาสตร์-based)",
+        "เป็นตัวช่วยเสริมในคนที่ดูแลความดันร่วมกับแพทย์"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษาความดันโลหิตสูง",
+        "ห้ามเรียกว่า 'ไวอากร้าธรรมชาติ' (L-arginine trial VINTAGE-MI เพิ่ม mortality)",
+        "ห้ามบอกให้กินคู่กับไวอากร้า/ยาความดัน โดยไม่ผ่านแพทย์",
+        "ห้ามบอกให้หยุดยาความดัน"
+      ],
+      "supporting_facts": ["blood_001", "blood_005", "blood_008"],
+      "narrative_frames": [
+        "NO = ลมหายใจของหลอดเลือด — พอ 40+ ร่างกายผลิตน้อยลง",
+        "Citrulline = precursor ที่ 'ข้าม' first-pass — ได้ผลมากกว่า L-arginine ในขนาดเท่ากัน"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["hypertension_uncontrolled", "cardiovascular_disease", "chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": [
+          "PDE5 inhibitors (sildenafil/tadalafil) — severe hypotension/syncope",
+          "ACE inhibitors / ARBs / CCBs — additive hypotension",
+          "nitrate medications — absolute contraindication"
+        ],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้าม 'L-citrulline = ไวอากร้าธรรมชาติ'",
+          "ห้าม 'กินคู่ไวอากร้าเพิ่มผล'",
+          "ห้าม 'หยุดยาความดัน'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications", "cardiovascular_patients", "chronic_disease_multimorbidity"],
+        "validator_keywords_th": ["natural viagra", "ไวอากร้าธรรมชาติ", "หยุดยาความดัน", "L-arginine+ไวอากร้า"],
+        "regulatory_risk_notes": "อย. ไทย: ใช้ claim 'สนับสนุนหลอดเลือด' ได้; ห้าม claim รักษาความดัน/ED. อ้างอิง VINTAGE-MI (JAMA 2006) สำหรับ warn post-MI"
+      }
+    },
+    {
+      "angle_id": "angle_blood_beetroot_nitrate_extract",
+      "product_category": "beetroot_nitrate_extract",
+      "problem_th": "ความดันค่อย ๆ สูงขึ้นตามอายุ + อยากลดโดยไม่พึ่งยา แต่ไม่สะดวกดื่มน้ำบีทรูท 500 mL/วัน — สารสกัดบีทรูทเข้มข้น (standardized nitrate 400-800 mg/dose) คือวิธี convenient",
+      "mechanism_claim_th": "บีทรูทมี dietary nitrate (NO3⁻) สูง → oral bacteria บนลิ้น (Veillonella, Prevotella) ลด nitrate → nitrite (NO2⁻) → acidic stomach/ischemic tissue เปลี่ยนเป็น NO; Webb 2008 (Hypertension/BMJ) 500 mL beetroot juice → SBP ลด ~10.4 mmHg peak at 2.5h, ~5 mmHg ที่ 24h",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานของหลอดเลือด",
+        "ช่วยสนับสนุนระดับความดันโลหิตปกติ",
+        "Nitrate = natural vasoregulator"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษาความดันโลหิตสูง / แทนยาความดัน",
+        "ห้ามบอกให้หยุดยาความดันแล้วกินบีทรูท",
+        "ห้ามแนะนำใช้คู่ PDE5 inhibitor",
+        "ห้าม 'ใครก็ลด 10 mmHg' (Webb 2008 = healthy normotensive, ไม่ใช่ HTN รุนแรง)"
+      ],
+      "supporting_facts": ["blood_002", "blood_003", "blood_004"],
+      "narrative_frames": [
+        "ผักสีแดงที่หมอ Cardiologist เริ่มแนะนำ — 10.4 mmHg ใน 2.5 ชม.",
+        "บัคทีเรียบนลิ้นคุณคือ 'โรงงาน NO' — อย่าใช้ antibacterial mouthwash หลังดื่ม (Govoni 2008)"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["hypertension_uncontrolled", "chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": [
+          "ACE inhibitors / ARBs / CCBs — additive hypotension",
+          "PDE5 inhibitors (sildenafil/tadalafil) — severe hypotension",
+          "nitrate medications (isosorbide, nitroglycerin) — absolute contraindication",
+          "warfarin — vitamin K1 in beet leaves (check product composition)"
+        ],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้าม 'บีทรูท = ยาความดัน'",
+          "ห้าม 'หยุดยาความดันแล้วกินบีทรูท'",
+          "ห้ามแนะนำคู่ไวอากร้า/ไซอาลิส"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["on_prescription_medications", "cardiovascular_patients", "chronic_disease_multimorbidity"],
+        "validator_keywords_th": ["หยุดยาความดัน", "แทนยาความดัน", "บีทรูท+ไวอากร้า"],
+        "regulatory_risk_notes": "อย. ไทย: อาหารเสริมบีทรูท claim ได้เฉพาะ 'สนับสนุน'; ผู้มีประวัตินิ่วไตระวัง oxalate load สูงในบีทรูท"
+      }
+    },
+    {
+      "angle_id": "angle_blood_L_arginine",
+      "product_category": "L_arginine",
+      "problem_th": "อยากเพิ่ม NO pathway แต่ L-arginine มี bioavailability ต่ำเพราะถูก arginase ทำลายที่ลำไส้/ตับ",
+      "mechanism_claim_th": "L-arginine เป็น substrate โดยตรงของ eNOS → NO; ในคนสุขภาพดี 3-6 g/วัน อาจเพิ่ม plasma arginine ระยะสั้น แต่ effect บน BP ใน meta-analysis (Dong 2011) เล็กกว่า citrulline; VINTAGE-MI trial 2006 (JAMA) — 9 g/วัน ในผู้ป่วยหลังหัวใจวาย เพิ่ม mortality, หยุดงานก่อนกำหนด",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุน NO pathway ในคนสุขภาพดี",
+        "เป็นกรดอะมิโนสำคัญ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามเรียกว่า 'natural Viagra' / 'ไวอากร้าธรรมชาติ'",
+        "ห้ามแนะนำในคนที่เคยมี MI / heart attack (VINTAGE-MI)",
+        "ห้ามแนะนำคู่ PDE5 inhibitor",
+        "ห้ามโฆษณา ED treatment"
+      ],
+      "supporting_facts": ["blood_001", "blood_008", "blood_024"],
+      "narrative_frames": [
+        "L-arginine ได้ผลจริงในงานเก่า — แต่ 'post-MI' เป็นเส้นแดง"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": [
+          "cardiovascular_disease",
+          "post_heart_attack",
+          "hypertension_uncontrolled",
+          "herpes_active"
+        ],
+        "drug_interactions": [
+          "PDE5 inhibitors — severe hypotension",
+          "antihypertensives — additive BP drop",
+          "nitrate medications — absolute contraindication",
+          "anticoagulants — mild additive bleeding risk"
+        ],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้าม 'ไวอากร้าธรรมชาติ'",
+          "ห้าม 'ดีต่อทุกคน'",
+          "ห้ามแนะนำผู้ป่วยโรคหัวใจ"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["cardiovascular_patients", "on_prescription_medications", "post_surgery_recovery", "herpes_history"],
+        "validator_keywords_th": ["natural viagra", "ไวอากร้าธรรมชาติ", "หลังหัวใจวายกินได้"],
+        "regulatory_risk_notes": "VINTAGE-MI (JAMA 2006): post-MI mortality ↑. อย. ไทย: ห้าม claim ED/รักษาความดัน"
+      }
+    },
+    {
+      "angle_id": "angle_blood_iron_bisglycinate",
+      "product_category": "iron_bisglycinate",
+      "problem_th": "ผู้หญิงวัยประจำเดือน / นักวิ่ง / มังสวิรัติ เหนื่อยง่าย ผมร่วง สมาธิสั้น — บ่อยครั้งเป็น iron-deficient erythropoiesis (ferritin <30 ng/mL) ก่อน Hb จะต่ำ",
+      "mechanism_claim_th": "Iron bisglycinate เป็น chelated form (iron ผูกกับ glycine 2 molecules) ดูดซึมผ่าน amino acid transporter → lower GI side effect กว่า ferrous sulfate; Pineda 2001 pediatric RCT — bisglycinate เพิ่ม Hb เท่า sulfate ที่ขนาดเหล็กน้อยกว่า",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "เสริมเหล็กในคนที่ตรวจพบ ferritin ต่ำ",
+        "Low GI side effect เทียบ ferrous sulfate",
+        "เหมาะผู้หญิงวัยประจำเดือน / มังสวิรัติที่ตรวจพบขาดเหล็ก"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้าม 'ทุกคนควรกินเหล็กเสริม'",
+        "ห้ามแนะนำโดยไม่ตรวจ ferritin/CBC",
+        "ห้ามอ้างรักษาโลหิตจาง (medical claim)",
+        "ห้ามแนะนำผู้ชายอายุ 40+ โดยไม่ตรวจ (hemochromatosis)",
+        "ห้าม 'เหล็กเยอะ ๆ ดีเสมอ'"
+      ],
+      "supporting_facts": ["blood_012", "blood_013", "blood_014"],
+      "narrative_frames": [
+        "Ferritin = 'กระปุกเหล็ก' — ถ้าต่ำกว่า 30 คุณเริ่มล้า แม้ Hb ยังปกติ",
+        "Bisglycinate = ย่อยเบากว่า — ไม่ท้องผูก/คลื่นไส้แบบยาเหล็กเก่า"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": [
+          "hemochromatosis",
+          "iron_overload",
+          "thalassemia_major",
+          "liver_cirrhosis",
+          "active_infection_bacterial"
+        ],
+        "drug_interactions": [
+          "levothyroxine (ลดการดูดซึม — เว้น 4 ชม.)",
+          "tetracycline / ciprofloxacin (ลด absorption ทั้งสองฝั่ง)",
+          "levodopa (ลด absorption)",
+          "PPI (omeprazole) — ลดการดูดซึมเหล็ก",
+          "calcium supplements — competitive absorption"
+        ],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้าม 'กินเหล็กเยอะ ๆ ดีเสมอ'",
+          "ห้าม 'ผู้ชายกินได้ทุกคน'",
+          "ห้าม 'ไม่ต้องตรวจก็กินได้'"
+        ],
+        "required_disclaimer_th": "general_supplement_th",
+        "audience_exclusions": ["hemochromatosis_family_history", "thalassemia_carriers", "men_over_40_without_labs"],
+        "validator_keywords_th": ["ไม่ต้องตรวจ", "เหล็กเยอะๆดีเสมอ", "ผู้ชายก็ต้องกิน"],
+        "regulatory_risk_notes": "Thai population: thalassemia carrier ~20-30% — ต้องเตือนตรวจ CBC/ferritin/Hb typing ก่อน"
+      }
+    },
+    {
+      "angle_id": "angle_blood_methylfolate_B12",
+      "product_category": "methylfolate_B12",
+      "problem_th": "Homocysteine สูง + MTHFR variant (พบ C677T heterozygous ~40% ของประชากร) → ทำให้ methylation cycle ติดขัด → ใช้ folic acid ธรรมดาเปลี่ยนเป็น 5-MTHF ได้น้อย",
+      "mechanism_claim_th": "5-methyltetrahydrofolate (active folate) + methylcobalamin (active B12) ข้าม MTHFR bottleneck → เติม methyl groups ให้ methionine cycle → ลด homocysteine ~25-30% ใน heterozygous MTHFR (Prinz-Langenohl 2009); homocysteine สูงเชื่อมโยงกับ CV risk (Boushey 1995)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานของระบบ methylation",
+        "ช่วยสนับสนุนระดับ homocysteine ปกติ",
+        "เหมาะผู้ที่มี MTHFR variant / ระดับ homocysteine สูง"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างลดความเสี่ยงโรคหัวใจ (HOPE-2/VISP trials: ลด homocysteine ไม่ลด CV events ชัดเจน)",
+        "ห้ามอ้างรักษาโรคหัวใจ/หลอดเลือด",
+        "ห้ามอ้างรักษาซึมเศร้า/ออทิสติก"
+      ],
+      "supporting_facts": ["blood_019", "blood_020"],
+      "narrative_frames": [
+        "40% ของคนมียีน MTHFR ที่ใช้ folic acid ได้ไม่ดี — วิธีแก้: ใช้ active form",
+        "Homocysteine = ตัวบอก 'ท่อ methylation' คุณยังเดินหรือไม่"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["leber_hereditary_optic_neuropathy"],
+        "drug_interactions": [
+          "methotrexate — folate antagonism",
+          "phenytoin/carbamazepine — ลดระดับยา anticonvulsant",
+          "levodopa — methylation interaction",
+          "sulfasalazine — ลดการดูดซึม folate"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้าม 'ป้องกันโรคหัวใจได้'",
+          "ห้าม 'รักษาซึมเศร้าได้'"
+        ],
+        "required_disclaimer_th": "general_supplement_th",
+        "audience_exclusions": ["cancer_patients_active_treatment", "on_methotrexate"],
+        "validator_keywords_th": ["ป้องกันโรคหัวใจ", "รักษาซึมเศร้า"],
+        "regulatory_risk_notes": "HOPE-2 + VISP: ลด homocysteine ≠ ลด CV events. ระวังในคนที่ได้ methotrexate (rheumatoid, oncology)"
+      }
+    },
+    {
+      "angle_id": "angle_blood_niacin_flush_free",
+      "product_category": "niacin_flush_free",
+      "problem_th": "อยากจัดการ lipid profile — เพิ่ม HDL / ลด Lp(a) / ลด TG — niacin (B3) เป็นตัวเดียวที่ลด Lp(a) ได้อย่างมีประสิทธิภาพในอดีต",
+      "mechanism_claim_th": "Nicotinic acid dose สูง (1.5-3 g/วัน) ยับยั้ง HSL ใน adipose → ลด FFA → ลด VLDL production ที่ตับ → ลด TG, LDL; เพิ่ม HDL via ApoA1; 'flush-free' (inositol hexanicotinate, niacinamide) ไม่ทำให้หน้าร้อน แต่ evidence ลด lipid ด้อยกว่า immediate-release niacin",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "เป็น B3 supplement — สนับสนุน metabolism",
+        "สำหรับผู้ต้องการเสริม vitamin B3"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้าง flush-free = ลด lipid ได้เท่า immediate-release (หลักฐานน้อยกว่า)",
+        "ห้ามอ้างรักษา dyslipidemia / Lp(a)",
+        "ห้ามแนะนำคู่ statin โดยไม่ผ่านแพทย์ (myopathy risk)",
+        "ห้ามแนะนำผู้ป่วยเบาหวาน (high-dose niacin เพิ่ม glucose)"
+      ],
+      "supporting_facts": ["blood_017", "blood_016"],
+      "narrative_frames": [
+        "Niacin = ตัวเก่าแก่ที่ลด Lp(a) ได้ — แต่ 'flush-free' อาจไม่ได้ผลเท่า"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [
+          "liver_cirrhosis",
+          "active_peptic_ulcer",
+          "gout_active",
+          "diabetes_poorly_controlled"
+        ],
+        "drug_interactions": [
+          "statins (simvastatin, atorvastatin) — myopathy/rhabdomyolysis risk",
+          "antihypertensives — additive vasodilation",
+          "insulin/sulfonylureas — niacin raises glucose"
+        ],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้าม 'กินคู่ statin ดีกว่ายาเดี่ยว'",
+          "ห้าม 'รักษาไขมันในเลือด'"
+        ],
+        "required_disclaimer_th": "cardiovascular_th",
+        "audience_exclusions": ["diabetes_patients", "liver_disease", "on_prescription_medications"],
+        "validator_keywords_th": ["รักษาไขมัน", "กินคู่ statin", "แทน statin"],
+        "regulatory_risk_notes": "AIM-HIGH + HPS2-THRIVE: niacin+statin ไม่ลด event เพิ่มเติม + เพิ่ม side effect. อย. ไทย: B3 เป็น supplement; ห้าม claim ลดไขมัน"
+      }
+    },
+    {
+      "angle_id": "angle_blood_CoQ10_ubiquinol",
+      "product_category": "CoQ10_ubiquinol",
+      "problem_th": "ผู้ใช้ statin มักบ่นปวดกล้ามเนื้อ (~10-15% ของผู้ใช้) — สมมุติฐาน: statin ยับยั้ง HMG-CoA reductase → ลด mevalonate pathway → ลด CoQ10 ที่ mitochondria",
+      "mechanism_claim_th": "Ubiquinol (reduced CoQ10) เป็น electron carrier ใน mitochondrial ETC complex I→III; statin ลด serum CoQ10 ~40% (Ghirlanda 1993); meta-analysis (Qu 2018) — CoQ10 100-200 mg/day ลด statin-associated muscle symptoms ~30%",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุน mitochondrial function",
+        "สำหรับผู้ใช้ statin ที่มีอาการปวดกล้ามเนื้อ (พิจารณาร่วมแพทย์)",
+        "Ubiquinol = active form, bioavailability ดีกว่าใน 60+"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษาโรคหัวใจล้มเหลว",
+        "ห้ามแนะนำให้หยุด statin + กิน CoQ10 แทน",
+        "ห้ามอ้างชะลอวัย (anti-aging claim)"
+      ],
+      "supporting_facts": ["blood_018"],
+      "narrative_frames": [
+        "Statin ช่วยหัวใจจริง — แต่ 'ขโมย' CoQ10 ด้วย — คุณเติมกลับได้"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [
+          "warfarin — CoQ10 structurally similar to vitamin K → ลด INR",
+          "antihypertensives — อาจเสริม BP-lowering effect"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้าม 'หยุด statin แล้วกิน CoQ10'",
+          "ห้าม 'รักษาหัวใจล้มเหลว'"
+        ],
+        "required_disclaimer_th": "general_supplement_th",
+        "audience_exclusions": ["on_warfarin"],
+        "validator_keywords_th": ["หยุด statin", "แทน statin", "รักษาหัวใจล้มเหลว"],
+        "regulatory_risk_notes": "ผู้ใช้ warfarin ต้องตรวจ INR ใกล้ชิด"
+      }
+    },
+    {
+      "angle_id": "angle_blood_vitamin_K2",
+      "product_category": "vitamin_K2",
+      "problem_th": "Coronary artery calcification (CAC) เพิ่มตามอายุ — สัญญาณ arterial stiffness + atherosclerosis; สมมุติฐาน Matrix Gla Protein (MGP) ที่ยับยั้ง vascular calcification ต้องการ K2-dependent carboxylation",
+      "mechanism_claim_th": "Vitamin K2 (menaquinone MK-4/MK-7) activate MGP → ยับยั้ง calcium deposition ในผนังหลอดเลือด; Rotterdam Study (Geleijnse 2004): K2 intake สูงสุดสัมพันธ์กับ CAC ต่ำกว่าและ CV mortality ลดลง ~50%; K2 ไม่ถูก carboxylated โดย warfarin",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุนสุขภาพหลอดเลือดและกระดูก",
+        "Co-factor MGP และ osteocalcin",
+        "เสริมร่วมกับ D3 เพื่อ calcium direction"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา/ละลาย atherosclerosis plaque",
+        "ห้ามอ้างป้องกันโรคหัวใจ",
+        "ห้ามแนะนำผู้ใช้ warfarin โดยไม่ผ่านแพทย์ (INR destabilization)"
+      ],
+      "supporting_facts": ["blood_023"],
+      "narrative_frames": [
+        "K2 = 'traffic police' ของแคลเซียม — ส่งเข้ากระดูก ไม่ให้ไปอุดหลอดเลือด"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": [],
+        "drug_interactions": [
+          "warfarin — vitamin K antagonist; K2 แม้ less than K1 ยังทำให้ INR ผันผวน",
+          "anticoagulants (DOAC) — minor interaction"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้าม 'ละลาย plaque'",
+          "ห้าม 'ป้องกันโรคหัวใจ'",
+          "ห้ามแนะนำผู้ใช้ warfarin โดยไม่หารือแพทย์"
+        ],
+        "required_disclaimer_th": "general_supplement_th",
+        "audience_exclusions": ["on_warfarin", "on_anticoagulants"],
+        "validator_keywords_th": ["ละลาย plaque", "ป้องกันโรคหัวใจ"],
+        "regulatory_risk_notes": "ผู้ใช้ warfarin = เตือนชัดก่อนกิน. อย. ไทย: K2 supplement legal; claim 'สนับสนุน' เท่านั้น"
+      }
+    },
+    {
+      "angle_id": "angle_blood_pycnogenol",
+      "product_category": "pycnogenol",
+      "problem_th": "Chronic venous insufficiency (เส้นเลือดขอด, ขาบวม, ปวดเมื่อยขาบริเวณปลาย) + endothelial dysfunction",
+      "mechanism_claim_th": "Pycnogenol (French maritime pine bark extract, Pinus pinaster) — procyanidins + phenolic acids → เพิ่ม eNOS activity + scavenge superoxide → protect NO จาก degradation; Belcaro meta-analysis — ลด edema ใน venous insufficiency; small trials ลด SBP ~3-5 mmHg",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุนการไหลเวียนและ endothelial function",
+        "มี antioxidant (procyanidins)",
+        "สำหรับผู้มีภาวะขาบวม/เส้นเลือดขอดเล็กน้อย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา varicose veins",
+        "ห้ามอ้างรักษา ED (บางงานวิจัย pycnogenol + L-arginine แต่ claim ยังไม่ผ่าน regulator)",
+        "ห้ามแนะนำผู้ใช้ anticoagulant โดยไม่ผ่านแพทย์"
+      ],
+      "supporting_facts": ["blood_005"],
+      "narrative_frames": [
+        "จากเปลือกสนฝรั่งเศส — สารกลุ่ม procyanidins ที่ทำให้หลอดเลือดอ่อนตัวขึ้น"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [
+          "antihypertensives — mild additive BP drop",
+          "anticoagulants — increased bleeding risk (procyanidin platelet effect)",
+          "immunosuppressants — possible immune modulation"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้าม 'รักษาเส้นเลือดขอด'",
+          "ห้าม 'รักษา ED'"
+        ],
+        "required_disclaimer_th": "general_supplement_th",
+        "audience_exclusions": ["on_anticoagulants", "on_prescription_medications"],
+        "validator_keywords_th": ["รักษาเส้นเลือดขอด", "รักษา ED"],
+        "regulatory_risk_notes": "อย. ไทย: claim 'สนับสนุน' ได้; ห้าม therapeutic claim"
+      }
+    },
+    {
+      "angle_id": "angle_blood_dark_chocolate_cocoa_flavanol",
+      "product_category": "dark_chocolate_cocoa_flavanol",
+      "problem_th": "ความดันซิสโตลิกค่อย ๆ สูงขึ้นตามอายุ — อยากเสริม dietary source ที่มีหลักฐานและไม่เป็นยา",
+      "mechanism_claim_th": "Cocoa flavanols (epicatechin) → เพิ่ม eNOS expression + BH4 recycling → เพิ่ม NO bioavailability; COSMOS trial (Sesso 2022 Am J Clin Nutr, N=21,442, 3.6 y) cocoa extract 500 mg flavanols ลด CV mortality 27% ใน adherent group; Ried meta-analysis: flavanol-rich cocoa ลด SBP ~2-3 mmHg",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "Cocoa flavanol สนับสนุน endothelial function",
+        "เลือก 85%+ dark chocolate หรือ cocoa extract standardized flavanol",
+        "ส่วนหนึ่งของ Mediterranean/DASH-style diet"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษาความดัน",
+        "ห้ามอ้างว่ากินช็อกโกแลตนมก็ได้ผลเหมือน",
+        "ห้ามอ้าง anti-aging / รักษาโรคหัวใจ"
+      ],
+      "supporting_facts": ["blood_006"],
+      "narrative_frames": [
+        "ช็อกโกแลตเข้ม ≠ ช็อกโกแลตนม — flavanol อยู่ใน cocoa ไม่ใช่ sugar",
+        "COSMOS trial — งานใหญ่ตัวแรกที่พบ cocoa flavanol ลด CV mortality"
+      ],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [
+          "caffeine sensitivity (cocoa ~12 mg/oz)",
+          "MAOIs — theobromine interaction (rare)"
+        ],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้าม 'ช็อกโกแลตนมก็ได้ผล'",
+          "ห้าม 'รักษาความดัน'"
+        ],
+        "required_disclaimer_th": "general_supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาความดัน", "ช็อกโกแลตทุกแบบ"],
+        "regulatory_risk_notes": "อย. ไทย: ขนม chocolate = food; standardized extract = supplement claim 'สนับสนุน' ได้"
+      }
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "domain_id": "fat_metabolism",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 11,
+    "last_harvested": "2026-04-22"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_fat_001",
+      "label_th": "การอดอาหารขยาย → เผาไขมันคลังใหญ่ (Barbieri chain)",
+      "label_en": "Extended fasting → large adipose energy liberation",
+      "description_th": "เมื่อไม่มีอาหารเข้า ตับใช้ไกลโคเจนก่อน พอหมดร่างกายสลาย triglyceride จากเซลล์ไขมันเป็น FFA + glycerol → FFA ถูก oxidize ในตับเป็น acetyl-CoA → ไหลเข้า ketogenesis → ketones เป็นเชื้อเพลิงสมอง; กล้ามเนื้อถูกรักษาไว้ได้ด้วย GH ที่พุ่งขึ้น",
+      "description_en": "With no food intake, liver depletes glycogen first; then adipose triglyceride is hydrolyzed to FFA + glycerol → FFAs are oxidized in liver to acetyl-CoA → fed into ketogenesis → ketones fuel the brain; muscle is spared via elevated growth hormone.",
+      "chain": [
+        {"step": 1, "actor": "absence of food", "action": "removes", "target": "postprandial insulin spike", "effect": "insulin falls to baseline (<5 µU/mL)"},
+        {"step": 2, "actor": "low insulin", "action": "disinhibits", "target": "hormone-sensitive lipase (HSL) + ATGL", "effect": "triglyceride hydrolysis begins"},
+        {"step": 3, "actor": "adipocyte", "action": "releases", "target": "FFA + glycerol", "effect": "FFAs travel to liver via albumin"},
+        {"step": 4, "actor": "liver", "action": "β-oxidizes", "target": "FFA → acetyl-CoA", "effect": "excess acetyl-CoA exceeds TCA capacity"},
+        {"step": 5, "actor": "HMG-CoA synthase/lyase", "action": "converts", "target": "acetyl-CoA → acetoacetate → BHB", "effect": "ketones released to bloodstream"},
+        {"step": 6, "actor": "rising GH pulses", "action": "preserves", "target": "lean body mass", "effect": "muscle mostly spared despite caloric deficit"}
+      ],
+      "analogies_th": [
+        "เหมือนเปิดถังน้ำมันสำรองของร่างกาย — กลูโคสหมด คีโตนขึ้นมาแทน",
+        "เหมือนเปลี่ยนเกียร์รถจาก 'ขับในเมือง' (กลูโคส) เป็น 'ขับทางไกล' (ไขมัน)"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2495396/pdf/postmedj00315-0056.pdf", "org": "Postgrad Med J", "source_tier": "A", "year": 1973, "title": "Barbieri 382-day fast", "access_date": "2026-04-22"},
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK493179/", "org": "StatPearls", "source_tier": "A", "year": 2026, "title": "Biochemistry, Ketogenesis", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ketosis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_002",
+      "label_th": "mTOR → ออโตฟาจี (สวิตช์ซ่อมเซลล์)",
+      "label_en": "mTOR → Autophagy switch",
+      "description_th": "ในภาวะอาหารเพียงพอ mTOR active จะ phosphorylate Atg13 → แยก Atg13 จาก Atg1 → ยับยั้งการสร้าง autophagosome; ในภาวะอดอาหาร (โดยเฉพาะ amino acid ต่ำ) mTOR ถูกปิด → Atg13 dephosphorylate → เกาะ Atg1 → autophagosome เริ่มฟอร์ม → เก็บขยะเซลล์ส่งไป lysosome ย่อย",
+      "description_en": "In fed state, active mTOR phosphorylates Atg13, dissociating it from Atg1 and blocking autophagosome formation; during fasting (especially amino-acid scarcity) mTOR is inhibited, Atg13 is dephosphorylated and binds Atg1, triggering autophagosome formation → lysosomal degradation of cellular 'garbage'.",
+      "chain": [
+        {"step": 1, "actor": "nutrients (AA, glucose)", "action": "activate", "target": "mTORC1", "effect": "autophagy suppressed"},
+        {"step": 2, "actor": "fasting", "action": "inhibits", "target": "mTORC1", "effect": "Atg13 dephosphorylates"},
+        {"step": 3, "actor": "Atg1-Atg13 complex", "action": "triggers", "target": "phagophore formation", "effect": "engulfs cytoplasmic cargo"},
+        {"step": 4, "actor": "Atg5-Atg12 + Atg8/LC3", "action": "extends", "target": "phagophore → autophagosome", "effect": "double-membrane vesicle sealed"},
+        {"step": 5, "actor": "autophagosome", "action": "fuses with", "target": "lysosome", "effect": "hydrolases degrade contents; amino acids recycled"}
+      ],
+      "analogies_th": [
+        "เหมือน 'ภารโรงในโรงงาน' ที่เก็บขยะเมื่อคนไม่กินข้าว",
+        "เหมือนรีเซ็ต Windows — ปิดโปรแกรมเก่าที่กินแรม"
+      ],
+      "sources": [
+        {"url": "https://www.nobelprize.org/prizes/medicine/2016/advanced-information/_", "org": "NobelPrize.org", "source_tier": "A", "year": 2016, "title": "Ohsumi Autophagy Nobel background", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "autophagy",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_003",
+      "label_th": "การอด → GH pulse เพิ่ม → ปกป้องกล้าม",
+      "label_en": "Fasting → GH pulse amplification → muscle sparing",
+      "description_th": "การอดอาหารยับยั้ง somatostatin (GHIH) และกระตุ้น GHRH → ปีกต่อมใต้สมองส่วนหน้าหลั่ง GH pulse บ่อยขึ้น; GH กระตุ้นตับผลิต IGF-1 และ signal กล้ามเนื้อให้ลด protein breakdown — จึงเผาไขมันโดยไม่ทำลายกล้าม",
+      "description_en": "Fasting suppresses somatostatin and stimulates GHRH → anterior pituitary pulses GH more frequently; GH drives hepatic IGF-1 and signals muscle to reduce protein breakdown — enabling fat oxidation without muscle loss.",
+      "chain": [
+        {"step": 1, "actor": "fasting", "action": "lowers", "target": "somatostatin tone", "effect": "GH pulses disinhibited"},
+        {"step": 2, "actor": "hypothalamus", "action": "releases", "target": "GHRH", "effect": "anterior pituitary stimulated"},
+        {"step": 3, "actor": "anterior pituitary", "action": "pulses", "target": "GH (5.8→9.9 pulses/24h in 5-d fast)", "effect": "circulating GH rises"},
+        {"step": 4, "actor": "GH", "action": "stimulates", "target": "lipolysis in adipocytes + IGF-1 in liver", "effect": "FFA mobilized; muscle spared"}
+      ],
+      "analogies_th": [
+        "ร่างกายขึ้นโหมด 'ซ่อมบำรุง' เหมือนโรงงานที่หยุดผลิตเพื่อล้างเครื่อง",
+        "เหมือน growth spurt ตอนเด็ก — GH สูงตอนหลับ + ตอนอด"
+      ],
+      "sources": [
+        {"url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC329619/", "org": "J Clin Invest / PMC", "source_tier": "A", "year": 1988, "title": "Ho 1988 fasting GH", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "autophagy",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_004",
+      "label_th": "BAT + UCP1 → เผาความร้อน (non-shivering thermogenesis)",
+      "label_en": "BAT + UCP1 → non-shivering thermogenesis",
+      "description_th": "ในไขมันสีน้ำตาล mitochondrial membrane มี UCP1 ที่ 'เปิดรู' ให้ proton กลับไป matrix โดยไม่ผ่าน ATP synthase — พลังงานที่ควรผลิต ATP กลายเป็นความร้อนแทน; norepinephrine จาก sympathetic nervous system (ตอนเย็น) กระตุ้น β3-adrenergic receptor → กระตุ้น lipolysis และ UCP1",
+      "description_en": "In brown adipocytes, mitochondrial UCP1 allows protons to leak back to the matrix bypassing ATP synthase — energy that would produce ATP becomes heat instead; norepinephrine from the sympathetic nervous system (cold-activated) stimulates β3-adrenergic receptors → driving lipolysis and UCP1 expression.",
+      "chain": [
+        {"step": 1, "actor": "cold exposure (≤16°C)", "action": "activates", "target": "sympathetic nervous system", "effect": "norepinephrine released at BAT"},
+        {"step": 2, "actor": "norepinephrine", "action": "binds", "target": "β3-adrenergic receptor on brown adipocytes", "effect": "cAMP rises; HSL activated"},
+        {"step": 3, "actor": "released FFAs", "action": "feed", "target": "mitochondrial β-oxidation", "effect": "large acetyl-CoA influx"},
+        {"step": 4, "actor": "UCP1", "action": "uncouples", "target": "proton gradient from ATP synthesis", "effect": "energy dissipated as heat (non-shivering thermogenesis)"}
+      ],
+      "analogies_th": [
+        "เหมือนเปิดหน้าต่างโรงไฟฟ้า — พลังงานวิ่งหายเป็นความร้อนแทนที่จะเก็บใส่แบตเตอรี่",
+        "เหมือนเปิดเครื่องทำความร้อนในตัว"
+      ],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0808718", "org": "NEJM", "source_tier": "A", "year": 2009, "title": "van Marken Lichtenbelt BAT", "access_date": "2026-04-22"},
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0810780", "org": "NEJM", "source_tier": "A", "year": 2009, "title": "Cypess BAT identification", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "brown_adipose_tissue",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_005",
+      "label_th": "Twin Cycle: ตับเต็ม → ตับอ่อนเต็ม → เบาหวาน (Taylor)",
+      "label_en": "Twin Cycle: liver fat → pancreatic fat → type 2 diabetes",
+      "description_th": "กินเกินนาน → ไขมันสะสมตับ → hepatic insulin resistance → ตับผลิตน้ำตาลไม่หยุด → ตับอ่อนหลั่งอินซูลินชดเชยสูง → hyperinsulinemia → de novo lipogenesis → ตับเต็มมากขึ้น + VLDL ไหลไปสะสมที่ตับอ่อน → β-cell ถูก 'dedifferentiate' → หลั่งอินซูลินไม่ได้ = T2DM",
+      "description_en": "Chronic overeating → liver fat accumulates → hepatic insulin resistance → liver overproduces glucose → pancreas hypersecretes insulin → hyperinsulinemia → de novo lipogenesis adds more liver fat + VLDL drives ectopic fat to pancreas → β-cells dedifferentiate → insulin secretion fails = T2D.",
+      "chain": [
+        {"step": 1, "actor": "chronic caloric surplus", "action": "drives", "target": "hepatic de novo lipogenesis", "effect": "liver fat rises above 5.5%"},
+        {"step": 2, "actor": "liver fat", "action": "causes", "target": "hepatic insulin resistance", "effect": "basal glucose output not suppressed"},
+        {"step": 3, "actor": "slight fasting glucose rise", "action": "stimulates", "target": "basal insulin secretion", "effect": "hyperinsulinemia"},
+        {"step": 4, "actor": "hyperinsulinemia", "action": "accelerates", "target": "DNL → more liver fat", "effect": "vicious cycle established"},
+        {"step": 5, "actor": "elevated VLDL-TG export", "action": "deposits", "target": "fat in pancreas islets", "effect": "β-cell dedifferentiation"},
+        {"step": 6, "actor": "15-kg weight loss (DiRECT)", "action": "reverses", "target": "liver & pancreatic fat", "effect": "T2D remission in responders"}
+      ],
+      "analogies_th": [
+        "เหมือน 2 ล้อเฟืองที่หมุนผิดทิศทางทั้งคู่ — ยิ่งนานยิ่งบิดพัง",
+        "เหมือนคลังสินค้าเต็ม ของเลยล้นออกไปท่วมโรงงานข้างๆ"
+      ],
+      "sources": [
+        {"url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC8247294/", "org": "Diabet Med / PMC", "source_tier": "A", "year": 2021, "title": "Taylor T2D remission", "access_date": "2026-04-22"},
+        {"url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP092009", "org": "Wiley/Physiological Society", "source_tier": "A", "year": 2025, "title": "Twin Cycle Hypothesis — Taylor", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ectopic_fat",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_006",
+      "label_th": "Ketogenesis: ตับ → คีโตน → เชื้อเพลิงสมอง",
+      "label_en": "Ketogenesis: liver → ketones → brain fuel",
+      "description_th": "เมื่อคาร์บต่ำ → oxaloacetate ถูกดึงไปทำ gluconeogenesis → TCA cycle ช้าลง → acetyl-CoA ล้น → เข้า ketogenesis: 2×acetyl-CoA → acetoacetyl-CoA → HMG-CoA → acetoacetate → BHB (หรือ acetone); BHB ไหลไปสมอง/หัวใจ/กล้าม → กลับเป็น acetyl-CoA → ATP; ตับเองใช้ไม่ได้เพราะขาด thiophorase",
+      "description_en": "Low-carb state → oxaloacetate diverted to gluconeogenesis → TCA slows → acetyl-CoA overflow → enters ketogenesis: 2×acetyl-CoA → acetoacetyl-CoA → HMG-CoA → acetoacetate → BHB (or acetone); BHB travels to brain/heart/muscle → converted back to acetyl-CoA → ATP; liver itself cannot use ketones due to lack of thiophorase.",
+      "chain": [
+        {"step": 1, "actor": "carb restriction / fast", "action": "depletes", "target": "oxaloacetate (for gluconeogenesis)", "effect": "TCA cycle slowed"},
+        {"step": 2, "actor": "β-oxidation of FFAs", "action": "produces", "target": "excess acetyl-CoA in liver", "effect": "can't enter TCA"},
+        {"step": 3, "actor": "HMG-CoA synthase/lyase", "action": "converts", "target": "acetyl-CoA → acetoacetate", "effect": "acetoacetate released"},
+        {"step": 4, "actor": "BDH1", "action": "reduces", "target": "acetoacetate → β-hydroxybutyrate", "effect": "BHB dominant circulating ketone"},
+        {"step": 5, "actor": "peripheral tissues", "action": "import via MCT1", "target": "BHB → acetyl-CoA → TCA", "effect": "ATP generated, especially brain"}
+      ],
+      "analogies_th": [
+        "ตับเหมือนโรงกลั่น — กลั่นไขมันเป็น 'น้ำมันไฮออคเทน' (คีโตน) ส่งให้สมอง",
+        "เหมือนเปลี่ยนจากรถน้ำมัน (กลูโคส) เป็นรถ hybrid (คีโตน)"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK493179/", "org": "StatPearls", "source_tier": "A", "year": 2026, "title": "Biochemistry, Ketogenesis", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ketosis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_007",
+      "label_th": "อินซูลิน → HSL ถูกปิด → ไขมันเก็บ",
+      "label_en": "Insulin → HSL suppression → fat storage",
+      "description_th": "อินซูลินจับ IR บนเซลล์ไขมัน → กระตุ้น PI3K/Akt → phosphorylate phosphodiesterase → cAMP ตก → PKA ไม่ active → HSL ไม่ถูก phosphorylate → ไม่สลาย triglyceride; พร้อมกัน insulin เพิ่ม GLUT4 translocation + LPL activity → เก็บไขมันเข้าต่อ",
+      "description_en": "Insulin binds IR on adipocytes → activates PI3K/Akt → phosphorylates phosphodiesterase → cAMP falls → PKA inactive → HSL un-phosphorylated → triglyceride not hydrolyzed; simultaneously insulin increases GLUT4 translocation + LPL activity → more fat imported and stored.",
+      "chain": [
+        {"step": 1, "actor": "carb-rich meal", "action": "raises", "target": "blood glucose", "effect": "β-cells release insulin"},
+        {"step": 2, "actor": "insulin", "action": "binds", "target": "insulin receptor on adipocyte", "effect": "PI3K/Akt cascade"},
+        {"step": 3, "actor": "Akt", "action": "activates", "target": "PDE3B → degrades cAMP", "effect": "PKA inactivated"},
+        {"step": 4, "actor": "PKA (inactive)", "action": "fails to phosphorylate", "target": "HSL + perilipin", "effect": "lipolysis stopped"},
+        {"step": 5, "actor": "insulin", "action": "upregulates", "target": "LPL + GLUT4", "effect": "FFA + glucose imported → TG synthesized"}
+      ],
+      "analogies_th": [
+        "อินซูลินคือ 'ผู้คุม' ที่ล็อคประตูคลังไขมัน — ไม่มีใครออกได้",
+        "สวิตช์เดียว 2 ขั้ว: เปิดเก็บ/ปิดเผา — คุมด้วยอินซูลิน"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/", "org": "Endocrinol Metab / PMC", "source_tier": "A", "year": 2021, "title": "Halpern IF for obesity review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_008",
+      "label_th": "Leptin → POMC/AgRP → สัญญาณอิ่ม (และการ 'ดื้อ')",
+      "label_en": "Leptin → POMC/AgRP → satiety signaling (and resistance)",
+      "description_th": "เซลล์ไขมันหลั่งเลปตินตามสัดส่วนมวลไขมัน → เลปตินข้าม BBB เข้า hypothalamus → จับ LEPRb บน POMC neurons (anorexigenic) กระตุ้นให้ปล่อย α-MSH → MC4R ใน PVN → ลดความอยากอาหาร + เพิ่มการเผาผลาญ; ในภาวะอ้วน hypothalamic inflammation + SOCS3 สูง → signal ตัด → 'leptin resistance'",
+      "description_en": "Adipocytes secrete leptin proportional to fat mass → leptin crosses BBB to hypothalamus → binds LEPRb on POMC neurons (anorexigenic) releasing α-MSH → MC4R in PVN → reduces appetite + raises energy expenditure; in obesity hypothalamic inflammation + elevated SOCS3 terminates the signal → 'leptin resistance'.",
+      "chain": [
+        {"step": 1, "actor": "adipocyte", "action": "secretes", "target": "leptin (proportional to fat mass)", "effect": "circulating leptin reflects stores"},
+        {"step": 2, "actor": "leptin", "action": "binds", "target": "LEPRb on arcuate POMC neurons", "effect": "JAK2/STAT3 activation"},
+        {"step": 3, "actor": "POMC", "action": "cleaved to", "target": "α-MSH", "effect": "acts on MC4R in PVN"},
+        {"step": 4, "actor": "MC4R signaling", "action": "suppresses", "target": "appetite + stimulates energy expenditure", "effect": "energy balance homeostasis"},
+        {"step": 5, "actor": "obesity-associated inflammation", "action": "upregulates", "target": "SOCS3 / PTP1B", "effect": "LEPRb signaling blocked → leptin resistance"}
+      ],
+      "analogies_th": [
+        "เลปติน = สัญญาณ Wi-Fi 'อิ่มแล้ว' — คนอ้วนสมอง router พัง รับสัญญาณไม่ได้"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2793049/", "org": "PMC", "source_tier": "A", "year": 2009, "title": "Morris & Rui leptin signaling review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "leptin_resistance",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_009",
+      "label_th": "De novo lipogenesis — คาร์บเกินกลายเป็นไขมันในตับ",
+      "label_en": "De novo lipogenesis — excess carbs become liver fat",
+      "description_th": "กลูโคส/ฟรุกโตสเกิน → pyruvate → acetyl-CoA → malonyl-CoA (ACC enzyme) → palmitate (fatty acid synthase) → esterified เป็น triglyceride ที่ตับ; insulin + SREBP-1c + ChREBP กระตุ้น pathway นี้ — ฟรุกโตสเร่งที่สุดเพราะ bypass PFK regulation",
+      "description_en": "Excess glucose/fructose → pyruvate → acetyl-CoA → malonyl-CoA (via ACC) → palmitate (via FAS) → esterified as triglyceride in liver; insulin + SREBP-1c + ChREBP drive this pathway — fructose accelerates it most because it bypasses PFK regulation.",
+      "chain": [
+        {"step": 1, "actor": "dietary fructose/glucose excess", "action": "enters liver", "target": "hepatocytes", "effect": "elevated hepatic substrate"},
+        {"step": 2, "actor": "insulin (post-meal)", "action": "activates", "target": "SREBP-1c", "effect": "lipogenic gene program on"},
+        {"step": 3, "actor": "acetyl-CoA carboxylase", "action": "converts", "target": "acetyl-CoA → malonyl-CoA", "effect": "FA synthesis precursor"},
+        {"step": 4, "actor": "fatty acid synthase", "action": "builds", "target": "palmitate (C16)", "effect": "saturated FA synthesized"},
+        {"step": 5, "actor": "DGAT2", "action": "esterifies", "target": "FAs + glycerol → triglyceride", "effect": "stored as liver fat or packaged into VLDL"}
+      ],
+      "analogies_th": [
+        "เหมือนโรงกลั่นที่รับวัตถุดิบล้นเกิน แล้วก็เปลี่ยนเป็น 'สต็อคส่งออก' (VLDL) + 'สต็อคในคลัง' (liver fat)",
+        "ฟรุกโตสเป็นทางลัดตรงสู่โกดังไขมันในตับ"
+      ],
+      "sources": [
+        {"url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC8247294/", "org": "Diabet Med / PMC", "source_tier": "A", "year": 2021, "title": "Taylor T2D aetiology review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ectopic_fat",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_010",
+      "label_th": "นอนน้อย → cortisol สูง + leptin ต่ำ → อ้วน",
+      "label_en": "Sleep deprivation → high cortisol + low leptin → weight gain",
+      "description_th": "นอน <6 ชม → HPA axis กระตุ้น → cortisol สูง → hepatic gluconeogenesis ขึ้น + appetite ขึ้น; พร้อมกัน leptin ตกและ ghrelin พุ่ง → ความหิวและ reward ต่ออาหารไขมัน/น้ำตาลเพิ่ม; insulin sensitivity ตก 20-30%",
+      "description_en": "Sleeping <6 h → HPA axis activates → cortisol rises → hepatic gluconeogenesis + appetite up; leptin falls, ghrelin rises → hunger + reward toward fatty/sugary foods increases; insulin sensitivity drops ~20-30%.",
+      "chain": [
+        {"step": 1, "actor": "sleep <6h", "action": "activates", "target": "HPA axis", "effect": "ACTH → cortisol"},
+        {"step": 2, "actor": "cortisol", "action": "stimulates", "target": "hepatic gluconeogenesis", "effect": "higher circulating glucose"},
+        {"step": 3, "actor": "sleep debt", "action": "lowers", "target": "leptin", "effect": "satiety signal weakened"},
+        {"step": 4, "actor": "sleep debt", "action": "raises", "target": "ghrelin", "effect": "hunger increased"},
+        {"step": 5, "actor": "chronic state", "action": "reduces", "target": "muscle insulin sensitivity", "effect": "more insulin needed → more fat storage"}
+      ],
+      "analogies_th": ["ไม่นอน = ร่างกายเปิดโหมด 'ฉุกเฉิน' เก็บพลังงานสำรองไว้ใช้พรุ่งนี้"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15531540/", "org": "Ann Intern Med / PubMed", "source_tier": "A", "year": 2004, "title": "Spiegel 2004 sleep leptin ghrelin", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fat_011",
+      "label_th": "Thermic Effect of Food (TEF) — โปรตีนเผาแรงสุด",
+      "label_en": "Thermic Effect of Food — protein burns hardest",
+      "description_th": "โปรตีนต้องถูก deaminate, urea cycle ทำงาน, และ peptide bond ต้องถูกย่อย — ขั้นตอนเหล่านี้ใช้ ATP มาก → ~20-30% ของแคลถูกเผาในกระบวนการ; คาร์บใช้พลังย่อยน้อย (5-10%); ไขมันน้อยที่สุด (0-3%)",
+      "description_en": "Protein requires deamination, urea cycle, and peptide-bond hydrolysis — these steps are ATP-expensive → ~20-30% of protein kcal burned during digestion; carbs 5-10%; fats 0-3%.",
+      "chain": [
+        {"step": 1, "actor": "dietary protein", "action": "digested into", "target": "amino acids", "effect": "absorbed into portal vein"},
+        {"step": 2, "actor": "amino acids", "action": "deaminated in liver", "target": "keto-acid + NH3", "effect": "NH3 enters urea cycle"},
+        {"step": 3, "actor": "urea cycle", "action": "consumes", "target": "4 ATP per urea molecule", "effect": "substantial heat generated"},
+        {"step": 4, "actor": "net result", "action": "yields", "target": "~70-80% of protein's kcal as usable energy", "effect": "20-30% 'lost' as heat (TEF)"}
+      ],
+      "analogies_th": ["โปรตีนเหมือนอาหารที่ต้องใช้แรงขับมาย่อย — ร่างกายเผาไปครึ่งขณะต้มเอง"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15507147/", "org": "PubMed", "source_tier": "A", "year": 2004, "title": "Westerterp-Plantenga high protein appetite", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "white_adipose_tissue",
+      "confidence": "high"
+    }
+  ]
+}

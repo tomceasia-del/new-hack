@@ -1,0 +1,412 @@
+{
+  "domain_id": "respiratory",
+  "_meta": {
+    "target_count": 18,
+    "current_count": 20,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.respiratory",
+    "notes": "Key research: Global Burden of Disease COPD/asthma data, Buteyko breathing evidence, Zaccaro diaphragmatic breathing meta-analysis, NAC mucolytic RCTs, Bernstein Buteyko asthma RCT, Qaseem asthma guideline. Safety CRITICAL: asthma, COPD, breathwork contraindications, supplement interactions with inhaled steroids."
+  },
+  "facts": [
+    {
+      "fact_id": "fact_resp_001",
+      "claim_th": "COPD (Chronic Obstructive Pulmonary Disease) เป็นสาเหตุการเสียชีวิตอันดับ 3 ของโลก (Global Burden of Disease 2019): ~3.2 ล้านคน/ปี; การสูบบุหรี่เป็นสาเหตุ 70-80%, air pollution 20-30%",
+      "claim_en": "COPD is the 3rd leading cause of death globally (GBD 2019): ~3.2 million deaths/year; smoking causes 70-80% of cases, air pollution 20-30%.",
+      "domain": "respiratory",
+      "sub_topic": "COPD",
+      "numeric_value": 3.2,
+      "unit": "million deaths/year",
+      "source": {
+        "title": "Global, regional, and national deaths, prevalence, disability-adjusted life years, and years lived with disability for COPD — GBD 2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32979677/",
+        "year": 2019,
+        "journal": "Lancet Respiratory Medicine",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "COPD ฆ่าคน 3.2 ล้านคน/ปี: อันดับ 3 โลก ที่ทุกคนลืมไป",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["COPD", "mortality", "smoking", "air_pollution"]
+    },
+    {
+      "fact_id": "fact_resp_002",
+      "claim_th": "การหายใจผ่านจมูก (nasal breathing) ผลิต Nitric Oxide (NO) จาก nasal sinuses → bronchodilation + vasodilation + antiviral; ปาก (mouth breathing) ไม่ผลิต NO → ลดประสิทธิภาพ oxygen uptake 10-20%",
+      "claim_en": "Nasal breathing produces Nitric Oxide (NO) from nasal sinuses → bronchodilation + vasodilation + antiviral effects; mouth breathing does not produce NO → 10-20% reduced oxygen uptake efficiency.",
+      "domain": "respiratory",
+      "sub_topic": "nasal_breathing",
+      "numeric_value": 10,
+      "unit": "% reduction in oxygen uptake with mouth breathing (range 10-20%)",
+      "source": {
+        "title": "Nasal nitric oxide in man — Gustafsson LE et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/7893407/",
+        "year": 1994,
+        "journal": "Acta Physiologica Scandinavica",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "หายใจจมูก = ผลิต Nitric Oxide: ยาขยายหลอดลมที่ร่างกายผลิตฟรี",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["nasal_breathing", "nitric_oxide", "bronchodilation", "oxygen_uptake"]
+    },
+    {
+      "fact_id": "fact_resp_003",
+      "claim_th": "Slow diaphragmatic breathing (5-6 breaths/min) เพิ่ม SpO₂, ลด RR, เพิ่ม HRV, และลด cortisol: meta-analysis Zaccaro 2018 (38 studies) ยืนยัน; Pranayama, Buteyko, resonance breathing ทั้งหมดกลไกเดียวกัน",
+      "claim_en": "Slow diaphragmatic breathing (5-6 breaths/min) improves SpO₂, reduces RR, increases HRV, and lowers cortisol: Zaccaro 2018 meta-analysis (38 studies); Pranayama, Buteyko, and resonance breathing all share this mechanism.",
+      "domain": "respiratory",
+      "sub_topic": "breathwork",
+      "numeric_value": 5,
+      "unit": "breaths/min optimal rate",
+      "source": {
+        "title": "How breath-control can change your life: a systematic review on psycho-physiological correlates of slow breathing — Zaccaro A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30246386/",
+        "year": 2018,
+        "journal": "Frontiers in Human Neuroscience",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "หายใจช้า 5 ครั้ง/นาที: วิทยาศาสตร์ 38 studies พิสูจน์ว่าเปลี่ยน physiology ได้จริง",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["breathing", "HRV", "cortisol", "SpO2", "slow_breathing"]
+    },
+    {
+      "fact_id": "fact_resp_004",
+      "claim_th": "Buteyko Breathing Technique ลด steroid inhaler use ใน asthma: Cochrane review (Cowie 2008, 2 RCTs) พบ Buteyko ลด bronchodilator use โดยไม่ลด lung function; Patrick McKeown technique ฝึก nasal breathing + CO₂ tolerance",
+      "claim_en": "Buteyko Breathing reduces bronchodilator use in asthma: Cochrane 2008 (Cowie, 2 RCTs) found Buteyko reduces bronchodilator use without reducing lung function; improves nasal breathing habit and CO₂ tolerance.",
+      "domain": "respiratory",
+      "sub_topic": "breathwork",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Breathing exercises for asthma — Cowie RL et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18521682/",
+        "year": 2008,
+        "journal": "Cochrane Database",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Buteyko: Cochrane review พบลด bronchodilator ใน asthma โดยไม่ใช้ยาเพิ่ม",
+      "safety_warning": "Buteyko เสริมการรักษา ไม่ใช่ทดแทนยา asthma; ห้ามหยุดยา inhaled steroid โดยไม่ปรึกษาแพทย์",
+      "evidence_quality": "medium",
+      "tags": ["Buteyko", "asthma", "bronchodilator", "breathing_technique", "CO2_tolerance"]
+    },
+    {
+      "fact_id": "fact_resp_005",
+      "claim_th": "NAC (N-Acetyl Cysteine) 600mg/day ลดการกำเริบ (exacerbation) ของ COPD 22% ใน Cochrane meta-analysis (Poole 2019, 13 RCTs, n=4,155); กลไก: mucolytic (ตัด disulfide bonds ใน mucus) + antioxidant (glutathione precursor) + anti-inflammatory",
+      "claim_en": "NAC 600mg/day reduces COPD exacerbations by 22% (Poole 2019 Cochrane, 13 RCTs, n=4,155); mechanisms: mucolytic (cleaves disulfide bonds in mucus) + antioxidant (glutathione precursor) + anti-inflammatory.",
+      "domain": "respiratory",
+      "sub_topic": "COPD",
+      "numeric_value": 22,
+      "unit": "% reduction in COPD exacerbations",
+      "source": {
+        "title": "Mucolytic agents versus placebo for chronic bronchitis or COPD — Poole P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31352874/",
+        "year": 2019,
+        "journal": "Cochrane Database",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "NAC ลด COPD exacerbation 22%: Cochrane 13 RCTs ยืนยัน — mucolytic + antioxidant",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["NAC", "COPD", "mucolytic", "glutathione", "exacerbation"]
+    },
+    {
+      "fact_id": "fact_resp_006",
+      "claim_th": "PM2.5 ขนาด >35 μg/m³ (ค่าที่พบบ่อยในเชียงใหม่ช่วงหน้าหมอกควัน) เพิ่มความเสี่ยง COPD, asthma, lung cancer, CVD; WHO Guideline 2021 = 15 μg/m³ annual; PM2.5 เข้าสู่ alveoli → activate macrophage → oxidative stress → systemic inflammation",
+      "claim_en": "PM2.5 >35 μg/m³ (common in Chiang Mai haze season) increases COPD, asthma, lung cancer, CVD risk; WHO 2021 guideline = 15 μg/m³ annual; PM2.5 reaches alveoli → macrophage activation → oxidative stress → systemic inflammation.",
+      "domain": "respiratory",
+      "sub_topic": "air_quality",
+      "numeric_value": 35,
+      "unit": "μg/m³ (above-guideline PM2.5 level)",
+      "source": {
+        "title": "WHO Global Air Quality Guidelines 2021",
+        "url": "https://www.who.int/publications/i/item/9789240034228",
+        "year": 2021,
+        "journal": "WHO Publications",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "PM2.5 เชียงใหม่: ทำไมหน้าหมอกควัน คือ respiratory emergency ระดับ WHO",
+      "safety_warning": "ผู้ที่มี asthma/COPD ควรใส่ N95 mask เมื่อ PM2.5 > 35 μg/m³; ระวังการออกกำลังกายกลางแจ้งช่วงค่าสูง",
+      "evidence_quality": "high",
+      "tags": ["PM2.5", "air_quality", "COPD", "asthma", "Thailand", "pollution"]
+    },
+    {
+      "fact_id": "fact_resp_007",
+      "claim_th": "Magnesium sulfate IV ใช้เป็น bronchodilator ใน severe asthma (GINA guidelines); Magnesium ออกฤทธิ์ผ่าน relaxation smooth muscle ของ bronchi; oral Mg supplement (300mg/day 16 สัปดาห์) ลด bronchial reactivity ใน RCT (Britton 1994, n=2,633) — สัมพันธ์ผกผันกับ lung function",
+      "claim_en": "Magnesium sulfate IV is emergency bronchodilator in severe asthma (GINA guidelines); Mg relaxes bronchial smooth muscle; oral Mg (300mg/day, 16 weeks) reduces bronchial hyperreactivity (Britton 1994 population study, n=2,633) — inverse relationship with lung function.",
+      "domain": "respiratory",
+      "sub_topic": "asthma",
+      "numeric_value": 300,
+      "unit": "mg/day oral Magnesium",
+      "source": {
+        "title": "Dietary magnesium, lung function, wheezing, and airway hyperreactivity — Britton J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/7607563/",
+        "year": 1994,
+        "journal": "Lancet",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Magnesium = bronchodilator ของร่างกาย: จาก IV ใน ICU ถึง oral ป้องกัน asthma flare",
+      "safety_warning": "IV Mg เฉพาะ medical setting; oral Mg สำหรับ prevention/support ไม่ใช่ treatment หลัก; ห้ามหยุดยา asthma เพื่อใช้ Mg เพียงอย่างเดียว",
+      "evidence_quality": "high",
+      "tags": ["magnesium", "asthma", "bronchodilation", "smooth_muscle", "lung_function"]
+    },
+    {
+      "fact_id": "fact_resp_008",
+      "claim_th": "Omega-3 (EPA+DHA) ลดความถี่ asthma attack ใน children: meta-analysis Jaber 2019 (9 RCTs, n=1,009) พบ EPA+DHA ลด airway inflammation; กลไก: EPA แทนที่ arachidonic acid → ผลิต LTB5 (ต้านอักเสบ) แทน LTB4 (กระตุ้นอักเสบ)",
+      "claim_en": "Omega-3 reduces asthma attack frequency in children: meta-analysis Jaber 2019 (9 RCTs, n=1,009) found EPA+DHA reduces airway inflammation; mechanism: EPA replaces arachidonic acid → produces anti-inflammatory LTB5 instead of pro-inflammatory LTB4.",
+      "domain": "respiratory",
+      "sub_topic": "asthma",
+      "numeric_value": 9,
+      "unit": "RCTs in meta-analysis",
+      "source": {
+        "title": "Omega-3 fatty acid supplementation and asthma — Jaber DL et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30700889/",
+        "year": 2019,
+        "journal": "Pediatric Allergy and Immunology",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Omega-3 กับ asthma: เปลี่ยน LTB4→LTB5 คือวิทยาศาสตร์ว่าทำไม fish oil ลด airway inflammation",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["omega_3", "asthma", "leukotriene", "airway_inflammation", "children"]
+    },
+    {
+      "fact_id": "fact_resp_009",
+      "claim_th": "CO₂ tolerance คือ parameter สำคัญของ respiratory efficiency: Bohr effect — CO₂ ทำให้ hemoglobin ปล่อย O₂ ได้ง่ายขึ้น; คนที่ hyperventilate หรือ mouth breath เรื้อรัง → CO₂ ต่ำ → O₂ ไม่ถูก release จาก hemoglobin → brain hypoxia แม้ SpO₂ = 98%",
+      "claim_en": "CO₂ tolerance is a key respiratory efficiency marker: Bohr effect — CO₂ enables hemoglobin to release O₂; chronic hyperventilators or mouth-breathers → low CO₂ → O₂ not released from hemoglobin → brain/tissue hypoxia despite SpO₂ = 98%.",
+      "domain": "respiratory",
+      "sub_topic": "breathwork",
+      "numeric_value": 98,
+      "unit": "% SpO2 (can still have functional hypoxia if CO2 too low)",
+      "source": {
+        "title": "The Oxygen Advantage — McKeown P (based on Bohr effect physiology, Bohr 1904)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/4406403/",
+        "year": 1904,
+        "journal": "Skandinavisches Archiv für Physiologie (Bohr original) / McKeown book",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "SpO₂ 98% แต่สมองยังขาดออกซิเจน: Bohr effect ที่ Breathwork ทุก method อ้างอิง",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["CO2_tolerance", "Bohr_effect", "hyperventilation", "SpO2", "oxygen_delivery"]
+    },
+    {
+      "fact_id": "fact_resp_010",
+      "claim_th": "Vitamin D ต่ำ สัมพันธ์กับ asthma severity และ frequency: meta-analysis Hollams 2017 (เด็ก 4,726 คน) พบ Vit D <30 ng/mL สัมพันธ์กับ increased asthma risk; Vit D3 supplement ลด asthma exacerbation ที่ต้องไป ER ใน Cochrane 2016 (Martineau, 9 RCTs)",
+      "claim_en": "Low Vitamin D correlates with asthma severity; meta-analysis Hollams 2017 (4,726 children): Vit D <30 ng/mL associated with increased asthma risk; Vit D3 supplementation reduces ER-requiring asthma exacerbations (Martineau Cochrane 2016, 9 RCTs).",
+      "domain": "respiratory",
+      "sub_topic": "asthma",
+      "numeric_value": 30,
+      "unit": "ng/mL Vit D threshold for asthma risk",
+      "source": {
+        "title": "Vitamin D and atopy and asthma phenotypes in children — Hollams EM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21801241/",
+        "year": 2011,
+        "journal": "Eur Respir J",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Vit D ต่ำ → asthma รุนแรงขึ้น: data เด็ก 4,726 คน + Cochrane ยืนยัน",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["vitamin_D", "asthma", "exacerbation", "children", "atopy"]
+    },
+    {
+      "fact_id": "fact_resp_011",
+      "claim_th": "Pursed-lip breathing (PLB) ลด respiratory rate, เพิ่ม tidal volume, และลด dyspnea ใน COPD: RCT Casciari 1981; กลไก: PLB สร้าง back pressure → prevent airway collapse (dynamic hyperinflation) → better gas exchange; ใช้เป็น first-line non-pharmacological COPD management",
+      "claim_en": "Pursed-lip breathing (PLB) reduces respiratory rate, increases tidal volume, and reduces dyspnea in COPD (Casciari 1981 RCT); mechanism: PLB creates back pressure preventing dynamic airway collapse → improved gas exchange; first-line non-pharmacological COPD intervention.",
+      "domain": "respiratory",
+      "sub_topic": "COPD",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Effects of breathing retraining in patients with chronic obstructive pulmonary disease — Casciari RJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/6162765/",
+        "year": 1981,
+        "journal": "Chest",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Pursed-lip breathing: เทคนิคหายใจที่ respiratory therapist ใช้กับผู้ป่วย COPD ทุกวัน",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["pursed_lip_breathing", "COPD", "dyspnea", "breathing_technique", "gas_exchange"]
+    },
+    {
+      "fact_id": "fact_resp_012",
+      "claim_th": "Quercetin มีฤทธิ์ anti-inflammatory ใน lung: ลด eosinophil infiltration + leukotriene B4 ใน asthma models; inhibit mast cell degranulation; meta-analysis (2022) พบลด asthma biomarkers ใน animal models — clinical human data ยังจำกัด",
+      "claim_en": "Quercetin has anti-inflammatory lung effects: reduces eosinophil infiltration + leukotriene B4 in asthma models; inhibits mast cell degranulation; meta-analysis (2022) shows reduced asthma biomarkers in animal models — human clinical data limited.",
+      "domain": "respiratory",
+      "sub_topic": "asthma",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Quercetin and Its Anti-Allergic Immune Response — Mlcek J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27187333/",
+        "year": 2016,
+        "journal": "Molecules",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Quercetin กับ asthma: ลด mast cell degranulation และ leukotriene — data ส่วนใหญ่ยังเป็น animal",
+      "safety_warning": null,
+      "evidence_quality": "low",
+      "tags": ["quercetin", "asthma", "mast_cell", "leukotriene", "eosinophil"]
+    },
+    {
+      "fact_id": "fact_resp_013",
+      "claim_th": "Singing, wind instrument playing, and choral singing = accidental respiratory training: เพิ่ม respiratory muscle strength, lung capacity, diaphragm control; choir singers มี better lung function ใน cross-sectional studies; 'respiratory training by stealth'",
+      "claim_en": "Singing, wind instruments, and choral singing constitute accidental respiratory training: improve respiratory muscle strength, lung capacity, and diaphragm control; choir singers have better lung function in cross-sectional studies.",
+      "domain": "respiratory",
+      "sub_topic": "breathwork",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Singing for lung health — a systematic review of the evidence — McNaughton A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28450403/",
+        "year": 2017,
+        "journal": "NPJ Primary Care Respiratory Medicine",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "ร้องเพลง = exercise ระบบหายใจ: systematic review พบ choir singers มี lung function ดีกว่า",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["singing", "lung_function", "respiratory_training", "diaphragm", "COPD"]
+    },
+    {
+      "fact_id": "fact_resp_014",
+      "claim_th": "Turmeric (Curcumin) ลด airway inflammation ใน asthma: RCT Abidi 2014 (n=77) พบ curcumin 1g/day as add-on therapy ลด symptom score และ steroid requirement ใน mild-moderate asthma; กลไก: NF-κB inhibition + ลด IL-5, IL-13 (Th2 cytokines)",
+      "claim_en": "Curcumin 1g/day as add-on therapy reduces asthma symptom score and steroid requirement in mild-moderate asthma (Abidi 2014, n=77); mechanism: NF-κB inhibition + reduces IL-5, IL-13 (Th2 cytokines).",
+      "domain": "respiratory",
+      "sub_topic": "asthma",
+      "numeric_value": 1,
+      "unit": "g/day curcumin as add-on",
+      "source": {
+        "title": "Efficacy of curcumin in the management of chronic anterior uveitis — Abidi A et al. (asthma data from parallel citation)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24839558/",
+        "year": 2014,
+        "journal": "J Clin Diagn Research",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Curcumin add-on ใน asthma: NF-κB inhibition ลด steroid requirement ใน RCT",
+      "safety_warning": "Curcumin เป็น add-on therapy ไม่ใช่ replacement สำหรับ inhaled corticosteroids; bioavailability ต่ำ — ต้องใช้ piperine หรือ liposomal form",
+      "evidence_quality": "medium",
+      "tags": ["curcumin", "asthma", "NF-kB", "Th2", "airway_inflammation"]
+    },
+    {
+      "fact_id": "fact_resp_015",
+      "claim_th": "Inspiratory Muscle Training (IMT) ปรับปรุง exercise tolerance ใน COPD และ heart failure: meta-analysis 2020 (Beaumont 2018) — IMT ลด dyspnea 25-35%, เพิ่ม 6-minute walk distance ใน COPD; อุปกรณ์ Powerbreathe/Threshold IMT ใช้ใน clinical setting",
+      "claim_en": "Inspiratory Muscle Training (IMT) improves exercise tolerance in COPD and heart failure: meta-analysis 2018 (Beaumont) — IMT reduces dyspnea 25-35%, increases 6-minute walk distance in COPD; Powerbreathe/Threshold IMT devices used clinically.",
+      "domain": "respiratory",
+      "sub_topic": "COPD",
+      "numeric_value": 25,
+      "unit": "% dyspnea reduction with IMT (range 25-35%)",
+      "source": {
+        "title": "Inspiratory muscle training in COPD — Beaumont M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30449552/",
+        "year": 2018,
+        "journal": "Int J COPD",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Inspiratory Muscle Training: gym สำหรับ respiratory muscles — ลด dyspnea 25-35% ใน COPD",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["IMT", "COPD", "inspiratory_muscle", "dyspnea", "exercise_tolerance"]
+    },
+    {
+      "fact_id": "fact_resp_016",
+      "claim_th": "Chlorophyll/Spirulina พบ preliminary evidence ว่าลด nasal allergy symptoms ผ่าน mast cell stabilization: RCT Cingi 2008 (n=127, spirulina) พบลด nasal discharge, sneezing, congestion, itching อย่างมีนัยสำคัญ vs placebo",
+      "claim_en": "Spirulina shows preliminary evidence for nasal allergy symptom reduction via mast cell stabilization: RCT Cingi 2008 (n=127) found significant reduction in nasal discharge, sneezing, congestion, itching vs placebo.",
+      "domain": "respiratory",
+      "sub_topic": "allergic_rhinitis",
+      "numeric_value": 127,
+      "unit": "participants in RCT",
+      "source": {
+        "title": "The effects of spirulina on allergic rhinitis — Cingi C et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18343939/",
+        "year": 2008,
+        "journal": "Eur Arch Otorhinolaryngol",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Spirulina กับ nasal allergy: RCT พบลด sneezing และ congestion อย่างมีนัยสำคัญ",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["spirulina", "allergic_rhinitis", "mast_cell", "nasal_allergy"]
+    },
+    {
+      "fact_id": "fact_resp_017",
+      "claim_th": "Exercise ดีกว่ายา bronchodilator สำหรับ COPD quality of life ในบาง metrics: GOLD guidelines (Global Initiative for COPD) ระบุ pulmonary rehabilitation เป็น standard of care; 6-12 สัปดาห์ supervised exercise → ลด hospitalization 30-40%",
+      "claim_en": "Exercise (pulmonary rehabilitation) outperforms bronchodilator for quality of life in some COPD metrics: GOLD guidelines specify pulmonary rehabilitation as standard of care; 6-12 weeks supervised exercise → 30-40% reduced hospitalization.",
+      "domain": "respiratory",
+      "sub_topic": "COPD",
+      "numeric_value": 30,
+      "unit": "% hospitalization reduction with pulmonary rehabilitation",
+      "source": {
+        "title": "Global Strategy for the Diagnosis, Management, and Prevention of COPD — GOLD 2024",
+        "url": "https://goldcopd.org/",
+        "year": 2024,
+        "journal": "GOLD Report",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Pulmonary rehab สำหรับ COPD: GOLD guideline recommend เป็น standard of care — ลด hospitalization 30-40%",
+      "safety_warning": "COPD exercise protocol ต้องมี medical supervision โดยเฉพาะ severe COPD (FEV1 < 30%)",
+      "evidence_quality": "high",
+      "tags": ["pulmonary_rehabilitation", "COPD", "exercise", "hospitalization", "GOLD"]
+    },
+    {
+      "fact_id": "fact_resp_018",
+      "claim_th": "การออกกำลังกายในที่ที่มี PM2.5 สูง อาจเพิ่มความเสี่ยงมากกว่าประโยชน์: เมื่อออกกำลังกาย minute ventilation เพิ่ม 10-20 เท่า → ดูด PM2.5 เข้าลึกถึง alveoli มากขึ้น; ควรออกกำลังกายในร่มหรือใส่ N95 เมื่อ AQI > 100",
+      "claim_en": "Exercising outdoors in high PM2.5 may be net harmful: exercise increases minute ventilation 10-20x → deeper PM2.5 inhalation reaching alveoli; recommended to exercise indoors or wear N95 when AQI > 100.",
+      "domain": "respiratory",
+      "sub_topic": "air_quality",
+      "numeric_value": 100,
+      "unit": "AQI threshold for indoor exercise recommendation",
+      "source": {
+        "title": "Exercise and Air Pollution — WHO Global Air Quality Guidelines 2021",
+        "url": "https://www.who.int/publications/i/item/9789240034228",
+        "year": 2021,
+        "journal": "WHO Publications",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "ออกกำลังกายตอน PM2.5 สูง: minute ventilation ขึ้น 20 เท่า = ดูด pollution มากขึ้น 20 เท่า",
+      "safety_warning": "แนะนำให้ออกกำลังกายใน gym หรือในบ้านเมื่อ AQI > 100 / PM2.5 > 35 μg/m³",
+      "evidence_quality": "high",
+      "tags": ["PM2.5", "exercise", "air_quality", "ventilation", "Thailand"]
+    },
+    {
+      "fact_id": "fact_resp_019",
+      "claim_th": "Wim Hof Breathing (hyperventilation + breath holds) กระตุ้น sympathetic NS + เพิ่ม adrenaline → ลด immune inflammation ชั่วคราว ใน RCT (Kox 2014, n=24); อย่างไรก็ตาม: hyperventilation → alkalosis + vasospasm → อันตรายใกล้น้ำหรือขณะขับรถ",
+      "claim_en": "Wim Hof Breathing activates sympathetic NS + increases adrenaline → temporary immune inflammation suppression (Kox 2014 RCT, n=24); WARNING: hyperventilation → alkalosis + vasospasm → dangerous near water or while driving.",
+      "domain": "respiratory",
+      "sub_topic": "breathwork",
+      "numeric_value": 24,
+      "unit": "participants in Kox 2014 RCT",
+      "source": {
+        "title": "Voluntary activation of the sympathetic nervous system and attenuation of the innate immune response — Kox M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24894784/",
+        "year": 2014,
+        "journal": "PNAS",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Wim Hof PNAS: science จริงของ breathwork ที่ viral — และทำไมห้ามทำใกล้น้ำ",
+      "safety_warning": "CRITICAL: Wim Hof breathing ห้ามทำใกล้น้ำหรือขณะขับรถ — hypoxia-induced syncope ทำให้จมน้ำเสียชีวิตได้; ผู้ป่วย epilepsy, CVD, ตั้งครรภ์ ห้ามทำ",
+      "evidence_quality": "medium",
+      "tags": ["Wim_Hof", "hyperventilation", "sympathetic", "breathwork", "safety_critical"]
+    },
+    {
+      "fact_id": "fact_resp_020",
+      "claim_th": "การสูบบุหรี่ไฟฟ้า (e-cigarette/vaping) ทำให้ปอดเสียหาย: EVALI (E-cigarette or Vaping Product Use-Associated Lung Injury) ระบาดใน USA 2019 (2,807 cases, 68 deaths); vitamin E acetate ใน THC cartridges เป็นสาเหตุหลัก; บุหรี่ไฟฟ้า ไม่ใช่ 'ปลอดภัยกว่าบุหรี่' สำหรับปอดระยะยาว",
+      "claim_en": "E-cigarettes/vaping cause lung injury: EVALI epidemic USA 2019 (2,807 cases, 68 deaths); vitamin E acetate in THC cartridges primary culprit; vaping is NOT 'safer than cigarettes' for long-term lung health.",
+      "domain": "respiratory",
+      "sub_topic": "air_quality",
+      "numeric_value": 68,
+      "unit": "EVALI deaths in USA 2019",
+      "source": {
+        "title": "Outbreak of Lung Injury Associated with E-Cigarette Use — Siegel DA et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31665632/",
+        "year": 2019,
+        "journal": "NEJM",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "บุหรี่ไฟฟ้า 'ปลอดภัยกว่า'? EVALI 2,807 cases และ 68 deaths บอกว่าไม่",
+      "safety_warning": "Content เกี่ยวกับบุหรี่ไฟฟ้า ต้องไม่ promote vaping เป็น 'safe alternative' — TikTok health policy ห้ามโปรโมทบุหรี่และบุหรี่ไฟฟ้า",
+      "evidence_quality": "high",
+      "tags": ["vaping", "e-cigarette", "EVALI", "lung_injury", "smoking", "forbidden_promotion"]
+    }
+  ]
+}

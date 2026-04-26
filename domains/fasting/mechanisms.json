@@ -1,0 +1,144 @@
+{
+  "domain_id": "fasting",
+  "_meta": {"current_count": 8, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.fasting"},
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_fast_001",
+      "label_th": "Autophagy — เซลล์กินตัวเอง เมื่อขาดสารอาหาร",
+      "label_en": "Nutrient Deprivation Activates Autophagy via mTOR Inhibition",
+      "description_th": "เมื่อ amino acids + glucose ลดลง (fasting) → mTORC1 ถูก inhibit (สวิตช์สำคัญที่ Ohsumi ค้นพบ) → ULK1 complex activate → phagophore ขยายตัว → autophagosome (double membrane) ห่อหุ้ม cytoplasmic cargo → fuse กับ lysosome → autolysosome → cargo ถูกย่อยด้วย hydrolases → recycle amino acids, fatty acids, ATP; กระบวนการเสร็จสมบูรณ์ใน ~24h",
+      "description_en": "Nutrient deprivation inhibits mTORC1 (key switch, Ohsumi Nobel) → activates ULK1 complex → phagophore expands → autophagosome (double membrane) engulfs cytoplasmic cargo → fuses with lysosome → cargo degraded by hydrolases → amino acids, fatty acids, ATP recycled; completed within ~24h.",
+      "chain": [
+        {"step": 1, "actor": "Fasting (low amino acids, low glucose)", "action": "inhibits", "target": "mTORC1 kinase", "effect": "mTORC1 stops phosphorylating ULK1 → ULK1 active"},
+        {"step": 2, "actor": "ULK1 complex (Atg13, FIP200)", "action": "initiates", "target": "phagophore formation at ER/mitochondria", "effect": "double-membrane cup begins forming"},
+        {"step": 3, "actor": "LC3-II (lipidated form)", "action": "decorates and expands", "target": "autophagosome membrane", "effect": "damaged proteins, organelles, pathogens engulfed"},
+        {"step": 4, "actor": "Autophagosome", "action": "fuses with", "target": "lysosome", "effect": "autolysosome formed"},
+        {"step": 5, "actor": "Lysosomal hydrolases (cathepsins)", "action": "degrade", "target": "cargo contents", "effect": "amino acids, lipids recycled → protein/energy pools replenished"}
+      ],
+      "analogies_th": ["autophagy = 'โรงงาน recycle' ระดับเซลล์ที่เปิดเมื่อหิว — ย่อยของเก่าได้วัตถุดิบใหม่", "mTOR = ประตูโรงงาน: เปิด (กินอาหาร) = หยุด autophagy; ปิด (อด) = autophagy เดินหน้า"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/19801976/", "org": "Nature / PubMed", "source_tier": "A", "year": 2010, "title": "Autophagy in the pathogenesis of disease — Levine B, Kroemer G", "access_date": "2026-04-22"}],
+      "sub_topic_id": "autophagy",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fast_002",
+      "label_th": "Metabolic Switch — Glucose → Ketone Bodies",
+      "label_en": "Fasting-Induced Metabolic Shift from Glucose to Ketone Body Utilization",
+      "description_th": "หลังกินอาหาร glycogen หมด (~12-18h): ตับขาด glucose substrate → fatty acid oxidation ใน hepatic mitochondria → acetyl-CoA ล้น → ketogenesis (acetoacetate → BHB); insulin ต่ำ → adipose lipolysis ปล่อย FFA → ตับรับ FFA → BHB เพิ่มใน blood → BBB ข้ามไปเป็น neuronal fuel; muscle ลด glucose uptake → spare glucose สำหรับ brain + RBCs",
+      "description_en": "After glycogen depletion (~12-18h fasting): low insulin → adipose lipolysis releases FFA → liver β-oxidation → excess acetyl-CoA → ketogenesis (acetoacetate → BHB); BHB rises in blood → crosses BBB → primary neuronal fuel; muscle reduces glucose uptake → spares remaining glucose for brain/RBCs.",
+      "chain": [
+        {"step": 1, "actor": "Fasting > 12-18h (glycogen gone, insulin low)", "action": "triggers", "target": "adipose hormone-sensitive lipase (HSL)", "effect": "FFA and glycerol released into blood"},
+        {"step": 2, "actor": "FFA in liver mitochondria", "action": "undergo β-oxidation → acetyl-CoA", "target": "mitochondrial matrix", "effect": "excess acetyl-CoA cannot enter TCA (OAA low)"},
+        {"step": 3, "actor": "Excess acetyl-CoA", "action": "enters ketogenesis pathway", "target": "HMG-CoA lyase", "effect": "acetoacetate and BHB produced"},
+        {"step": 4, "actor": "BHB in blood (0.5-5 mM)", "action": "crosses BBB via MCT1", "target": "neurons and astrocytes", "effect": "enters TCA → ATP production (23% more efficient per O₂)"},
+        {"step": 5, "actor": "Gluconeogenesis (liver)", "action": "produces glucose from", "target": "glycerol, lactate, alanine", "effect": "maintains euglycemia for RBCs/brain areas requiring glucose"}
+      ],
+      "analogies_th": ["metabolic switch เหมือนรถ hybrid เปลี่ยนจาก gasoline → electric เมื่อน้ำมันหมด", "ketone body = เชื้อเพลิงสำรองพรีเมี่ยมที่ออกมาเมื่อร่างกายต้องพึ่งตนเอง"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/31881139/", "org": "NEJM / PubMed", "source_tier": "A", "year": 2019, "title": "Effects of Intermittent Fasting on Health, Aging, and Disease — Mattson MP et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "ketogenesis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fast_003",
+      "label_th": "TRE (Time-Restricted Eating) และ Circadian Alignment",
+      "label_en": "TRE Synchronizes Eating Patterns with Circadian Metabolic Rhythms",
+      "description_th": "ทุก peripheral organ (ตับ, ตับอ่อน, กล้ามเนื้อ, ไขมัน) มี circadian clock gene (BMAL1, CLOCK, Per1/2, Cry1/2) ที่ควบคุม metabolic processes; กินนอก window ที่ metabolic capacity สูง (กลางคืน) → circadian misalignment → insulin resistance เพิ่ม; TRE ภายใน active phase (เช้า-บ่าย) sync feeding กับ circadian peaks ของ insulin sensitivity, digestive enzyme activity, bile acid release",
+      "description_en": "All peripheral organs have circadian clocks (BMAL1/CLOCK/Per/Cry genes) controlling metabolic processes; eating outside optimal metabolic window (nighttime) → circadian misalignment → insulin resistance; TRE aligned with active/daytime phase synchronizes feeding with circadian peaks of insulin sensitivity, digestive capacity, bile acid release.",
+      "chain": [
+        {"step": 1, "actor": "Peripheral circadian clocks (liver, pancreas, muscle, fat)", "action": "regulate", "target": "metabolic gene expression (gluconeogenesis, lipogenesis, insulin sensitivity) in 24h oscillation", "effect": "insulin sensitivity highest 9AM-2PM, lowest at night"},
+        {"step": 2, "actor": "Late eating (after 8PM)", "action": "misaligns food intake with", "target": "low-insulin-sensitivity nighttime window", "effect": "postprandial glucose and insulin elevated → more fat storage"},
+        {"step": 3, "actor": "TRE (6-10h eating window in morning/midday)", "action": "aligns food intake with", "target": "peak insulin sensitivity window", "effect": "lower fasting insulin, improved glucose disposal"},
+        {"step": 4, "actor": "Fasting window at night (16h)", "action": "allows", "target": "circadian-timed liver autophagy, lipid oxidation, glymphatic clearance", "effect": "metabolic repair, fat burning during sleep"}
+      ],
+      "analogies_th": ["กินตอนเช้า = ร่างกายเปิดโรงงาน; กินตอนดึก = โรงงานปิดแล้วแต่ยัง 'push' วัตถุดิบเข้า", "TRE = กินแต่ช่วงที่เครื่องพร้อม"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/29754952/", "org": "Cell Metabolism / PubMed", "source_tier": "A", "year": 2018, "title": "Early Time-Restricted Feeding Improves Insulin Sensitivity — Sutton EF et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "TRE",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fast_004",
+      "label_th": "Caloric Restriction และ Metabolic Rate Adaptation",
+      "label_en": "Caloric Restriction and Metabolic Hormones in Weight Loss",
+      "description_th": "Caloric restriction (20-40%) → energy deficit → initial: glycogen/fat mobilization + protein sparing (ถ้า protein intake พอ); chronic: adaptive thermogenesis (leptin ลด, T3 ลด, NEAT ลด) → metabolic rate ลด 15-25%; IF vs continuous CR: IF ช่วยรักษา metabolic rate ดีกว่า (GH pulsatility สูงขึ้น → protein sparing ดีกว่า); ทั้งคู่ลด insulin และ IGF-1",
+      "description_en": "Caloric restriction → energy deficit → glycogen/fat mobilization + protein sparing if protein intake adequate; chronic CR: adaptive thermogenesis (leptin, T3, NEAT fall) → 15-25% metabolic rate reduction; IF may preserve metabolic rate better than continuous CR (via GH pulsatility) while both reduce insulin and IGF-1.",
+      "chain": [
+        {"step": 1, "actor": "Energy deficit (CR or IF)", "action": "decreases", "target": "insulin, glucose, IGF-1", "effect": "fat mobilization, autophagy initiation"},
+        {"step": 2, "actor": "Sustained caloric deficit", "action": "reduces", "target": "leptin, T3, NEAT", "effect": "adaptive thermogenesis — metabolic rate falls 15-25% (plateau effect)"},
+        {"step": 3, "actor": "GH pulses (higher in IF vs continuous CR)", "action": "maintain", "target": "lean mass via IGF-1 in muscle", "effect": "protein sparing — less muscle breakdown vs continuous CR"},
+        {"step": 4, "actor": "Ketone bodies (in IF/keto)", "action": "reduce", "target": "hunger hormones (ghrelin lower)", "effect": "appetite suppression facilitates adherence"}
+      ],
+      "analogies_th": ["แคลอรี่ขาด = บัญชีธนาคาร ร่างกายดึงของสะสมมาใช้ก่อน", "adaptive thermogenesis = ร่างกายลด 'ค่าใช้จ่าย' เพื่อรอด — plateau ที่ทุกคนเจอ"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/26186798/", "org": "JAMA Intern Med / PubMed", "source_tier": "A", "year": 2015, "title": "2-Year Randomized Controlled Pilot Study of Caloric Restriction — Ravussin E et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "metabolic_switch",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fast_005",
+      "label_th": "Fasting → GH Pulse → IGF-1 Reduction → Protein Sparing",
+      "label_en": "Fasting Elevates Pulsatile GH Release via IGF-1 Negative Feedback Relief",
+      "description_th": "กินอาหาร → glucose + amino acids → IGF-1 สูง → negative feedback ยับยั้ง pituitary GH pulse; fasting → glucose + amino acids ลด → IGF-1 ลด → pituitary somatotrophs หลุดจาก inhibition → GH pulse ถี่ขึ้นและสูงขึ้น; GH ป้องกัน muscle proteolysis โดยกระตุ้น lipolysis ใน fat แทน → protein sparing",
+      "description_en": "Fed state: glucose + amino acids → IGF-1 rises → negative feedback suppresses pituitary GH; fasting → IGF-1 falls → pituitary somatotrophs released from inhibition → GH pulses increase in frequency and amplitude; GH stimulates adipose lipolysis → spares muscle protein → protein-sparing ketosis after day 3.",
+      "chain": [
+        {"step": 1, "actor": "Fed state (amino acids, glucose)", "action": "elevates", "target": "hepatic IGF-1 production", "effect": "IGF-1 inhibits pituitary GH via long-loop feedback"},
+        {"step": 2, "actor": "Fasting (>18h)", "action": "lowers", "target": "IGF-1 and insulin", "effect": "negative feedback on pituitary reduced"},
+        {"step": 3, "actor": "Pituitary somatotrophs (disinhibited)", "action": "fire more frequently", "target": "releasing GH pulses", "effect": "GH 2-5x normal pulse amplitude"},
+        {"step": 4, "actor": "GH in blood", "action": "activates", "target": "HSL in adipose tissue", "effect": "lipolysis preferentially — fat burned, muscle spared"},
+        {"step": 5, "actor": "Protein sparing effect", "action": "emerges by day 3-5 of extended fast", "target": "muscle proteolysis rate", "effect": "gluconeogenesis from glycerol (not protein) — LBM protected"}
+      ],
+      "analogies_th": ["fasting = ปลดล็อกโรงงาน GH ที่อาหารปิดไว้", "GH spike ระหว่างอด = สั่งให้เผาไขมันแทนกล้ามเนื้อ"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/2745740/", "org": "JCEM / PubMed", "source_tier": "A", "year": 1988, "title": "Fasting enhances growth hormone secretion — Ho KY et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "growth_hormone_fasting",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fast_006",
+      "label_th": "Extended Fasting → Stem Cell Regeneration (Longo Protocol)",
+      "label_en": "Prolonged Fasting (>48h) Activates Stem Cell-Based Tissue Regeneration",
+      "description_th": "Prolonged fast >48-72h: IGF-1 ลด, PKA ลด → Notch pathway + Fox03A transcription factor → activate hematopoietic stem cells (HSC) ใน bone marrow; Longo et al. (Cell Stem Cell 2014): mice 2-4 day fast → 40% เพิ่ม ขาว blood cell regeneration หลัง chemotherapy; ใน humans: FMD 5 วัน/เดือน แสดงการลด stem cell aging markers",
+      "description_en": "Prolonged fasting >48-72h: IGF-1 + PKA fall → Fox03A and Notch activate hematopoietic stem cells; Longo et al. (Cell Stem Cell 2014): mice 2-4 day fast → 40% increase in white blood cell regeneration post-chemotherapy; human FMD trials show reduction in stem cell aging markers.",
+      "chain": [
+        {"step": 1, "actor": "Prolonged fast (>48h)", "action": "reduces IGF-1 + PKA to nadir", "target": "hematopoietic stem cell (HSC) microenvironment", "effect": "pro-regenerative signaling permissive"},
+        {"step": 2, "actor": "Fox03A transcription factor (activated when IGF-1/PKA low)", "action": "activates", "target": "HSC self-renewal genes", "effect": "stem cell pool activated"},
+        {"step": 3, "actor": "Refeeding after fast", "action": "triggers", "target": "HSC proliferation signal (IGF-1 + nutrients return)", "effect": "new progenitor cells differentiate — immune, epithelial renewal"}
+      ],
+      "analogies_th": ["อดแล้วกลับมากิน = กดปุ่ม restart immune system ใหม่", "fasting + refeeding cycle = ล้างระบบเก่าออก ติดตั้งระบบใหม่"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/24905167/", "org": "Cell Stem Cell / PubMed", "source_tier": "A", "year": 2014, "title": "Prolonged Fasting Reduces IGF-1/PKA to Promote Hematopoietic-Stem-Cell-Based Regeneration — Cheng CW, Adams GB, Perin L, Wei M, Zhou X, Lam BS, Da Sacco S, Mirisola M, Quinn DI, Dorff TB, Kopchick JJ, Longo VD", "access_date": "2026-04-22"}],
+      "sub_topic_id": "prolonged_fast",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_fast_007",
+      "label_th": "AMPK Activation — Energy Sensor ที่ Fasting เปิด",
+      "label_en": "AMPK as Central Energy Sensor Activated During Fasting",
+      "description_th": "AMPK (AMP-activated protein kinase) เป็น cellular energy sensor; เมื่อ AMP/ATP ratio สูง (ขาด energy = fasting/exercise) → AMPK activates → ปิด anabolic pathways (fatty acid synthesis, protein synthesis ผ่าน mTOR inhibition) → เปิด catabolic pathways (fatty acid oxidation, glycolysis, autophagy); AMPK ยัง activate SIRT1 → deacetylate PGC-1α → mitochondrial biogenesis",
+      "description_en": "AMPK activates when AMP/ATP ratio rises (fasting/exercise) → inhibits anabolic pathways (fatty acid synthesis, protein synthesis via mTOR inhibition) → activates catabolic pathways (FA oxidation, glycolysis, autophagy); AMPK activates SIRT1 → PGC-1α deacetylation → mitochondrial biogenesis.",
+      "chain": [
+        {"step": 1, "actor": "Fasting → ATP depletion", "action": "raises AMP:ATP ratio", "target": "LKB1/CAMKK2 → AMPK kinase", "effect": "AMPK phosphorylated → activated"},
+        {"step": 2, "actor": "AMPK", "action": "inhibits", "target": "mTORC1 and FASN (fatty acid synthase)", "effect": "fat synthesis off, protein synthesis off, autophagy on"},
+        {"step": 3, "actor": "AMPK", "action": "activates", "target": "CPT-1 (fatty acid transporter into mitochondria)", "effect": "β-oxidation increased"},
+        {"step": 4, "actor": "AMPK → SIRT1", "action": "deacetylates", "target": "PGC-1α", "effect": "mitochondrial biogenesis gene expression"}
+      ],
+      "analogies_th": ["AMPK = ระบบฉุกเฉินของเซลล์ที่เปิดเมื่อถังน้ำมันใกล้หมด", "AMPK off mTOR = หยุดสร้างบ้านใหม่ เอาทรัพยากรไปซ่อมแซมก่อน"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/21167242/", "org": "Nature / PubMed", "source_tier": "A", "year": 2011, "title": "AMP-activated protein kinase: the energy charge hypothesis revisited — Hardie DG", "access_date": "2026-04-22"}],
+      "sub_topic_id": "metabolic_switch",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_fast_008",
+      "label_th": "Electrolyte Loss ระหว่าง Fasting / Keto",
+      "label_en": "Natriuresis and Electrolyte Loss During Fasting and Ketogenic State",
+      "description_th": "Insulin ลดลงระหว่าง fasting → ไต reabsorb sodium น้อยลง (insulin กระตุ้น Na⁺/K⁺-ATPase ใน distal tubule); sodium ออก → osmotic diuresis → ไตขับ water, potassium, magnesium ตาม; ใน keto: ketone bodies เป็น anion → ถูก excrete ทาง urine ร่วมกับ Na⁺, K⁺; hyponatremia, hypokalemia, hypomagnesemia → 'keto flu' / muscle cramps / cardiac arrhythmia risk",
+      "description_en": "Low insulin during fasting → reduced renal Na⁺ reabsorption → natriuresis; osmotic diuresis follows → water, K⁺, Mg²⁺ excreted; ketone bodies as anions → urinary excretion with Na⁺/K⁺; resulting hyponatremia, hypokalemia, hypomagnesemia → 'keto flu', cramps, cardiac arrhythmia risk in prolonged fasting.",
+      "chain": [
+        {"step": 1, "actor": "Low insulin (fasting)", "action": "reduces", "target": "Na⁺/K⁺-ATPase in renal distal tubule", "effect": "less sodium reabsorbed → natriuresis"},
+        {"step": 2, "actor": "Sodium excretion", "action": "creates", "target": "osmotic gradient", "effect": "water + potassium follow → mild dehydration"},
+        {"step": 3, "actor": "Ketone anions (BHB⁻, AcAc⁻)", "action": "excreted via kidney with", "target": "Na⁺, K⁺ counterions", "effect": "potassium and magnesium depletion worsens"},
+        {"step": 4, "actor": "Hypomagnesemia + hypokalemia", "action": "cause", "target": "muscle excitability increase", "effect": "cramps, headache, fatigue ('keto flu'); cardiac arrhythmia in severe cases"}
+      ],
+      "analogies_th": ["fasting = รั่วน้ำ + electrolyte ออกพร้อมกัน; electrolyte supplement = ปิดรอยรั่ว", "keto flu ไม่ใช่ detox — เป็น sodium/potassium/magnesium ขาด"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/1548337/", "org": "Am J Physiol / PubMed", "source_tier": "A", "year": 1992, "title": "Mechanisms of renal sodium excretion during fasting — Kwakernaak AJ et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "prolonged_fast",
+      "confidence": "high"
+    }
+  ]
+}

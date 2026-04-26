@@ -1,0 +1,23 @@
+{
+  "domain_id": "respiratory",
+  "primary_th": [
+    "ปอด",
+    "หายใจ",
+    "หอบ",
+    "หืด",
+    "ภูมิแพ้"
+  ],
+  "primary_en": [
+    "lung",
+    "respiratory",
+    "asthma",
+    "allergy",
+    "breathing",
+    "COPD"
+  ],
+  "aliases_th": [],
+  "aliases_en": [],
+  "jargon_th": [],
+  "jargon_en": [],
+  "regex_patterns": []
+}

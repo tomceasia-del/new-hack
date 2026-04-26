@@ -1,0 +1,276 @@
+{
+  "domain_id": "bones",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 11,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.bones"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_bone_001",
+      "label_th": "วัฏจักรรื้อ-สร้างกระดูก (bone remodeling cycle)",
+      "label_en": "Bone remodeling cycle (BMU)",
+      "description_th": "กระดูกทั้งตัวถูกรื้อและสร้างใหม่ ~10% ต่อปี ผ่านหน่วย BMU — osteoclast ย่อยกระดูกเก่าออกเป็นหลุม (~3 สัปดาห์) → reversal cell mop-up → osteoblast มาวาง osteoid ใหม่ + แร่ธาตุ (~3 เดือน) → osteocyte ฝังตัวเป็น mechanosensor; ถ้าฝั่งรื้อทำงานเร็วกว่าฝั่งสร้าง (เช่น menopause) กระดูกบางลงทุกรอบ",
+      "description_en": "The whole skeleton turns over ~10%/year via Basic Multicellular Units — osteoclasts resorb old bone into Howship's lacunae (~3 weeks) → reversal cells clean the surface → osteoblasts lay new osteoid then mineralize it (~3 months) → osteocytes become embedded mechanosensors; when resorption outpaces formation (e.g. menopause) each cycle leaves less bone.",
+      "chain": [
+        {"step": 1, "actor": "microdamage / hormonal signal", "action": "activates", "target": "lining cells → recruit osteoclast precursors", "effect": "BMU initiation"},
+        {"step": 2, "actor": "RANKL (from osteoblast lineage)", "action": "binds", "target": "RANK on osteoclast precursors", "effect": "multinucleated osteoclasts form"},
+        {"step": 3, "actor": "osteoclast", "action": "acidifies + enzymatically digests", "target": "bone matrix (HCl, cathepsin K)", "effect": "resorption pit created over ~3 weeks"},
+        {"step": 4, "actor": "reversal cells", "action": "clean", "target": "lacuna surface", "effect": "substrate ready for formation"},
+        {"step": 5, "actor": "osteoblasts", "action": "secrete", "target": "osteoid (type I collagen + NCPs)", "effect": "unmineralized scaffold laid"},
+        {"step": 6, "actor": "hydroxyapatite crystals", "action": "deposit", "target": "osteoid over ~3 months", "effect": "new mineralized bone; some osteoblasts become osteocytes"}
+      ],
+      "analogies_th": [
+        "กระดูกเหมือนตึกที่รื้อสร้างใหม่ตลอดเวลา — ทีมรื้อ (osteoclast) กับทีมสร้าง (osteoblast) ต้องสมดุลกัน ไม่งั้นตึกบางลง",
+        "เหมือนถนนที่ซ่อมทุกปี — ถ้าหน่วยซ่อมมาช้ากว่าหน่วยขุด ถนนก็เต็มหลุม"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK459168/", "org": "NCBI Bookshelf / StatPearls", "source_tier": "A", "year": 2024, "title": "Physiology, Bone Remodeling", "access_date": "2026-04-22"},
+        {"url": "https://www.niams.nih.gov/health-topics/osteoporosis", "org": "NIAMS / NIH", "source_tier": "A", "year": 2023, "title": "Osteoporosis Overview", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "bone_remodeling",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_002",
+      "label_th": "RANKL/OPG axis — ทำไมหมดประจำเดือนกระดูกพรุน",
+      "label_en": "RANKL/OPG axis — why menopause drives bone loss",
+      "description_th": "Osteoblast/stromal cells หลั่ง RANKL ที่จับกับ RANK บน osteoclast precursor → osteoclast formation/survival เพิ่ม; OPG (เดียวกัน osteoblast หลั่ง) เป็น decoy receptor ที่ดักจับ RANKL ก่อนถึง RANK → ยับยั้ง bone resorption. เอสโตรเจนกระตุ้นการผลิต OPG และเหนี่ยวนำ apoptosis ของ osteoclast — หมดประจำเดือน → เอสโตรเจนดิ่ง → OPG ลด, RANKL สัมพัทธ์สูงขึ้น → ผู้หญิงสูญเสียกระดูก 2-3% ต่อปีในช่วง 5-10 ปีแรกหลังวัยทอง",
+      "description_en": "Osteoblast/stromal lineage cells secrete RANKL, which binds RANK on osteoclast precursors → osteoclast formation and survival; OPG (also osteoblast-secreted) is a decoy receptor that captures RANKL before it reaches RANK → resorption inhibited. Estrogen up-regulates OPG and triggers osteoclast apoptosis — at menopause estrogen collapses, OPG drops, relative RANKL rises, and women lose 2-3%/y of bone in the first 5-10 postmenopausal years.",
+      "chain": [
+        {"step": 1, "actor": "estrogen (premenopause)", "action": "up-regulates", "target": "OPG expression in osteoblasts", "effect": "RANKL neutralized; osteoclast activity low"},
+        {"step": 2, "actor": "menopause", "action": "collapses", "target": "estradiol (~400 → <30 pg/mL)", "effect": "OPG falls"},
+        {"step": 3, "actor": "free RANKL", "action": "binds", "target": "RANK on osteoclast precursors", "effect": "osteoclast differentiation + survival rise"},
+        {"step": 4, "actor": "activated osteoclasts", "action": "resorb", "target": "trabecular bone (hip, vertebra)", "effect": "2-3%/y BMD loss in first 5-10 y post-menopause"},
+        {"step": 5, "actor": "denosumab (drug)", "action": "mimics OPG by binding", "target": "RANKL", "effect": "clinical therapeutic validation of axis"}
+      ],
+      "analogies_th": [
+        "เอสโตรเจนเหมือนตำรวจที่คุมทีมรื้อ — พอหมดตำรวจ (วัยทอง) ทีมรื้อออกทำงานหนักผิดปกติ",
+        "OPG = ยามเฝ้าประตู, RANKL = คนเรียกทีมทุบ — ยามลาออก ทีมทุบเข้าฟรี"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/18854721/", "org": "Nat Rev Endocrinol / PubMed", "source_tier": "A", "year": 2008, "title": "Estrogen, RANKL, and bone — Khosla S. et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa0809493", "org": "NEJM", "source_tier": "A", "year": 2009, "title": "Denosumab for prevention of fractures in postmenopausal osteoporosis — Cummings SR et al. (FREEDOM trial)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "osteoclast_osteoblast",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_003",
+      "label_th": "แรงกระแทก → ลด sclerostin → Wnt → osteoblast สร้างกระดูก",
+      "label_en": "Mechanical loading → sclerostin ↓ → Wnt → bone formation",
+      "description_th": "เมื่อมี strain สูงต่อกระดูก (>~2000 microstrain, เช่น deadlift หนัก หรือ impact) osteocyte ที่ฝังอยู่รับรู้ผ่าน fluid-flow shear stress + integrins → ปิดยีน SOST → sclerostin ลดลง → Wnt ligand จับ LRP5/6 โดยไม่มี antagonist → β-catenin เข้านิวเคลียส → กระตุ้น osteoblast differentiation + ลด apoptosis → กระดูกหนาขึ้น — นี่คือพื้นฐานของ LIFTMOR",
+      "description_en": "When bone experiences high strain (>~2000 microstrain — e.g. a heavy deadlift or impact), embedded osteocytes sense it via canalicular fluid-flow shear stress + integrins → SOST gene is down-regulated → sclerostin falls → Wnt ligands engage LRP5/6 co-receptors without antagonism → β-catenin enters the nucleus → drives osteoblast differentiation and survival → net bone formation. This is the molecular basis for LIFTMOR's BMD gains.",
+      "chain": [
+        {"step": 1, "actor": "heavy external load / impact", "action": "bends", "target": "bone matrix", "effect": "canalicular fluid flow across osteocyte processes"},
+        {"step": 2, "actor": "osteocyte mechanosensing", "action": "represses", "target": "SOST gene", "effect": "sclerostin protein falls"},
+        {"step": 3, "actor": "Wnt ligands", "action": "freely bind", "target": "LRP5/6 + Frizzled on osteoblast", "effect": "β-catenin stabilized"},
+        {"step": 4, "actor": "nuclear β-catenin", "action": "activates", "target": "osteoblast differentiation genes (Runx2, Osterix)", "effect": "new osteoblasts form"},
+        {"step": 5, "actor": "new osteoblast cohort", "action": "lays down", "target": "mineralized bone on loaded surfaces", "effect": "BMD rises at loaded sites (lumbar spine +2.9% in LIFTMOR)"}
+      ],
+      "analogies_th": [
+        "sclerostin เหมือนผู้จัดการที่บอกช่างก่อสร้างว่า 'อย่าสร้าง' — ยกหนักปลดผู้จัดการออก ช่างก็สร้างได้",
+        "กระดูกเหมือนสปริง — ไม่ถูกกดก็ลืมหน้าที่ ยิ่งกด (อย่างถูกวิธี) ยิ่งแข็ง"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28975661/", "org": "J Bone Miner Res / PubMed", "source_tier": "A", "year": 2018, "title": "High-Intensity Resistance and Impact Training Improves Bone Mineral Density and Physical Function in Postmenopausal Women With Osteopenia and Osteoporosis: The LIFTMOR Randomized Controlled Trial — Watson SL, Weeks BK, Weis LJ, Harding AT, Horan SA, Beck BR.", "access_date": "2026-04-22"},
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3676665/", "org": "J Bone Miner Res / PMC", "source_tier": "A", "year": 2013, "title": "Sclerostin and the regulation of bone formation — Delgado-Calle J, Sato AY, Bellido T.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "impact_loading_bone",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_004",
+      "label_th": "วิตามินดี → ดูดซึมแคลเซียมในลำไส้",
+      "label_en": "Vitamin D → intestinal calcium absorption",
+      "description_th": "ผิวสังเคราะห์ D3 จาก UV-B → ตับเปลี่ยนเป็น 25-OH-D (ค่าที่วัดในเลือด) → ไตเปลี่ยนเป็น 1,25-(OH)₂D (calcitriol) ภายใต้การควบคุมของ PTH; calcitriol จับ VDR ในเซลล์ลำไส้เล็ก → ผลิต TRPV6 (ช่องแคลเซียมเข้าเซลล์) + calbindin-D9k (carrier) + PMCA1b (ปั๊มออกด้านเลือด) → ดูดซึมแคลเซียมเพิ่มจาก ~15% เป็น 30-40%; ขาดวิตามินดี → PTH พุ่งเรื้อรัง → ดึงแคลเซียมจากกระดูก",
+      "description_en": "Skin makes D3 from UV-B → liver hydroxylates to 25-OH-D (the measured storage form) → kidney converts to 1,25-(OH)₂D (calcitriol) under PTH control; calcitriol binds VDR in enterocytes → induces TRPV6 (apical Ca channel) + calbindin-D9k (carrier) + PMCA1b (basolateral pump) → raises fractional Ca absorption from ~15% to 30-40%; vitamin D deficiency drives chronic PTH elevation → bone Ca is mobilized to maintain serum Ca.",
+      "chain": [
+        {"step": 1, "actor": "UV-B on skin (or oral D3)", "action": "generates", "target": "cholecalciferol (D3)", "effect": "D3 enters circulation"},
+        {"step": 2, "actor": "liver 25-hydroxylase (CYP2R1)", "action": "hydroxylates", "target": "D3 → 25-OH-D (serum storage form)", "effect": "measured in labs as 25-OH-D"},
+        {"step": 3, "actor": "kidney 1α-hydroxylase (CYP27B1)", "action": "converts", "target": "25-OH-D → 1,25-(OH)₂D (calcitriol)", "effect": "active hormone"},
+        {"step": 4, "actor": "calcitriol + VDR", "action": "up-regulate", "target": "TRPV6 + calbindin-D9k + PMCA1b in enterocytes", "effect": "fractional Ca absorption rises to 30-40%"},
+        {"step": 5, "actor": "adequate serum Ca + D", "action": "suppresses", "target": "PTH", "effect": "bone Ca not mobilized"},
+        {"step": 6, "actor": "vitamin D deficiency (<20 ng/mL)", "action": "elevates", "target": "PTH chronically", "effect": "net bone resorption / osteomalacia"}
+      ],
+      "analogies_th": [
+        "วิตามินดีเป็นกุญแจที่เปิดประตูให้แคลเซียมเข้าไปทำงาน — ไม่มีกุญแจ แคลเซียมผ่านเฉยๆ",
+        "ขาดวิตามินดีเหมือนซื้อวัตถุดิบแต่ไม่มีรถขน — ของเข้าโกดังไม่ได้"
+      ],
+      "sources": [
+        {"url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/", "org": "NIH Office of Dietary Supplements", "source_tier": "A", "year": 2024, "title": "Vitamin D — Fact Sheet for Health Professionals", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22762317/", "org": "NEJM / PubMed", "source_tier": "A", "year": 2012, "title": "A pooled analysis of vitamin D dose requirements for fracture prevention — Bischoff-Ferrari HA et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "bone_remodeling",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_005",
+      "label_th": "วิตามิน K2 → carboxylate osteocalcin + MGP → calcium paradox",
+      "label_en": "Vitamin K2 → osteocalcin + MGP carboxylation → calcium paradox resolved",
+      "description_th": "Osteoblast หลั่ง osteocalcin (OC) และเซลล์ผนังหลอดเลือดหลั่ง matrix Gla-protein (MGP); ทั้งคู่ต้องถูก γ-carboxylate ที่ glutamate residues จึงจะจับแคลเซียมได้ — cofactor คือ reduced vitamin K (ซึ่ง K2 MK-7 half-life ~72 h ครอบคลุมเนื้อเยื่อรอบนอกได้ดีกว่า K1); เมื่อ carboxylate สำเร็จ OC นำแคลเซียมเข้ากระดูก MGP ห้ามแคลเซียมเกาะผนังหลอดเลือด — นี่คือเหตุผลที่คนกิน Ca มากอาจกระดูกไม่ดีขึ้นแต่หลอดเลือดกลับแข็ง ถ้าขาด K2",
+      "description_en": "Osteoblasts secrete osteocalcin (OC) and vascular smooth-muscle cells secrete matrix Gla-protein (MGP); both must be γ-carboxylated at glutamate residues to bind calcium — the cofactor is reduced vitamin K (K2 MK-7, t½ ~72 h, serves peripheral tissues better than K1); once carboxylated, OC escorts Ca into bone matrix while MGP blocks Ca from depositing in arterial walls — resolving the 'calcium paradox' where high-Ca supplementation sometimes fails to build bone and calcifies arteries when K2 is scarce.",
+      "chain": [
+        {"step": 1, "actor": "osteoblast", "action": "secretes", "target": "uncarboxylated osteocalcin (ucOC)", "effect": "cannot yet bind calcium"},
+        {"step": 2, "actor": "γ-glutamyl carboxylase + vitamin K (as hydroquinone)", "action": "carboxylates", "target": "Glu → Gla residues on OC", "effect": "OC acquires high-affinity Ca-binding sites"},
+        {"step": 3, "actor": "carboxylated OC", "action": "binds hydroxyapatite + escorts", "target": "Ca into bone matrix", "effect": "mineralization supported"},
+        {"step": 4, "actor": "same pathway", "action": "carboxylates", "target": "MGP in vascular wall", "effect": "prevents arterial calcification"},
+        {"step": 5, "actor": "K2 deficiency", "action": "leaves", "target": "ucOC + ucMGP elevated", "effect": "Ca deposits in arteries, not optimally in bone (biomarker: ucOC)"}
+      ],
+      "analogies_th": [
+        "แคลเซียม = อิฐ, วิตามินดี = รถขน, วิตามิน K2 = คนก่อสร้างที่วางอิฐถูกตำแหน่ง — ขาด K2 อิฐกองผิดที่ (หลอดเลือด) ไม่ได้เข้าตึก (กระดูก)",
+        "K2 เหมือน GPS ที่บอกแคลเซียมว่าเลี้ยวซ้ายเข้ากระดูก ห้ามเลี้ยวขวาเข้าเส้นเลือด"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23525894/", "org": "Osteoporos Int / PubMed", "source_tier": "A", "year": 2013, "title": "Three-year low-dose menaquinone-7 supplementation helps decrease bone loss in healthy postmenopausal women — Knapen MH, Drummen NE, Smit E, Vermeer C, Theuwissen E.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15514282/", "org": "J Nutr / PubMed", "source_tier": "A", "year": 2004, "title": "Dietary intake of menaquinone is associated with a reduced risk of coronary heart disease: the Rotterdam Study — Geleijnse JM, Vermeer C et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "vitamin_K2",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_006",
+      "label_th": "โครงสร้างกระดูกอ่อน — type II collagen + aggrecan + น้ำ 70-80%",
+      "label_en": "Articular cartilage architecture — type II collagen + aggrecan + 70-80% water",
+      "description_th": "Cartilage hyaline คือ 'เจล' ที่ chondrocyte สร้างขึ้น — ตาข่าย type II collagen ดึงรั้งไว้ในตำแหน่ง ส่วน aggrecan (proteoglycan ใหญ่มี sulfated GAG: chondroitin + keratan sulfate) ต่อกับสาย hyaluronic acid ดูดน้ำเข้ามา 70-80% ของน้ำหนัก → ทำให้กระดูกอ่อนกระจายแรง กดแล้วเด้งกลับได้; ไม่มีเส้นเลือด/เส้นประสาท — ซ่อมแซมช้ามาก และเมื่อสึกสมดุลเสียไปทางย่อย (MMP-13, ADAMTS-5) จะเกิด osteoarthritis",
+      "description_en": "Hyaline cartilage is a 'gel' built by chondrocytes — a type II collagen mesh anchors aggrecan, a giant proteoglycan with sulfated GAGs (chondroitin + keratan sulfate) linked to hyaluronic acid backbones, which swell with 70-80% water → enables load distribution and elastic rebound; because cartilage is avascular and aneural, repair is extremely slow, and when catabolic enzymes (MMP-13, ADAMTS-5) outpace synthesis, osteoarthritis develops.",
+      "chain": [
+        {"step": 1, "actor": "chondrocyte", "action": "synthesizes", "target": "type II collagen + aggrecan", "effect": "extracellular matrix built"},
+        {"step": 2, "actor": "aggrecan", "action": "binds", "target": "hyaluronic acid backbone", "effect": "forms giant proteoglycan aggregates"},
+        {"step": 3, "actor": "negative GAG charges", "action": "attract", "target": "water (70-80% of cartilage weight)", "effect": "hydrostatic cushion under load"},
+        {"step": 4, "actor": "collagen II mesh", "action": "resists", "target": "tensile forces", "effect": "prevents aggrecan swelling from exploding the tissue"},
+        {"step": 5, "actor": "IL-1β, TNF-α (OA)", "action": "induce", "target": "MMP-13, ADAMTS-5", "effect": "collagen + aggrecan cleaved faster than resynthesized → OA"}
+      ],
+      "analogies_th": [
+        "กระดูกอ่อนเหมือนฟองน้ำที่ชุ่มน้ำ — คอลลาเจนคือตาข่ายกันไม่ให้บวมแตก, aggrecan คือตัวอุ้มน้ำ",
+        "ขาด aggrecan = ฟองน้ำแห้ง กดแล้วเจ็บเพราะรับแรงไม่ไหว"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2697338/", "org": "Sports Health / PMC", "source_tier": "A", "year": 2009, "title": "Articular cartilage: structure, injuries and review of management — Sophia Fox AJ, Bedi A, Rodeo SA.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15621988/", "org": "Arthritis Res Ther / PubMed", "source_tier": "A", "year": 2005, "title": "Roles of aggrecanases and matrix metalloproteinases in cartilage — Troeberg L, Nagase H.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "joint_cartilage",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_007",
+      "label_th": "น้ำไขข้อ + hyaluronic acid — ลื่นเพราะ viscoelasticity",
+      "label_en": "Synovial fluid + hyaluronic acid — viscoelastic lubrication",
+      "description_th": "Synoviocyte type B สร้าง hyaluronic acid (HA) สายยาว (MW 4-5 MDa) และ lubricin ที่เคลือบผิว cartilage; ขณะเคลื่อนไหวช้า HA ความหนืดสูงลดแรงเสียดทาน (boundary lubrication), ขณะกระแทกเร็ว HA เด้งแบบยืดหยุ่น (fluid-film); ในผู้ป่วย OA ทั้งปริมาณและ MW ของ HA ลด → ข้อฝืด ปวด กระทืบกัน — เป็นที่มาของ HA injection (Hyalgan/Synvisc) และ HA oral trials",
+      "description_en": "Synoviocyte type B (fibroblast-like) secrete long-chain hyaluronic acid (HA, MW 4-5 MDa) and lubricin, coating cartilage surfaces; at slow movement HA's high viscosity provides boundary lubrication, at impact it behaves elastically (fluid-film); in osteoarthritis both the concentration and molecular weight of HA decline → joint stiffness, pain, bone-on-bone grinding — rationale for intra-articular HA injection and oral HA supplementation trials.",
+      "chain": [
+        {"step": 1, "actor": "synoviocyte type B", "action": "secretes", "target": "hyaluronic acid (4-5 MDa) + lubricin", "effect": "synovial fluid formed"},
+        {"step": 2, "actor": "HA at rest", "action": "gives", "target": "high viscosity", "effect": "boundary lubrication at low shear"},
+        {"step": 3, "actor": "HA under impact", "action": "shows", "target": "elastic behavior (storage modulus rises)", "effect": "shock absorption at high shear"},
+        {"step": 4, "actor": "OA inflammation (IL-1β)", "action": "reduces", "target": "HA synthesis + its molecular weight", "effect": "loss of lubrication, friction ↑, pain"},
+        {"step": 5, "actor": "intra-articular HA (e.g. Synvisc)", "action": "restores temporarily", "target": "viscoelastic profile", "effect": "clinical pain reduction 2-6 months"}
+      ],
+      "analogies_th": [
+        "ข้อเหมือนบานพับประตู — ไม่มีน้ำมันหล่อลื่น (HA) ก็เอี๊ยดและสึกเร็ว",
+        "HA เด้งเหมือน silly putty — ช้าก็ไหล เร็วก็เด้ง ครอบคลุมทุกความเร็วการเคลื่อนไหว"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4852082/", "org": "Rheumatology (Oxford) / PMC", "source_tier": "A", "year": 2016, "title": "Hyaluronan, pain, and inflammation — role of the synovial fluid in osteoarthritis — Band PA et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26352909/", "org": "Cochrane Database / PubMed", "source_tier": "A", "year": 2015, "title": "Viscosupplementation for the treatment of osteoarthritis of the knee — Bellamy N et al. (Cochrane)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "synovial_fluid",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_008",
+      "label_th": "กลไกข้อเสื่อม — cytokine → MMP-13 → cartilage loss",
+      "label_en": "Osteoarthritis mechanism — cytokines → MMPs → cartilage degradation",
+      "description_th": "ในข้อที่ใช้งานหนัก/อายุมาก, chondrocyte ถูกกระตุ้นโดย IL-1β, TNF-α, IL-6 → ผลิต MMP-13 (collagenase) และ ADAMTS-5 (aggrecanase) ย่อย type II collagen และ aggrecan; synovial membrane อักเสบ (synovitis) หลั่ง cytokines เพิ่ม → วงจรย่อยตัวเอง; subchondral bone ปรับตัวด้วย sclerosis + osteophyte (bone spur); ปวดส่วนใหญ่มาจาก synovium + subchondral bone + nerve sensitization ไม่ใช่กระดูกอ่อน (aneural)",
+      "description_en": "In overloaded or aging joints, chondrocytes are activated by IL-1β, TNF-α, IL-6 → produce MMP-13 (collagenase) and ADAMTS-5 (aggrecanase) which digest type II collagen and aggrecan; the synovial membrane inflames (synovitis) and secretes more cytokines → self-perpetuating loop; subchondral bone responds with sclerosis and osteophytes; the pain originates largely from the synovium, subchondral bone, and nerve sensitization — not from cartilage itself, which is aneural.",
+      "chain": [
+        {"step": 1, "actor": "joint overload / age / genetics", "action": "stresses", "target": "chondrocytes", "effect": "cytokine response initiated"},
+        {"step": 2, "actor": "IL-1β, TNF-α, IL-6", "action": "induce", "target": "MMP-13, ADAMTS-5 in chondrocyte + synoviocyte", "effect": "matrix-degrading enzymes rise"},
+        {"step": 3, "actor": "MMP-13", "action": "cleaves", "target": "type II collagen at Gly775-Leu776", "effect": "collagen network fails"},
+        {"step": 4, "actor": "ADAMTS-5", "action": "cleaves", "target": "aggrecan at Glu373-Ala374", "effect": "water-holding capacity lost"},
+        {"step": 5, "actor": "subchondral bone + synovium", "action": "remodel", "target": "sclerosis, osteophyte, synovitis", "effect": "clinical OA: stiffness, pain, crepitus"}
+      ],
+      "analogies_th": [
+        "ข้อเสื่อมเหมือนกระดาษที่โดนกรด — ทั้งตัวเน่าเพราะเซลล์ตัดตัวเองให้เละก่อนสร้างใหม่",
+        "chondrocyte กลายเป็น 'ศัตรูภายใน' ในข้อเสื่อม"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21508932/", "org": "Osteoarthritis Cartilage / PubMed", "source_tier": "A", "year": 2012, "title": "Osteoarthritis year 2011 in review: pathomechanisms — Goldring MB, Otero M.", "access_date": "2026-04-22"},
+        {"url": "https://www.oarsi.org/sites/default/files/docs/2019/oa_white_paper_2019.pdf", "org": "OARSI", "source_tier": "A", "year": 2019, "title": "OARSI White Paper on OA as a Serious Disease", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "osteoarthritis_mechanism",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_009",
+      "label_th": "UC-II → oral tolerance ที่ Peyer's patches → ลดภูมิคุ้มกันโจมตีข้อ",
+      "label_en": "UC-II → gut oral tolerance → dampened joint autoimmunity",
+      "description_th": "40 มก./วัน undenatured type II collagen (UC-II) ผ่านกระเพาะลงลำไส้เล็ก → สัมผัส M cells + Peyer's patches → กระตุ้น regulatory T cells (Tregs) ที่จำเพาะต่อ type II collagen epitopes; Tregs เหล่านี้เดินทางไปยังข้อที่อักเสบและ 'สงบ' การตอบสนองของภูมิคุ้มกันต่อ cartilage ของตัวเอง — ต่างจาก hydrolyzed collagen ที่ถูกย่อยเป็น amino acids; Crolla 2016 แสดงว่า 40 มก./วัน UC-II ให้ผลดีกว่า 1500 มก. glucosamine + 1200 มก. chondroitin",
+      "description_en": "A small 40 mg/day dose of undenatured type II collagen (UC-II) survives the stomach, reaches the small intestine, engages M cells and Peyer's patches → induces type-II-collagen-specific regulatory T cells (Tregs); these Tregs traffic to inflamed joints and dampen autoimmune-like responses against the body's own cartilage — in contrast to hydrolyzed collagen which is fully digested to amino acids. Crolla 2016 showed 40 mg/day UC-II outperformed 1500 mg glucosamine + 1200 mg chondroitin for knee OA.",
+      "chain": [
+        {"step": 1, "actor": "40 mg undenatured type II collagen (UC-II)", "action": "survives", "target": "gastric acid (low-temp processing preserves epitopes)", "effect": "reaches small intestine intact"},
+        {"step": 2, "actor": "M cells in Peyer's patches", "action": "sample", "target": "UC-II antigen", "effect": "presented to dendritic cells in gut-associated lymphoid tissue"},
+        {"step": 3, "actor": "GALT dendritic cells", "action": "induce", "target": "type-II-collagen-specific Foxp3+ Tregs", "effect": "oral tolerance established"},
+        {"step": 4, "actor": "Tregs", "action": "traffic to", "target": "joints with exposed type II collagen", "effect": "TGF-β / IL-10 release, MMP-13 suppressed"},
+        {"step": 5, "actor": "clinical outcome", "action": "improves", "target": "WOMAC pain, stiffness, function", "effect": "~39% WOMAC improvement in Crolla 2016 vs 18% GC arm"}
+      ],
+      "analogies_th": [
+        "UC-II ไม่ใช่วัสดุสร้างข้อ แต่เป็นข้อความที่บอกภูมิคุ้มกันว่า 'อันนี้ของเราเอง อย่าทำร้าย'",
+        "เหมือนฉีดวัคซีน 'สงบ' ให้ภูมิคุ้มกันผ่านลำไส้"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26822714/", "org": "Nutr J / PubMed", "source_tier": "A", "year": 2016, "title": "Efficacy and tolerability of an undenatured type II collagen supplement in modulating knee osteoarthritis symptoms — Lugo JP, Saiyed ZM, Lane NE.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19847319/", "org": "Int J Med Sci / PubMed", "source_tier": "A", "year": 2009, "title": "Safety and efficacy of undenatured type II collagen in the treatment of osteoarthritis of the knee — Crowley DC et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "joint_cartilage",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_010",
+      "label_th": "แมกนีเซียม → activate วิตามินดี → แคลเซียมเข้ากระดูก",
+      "label_en": "Magnesium → activates vitamin D → calcium to bone",
+      "description_th": "Mg เป็น cofactor ของเอนไซม์ทั้ง 25-hydroxylase (ตับ) และ 1α-hydroxylase (ไต) ที่เปลี่ยน cholecalciferol → 25-OH-D → calcitriol — ขาด Mg เรื้อรัง กินวิตามินดีเท่าไหร่ก็เปลี่ยนเป็นรูป active ไม่ได้; ~60% ของ Mg ทั้งตัวอยู่ในกระดูก เป็น hydrated surface ของ hydroxyapatite ช่วยความแข็งแรง; hypomagnesemia สัมพันธ์กับ PTH ผิดปกติและ BMD ต่ำ (โดยเฉพาะคนไทยที่อาหารฟาสต์ฟู้ด Mg ต่ำ)",
+      "description_en": "Mg is a cofactor for both 25-hydroxylase (liver) and 1α-hydroxylase (kidney) that convert D3 → 25-OH-D → calcitriol — chronic Mg deficiency can leave supplemented vitamin D 'stuck' and unable to activate; ~60% of total body Mg resides in bone as hydroxyapatite surface, contributing to mineral hardness; hypomagnesemia correlates with PTH dysregulation and lower BMD.",
+      "chain": [
+        {"step": 1, "actor": "dietary Mg (green leafy veg, nuts, seeds)", "action": "absorbed via", "target": "TRPM6/7 in gut", "effect": "serum + intracellular Mg maintained"},
+        {"step": 2, "actor": "liver 25-hydroxylase", "action": "requires Mg to convert", "target": "D3 → 25-OH-D", "effect": "storage form generated"},
+        {"step": 3, "actor": "kidney 1α-hydroxylase", "action": "requires Mg to convert", "target": "25-OH-D → calcitriol", "effect": "active hormone available"},
+        {"step": 4, "actor": "bone matrix", "action": "incorporates", "target": "Mg at hydroxyapatite surface (~60% of total body Mg)", "effect": "contributes to bone material strength"},
+        {"step": 5, "actor": "chronic Mg deficiency", "action": "dysregulates", "target": "PTH + vitamin D activation", "effect": "low BMD, low active vitamin D despite supplementation"}
+      ],
+      "analogies_th": [
+        "แมกนีเซียม = ช่างเปิดสวิตช์ให้วิตามินดี — กินวิตามินดีมากแต่ไม่มี Mg สวิตช์ปิดอยู่",
+        "กระดูกเหมือนคอนกรีตเสริมเหล็ก — Mg คือเหล็กในนั้น ไม่ใช่แค่ปูน (Ca)"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29480918/", "org": "J Am Osteopath Assoc / PubMed", "source_tier": "A", "year": 2018, "title": "Role of Magnesium in Vitamin D Activation and Function — Uwitonze AM, Razzaque MS.", "access_date": "2026-04-22"},
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3775240/", "org": "Nutrients / PMC", "source_tier": "A", "year": 2013, "title": "Magnesium in Prevention and Therapy — Gröber U, Schmidt J, Kisters K.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "bone_remodeling",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_bone_011",
+      "label_th": "Baar protocol — collagen + vitamin C ก่อนฝึก → สร้าง tendon/ligament",
+      "label_en": "Baar protocol — collagen + vitamin C before loading → tendon/ligament remodeling",
+      "description_th": "Keith Baar (UC Davis) ทดลองพบว่า 15 กรัม hydrolyzed collagen (gelatin) + 50 มก. วิตามินซี รับประทาน 30-60 นาทีก่อนออกกำลังกายแบบมี impact สั้น ๆ (ข้ามเชือก 6 นาที) เพิ่ม amino acid precursors (glycine, proline, hydroxyproline) ใน plasma peak พอดีช่วงที่ tendon/ligament fibroblast ถูก load — กระตุ้นการสังเคราะห์ collagen ขึ้น 2 เท่า; เป็น protocol ที่นักกีฬาใช้เพื่อ tendinopathy recovery",
+      "description_en": "Keith Baar (UC Davis) showed that 15 g hydrolyzed collagen (gelatin) + 50 mg vitamin C, taken 30-60 min before a brief loading bout (e.g. 6 min rope-skipping), peaks plasma glycine/proline/hydroxyproline precisely when tendon/ligament fibroblasts are mechanically loaded — doubling collagen synthesis. This has become a widely used athletic protocol for tendinopathy and connective tissue health.",
+      "chain": [
+        {"step": 1, "actor": "15 g collagen peptides + 50 mg vitamin C, oral", "action": "absorbed", "target": "small intestine over 30-60 min", "effect": "plasma Gly, Pro, Hyp rise sharply"},
+        {"step": 2, "actor": "brief mechanical loading (e.g. jumping, rope skipping)", "action": "stimulates", "target": "tendon/ligament fibroblasts", "effect": "transient collagen gene activation window"},
+        {"step": 3, "actor": "elevated plasma precursors", "action": "feed", "target": "collagen α-chain synthesis + vitamin-C-dependent prolyl/lysyl hydroxylases", "effect": "triple helix assembly in fibroblasts"},
+        {"step": 4, "actor": "PINP (procollagen I N-terminal propeptide)", "action": "doubles", "target": "in serum at 4-6 h post-bout", "effect": "systemic biomarker of collagen synthesis"},
+        {"step": 5, "actor": "applied repeatedly over weeks", "action": "improves", "target": "tendon stiffness, cross-sectional area, return-to-play in tendinopathy", "effect": "clinical connective tissue adaptation"}
+      ],
+      "analogies_th": [
+        "เหมือนเสิร์ฟอิฐถึงเตาเผาพอดีก่อนถึงเวลาก่อสร้าง — ขาดจังหวะ = ได้ amino acid ไปใช้อย่างอื่น",
+        "คอลลาเจน + ซี 60 นาทีก่อนฝึก = เติมวัตถุดิบให้ข้อต่อก่อนลงสนาม"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27852613/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 2017, "title": "Vitamin C-enriched gelatin supplementation before intermittent activity augments collagen synthesis — Shaw G, Lee-Barthel A, Ross ML, Wang B, Baar K.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "joint_cartilage",
+      "confidence": "medium"
+    }
+  ]
+}

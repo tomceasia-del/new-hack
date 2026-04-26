@@ -4,7 +4,7 @@
  * Called by client-side auth guards in the HTML pages.
  */
 'use strict';
-const { verifyJWT, parseCookies, SESSION_COOKIE } = require('./_helpers');
+const { verifyJWT, parseCookies, SESSION_COOKIE, isEmailAllowed } = require('./_helpers');
 
 module.exports = function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -23,6 +23,9 @@ module.exports = function handler(req, res) {
 
   try {
     const payload = verifyJWT(token, secret);
+    if (!isEmailAllowed(payload.email)) {
+      return res.status(401).json({ authenticated: false, reason: 'email_not_approved' });
+    }
     return res.status(200).json({
       authenticated: true,
       user: {

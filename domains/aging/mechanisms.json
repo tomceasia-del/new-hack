@@ -1,0 +1,266 @@
+{
+  "domain_id": "aging",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 11,
+    "last_harvested": "2026-04-22"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_aging_001",
+      "label_th": "Cellular senescence → SASP → การอักเสบเรื้อรัง (Campisi chain)",
+      "label_en": "Cellular senescence → SASP → chronic inflammation",
+      "description_th": "เซลล์ที่ถูก DNA damage, oncogene, หรือ telomere สั้นจนถึงจุดอันตราย จะเข้าสู่ permanent growth arrest (p16INK4a/p21 pathway); แทนที่จะตาย เซลล์เหล่านี้หลั่ง SASP (IL-6, IL-8, MMPs, TNF-α) ที่ก่อการอักเสบ inflammaging + ชักนำเซลล์ข้างเคียงให้ senescent ด้วย — คล้ายการ 'contagion' ภายในเนื้อเยื่อ; senolytic (fisetin, D+Q) ปลุก apoptosis ของเซลล์เหล่านี้เฉพาะจุด",
+      "description_en": "Cells hit with DNA damage, oncogene activation, or critical telomere attrition enter permanent growth arrest (p16INK4a/p21 pathway); instead of dying they secrete SASP (IL-6, IL-8, MMPs, TNF-α) which drives inflammaging and recruits neighboring cells to senescence — a tissue-level 'contagion'; senolytics (fisetin, D+Q) selectively trigger apoptosis of these zombie cells.",
+      "chain": [
+        {"step": 1, "actor": "DNA damage / oncogene / telomere crisis", "action": "activates", "target": "p53 → p21 / p16INK4a", "effect": "permanent cell cycle arrest"},
+        {"step": 2, "actor": "arrested cell", "action": "upregulates Bcl-2 family anti-apoptotic proteins", "target": "self-survival", "effect": "resists apoptosis = 'zombie' state"},
+        {"step": 3, "actor": "senescent cell", "action": "secretes", "target": "SASP (IL-6, IL-8, TNF-α, MMPs, growth factors)", "effect": "chronic low-grade inflammation"},
+        {"step": 4, "actor": "SASP cytokines", "action": "push neighboring cells to senescence (paracrine)", "target": "healthy tissue", "effect": "tissue-wide dysfunction"},
+        {"step": 5, "actor": "senolytic agent (fisetin, D+Q)", "action": "inhibits", "target": "Bcl-2 / survival pathways", "effect": "selective apoptosis of senescent cells"}
+      ],
+      "analogies_th": [
+        "เหมือนพนักงานที่ถูกไล่ออกแต่ไม่ยอมออกจากออฟฟิศ — นั่งพ่นคำบ่นให้คนรอบข้างหงุดหงิดทั้งวัน",
+        "คนป่วยในครอบครัวที่ไอใส่ทุกคน ทำให้ทุกคนป่วยตาม",
+        "senolytic = RPA ล้างเครื่อง — ลบโปรเซสเบื้องหลังที่กินแรม"
+      ],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nature16932", "org": "Nature", "source_tier": "A", "year": 2016, "title": "Baker 2016 — clearing p16+ cells extends healthspan", "access_date": "2026-04-22"},
+        {"url": "https://www.sciencedirect.com/science/article/pii/S2352396418303736", "org": "EBioMedicine", "source_tier": "A", "year": 2018, "title": "Yousefzadeh fisetin senolytic", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cellular_senescence",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_002",
+      "label_th": "Telomere shortening → Hayflick limit → replicative senescence",
+      "label_en": "Telomere shortening → Hayflick limit → replicative senescence",
+      "description_th": "ทุกครั้งที่เซลล์แบ่งตัว telomere ที่ปลาย DNA จะสั้นลง 50-200 bp (end-replication problem); telomerase (TERT + TERC) ต่อกลับได้เฉพาะ germ cells, stem cells และเซลล์มะเร็ง; เมื่อ telomere สั้นจนถึง 'critical length' — DDR (DNA damage response) ถูกเปิด → p53 → p21 → senescence หรือ apoptosis; ความเครียดเรื้อรัง + oxidative stress เร่งการสั้นลง (Epel 2004)",
+      "description_en": "Each cell division shortens telomeres by 50-200 bp (end-replication problem); telomerase (TERT + TERC) re-extends them only in germ cells, stem cells, and cancer cells; when telomeres reach critical length, DNA damage response (DDR) activates p53 → p21 → senescence or apoptosis; chronic stress + oxidative stress accelerates shortening (Epel 2004).",
+      "chain": [
+        {"step": 1, "actor": "DNA polymerase", "action": "cannot fully replicate", "target": "lagging-strand 3' end (end-replication problem)", "effect": "50-200 bp lost per division"},
+        {"step": 2, "actor": "somatic cells", "action": "lack adequate", "target": "telomerase (TERT silent)", "effect": "no replenishment"},
+        {"step": 3, "actor": "stress / ROS / inflammation", "action": "damage", "target": "telomere G-rich sequence (oxidation-prone)", "effect": "accelerated shortening"},
+        {"step": 4, "actor": "critically short telomere", "action": "exposes", "target": "uncapped chromosome end = DNA damage signal", "effect": "ATM/ATR pathway → p53"},
+        {"step": 5, "actor": "p53-p21 axis", "action": "induces", "target": "senescence OR apoptosis", "effect": "Hayflick limit reached"}
+      ],
+      "analogies_th": [
+        "เหมือนพลาสติกปลายเชือกรองเท้าที่หลุดทุกครั้งที่ผูก — พอหลุดหมด เชือกเริ่มแตก",
+        "เหมือนสายโทรศัพท์ที่ค่อยๆ สึกในแต่ละการโทร — วันหนึ่งตัดสายเอง"
+      ],
+      "sources": [
+        {"url": "https://www.nobelprize.org/prizes/medicine/2009/summary/", "org": "Nobel Foundation", "source_tier": "A", "year": 2009, "title": "Blackburn/Greider/Szostak Nobel 2009", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15574496/", "org": "PNAS / PubMed", "source_tier": "A", "year": 2004, "title": "Epel stress telomere shortening", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "telomere_shortening",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_003",
+      "label_th": "NAD salvage pathway → sirtuins → DNA repair + mitochondrial biogenesis",
+      "label_en": "NAD salvage pathway → sirtuins → DNA repair + mitochondrial biogenesis",
+      "description_th": "NAD+ ถูกสร้างใน salvage pathway จาก nicotinamide (NAM) → NMN → NAD+ ที่ใช้ enzyme NAMPT เป็น rate-limiting; NAD+ เป็น coenzyme ของ sirtuins (SIRT1-7) ซึ่ง deacetylate p53, FOXO, PGC-1α เพื่อกระตุ้น mitochondrial biogenesis, DNA repair, และลด inflammation; ตามอายุ NAD+ ลด 50% → sirtuin hypo-activity → mitochondrial dysfunction",
+      "description_en": "NAD+ is regenerated via the salvage pathway from nicotinamide (NAM) → NMN → NAD+ with NAMPT as rate-limiting enzyme; NAD+ is the coenzyme for sirtuins (SIRT1-7) which deacetylate p53, FOXO, PGC-1α to drive mitochondrial biogenesis, DNA repair, and dampen inflammation; with age NAD+ drops 50% → sirtuin hypoactivity → mitochondrial dysfunction.",
+      "chain": [
+        {"step": 1, "actor": "dietary precursors (niacin, NR, NMN)", "action": "enter", "target": "salvage pathway in cells", "effect": "NMN produced"},
+        {"step": 2, "actor": "NMNAT enzyme", "action": "converts", "target": "NMN → NAD+", "effect": "NAD+ pool replenished"},
+        {"step": 3, "actor": "NAD+", "action": "donates to", "target": "SIRT1-7 catalytic cycle (stoichiometric)", "effect": "deacetylase activity"},
+        {"step": 4, "actor": "SIRT1", "action": "deacetylates", "target": "PGC-1α, FOXO3, p53", "effect": "mitochondrial biogenesis + DNA repair"},
+        {"step": 5, "actor": "aging: CD38 + PARP1", "action": "consume", "target": "NAD+ as DNA damage accumulates", "effect": "NAD+ pool depleted → sirtuin activity falls"}
+      ],
+      "analogies_th": [
+        "NAD+ เหมือน 'เหรียญหยอดเครื่อง' ที่ sirtuins ต้องใช้ทำงาน — เหรียญหมด เครื่องหยุด",
+        "CD38 เหมือน 'ตู้ ATM กินเหรียญ' ที่ยิ่งแก่ยิ่งเปิดเยอะ"
+      ],
+      "sources": [
+        {"url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0042357", "org": "PLoS ONE", "source_tier": "A", "year": 2012, "title": "Massudi NAD decline 50%", "access_date": "2026-04-22"},
+        {"url": "https://www.science.org/doi/10.1126/science.abe9985", "org": "Science", "source_tier": "A", "year": 2021, "title": "Yoshino NMN prediabetic women", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAD_decline",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_004",
+      "label_th": "CD38 rising with age → NAD+ consumption → mitochondrial decline",
+      "label_en": "CD38 upregulation with age → NAD+ depletion → mitochondrial decline",
+      "description_th": "CD38 เป็น membrane-bound NADase ที่ immune cells + senescent cells หลั่งสูง; เมื่ออายุมากขึ้น inflammaging กระตุ้นให้ CD38 expression เพิ่ม → กิน NAD+ ในเนื้อเยื่อ → SIRT3 (mitochondrial sirtuin) hypo-active → mitochondrial dysfunction; Apigenin (พบใน parsley, chamomile) เป็น CD38 inhibitor ตามธรรมชาติ",
+      "description_en": "CD38 is a membrane-bound NADase highly expressed on immune + senescent cells; inflammaging with age upregulates CD38 → depletes tissue NAD+ → SIRT3 (mitochondrial sirtuin) becomes hypoactive → mitochondrial dysfunction; apigenin (parsley, chamomile) is a natural CD38 inhibitor.",
+      "chain": [
+        {"step": 1, "actor": "aging inflammation (SASP, cytokines)", "action": "induces", "target": "CD38 gene expression", "effect": "membrane CD38 abundance rises"},
+        {"step": 2, "actor": "CD38 enzyme", "action": "hydrolyzes", "target": "NAD+ → nicotinamide + ADPR (irreversible)", "effect": "NAD+ pool shrinks"},
+        {"step": 3, "actor": "low NAD+", "action": "limits", "target": "SIRT3 (mitochondrial deacetylase)", "effect": "mitochondrial proteins stay hyperacetylated"},
+        {"step": 4, "actor": "dysfunctional mitochondria", "action": "produce", "target": "excess ROS", "effect": "more DNA damage → PARP1 activation → further NAD drain"},
+        {"step": 5, "actor": "apigenin / CD38 inhibitor", "action": "blocks", "target": "CD38 activity", "effect": "NAD+ preserved — additive to NMN"}
+      ],
+      "analogies_th": [
+        "CD38 = ก๊อกน้ำรั่วที่เปิดเองเมื่อแก่ — แค่เติม NMN ไม่พอ ต้องปิดก๊อกด้วย"
+      ],
+      "sources": [
+        {"url": "https://www.cell.com/cell-metabolism/fulltext/S1550-4131(16)30142-0", "org": "Cell Metabolism", "source_tier": "A", "year": 2016, "title": "Camacho-Pereira CD38 NAD decline", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAD_decline",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_005",
+      "label_th": "mTOR activation → autophagy suppression → protein aggregation (pro-aging)",
+      "label_en": "mTOR activation → autophagy suppression → protein aggregation",
+      "description_th": "mTORC1 ถูกกระตุ้นโดย amino acids (leucine → Sestrin2/GATOR pathway), insulin/IGF-1, และพลังงานสูง → phosphorylate Atg13 + ULK1 → block autophagy initiation; mTORC1 สูงเรื้อรังทำให้โปรตีนเสียสะสม, mitochondria แก่ไม่ถูกรีไซเคิล; rapamycin และ caloric restriction ลด mTORC1 → ยืดอายุ (Harrison 2009)",
+      "description_en": "mTORC1 is activated by amino acids (leucine → Sestrin2/GATOR), insulin/IGF-1, and high energy → phosphorylates Atg13 + ULK1 → blocks autophagy initiation; chronically high mTORC1 allows damaged proteins and old mitochondria to accumulate; rapamycin and caloric restriction lower mTORC1 → extend lifespan (Harrison 2009).",
+      "chain": [
+        {"step": 1, "actor": "high protein intake (leucine) + insulin", "action": "activates", "target": "mTORC1 at lysosome", "effect": "anabolic signaling on"},
+        {"step": 2, "actor": "active mTORC1", "action": "phosphorylates", "target": "ULK1 + Atg13", "effect": "autophagy initiation blocked"},
+        {"step": 3, "actor": "suppressed autophagy", "action": "allows accumulation of", "target": "damaged proteins + old mitochondria", "effect": "proteostasis collapse"},
+        {"step": 4, "actor": "rapamycin (or CR)", "action": "inhibits", "target": "mTORC1 at FKBP12-rapamycin-mTOR complex", "effect": "autophagy re-enabled"},
+        {"step": 5, "actor": "restored autophagy", "action": "clears", "target": "aggregates + dysfunctional organelles", "effect": "cellular rejuvenation + lifespan extension in model organisms"}
+      ],
+      "analogies_th": [
+        "mTOR = สวิตช์ 'กิน/เติบโต' — เปิดตลอด = ไม่ล้างบ้าน; ปิดบ้าง = ได้เวลาทำความสะอาด",
+        "เหมือนโรงงานที่ทำงาน 24 ชม. — ไม่มีเวลาเปลี่ยนเครื่องเก่า"
+      ],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nature08221", "org": "Nature", "source_tier": "A", "year": 2009, "title": "Harrison rapamycin lifespan", "access_date": "2026-04-22"},
+        {"url": "https://www.nature.com/articles/s43587-022-00357-y", "org": "Nature Aging", "source_tier": "A", "year": 2023, "title": "Waziry CALERIE-2 DunedinPACE", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "mTOR_aging",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_006",
+      "label_th": "Rapamycin → mTORC1 selective inhibition → lifespan extension (Rx only)",
+      "label_en": "Rapamycin → mTORC1 selective inhibition → lifespan extension",
+      "description_th": "Rapamycin (sirolimus) จับ FKBP12 protein → คอมเพล็กซ์ FKBP12-rapamycin จับ FRB domain ของ mTOR → ยับยั้ง mTORC1 activity เฉพาะเจาะจง (ในขนาดต่ำ); ใน ITP study (Harrison 2009) ให้ตอนหนูแก่แล้วก็ยืดอายุได้; long-term และ high-dose อาจยับยั้ง mTORC2 → glucose intolerance + immunosuppression — ทำให้ rapamycin longevity dose ต้อง pulsed ไม่ใช่ continuous",
+      "description_en": "Rapamycin (sirolimus) binds FKBP12; the FKBP12-rapamycin complex binds the FRB domain of mTOR → selectively inhibits mTORC1 at low doses; in ITP (Harrison 2009), even late-life dosing extended lifespan; long-term high-dose inhibits mTORC2 too → glucose intolerance + immunosuppression, so longevity dosing must be pulsed rather than continuous.",
+      "chain": [
+        {"step": 1, "actor": "rapamycin (prescription drug)", "action": "binds", "target": "FKBP12 intracellular", "effect": "FKBP12-rapamycin complex forms"},
+        {"step": 2, "actor": "FKBP12-rapamycin", "action": "binds", "target": "FRB domain of mTOR", "effect": "mTORC1 kinase activity inhibited"},
+        {"step": 3, "actor": "low mTORC1", "action": "relieves", "target": "autophagy block + protein synthesis", "effect": "catabolic/cleanup programs on"},
+        {"step": 4, "actor": "downstream effects", "action": "improve", "target": "mitochondrial biogenesis + proteostasis + senescence clearance", "effect": "lifespan extended in mice (+9/+14%)"},
+        {"step": 5, "actor": "HIGH DOSE caveat", "action": "also inhibits", "target": "mTORC2 (regulates AKT)", "effect": "insulin resistance + immunosuppression → NOT longevity dose"}
+      ],
+      "analogies_th": [
+        "rapamycin = ปุ่ม 'restart' ทำความสะอาดเซลล์ — แต่ต้องมีแพทย์เป็นคนกด ไม่ใช่เราเอง"
+      ],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nature08221", "org": "Nature", "source_tier": "A", "year": 2009, "title": "Harrison rapamycin lifespan ITP", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "mTOR_aging",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_007",
+      "label_th": "Epigenetic drift → DNA methylation change → Horvath clock",
+      "label_en": "Epigenetic drift → DNA methylation change → Horvath clock",
+      "description_th": "ตามอายุ การกระจายตัวของ 5-methylcytosine (5mC) บน CpG sites เปลี่ยนแบบ stochastic (บางจุดเพิ่ม บางจุดลด) — Horvath 2013 ค้นพบว่า methylation ที่ 353 CpG sites ตามสูตร linear combination ทำนายอายุปฏิทินได้แม่นยำ; สาเหตุ epigenetic drift คือ DNA damage ซ้ำ → aberrant repair → wrong methylation; Sinclair 2023 เสนอว่า 'information theory of aging' — aging คือการสูญเสีย epigenetic information",
+      "description_en": "With age, the distribution of 5-methylcytosine (5mC) at CpG sites shifts stochastically (some sites gain, others lose methylation) — Horvath 2013 found that methylation at 353 CpG sites in a linear combination accurately predicts chronological age; root cause is repeated DNA damage → aberrant repair → wrong methylation; Sinclair 2023 proposes 'information theory of aging' — aging = loss of epigenetic information.",
+      "chain": [
+        {"step": 1, "actor": "DNA damage (DSBs, oxidation)", "action": "recruits", "target": "chromatin modifiers (including DNMT, TET)", "effect": "methylation redistribution during repair"},
+        {"step": 2, "actor": "each repair event", "action": "slightly reshuffles", "target": "local methylation pattern", "effect": "epigenetic 'drift'"},
+        {"step": 3, "actor": "accumulated drift", "action": "changes", "target": "353 CpG clock sites (Horvath) + cell identity genes", "effect": "biological age ticks up"},
+        {"step": 4, "actor": "OSK Yamanaka factors (experimental)", "action": "reset", "target": "methylation to youthful state", "effect": "epigenetic rejuvenation (Lu 2020, Yang 2023 — mice only)"},
+        {"step": 5, "actor": "lifestyle (CR, exercise, sleep)", "action": "slows", "target": "drift rate", "effect": "DunedinPACE biomarker slows 2-3% (CALERIE)"}
+      ],
+      "analogies_th": [
+        "เหมือนหนังสือที่ถูกถ่ายเอกสารซ้ำซ้อน — แต่ละครั้งตัวอักษรเลือนไปนิด; 50 ปีผ่านไปอ่านไม่ออก",
+        "CD ที่ขีดข่วน — เล่นได้บางเพลง"
+      ],
+      "sources": [
+        {"url": "https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-10-r115", "org": "Genome Biology", "source_tier": "A", "year": 2013, "title": "Horvath clock 353 CpG", "access_date": "2026-04-22"},
+        {"url": "https://www.nature.com/articles/s41586-020-2975-4", "org": "Nature", "source_tier": "A", "year": 2020, "title": "Lu Sinclair OSK reset vision in mice", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "epigenetic_clock",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_008",
+      "label_th": "Fisetin/D+Q senolytic → Bcl-2 inhibition → apoptosis of senescent cells",
+      "label_en": "Fisetin / D+Q senolytic → Bcl-2 family inhibition → senescent cell apoptosis",
+      "description_th": "เซลล์ senescent พึ่ง Bcl-2 / Bcl-xL / Bcl-w เพื่อ anti-apoptotic survival; flavonoids อย่าง fisetin และ quercetin ยับยั้ง Bcl family ได้แบบเลือก; dasatinib (Src/Ephrin inhibitor) ยับยั้ง anti-apoptotic kinase ใน fat-derived senescent cells; รวมกัน (D+Q) กระตุ้น apoptosis ในเซลล์ senescent โดยไม่รบกวนเซลล์ปกติ — Kirkland protocol",
+      "description_en": "Senescent cells rely on Bcl-2 / Bcl-xL / Bcl-w for anti-apoptotic survival; flavonoids like fisetin and quercetin selectively inhibit this family; dasatinib (Src/Ephrin inhibitor) blocks an anti-apoptotic kinase in adipose-derived senescent cells; the combination (D+Q) triggers apoptosis selectively in senescent cells without affecting healthy cells — Kirkland protocol.",
+      "chain": [
+        {"step": 1, "actor": "senescent cell", "action": "upregulates", "target": "Bcl-2 family + SCAPs (Senescent Cell Anti-apoptotic Pathways)", "effect": "apoptosis resistance"},
+        {"step": 2, "actor": "fisetin / quercetin", "action": "inhibits", "target": "Bcl-xL, Bcl-w", "effect": "releases Bax/Bak → mitochondrial permeabilization"},
+        {"step": 3, "actor": "dasatinib", "action": "inhibits", "target": "tyrosine kinase survival signaling (Src/Ephrin)", "effect": "senescent fat cells vulnerable"},
+        {"step": 4, "actor": "mitochondrial permeabilization", "action": "releases", "target": "cytochrome c", "effect": "caspase-9 → caspase-3 → apoptosis"},
+        {"step": 5, "actor": "net effect (Hickson 2019)", "action": "decreases", "target": "p16+ senescent cells in fat/skin biopsy", "effect": "improved physical function in IPF patients"}
+      ],
+      "analogies_th": [
+        "เหมือนคนป่วยที่เกาะเตียงไม่ยอมลุก — senolytic คือคนที่ช่วยดึงออก"
+      ],
+      "sources": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/S2352396418303736", "org": "EBioMedicine", "source_tier": "A", "year": 2018, "title": "Yousefzadeh fisetin senolytic", "access_date": "2026-04-22"},
+        {"url": "https://www.sciencedirect.com/science/article/pii/S2352396419305912", "org": "EBioMedicine", "source_tier": "A", "year": 2019, "title": "Hickson D+Q first-in-human", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "cellular_senescence",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_009",
+      "label_th": "Spermidine → EP300 inhibition → autophagy induction",
+      "label_en": "Spermidine → EP300 inhibition → autophagy induction",
+      "description_th": "Spermidine (polyamine) ยับยั้ง EP300 (acetyltransferase ที่ acetylate autophagy proteins เพื่อปิดมัน); เมื่อ EP300 ถูกยับยั้ง Atg proteins อยู่ในรูปที่ active ได้ → autophagy flux เพิ่ม; ใน Kiechl 2018 cohort 20 ปี กลุ่มบริโภค spermidine สูง (wheat germ, natto, aged cheese) มี mortality risk ต่ำกว่า equivalent ~5.7 ปี",
+      "description_en": "Spermidine (polyamine) inhibits EP300 (the acetyltransferase that acetylates autophagy proteins to shut them off); with EP300 blocked, Atg proteins remain in their active deacetylated state → autophagy flux increases; in Kiechl 2018 20-year cohort, high-spermidine consumers (wheat germ, natto, aged cheese) had mortality risk equivalent to being 5.7 years younger.",
+      "chain": [
+        {"step": 1, "actor": "dietary spermidine (wheat germ, natto)", "action": "absorbed through gut → cell", "target": "cytoplasm", "effect": "raises intracellular polyamine pool"},
+        {"step": 2, "actor": "spermidine", "action": "inhibits", "target": "EP300 acetyltransferase", "effect": "autophagy proteins stay deacetylated = active"},
+        {"step": 3, "actor": "active ATG complex", "action": "promotes", "target": "autophagosome formation + flux", "effect": "cellular cleanup accelerated"},
+        {"step": 4, "actor": "enhanced proteostasis", "action": "reduces", "target": "aggregates, damaged mitochondria", "effect": "anti-aging effects at cellular level"},
+        {"step": 5, "actor": "epidemiological outcome (Kiechl 2018)", "action": "correlates with", "target": "lower all-cause mortality", "effect": "~5.7 year equivalent age reduction"}
+      ],
+      "analogies_th": [
+        "spermidine = สัญญาณ 'ถึงเวลาล้างบ้าน' ในเซลล์ — เลียนแบบการอดอาหารโดยไม่ต้องอด"
+      ],
+      "sources": [
+        {"url": "https://academic.oup.com/ajcn/article/108/2/371/5049626", "org": "AJCN / Oxford Academic", "source_tier": "A", "year": 2018, "title": "Kiechl spermidine mortality", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "autophagy_aging",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_010",
+      "label_th": "Urolithin A → mitophagy induction → mitochondrial health",
+      "label_en": "Urolithin A → mitophagy induction → mitochondrial health",
+      "description_th": "Ellagitannins (ทับทิม, วอลนัท, ราสเบอร์รี) ถูกแปลงโดยแบคทีเรียในลำไส้เป็น urolithin A; เฉพาะ 30-40% ของคนผลิตได้เอง (gut microbiome-dependent); urolithin A กระตุ้น PINK1/Parkin mitophagy pathway → mitochondria เก่ าถูกกำจัดและแทนที่ด้วยใหม่ → ประสิทธิภาพพลังงานดีขึ้น; Andreux 2019 พิสูจน์ safety + molecular signature ดีขึ้นในคน",
+      "description_en": "Ellagitannins (pomegranate, walnuts, raspberry) are converted by gut bacteria into urolithin A; only 30-40% of people produce it endogenously (gut microbiome-dependent); urolithin A activates the PINK1/Parkin mitophagy pathway → old mitochondria are cleared and replaced → energy efficiency improves; Andreux 2019 confirmed safety + molecular signature improvement in humans.",
+      "chain": [
+        {"step": 1, "actor": "dietary ellagitannins", "action": "reach", "target": "gut (colon)", "effect": "substrate for bacterial conversion"},
+        {"step": 2, "actor": "gut microbiome (specific strains)", "action": "convert", "target": "ellagic acid → urolithin A", "effect": "absorbed to systemic circulation"},
+        {"step": 3, "actor": "urolithin A", "action": "activates", "target": "PINK1/Parkin signaling on damaged mitochondria", "effect": "mitochondria tagged for autophagy"},
+        {"step": 4, "actor": "mitophagy", "action": "removes", "target": "damaged mitochondria", "effect": "healthy mitochondrial biogenesis refills pool"},
+        {"step": 5, "actor": "Liu 2022 Cell Rep Med", "action": "measured", "target": "muscle endurance / 6MWT", "effect": "modest improvement in elderly (~12%)"}
+      ],
+      "analogies_th": [
+        "ไมโตฟาจี = เปลี่ยนเครื่องยนต์เก่าในรถ — urolithin A เป็นช่าง",
+        "แค่กินทับทิมไม่พอ ต้องมีแบคทีเรียที่ถูกต้อง — 60-70% ของคนไทยอาจไม่ผลิตเองได้"
+      ],
+      "sources": [
+        {"url": "https://www.nature.com/articles/s42255-019-0073-4", "org": "Nature Metabolism", "source_tier": "A", "year": 2019, "title": "Andreux urolithin A safety/mitophagy human", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "autophagy_aging",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_aging_011",
+      "label_th": "GlyNAC → glutathione replenishment → ลด oxidative stress + อาการแก่",
+      "label_en": "GlyNAC → glutathione replenishment → reduced oxidative stress",
+      "description_th": "Glutathione (GSH) สังเคราะห์จาก glutamate + cysteine + glycine; ในผู้สูงอายุ cysteine และ glycine เป็น rate-limiting (Sekhar 2011); GlyNAC (glycine + NAC = N-acetylcysteine) ให้ทั้ง 2 precursor → GSH กลับมาใกล้ปกติ → ลด ROS, ลด inflammation, improve mitochondrial function, improve insulin sensitivity + cognition (Kumar 2022)",
+      "description_en": "Glutathione (GSH) is synthesized from glutamate + cysteine + glycine; in older adults, cysteine and glycine become rate-limiting (Sekhar 2011); GlyNAC (glycine + NAC = N-acetylcysteine) supplies both precursors → GSH restored near youth levels → reduced ROS, reduced inflammation, improved mitochondrial function, improved insulin sensitivity + cognition (Kumar 2022).",
+      "chain": [
+        {"step": 1, "actor": "older adult", "action": "has deficient", "target": "glycine + cysteine availability", "effect": "glutathione synthesis rate-limited"},
+        {"step": 2, "actor": "oral GlyNAC", "action": "delivers", "target": "glycine + NAC (cysteine donor)", "effect": "substrates saturate GSH synthetase"},
+        {"step": 3, "actor": "γ-GCL + GSH synthetase", "action": "produce", "target": "GSH", "effect": "intracellular antioxidant capacity restored"},
+        {"step": 4, "actor": "restored GSH", "action": "neutralizes", "target": "ROS + peroxides in mitochondria", "effect": "mitochondrial function improved"},
+        {"step": 5, "actor": "systemic improvement (Kumar 2022)", "action": "manifests as", "target": "insulin sensitivity, grip strength, cognition, gait speed, inflammation markers", "effect": "multiple hallmarks improved in 16 wk"}
+      ],
+      "analogies_th": [
+        "GlyNAC = เติมวัตถุดิบขาดให้โรงงานต้านอนุมูลอิสระกลับมาเดินเครื่อง",
+        "glutathione = 'master antioxidant' — อย่างอื่นทำงานได้เพราะมีมัน"
+      ],
+      "sources": [
+        {"url": "https://academic.oup.com/biomedgerontology/article/78/1/75/6569016", "org": "J Gerontol Ser A", "source_tier": "A", "year": 2022, "title": "Kumar GlyNAC RCT older adults", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAD_decline",
+      "confidence": "high"
+    }
+  ]
+}

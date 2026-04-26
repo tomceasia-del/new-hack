@@ -1,0 +1,91 @@
+{
+  "domain_id": "blood",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "notes": "Blood domain hook templates — emphasizing NO decline, beetroot BP, ApoB insight, iron dysregulation. User flagged 'สายขู่ยอดวิวถล่มทลาย' priority around NO + leafy greens + sexual vitality."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_blood_001_NO_decline_shock",
+      "style": "shock",
+      "pattern_th": "มีสารหนึ่งในเลือดที่ทำให้คุณแก่เร็ว — มันลดลง __X__% เมื่อคุณอายุ __Y__ ปี",
+      "example_th": "มีสารหนึ่งในเลือดที่ทำให้คุณแก่เร็ว — Nitric Oxide — มันลดลงกว่า 50% เมื่อคุณอายุ 40 และเหลือเพียง ~15% เมื่อ 70 ปี ผู้ชายที่ 'รู้สึกแก่' ส่วนใหญ่ไม่ใช่เทสโทสเตอโรนตก แต่เป็น NO ตก",
+      "facts_used": ["blood_001", "blood_007"],
+      "effectiveness_notes": "สายขู่ยอดวิวถล่มทลาย — user ระบุเป็น priority hook. ใช้ตัวเลข 50%/85% แบบ conservative อ้าง Torregrossa 2011 / Egashira 1993 — ห้ามกล่าวรักษา ED"
+    },
+    {
+      "template_id": "hook_blood_002_beetroot_BP_number",
+      "style": "shock",
+      "pattern_th": "กิน __X__ เพียง __Y__ มล. ทำให้ความดันลด __Z__ mmHg ใน __T__ ชั่วโมง — เท่ายาความดันขนาดเล็ก",
+      "example_th": "กินน้ำบีทรูทเพียง 500 มล. ทำให้ความดันลดสูงสุด 10.4 mmHg ใน 2.5 ชั่วโมง — เท่ายาความดันขนาดเล็ก (Webb et al. 2008, Hypertension/BMJ) แต่อย่าเพิ่งหยุดยาของคุณ — อันนี้คือ 'ผลเพิ่ม' ไม่ใช่ 'ผลแทน'",
+      "facts_used": ["blood_002"],
+      "effectiveness_notes": "Number-shock + immediate responsible disclaimer. Must pair with validator — 'อย่าหยุดยา' must appear in same hook"
+    },
+    {
+      "template_id": "hook_blood_003_leafy_green_sexual_reframe",
+      "style": "curiosity",
+      "pattern_th": "ผักใบเขียวที่แม่คุณบังคับให้กิน = ตัวเดียวกันที่หมอโรคหัวใจแนะนำผู้ชาย 50+ — เพราะมันทำสิ่งเดียวกับ __X__",
+      "example_th": "ผักใบเขียวที่แม่คุณบังคับให้กิน — ผักโขม, ผักคะน้า, อรูกูลา — = ตัวเดียวกันที่หมอโรคหัวใจแนะนำผู้ชาย 50+ เพราะมันมี dietary nitrate สูงที่เปลี่ยนเป็น Nitric Oxide ในร่างกาย — ตัวเดียวกับที่ไวอากร้าออกฤทธิ์ปลายทาง",
+      "facts_used": ["blood_004"],
+      "effectiveness_notes": "User's gold angle — 'กินผักใบเขียวเพื่อเพิ่มพลังทางเพศและความดัน'. ต้องไม่บอก 'แทนไวอากร้า'; frame 'ช่วยระบบเดียวกัน' เท่านั้น"
+    },
+    {
+      "template_id": "hook_blood_004_DASH_diet_trial",
+      "style": "awe",
+      "pattern_th": "งานวิจัย __X__ ปี __Y__ แสดงว่าแค่ปรับ __Z__ ลดความดัน __W__ mmHg — เท่ายา",
+      "example_th": "งานวิจัย DASH ปี 1997 ตีพิมพ์ใน NEJM แสดงว่าแค่ปรับอาหาร (ผักผลไม้เยอะ + low-fat dairy + ลดโซเดียม) ลดความดันซิสโตลิก 11.4 mmHg ในผู้ป่วยความดันสูง — เท่ายาความดัน first-line เลย",
+      "facts_used": ["blood_003"],
+      "effectiveness_notes": "Awe-based landmark trial hook. High trust — NEJM + 20+ years of replication. ใช้ปูพื้น credibility ก่อนเข้า product angle"
+    },
+    {
+      "template_id": "hook_blood_005_ApoB_better_than_LDL",
+      "style": "insult_reality",
+      "pattern_th": "คุณตรวจ __X__ ทุกปี แต่มัน 'พลาด' __Y__ คน — ถามหมอตรวจ __Z__",
+      "example_th": "คุณตรวจ LDL-C ทุกปี แต่มัน 'พลาด' 1 ใน 5 คน เพราะ LDL-C วัดน้ำหนัก ไม่ใช่จำนวนอนุภาค — ถามหมอตรวจ ApoB (Sniderman 2019 JAMA Cardiol: ApoB = predictor ที่ดีกว่าในกรณี discordant)",
+      "facts_used": ["blood_010", "blood_015"],
+      "effectiveness_notes": "Insider-knowledge hook. Empowers viewer to ask doctor for a specific test — action > fear"
+    },
+    {
+      "template_id": "hook_blood_006_iron_overload_men",
+      "style": "shock",
+      "pattern_th": "ผู้ชายอายุ __X__ ที่กินวิตามินรวมมีเหล็กทุกวัน กำลังทำสิ่งที่ __Y__",
+      "example_th": "ผู้ชายอายุ 45 ที่กินวิตามินรวมมีเหล็กทุกวัน กำลังทำสิ่งที่หมอไม่แนะนำ — ผู้ชายแก่ไม่มีทางระบายเหล็กออก (ไม่มีประจำเดือน) + ~1 ใน 200 เป็น hemochromatosis carrier — ตรวจ ferritin ก่อนกินเหล็กเสริม",
+      "facts_used": ["blood_012", "blood_013"],
+      "effectiveness_notes": "Shock + actionable test recommendation. ห้าม frame 'เหล็กอันตราย' — frame 'ตรวจก่อน'"
+    },
+    {
+      "template_id": "hook_blood_007_oral_bacteria_NO",
+      "style": "awe",
+      "pattern_th": "บัคทีเรียบนลิ้นคุณคือ __X__ — __Y__",
+      "example_th": "บัคทีเรียบนลิ้นคุณคือ 'โรงงานผลิต Nitric Oxide' — มันเปลี่ยน nitrate จากผักใบเขียวให้เป็น NO ที่ขยายหลอดเลือด แต่ถ้าคุณใช้ antibacterial mouthwash ทุกวัน คุณกำลังปิดโรงงานนี้ (Govoni 2008: mouthwash ทำให้ BP-lowering effect ของ nitrate หายไป)",
+      "facts_used": ["blood_009"],
+      "effectiveness_notes": "Novel mechanism — most viewers never heard. High curiosity + actionable (เลิก mouthwash หลังกินผัก)"
+    },
+    {
+      "template_id": "hook_blood_008_nobel_authority",
+      "style": "awe",
+      "pattern_th": "ปี __X__ นักวิทยาศาสตร์ได้ Nobel จากการค้นพบว่า __Y__",
+      "example_th": "ปี 1998 Louis Ignarro ได้รางวัล Nobel จากการค้นพบว่า 'ก๊าซ' ชนิดหนึ่งที่ผนังหลอดเลือดผลิตเอง ทำให้หลอดเลือดคลายตัว — Nitric Oxide — และมันคือตัวที่ไวอากร้าขยายเพิ่มปลายทาง",
+      "facts_used": ["blood_007"],
+      "effectiveness_notes": "Nobel authority hook. Instant credibility transfer. ห้ามใช้คู่กับ product ขาย ED"
+    },
+    {
+      "template_id": "hook_blood_009_homocysteine_hidden",
+      "style": "curiosity",
+      "pattern_th": "มีค่าเลือดหนึ่งที่ __X__% ไม่เคยตรวจ — แต่มันบอก __Y__",
+      "example_th": "มีค่าเลือดหนึ่งที่ 90% ของคนไทยไม่เคยตรวจ — Homocysteine — มันบอกว่าเซลล์ของคุณ 'methylate' DNA และ neurotransmitter ได้ดีแค่ไหน; สูง > 15 µmol/L เชื่อมโยงกับ CV risk (Boushey 1995 JAMA)",
+      "facts_used": ["blood_019", "blood_020"],
+      "effectiveness_notes": "Curiosity gap hook เชิง lab marker. ระวังไม่อ้าง 'ลด homocysteine = ป้องกันหัวใจ' (HOPE-2 ไม่ยืนยัน)"
+    },
+    {
+      "template_id": "hook_blood_010_endothelium_biggest_organ",
+      "style": "awe",
+      "pattern_th": "อวัยวะที่ใหญ่ที่สุดในร่างกายคุณไม่ใช่ผิวหนัง — คือ __X__",
+      "example_th": "อวัยวะที่ใหญ่ที่สุดในร่างกายคุณไม่ใช่ผิวหนัง — คือ Endothelium (ชั้นเซลล์บุผนังหลอดเลือด) น้ำหนัก ~1.5 กก. พื้นที่ ~6,000 ตร.ม. (Flammer 2012) — และเป็น 'อวัยวะแรก' ที่เสื่อมก่อนโรคหัวใจ",
+      "facts_used": ["blood_025"],
+      "effectiveness_notes": "Awe + novelty hook. ปูพื้น 'endothelial dysfunction = earliest CV marker' สำหรับ angle NO / flavanol / beetroot"
+    }
+  ]
+}

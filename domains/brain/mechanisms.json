@@ -1,0 +1,194 @@
+{
+  "domain_id": "brain",
+  "_meta": {"current_count": 11, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.brain"},
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_brn_001",
+      "label_th": "Neuroinflammation → Cognitive Decline → Dementia",
+      "label_en": "Chronic Neuroinflammation Pathway to Cognitive Impairment",
+      "description_th": "ปัจจัย systemic (ความดัน, เบาหวาน, อ้วน, ควันบุหรี่) กระตุ้น microglia ใน CNS → inflammasome NLRP3 → IL-1β, TNF-α, IL-6 เรื้อรัง → BBB damage → amyloid clearance ลด → neuronal apoptosis; neuroinflammation เป็น upstream driver ของ Alzheimer pathology (Heneka 2015)",
+      "description_en": "Systemic risk factors activate microglia → NLRP3 inflammasome → chronic IL-1β, TNF-α, IL-6 → BBB damage → impaired amyloid clearance → neuronal death; neuroinflammation is an upstream driver of Alzheimer pathology.",
+      "chain": [
+        {"step": 1, "actor": "Systemic inflammation (HTN, diabetes, obesity)", "action": "activates", "target": "CNS microglia", "effect": "microglial M1 activation"},
+        {"step": 2, "actor": "NLRP3 inflammasome", "action": "releases", "target": "IL-1β, TNF-α, IL-6", "effect": "chronic CNS inflammation"},
+        {"step": 3, "actor": "Neuroinflammation", "action": "damages", "target": "blood-brain barrier tight junctions", "effect": "peripheral toxins and pathogens enter CNS"},
+        {"step": 4, "actor": "Impaired glymphatic system + BBB damage", "action": "reduces", "target": "amyloid-beta and tau clearance", "effect": "plaque accumulation"},
+        {"step": 5, "actor": "Amyloid plaques + tau tangles", "action": "trigger", "target": "synaptic loss and neuronal apoptosis", "effect": "cognitive decline → dementia"}
+      ],
+      "analogies_th": ["สมองที่อักเสบ = ไฟวิ่งใต้พื้น เงียบแต่ทำลายโครงสร้าง", "microglia ที่เหนื่อยล้า = ทหารที่โจมตีบ้านตัวเอง"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/25732161/", "org": "Nature / PubMed", "source_tier": "A", "year": 2015, "title": "Neuroinflammation in Alzheimer's disease — Heneka MT et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "neuroinflammation",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_brn_002",
+      "label_th": "Exercise → BDNF → Neurogenesis + Synaptic Plasticity",
+      "label_en": "Aerobic Exercise Induces BDNF-mediated Hippocampal Neurogenesis",
+      "description_th": "การออกกำลังกาย aerobic เพิ่ม sympathetic output → catecholamines กระตุ้น β₂-adrenergic receptor บน astrocytes → ปล่อย BDNF (Brain-Derived Neurotrophic Factor); BDNF จับ TrkB receptor → Ras/MAPK pathway → CREB phosphorylation → neurotrophin gene expression → neurogenesis ใน dentate gyrus ของ hippocampus, LTP (Long-Term Potentiation), synaptic protein synthesis",
+      "description_en": "Aerobic exercise → sympathetic catecholamines → β₂-adrenergic receptor on astrocytes → BDNF release → TrkB → Ras/MAPK → CREB → neurotrophin gene expression → dentate gyrus neurogenesis, LTP enhancement, synaptic plasticity.",
+      "chain": [
+        {"step": 1, "actor": "Aerobic exercise (moderate-vigorous)", "action": "elevates", "target": "catecholamines (adrenaline, noradrenaline)", "effect": "β₂-adrenergic stimulation in CNS"},
+        {"step": 2, "actor": "β₂-adrenergic on astrocytes", "action": "triggers", "target": "BDNF synthesis and secretion", "effect": "BDNF rises in hippocampus, cortex, serum"},
+        {"step": 3, "actor": "BDNF", "action": "activates", "target": "TrkB (tyrosine kinase receptor)", "effect": "downstream PI3K/Akt, Ras/MAPK pathways"},
+        {"step": 4, "actor": "CREB transcription factor (phosphorylated)", "action": "upregulates", "target": "neurotrophin gene expression", "effect": "new neuron survival in dentate gyrus"},
+        {"step": 5, "actor": "BDNF", "action": "enhances", "target": "NMDA-dependent LTP at synapses", "effect": "improved memory encoding and recall"}
+      ],
+      "analogies_th": ["BDNF = ปุ๋ยสมอง ที่งอกขึ้นได้ทุกครั้งที่ออกกำลังกาย", "ออกกำลังกาย = สั่งซื้อ brain cells ใหม่"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/12086747/", "org": "Trends Neurosci / PubMed", "source_tier": "A", "year": 2002, "title": "Exercise: a behavioral intervention to enhance brain health — Cotman CW, Berchtold NC", "access_date": "2026-04-22"}],
+      "sub_topic_id": "BDNF",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_brn_003",
+      "label_th": "DHA → Synaptosome Membrane → Neurotransmission",
+      "label_en": "Dietary DHA Incorporation into Neuronal Membranes and Synaptic Function",
+      "description_th": "DHA (docosahexaenoic acid) ถูก esterify เข้าใน phospholipid bilayer ของ synaptosome membrane → เพิ่ม membrane fluidity → ปรับปรุง GPCR coupling, ion channel function, receptor density; DHA ลด arachidonic acid-derived pro-inflammatory eicosanoids → ลด neuroinflammation; เป็น precursor ของ neuroprotectin D1 ที่ปกป้อง neuron",
+      "description_en": "DHA is esterified into synaptosomal phospholipid bilayer → increases membrane fluidity → improves GPCR coupling, ion channel function, receptor density; DHA reduces arachidonic acid-derived pro-inflammatory eicosanoids → reduces neuroinflammation; precursor to neuroprotectin D1.",
+      "chain": [
+        {"step": 1, "actor": "Dietary DHA (from fish, algae)", "action": "crosses BBB via MFSD2A transporter", "target": "neuronal phospholipid pools", "effect": "incorporates into synaptosomal membranes"},
+        {"step": 2, "actor": "DHA in membrane", "action": "increases", "target": "phospholipid bilayer fluidity", "effect": "better receptor-ligand coupling, improved ion channel function"},
+        {"step": 3, "actor": "DHA", "action": "competitively reduces", "target": "arachidonic acid (AA) eicosanoid production", "effect": "lower brain pro-inflammatory prostaglandins"},
+        {"step": 4, "actor": "DHA → Neuroprotectin D1", "action": "inhibits", "target": "apoptosis pathways in neurons", "effect": "neuroprotection under oxidative/ischemic stress"}
+      ],
+      "analogies_th": ["DHA = น้ำมันหล่อลื่นของ synapse — ขาดแล้ว signal ไม่ลื่น", "เซลล์สมองสร้างจากไขมัน DHA เหมือนอิฐสร้างบ้าน"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/17290160/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 2007, "title": "DHA is more effective than other n-3 fatty acids in preventing ApoE-related Alzheimer — Cole GM et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "blood_brain_barrier",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_brn_004",
+      "label_th": "Lion's Mane → NGF → Neurite Outgrowth",
+      "label_en": "Hericium erinaceus (Lion's Mane) Stimulates NGF and Neurite Outgrowth",
+      "description_th": "Lion's Mane มี hericenones (จาก fruiting body) และ erinacines (จาก mycelium) → กระตุ้น Nerve Growth Factor (NGF) synthesis ใน cultured astrocytes และ neurons; NGF จับ TrkA receptor → สนับสนุน neuronal survival, axon/dendrite growth; ใน RCT — cognitive improvement via MMSE/HDS-R ใน MCI",
+      "description_en": "Lion's Mane contains hericenones (fruiting body) and erinacines (mycelium) → stimulate NGF synthesis in astrocytes and neurons; NGF binds TrkA → supports neuronal survival and neurite outgrowth; clinical improvement in MCI RCTs via MMSE/HDS-R.",
+      "chain": [
+        {"step": 1, "actor": "Hericenones/erinacines (bioactives)", "action": "cross BBB and stimulate", "target": "NGF synthesis in astrocytes", "effect": "NGF levels elevated locally"},
+        {"step": 2, "actor": "NGF", "action": "activates", "target": "TrkA receptor on neurons", "effect": "PI3K/Akt, MAPK signaling → neuron survival"},
+        {"step": 3, "actor": "TrkA signaling", "action": "promotes", "target": "neurite outgrowth (axon + dendrite)", "effect": "new synaptic connections formed"},
+        {"step": 4, "actor": "Cholinergic neuron support via NGF", "action": "maintains", "target": "acetylcholine production in basal forebrain", "effect": "memory and cognitive function preserved"}
+      ],
+      "analogies_th": ["Lion's Mane สั่ง NGF ให้สมองสร้างกิ่งก้านประสาทใหม่ เหมือนต้นไม้ที่แตกกิ่ง"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/18844328/", "org": "Phytother Res / PubMed", "source_tier": "A", "year": 2009, "title": "Improving effects of Hericium erinaceus on mild cognitive impairment — Mori K et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "neurogenesis",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_brn_005",
+      "label_th": "Bacopa → Dendritic Branching → Memory Consolidation",
+      "label_en": "Bacopa monnieri Promotes Dendritic Branching and Cholinergic Function",
+      "description_th": "Bacopa monnieri มี bacosides A และ B → เพิ่ม kinase activity ใน hippocampus → dendritic branching ใน CA3 region → improved synaptic density; ยับยั้ง acetylcholinesterase (AChE) เล็กน้อย → เพิ่ม acetylcholine availability; ลด anxiety ผ่าน GABAergic pathway → ทำให้ encoding ดีขึ้น",
+      "description_en": "Bacopa monnieri bacosides A and B → increase kinase activity in hippocampus → dendritic branching in CA3 → improved synaptic density; mild AChE inhibition → more acetylcholine; reduces anxiety via GABAergic pathway → better memory encoding.",
+      "chain": [
+        {"step": 1, "actor": "Bacosides A+B", "action": "enhance", "target": "protein kinase activity in hippocampal CA3", "effect": "dendritic arborization increased"},
+        {"step": 2, "actor": "Bacosides", "action": "mildly inhibit", "target": "acetylcholinesterase (AChE)", "effect": "synaptic acetylcholine elevated"},
+        {"step": 3, "actor": "Acetylcholine at muscarinic receptors", "action": "enhances", "target": "encoding phase of memory (LTP)", "effect": "better learning and recall"},
+        {"step": 4, "actor": "Bacopa GABAergic effect", "action": "reduces", "target": "anxiety-related interference", "effect": "cleaner memory consolidation without cognitive noise"}
+      ],
+      "analogies_th": ["Bacopa เพิ่มกิ่งก้านสมองเหมือนต้นไม้ฉีดปุ๋ย", "ยับยั้ง AChE = เพิ่ม signal จำ"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/11498727/", "org": "Psychopharmacology / PubMed", "source_tier": "A", "year": 2001, "title": "Chronic effects of Bacopa monniera on cognitive function in healthy humans — Stough C et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "acetylcholine",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_brn_006",
+      "label_th": "Phosphatidylserine → Neurotransmitter Release + Cortisol Reduction",
+      "label_en": "Phosphatidylserine Enhances Neurotransmitter Release and Reduces HPA Reactivity",
+      "description_th": "Phosphatidylserine (PS) เป็น phospholipid หลักใน cytosolic leaflet ของ neuronal membrane → รักษา membrane integrity → vesicle exocytosis ของ neurotransmitters (dopamine, acetylcholine, noradrenaline) ดีขึ้น; PS 400mg/วัน ลด ACTH และ cortisol response ต่อ physical stress ได้ 30-35% → ลด HPA overactivation ระหว่าง cognitive demand",
+      "description_en": "Phosphatidylserine (PS) is a key phospholipid in the cytosolic leaflet of neuronal membranes → maintains membrane integrity → improves neurotransmitter vesicle exocytosis (dopamine, acetylcholine, noradrenaline); PS 400 mg/day reduces ACTH and cortisol response to physical stress by 30-35% → blunts HPA overactivation during cognitive load.",
+      "chain": [
+        {"step": 1, "actor": "Dietary PS incorporated into neuronal membranes", "action": "maintains", "target": "phospholipid bilayer composition (cytosolic leaflet)", "effect": "membrane fluidity and integrity preserved"},
+        {"step": 2, "actor": "PS in synaptic vesicle membrane", "action": "supports", "target": "Ca²⁺-triggered exocytosis of neurotransmitter vesicles", "effect": "dopamine, Ach, NE release improved"},
+        {"step": 3, "actor": "PS (400 mg/day)", "action": "reduces", "target": "ACTH and cortisol response to exercise/cognitive stress", "effect": "HPA axis blunted — less cognitive interference from cortisol"}
+      ],
+      "analogies_th": ["PS คือ 'ฝาปิด' ของ vesicle ที่ทำให้สาร neurotransmitter หลั่งออกได้เต็มที่"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/1609044/", "org": "Psychopharmacol Bull / PubMed", "source_tier": "A", "year": 1992, "title": "Effects of phosphatidylserine in Alzheimer's disease — Crook T et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "acetylcholine",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_brn_007",
+      "label_th": "Alpha-GPC → Acetylcholine Synthesis → Focus + Memory",
+      "label_en": "Alpha-GPC as Highly Bioavailable Choline Donor for Brain Acetylcholine",
+      "description_th": "Alpha-glycerophosphocholine (Alpha-GPC) เป็น choline ที่ผ่าน BBB ได้ดี → เข้า astrocyte + neuron → choline acetyltransferase (ChAT) สร้าง acetylcholine (ACh) → ACh หลั่งที่ cholinergic synapse → M1/M2 receptors → ความจำ, ความสนใจ, motor control; GH-releasing effect ผ่าน hypothalamic GHRH",
+      "description_en": "Alpha-GPC crosses the BBB efficiently → astrocyte/neuron choline → ChAT synthesizes acetylcholine → cholinergic synapse activation → M1/M2 muscarinic receptors → memory, attention, motor control; hypothalamic GHRH stimulation explains GH effect.",
+      "chain": [
+        {"step": 1, "actor": "Alpha-GPC (orally absorbed)", "action": "crosses BBB via choline transporter", "target": "astrocytes and cholinergic neurons", "effect": "intracellular choline pool elevated"},
+        {"step": 2, "actor": "Choline acetyltransferase (ChAT)", "action": "synthesizes", "target": "acetylcholine (from choline + acetyl-CoA)", "effect": "presynaptic ACh stores increased"},
+        {"step": 3, "actor": "ACh released at synapse", "action": "activates", "target": "M1 muscarinic receptors (hippocampus, cortex)", "effect": "LTP enhanced, memory encoding improved"},
+        {"step": 4, "actor": "Alpha-GPC", "action": "stimulates via hypothalamic", "target": "GHRH neurons", "effect": "GH pulse amplified — anabolic/cognitive cross-benefit"}
+      ],
+      "analogies_th": ["Alpha-GPC = วัตถุดิบพรีเมี่ยมที่สมองสร้าง acetylcholine ได้ดีกว่า choline ทั่วไป"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/18630248/", "org": "JISSN / PubMed", "source_tier": "B", "year": 2008, "title": "Effects of alpha-GPC on mood, cognitive function, power and agility — Ziegenfuss TN et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "acetylcholine",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_brn_008",
+      "label_th": "L-Tyrosine → Dopamine/Noradrenaline Precursor Loading under Stress",
+      "label_en": "L-Tyrosine as Catecholamine Precursor under Cognitive Demand",
+      "description_th": "ภายใต้ stress: dopamine และ noradrenaline ถูกใช้งานเพิ่มขึ้น → pre-synaptic pool ลดลง; L-Tyrosine (จากอาหารหรือ supplement) → ถูก tyrosine hydroxylase (TH) เปลี่ยนเป็น L-DOPA → DOPA decarboxylase → dopamine → dopamine β-hydroxylase → noradrenaline; การ load tyrosine ก่อน/ระหว่าง stress เติมเต็ม depleted pool → ลดการ decline",
+      "description_en": "Under stress, dopamine and noradrenaline pools deplete faster; L-Tyrosine → tyrosine hydroxylase (TH) → L-DOPA → DOPA decarboxylase → dopamine → dopamine β-hydroxylase → noradrenaline; tyrosine loading replenishes depleted catecholamine pools during acute stress → attenuates performance decline.",
+      "chain": [
+        {"step": 1, "actor": "Acute stress (cold, sleep deprivation, high workload)", "action": "depletes", "target": "pre-synaptic dopamine/noradrenaline pools", "effect": "catecholamine shortage → cognitive decline"},
+        {"step": 2, "actor": "L-Tyrosine (supplement)", "action": "provides substrate for", "target": "tyrosine hydroxylase (TH — rate-limiting step)", "effect": "DOPA production restored"},
+        {"step": 3, "actor": "L-DOPA", "action": "converted to", "target": "dopamine in dopaminergic neurons", "effect": "prefrontal dopamine restored → focus, working memory"},
+        {"step": 4, "actor": "Dopamine", "action": "converted to", "target": "noradrenaline via dopamine-β-hydroxylase", "effect": "arousal and attention under stress maintained"}
+      ],
+      "analogies_th": ["L-Tyrosine = คลังสำรอง fuel สำหรับสมองที่ทำงานหนักใต้ความเครียด"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/7507787/", "org": "Military Medicine / PubMed", "source_tier": "B", "year": 1994, "title": "Tyrosine as stress-responsive amino acid — Deijen JB, Orlebeke JF", "access_date": "2026-04-22"}],
+      "sub_topic_id": "dopamine",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_brn_009",
+      "label_th": "Dopamine Reward Circuit — Anticipation vs Consummation",
+      "label_en": "Dopamine as Reward Anticipation Signal and Baseline Regulation",
+      "description_th": "Dopamine จาก VTA (ventral tegmental area) → nucleus accumbens: ออกฤทธิ์สูงสุดใน 'anticipation' (คาดว่าจะได้รางวัล) ไม่ใช่ตอนได้รางวัล; social media notifications → dopamine spike → refractory period → baseline ลดลง (opponent process); chronic low baseline dopamine → anhedonia, difficulty focusing, procrastination; recovery ผ่าน 24-48h dopamine fast",
+      "description_en": "Dopamine (VTA→nucleus accumbens) peaks in reward anticipation, not consummation; frequent social media notifications → repeated dopamine spikes → opponent-process rebound → lowered baseline → anhedonia and poor focus; 24-48h 'dopamine fast' allows baseline recovery.",
+      "chain": [
+        {"step": 1, "actor": "Social media notification/variable reward", "action": "triggers", "target": "VTA dopamine release to nucleus accumbens", "effect": "pleasure anticipation spike"},
+        {"step": 2, "actor": "Opponent process (habituation)", "action": "causes", "target": "post-spike dopamine trough", "effect": "lower baseline dopamine after each spike"},
+        {"step": 3, "actor": "Chronically low dopamine baseline", "action": "reduces", "target": "motivation circuits (PFC)", "effect": "anhedonia, difficulty starting tasks, procrastination"},
+        {"step": 4, "actor": "Dopamine fast (24-48h)", "action": "allows", "target": "receptor sensitivity recovery", "effect": "ordinary rewards become motivating again"}
+      ],
+      "analogies_th": ["dopamine spike จาก TikTok = กินน้ำหวานมาก → ปาก 'ชิน' กับรสธรรมดา", "baseline dopamine ต่ำ = กล้ามเนื้อ motivation ลีบ"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/12162471/", "org": "Neuron / PubMed", "source_tier": "A", "year": 2002, "title": "Prediction of reward and the activity of dopamine neurons — Schultz W", "access_date": "2026-04-22"}],
+      "sub_topic_id": "dopamine",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_brn_010",
+      "label_th": "Glymphatic System — Brain Waste Clearance during Sleep",
+      "label_en": "Glymphatic Pathway: Brain Cleans Amyloid and Tau During Sleep",
+      "description_th": "ช่วงนอนหลับ (โดยเฉพาะ NREM/SWS): neuron cells shrink 60% → interstitial space เพิ่มขึ้น → CSF ไหลผ่าน perivascular space (AQP4 channels บน astrocyte endfeet) → ล้าง amyloid-beta, tau, metabolic waste → ออกทาง meningeal lymphatics; อดนอน = glymphatic flow ลด → amyloid สะสม; Xie et al. 2013: amyloid-beta clearance เพิ่ม ~60% ระหว่างนอน",
+      "description_en": "During NREM sleep: neurons shrink 60% → enlarged interstitial space → CSF flows via perivascular channels (AQP4 on astrocyte endfeet) → clears amyloid-beta, tau and metabolic waste → drains to meningeal lymphatics; sleep deprivation reduces glymphatic flow; Xie et al. 2013: amyloid-beta clearance increases ~60% during sleep.",
+      "chain": [
+        {"step": 1, "actor": "NREM/SWS sleep onset", "action": "shrinks neurons ~60%", "target": "brain interstitial space", "effect": "gap between cells doubles → CSF can flow"},
+        {"step": 2, "actor": "CSF via AQP4 channels", "action": "circulates through", "target": "perivascular spaces around arteries/veins", "effect": "amyloid-beta, tau washed out of parenchyma"},
+        {"step": 3, "actor": "Waste products", "action": "drain to", "target": "meningeal lymphatics → blood", "effect": "daily brain 'detox' completed"},
+        {"step": 4, "actor": "Sleep deprivation", "action": "blocks", "target": "glymphatic flow", "effect": "amyloid accumulates → Alzheimer risk increases over decades"}
+      ],
+      "analogies_th": ["สมองมีระบบ 'ชักโครก' เปิดตอนนอนล้าง amyloid", "อดนอน = ไม่ได้ชักโครกสมองทุกคืน"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/24136970/", "org": "Science / PubMed", "source_tier": "A", "year": 2013, "title": "Sleep drives metabolite clearance from the adult brain — Xie L et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "alzheimer_amyloid",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_brn_011",
+      "label_th": "Ketone Bodies (BHB) เป็น Alternative Fuel สำหรับ Neuron",
+      "label_en": "Beta-Hydroxybutyrate (BHB) as Efficient Neuronal Fuel During Fasting/Ketosis",
+      "description_th": "ในภาวะ fasting หรือ low-carb diet: ตับสร้าง BHB (beta-hydroxybutyrate) จาก fatty acids → BHB ผ่าน MCT1 transporter ที่ BBB → เข้า TCA cycle ใน mitochondria → ผลิต ATP มากกว่า glucose ต่อ oxygen ใช้ ~23%; BHB ยับยั้ง NLRP3 inflammasome → ลด neuroinflammation; ป้องกัน glutamate excitotoxicity",
+      "description_en": "During fasting/ketosis: liver produces BHB from fatty acids → BHB crosses BBB via MCT1 → enters TCA cycle in neuron mitochondria → 23% more ATP per O₂ than glucose; BHB inhibits NLRP3 inflammasome → reduces neuroinflammation; protects against glutamate excitotoxicity.",
+      "chain": [
+        {"step": 1, "actor": "Fasting/carb restriction", "action": "induces", "target": "hepatic ketogenesis (acetyl-CoA → BHB, acetoacetate)", "effect": "blood BHB rises to 0.5-5 mM"},
+        {"step": 2, "actor": "BHB", "action": "crosses BBB via", "target": "MCT1 transporter on endothelium", "effect": "enters astrocytes and neurons"},
+        {"step": 3, "actor": "BHB in neuron mitochondria", "action": "enters TCA cycle", "target": "producing more NADH/FADH₂ per carbon", "effect": "23% higher ATP yield per O₂ consumed vs glucose"},
+        {"step": 4, "actor": "BHB (epigenetic role)", "action": "inhibits NLRP3 inflammasome and", "target": "HDAC (histone deacetylase)", "effect": "reduced neuroinflammation; neuroprotective gene expression"}
+      ],
+      "analogies_th": ["BHB = premium fuel ที่สมองชอบกว่าน้ำมันธรรมดา (glucose) ให้พลังงานมากกว่า และสะอาดกว่า", "ketone = สำรองน้ำมันระดับสูง ที่ร่างกายเปิดใช้เมื่อของหลักหมด"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/23027596/", "org": "Neurobiol Aging / PubMed", "source_tier": "A", "year": 2013, "title": "Ketone body therapy: from ketogenic diet to the treatment of epilepsy — Bough KJ, Rho JM", "access_date": "2026-04-22"}],
+      "sub_topic_id": "blood_brain_barrier",
+      "confidence": "high"
+    }
+  ]
+}

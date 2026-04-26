@@ -1,0 +1,112 @@
+{
+  "domain_id": "respiratory",
+  "_meta": {"current_count": 6, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.respiratory"},
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_resp_001",
+      "label_th": "Nasal Breathing — Nitric Oxide Production และ Bohr Effect",
+      "label_en": "Nasal Breathing: Sinus Nitric Oxide Production and Bohr Effect Optimization",
+      "description_th": "Nasal sinuses ผลิต Nitric Oxide (NO) จาก L-arginine ผ่าน NOS enzyme เมื่อหายใจผ่านจมูก; NO ถูกพา downstream ไปยัง bronchi และ alveoli → smooth muscle relaxation → bronchodilation + vasodilation → เพิ่ม V/Q matching; ปาก breathing ไม่ผ่าน sinus → NO production ถูก bypass; CO₂ ใน blood → Bohr effect → hemoglobin ปล่อย O₂ (chronic hyperventilation ล้าง CO₂ ออก → O₂ ถูก hold ใน hemoglobin → functional hypoxia แม้ SpO₂ สูง)",
+      "description_en": "Nasal sinuses produce NO from L-arginine via NOS when breathing nasally; NO travels downstream → bronchial smooth muscle relaxation → bronchodilation + vasodilation → improved V/Q matching; mouth breathing bypasses sinus → no NO; CO₂ drives Bohr effect (hemoglobin releases O₂ in high CO₂ tissues); hyperventilation washes out CO₂ → O₂ held in hemoglobin → functional hypoxia despite high SpO₂.",
+      "chain": [
+        {"step": 1, "actor": "Nasal airflow stimulates sinus epithelium", "action": "NOS (nitric oxide synthase) converts L-arginine to", "target": "Nitric Oxide (NO) in paranasal sinuses", "effect": "NO produced with each nasal breath"},
+        {"step": 2, "actor": "Inhaled NO in airway", "action": "activates soluble guanylyl cyclase in", "target": "bronchial smooth muscle cells", "effect": "cGMP increase → smooth muscle relaxation → bronchodilation"},
+        {"step": 3, "actor": "NO in alveolar-capillary bed", "action": "dilates pulmonary vasculature", "target": "V/Q matching (ventilation/perfusion)", "effect": "improved gas exchange efficiency + antimicrobial effect on inhaled pathogens"},
+        {"step": 4, "actor": "Adequate CO₂ in blood (from moderate, not excessive breathing)", "action": "shifts hemoglobin oxygen dissociation curve right", "target": "hemoglobin-O₂ bond", "effect": "Bohr effect: O₂ released to tissues more readily"},
+        {"step": 5, "actor": "Mouth breathing / hyperventilation (low CO₂)", "action": "shifts curve left", "target": "hemoglobin oxygen dissociation", "effect": "O₂ trapped in hemoglobin → tissues hypoxic despite SpO₂ 98-99%"}
+      ],
+      "analogies_th": ["nasal breathing = ตัวกรองอากาศ + factory NO; ปาก breathing = ข้าม factory ทั้งหมด", "CO₂ = คันเร่งให้ hemoglobin ปล่อย oxygen; hyperventilate = เหยียบเบรก oxygen delivery"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/7893407/", "source_tier": "A", "year": 1994, "title": "Nasal nitric oxide in man — Gustafsson LE et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "nasal_breathing",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_resp_002",
+      "label_th": "Asthma Pathophysiology — Th2 Inflammation + Airway Remodeling",
+      "label_en": "Asthma: Th2-Driven Airway Inflammation and Chronic Remodeling",
+      "description_th": "Allergen trigger → APC ใน airway → Th2 cell activation → IL-4, IL-5, IL-13 release; IL-4/13 → IgE class switching ใน B cells → IgE binds mast cells; Re-exposure → mast cell degranulation → histamine + leukotrienes (LTD4) → acute bronchoconstriction; IL-5 → eosinophil recruitment → airway inflammation + mucus hypersecretion; Chronic: smooth muscle hypertrophy + basement membrane thickening → irreversible airway remodeling",
+      "description_en": "Allergen → Th2 activation → IL-4, IL-5, IL-13; IL-4/13 → IgE production → IgE binds mast cells; re-exposure → mast cell degranulation → histamine + LTD4 → acute bronchoconstriction; IL-5 → eosinophil recruitment → inflammation + mucus; chronic: smooth muscle hypertrophy + basement membrane thickening → airway remodeling.",
+      "chain": [
+        {"step": 1, "actor": "Allergen (dust mite, pollen, mold) in airway", "action": "engulfed by DCs → presented to", "target": "naive T-cells → differentiate to Th2 polarization", "effect": "Th2 dominance: IL-4, IL-5, IL-13 cytokine production"},
+        {"step": 2, "actor": "IL-4 + IL-13", "action": "signal B cells to undergo IgE class switching", "target": "IgE production → bound to high-affinity FcεRI on mast cells", "effect": "sensitized mast cells ready to degranulate on re-exposure"},
+        {"step": 3, "actor": "Allergen re-exposure → IgE cross-linking on mast cells", "action": "triggers degranulation within seconds", "target": "histamine, prostaglandins, LTD4, LTB4 released", "effect": "acute bronchoconstriction, mucus secretion, vascular leak (early phase)"},
+        {"step": 4, "actor": "IL-5 (from Th2)", "action": "recruits and activates", "target": "eosinophils into airway", "effect": "eosinophil major basic protein damages epithelium → late phase (4-12h) persistent inflammation"},
+        {"step": 5, "actor": "Repeated inflammation cycles", "action": "cause", "target": "airway smooth muscle hypertrophy + collagen deposition in subepithelial fibrosis", "effect": "airway remodeling → fixed obstruction even when not in attack"}
+      ],
+      "analogies_th": ["asthma = alarm ที่ trigger เกินความจำเป็น ทำให้ปอดอักเสบซ้ำๆ จนผนังหนาขึ้น", "mast cell = บอมบ์ที่ถูก wire ไว้กับ IgE — allergen = trigger"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/30449552/", "source_tier": "B", "year": 2018, "title": "Inspiratory muscle training in COPD — Beaumont M et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "asthma",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_resp_003",
+      "label_th": "COPD Pathophysiology — Emphysema + Chronic Bronchitis",
+      "label_en": "COPD: Neutrophil-Driven Protease Imbalance and Alveolar Destruction",
+      "description_th": "Cigarette smoke/pollution → oxidative stress + PAMP signals → neutrophil + macrophage recruitment ใน airway; neutrophil elastase + MMP-9 ทำลาย alveolar wall (elastin, collagen) → emphysema (permanent air space enlargement → air trapping → hyperinflation); smoke → mucus hypersecretion + goblet cell hypertrophy → chronic bronchitis; small airway fibrosis → irreversible obstruction (FEV1/FVC < 0.7 = diagnostic criterion)",
+      "description_en": "Cigarette/pollution oxidative stress → neutrophil + macrophage recruitment → neutrophil elastase + MMP-9 destroys alveolar wall → emphysema (permanent alveolar enlargement, air trapping, hyperinflation); smoke → mucus hypersecretion + goblet cell hypertrophy → chronic bronchitis; small airway fibrosis → irreversible obstruction (FEV1/FVC < 0.7).",
+      "chain": [
+        {"step": 1, "actor": "Cigarette smoke / PM2.5 particulates", "action": "enter bronchi and alveoli → generate ROS + PAMP-like signals", "target": "NF-κB activation in airway epithelium and macrophages", "effect": "IL-8, TNF-α secreted → neutrophil chemotaxis"},
+        {"step": 2, "actor": "Neutrophils (recruited to airway)", "action": "release neutrophil elastase + MMP-9", "target": "alveolar elastic tissue (elastin, collagen framework)", "effect": "alveolar wall destruction → permanent air space enlargement (emphysema)"},
+        {"step": 3, "actor": "Air space enlargement", "action": "reduces elastic recoil", "target": "small airway lumen support", "effect": "dynamic airway collapse on expiration → air trapping → hyperinflation → barrel chest"},
+        {"step": 4, "actor": "Chronic smoke exposure → goblet cell hyperplasia", "action": "excess mucus production", "target": "small airways", "effect": "mucus plugging + fibrosis → chronic bronchitis (cough + phlegm ≥3 months/year for 2 consecutive years)"},
+        {"step": 5, "actor": "Combined emphysema + bronchitis", "action": "reduce FEV1/FVC", "target": "spirometry diagnostic test", "effect": "FEV1/FVC < 0.70 post-bronchodilator = COPD diagnosis (GOLD)"}
+      ],
+      "analogies_th": ["emphysema = ปอดเป็นฟองน้ำเก่าที่หมดความยืดหยุ่น — หายใจออกไม่หมด", "neutrophil elastase = กรดกัดผนัง alveoli ทีละน้อยทุกบุหรี่"],
+      "sources": [{"url": "https://goldcopd.org/", "source_tier": "A", "year": 2024, "title": "GOLD 2024 COPD Guidelines", "access_date": "2026-04-22"}],
+      "sub_topic_id": "COPD",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_resp_004",
+      "label_th": "NAC Mucolytic และ Glutathione Mechanism ใน Respiratory",
+      "label_en": "NAC as Mucolytic (Disulfide Bond Cleavage) and Glutathione Precursor in Airway Defense",
+      "description_th": "Mucus ใน airway มี glycoprotein (mucin) connected ด้วย disulfide bonds → high viscosity; NAC มี free thiol (-SH) → cleave disulfide bonds ใน mucin → ลด mucus viscosity → ง่ายต่อ mucociliary clearance; ในเวลาเดียวกัน NAC เป็น precursor ของ L-cysteine → synthesis ของ glutathione (GSH) → antioxidant ป้องกัน oxidative damage ใน airway epithelium จาก cigarette smoke / PM2.5 / viral infection",
+      "description_en": "Airway mucus: glycoprotein (mucin) cross-linked by disulfide bonds → high viscosity; NAC free thiol (-SH) cleaves disulfide bonds in mucin → reduces viscosity → easier mucociliary clearance; simultaneously: NAC provides L-cysteine → glutathione synthesis → antioxidant protection of airway epithelium from cigarette smoke/PM2.5/viral oxidative damage.",
+      "chain": [
+        {"step": 1, "actor": "NAC (N-Acetyl-L-Cysteine) inhaled or oral", "action": "free thiol (-SH group) reacts with", "target": "disulfide (-S-S-) bridges in mucin glycoproteins", "effect": "mucin cross-links broken → mucus viscosity reduced → easier ciliary clearance"},
+        {"step": 2, "actor": "Reduced mucus viscosity", "action": "enables mucociliary escalator", "target": "airway cilia beat frequency", "effect": "mucus and trapped pathogens/particles cleared from lung toward pharynx"},
+        {"step": 3, "actor": "NAC absorbed systemically → deacetylated to L-cysteine", "action": "provides limiting substrate for", "target": "glutathione synthetase pathway (GSH)", "effect": "intracellular GSH increased in airway epithelial cells"},
+        {"step": 4, "actor": "Increased GSH in airway cells", "action": "neutralizes ROS from", "target": "cigarette smoke oxidants, PM2.5, viral replication byproducts", "effect": "oxidative stress protection → less airway damage, less inflammation"}
+      ],
+      "analogies_th": ["NAC = กรรไกรตัด disulfide bond ใน mucus + สร้างเกราะ antioxidant ให้ปอด", "mucus หนา = เชือกพันกัน; NAC ตัดเชือก → เสมหะหลุดออกง่าย"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/31352874/", "source_tier": "A", "year": 2019, "title": "Mucolytic agents versus placebo for COPD — Poole P et al. Cochrane", "access_date": "2026-04-22"}],
+      "sub_topic_id": "COPD",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_resp_005",
+      "label_th": "Buteyko Technique — CO₂ Tolerance Training กับ Asthma",
+      "label_en": "Buteyko Breathing: Carbon Dioxide Tolerance Training for Airway Hyper-responsiveness",
+      "description_th": "Buteyko theory: asthmatic patients มี chronic hyperventilation pattern → CO₂ ต่ำ → Verigo-Bohr effect (less O₂ delivery) + bronchoconstriction reflex (hypocapnia → bronchial smooth muscle spasm); Buteyko ฝึก nasal breathing + reduced breathing volume + breath holds → เพิ่ม CO₂ tolerance → reset central chemoreceptor threshold → ลด hyperventilation urge → ลด bronchoconstriction สัญญาณ",
+      "description_en": "Buteyko theory: asthmatic patients chronically hyperventilate → low CO₂ → Verigo-Bohr effect (less O₂ delivery) + hypocapnia-induced bronchoconstriction; Buteyko trains nasal breathing + reduced breathing volume + breath holds → raises CO₂ tolerance → resets central chemoreceptor threshold → reduces hyperventilation → reduces bronchoconstriction signaling.",
+      "chain": [
+        {"step": 1, "actor": "Chronic hyperventilation (asthma habit pattern)", "action": "reduces CO₂ (hypocapnia) and", "target": "arterial PaCO₂ below 40 mmHg", "effect": "left-shifted O₂ curve (Bohr) + reflex bronchoconstriction from hypocapnia"},
+        {"step": 2, "actor": "Buteyko breath holds (Control Pause exercise)", "action": "gradually tolerate CO₂ build-up", "target": "central chemoreceptors in medulla", "effect": "chemoreceptor threshold recalibrated to tolerate higher CO₂"},
+        {"step": 3, "actor": "Nasal breathing training", "action": "produces NO + filters air", "target": "bronchial smooth muscle", "effect": "bronchodilation via NO + reduced hyperventilation trigger"},
+        {"step": 4, "actor": "Reduced hyperventilation volume", "action": "maintains PaCO₂ near 40 mmHg", "target": "bronchial smooth muscle tone", "effect": "less reflex bronchoconstriction → reduced need for bronchodilator rescue"}
+      ],
+      "analogies_th": ["Buteyko = reset ปุ่ม panic ของปอด — ฝึก CO₂ tolerance ใหม่ให้ไม่ alarm ง่าย", "control pause = วัด CO₂ tolerance ของคุณ: BOLT < 20 = หายใจเกินปกติ; > 40 = ดี"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/18521682/", "source_tier": "A", "year": 2008, "title": "Breathing exercises for asthma — Cowie RL et al. Cochrane", "access_date": "2026-04-22"}],
+      "sub_topic_id": "breathwork",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_resp_006",
+      "label_th": "PM2.5 → Systemic Inflammation: ปอดเป็น Entry Point สู่ Cardiovascular Disease",
+      "label_en": "PM2.5 Inhalation: Alveolar Macrophage Activation to Systemic Cardiovascular Inflammation",
+      "description_th": "PM2.5 (<2.5 μm) ผ่าน mucociliary clearance ไปถึง alveoli → alveolar macrophages phagocytose PM2.5 → oxidative stress + NF-κB activation → IL-6, TNF-α, IL-1β release ใน lung → cytokines เข้า systemic circulation → endothelial inflammation → atherosclerosis progression + cardiac arrhythmia trigger; ultrafine PM (<0.1 μm) อาจข้าม BBB ได้โดยตรง",
+      "description_en": "PM2.5 (<2.5 μm) bypasses mucociliary clearance → reaches alveoli → alveolar macrophage phagocytosis → ROS + NF-κB → IL-6, TNF-α, IL-1β release → systemic circulation → endothelial inflammation → atherosclerosis + arrhythmia; ultrafine PM (<0.1 μm) may cross BBB directly.",
+      "chain": [
+        {"step": 1, "actor": "PM2.5 particles inhaled nasally (partially filtered) or via mouth", "action": "deposited in", "target": "alveolar epithelium and alveolar macrophages", "effect": "particles too small for mucociliary clearance → trapped in lung"},
+        {"step": 2, "actor": "Alveolar macrophages phagocytose PM2.5", "action": "generate", "target": "ROS (from particle surface metals/organics) + NF-κB activation", "effect": "pro-inflammatory cytokines secreted locally"},
+        {"step": 3, "actor": "Lung-derived IL-6, TNF-α, IL-1β", "action": "enter bloodstream via", "target": "pulmonary capillary bed → systemic circulation", "effect": "systemic inflammation: endothelial activation, platelet aggregation, CRP rise"},
+        {"step": 4, "actor": "Systemic endothelial inflammation", "action": "accelerates", "target": "atherosclerotic plaque formation and destabilization", "effect": "CVD events: MI, stroke (explains epidemiological PM2.5-CVD mortality link)"},
+        {"step": 5, "actor": "PM2.5 and cardiac autonomic effects", "action": "trigger", "target": "cardiac arrhythmias via autonomic imbalance + direct cardiac toxicity", "effect": "increased sudden cardiac death in high PM2.5 areas"}
+      ],
+      "analogies_th": ["PM2.5 = ทหารขนาดเล็กที่ผ่านป้อมกรอง (จมูก/ขน) ไปยึดฐาน alveoli แล้วส่ง signal อักเสบไปทั้งร่างกาย", "ปอดเป็น entry gate ของ systemic inflammation — ไม่ใช่แค่ทางเดินหายใจ"],
+      "sources": [{"url": "https://www.who.int/publications/i/item/9789240034228", "source_tier": "A", "year": 2021, "title": "WHO Global Air Quality Guidelines 2021", "access_date": "2026-04-22"}],
+      "sub_topic_id": "air_quality",
+      "confidence": "high"
+    }
+  ]
+}

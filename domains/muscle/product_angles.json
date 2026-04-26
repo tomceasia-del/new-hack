@@ -1,0 +1,112 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "product_categories_from_taxonomy": ["whey_protein", "creatine", "BCAA", "EAA", "HMB", "collagen_peptides"]
+  },
+  "angles": [
+    {
+      "angle_id": "angle_muscle_001",
+      "product_category": "whey_protein",
+      "problem_th": "หลังอายุ 30 ร่างกายสูญเสียกล้ามเนื้อ 1% ต่อปี แต่คนทั่วไปกินโปรตีนไม่พอ — คนไทยส่วนใหญ่กินโปรตีนเพียง 0.6-0.8g/kg/day ซึ่งต่ำกว่า optimal threshold มาก",
+      "mechanism_link": "mech_muscle_004",
+      "angle_th": "กล้ามเนื้อหายทีละ 1% ทุกปี — whey คือวิธีเติมโปรตีนที่ขาดโดยไม่ต้องกินเนื้อสัตว์เพิ่ม 3 มื้อ",
+      "product_role": "tool — ช่วยให้ถึง protein target ที่ต้องการ ไม่ใช่ยารักษา sarcopenia",
+      "framing_notes": "เน้นที่ convenience + leucine content สูง + ดูดซึมเร็ว ใช้ตัวเลข 1.6g/kg/day เป็น anchor เพื่อให้ user คำนวณว่าตัวเองขาดอีกแค่ไหน",
+      "forbidden_claims": [
+        "whey protein รักษา sarcopenia ได้",
+        "กิน whey แล้วกล้ามเนื้อโตแน่นอน",
+        "whey ทดแทนการออกกำลังกาย",
+        "กิน whey แล้วหุ่นดี"
+      ]
+    },
+    {
+      "angle_id": "angle_muscle_002",
+      "product_category": "creatine",
+      "problem_th": "คนไทยส่วนใหญ่กลัวครีเอทีนเพราะเชื่อว่าเป็น steroid หรือทำให้ไตพัง ทั้งที่มันเป็น supplement ที่มีหลักฐานดีที่สุดในโลก และร่างกายสร้างเองตามธรรมชาติ",
+      "mechanism_link": "mech_muscle_003",
+      "angle_th": "ครีเอทีนไม่ใช่ steroid — มันคือสารที่ร่างกายสร้างเองและพิสูจน์แล้วว่าปลอดภัย เพิ่มแรงได้ 5-15% ใน 4 สัปดาห์",
+      "product_role": "tool — เพิ่ม phosphocreatine pool สำหรับออกกำลังกายหนัก ไม่ใช่ยา",
+      "framing_notes": "Debunk myth ก่อน จากนั้น explain mechanism สั้นๆ แล้ว anchor ด้วยตัวเลขที่เชื่อถือได้ (3-5g/day, 4 สัปดาห์เห็นผล) เน้นว่า 'ไม่ต้อง loading'",
+      "forbidden_claims": [
+        "ครีเอทีนสร้างกล้ามเนื้อโดยตรง",
+        "ครีเอทีนทดแทนการออกกำลังกาย",
+        "กิน creatine แล้วแข็งแรงทันที",
+        "ครีเอทีนปลอดภัย 100% สำหรับทุกคน (โรคไตต้องระวัง)"
+      ]
+    },
+    {
+      "angle_id": "angle_muscle_003",
+      "product_category": "EAA",
+      "problem_th": "นักออกกำลังกายส่วนใหญ่ซื้อ BCAA แต่ไม่รู้ว่า BCAA เพียง 3 amino acids ไม่พอสำหรับ MPS สมบูรณ์ — กำลังจ่ายเงินซื้อ 'ครึ่งเดียวของสิ่งที่ต้องการ'",
+      "mechanism_link": "mech_muscle_007",
+      "angle_th": "BCAA คือชุด building blocks ไม่ครบ — ต้องการ EAA ครบ 9 ตัว ถึงจะสร้างกล้ามเนื้อได้จริง",
+      "product_role": "tool — ให้ EAA ครบสำหรับ MPS เต็มประสิทธิภาพ ไม่ใช่สร้างกล้ามเนื้อด้วยตัวเอง",
+      "framing_notes": "ใช้ 'upgrade' framing — EAA เป็น next step จาก BCAA เหมาะสำหรับคนที่เคยกิน BCAA อยู่แล้ว",
+      "forbidden_claims": [
+        "EAA ดีกว่า whey protein ในทุกสถานการณ์",
+        "BCAA ไม่มีประโยชน์เลย",
+        "กิน EAA แล้วกล้ามเนื้อโต",
+        "EAA ทดแทนอาหารปกติได้"
+      ]
+    },
+    {
+      "angle_id": "angle_muscle_004",
+      "product_category": "HMB",
+      "problem_th": "ผู้สูงอายุ ผู้ป่วยพักฟื้น หรือคนที่ต้องหยุดออกกำลังกายชั่วคราว เสี่ยงสูญเสียกล้ามเนื้ออย่างรวดเร็วในช่วง inactivity — ทุก 10 วันนอนติดเตียงสูญเสียกล้ามเนื้อได้ถึง 1kg",
+      "mechanism_link": "mech_muscle_006",
+      "angle_th": "HMB — โล่ป้องกันกล้ามเนื้อสลายในช่วงที่ออกกำลังกายไม่ได้หรือป่วย",
+      "product_role": "tool — ลด rate ของ muscle proteolysis ไม่ใช่หยุดการสลายกล้ามเนื้อได้ 100%",
+      "framing_notes": "กลุ่มเป้าหมายหลัก: ผู้สูงอายุ 60+, ผู้ป่วยพักฟื้น, นักกีฬาที่บาดเจ็บ เน้น 'ป้องกัน' ไม่ใช่ 'สร้าง'",
+      "forbidden_claims": [
+        "HMB ป้องกันกล้ามเนื้อสลายได้ 100%",
+        "HMB เทียบเท่าหรือดีกว่าครีเอทีนสำหรับนักกีฬา",
+        "HMB รักษา sarcopenia",
+        "HMB ทดแทนการออกกำลังกาย"
+      ]
+    },
+    {
+      "angle_id": "angle_muscle_005",
+      "product_category": "whey_protein",
+      "problem_th": "คนที่ออกกำลังกายตอนเย็นแล้วนอนหลับโดยไม่ได้กินโปรตีนก่อนนอน กำลังทิ้งช่วงเวลา GH pulse 6-8 ชั่วโมงที่กล้ามเนื้อควรซ่อมแซมตัวเองไปโดยเปล่าประโยชน์",
+      "mechanism_link": "mech_muscle_005",
+      "angle_th": "นอนหลับคือกะดึกของโรงงานกล้ามเนื้อ — โปรตีนก่อนนอน (casein/slow-digest) คือวัตถุดิบสำหรับกะดึก",
+      "product_role": "tool — ให้ substrate สำหรับ overnight MPS ที่ขับเคลื่อนโดย GH ไม่ใช่ทำให้โตตอนนอนหลับโดยตรง",
+      "framing_notes": "เหมาะมากสำหรับ whey/casein blend ก่อนนอน angle ใช้ตัวเลข +22% MPS overnight จากงานวิจัย Res 2012",
+      "forbidden_claims": [
+        "กินโปรตีนก่อนนอนแล้วกล้ามเนื้อโตตอนนอน",
+        "ไม่ต้องออกกำลังกายแค่กินก่อนนอน",
+        "casein ดีกว่า whey เสมอ"
+      ]
+    },
+    {
+      "angle_id": "angle_muscle_006",
+      "product_category": "collagen_peptides",
+      "problem_th": "นักกีฬาและคนออกกำลังกายที่มีปัญหาเจ็บข้อ เจ็บเส้นเอ็น เจ็บ tendon บ่อยๆ มักมองข้าม collagen synthesis ใน connective tissue ซึ่งแตกต่างจาก muscle protein synthesis",
+      "mechanism_link": "mech_muscle_008",
+      "angle_th": "กล้ามเนื้อแข็งแรงแต่ข้อต่อเปราะ — collagen peptides + Vitamin C ก่อนออกกำลังกาย ช่วยเสริม connective tissue ที่กล้ามเนื้อยึดอยู่",
+      "product_role": "tool — สนับสนุน collagen synthesis ใน tendon, ligament, cartilage ไม่ใช่สร้างกล้ามเนื้อ",
+      "framing_notes": "ต้องอธิบายชัดว่า collagen peptides ไม่ได้สร้างกล้ามเนื้อ แต่ดูแล 'โครงสร้างที่กล้ามเนื้อยึดอยู่' ต้องกินกับ Vitamin C 1 ชั่วโมงก่อนออกกำลังกาย",
+      "forbidden_claims": [
+        "collagen peptides สร้างกล้ามเนื้อ",
+        "collagen แทน whey protein ได้",
+        "collagen ทำให้ข้อต่อกลับมาเป็นปกติ 100%",
+        "collagen รักษาข้ออักเสบ"
+      ]
+    },
+    {
+      "angle_id": "angle_muscle_007",
+      "product_category": "creatine",
+      "problem_th": "ผู้สูงอายุอายุ 55+ ที่เริ่มออกกำลังกายแต่รู้สึกว่าแรงน้อย ฟื้นตัวช้า และสงสัยว่าจะได้ผลไหมในวัยนี้",
+      "mechanism_link": "mech_muscle_003",
+      "angle_th": "ครีเอทีนไม่ใช่แค่ของนักกีฬาหนุ่มสาว — ผู้สูงอายุได้ประโยชน์มากกว่าด้วยซ้ำ เพราะ PCr pool ลดลงตามอายุ",
+      "product_role": "tool — เติมเต็ม PCr pool ที่ลดลงตามอายุเพื่อให้ฝึกได้หนักพอ ไม่ใช่ steroid",
+      "framing_notes": "ใช้ angle 'ผู้สูงอายุได้ประโยชน์จาก creatine มากกว่าที่คิด' และ debunk ความกลัว ครีเอทีน + elderly population",
+      "forbidden_claims": [
+        "ครีเอทีนปลอดภัยสำหรับผู้สูงอายุทุกคน (คนมีโรคไตต้องปรึกษาแพทย์)",
+        "ครีเอทีนรักษา sarcopenia",
+        "ผู้สูงอายุไม่ต้องออกกำลังกาย แค่กิน creatine พอ"
+      ]
+    }
+  ]
+}

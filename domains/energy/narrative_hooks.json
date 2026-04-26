@@ -1,0 +1,105 @@
+{
+  "domain_id": "energy",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.energy"
+  },
+  "hooks": [
+    {
+      "hook_id": "hook_energy_001",
+      "hook_th": "ร่างกายคุณผลิต ATP วันละ 40-70 กิโล — เท่ากับน้ำหนักตัวคุณ แต่ถ้าไมโตคอนเดรียพัง ทุกอย่างก็หยุด",
+      "hook_type": "visceral_fact",
+      "sub_topic_id": "sub_atp",
+      "fact_ref": "energy_014",
+      "dramatization_notes": "เหมาะเปิดคลิปสั้น ดึงความสนใจด้วยตัวเลขที่น่าตกใจ ตามด้วยว่า 'แล้วถ้าระบบนี้พัง...?'"
+    },
+    {
+      "hook_id": "hook_energy_002",
+      "hook_th": "NAD+ หายไปครึ่งนึงตอนคุณอายุ 50 — งานวิจัยจาก Cell Metabolism บอกแบบนี้ คุณรู้แล้วหรือยัง?",
+      "hook_type": "research_reveal",
+      "sub_topic_id": "sub_nad",
+      "fact_ref": "energy_001",
+      "dramatization_notes": "เน้น 'งานวิจัยบอก' เพื่อ credibility ใช้กับ NR/NMN content ได้ดีมาก"
+    },
+    {
+      "hook_id": "hook_energy_003",
+      "hook_th": "ยาที่หมอสั่งให้คุณกิน กำลังขโมย CoQ10 ออกจากหัวใจคุณทุกวัน — และไม่มีใครบอกคุณ",
+      "hook_type": "villain_reveal",
+      "sub_topic_id": "sub_coq10",
+      "fact_ref": "energy_002",
+      "dramatization_notes": "ใช้ 'villain reveal' pattern — แพทย์ไม่ใช่ villain แต่ statin + ขาดข้อมูลคือปัญหา ระวังไม่ให้ดู anti-doctor เกินไป"
+    },
+    {
+      "hook_id": "hook_energy_004",
+      "hook_th": "หมอบอก 'เลือดปกติ' แต่ ferritin แค่ 30 — คุณเหนื่อยไม่ใช่เพราะขี้เกียจ แต่เพราะ O2 ไม่ถึง mitochondria",
+      "hook_type": "myth_bust",
+      "sub_topic_id": "sub_iron",
+      "fact_ref": "energy_003",
+      "dramatization_notes": "ใช้สำหรับกลุ่มผู้หญิงที่รู้สึกว่าตัวเองถูกบอกว่า 'ปกติดี' ทั้งๆที่เหนื่อย — emotional resonance สูง"
+    },
+    {
+      "hook_id": "hook_energy_005",
+      "hook_th": "ต้นไม้ที่รอดชีวิตใน -40°C ทำให้หมอเวรคืนสมองแล่นขึ้น — นี่คือ Rhodiola งานวิจัย double-blind พิสูจน์แล้ว",
+      "hook_type": "origin_story",
+      "sub_topic_id": "sub_adaptogens",
+      "fact_ref": "energy_005",
+      "dramatization_notes": "เล่าเรื่อง origin ของ Rhodiola ก่อน แล้วเชื่อมกับงานวิจัย — storytelling + science combo"
+    },
+    {
+      "hook_id": "hook_energy_006",
+      "hook_th": "6 สัปดาห์ของ NR เพิ่ม NAD+ ในเลือดขึ้น 60% — เหมือนชาร์จแบตร่างกายที่หมดมาหลายสิบปีให้กลับมาเต็ม",
+      "hook_type": "transformation_metric",
+      "sub_topic_id": "sub_nad",
+      "fact_ref": "energy_006",
+      "dramatization_notes": "ใช้ analogy 'ชาร์จแบต' ที่คนทั่วไปเข้าใจง่าย + ตัวเลขที่ชัดเจน"
+    },
+    {
+      "hook_id": "hook_energy_007",
+      "hook_th": "ไมโตคอนเดรียมี DNA ของตัวเอง — มันคือสิ่งมีชีวิตโบราณที่อาศัยอยู่ในทุกเซลล์คุณ และมันแก่เร็วกว่าคุณมาก",
+      "hook_type": "mind_blow",
+      "sub_topic_id": "sub_atp",
+      "fact_ref": "energy_018",
+      "dramatization_notes": "ใช้เปิดประเด็น mitochondrial biology ในเชิง wonder/curiosity — เหมาะกับ science-curious audience"
+    },
+    {
+      "hook_id": "hook_energy_008",
+      "hook_th": "เครื่องดื่มชูกำลังไม่ได้ให้พลังงานคุณจริงๆ — มันแค่ปิดไฟเตือน 'ง่วง' ในสมอง พอหมดฤทธิ์มันยิ่งหนักกว่าเดิม",
+      "hook_type": "myth_bust",
+      "sub_topic_id": "sub_atp",
+      "fact_ref": "energy_014",
+      "dramatization_notes": "ใช้ bust myth เรื่อง energy drink เพื่อตีความใหม่ว่า 'พลังงานจริง' มาจากไหน"
+    },
+    {
+      "hook_id": "hook_energy_009",
+      "hook_th": "ความเครียดเรื้อรัง... กำลังทำลายไมโตคอนเดรียในสมองคุณ — นักวิทยาศาสตร์ Columbia พิสูจน์แล้วว่ามันเกิดขึ้นในระดับโมเลกุล",
+      "hook_type": "visceral_fact",
+      "sub_topic_id": "sub_cfs",
+      "fact_ref": "energy_012",
+      "dramatization_notes": "เชื่อม emotional (ความเครียด) กับ biological mechanism — สร้าง urgency ให้คนอยากจัดการ HPA axis"
+    },
+    {
+      "hook_id": "hook_energy_010",
+      "hook_th": "CoQ10 200 มก. + NADH 20 มก. เปลี่ยนชีวิตผู้ป่วยเหนื่อยล้าเรื้อรังใน 8 สัปดาห์ — ไม่ใช่ความบังเอิญ มีงาน RCT พิสูจน์",
+      "hook_type": "research_reveal",
+      "sub_topic_id": "sub_cfs",
+      "fact_ref": "energy_004",
+      "dramatization_notes": "สำหรับกลุ่มที่เหนื่อยล้าเรื้อรังและยังไม่รู้ว่า mitochondria เป็นสาเหตุ"
+    },
+    {
+      "hook_id": "hook_energy_011",
+      "hook_th": "กล้ามเนื้อหัวใจคุณทำงาน 24/7/365 ไม่หยุด — และมันทำได้เพราะมี mitochondria อัดแน่นเป็นพิเศษ ถ้า CoQ10 ต่ำ... หัวใจก็เหนื่อยด้วย",
+      "hook_type": "visceral_fact",
+      "sub_topic_id": "sub_coq10",
+      "fact_ref": "energy_015",
+      "dramatization_notes": "ใช้เรื่องหัวใจเพื่อสร้าง emotional weight — หัวใจเป็นสิ่งที่คนกลัวว่าจะพัง"
+    },
+    {
+      "hook_id": "hook_energy_012",
+      "hook_th": "Burnout ไม่ใช่แค่ 'งานหนักเกินไป' — มันคือภาวะที่ HPA axis พังและ mitochondria ทำงานผิดปกติพร้อมกัน",
+      "hook_type": "reframe",
+      "sub_topic_id": "sub_adaptogens",
+      "fact_ref": "energy_019",
+      "dramatization_notes": "Reframe burnout จาก psychological → biological — ทำให้คนรู้สึกว่าไม่ใช่ความอ่อนแอ แต่เป็นปัญหาที่แก้ได้"
+    }
+  ]
+}

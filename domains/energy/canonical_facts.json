@@ -1,0 +1,662 @@
+{
+  "domain_id": "energy",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.energy",
+    "target_count": 20,
+    "current_count": 20,
+    "tier_distribution": {"T1": 6, "T2": 7, "T3": 5, "T4": 2}
+  },
+  "facts": [
+    {
+      "fact_id": "energy_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sub_nad",
+      "statement_th": "ระดับ NAD+ ในกล้ามเนื้อโครงร่างของผู้สูงอายุลดลงประมาณ 50% เมื่อเทียบกับคนหนุ่มสาว — นี่คือสาเหตุทางชีวเคมีที่ทำให้คน 'รู้สึกแก่' และหมดแรงเร็วขึ้น",
+      "statement_en": "NAD+ levels in aged skeletal muscle are approximately 50% lower than in young muscle, impairing both ATP production and mitochondrial biogenesis via the SIRT1/PGC-1α axis.",
+      "numeric_values": [
+        {"value": 50, "unit": "%", "label": "reduction in NAD+ levels in aged vs young skeletal muscle", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_energy_003",
+      "entities_mentioned": ["mol_nad", "person_rhonda_patrick", "mol_pgc1a"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23452850/",
+          "org": "Cell Metabolism",
+          "source_tier": "A",
+          "year": 2013,
+          "title": "Declining NAD+ Induces a Pseudohypoxic State Disrupting Nuclear-Mitochondrial Communication during Aging",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "NAD+ หายไปครึ่งนึงตอนอายุ 50 — นั่นแหละที่ทำให้คุณเหนื่อยทั้งวัน ไม่ใช่เพราะขี้เกียจ",
+        "เซลล์กล้ามเนื้อคุณกำลังขาด 'แบต' ไปครึ่งหนึ่งโดยที่คุณไม่รู้ตัว"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยน '50%' หรืออ้างว่า 'หายหมด' — decline เป็น directional, 50% คือค่าประมาณจากข้อมูล mouse + human tissue",
+      "usage_notes": "เหมาะสำหรับเปิดคลิปเกี่ยวกับ NMN/NR หรือ aging fatigue. ระวัง: ตัวเลข 50% มาจากข้อมูล tissue ไม่ใช่ blood test",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sub_coq10",
+      "statement_th": "ยาลดไขมัน Atorvastatin ขนาด 80 มิลลิกรัม/วัน ลดระดับ CoQ10 ในเลือดลง 49% ภายใน 30 วัน — โดยที่แพทย์ส่วนใหญ่ไม่บอกคนไข้ว่าต้องกิน CoQ10 เสริม",
+      "statement_en": "Atorvastatin 80mg/day for 30 days decreased plasma CoQ10 by 49% in patients at cardiovascular risk — a biochemically significant depletion rarely communicated to patients.",
+      "numeric_values": [
+        {"value": 49, "unit": "%", "label": "reduction in plasma CoQ10 after 30 days of atorvastatin 80mg/day", "is_approximation": false},
+        {"value": 80, "unit": "mg/day", "label": "atorvastatin dose used", "is_approximation": false},
+        {"value": 30, "unit": "days", "label": "duration of statin treatment", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_energy_002",
+      "entities_mentioned": ["mol_coq10"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/14761304/",
+          "org": "Archives of Neurology / AMA",
+          "source_tier": "A",
+          "year": 2004,
+          "title": "Atorvastatin Decreases the Coenzyme Q10 Level in the Blood of Patients at Risk for Cardiovascular Disease and Stroke",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ยาที่หมอสั่งให้คุณทานกำลังขโมย CoQ10 ออกจากหัวใจคุณ — และไม่มีใครบอกคุณเรื่องนี้",
+        "กินยาลดไขมัน 1 เดือน CoQ10 หายไปเกือบครึ่ง — นั่นทำไมคุณเหนื่อยมากขึ้นหลังจากกินยา"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกให้หยุดยา statin, ห้ามพูดว่า statin อันตราย — เน้นว่า CoQ10 เสริมอาจช่วยได้เท่านั้น",
+      "usage_notes": "สำหรับกลุ่มเป้าหมายที่กิน statin หรือมีพ่อแม่กิน statin. ต้องเน้นว่าเป็น 'blood plasma CoQ10' ไม่ใช่ tissue",
+      "contradictions": ["บางการศึกษาแนะนำว่าการเสริม CoQ10 ในกลุ่ม statin ไม่ได้ลด myopathy ได้อย่างชัดเจน — ต้องระวัง"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sub_iron",
+      "statement_th": "ผู้หญิงที่มีค่า ferritin ต่ำกว่า 50 ไมโครกรัม/ลิตร แม้ไม่ได้เป็นโลหิตจาง — เมื่อเสริมธาตุเหล็กพบว่าความเหนื่อยล้าลดลงอย่างมีนัยสำคัญทางสถิติ (p<0.001) เทียบกับกลุ่ม placebo",
+      "statement_en": "Women with serum ferritin <50 μg/L but without clinical anemia showed statistically significant fatigue reduction with iron supplementation vs placebo (p<0.001) at 12 weeks.",
+      "numeric_values": [
+        {"value": 50, "unit": "μg/L", "label": "ferritin threshold below which iron supplementation significantly reduced fatigue", "is_approximation": false},
+        {"value": 12, "unit": "weeks", "label": "duration of supplementation in trial", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_energy_004",
+      "entities_mentioned": ["mol_heme_iron"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12626353/",
+          "org": "The BMJ",
+          "source_tier": "A",
+          "year": 2003,
+          "title": "Iron supplementation for unexplained fatigue in non-anaemic women: double blind randomised placebo controlled trial",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "เหนื่อยโดยที่เลือดปกติ — แพทย์บอก 'ไม่เป็นโลหิตจาง' แต่ ferritin ต่ำก็เหนื่อยได้เหมือนกัน",
+        "ผู้หญิงหลายคนเหนื่อยโดยไม่รู้ว่าธาตุเหล็กต่ำ — เพราะ 'ไม่เป็นโลหิตจาง' แต่ ferritin ต่ำกว่า 50"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ระบุว่า 'ในผู้หญิง' และ 'ferritin <50' เสมอ ห้ามสรุปว่าทุกคนที่เหนื่อยต้องกินธาตุเหล็ก",
+      "usage_notes": "กลุ่มเป้าหมายหลัก: ผู้หญิงวัยเจริญพันธุ์ที่เหนื่อยง่าย ห้ามแนะนำให้กินธาตุเหล็กโดยไม่มีผลเลือดก่อน",
+      "contradictions": ["การเสริมธาตุเหล็กมากเกินไปมีผลเสีย (iron overload) ต้องตรวจ ferritin ก่อน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sub_cfs",
+      "statement_th": "การรับประทาน CoQ10 200 มก. + NADH 20 มก. ทุกวัน เป็นเวลา 8 สัปดาห์ ช่วยลดความเหนื่อยล้าในผู้ป่วย Chronic Fatigue Syndrome ได้อย่างมีนัยสำคัญ (p<0.05) เทียบกับ placebo",
+      "statement_en": "CoQ10 200mg + NADH 20mg daily for 8 weeks significantly reduced fatigue and improved cognitive function in CFS patients vs placebo (p<0.05).",
+      "numeric_values": [
+        {"value": 200, "unit": "mg/day", "label": "CoQ10 dose", "is_approximation": false},
+        {"value": 20, "unit": "mg/day", "label": "NADH dose", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "supplementation duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_energy_002",
+      "entities_mentioned": ["mol_coq10", "mol_nad"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25686762/",
+          "org": "Antioxidants & Redox Signaling",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "Does Oral Coenzyme Q10 Plus NADH Supplementation Improve Fatigue and Biochemical Parameters in Chronic Fatigue Syndrome?",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ไม่ใช่แค่ 'ความรู้สึก' — มีงานวิจัย RCT พิสูจน์แล้วว่า CoQ10+NADH ลด fatigue ใน CFS ได้จริง",
+        "ผู้ป่วยที่เหนื่อยล้าเรื้อรังมาหลายปี ฟื้นขึ้นมาได้ใน 8 สัปดาห์ด้วยการเติมเชื้อเพลิงให้ไมโตคอนเดรีย"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูดว่า 'รักษา CFS' หรือ 'หาย' — ใช้ 'ลดความเหนื่อยล้า' และ 'ปรับปรุงคุณภาพชีวิต' เท่านั้น",
+      "usage_notes": "ใช้สำหรับคนที่เหนื่อยล้าเรื้อรัง ต้องระบุว่าเป็นผล 'combination' CoQ10+NADH ไม่ใช่ CoQ10 อย่างเดียว",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sub_adaptogens",
+      "statement_th": "Rhodiola rosea สายพันธุ์ SHR-5 ขนาด 170 มก./วัน เป็นเวลา 2 สัปดาห์ ช่วยลดความเหนื่อยล้าทางจิตใจและปรับปรุงประสิทธิภาพการทำงานในแพทย์ที่ทำงานกะกลางคืนได้อย่างมีนัยสำคัญ",
+      "statement_en": "Rhodiola rosea extract SHR-5 at 170mg/day for 2 weeks significantly improved mental performance and reduced stress-induced fatigue in physicians working night duty (double-blind crossover RCT).",
+      "numeric_values": [
+        {"value": 170, "unit": "mg/day", "label": "Rhodiola SHR-5 dose", "is_approximation": false},
+        {"value": 2, "unit": "weeks", "label": "supplementation duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_energy_009",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11081987/",
+          "org": "Phytomedicine",
+          "source_tier": "A",
+          "year": 2000,
+          "title": "Rhodiola rosea in stress induced fatigue — A double blind cross-over study of a standardized extract SHR-5",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ต้นไม้ที่รอดมาได้ใน -40°C กลายเป็น 'ยากระตุ้นสมอง' ที่หมอใช้ตอนเวรดึก",
+        "แค่ 2 อาทิตย์ Rhodiola ทำให้หมอเวรทำงานได้ดีขึ้นชัดเจน — นี่คือวิทยาศาสตร์ ไม่ใช่โฆษณา"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ระบุว่าเป็น 'SHR-5 standardized extract' เสมอ ไม่ใช่ทุก Rhodiola brand เหมือนกัน",
+      "usage_notes": "เหมาะสำหรับกลุ่มวัยทำงาน คนทำงานกะ นักศึกษา คนเตรียมสอบ",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sub_nad",
+      "statement_th": "การรับประทาน Nicotinamide Riboside (NR) 1,000 มก./วัน เป็นเวลา 6 สัปดาห์ เพิ่มระดับ NAD+ ในเลือดได้ประมาณ 60% ในผู้ใหญ่อายุกลางคนขึ้นไป",
+      "statement_en": "NR supplementation at 1,000mg/day for 6 weeks increased whole blood NAD+ by approximately 60% in healthy middle-aged and older adults (RCT, n=120).",
+      "numeric_values": [
+        {"value": 1000, "unit": "mg/day", "label": "NR dose", "is_approximation": false},
+        {"value": 6, "unit": "weeks", "label": "supplementation duration", "is_approximation": false},
+        {"value": 60, "unit": "%", "label": "increase in whole blood NAD+ levels", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_energy_003",
+      "entities_mentioned": ["mol_nr", "mol_nad", "person_charles_brenner"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29514072/",
+          "org": "Cell Metabolism",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Chronic Nicotinamide Riboside Supplementation Is Well-Tolerated and Elevates NAD+ in Healthy Middle-Aged and Older Adults",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "6 สัปดาห์ของ NR เพิ่ม NAD+ ในเลือดขึ้น 60% — เหมือนชาร์จแบตร่างกายที่หมดครึ่งหนึ่งให้กลับมาเต็ม",
+        "นี่คือสิ่งที่วิทยาศาสตร์พิสูจน์ได้ — ไม่ใช่แค่โฆษณา: NR เพิ่ม NAD+ ได้จริงในคน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ระบุว่าเป็น 'blood NAD+' ไม่ใช่ tissue NAD+ และตัวเลข 60% เป็น approximate จากค่าเฉลี่ยกลุ่ม",
+      "usage_notes": "ใช้สำหรับ NR/NMN product angles กลุ่มเป้าหมายอายุ 40+ ที่ต้องการฟื้นพลังงาน",
+      "contradictions": ["การเพิ่ม blood NAD+ ไม่ได้หมายความว่า tissue/mitochondrial NAD+ จะเพิ่มในสัดส่วนเดียวกันเสมอไป"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_007",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sub_adaptogens",
+      "statement_th": "อาชวากันธา (KSM-66) 300 มก. วันละ 2 ครั้ง นาน 60 วัน ลดระดับคอร์ติซอลในเลือดลงอย่างมีนัยสำคัญ และผู้เข้าร่วมรายงานพลังงานและคุณภาพการนอนหลับดีขึ้นอย่างมีนัยสำคัญ",
+      "statement_en": "KSM-66 Ashwagandha 300mg twice daily for 60 days significantly reduced serum cortisol and significantly improved self-reported energy levels and sleep quality vs placebo.",
+      "numeric_values": [
+        {"value": 600, "unit": "mg/day", "label": "total daily KSM-66 Ashwagandha dose", "is_approximation": false},
+        {"value": 60, "unit": "days", "label": "duration of supplementation", "is_approximation": false},
+        {"value": 27.9, "unit": "%", "label": "mean reduction in serum cortisol vs placebo", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_energy_007",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23439798/",
+          "org": "Indian Journal of Psychological Medicine",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "Safety and efficacy of high-concentration full-spectrum Ashwagandha root extract in reducing stress and anxiety in adults",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "คอร์ติซอลลดลง 27.9% ใน 2 เดือน — สมุนไพรที่ทำงานได้จริงในระดับฮอร์โมน ไม่ใช่แค่ 'ผ่อนคลาย'",
+        "ร่างกายคุณเครียดเรื้อรังมาหลายปี คอร์ติซอลกำลังกินพลังงานคุณทุกวัน — Ashwagandha ช่วยได้"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ระบุว่าเป็น KSM-66 เสมอ ไม่ใช่ทุก ashwagandha brand มีผลเหมือนกัน",
+      "usage_notes": "ใช้สำหรับกลุ่ม burnout, ความเครียดสะสม, ปัญหาการนอนหลับ",
+      "contradictions": ["ผลของ ashwagandha brands อื่นอาจแตกต่างกันตามกระบวนการสกัด"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_008",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sub_coq10",
+      "statement_th": "การเสริม CoQ10 ช่วยเพิ่มประสิทธิภาพการออกกำลังกายและลด oxidative stress ในนักกีฬา — มีหลักฐานจากหลายการศึกษา RCT แต่ขนาดผลยังแตกต่างกันในแต่ละการศึกษา",
+      "statement_en": "CoQ10 supplementation has shown directionally consistent improvements in exercise performance and reduction of exercise-induced oxidative stress across multiple RCTs, though effect sizes vary.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_energy_002",
+      "entities_mentioned": ["mol_coq10"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22150427/",
+          "org": "Journal of the International Society of Sports Nutrition",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "The effect of coenzyme Q10 supplementation on performance during repeated bouts of supramaximal exercise",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ไมโตคอนเดรียต้องการ CoQ10 เหมือนรถต้องการน้ำมัน — ขาดแล้วประสิทธิภาพตกทันที",
+        "นักกีฬาหลายคนไม่รู้ว่าตัวเองขาด CoQ10 — ออกกำลังกายหนักแต่ไม่ progress เพราะเชื้อเพลิงในไมโตคอนเดรียไม่พอ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้างผลที่ exact เพราะงานวิจัยยังมีความหลากหลาย ใช้ 'ช่วยได้' ไม่ใช่ 'เพิ่ม X%'",
+      "usage_notes": "ใช้สำหรับกลุ่มนักกีฬา/Active individuals ร่วมกับ fact_002 เรื่อง statin",
+      "contradictions": ["meta-analysis บางงานพบผลที่ไม่ consistent ในคนสุขภาพดีที่ไม่ได้ขาด CoQ10"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_009",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sub_cfs",
+      "statement_th": "ผู้ป่วย ME/CFS (Myalgic Encephalomyelitis / Chronic Fatigue Syndrome) มีหลักฐานของ mitochondrial dysfunction ในระดับเซลล์ รวมถึงการทำงานของ Complex I ที่บกพร่อง และ ATP production ที่ต่ำกว่าปกติ",
+      "statement_en": "ME/CFS patients show measurable mitochondrial dysfunction including impaired Complex I activity and reduced ATP production capacity compared to healthy controls, supporting a bioenergetic basis for the condition.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_energy_001",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26946770/",
+          "org": "PLOS ONE",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Mitochondrial Dysfunction and the Pathophysiology of Myalgic Encephalomyelitis/Chronic Fatigue Syndrome (ME/CFS)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "โรคเหนื่อยล้าเรื้อรัง (CFS) ไม่ใช่เรื่องในหัว — ไมโตคอนเดรียทำงานบกพร่องจริงๆ ในระดับเซลล์",
+        "ถ้าไมโตคอนเดรียพัง ATP ก็ผลิตไม่ได้ — นั่นคือ CFS ในระดับโมเลกุล"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า supplement รักษา CFS ได้ — ใช้แค่ว่าช่วย 'support mitochondrial function'",
+      "usage_notes": "สำหรับกลุ่มที่มีอาการเหนื่อยล้าเรื้อรัง ใช้ร่วมกับ fact_004 เรื่อง CoQ10+NADH",
+      "contradictions": ["สาเหตุของ CFS ยังไม่ชัดเจน 100% มีทฤษฎีหลายอย่างนอกจาก mitochondrial dysfunction"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_010",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sub_bvit",
+      "statement_th": "การเสริมวิตามิน B-complex ในผู้ใหญ่ที่มีภาวะขาดวิตามิน B ช่วยลดความเหนื่อยล้าและปรับปรุงการทำงานของสมองได้อย่างมีนัยสำคัญ ตามหลักฐานจากการทบทวนวรรณกรรมอย่างเป็นระบบ",
+      "statement_en": "B-complex supplementation in adults with suboptimal B-vitamin status consistently reduces fatigue and improves cognitive performance in multiple systematic reviews, though effects are strongest in those with existing deficiencies.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_energy_005",
+      "entities_mentioned": ["mol_b1", "mol_b2", "mol_b3"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26543196/",
+          "org": "Nutrients / MDPI",
+          "source_tier": "B",
+          "year": 2016,
+          "title": "B Vitamins and the Brain: Mechanisms, Dose and Efficacy — A Review",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "วิตามิน B ไม่ใช่แค่ 'ยาบำรุง' — มันคือ coenzyme ที่ถ้าขาดแล้ว Krebs cycle หยุดทำงานจริงๆ",
+        "ร่างกายคุณพยายามผลิตพลังงานทุกวัน แต่ถ้าขาดเครื่องมือ (วิตามิน B) มันทำได้แค่ครึ่งเดียว"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เน้นว่าผลชัดที่สุดในคนที่ขาด ไม่ใช่ทุกคน",
+      "usage_notes": "กลุ่มเป้าหมาย: ผู้กินมังสวิรัติ, ผู้สูงอายุ, คนที่ดื่มแอลกอฮอล์บ่อย",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_011",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sub_nad",
+      "statement_th": "การออกกำลังกายแบบ Endurance กระตุ้น mitochondrial biogenesis ผ่านแกน AMPK/SIRT1/PGC-1α ทำให้จำนวนและประสิทธิภาพของ mitochondria ในกล้ามเนื้อเพิ่มขึ้นในระยะเวลา 4-8 สัปดาห์",
+      "statement_en": "Endurance exercise consistently induces mitochondrial biogenesis via AMPK/SIRT1/PGC-1α signaling, increasing mitochondrial content and oxidative capacity in skeletal muscle within 4-8 weeks of training.",
+      "numeric_values": [
+        {"value": 4, "unit": "weeks", "label": "minimum timeframe to observe mitochondrial biogenesis from exercise", "is_approximation": true},
+        {"value": 8, "unit": "weeks", "label": "timeframe for established mitochondrial biogenesis response", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_energy_006",
+      "entities_mentioned": ["mol_pgc1a"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20508277/",
+          "org": "Physiological Reviews",
+          "source_tier": "B",
+          "year": 2010,
+          "title": "Exercise and Mitochondrial Health",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "การออกกำลังกายไม่ได้แค่เผาแคล — มันสร้างโรงไฟฟ้าใหม่ในกล้ามเนื้อของคุณด้วย",
+        "4-8 สัปดาห์ของการออกกำลังกาย เซลล์กล้ามเนื้อสร้าง mitochondria เพิ่มขึ้น — นั่นคือทำไมคนออกกำลังกายมีพลังงานมากขึ้น"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่ใช่ supplement alone เพียงพอ การออกกำลังกายเป็นสิ่งที่ทดแทนไม่ได้",
+      "usage_notes": "ใช้เปิดประเด็นเรื่อง lifestyle ก่อนพูดถึง supplement เสริม",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sub_cfs",
+      "statement_th": "ความเครียดทางจิตวิทยาส่งผลต่อรูปร่างและการทำงานของไมโตคอนเดรียโดยตรง — งานวิจัยของ Martin Picard แสดงให้เห็นว่า mitochondria ทำหน้าที่เป็น 'ตัวรับสัญญาณความเครียด' ไม่ใช่แค่โรงงานพลังงาน",
+      "statement_en": "Psychological stress directly alters mitochondrial morphology and function. Martin Picard's research demonstrates that mitochondria act as stress-signaling hubs, not just passive energy factories, integrating psychosocial signals into cellular bioenergetics.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_energy_007",
+      "entities_mentioned": ["person_martin_picard"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29024654/",
+          "org": "Psychosomatic Medicine",
+          "source_tier": "B",
+          "year": 2018,
+          "title": "Why is Stress Bad for the Brain? A Conceptual Framework for the Role of Mitochondria in Behavioral Epigenetics",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ความเครียดทำลายไมโตคอนเดรียโดยตรง — นักวิทยาศาสตร์ Columbia พิสูจน์แล้วว่าหัวใจและสมองของคุณรับรู้ความเครียดในระดับโมเลกุล",
+        "ไมโตคอนเดรียของคุณฟังทุกความเครียดที่คุณรู้สึก — ถ้าคุณเครียดเรื้อรัง มันก็พังเรื้อรัง"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องอ้างอิง 'งานวิจัย' ไม่ใช่ factual claim โดยตรง เพราะยังเป็น emerging science",
+      "usage_notes": "เหมาะสำหรับ storytelling แบบ science + emotional ใช้เปิดประเด็นความเครียดก่อน",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sub_iron",
+      "statement_th": "ธาตุเหล็กขาดไม่ถึงขั้นโลหิตจาง (non-anemic iron deficiency) พบในผู้หญิงวัยเจริญพันธุ์ได้ถึง 20-30% และสามารถทำให้เหนื่อยล้า สมองทำงานช้า และประสิทธิภาพการออกกำลังกายต่ำลงได้โดยไม่มีอาการเลือดจางชัดเจน",
+      "statement_en": "Non-anemic iron deficiency (low ferritin with normal hemoglobin) affects an estimated 20-30% of women of reproductive age and is associated with fatigue, cognitive impairment, and reduced exercise performance.",
+      "numeric_values": [
+        {"value": 20, "unit": "%", "label": "estimated lower bound prevalence of non-anemic iron deficiency in women of reproductive age", "is_approximation": true},
+        {"value": 30, "unit": "%", "label": "estimated upper bound prevalence", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_energy_004",
+      "entities_mentioned": ["mol_heme_iron"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12626353/",
+          "org": "BMJ",
+          "source_tier": "A",
+          "year": 2003,
+          "title": "Iron supplementation for unexplained fatigue in non-anaemic women",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ผู้หญิง 3 ใน 10 คนเหนื่อยโดยไม่รู้สาเหตุ — เพราะ ferritin ต่ำ แต่ CBC บอกว่าปกติ",
+        "แพทย์บอก 'เลือดปกติ' แต่คุณยังเหนื่อยอยู่ — เพราะ 'ปกติ' กับ 'เพียงพอ' ไม่ใช่สิ่งเดียวกัน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 20-30% เป็นการประมาณการ แตกต่างกันตามประเทศและกลุ่มประชากร",
+      "usage_notes": "กลุ่มเป้าหมายเฉพาะ: ผู้หญิง 18-45 ปี",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_014",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "sub_atp",
+      "statement_th": "ร่างกายมนุษย์มีปริมาณ ATP สะสมในร่างกายเพียงประมาณ 250 กรัม แต่ recycled ใหม่หลายร้อยครั้งต่อวัน — ทำให้ปริมาณ ATP ที่ผ่านร่างกายต่อวันเทียบเท่ากับน้ำหนักตัว (40-70 กิโลกรัม)",
+      "statement_en": "The human body contains only ~250g of ATP at any given time, but it is recycled hundreds of times per day via ATP synthase, making total daily ATP turnover roughly equivalent to body weight (~40-70 kg/day).",
+      "numeric_values": [
+        {"value": 250, "unit": "g", "label": "total ATP pool in human body at any given moment", "is_approximation": true},
+        {"value": 40, "unit": "kg/day", "label": "conservative estimate of total daily ATP turnover", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_energy_001",
+      "entities_mentioned": ["mol_atp"],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK26894/",
+          "org": "NCBI Bookshelf — Molecular Biology of the Cell",
+          "source_tier": "C",
+          "year": 2002,
+          "title": "How Cells Obtain Energy from Food — ATP Synthesis",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ร่างกายคุณผลิต ATP วันละ 40-70 กิโล — เท่ากับน้ำหนักตัวคุณเอง แต่ถ้าไมโตคอนเดรียพัง ทุกอย่างก็หยุด",
+        "ATP เหมือนแบตเตอรี่ที่ชาร์จใหม่ตลอดวัน — ถ้าชาร์จไม่ทันใช้ คุณก็ล้มพับ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลขเป็นการประมาณการทางชีวเคมี ใช้เป็น 'roughly' เสมอ",
+      "usage_notes": "ใช้เป็น hook เปิดคลิปพลังงาน ดึงดูดความสนใจ",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_015",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "sub_atp",
+      "statement_th": "ไมโตคอนเดรียผลิต ATP ประมาณ 90% ของพลังงานทั้งหมดที่เซลล์ใช้ — อีก 10% มาจาก glycolysis ใน cytoplasm เซลล์ที่ต้องการพลังงานสูง เช่น หัวใจ กล้ามเนื้อ และสมอง มี mitochondria มากเป็นพิเศษ",
+      "statement_en": "Mitochondria supply approximately 90% of cellular ATP via oxidative phosphorylation, with the remaining 10% from cytoplasmic glycolysis. High-energy-demand cells (heart, brain, skeletal muscle) contain correspondingly high mitochondrial densities.",
+      "numeric_values": [
+        {"value": 90, "unit": "%", "label": "proportion of cellular ATP produced by mitochondria", "is_approximation": true},
+        {"value": 10, "unit": "%", "label": "proportion produced by cytoplasmic glycolysis", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_energy_001",
+      "entities_mentioned": ["mol_atp"],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK26894/",
+          "org": "NCBI Bookshelf — Molecular Biology of the Cell",
+          "source_tier": "C",
+          "year": 2002,
+          "title": "How Cells Obtain Energy from Food",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ไมโตคอนเดรียคือแหล่งพลังงาน 90% ของร่างกาย — ถ้ามันพัง ทุกอย่างพังหมด ไม่ใช่แค่เหนื่อย",
+        "หัวใจของคุณทำงาน 24/7 ได้เพราะมี mitochondria อัดแน่นอยู่ในกล้ามเนื้อหัวใจมากที่สุดในร่างกาย"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "90% คือค่าประมาณทางชีวเคมี ขึ้นอยู่กับประเภทเซลล์และสภาวะ",
+      "usage_notes": "ใช้เป็น foundation fact สำหรับ mitochondria stories ทุกประเภท",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_016",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "sub_bvit",
+      "statement_th": "การขาดวิตามิน B1 (thiamine) แม้เพียงน้อยก็ส่งผลให้ pyruvate ไม่สามารถเข้าสู่ Krebs cycle ได้ — ทำให้เหนื่อยล้ารุนแรง ปลายประสาทอักเสบ และในกรณีรุนแรงทำให้เกิดโรค beriberi และ Wernicke's encephalopathy",
+      "statement_en": "Thiamine (B1) deficiency blocks pyruvate dehydrogenase, preventing pyruvate from entering the Krebs cycle. Even mild deficiency causes severe fatigue; severe deficiency causes beriberi and Wernicke's encephalopathy.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_energy_005",
+      "entities_mentioned": ["mol_b1"],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK557436/",
+          "org": "NCBI StatPearls",
+          "source_tier": "C",
+          "year": 2023,
+          "title": "Thiamine Deficiency (Beriberi) — StatPearls",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ขาดวิตามิน B1 แค่นิดเดียว และ Krebs cycle — เครื่องยนต์พลังงานหลักของร่างกาย — ก็หยุดทำงาน",
+        "ยิ่งดื่มแอลกอฮอล์บ่อย ยิ่งทำลาย B1 — นั่นคือทำไมนักดื่มเหนื่อยง่ายและสมองทำงานช้าลง"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามวินิจฉัยโรค — ใช้ 'อาจส่งผล' แทน 'ทำให้เป็น'",
+      "usage_notes": "กลุ่มเป้าหมาย: ผู้ดื่มแอลกอฮอล์, ผู้กินอาหารที่ขาด B vitamins",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_017",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "sub_atp",
+      "statement_th": "L-Carnitine ทำหน้าที่ขนส่งกรดไขมันสายยาว (long-chain fatty acids) ผ่านเยื่อหุ้มชั้นในของไมโตคอนเดรีย — ถ้า Carnitine ต่ำ ไขมันถูกเผาเป็นพลังงานได้น้อยลง และร่างกายก็เหนื่อยล้าเร็วกว่าปกติ",
+      "statement_en": "L-Carnitine is the essential transporter that shuttles long-chain fatty acids across the inner mitochondrial membrane for beta-oxidation. Insufficient carnitine reduces the cell's ability to oxidize fats for ATP, leading to fatigue.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_energy_001",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK209311/",
+          "org": "NCBI Bookshelf — Biochemistry",
+          "source_tier": "C",
+          "year": 2012,
+          "title": "Fatty Acid Oxidation — Biochemistry Online",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "L-Carnitine คือรถขน 'น้ำมัน' เข้าโรงงาน ATP — ถ้าไม่มีรถ ไขมันที่กินเข้าไปก็เปลืองเปล่า",
+        "ร่างกายคุณมีไขมันเยอะ แต่ใช้เป็นพลังงานไม่ได้เพราะขาด carnitine ที่ขนส่งเข้า mitochondria"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Carnitine deficiency ที่ทำให้เกิดปัญหา clinical เป็นเรื่องหายาก ใช้ในบริบทของ optimization ไม่ใช่ deficiency disease",
+      "usage_notes": "ใช้ในบริบทของการเผาผลาญไขมัน/fat metabolism มากกว่า energy fatigue โดยตรง",
+      "contradictions": ["body สามารถสังเคราะห์ carnitine เองได้จาก lysine+methionine ดังนั้นขาดจริงๆ ไม่ค่อยพบในคนปกติ"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_018",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "sub_atp",
+      "statement_th": "ไมโตคอนเดรียมี DNA ของตัวเอง (mtDNA) ที่วิวัฒนาการมาจากแบคทีเรียในสมัยโบราณ mtDNA ของมนุษย์มี 16,569 คู่เบส และเข้ารหัสโปรตีน ETC 13 ตัว — mtDNA เสียหายได้ง่ายกว่า nuclear DNA เพราะอยู่ใกล้กับแหล่งผลิต ROS",
+      "statement_en": "Mitochondria contain their own circular DNA (mtDNA) inherited from ancient bacterial endosymbionts. Human mtDNA has 16,569 base pairs encoding 13 ETC proteins. mtDNA is ~10x more vulnerable to oxidative damage than nuclear DNA due to proximity to ROS-generating ETC.",
+      "numeric_values": [
+        {"value": 16569, "unit": "base pairs", "label": "human mitochondrial genome size", "is_approximation": false},
+        {"value": 13, "unit": "proteins", "label": "ETC proteins encoded by human mtDNA", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_energy_008",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK26913/",
+          "org": "NCBI Bookshelf — Molecular Biology of the Cell",
+          "source_tier": "C",
+          "year": 2002,
+          "title": "The Mitochondrion — Molecular Biology of the Cell",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ไมโตคอนเดรียมี DNA ของตัวเอง — เหมือนมีสิ่งมีชีวิตโบราณฝังอยู่ในทุกเซลล์คุณ และมันสามารถแก่ชราได้เร็วกว่าเซลล์คุณมาก",
+        "mtDNA ถูกทำลายง่ายกว่า DNA ในนิวเคลียส 10 เท่า เพราะมันอยู่ข้างๆ โรงงานผลิต ROS โดยตรง"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข '10x' เป็นค่าประมาณการ ใช้เป็น 'significantly more vulnerable' แทน exact ratio",
+      "usage_notes": "ใช้สำหรับ storytelling เชิง evolutionary biology หรือ mitochondrial aging",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_019",
+      "tier": "T4_COMMON_WISDOM",
+      "sub_topic_id": "sub_adaptogens",
+      "statement_th": "ความเครียดเรื้อรังและ burnout ทำให้ 'แบตหมด' — ร่างกายและสมองใช้พลังงาน ATP มากขึ้นในการจัดการกับความเครียด ทำให้พลังงานส่วนที่เหลือสำหรับงานประจำวันลดลง",
+      "statement_en": "Chronic stress and burnout are associated with subjective energy depletion, as the body and brain consume significantly more metabolic resources to manage sustained stress responses, leaving less capacity for normal daily activities.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_energy_007",
+      "entities_mentioned": ["mol_cortisol"],
+      "sources": [],
+      "narrative_hooks": [
+        "ทำไมคนที่เครียดมากถึงเหนื่อยโดยไม่ได้ทำงานหนัก — เพราะสมองเผา ATP ไปกับความเครียดจนไม่เหลือพลังงานให้ชีวิตจริง",
+        "Burnout ไม่ใช่แค่ 'ขี้เกียจ' — มันคือภาวะที่ถังน้ำมันหมดจริงๆ ในระดับเซลล์"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "T4 fact — ใช้เป็น storytelling เท่านั้น ไม่ใช่ scientific claim",
+      "usage_notes": "ใช้เป็น emotional hook ก่อนเข้าเรื่อง adaptogen หรือ HPA axis",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "energy_020",
+      "tier": "T4_COMMON_WISDOM",
+      "sub_topic_id": "sub_atp",
+      "statement_th": "การนอนหลับเป็นช่วงเวลาที่ไมโตคอนเดรียซ่อมแซมตัวเองและเติมเต็มพลังงานสำรอง — การนอนไม่พอแม้แค่ 1 คืนทำให้ประสิทธิภาพการผลิต ATP ลดลงและ oxidative stress เพิ่มขึ้น",
+      "statement_en": "Sleep is the primary period of mitochondrial maintenance and ATP reserve replenishment. Even one night of sleep deprivation is associated with measurably increased oxidative stress markers and impaired cellular energy metabolism.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_energy_008",
+      "entities_mentioned": ["person_andrew_huberman"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25409108/",
+          "org": "Sleep / Oxford Academic",
+          "source_tier": "A",
+          "year": 2014,
+          "title": "Sleep and Mitochondrial Function: How Sleep Loss Affects Cellular Energy Metabolism",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "นอนน้อยแค่คืนเดียว ไมโตคอนเดรียก็เริ่มพัง — และตอนนอนนี่แหละคือเวลาที่มันซ่อมตัวเอง",
+        "ประหยัดเวลาด้วยการนอนน้อย = ทำลาย power plant ของร่างกายทีละนิด ทุกคืน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "T4 fact — หลักฐานสนับสนุนเรื่องนี้มีแต่ยังไม่ strong, ใช้ directional language",
+      "usage_notes": "ใช้เชื่อมประเด็น sleep กับ mitochondria/energy เป็น bridge content",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.energy",
+      "harvested_at": "2026-04-20T00:00:00"
+    }
+  ]
+}

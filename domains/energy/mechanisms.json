@@ -1,0 +1,213 @@
+{
+  "domain_id": "energy",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.energy"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_energy_001",
+      "label_th": "การสังเคราะห์ ATP ผ่าน Oxidative Phosphorylation",
+      "label_en": "Oxidative Phosphorylation (ATP Synthesis via ETC)",
+      "description_th": "กระบวนการหลักที่ไมโตคอนเดรียผลิต ATP โดยใช้ gradient ของโปรตอน (H+) ที่สร้างขึ้นจากการถ่ายโอนอิเล็กตรอนผ่าน Complex I→II→III→IV ไปยัง ATP synthase (Complex V) ซึ่งสูบโปรตอนกลับเข้าเมทริกซ์และผลิต ATP จาก ADP+Pi",
+      "description_en": "The primary mitochondrial process that generates ATP using a proton gradient built by electron transfer along Complex I→II→III→IV, driving ATP synthase (Complex V) to phosphorylate ADP into ATP. Accounts for ~90% of cellular ATP production in aerobic organisms.",
+      "chain": [
+        {"step": 1, "actor": "NADH / FADH2", "action": "donate electrons", "target": "Complex I / Complex II", "effect": "electrons enter ETC; protons pumped across inner mitochondrial membrane"},
+        {"step": 2, "actor": "CoQ10 (Ubiquinone)", "action": "shuttle electrons", "target": "Complex III", "effect": "electrons transferred; more protons pumped"},
+        {"step": 3, "actor": "Cytochrome c", "action": "shuttle electrons", "target": "Complex IV", "effect": "electrons transferred to O2 forming H2O"},
+        {"step": 4, "actor": "Proton gradient (ΔμH+)", "action": "drives rotation", "target": "ATP synthase (Complex V)", "effect": "ADP + Pi → ATP (3–4 ATP per NADH, 1.5–2 per FADH2)"},
+        {"step": 5, "actor": "ATP", "action": "transport to cytoplasm via ANT", "target": "all cellular processes", "effect": "energy available for muscle contraction, biosynthesis, ion pumping"}
+      ],
+      "analogies_th": [
+        "ไมโตคอนเดรียเหมือนโรงไฟฟ้าพลังน้ำ — อิเล็กตรอนคือน้ำที่ไหลลง, โปรตอนคือน้ำที่สะสมอยู่หลังเขื่อน, ATP synthase คือกังหันที่ปั่นไฟ",
+        "เหมือนโรงงานแปลงแร่เป็นเหรียญ — อาหารถูกแปลงเป็น NADH → NADH ถูกแปลงเป็น ATP (เหรียญ) ที่ทุกเซลล์ใช้ได้"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK26894/", "org": "NCBI Bookshelf / Molecular Biology of the Cell", "source_tier": "C", "year": 2002, "title": "Electron Transport and ATP Synthesis", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_atp",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_energy_002",
+      "label_th": "CoQ10 เป็นตัวส่งอิเล็กตรอนและสารต้านอนุมูลอิสระ",
+      "label_en": "CoQ10 as Electron Shuttle & Membrane Antioxidant",
+      "description_th": "CoQ10 (Ubiquinone/Ubiquinol) เป็น lipid-soluble molecule ที่เคลื่อนที่อยู่ใน inner mitochondrial membrane รับอิเล็กตรอนจาก Complex I และ II แล้วส่งต่อไปยัง Complex III ในรูปแบบ Ubiquinol (QH2) ยังทำหน้าที่เป็น antioxidant ป้องกัน membrane lipids จาก lipid peroxidation",
+      "description_en": "CoQ10 is a fat-soluble quinone that moves freely in the inner mitochondrial membrane, accepting electrons from Complex I and II (as ubiquinone, Q) and donating them to Complex III (as ubiquinol, QH2). It also acts as the membrane-bound antioxidant preventing lipid peroxidation.",
+      "chain": [
+        {"step": 1, "actor": "Complex I or II", "action": "reduce ubiquinone to ubiquinol (QH2)", "target": "CoQ10", "effect": "CoQ10 picks up electrons and 2 protons from matrix"},
+        {"step": 2, "actor": "CoQ10 (QH2)", "action": "diffuse within membrane", "target": "Complex III", "effect": "electrons delivered to cytochrome b; additional proton pumping across membrane"},
+        {"step": 3, "actor": "Statin / aging / CoQ10 deficiency", "action": "reduce CoQ10 pool", "target": "ETC", "effect": "electron bottleneck → less ATP output, more electron leak → more ROS"}
+      ],
+      "analogies_th": [
+        "CoQ10 คือรถรับส่งนักเรียน — ถ้าไม่มีรถ นักเรียน (อิเล็กตรอน) ไปโรงเรียน (Complex III) ไม่ได้ โรงงาน ATP ก็หยุดทำงาน",
+        "เหมือน USB cable — ถ้าสาย USB เสื่อมคุณภาพ ชาร์จช้าลง แม้แบตและ adapter ยังดี"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/14761304/", "org": "Archives of Neurology", "source_tier": "A", "year": 2004, "title": "Atorvastatin Decreases the Coenzyme Q10 Level in the Blood of Patients at Risk for Cardiovascular Disease and Stroke", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/2813174/", "org": "Lipids", "source_tier": "A", "year": 1989, "title": "Age-related changes in the lipid compositions of rat and human tissues", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_coq10",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_energy_003",
+      "label_th": "วัฏจักร NAD+/NADH และการแก่ชรา",
+      "label_en": "NAD+/NADH Redox Cycle & Aging Axis",
+      "description_th": "NAD+ รับอิเล็กตรอนและโปรตอนจาก glycolysis และ Krebs cycle เปลี่ยนเป็น NADH → NADH ส่งอิเล็กตรอนเข้า ETC และ NAD+ ถูกสร้างใหม่ นอกจากนี้ NAD+ ยังเป็น substrate ของ Sirtuin (SIRT1) ที่ควบคุม PGC-1α และ mitochondrial biogenesis เมื่อ NAD+ ลดลงตามอายุ sirtuins ทำงานน้อยลง → mitochondria เสื่อม → พลังงานลด",
+      "description_en": "NAD+ cycles between oxidized (NAD+) and reduced (NADH) states as it accepts electrons from glycolysis and the Krebs cycle, then donates them to Complex I of the ETC. Beyond electron transport, NAD+ serves as the obligate co-substrate for sirtuin deacylases (SIRT1-3) which regulate mitochondrial biogenesis via PGC-1α. NAD+ declines ~50% in aging skeletal muscle, impairing both energy production and mitochondrial maintenance.",
+      "chain": [
+        {"step": 1, "actor": "Glucose/fatty acids", "action": "oxidized in glycolysis and Krebs cycle", "target": "NAD+", "effect": "NAD+ → NADH (electron capture)"},
+        {"step": 2, "actor": "NADH", "action": "donates electrons at Complex I", "target": "ETC", "effect": "drives ATP synthesis; NAD+ regenerated"},
+        {"step": 3, "actor": "NAD+", "action": "activates SIRT1/SIRT3", "target": "PGC-1α / mitochondrial proteins", "effect": "mitochondrial biogenesis and quality control maintained"},
+        {"step": 4, "actor": "Aging / DNA damage / inflammation", "action": "activate PARP / CD38 consuming NAD+", "target": "NAD+ pool", "effect": "NAD+ pool depleted; sirtuins impaired; mitochondria decline"}
+      ],
+      "analogies_th": [
+        "NAD+ เหมือนชาร์จแบต — ถ้า NAD+ หมด ทั้งโรงงานไฟฟ้า (ETC) และทีมซ่อมบำรุง (Sirtuin/PGC-1α) ก็หยุดทำงานพร้อมกัน",
+        "เหมือนโทเค็นในเกม — NAD+ คือโทเค็นที่ต้องใช้จ่ายเพื่อผลิตพลังงาน เมื่ออายุมากขึ้นโทเค็นค่อยๆ หายไปแต่ร่างกายพิมพ์ใหม่ได้น้อยลง"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23452850/", "org": "Cell Metabolism", "source_tier": "A", "year": 2013, "title": "Declining NAD+ Induces a Pseudohypoxic State Disrupting Nuclear-Mitochondrial Communication during Aging", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_nad",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_energy_004",
+      "label_th": "ธาตุเหล็ก เฮโมโกลบิน และการส่ง O2 ไปยังไมโตคอนเดรีย",
+      "label_en": "Iron / Hemoglobin / Oxygen Delivery to Mitochondria",
+      "description_th": "ธาตุเหล็ก (Fe²⁺) เป็นศูนย์กลางของ heme group ใน hemoglobin และ myoglobin O2 ที่หายใจเข้าจะจับกับ Fe²⁺ ใน hemoglobin → ขนส่งผ่านเลือดไปยังเนื้อเยื่อ → ปล่อย O2 ที่ไมโตคอนเดรีย → O2 เป็น final electron acceptor ของ Complex IV เมื่อ ferritin/hemoglobin ต่ำ → O2 ส่งถึง mitochondria ไม่พอ → ATP ผลิตน้อยลง → ล้าง่าย",
+      "description_en": "Iron (Fe²⁺) is the active center of heme in hemoglobin and myoglobin. O2 from breathing binds Fe²⁺ in lung capillaries → transported to tissues → released at mitochondria → serves as the final electron acceptor at Complex IV (cytochrome c oxidase), forming water. Low iron/ferritin → insufficient O2 delivery → impaired ETC at Complex IV → reduced ATP production → fatigue.",
+      "chain": [
+        {"step": 1, "actor": "Hemoglobin (Fe²⁺-heme)", "action": "binds O2 in pulmonary capillaries", "target": "O2 molecule", "effect": "oxyHemoglobin formed; O2 transported to peripheral tissues"},
+        {"step": 2, "actor": "oxyHemoglobin", "action": "releases O2 at tissue mitochondria", "target": "mitochondrial matrix", "effect": "O2 available as terminal electron acceptor"},
+        {"step": 3, "actor": "O2", "action": "accepts 4 electrons + 4H+ at Complex IV", "target": "cytochrome c oxidase", "effect": "2H2O formed; proton gradient maintained for ATP synthesis"},
+        {"step": 4, "actor": "Iron deficiency", "action": "reduces hemoglobin synthesis", "target": "oxygen delivery chain", "effect": "less O2 to mitochondria → ATP bottleneck → chronic fatigue"}
+      ],
+      "analogies_th": [
+        "ธาตุเหล็กเหมือนรถบรรทุก O2 — ขาดธาตุเหล็ก รถบรรทุกน้อยลง O2 ไปถึงโรงงาน ATP ไม่พอ ต่อให้เครื่องจักรดีแค่ไหนก็ผลิตไม่ได้เต็มกำลัง",
+        "เหมือนโรงงานที่ขาดวัตถุดิบหลัก — ออกซิเจนคือวัตถุดิบที่ขาดไม่ได้ ธาตุเหล็กคือรถที่ขนวัตถุดิบมาส่ง"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12626353/", "org": "BMJ", "source_tier": "A", "year": 2003, "title": "Iron supplementation for unexplained fatigue in non-anaemic women", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_iron",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_energy_005",
+      "label_th": "วิตามิน B เป็น Coenzyme ในวัฏจักรเครบส์และ Glycolysis",
+      "label_en": "B Vitamins as Essential Coenzymes in Energy Metabolism",
+      "description_th": "วิตามิน B1 (thiamine) เป็น cofactor ของ pyruvate dehydrogenase (เชื่อม glycolysis กับ Krebs cycle) B2 (riboflavin) เป็นตั้งต้น FAD ที่รับ electron ใน Complex II B3 (niacin) เป็นตั้งต้น NAD+ B5 (pantothenic acid) เป็นส่วนหนึ่งของ CoA ขาดวิตามิน B ตัวใดตัวหนึ่งก็เหมือนถอดชิ้นส่วนสำคัญออกจากเครื่องยนต์พลังงาน",
+      "description_en": "B vitamins serve as indispensable coenzymes at multiple steps of energy metabolism: B1 (thiamine) as TPP cofactor for pyruvate dehydrogenase and alpha-ketoglutarate dehydrogenase; B2 (riboflavin) as FAD precursor for Complex II and fatty acid oxidation; B3 (niacin) as NAD+ precursor; B5 (pantothenic acid) as CoA component for acetyl-CoA formation and beta-oxidation.",
+      "chain": [
+        {"step": 1, "actor": "Thiamine (B1) as TPP", "action": "cofactor for pyruvate dehydrogenase", "target": "pyruvate → acetyl-CoA conversion", "effect": "glycolysis products enter Krebs cycle; deficiency blocks this step completely"},
+        {"step": 2, "actor": "Riboflavin (B2) as FAD", "action": "accepts electrons in Complex II and fatty acid beta-oxidation", "target": "electron transport / fat metabolism", "effect": "FADH2 feeds electrons into ETC; deficiency reduces fat-derived ATP"},
+        {"step": 3, "actor": "Niacin (B3) as NAD+", "action": "electron carrier throughout glycolysis and Krebs cycle", "target": "ATP production", "effect": "NAD+ deficiency impairs NADH generation → less ATP"},
+        {"step": 4, "actor": "Pantothenic acid (B5) as CoA", "action": "acetyl group carrier in Krebs cycle and fatty acid oxidation", "target": "acetyl-CoA pool", "effect": "B5 deficiency reduces substrate entry into Krebs cycle"}
+      ],
+      "analogies_th": [
+        "วิตามิน B คือกุญแจประตูในสายการผลิต — ขาดกุญแจตัวใดตัวหนึ่ง ประตูบานนั้นปิด สายการผลิต ATP หยุด",
+        "เหมือน spark plug ในรถ — เครื่องยนต์ดีแค่ไหน ถ้าหัวเทียนหาย รถก็ไม่ขยับ"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK557436/", "org": "NCBI StatPearls", "source_tier": "C", "year": 2023, "title": "Thiamine Deficiency (Beriberi)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_bvit",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_energy_006",
+      "label_th": "Mitochondrial Biogenesis ผ่านแกน SIRT1/PGC-1α",
+      "label_en": "Mitochondrial Biogenesis via SIRT1/PGC-1α Axis",
+      "description_th": "เมื่อ NAD+ สูงขึ้น (เช่น จากการออกกำลังกาย หรือ NR/NMN) → SIRT1 ถูกกระตุ้น → deacetylate PGC-1α → PGC-1α เข้าสู่ nucleus → เปิดยีน mitochondrial biogenesis → เซลล์สร้าง mitochondria ใหม่เพิ่มขึ้น ทำให้ศักยภาพในการผลิต ATP สูงขึ้น",
+      "description_en": "Elevated NAD+ (e.g. from exercise or NR/NMN) → activates SIRT1 deacetylase → SIRT1 deacetylates and activates PGC-1α → PGC-1α acts as master coactivator of mitochondrial biogenesis genes → cell produces more mitochondria → greater ATP production capacity.",
+      "chain": [
+        {"step": 1, "actor": "Exercise / caloric restriction / NR/NMN", "action": "increase cellular NAD+ levels", "target": "SIRT1 enzyme", "effect": "SIRT1 becomes active (requires NAD+ as co-substrate)"},
+        {"step": 2, "actor": "SIRT1", "action": "deacetylates PGC-1α", "target": "PGC-1α transcriptional coactivator", "effect": "PGC-1α activated and translocates to nucleus"},
+        {"step": 3, "actor": "PGC-1α", "action": "coactivates NRF1/NRF2 and TFAM", "target": "mitochondrial biogenesis gene promoters", "effect": "transcription of mitochondrial proteins and mtDNA replication upregulated"},
+        {"step": 4, "actor": "New mitochondria", "action": "increase oxidative capacity", "target": "muscle and other tissues", "effect": "greater ATP output capacity; improved endurance and energy"}
+      ],
+      "analogies_th": [
+        "เหมือนการสร้างโรงไฟฟ้าเพิ่ม — แทนที่จะแค่ซ่อมโรงไฟฟ้าเก่า ร่างกายสร้างโรงไฟฟ้าใหม่ทั้งหลัง ทำให้กำลังการผลิตพลังงานเพิ่มขึ้น",
+        "NAD+ คือสัญญาณ 'เปิดโรงงานใหม่' — ถ้าสัญญาณหาย ร่างกายก็ไม่รู้ว่าต้องสร้าง mitochondria เพิ่ม"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23452850/", "org": "Cell Metabolism", "source_tier": "A", "year": 2013, "title": "Declining NAD+ Induces a Pseudohypoxic State Disrupting Nuclear-Mitochondrial Communication during Aging", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29514072/", "org": "Cell Metabolism", "source_tier": "A", "year": 2018, "title": "Chronic Nicotinamide Riboside Supplementation Is Well-Tolerated and Elevates NAD+ in Healthy Middle-Aged and Older Adults", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_nad",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_energy_007",
+      "label_th": "แกน HPA และความเหนื่อยล้าจากความเครียดเรื้อรัง",
+      "label_en": "HPA Axis Dysregulation & Stress-Induced Fatigue",
+      "description_th": "ความเครียดเรื้อรัง → Hypothalamus ปล่อย CRH → Pituitary ปล่อย ACTH → Adrenal cortex ปล่อย cortisol → cortisol สูงเรื้อรัง → downregulate glucocorticoid receptors → HPA axis ตอบสนองผิดปกติ นอกจากนี้ cortisol สูงเรื้อรังยับยั้ง mitochondrial function → พลังงานลด + ภูมิคุ้มกันต่ำ",
+      "description_en": "Chronic stress activates the HPA axis: hypothalamus → CRH → pituitary → ACTH → adrenal cortex → chronic cortisol elevation → glucocorticoid receptor downregulation → HPA dysregulation. Chronically elevated cortisol also directly impairs mitochondrial function (reduces membrane potential, increases ROS) and depletes energy reserves.",
+      "chain": [
+        {"step": 1, "actor": "Psychosocial stressor", "action": "activates hypothalamus", "target": "CRH neurons", "effect": "CRH released into pituitary portal system"},
+        {"step": 2, "actor": "ACTH from pituitary", "action": "stimulates adrenal cortex", "target": "zona fasciculata", "effect": "cortisol synthesized and released into bloodstream"},
+        {"step": 3, "actor": "Chronic cortisol elevation", "action": "downregulates glucocorticoid receptors", "target": "hippocampus and immune cells", "effect": "HPA axis loses negative feedback; runaway cortisol"},
+        {"step": 4, "actor": "Cortisol (chronic)", "action": "impairs mitochondrial membrane potential", "target": "mitochondria in brain and immune cells", "effect": "reduced ATP production; fatigue; impaired cognitive function"},
+        {"step": 5, "actor": "Adaptogen (Ashwagandha/Rhodiola)", "action": "modulates HPA axis; normalizes cortisol", "target": "stress response system", "effect": "HPA axis rebalanced; fatigue reduced; energy restored"}
+      ],
+      "analogies_th": [
+        "HPA axis เหมือนแอร์ที่ค้างอยู่ที่ MAX cooling — ในระยะสั้นดี แต่ถ้าเปิดตลอด 24 ชั่วโมง เครื่องก็พังและค่าไฟก็บาน (พลังงานหมด)",
+        "เหมือนรถที่เหยียบเบรกและคันเร่งพร้อมกันเป็นเดือน — ระบบพัง, น้ำมันหมด, และยางสึก"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23439798/", "org": "Indian Journal of Psychological Medicine", "source_tier": "A", "year": 2012, "title": "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of Ashwagandha root", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29024654/", "org": "Psychosomatic Medicine", "source_tier": "B", "year": 2018, "title": "Why is Stress Bad for the Brain? A Conceptual Framework for the Role of Mitochondria in Behavioral Epigenetics", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_adaptogens",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_energy_008",
+      "label_th": "ROS และวงจรทำลายไมโตคอนเดรีย",
+      "label_en": "Reactive Oxygen Species (ROS) & Mitochondrial Damage Cycle",
+      "description_th": "ระหว่าง ETC อิเล็กตรอนบางส่วน 'รั่ว' ออกไปทำปฏิกิริยากับ O2 เกิด superoxide (O2•⁻) → hydrogen peroxide (H2O2) → hydroxyl radical (•OH) สารเหล่านี้ทำลาย mtDNA, lipid membrane, และ protein ใน ETC ทำให้ ETC ทำงานด้อยลง → รั่วอิเล็กตรอนมากขึ้น → วงจรทำลายตัวเอง",
+      "description_en": "During electron transport, a small fraction of electrons (~1-2%) 'leak' and react directly with O2 to form superoxide (O2•⁻) → hydrogen peroxide → hydroxyl radical. These ROS damage mtDNA, membrane lipids, and ETC proteins. Damaged ETC has higher electron leak → more ROS → accelerating mitochondrial decline with age.",
+      "chain": [
+        {"step": 1, "actor": "Electrons in Complex I / III", "action": "leak to molecular oxygen", "target": "O2", "effect": "Superoxide (O2•⁻) formed"},
+        {"step": 2, "actor": "Superoxide dismutase (SOD2)", "action": "converts O2•⁻ to H2O2", "target": "matrix", "effect": "H2O2 formed (less reactive but diffuses to nucleus)"},
+        {"step": 3, "actor": "H2O2 / Fe²⁺ (Fenton reaction)", "action": "generates hydroxyl radical •OH", "target": "mtDNA, membrane lipids, proteins", "effect": "oxidative damage to mitochondrial components"},
+        {"step": 4, "actor": "Damaged ETC components", "action": "increase electron leak", "target": "Complex I / III", "effect": "positive feedback loop — more ROS → more damage → less ATP"},
+        {"step": 5, "actor": "CoQ10 (Ubiquinol form)", "action": "quenches lipid peroxyl radicals", "target": "inner mitochondrial membrane", "effect": "membrane protected; ROS damage slowed"}
+      ],
+      "analogies_th": [
+        "เหมือนท่อน้ำรั่ว — ยิ่งรั่วมาก แรงดันในท่อยิ่งต่ำ และท่อยิ่งผุกร่อนเร็วขึ้น วงจรนี้ไม่มีที่สิ้นสุดถ้าไม่ซ่อม",
+        "ROS คือขี้เถ้าจากโรงงาน — โรงงานที่เก่าและมีประสิทธิภาพต่ำจะสร้างขี้เถ้ามากขึ้น และขี้เถ้าก็ยิ่งทำให้เครื่องจักรเสียหายเร็วขึ้น"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25686762/", "org": "Antioxidants & Redox Signaling", "source_tier": "A", "year": 2015, "title": "Does Oral Coenzyme Q10 Plus NADH Supplementation Improve Fatigue and Biochemical Parameters in Chronic Fatigue Syndrome?", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_atp",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_energy_009",
+      "label_th": "Adaptogen ปรับสมดุลแกน Stress–Energy ผ่าน Non-Specific Resistance",
+      "label_en": "Adaptogen Non-Specific Stress Resistance Mechanism",
+      "description_th": "Adaptogen (Ashwagandha, Rhodiola, Ginseng) กระตุ้น stress response system ในปริมาณต่ำ เกิด 'hormetic effect' → upregulate Nrf2/antioxidant pathway, ปรับสมดุล HPA axis, ลด cortisol, เพิ่ม mitochondrial biogenesis ผลคือ tolerance ต่อ physical และ psychological stress สูงขึ้น และ fatigue ลดลง",
+      "description_en": "Adaptogens trigger mild stress responses (hormesis) that upregulate endogenous resilience pathways: Nrf2/antioxidant defense, HPA axis normalization, AMPK activation (energy sensing), and mild upregulation of heat shock proteins. This builds systemic stress tolerance and reduces both subjective fatigue and physiological stress markers like cortisol.",
+      "chain": [
+        {"step": 1, "actor": "Adaptogen bioactive compounds (withanolides/rosavins/ginsenosides)", "action": "mild activation of stress response at low doses", "target": "Nrf2 pathway, AMPK, heat shock response", "effect": "hormetic upregulation of endogenous defense systems"},
+        {"step": 2, "actor": "Nrf2 activation", "action": "upregulates antioxidant enzymes (SOD, catalase, GPx)", "target": "ROS detoxification system", "effect": "reduced oxidative stress in mitochondria"},
+        {"step": 3, "actor": "HPA axis normalization", "action": "reduces chronic cortisol output", "target": "adrenal-hypothalamic feedback loop", "effect": "cortisol normalizes; mitochondrial function restored"},
+        {"step": 4, "actor": "AMPK activation", "action": "signals low energy → stimulates mitochondrial biogenesis", "target": "PGC-1α pathway", "effect": "more mitochondria → better energy production"}
+      ],
+      "analogies_th": [
+        "Adaptogen เหมือนการฝึกซ้อมทหาร — ทำให้ร่างกายคุ้นชินกับความเครียด และเมื่อเจอความเครียดจริงก็รับมือได้ดีขึ้น",
+        "เหมือนการ 'ฉีดวัคซีนความเครียด' — ความเครียดน้อยๆ จาก adaptogen สอนร่างกายให้รับมือกับความเครียดจริงได้ดีกว่า"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23439798/", "org": "Indian Journal of Psychological Medicine", "source_tier": "A", "year": 2012, "title": "Safety and efficacy of Ashwagandha root extract in reducing stress and anxiety in adults", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11081987/", "org": "Phytomedicine", "source_tier": "A", "year": 2000, "title": "Rhodiola rosea in stress induced fatigue", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sub_adaptogens",
+      "confidence": "medium"
+    }
+  ]
+}

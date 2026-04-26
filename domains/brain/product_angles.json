@@ -1,0 +1,204 @@
+{
+  "domain_id": "brain",
+  "_meta": {"current_count": 9, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.brain"},
+  "angles": [
+    {
+      "angle_id": "brn_angle_001",
+      "product_category": "omega_3_dha",
+      "problem_th": "ความจำเสื่อม, สมาธิไม่ดี, brain fog ในผู้สูงอายุหรือผู้ขาด DHA",
+      "mechanism_claim_th": "DHA คิดเป็น 30-40% ของ fatty acid ใน synaptosome membrane — ขาดแล้ว synaptic plasticity ลด; EPA ลด neuroinflammation ผ่าน eicosanoid pathway",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": ["มีส่วนช่วยสนับสนุนสุขภาพสมองและความจำ", "ลดความเสี่ยง cognitive decline ในกลุ่มที่บริโภค omega-3 ต่ำ (observational evidence)", "FDA Qualified Health Claim: 'supportive but not conclusive evidence'"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'รักษาสมองเสื่อม/Alzheimer'", "ห้ามบอก 'เพิ่ม IQ'"],
+      "supporting_facts": ["brn_003", "brn_008", "brn_015"],
+      "narrative_frames": ["สมองสร้างจาก DHA — คุณให้ building block ครบไหม", "คนไทยกิน omega-3 จากปลาน้อยลง — สมองเสี่ยง"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (>3g/day EPA+DHA)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'omega-3 ป้องกัน Alzheimer ได้แน่'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["รักษาสมองเสื่อม", "ป้องกัน Alzheimer"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "brn_angle_002",
+      "product_category": "lion_mane",
+      "problem_th": "Mild cognitive impairment, brain fog, หน่วยความจำอ่อน",
+      "mechanism_claim_th": "Hericenones + erinacines กระตุ้น NGF synthesis → neurite outgrowth; RCT ใน MCI ผู้สูงอายุ: HDS-R score ดีขึ้นที่ 16 สัปดาห์",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": ["มีส่วนช่วยสนับสนุน NGF และสุขภาพระบบประสาท", "ผลการศึกษาเบื้องต้นใน MCI ดูมีแนวโน้มดี", "เห็ดที่กินได้ ปลอดภัยสูง"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'รักษา Alzheimer / MCI'", "ห้ามบอก 'ฉลาดขึ้นแน่นอน'"],
+      "supporting_facts": ["brn_004"],
+      "narrative_frames": ["เห็ดจาก forest ที่นักวิทยาศาสตร์ศึกษาเรื่องสมอง", "กระตุ้น NGF = ปลูกกิ่งก้านสมองใหม่"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["autoimmune_on_immunosuppressant"],
+        "drug_interactions": ["immunosuppressant (immune modulation)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'Lion's Mane รักษา Alzheimer'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาสมองเสื่อม", "ป้องกัน Alzheimer"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "brn_angle_003",
+      "product_category": "bacopa_monnieri",
+      "problem_th": "เรียนรู้ช้า ความจำระยะสั้นไม่ดี ข้อมูลวนเวียนไม่ลง",
+      "mechanism_claim_th": "Bacosides เพิ่ม dendritic branching ใน CA3 hippocampus + ยับยั้ง AChE เล็กน้อย → acetylcholine สูงขึ้น → memory encoding ดีขึ้น",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": ["มีส่วนช่วยปรับปรุงการเรียนรู้และความจำในระยะยาว (8-12 สัปดาห์)", "RCT ในคนสุขภาพดี: processing speed ดีขึ้น"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'Bacopa รักษา ADHD หรือสมองเสื่อม'", "ห้ามบอก 'เห็นผลเร็ว'"],
+      "supporting_facts": ["brn_005"],
+      "narrative_frames": ["สมุนไพร Ayurveda ที่งานวิจัย modern ยืนยัน", "ต้องอดทน 3 เดือนถึงจะเห็นผล"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["anticonvulsant (GABA pathway interaction)", "thyroid medication"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'รักษา ADHD'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษา ADHD", "รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "brn_angle_004",
+      "product_category": "phosphatidylserine",
+      "problem_th": "ความจำคำพูด, ความสนใจ และการเรียนรู้ในผู้สูงอายุ",
+      "mechanism_claim_th": "PS เป็น membrane phospholipid ที่สนับสนุน neurotransmitter vesicle release + ลด cortisol stress response 30-35%",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": ["FDA Qualified Health Claim: 'Very limited and preliminary scientific research suggests...'", "RCT 425 คน: verbal memory, learning, concentration ดีขึ้น", "ลด cortisol response"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'รักษา Alzheimer'", "ห้ามบอก 'PS = full FDA approved'"],
+      "supporting_facts": ["brn_006"],
+      "narrative_frames": ["ฟอสฟาไทดิลเซอรีน — ที่ FDA ยอมรับ claim สำหรับสมอง", "ลด cortisol ช่วยสมองทำงานดีขึ้น"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["anticoagulant (bleeding time)", "anticholinergic (counteract)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'PS รักษา Alzheimer'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": "FDA Qualified Health Claim (USA) — ไทย claim ต้องเป็น 'สนับสนุน' เท่านั้น"
+      }
+    },
+    {
+      "angle_id": "brn_angle_005",
+      "product_category": "alpha_gpc",
+      "problem_th": "Focus ต่ำ ทำงานซ้ำซ้อน ความจำ working memory ไม่ดี",
+      "mechanism_claim_th": "Alpha-GPC ผ่าน BBB → choline → acetylcholine synthesis → cholinergic synapse → focus, working memory; เพิ่ม GH pulse ด้วย",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": ["Bioavailable choline donor ที่ดีที่สุดสำหรับสมอง", "ผลการศึกษา: peak power และ GH สูงขึ้น", "เหมาะกับ biohacker / athlete"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'Alpha-GPC รักษาสมองเสื่อม'"],
+      "supporting_facts": ["brn_007"],
+      "narrative_frames": ["Nootropic stack ระดับ pro", "double benefit: brain + muscle"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_SSRI_or_antidepressant"],
+        "drug_interactions": ["anticholinergic (counteract)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'Alpha-GPC รักษาสมองเสื่อม'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "brn_angle_006",
+      "product_category": "mct_oil",
+      "problem_th": "Brain fog หลังกิน carb หนัก, ต้องการ focus ที่ clean",
+      "mechanism_claim_th": "MCT oil (C8/C10) ถูก metabolize เป็น BHB เร็ว → ผ่าน BBB → เป็น alternative fuel ที่มีประสิทธิภาพสูงกว่า glucose 23%; ลด neuroinflammation ผ่าน NLRP3 inhibition",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": ["BHB จาก MCT เป็น alternative fuel สำหรับสมอง", "ช่วยลด glucose spikes ที่ส่งผลต่อ brain fog"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'รักษา Alzheimer หรือ epilepsy'"],
+      "supporting_facts": ["brn_021"],
+      "narrative_frames": ["น้ำมันที่สมองชอบมากกว่าน้ำตาล", "ketone coffee = brain fuel ช่วงเช้า"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["liver_disease"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'MCT oil รักษาสมองเสื่อม'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาสมองเสื่อม"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "brn_angle_007",
+      "product_category": "rhodiola_rosea",
+      "problem_th": "เหนื่อยล้าทางสมอง, ความจำและ focus แย่ลงเมื่อเครียด",
+      "mechanism_claim_th": "Rhodiola ยับยั้ง MAO-A/B → เพิ่ม serotonin + dopamine; ลด cortisol; ปรับปรุง cognitive performance ภายใต้ stress 20%",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": ["Adaptogen ที่ช่วย cognitive performance ในช่วงเครียด", "ลด cortisol + fatigue"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'รักษา depression'"],
+      "supporting_facts": ["brn_016"],
+      "narrative_frames": ["สมองที่ทำงานใต้ความเครียด ต้องการ Rhodiola"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_SSRI_or_antidepressant"],
+        "drug_interactions": ["SSRI/SNRI (MAO inhibition — serotonin syndrome risk)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'Rhodiola รักษา depression'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษา depression"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "brn_angle_008",
+      "product_category": "l_tyrosine",
+      "problem_th": "สมองล้าง่าย ความจำและ focus ลดเมื่อทำงานหนัก",
+      "mechanism_claim_th": "L-Tyrosine → dopamine + noradrenaline precursor; ชดเชย catecholamine depletion ในช่วง acute stress → cognitive performance ลด 10-15% น้อยกว่ากลุ่ม placebo",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": ["เหมาะกับช่วงทำงาน/สอบหนัก", "ช่วยชดเชย catecholamine ที่ถูกใช้งานสูง"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'L-Tyrosine รักษา ADHD'"],
+      "supporting_facts": ["brn_012"],
+      "narrative_frames": ["amino acid ที่ทหารใช้ในสนาม", "เติม precursor ตรงๆ ก่อนสมองล้า"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_thyroid_medication", "on_SSRI_or_antidepressant"],
+        "drug_interactions": ["MAOI (serotonin/dopamine syndrome)", "levodopa"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'รักษา ADHD'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษา ADHD"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "brn_angle_009",
+      "product_category": "nootropic_stack",
+      "problem_th": "Brain fog + mental fatigue + ความจำ + focus ต่ำพร้อมกัน",
+      "mechanism_claim_th": "Combo stack: Alpha-GPC (acetylcholine) + Lion's Mane (NGF) + Omega-3 DHA (membrane) + Bacopa (dendritic branching) — ทำงาน multi-pathway ครอบคลุมหลาย mechanism ของ cognition",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": ["แต่ละส่วนประกอบมีงานวิจัยรองรับ", "approach แบบ multi-target"],
+      "forbidden_claim_boundary": ["ห้ามบอก 'nootropic stack เพิ่ม IQ'", "ห้ามบอก 'รักษาสมองเสื่อม'"],
+      "supporting_facts": ["brn_004", "brn_005", "brn_006", "brn_007"],
+      "narrative_frames": ["The brain stack สำหรับ 30+ ที่ไม่อยากแก่ก่อนวัย"],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant", "on_SSRI_or_antidepressant"],
+        "drug_interactions": ["warfarin (omega-3)", "SSRI (Rhodiola ถ้ามีใน stack)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'รักษาสมองเสื่อม'", "ห้ามบอก 'เพิ่ม IQ'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications"],
+        "validator_keywords_th": ["รักษาสมองเสื่อม", "เพิ่ม IQ"],
+        "regulatory_risk_notes": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "domain_id": "liver",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 12,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.liver"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_liver_001",
+      "label_th": "Hepatic steatosis → inflammation → fibrosis (NAFLD → NASH → Cirrhosis)",
+      "label_en": "Hepatic steatosis → inflammation → fibrosis",
+      "description_th": "ไขมันสะสมใน hepatocyte เกิน 5% → lipotoxicity (FFA, DAG, ceramide) → ER stress + mitochondrial dysfunction + ROS → Kupffer cell activation → cytokines (TNF-α, IL-6) → hepatocyte ballooning + apoptosis → stellate cell activation → collagen deposition (fibrosis F0→F4) → cirrhosis → HCC",
+      "description_en": "Lipid accumulation in hepatocytes exceeds 5% → lipotoxicity (FFA, DAG, ceramide) → ER stress + mitochondrial dysfunction + ROS → Kupffer cell activation → cytokines (TNF-α, IL-6) → hepatocyte ballooning + apoptosis → hepatic stellate cell activation → collagen deposition (fibrosis F0→F4) → cirrhosis → HCC.",
+      "chain": [
+        {"step": 1, "actor": "chronic caloric + fructose excess", "action": "drives", "target": "hepatic DNL + impaired VLDL export", "effect": "steatosis (>5% liver fat)"},
+        {"step": 2, "actor": "lipotoxic lipids (DAG, ceramide)", "action": "trigger", "target": "ER stress + mitochondrial dysfunction", "effect": "ROS overproduction"},
+        {"step": 3, "actor": "damaged hepatocytes", "action": "release DAMPs", "target": "Kupffer cells (resident macrophages)", "effect": "TNF-α, IL-6, IL-1β cytokine storm"},
+        {"step": 4, "actor": "cytokines", "action": "induce", "target": "hepatocyte ballooning + Mallory-Denk bodies", "effect": "NASH histology"},
+        {"step": 5, "actor": "activated hepatic stellate cells", "action": "deposit", "target": "collagen I/III", "effect": "fibrosis F1→F4"},
+        {"step": 6, "actor": "F4 cirrhosis", "action": "predisposes to", "target": "HCC + portal hypertension", "effect": "decompensated liver disease"}
+      ],
+      "analogies_th": [
+        "เหมือน 'คลังสินค้า' ที่เต็มเกิน → ของล้นออกมาทำให้พนักงาน (hepatocyte) สำลัก → ผู้จัดการ (Kupffer) ตื่น ก่อไฟ → ที่สุดก็ 'ซีเมนต์' ถาวร (fibrosis)",
+        "ไขมันไม่ใช่แค่ 'ของสะสม' แต่เป็น 'พิษต่อเซลล์' เมื่อเกิน threshold"
+      ],
+      "sources": [
+        {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.29367", "org": "Hepatology / AASLD", "source_tier": "A", "year": 2018, "title": "AASLD NAFLD Practice Guidance — Chalasani N et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAFLD",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_002",
+      "label_th": "Lean NAFLD — ผอมแต่ตับพอก (Asian visceral pattern)",
+      "label_en": "Lean NAFLD — Asian visceral fat phenotype",
+      "description_th": "คนเอเชียมี BMI threshold สำหรับ metabolic risk ต่ำกว่าคนตะวันตก (BMI 23 = overweight) เพราะ visceral fat distribution สูงกว่าที่ BMI เดียวกัน → liver fat สะสมได้แม้ BMI ดูปกติ (<25) → 'lean NAFLD' prevalence 10-20% ในเอเชีย",
+      "description_en": "Asians have lower BMI thresholds for metabolic risk (BMI 23 = overweight) due to greater visceral fat distribution at equivalent BMI → liver fat can accumulate despite normal BMI (<25) → 'lean NAFLD' prevalence 10-20% in Asia.",
+      "chain": [
+        {"step": 1, "actor": "Asian genetic body composition", "action": "favors", "target": "visceral over subcutaneous fat", "effect": "higher visceral/subQ ratio at same BMI"},
+        {"step": 2, "actor": "visceral adipose", "action": "drains via", "target": "portal vein → liver", "effect": "direct FFA + adipokine exposure to hepatocytes"},
+        {"step": 3, "actor": "hepatocytes", "action": "accumulate", "target": "triglycerides", "effect": "steatosis despite normal BMI"}
+      ],
+      "analogies_th": ["คนไทยผอมด้านนอก แต่ 'พุงฝังใน' — ตับเลยเป็น warehouse แม้ชั่งน้ำหนักก็ดู OK"],
+      "sources": [
+        {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.28431", "org": "Hepatology / AASLD", "source_tier": "A", "year": 2016, "title": "Younossi ZM et al. — Global epidemiology of NAFLD", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAFLD",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_003",
+      "label_th": "Twin Cycle — Taylor (ตับเต็ม → ตับอ่อนเต็ม)",
+      "label_en": "Twin Cycle Hypothesis (Roy Taylor)",
+      "description_th": "กินเกินนาน → ไขมันสะสมในตับ → hepatic insulin resistance → ตับผลิตน้ำตาลไม่หยุด → ตับอ่อนหลั่งอินซูลินชดเชยสูง → hyperinsulinemia → DNL → ตับเต็มมากขึ้น + VLDL ไหลไปสะสมที่ตับอ่อน → β-cell dedifferentiate → T2DM; 7-วัน VLCD พอที่จะ break cycle ที่ตับ (Lim 2011)",
+      "description_en": "Chronic overeating → liver fat → hepatic insulin resistance → liver overproduces glucose → pancreas hypersecretes insulin → hyperinsulinemia → DNL → more liver fat + VLDL drives ectopic fat to pancreas → β-cell dedifferentiation → T2D; 7-day VLCD can break the hepatic cycle (Lim 2011).",
+      "chain": [
+        {"step": 1, "actor": "chronic caloric + carb surplus", "action": "drives", "target": "hepatic DNL", "effect": "liver fat rises >5.5%"},
+        {"step": 2, "actor": "liver fat", "action": "causes", "target": "hepatic insulin resistance", "effect": "basal glucose output not suppressed"},
+        {"step": 3, "actor": "elevated fasting glucose", "action": "stimulates", "target": "basal insulin secretion", "effect": "hyperinsulinemia"},
+        {"step": 4, "actor": "VLDL-TG export overflow", "action": "deposits fat in", "target": "pancreas islets", "effect": "β-cell dedifferentiation"},
+        {"step": 5, "actor": "VLCD (600-800 kcal/day)", "action": "depletes", "target": "hepatic TG stores first", "effect": "hepatic glucose output normalizes within 7 days"}
+      ],
+      "analogies_th": [
+        "เหมือนคลังสินค้าตับเต็ม → ของล้นไปโกดังข้างๆ (ตับอ่อน) → โกดังนั้นก็พังตาม",
+        "ตับคือ 'domino แรก' ของเบาหวาน — ลดไขมันตับก่อน ตับอ่อนจะฟื้นเอง"
+      ],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8247294/", "org": "Diabet Med / PMC", "source_tier": "A", "year": 2021, "title": "Taylor R — T2D remission via pathophysiology", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "fatty_liver",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_004",
+      "label_th": "Fructose → DNL (ทางลัดสู่ไขมันในตับ)",
+      "label_en": "Fructose → De Novo Lipogenesis shortcut",
+      "description_th": "กลูโคสถูกควบคุมที่ PFK (phosphofructokinase) — เมื่อ ATP เพียงพอ glycolysis ถูก inhibit; แต่ฟรุกโตสเข้าโดย fructokinase (KHK) bypass PFK → fructose-1-P → สะสม → trigger fast glycolysis ต่อไม่ท่าว → DHAP + glyceraldehyde → pyruvate → acetyl-CoA → DNL; SREBP-1c + ChREBP ถูกกระตุ้นแรงจากฟรุกโตส = triglyceride ในตับพุ่งเร็ว",
+      "description_en": "Glucose is regulated at PFK — when ATP is sufficient, glycolysis is inhibited; but fructose enters via fructokinase (KHK), bypassing PFK → fructose-1-P accumulates → unchecked glycolysis → DHAP + glyceraldehyde → pyruvate → acetyl-CoA → DNL; SREBP-1c + ChREBP are strongly activated by fructose → hepatic triglycerides surge.",
+      "chain": [
+        {"step": 1, "actor": "dietary fructose (HFCS, sugar, juice)", "action": "enters hepatocyte", "target": "cytoplasm", "effect": "metabolized exclusively in liver"},
+        {"step": 2, "actor": "fructokinase (KHK)", "action": "phosphorylates", "target": "fructose → fructose-1-P", "effect": "bypasses PFK regulation"},
+        {"step": 3, "actor": "aldolase B", "action": "splits", "target": "F1P → DHAP + glyceraldehyde", "effect": "feeds into glycolysis downstream"},
+        {"step": 4, "actor": "acetyl-CoA buildup", "action": "activates", "target": "SREBP-1c + ChREBP (transcription factors)", "effect": "lipogenic gene program ON"},
+        {"step": 5, "actor": "ACC + FAS", "action": "synthesize", "target": "palmitate → triglyceride", "effect": "stored as liver fat or packaged into VLDL"}
+      ],
+      "analogies_th": [
+        "กลูโคสมี 'ด่านคุมปริมาณ' (PFK) — แต่ฟรุกโตสข้ามรั้ว → วิ่งตรงเข้าโรงงานทำไขมัน",
+        "น้ำอัดลม 1 กระป๋อง = 80% กลายเป็นไขมันในตับ; ข้าว = ไม่ถึง 10%"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25014002/", "org": "Hepatology / PubMed", "source_tier": "A", "year": 2014, "title": "Lim JS et al. — Fructose in NAFLD pathogenesis", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19233943/", "org": "Hepatology", "source_tier": "A", "year": 2010, "title": "Abdelmalek MF et al. — Fructose and fibrosis", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAFLD",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_005",
+      "label_th": "Fructose → ATP depletion → Uric Acid (Johnson pathway)",
+      "label_en": "Fructose → ATP depletion → Uric Acid pathway",
+      "description_th": "Fructose → fructokinase (KHK) → fructose-1-P — ใช้ ATP ทันทีโดยไม่มี feedback เพราะ KHK ไม่ถูก regulate โดย ATP; ส่งผลให้ ATP ใน hepatocyte ลดลงชั่วคราว → AMP สะสม → AMP deaminase (AMPD) เปลี่ยน AMP → IMP → hypoxanthine → xanthine → (xanthine oxidase) → uric acid; กลูโคสไม่ทำเพราะมี PFK feedback",
+      "description_en": "Fructose → fructokinase (KHK) → fructose-1-P — consumes ATP without feedback since KHK is not ATP-regulated; hepatocyte ATP drops transiently → AMP accumulates → AMP deaminase (AMPD) converts AMP → IMP → hypoxanthine → xanthine → (xanthine oxidase) → uric acid; glucose does not trigger this because of PFK feedback.",
+      "chain": [
+        {"step": 1, "actor": "fructose load (SSB, HFCS)", "action": "floods", "target": "hepatocyte cytoplasm", "effect": "high substrate for KHK"},
+        {"step": 2, "actor": "fructokinase (KHK)", "action": "phosphorylates", "target": "fructose + ATP → fructose-1-P + ADP", "effect": "no feedback → ATP depletion"},
+        {"step": 3, "actor": "ATP drop", "action": "causes", "target": "AMP accumulation", "effect": "triggers AMP catabolism"},
+        {"step": 4, "actor": "AMP deaminase", "action": "converts", "target": "AMP → IMP", "effect": "purine breakdown initiated"},
+        {"step": 5, "actor": "purine salvage fails; xanthine oxidase", "action": "oxidizes", "target": "hypoxanthine → xanthine → uric acid", "effect": "serum uric acid rises within minutes"},
+        {"step": 6, "actor": "uric acid (itself)", "action": "inhibits", "target": "endothelial nitric oxide synthase (eNOS)", "effect": "endothelial dysfunction → hypertension risk"}
+      ],
+      "analogies_th": [
+        "ฟรุกโตสคือนักเล่นไพ่ที่ 'ไม่หยุด' — ใช้ ATP ทั้งกระเป๋าจนหมด แล้วทิ้ง AMP เกลื่อน → ร่างกายเอา AMP ไปรีไซเคิลเป็นยูริก",
+        "น้ำอัดลม 1 กระป๋อง = 'ดูดพลังงานตับ' ชั่วคราว → กรดยูริกพุ่งใน 30 นาที"
+      ],
+      "sources": [
+        {"url": "https://diabetesjournals.org/diabetes/article/62/10/3307/15988", "org": "Diabetes (ADA)", "source_tier": "A", "year": 2013, "title": "Johnson RJ et al. — Sugar, uric acid, and metabolic syndrome", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hyperuricemia",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_006",
+      "label_th": "Acetaminophen toxicity + NAC rescue (glutathione cycle)",
+      "label_en": "Acetaminophen toxicity + NAC rescue via glutathione",
+      "description_th": "Paracetamol ปริมาณปกติ → 95% ถูก glucuronidate/sulfate → ปลอดภัย; ส่วน 5% ถูก CYP2E1 oxidize → NAPQI (reactive) → ถูก GSH conjugate → ปลอดภัย; ถ้า dose เกิน GSH หมด → NAPQI จับกับ hepatocyte protein → necrosis. NAC (precursor ของ cysteine) → เติม GSH ใหม่ → quench NAPQI ที่เหลือ",
+      "description_en": "Normal paracetamol doses → 95% glucuronidated/sulfated → safe; 5% oxidized by CYP2E1 → NAPQI (reactive) → conjugated by GSH → safe; overdose depletes GSH → NAPQI binds hepatocyte proteins → necrosis. NAC (cysteine precursor) replenishes GSH → quenches residual NAPQI.",
+      "chain": [
+        {"step": 1, "actor": "therapeutic paracetamol", "action": "metabolized by", "target": "UGT + SULT (Phase 2)", "effect": "95% safely conjugated"},
+        {"step": 2, "actor": "CYP2E1 (induced by fasting/alcohol)", "action": "oxidizes", "target": "paracetamol → NAPQI", "effect": "reactive electrophilic metabolite formed"},
+        {"step": 3, "actor": "hepatic GSH", "action": "conjugates", "target": "NAPQI → mercapturic acid", "effect": "detoxified → urine excretion"},
+        {"step": 4, "actor": "overdose (>150 mg/kg)", "action": "depletes", "target": "GSH stores (<30% of normal)", "effect": "unchecked NAPQI binds cysteine residues"},
+        {"step": 5, "actor": "protein adducts", "action": "cause", "target": "centrilobular hepatocyte necrosis", "effect": "acute liver failure"},
+        {"step": 6, "actor": "NAC (IV 150 mg/kg loading)", "action": "supplies", "target": "cysteine for GSH synthesis", "effect": "resumed NAPQI neutralization → near-100% survival if <10h"}
+      ],
+      "analogies_th": [
+        "GSH คือ 'ถังขยะ' ที่เก็บ NAPQI; overdose = ถังเต็มล้น → ต้องส่งรถขยะพิเศษ (NAC) มาเติม",
+        "NAC ไม่ใช่ 'antidote แบบ neutralize ตรง' แต่คือ 'วัตถุดิบ' ให้ตับสร้างระบบล้างเอง"
+      ],
+      "sources": [
+        {"url": "https://www.bmj.com/content/2/6198/1097", "org": "BMJ", "source_tier": "A", "year": 1979, "title": "Prescott LF et al. — IV NAC protocol", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "glutathione",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_007",
+      "label_th": "Silymarin → membrane stabilization + Nrf2 antioxidant response",
+      "label_en": "Silymarin → hepatocyte membrane stabilization + Nrf2",
+      "description_th": "Silybin (active flavonolignan ใน silymarin) จับ membrane phospholipid → reduce lipid peroxidation; activate Nrf2 → upregulate HO-1, GCL (GSH synthesis) → ↑ antioxidant capacity; ยับยั้ง TNF-α และ stellate cell activation ในแบบจำลอง animal — ผลในมนุษย์ไม่ consistent (Cochrane 2007 inconclusive ใน alcoholic/viral liver disease; Loguercio 2012 positive in NAFLD)",
+      "description_en": "Silybin (active flavonolignan in silymarin) binds membrane phospholipids → reduces lipid peroxidation; activates Nrf2 → upregulates HO-1 and GCL (GSH synthesis) → increased antioxidant capacity; inhibits TNF-α and stellate cell activation in animal models — human effects inconsistent (Cochrane 2007 inconclusive for alcoholic/viral liver disease; Loguercio 2012 positive in NAFLD).",
+      "chain": [
+        {"step": 1, "actor": "silybin (orally, ideally complexed w/ PC)", "action": "crosses", "target": "hepatocyte membrane", "effect": "membrane-stabilizing effect"},
+        {"step": 2, "actor": "silybin", "action": "activates", "target": "Nrf2 transcription factor", "effect": "antioxidant gene program"},
+        {"step": 3, "actor": "Nrf2 target genes (HO-1, GCL)", "action": "upregulate", "target": "GSH synthesis", "effect": "restored hepatic antioxidant capacity"},
+        {"step": 4, "actor": "silybin", "action": "inhibits", "target": "hepatic stellate cell activation + TNF-α", "effect": "reduced fibrogenic signaling"}
+      ],
+      "analogies_th": ["ซิลิมารินไม่ใช่ 'ยารักษาตับ' แต่คือ 'ยางรองเซลล์' ที่ทำให้เซลล์ทนสารระคาย"],
+      "sources": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/S0891584912000755", "org": "Free Radic Biol Med", "source_tier": "A", "year": 2012, "title": "Loguercio C et al. — Silybin-PC-vit E in NAFLD", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "fatty_liver",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_liver_008",
+      "label_th": "Phase 1 (CYP450) + Phase 2 biotransformation",
+      "label_en": "Phase 1 CYP450 + Phase 2 conjugation",
+      "description_th": "Xenobiotic เข้าตับ → Phase 1: CYP450 (3A4, 2D6, 2C9, 2E1) เติม -OH, -NH2 → reactive intermediate; Phase 2: UGT (glucuronic acid), SULT (sulfate), GST (glutathione), NAT (acetyl), methylation → hydrophilic → ขับออกทางน้ำดี/ไต. Grapefruit ยับยั้ง CYP3A4 → ยาเลือดสูง 2-8 เท่า",
+      "description_en": "Xenobiotics enter liver → Phase 1: CYP450 (3A4, 2D6, 2C9, 2E1) adds -OH, -NH2 groups → reactive intermediate; Phase 2: UGT (glucuronic acid), SULT (sulfate), GST (glutathione), NAT (acetyl), methylation → hydrophilic → excreted via bile/kidney. Grapefruit inhibits CYP3A4 → drug levels rise 2-8×.",
+      "chain": [
+        {"step": 1, "actor": "lipophilic xenobiotic (drug, toxin, hormone)", "action": "enters", "target": "hepatocyte via passive diffusion or OATP", "effect": "substrate for CYP450"},
+        {"step": 2, "actor": "CYP450 (Phase 1)", "action": "oxidizes/reduces", "target": "substrate → reactive intermediate", "effect": "adds polar group (-OH, -NH2, -COOH)"},
+        {"step": 3, "actor": "Phase 2 enzymes (UGT/SULT/GST)", "action": "conjugate", "target": "intermediate → water-soluble metabolite", "effect": "safe for excretion"},
+        {"step": 4, "actor": "MRP/BSEP transporters", "action": "export", "target": "conjugate → bile or sinusoid", "effect": "excreted via feces or urine"}
+      ],
+      "analogies_th": [
+        "Phase 1 = 'ตัดและติดแท็ก' xenobiotic; Phase 2 = 'ห่อพัสดุใส่กล่องเพื่อส่งออก' — 2 ขั้นตอนบังคับ",
+        "ตับทำงานตลอด 24/7 ไม่มีวันหยุด — ไม่มี 'ดีท็อกซ์สุดสัปดาห์'"
+      ],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK547852/", "org": "NIH LiverTox", "source_tier": "A", "year": 2024, "title": "Hepatic biotransformation overview", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "phase_1_2_detox",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_009",
+      "label_th": "Enterohepatic circulation + FXR/TGR5 signaling",
+      "label_en": "Enterohepatic bile acid circulation + FXR/TGR5",
+      "description_th": "ตับสังเคราะห์ CA + CDCA จาก cholesterol (CYP7A1 rate-limiting) → conjugate กับ glycine/taurine → เก็บในถุงน้ำดี → หลั่งสู่ duodenum ตอนกิน → ย่อยไขมัน; 95% ถูก reabsorb ที่ terminal ileum ผ่าน ASBT → กลับตับทาง portal; FXR (nuclear receptor) รับรู้ bile acid สูง → feedback inhibition ของ CYP7A1; TGR5 (membrane receptor) กระตุ้น GLP-1 + BAT thermogenesis",
+      "description_en": "Liver synthesizes CA + CDCA from cholesterol (CYP7A1 rate-limiting) → conjugated with glycine/taurine → stored in gallbladder → released into duodenum with meals → emulsifies dietary fat; 95% reabsorbed at terminal ileum via ASBT → returned to liver via portal vein; FXR senses high bile acid → feedback-inhibits CYP7A1; TGR5 stimulates GLP-1 secretion + BAT thermogenesis.",
+      "chain": [
+        {"step": 1, "actor": "hepatocyte", "action": "synthesizes", "target": "CA + CDCA from cholesterol (CYP7A1)", "effect": "0.5 g primary bile acids/day"},
+        {"step": 2, "actor": "BSEP transporter", "action": "exports", "target": "conjugated bile acids → gallbladder", "effect": "storage + concentration 10×"},
+        {"step": 3, "actor": "meal trigger (CCK)", "action": "releases", "target": "bile into duodenum", "effect": "fat emulsification"},
+        {"step": 4, "actor": "gut bacteria (7α-dehydroxylase)", "action": "converts", "target": "CA → DCA, CDCA → LCA", "effect": "secondary bile acids generated"},
+        {"step": 5, "actor": "ASBT transporter (terminal ileum)", "action": "reabsorbs", "target": "95% of bile acids", "effect": "portal return to liver"},
+        {"step": 6, "actor": "hepatic FXR", "action": "senses", "target": "elevated portal bile acids", "effect": "suppresses CYP7A1 → feedback control"},
+        {"step": 7, "actor": "intestinal/BAT TGR5", "action": "responds to", "target": "bile acid binding", "effect": "GLP-1 release + thermogenesis"}
+      ],
+      "analogies_th": [
+        "Bile acid เหมือน 'สบู่ล้างไขมัน' — ใช้แล้วไม่ทิ้ง รีไซเคิล 6-10 รอบ/วัน",
+        "FXR คือ 'ผู้คุมสต็อค' ไม่ให้ตับผลิตเกิน"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20359267/", "org": "J Pharmacol Exp Ther", "source_tier": "A", "year": 2010, "title": "Vang O et al. — TUDCA and ER stress", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "bile_acid",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_010",
+      "label_th": "Berberine → AMPK activation → ↓ DNL + ↑ fat oxidation",
+      "label_en": "Berberine → AMPK activation → ↓ DNL + ↑ β-oxidation",
+      "description_th": "Berberine ยับยั้ง respiratory complex I ใน mitochondria → AMP/ATP ratio ↑ → AMPK activation; AMPK phosphorylate ACC (inactivate) → ↓ malonyl-CoA → ↑ CPT-1 → ↑ fatty acid β-oxidation + suppress SREBP-1c → ↓ DNL; ตัวเดียวคล้าย metformin แต่ bioavailability ต่ำกว่า + gut microbiome mediated",
+      "description_en": "Berberine inhibits mitochondrial respiratory complex I → AMP/ATP ratio rises → AMPK activation; AMPK phosphorylates ACC (inactivating it) → lower malonyl-CoA → higher CPT-1 activity → increased β-oxidation + suppressed SREBP-1c → decreased DNL; similar mechanism to metformin, but lower bioavailability and partially gut-microbiome-mediated.",
+      "chain": [
+        {"step": 1, "actor": "oral berberine (500 mg × 3)", "action": "enters", "target": "hepatocyte + enterocyte", "effect": "low systemic bioavailability (~5%) but gut-rich"},
+        {"step": 2, "actor": "berberine", "action": "inhibits", "target": "mitochondrial complex I", "effect": "ATP production drops, AMP rises"},
+        {"step": 3, "actor": "AMPK", "action": "activated by", "target": "AMP/ATP ratio", "effect": "master catabolic switch ON"},
+        {"step": 4, "actor": "AMPK", "action": "phosphorylates", "target": "ACC → inactive", "effect": "malonyl-CoA drops → CPT-1 disinhibited"},
+        {"step": 5, "actor": "β-oxidation", "action": "increases", "target": "fatty acid flux into mitochondria", "effect": "liver fat burned"},
+        {"step": 6, "actor": "AMPK", "action": "suppresses", "target": "SREBP-1c transcription", "effect": "DNL lipogenic genes OFF"}
+      ],
+      "analogies_th": ["Berberine = 'ปลุกเตาเผาไขมัน' + 'ปิดโรงงานสร้างไขมัน' พร้อมกัน"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26078460/", "org": "Metabolism / PubMed", "source_tier": "A", "year": 2015, "title": "Yan HM et al. — Berberine in NAFLD RCT", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "fatty_liver",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_011",
+      "label_th": "Choline → VLDL export → prevents hepatic TG accumulation",
+      "label_en": "Choline → VLDL export → prevents hepatic TG accumulation",
+      "description_th": "Choline เป็นองค์ประกอบของ phosphatidylcholine (PC) ผ่าน CDP-choline pathway — PC คือส่วนประกอบหลักของ VLDL envelope; ถ้าขาด PC/choline → ตับไม่สามารถ assemble VLDL → triglyceride คั่งใน hepatocyte → fatty liver; Zeisel 2003 แสดงว่าขาดใน 2-3 สัปดาห์พอให้เกิด NAFLD reversible",
+      "description_en": "Choline is the substrate for phosphatidylcholine (PC) via the CDP-choline pathway — PC is the main component of VLDL envelopes; without PC/choline, liver cannot assemble VLDL → triglycerides accumulate in hepatocytes → fatty liver; Zeisel 2003 showed deficiency for just 2-3 weeks produces reversible NAFLD.",
+      "chain": [
+        {"step": 1, "actor": "dietary choline (eggs, liver, soy)", "action": "absorbed", "target": "hepatocyte", "effect": "substrate for CDP-choline pathway"},
+        {"step": 2, "actor": "CTP:phosphocholine cytidylyltransferase", "action": "produces", "target": "CDP-choline", "effect": "rate-limiting step of PC synthesis"},
+        {"step": 3, "actor": "phosphatidylcholine (PC)", "action": "forms", "target": "VLDL outer envelope", "effect": "enables triglyceride export from liver"},
+        {"step": 4, "actor": "choline deficiency", "action": "blocks", "target": "VLDL assembly", "effect": "TG trapped in hepatocyte → steatosis"}
+      ],
+      "analogies_th": ["PC คือ 'รถบรรทุก' ที่ส่งไขมันออกจากตับ — ขาด choline = ไม่มีรถ = ของค้างในคลัง"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/14744487/", "org": "J Nutr", "source_tier": "A", "year": 2003, "title": "Zeisel SH — Choline essentiality", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "fatty_liver",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_liver_012",
+      "label_th": "Fasting → ลดอินซูลิน → ปิด DNL → ตับเบาลง",
+      "label_en": "Fasting → ↓ insulin → ↓ DNL → liver fat mobilization",
+      "description_th": "Fasting ≥12 ชม. → insulin ตก → SREBP-1c ถูกปิด (insulin-driven transcription factor) → DNL หยุด; พร้อมกัน glucagon สูง + AMPK ขึ้น → β-oxidation เริ่ม → liver TG ถูกขนออกเป็น VLDL หรือ oxidize เป็น ketone; Jason Fung framework — repeated IF cycles → progressive liver fat reduction",
+      "description_en": "Fasting ≥12h → insulin falls → SREBP-1c is inactivated (insulin-driven transcription factor) → DNL stops; simultaneously glucagon rises + AMPK activates → β-oxidation begins → liver TG is exported as VLDL or oxidized to ketones; Jason Fung framework — repeated IF cycles → progressive liver fat reduction.",
+      "chain": [
+        {"step": 1, "actor": "fasting ≥12h", "action": "lowers", "target": "portal insulin", "effect": "SREBP-1c inactive, ACC inactive"},
+        {"step": 2, "actor": "glucagon + low insulin", "action": "activates", "target": "hepatic lipolysis + β-oxidation", "effect": "liver FFA → acetyl-CoA"},
+        {"step": 3, "actor": "excess acetyl-CoA", "action": "enters", "target": "ketogenesis", "effect": "BHB + acetoacetate exported"},
+        {"step": 4, "actor": "AMPK", "action": "phosphorylates", "target": "SREBP-1c + ACC", "effect": "DNL shut off"},
+        {"step": 5, "actor": "repeated cycles (16:8 or 24h)", "action": "progressively drain", "target": "hepatic TG stores", "effect": "liver fat declines over weeks-months"}
+      ],
+      "analogies_th": ["Fasting = 'สั่งปิดโรงงาน DNL' + 'เปิดเตาเผาไขมันพร้อมกัน' — ตับเลยเบาลงเรื่อยๆ"],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8247294/", "org": "Diabet Med / PMC", "source_tier": "A", "year": 2021, "title": "Taylor R — VLCD for liver fat / T2D remission", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAFLD",
+      "confidence": "medium"
+    }
+  ]
+}

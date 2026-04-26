@@ -1,0 +1,624 @@
+{
+  "domain_id": "bones",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 24,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.bones",
+    "notes": "Tier distribution — T1:10, T2:9, T3:4, T4:1. Landmark facts: LIFTMOR (Beck 2018), MK-7 3-year (Knapen 2013), GAIT (Clegg 2006), UC-II vs glucosamine (Crolla 2016). Thai market focus: senior (ผู้สูงอายุ) pain points — fall risk, hip fracture mortality. UncleD touched only calcium + silicon angle (งาดำ + เบียร์) — broader domain opened here."
+  },
+  "facts": [
+    {
+      "fact_id": "bone_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "impact_loading_bone",
+      "statement_th": "LIFTMOR Trial (Belinda Beck, Griffith University, 2018) — ผู้หญิงหลังวัยหมดประจำเดือนที่เป็นกระดูกบาง/กระดูกพรุน 101 คน ยกหนักและ jump 2 ครั้ง/สัปดาห์ เพียง 30 นาที/ครั้ง นาน 8 เดือน — ความหนาแน่นกระดูกสันหลังเพิ่มขึ้น 2.9% (กลุ่มควบคุมลด 1.2%) โดยไม่มีอาการบาดเจ็บรุนแรง — พลิกความเชื่อเดิมที่ว่า 'กระดูกพรุนห้ามยกหนัก'",
+      "statement_en": "The LIFTMOR trial (Belinda Beck, Griffith University, 2018) randomized 101 postmenopausal women with low bone mass to a supervised 30-minute, twice-weekly High-intensity Resistance and Impact Training program for 8 months — lumbar spine BMD increased 2.9% (controls lost 1.2%) with only 1 minor adverse event — overturning the long-held belief that 'osteoporosis patients must avoid heavy lifting'.",
+      "numeric_values": [
+        {"value": 101, "unit": "subjects", "label": "postmenopausal women with low BMD", "is_approximation": false},
+        {"value": 2.9, "unit": "%", "label": "lumbar spine BMD increase (HiRIT group)", "is_approximation": false},
+        {"value": 1.2, "unit": "%", "label": "lumbar spine BMD loss (control)", "is_approximation": false},
+        {"value": 8, "unit": "months", "label": "intervention duration", "is_approximation": false},
+        {"value": 30, "unit": "min/session", "label": "session length", "is_approximation": false},
+        {"value": 2, "unit": "sessions/week", "label": "frequency", "is_approximation": false},
+        {"value": 85, "unit": "% 1RM", "label": "deadlift/squat/overhead press load", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_003",
+      "entities_mentioned": ["belinda_beck", "liftmor_trial", "sclerostin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28975661/", "org": "Journal of Bone and Mineral Research / PubMed", "source_tier": "A", "year": 2018, "title": "High-Intensity Resistance and Impact Training Improves Bone Mineral Density and Physical Function in Postmenopausal Women With Osteopenia and Osteoporosis: The LIFTMOR Randomized Controlled Trial — Watson SL, Weeks BK, Weis LJ, Harding AT, Horan SA, Beck BR.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กระดูกสร้างกลับได้", "ยกหนักไม่ได้ทำร้ายกระดูก กลับสร้างกระดูก", "พลิกความเชื่อหมอเก่า"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 2.9% และ 8 เดือนต้องไม่เปลี่ยน (landmark T1); ห้ามบอก 'ยกหนักแล้วหายกระดูกพรุน' — LIFTMOR ทำภายใต้ supervision และผู้เข้าร่วมคัดกรอง",
+      "usage_notes": "Landmark hook สำหรับ senior/postmenopausal audience. ใช้ใน hook แรกของสคริปต์ผู้หญิง 50+ ได้ดี. เชิญ audience 'ปรึกษาครูฝึก/แพทย์' ก่อนเริ่ม",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "vitamin_K2",
+      "statement_th": "Knapen 3-year RCT (Osteoporos Int, 2013) — ผู้หญิงหลังวัยหมดประจำเดือน 244 คน ได้รับวิตามิน K2 (MK-7) 180 ไมโครกรัม/วัน 3 ปี — ช่วยลดการสูญเสียความหนาแน่นกระดูกที่สันหลังและคอสะโพก และลด uncarboxylated osteocalcin (ตัวชี้ K2 ต่ำ) เทียบกับยาหลอก",
+      "statement_en": "The Knapen 3-year RCT (Osteoporos Int, 2013) — 244 postmenopausal women given 180 µg/day vitamin K2 as MK-7 for 3 years significantly slowed age-related bone loss at the lumbar spine and femoral neck and reduced circulating uncarboxylated osteocalcin vs placebo.",
+      "numeric_values": [
+        {"value": 244, "unit": "subjects", "label": "postmenopausal women", "is_approximation": false},
+        {"value": 180, "unit": "µg/day", "label": "MK-7 dose", "is_approximation": false},
+        {"value": 3, "unit": "years", "label": "intervention duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_005",
+      "entities_mentioned": ["vitamin_k2_mk7", "osteocalcin", "cees_vermeer", "knapen_mk7_2013"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23525894/", "org": "Osteoporosis International / PubMed", "source_tier": "A", "year": 2013, "title": "Three-year low-dose menaquinone-7 supplementation helps decrease bone loss in healthy postmenopausal women — Knapen MH, Drummen NE, Smit E, Vermeer C, Theuwissen E.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กุญแจที่ส่งแคลเซียมเข้ากระดูก", "ขาดตัวนี้ แคลเซียมไม่เข้ากระดูก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'MK-7 รักษากระดูกพรุน'; frame เป็น 'ชะลอการสูญเสีย' (Knapen ไม่ได้สร้างกระดูกใหม่ เพียง preserve)",
+      "usage_notes": "Anchor สำหรับ product angle vitamin_k2_mk7 — ตัวเลข 180 µg/day เป็นขนาดที่ studied; ไม่มีหลักฐานเท่าที่ขนาดต่ำกว่า",
+      "contradictions": ["Knapen ไม่ได้เพิ่ม BMD แต่ 'ชะลอ loss' — ข้อมูลที่ MK-7 'สร้างกระดูก' ไม่มี hard RCT"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "joint_cartilage",
+      "statement_th": "Crolla UC-II vs Glucosamine/Chondroitin 2016 RCT (Nutr J) — ผู้ป่วยข้อเข่าเสื่อม 191 คน นาน 6 เดือน — 40 มก./วัน UC-II (undenatured type II collagen) ลดคะแนนปวด WOMAC ได้ 39% เทียบกับ 18% ในกลุ่ม 1,500 มก. glucosamine + 1,200 มก. chondroitin — UC-II เหนือกว่า glucosamine+chondroitin แบบมีนัยสำคัญ",
+      "statement_en": "Crolla UC-II vs Glucosamine/Chondroitin 2016 RCT (Nutr J) — 191 knee osteoarthritis patients over 6 months — 40 mg/day UC-II (undenatured type II collagen) reduced WOMAC pain score by 39% vs 18% for the 1,500 mg glucosamine + 1,200 mg chondroitin arm — UC-II significantly superior.",
+      "numeric_values": [
+        {"value": 191, "unit": "subjects", "label": "knee OA patients", "is_approximation": false},
+        {"value": 40, "unit": "mg/day", "label": "UC-II dose", "is_approximation": false},
+        {"value": 1500, "unit": "mg/day", "label": "glucosamine comparator dose", "is_approximation": false},
+        {"value": 1200, "unit": "mg/day", "label": "chondroitin comparator dose", "is_approximation": false},
+        {"value": 39, "unit": "% WOMAC reduction", "label": "UC-II arm", "is_approximation": false},
+        {"value": 18, "unit": "% WOMAC reduction", "label": "glucosamine+chondroitin arm", "is_approximation": false},
+        {"value": 6, "unit": "months", "label": "intervention duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_009",
+      "entities_mentioned": ["uc_ii", "type_ii_collagen", "glucosamine_sulfate", "chondroitin_sulfate", "crolla_uc_ii_2016", "roy_altman"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26822714/", "org": "Nutrition Journal / PubMed", "source_tier": "A", "year": 2016, "title": "Efficacy and tolerability of an undenatured type II collagen supplement in modulating knee osteoarthritis symptoms — Lugo JP, Saiyed ZM, Lane NE.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["40 mg ชนะ 2,700 mg", "โดสน้อยกว่า 67 เท่า ผลดีกว่า 2 เท่า"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 39% vs 18% ห้ามเปลี่ยน; ห้ามอ้างว่า 'รักษาข้อเข่าเสื่อมหายขาด'",
+      "usage_notes": "Hook สำหรับ product angle UC_II_collagen — จุดขาย 'โดสเล็กเพราะกลไกต่าง' (oral tolerance ไม่ใช่ building block)",
+      "contradictions": ["ขนาดศึกษายังเล็ก (n=191); ต้องการ replication ใหญ่กว่า"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "osteoarthritis_mechanism",
+      "statement_th": "GAIT Trial (Clegg et al., NEJM 2006) — ผู้ป่วยข้อเข่าเสื่อม 1,583 คน — glucosamine 1,500 มก. + chondroitin 1,200 มก. ไม่ดีกว่ายาหลอกในภาพรวม (64.0% vs 60.1% responders, ไม่มีนัยสำคัญ) — แต่ใน subgroup ที่ปวดระดับปานกลาง-รุนแรง กลุ่ม combo ได้ผลชัด (79.2% vs 54.3% responders, p=0.002)",
+      "statement_en": "The GAIT trial (Clegg et al., NEJM 2006) — 1,583 knee OA patients — glucosamine 1,500 mg + chondroitin 1,200 mg was NOT superior to placebo overall (64.0% vs 60.1% responders, ns) — but in the moderate-to-severe pain subgroup the combo was significantly effective (79.2% vs 54.3% responders, p=0.002).",
+      "numeric_values": [
+        {"value": 1583, "unit": "subjects", "label": "knee OA patients", "is_approximation": false},
+        {"value": 1500, "unit": "mg/day", "label": "glucosamine dose", "is_approximation": false},
+        {"value": 1200, "unit": "mg/day", "label": "chondroitin dose", "is_approximation": false},
+        {"value": 64.0, "unit": "% responders", "label": "combo arm (overall)", "is_approximation": false},
+        {"value": 60.1, "unit": "% responders", "label": "placebo (overall)", "is_approximation": false},
+        {"value": 79.2, "unit": "% responders", "label": "combo arm (moderate-severe subgroup)", "is_approximation": false},
+        {"value": 54.3, "unit": "% responders", "label": "placebo (moderate-severe subgroup)", "is_approximation": false},
+        {"value": 24, "unit": "weeks", "label": "duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_008",
+      "entities_mentioned": ["glucosamine_sulfate", "chondroitin_sulfate", "daniel_clegg", "gait_trial"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa052771", "org": "New England Journal of Medicine", "source_tier": "A", "year": 2006, "title": "Glucosamine, Chondroitin Sulfate, and the Two in Combination for Painful Knee Osteoarthritis — Clegg DO et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["งานวิจัยจริงพูดต่างจากโฆษณา", "ได้ผลเฉพาะคนปวดเยอะจริง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูด 'glucosamine ไม่ได้ผลเลย' (overall null แต่ moderate-severe subgroup บวก); ห้ามใช้เป็น sales claim แบบ universal",
+      "usage_notes": "Myth-bust content + frame สินค้าให้ 'สำหรับคนปวดเยอะ ไม่ใช่ maintenance'",
+      "contradictions": ["Crystalline glucosamine sulfate (Rotta, single daily 1500 mg) มีหลักฐานดีกว่า glucosamine HCl — GAIT ใช้ HCl"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "osteoporosis_risk",
+      "statement_th": "Bischoff-Ferrari NEJM 2012 pooled analysis (11 RCTs, 31,022 คน อายุ ≥65 ปี) — วิตามินดี ≥800 IU/วัน ลดความเสี่ยงกระดูกสะโพกหัก ~30% (hazard ratio 0.70; 95% CI 0.58-0.86) เทียบกับยาหลอก; ขนาดต่ำกว่านี้ไม่ให้ผลชัดเจน",
+      "statement_en": "Bischoff-Ferrari NEJM 2012 pooled analysis (11 RCTs, 31,022 subjects ≥65 y) — vitamin D at ≥800 IU/day reduced hip fracture risk by ~30% (hazard ratio 0.70; 95% CI 0.58-0.86) vs placebo; lower doses did not show clear benefit.",
+      "numeric_values": [
+        {"value": 31022, "unit": "subjects", "label": "pooled sample", "is_approximation": false},
+        {"value": 800, "unit": "IU/day", "label": "effective vitamin D dose threshold", "is_approximation": false},
+        {"value": 30, "unit": "% hip fracture risk reduction", "label": "vs placebo (HR 0.70)", "is_approximation": false},
+        {"value": 65, "unit": "years age ≥", "label": "target population", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_004",
+      "entities_mentioned": ["vitamin_d3", "parathyroid_hormone", "heike_bischoff_ferrari"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22762317/", "org": "New England Journal of Medicine / PubMed", "source_tier": "A", "year": 2012, "title": "A pooled analysis of vitamin D dose requirements for fracture prevention — Bischoff-Ferrari HA et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["800 IU คือเกณฑ์ขั้นต่ำ", "ต่ำกว่านี้เสียเงินเปล่า"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 30% และ 800 IU ห้ามเปลี่ยน; ห้ามบอก 'กินเยอะๆ ยิ่งดี' (toxicity >4000 IU/day เรื้อรัง)",
+      "usage_notes": "Anchor for vitamin_D3 product angle — ใช้โจมตี Ca-only supplements",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "osteoporosis_risk",
+      "statement_th": "DIPART pooled patient-level meta-analysis (BMJ 2010, N=68,517) — วิตามินดี + แคลเซียม (ส่วนใหญ่ 800 IU + 1,000 มก./วัน) ลดกระดูกหักทุกชนิด ~8% และกระดูกสะโพกหัก ~16% ในผู้ใหญ่ ≥50 ปี; วิตามินดีเดี่ยว ๆ ไม่ลด",
+      "statement_en": "DIPART pooled individual-patient meta-analysis (BMJ 2010, N=68,517) — calcium + vitamin D (most commonly 800 IU + 1,000 mg/day) reduced total fractures ~8% and hip fractures ~16% in adults ≥50 y; vitamin D alone did not significantly reduce fractures.",
+      "numeric_values": [
+        {"value": 68517, "unit": "subjects", "label": "pooled sample", "is_approximation": false},
+        {"value": 8, "unit": "% total fracture reduction", "label": "Ca+D vs placebo", "is_approximation": false},
+        {"value": 16, "unit": "% hip fracture reduction", "label": "Ca+D vs placebo", "is_approximation": false},
+        {"value": 800, "unit": "IU/day", "label": "typical vitamin D dose", "is_approximation": false},
+        {"value": 1000, "unit": "mg/day", "label": "typical calcium dose", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_004",
+      "entities_mentioned": ["calcium_citrate", "vitamin_d3", "parathyroid_hormone"],
+      "sources": [
+        {"url": "https://www.bmj.com/content/340/bmj.b5463", "org": "BMJ", "source_tier": "A", "year": 2010, "title": "Patient level pooled analysis of 68,500 patients from seven major vitamin D fracture trials in US and Europe — DIPART (Vitamin D Individual Patient Analysis of Randomized Trials) Group.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["คู่หู Ca+D ดีกว่าเดี่ยว", "เดี่ยวไม่พอ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'กิน Ca+D แล้วไม่หัก 100%'; frame ว่า 'ลดความเสี่ยง'",
+      "usage_notes": "ใช้ตอบข้อโต้แย้ง 'กินแคลเซียมอย่างเดียวพอ' — ต้องมี D ด้วย",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "osteoporosis_risk",
+      "statement_th": "Haentjens et al. (Ann Intern Med 2010) — meta-analysis 22 งานวิจัย cohort: หลังกระดูกสะโพกหัก ผู้ชายตายในปีแรกสูงกว่าคนวัยเดียวกันประมาณ 5-8 เท่า; ผู้หญิงสูงกว่า 2-3 เท่า; อัตราตายส่วนเกินอยู่ได้นานถึง ~10 ปี",
+      "statement_en": "Haentjens et al. (Ann Intern Med 2010) meta-analysis of 22 cohort studies — after a hip fracture men have a 5-8× higher 1-year mortality than age-matched peers; women 2-3× higher; excess mortality persists for up to ~10 years.",
+      "numeric_values": [
+        {"value": 22, "unit": "cohort studies", "label": "meta-analysis N", "is_approximation": false},
+        {"value": "5-8", "unit": "× hazard", "label": "1-year excess mortality in men", "is_approximation": false},
+        {"value": "2-3", "unit": "× hazard", "label": "1-year excess mortality in women", "is_approximation": false},
+        {"value": 10, "unit": "years", "label": "duration of elevated mortality", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["hip_fracture_mortality_cohort"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20231569/", "org": "Annals of Internal Medicine / PubMed", "source_tier": "A", "year": 2010, "title": "Meta-analysis: Excess mortality after hip fracture among older women and men — Haentjens P et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["หักครั้งเดียวเปลี่ยนชีวิต", "ผู้ชายสะโพกหัก = โอกาสกลับบ้านครึ่งเดียว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุว่าเป็น 'excess mortality' (เทียบคนวัยเดียวกัน) ไม่ใช่ absolute; ห้ามพูดกว้างว่า 'หัก = ตาย 50%'",
+      "usage_notes": "Hook สำหรับลูกหลานซื้อให้พ่อแม่ + senior audience — pain point 'ล้มในห้องน้ำ'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "osteoporosis_risk",
+      "statement_th": "WHO นิยามกระดูกพรุน (osteoporosis) ที่ T-score ≤ -2.5 SD จากค่าเฉลี่ยของ young adult — ทุกๆ 1 SD ที่ T-score ลด ความเสี่ยงกระดูกหักเพิ่มขึ้นประมาณ 2 เท่า (Marshall et al. BMJ 1996, meta-analysis)",
+      "statement_en": "The WHO defines osteoporosis as a DEXA T-score ≤ -2.5 SD below the young-adult mean — each 1-SD decrease in BMD approximately doubles fracture risk (Marshall et al., BMJ 1996 meta-analysis).",
+      "numeric_values": [
+        {"value": -2.5, "unit": "SD (T-score)", "label": "WHO osteoporosis threshold", "is_approximation": false},
+        {"value": 2, "unit": "× fracture risk per 1 SD BMD drop", "label": "meta-analysis estimate", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_001",
+      "entities_mentioned": ["who"],
+      "sources": [
+        {"url": "https://www.bmj.com/content/312/7041/1254", "org": "BMJ", "source_tier": "A", "year": 1996, "title": "Meta-analysis of how well measures of bone mineral density predict occurrence of osteoporotic fractures — Marshall D, Johnell O, Wedel H.", "access_date": "2026-04-22"},
+        {"url": "https://www.who.int/publications/i/item/WHO_TRS_843", "org": "WHO Technical Report Series 843", "source_tier": "A", "year": 1994, "title": "Assessment of fracture risk and its application to screening for postmenopausal osteoporosis", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ตัวเลขเดียวที่บอกความเสี่ยง", "ทุก 1 SD เสี่ยงหักเพิ่ม 2 เท่า"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "T-score ≤ -2.5 เป็นเกณฑ์ปัจจุบัน; -1.0 ถึง -2.5 คือ osteopenia (กระดูกบาง) — ไม่ใช่ osteoporosis",
+      "usage_notes": "Educational anchor — ใช้เริ่มบทพูด 'ทำความเข้าใจ DEXA scan' สำหรับ senior",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_009",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "osteoporosis_risk",
+      "statement_th": "ผู้หญิงหลังวัยหมดประจำเดือนสูญเสียความหนาแน่นกระดูกประมาณ 1-2% ต่อปีในช่วง 5-10 ปีแรก (ช่วง peak bone loss) และ 0.5-1% ต่อปีหลังจากนั้น; ผู้ชายสูญเสียช้ากว่า (~0.5%/ปี) แต่ fracture threshold อาจถึงช้ากว่า 10 ปี",
+      "statement_en": "Postmenopausal women lose roughly 1-2% BMD per year in the first 5-10 postmenopausal years (peak bone loss phase) and 0.5-1%/y afterward; men lose more slowly (~0.5%/y) but often reach fracture threshold ~10 years later.",
+      "numeric_values": [
+        {"value": "1-2", "unit": "%/year", "label": "peak postmenopausal BMD loss", "is_approximation": true},
+        {"value": "5-10", "unit": "years", "label": "duration of rapid-loss phase", "is_approximation": true},
+        {"value": 0.5, "unit": "%/year", "label": "male age-related BMD loss", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_002",
+      "entities_mentioned": ["rankl", "opg"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21323705/", "org": "Endocrinol Metab Clin North Am / PubMed", "source_tier": "A", "year": 2011, "title": "Postmenopausal osteoporosis — Khosla S, Riggs BL.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ทุกปีเสียกระดูกโดยไม่รู้ตัว", "10 ปีหลังหมดประจำเดือนเสียไป 15%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลขมี range ต้องใส่คำว่า 'ประมาณ'; ห้ามบอก '10% ต่อปี' (เกินจริง)",
+      "usage_notes": "ใช้สร้าง urgency สำหรับ female 45+ audience",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_010",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "bone_remodeling",
+      "statement_th": "โครงกระดูกของมนุษย์ถูกรื้อและสร้างใหม่ประมาณ 10% ต่อปี — กระดูก trabecular (โปร่ง ข้างใน เช่นสันหลัง) เร็วกว่า cortical (แน่น ข้างนอก); osteoclast ย่อยหลุมในเวลา ~3 สัปดาห์ osteoblast สร้างกระดูกใหม่ ~3 เดือน",
+      "statement_en": "The human skeleton is remodeled ~10% per year — trabecular bone (porous, inside, e.g. vertebrae) faster than cortical (dense, outer shell); osteoclasts resorb a pit in ~3 weeks while osteoblasts refill it over ~3 months.",
+      "numeric_values": [
+        {"value": 10, "unit": "%/year", "label": "whole-skeleton turnover", "is_approximation": true},
+        {"value": 3, "unit": "weeks", "label": "osteoclast resorption phase", "is_approximation": true},
+        {"value": 3, "unit": "months", "label": "osteoblast formation phase", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_001",
+      "entities_mentioned": ["rankl", "opg"],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK459168/", "org": "NCBI Bookshelf / StatPearls", "source_tier": "A", "year": 2024, "title": "Physiology, Bone Remodeling", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ร่างกายซ่อมกระดูกตลอดเวลา", "10% ต่อปี — ถ้าสร้างน้อยกว่ารื้อก็บางลง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "กรอบ 'ประมาณ 10%' — บางตำแหน่งมากกว่า บางตำแหน่งน้อยกว่า",
+      "usage_notes": "ใช้อธิบายทำไม nutrition + loading สำคัญต่อเนื่อง ไม่ใช่ 'กินครั้งเดียวจบ'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_011",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "bone_remodeling",
+      "statement_th": "คนที่มีแมกนีเซียมในเลือด/ในร่างกายต่ำ มักมี 25-OH-D ต่ำและ PTH สูง — เพราะเอนไซม์ที่เปลี่ยนวิตามินดีเป็นรูป active (25-hydroxylase, 1α-hydroxylase) ต้องใช้ Mg เป็น cofactor; ประมาณ 48% ของคนอเมริกันไม่ได้รับ Mg ครบตาม RDA (USDA)",
+      "statement_en": "People with low magnesium tend to show lower 25-OH-D and elevated PTH — because the enzymes that convert vitamin D to its active forms (25-hydroxylase, 1α-hydroxylase) require Mg as cofactor; roughly 48% of Americans fail to meet Mg RDA intake (USDA).",
+      "numeric_values": [
+        {"value": 48, "unit": "%", "label": "US adults below Mg RDA", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_010",
+      "entities_mentioned": ["magnesium_glycinate", "vitamin_d3", "parathyroid_hormone"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29480918/", "org": "J Am Osteopath Assoc / PubMed", "source_tier": "A", "year": 2018, "title": "Role of Magnesium in Vitamin D Activation and Function — Uwitonze AM, Razzaque MS.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กินวิตามินดีไม่ขึ้น อาจเพราะขาด Mg", "Mg คือสวิตช์วิตามินดี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'Mg รักษากระดูกพรุน'; กรอบ: 'cofactor essential'",
+      "usage_notes": "Cross-sell angle: คนกิน D อยู่แล้ว → เพิ่ม Mg",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "joint_cartilage",
+      "statement_th": "König et al. (Nutrients, 2018) — ผู้หญิงหลังวัยหมดประจำเดือน 131 คน กิน specific collagen peptides (Fortigel) 5 กรัม/วัน นาน 12 เดือน — BMD ที่สันหลังและคอสะโพกเพิ่มขึ้นชัดเจนเทียบยาหลอก (+3% spine, +6.7% ในกลุ่มที่มี low baseline BMD)",
+      "statement_en": "König et al. (Nutrients, 2018) — 131 postmenopausal women took 5 g/day of specific collagen peptides (Fortigel) for 12 months — spine and femoral neck BMD increased significantly vs placebo (+3% spine, +6.7% in low-BMD subgroup).",
+      "numeric_values": [
+        {"value": 131, "unit": "subjects", "label": "postmenopausal women", "is_approximation": false},
+        {"value": 5, "unit": "g/day", "label": "specific collagen peptide dose", "is_approximation": false},
+        {"value": 12, "unit": "months", "label": "duration", "is_approximation": false},
+        {"value": 3, "unit": "% BMD gain at spine", "label": "collagen peptide arm", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_011",
+      "entities_mentioned": ["collagen_peptide"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29337906/", "org": "Nutrients / PubMed", "source_tier": "A", "year": 2018, "title": "Specific Collagen Peptides Improve Bone Mineral Density and Bone Markers in Postmenopausal Women-A Randomized Controlled Study — König D, Oesser S, Scharla S, Zdzieblik D, Gollhofer A.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["คอลลาเจน 5 กรัม เพิ่มกระดูก", "ไม่ใช่แค่ผิว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ระบุว่าเป็น 'specific collagen peptides' (brand-specific Fortigel); ห้าม generalize 'คอลลาเจนทุกยี่ห้อได้ผลเท่ากัน'",
+      "usage_notes": "สำหรับ product angle collagen_peptides — จุดขาย 'cross-benefit ผิว + กระดูก'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "joint_cartilage",
+      "statement_th": "Keith Baar (UC Davis) — กิน gelatin/collagen peptides 15 กรัม + วิตามินซี 50 มก. ก่อนออกกำลังกายที่มี impact (เช่น ข้ามเชือก 6 นาที) 30-60 นาที เพิ่มอัตราการสังเคราะห์คอลลาเจน (ดู PINP biomarker) เป็น 2 เท่าเทียบกับ placebo",
+      "statement_en": "Keith Baar's UC Davis protocol — 15 g gelatin/collagen peptides + 50 mg vitamin C, consumed 30-60 min before a brief impact bout (e.g., 6 min rope-skipping), doubles collagen synthesis rate (measured via PINP biomarker) vs placebo.",
+      "numeric_values": [
+        {"value": 15, "unit": "g", "label": "collagen/gelatin dose", "is_approximation": false},
+        {"value": 50, "unit": "mg", "label": "vitamin C dose", "is_approximation": false},
+        {"value": "30-60", "unit": "min pre-exercise", "label": "timing window", "is_approximation": false},
+        {"value": 2, "unit": "× fold increase", "label": "collagen synthesis biomarker", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_011",
+      "entities_mentioned": ["keith_baar", "collagen_peptide"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27852613/", "org": "Am J Clin Nutr / PubMed", "source_tier": "A", "year": 2017, "title": "Vitamin C-enriched gelatin supplementation before intermittent activity augments collagen synthesis — Shaw G, Lee-Barthel A, Ross ML, Wang B, Baar K.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["จังหวะกินสำคัญ ไม่ใช่แค่ปริมาณ", "คอลลาเจน + ซี 1 ชั่วโมงก่อนฝึก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูด 'คอลลาเจน + ซี รักษา ACL ฉีกขาด'; กรอบ: 'support connective tissue remodeling'",
+      "usage_notes": "Protocol-based angle — เหมาะกับนักกีฬา/active senior",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "synovial_fluid",
+      "statement_th": "Hyaluronic acid ในน้ำไขข้อของผู้ป่วยข้อเข่าเสื่อม — ทั้งความเข้มข้นและน้ำหนักโมเลกุลลดลงประมาณครึ่งหนึ่งเทียบคนปกติ (~1-2 มก./มล. และ MW ลดจาก 4-5 MDa เป็น 2-3 MDa) — ทำให้ความหนืดและ shock absorption ลด; Cochrane 2015 สรุปว่า intra-articular HA injection ให้ pain relief 2-6 เดือน",
+      "statement_en": "Hyaluronic acid in osteoarthritic knee synovial fluid — both concentration and molecular weight drop by roughly half vs healthy joints (~1-2 mg/mL and MW declining from 4-5 MDa to 2-3 MDa) — reducing viscosity and shock absorption; a Cochrane 2015 review found intra-articular HA provides 2-6 months pain relief.",
+      "numeric_values": [
+        {"value": "4-5", "unit": "MDa", "label": "healthy HA molecular weight", "is_approximation": true},
+        {"value": "2-3", "unit": "MDa", "label": "OA HA molecular weight", "is_approximation": true},
+        {"value": "2-6", "unit": "months", "label": "intra-articular HA pain relief duration", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_007",
+      "entities_mentioned": ["hyaluronic_acid"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26352909/", "org": "Cochrane Database of Systematic Reviews / PubMed", "source_tier": "A", "year": 2015, "title": "Viscosupplementation for the treatment of osteoarthritis of the knee — Bellamy N et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ข้อไม่ลื่นเพราะน้ำไขข้อแห้ง", "ครึ่งที่หายไปคือคุณภาพการเคลื่อนไหว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Oral HA ≠ intra-articular HA — ห้ามอ้างว่า 'กินแล้วเท่ากับฉีด'; oral HA มีหลักฐานอ่อนกว่า",
+      "usage_notes": "For hyaluronic_acid product angle; ระบุให้ชัดเจนว่าเป็น oral support ไม่ใช่ทดแทน injection",
+      "contradictions": ["OARSI 2019 guidelines ถอน strong recommendation สำหรับ HA injection เพราะ effect size เล็ก"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_015",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "osteoarthritis_mechanism",
+      "statement_th": "MSM (methylsulfonylmethane) 3-6 กรัม/วัน ในการทดลอง 12 สัปดาห์ ลด WOMAC pain และ physical function score อย่างมีนัยสำคัญเทียบยาหลอก (Debbi et al., BMC Complement Altern Med 2011) — ขนาด effect เล็ก-กลาง, ความปลอดภัยดี",
+      "statement_en": "MSM (methylsulfonylmethane) at 3-6 g/day in 12-week RCTs significantly reduced WOMAC pain and physical function scores vs placebo (Debbi et al., BMC Complement Altern Med 2011) — small-to-moderate effect size with good safety profile.",
+      "numeric_values": [
+        {"value": "3-6", "unit": "g/day", "label": "MSM dose range", "is_approximation": false},
+        {"value": 12, "unit": "weeks", "label": "trial duration", "is_approximation": false},
+        {"value": 50, "unit": "subjects", "label": "Debbi 2011 N", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_008",
+      "entities_mentioned": ["msm"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21708025/", "org": "BMC Complement Altern Med / PubMed", "source_tier": "A", "year": 2011, "title": "Efficacy of methylsulfonylmethane supplementation on osteoarthritis of the knee: a randomized controlled study — Debbi EM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["กำมะถันจากธรรมชาติ", "แก้ปวดหนาทนาน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "effect size 'เล็ก-กลาง' ห้ามพูด 'รักษาข้อเสื่อมหายขาด'",
+      "usage_notes": "MSM มักขายคู่ glucosamine + chondroitin — ใช้เป็น add-on argument",
+      "contradictions": ["Trials ส่วนใหญ่ sample size เล็ก (<100); ต้องการ large RCT"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "osteoarthritis_mechanism",
+      "statement_th": "Bruyère et al. long-term follow-up (Menopause 2008 + 2011) — crystalline glucosamine sulfate 1,500 มก./วัน (Rotta formulation) ต่อเนื่อง ≥12 เดือน ลดความเสี่ยงผ่าตัดเปลี่ยนข้อเข่าทั้งหมด (total knee replacement) ลง ~50% ในการติดตาม 5 ปี",
+      "statement_en": "Bruyère et al. long-term follow-up (Menopause 2008; 2011) — crystalline glucosamine sulfate 1,500 mg/day (Rotta formulation) for ≥12 months reduced the 5-year risk of total knee replacement by ~50% vs placebo.",
+      "numeric_values": [
+        {"value": 1500, "unit": "mg/day", "label": "crystalline glucosamine sulfate dose (single daily)", "is_approximation": false},
+        {"value": 12, "unit": "months minimum", "label": "duration required", "is_approximation": false},
+        {"value": 50, "unit": "% reduction", "label": "total knee replacement risk at 5 y", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_008",
+      "entities_mentioned": ["glucosamine_sulfate"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/18520766/", "org": "Menopause / PubMed", "source_tier": "A", "year": 2008, "title": "Total joint replacement after glucosamine sulphate treatment in knee osteoarthritis — Bruyère O et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ลดโอกาสเปลี่ยนข้อเข่า 50%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุ 'crystalline glucosamine sulfate' (Rotta) — glucosamine HCl ไม่ให้ผลเท่ากัน; ห้ามใช้ตัวเลขนี้กับสินค้าที่ไม่ใช่ Rotta/equivalent",
+      "usage_notes": "For glucosamine_sulfate product angle — จุดขายคือ 'ป้องกันผ่าตัดระยะยาว'",
+      "contradictions": ["GAIT (Clegg 2006) ซึ่งใช้ glucosamine HCl ไม่เห็นผลเท่า crystalline sulfate"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_017",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "joint_cartilage",
+      "statement_th": "คอลลาเจนในร่างกายมนุษย์มีมากกว่า 28 ชนิด — Type I (ในกระดูก ผิวหนัง เอ็น) คิดเป็น ~90% ของคอลลาเจนทั้งหมด; Type II (ในกระดูกอ่อนข้อต่อ) คิดเป็น ~90-95% ของคอลลาเจนในกระดูกอ่อน — ดังนั้นคอลลาเจนที่ 'กินเพื่อข้อ' (UC-II, type II) ต่างจาก 'กินเพื่อผิว' (type I/III peptides)",
+      "statement_en": "Humans have more than 28 types of collagen — Type I (bone, skin, tendon) accounts for ~90% of total body collagen; Type II (articular cartilage) accounts for ~90-95% of cartilage collagen — so 'collagen for joints' (UC-II, type II) is biochemically distinct from 'collagen for skin' (type I/III peptides).",
+      "numeric_values": [
+        {"value": 28, "unit": "collagen types", "label": "known human collagens", "is_approximation": false},
+        {"value": 90, "unit": "% of total body collagen", "label": "Type I proportion", "is_approximation": true},
+        {"value": "90-95", "unit": "% of cartilage collagen", "label": "Type II proportion", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_006",
+      "entities_mentioned": ["type_ii_collagen", "uc_ii", "collagen_peptide"],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK507709/", "org": "NCBI Bookshelf / StatPearls", "source_tier": "A", "year": 2023, "title": "Histology, Collagen", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไม่ใช่คอลลาเจนทุกชนิดเท่ากัน", "ผิวกินชนิดหนึ่ง ข้อกินอีกชนิด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'type II ดีกว่า type I' — คนละบทบาท; ใช้เรื่อง 'ชนิดตรงจุด' ไม่ใช่ 'ชนิดไหนดีที่สุด'",
+      "usage_notes": "อธิบายทำไม UC-II dose เล็ก (40 mg) ต่างจาก collagen peptide (5-15 g)",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "osteoporosis_risk",
+      "statement_th": "Feskanich, Willett et al. (BMJ 1997; Nurses' Health Study, 77,761 ผู้หญิง, 12 ปี) — หญิงที่ดื่มนม ≥2 แก้ว/วัน ไม่ได้มีอัตรากระดูกสะโพกหักต่ำกว่าคนที่ดื่มน้อยกว่า 1 แก้ว/สัปดาห์ — ท้าทายคำสอน 'ดื่มนม 3 แก้ว/วันกระดูกแข็งแรง'",
+      "statement_en": "Feskanich, Willett et al. (BMJ 1997; Nurses' Health Study, 77,761 women, 12 y) — women drinking ≥2 glasses of milk/day had no lower hip fracture rate than those drinking <1 glass/week — challenging the '3 glasses a day for strong bones' message.",
+      "numeric_values": [
+        {"value": 77761, "unit": "subjects", "label": "Nurses' Health Study N", "is_approximation": false},
+        {"value": 12, "unit": "years follow-up", "label": "cohort duration", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["walter_willett", "calcium_carbonate"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/9224182/", "org": "Am J Public Health / PubMed", "source_tier": "A", "year": 1997, "title": "Milk, dietary calcium, and bone fractures in women: a 12-year prospective study — Feskanich D, Willett WC, Stampfer MJ, Colditz GA.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["นมเยอะไม่ได้แปลว่ากระดูกแข็ง", "Nurses' Study 77,000 คน บอกต่างจากที่คุณเชื่อ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'นมเป็นของเลว' — observational study, causation ไม่ clear; frame: 'นม ≠ กระดูกแข็งแบบอัตโนมัติ'",
+      "usage_notes": "Myth-bust anchor — ใช้เปิดทางเข้า product angle ที่ไม่ใช่นม (calcium citrate, vitamin K2)",
+      "contradictions": ["Cochrane 2015 พบ dairy intake สัมพันธ์กับ fracture risk ลดลงเล็กน้อยในผู้ชาย"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_019",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "bone_remodeling",
+      "statement_th": "แคลเซียมซิเตรตดูดซึมได้ในกระเพาะที่มี/ไม่มีกรด — เหมาะกับผู้สูงอายุที่กรดกระเพาะลดลงและคนกินยา PPI (omeprazole ฯลฯ); แคลเซียมคาร์บอเนตต้องการกรดในการละลาย ต้องกินพร้อมอาหาร; อัตราการดูดซึม elemental Ca 24% (citrate) vs 40% (carbonate) ที่ pH ใกล้ปกติ",
+      "statement_en": "Calcium citrate is absorbed in gastric environments with or without acid — preferable for older adults with reduced gastric acid and PPI users (omeprazole etc.); calcium carbonate requires stomach acid and must be taken with meals; elemental Ca content is 24% (citrate) vs 40% (carbonate).",
+      "numeric_values": [
+        {"value": 24, "unit": "% elemental Ca", "label": "calcium citrate", "is_approximation": false},
+        {"value": 40, "unit": "% elemental Ca", "label": "calcium carbonate", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_004",
+      "entities_mentioned": ["calcium_citrate", "calcium_carbonate"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10197288/", "org": "J Am Coll Nutr / PubMed", "source_tier": "A", "year": 1999, "title": "Calcium bioavailability: importance of chemical form — Heaney RP, Dowell MS, Barger-Lux MJ.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไม่ใช่แคลเซียมทุกแบบเหมือนกัน", "ผู้สูงอายุกินคาร์บอเนตก็ได้น้อย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 24% / 40% เป็น elemental content ไม่ใช่ absorption; ห้ามสับสน",
+      "usage_notes": "For calcium_citrate product angle — targeted senior/PPI users",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_020",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "osteoporosis_risk",
+      "statement_th": "IOF (International Osteoporosis Foundation) ประมาณการ: 1 ใน 3 ผู้หญิง และ 1 ใน 5 ผู้ชาย อายุ ≥50 ปี จะมีกระดูกหักจากภาวะกระดูกเปราะ (fragility fracture) ในช่วงชีวิตที่เหลือ — ทั่วโลกมี fragility fracture เกิดขึ้นทุก ๆ 3 วินาที",
+      "statement_en": "IOF estimates: 1 in 3 women and 1 in 5 men aged ≥50 will experience a fragility fracture in their remaining lifetime — globally, a fragility fracture occurs every 3 seconds.",
+      "numeric_values": [
+        {"value": "1/3", "unit": "women ≥50", "label": "lifetime fragility fracture risk", "is_approximation": true},
+        {"value": "1/5", "unit": "men ≥50", "label": "lifetime fragility fracture risk", "is_approximation": true},
+        {"value": 3, "unit": "seconds between fractures globally", "label": "IOF estimate", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["iof"],
+      "sources": [
+        {"url": "https://www.osteoporosis.foundation/facts-statistics", "org": "International Osteoporosis Foundation", "source_tier": "C", "year": 2024, "title": "Key statistics — Osteoporosis Facts & Statistics", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ทุก 3 วินาที มีคนกระดูกหัก", "1 ใน 3 ผู้หญิง — นั่นคือแม่ พี่สาว หรือคุณ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลขเป็นค่าประมาณ global; ใช้คำว่า 'IOF ประมาณการ' ก่อนพูด",
+      "usage_notes": "Opening hook สำหรับ bone awareness content",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_021",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "impact_loading_bone",
+      "statement_th": "มวลกระดูกสูงสุดในชีวิต (peak bone mass) ถึงที่อายุประมาณ 20-30 ปี; ทุก 10% ของ peak bone mass ที่สร้างได้เพิ่มในวัยรุ่น ลดความเสี่ยงกระดูกพรุนตอนแก่ประมาณ 50% — ทำไมกิจกรรมที่มีแรงกระแทก (วิ่ง กระโดด) ในเด็กและวัยรุ่นสำคัญมาก",
+      "statement_en": "Peak bone mass is reached around age 20-30; every 10% increase in peak bone mass during youth is estimated to delay osteoporosis by ~13 years and reduce fracture risk by ~50% — a primary reason weight-bearing activity in children and adolescents is so valuable.",
+      "numeric_values": [
+        {"value": "20-30", "unit": "years age", "label": "peak bone mass attainment", "is_approximation": true},
+        {"value": 10, "unit": "% increase in peak bone mass", "label": "intervention goal", "is_approximation": true},
+        {"value": 50, "unit": "% lifetime fracture risk reduction", "label": "per 10% peak BMD gain", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_003",
+      "entities_mentioned": ["sclerostin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27048948/", "org": "Osteoporos Int / PubMed", "source_tier": "A", "year": 2016, "title": "The National Osteoporosis Foundation's position statement on peak bone mass development and lifestyle factors — Weaver CM et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ลงทุนกระดูกต้องทำก่อน 30", "ให้ลูกวิ่งเล่นวันนี้ ช่วยกระดูกตอนแก่"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข ~13 ปีและ 50% เป็น modeling estimate — ใช้คำว่า 'ประมาณ'",
+      "usage_notes": "Parent/grandparent audience — pitch ให้ 'ลงทุนกระดูกลูก-หลาน'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_022",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "vitamin_K2",
+      "statement_th": "Rotterdam Study (Geleijnse et al., J Nutr 2004; N=4,807 ผู้ใหญ่ดัตช์อายุ ≥55 ปี, ติดตาม 10 ปี) — คนที่บริโภค vitamin K2 (menaquinones) สูงสุด tertile มีความเสี่ยง CHD ลดลง 57% และ aortic calcification ลดลง 52% เทียบ tertile ต่ำสุด; เชื่อมกับ MGP carboxylation theory",
+      "statement_en": "The Rotterdam Study (Geleijnse et al., J Nutr 2004; N=4,807 Dutch adults ≥55 y, 10-y follow-up) — people in the highest K2 (menaquinone) intake tertile had 57% lower CHD risk and 52% less aortic calcification than the lowest tertile; consistent with MGP carboxylation theory.",
+      "numeric_values": [
+        {"value": 4807, "unit": "subjects", "label": "Rotterdam Study cohort", "is_approximation": false},
+        {"value": 10, "unit": "years follow-up", "label": "cohort duration", "is_approximation": false},
+        {"value": 57, "unit": "% lower CHD risk", "label": "highest vs lowest K2 tertile", "is_approximation": false},
+        {"value": 52, "unit": "% less aortic calcification", "label": "highest vs lowest K2 tertile", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bone_005",
+      "entities_mentioned": ["vitamin_k2_mk7", "leon_schurgers"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15514282/", "org": "Journal of Nutrition / PubMed", "source_tier": "A", "year": 2004, "title": "Dietary intake of menaquinone is associated with a reduced risk of coronary heart disease: the Rotterdam Study — Geleijnse JM, Vermeer C et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["K2 ไม่ได้ดีแค่กระดูก หลอดเลือดก็ดี", "ทุก natto กินเพื่อชีวิต"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Observational — causation ยังไม่พิสูจน์; ห้ามบอก 'กิน K2 รักษาโรคหัวใจ'",
+      "usage_notes": "Cross-domain support (bones + heart) — frame 'one vitamin, two organs'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_023",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "synovial_fluid",
+      "statement_th": "น้ำไขข้อในข้อเข่าปกติมีประมาณ 1-4 มิลลิลิตร — ปริมาณน้อยมาก แต่ประสิทธิภาพในการลดแรงเสียดทานสูงกว่า Teflon (coefficient of friction ~0.001 ต่อ Teflon ~0.04) — ข้อมนุษย์ลื่นที่สุดในธรรมชาติ",
+      "statement_en": "A healthy human knee joint contains only about 1-4 mL of synovial fluid — a tiny volume, yet its lubrication efficiency surpasses Teflon (coefficient of friction ~0.001 vs Teflon ~0.04) — the human joint is among the lowest-friction systems known in nature.",
+      "numeric_values": [
+        {"value": "1-4", "unit": "mL", "label": "healthy knee synovial fluid volume", "is_approximation": true},
+        {"value": 0.001, "unit": "coefficient of friction", "label": "healthy synovial joint", "is_approximation": true},
+        {"value": 0.04, "unit": "coefficient of friction", "label": "Teflon comparator", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bone_007",
+      "entities_mentioned": ["hyaluronic_acid"],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2697338/", "org": "Sports Health / PMC", "source_tier": "A", "year": 2009, "title": "Articular cartilage: structure, injuries and review of management — Sophia Fox AJ, Bedi A, Rodeo SA.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ข้อคนลื่นกว่า Teflon", "แค่ 2 มิลลิลิตร ทำให้คุณเดินทั้งชีวิต"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เชิง educational awe — ห้ามใช้เป็น product claim",
+      "usage_notes": "Opening awe hook — ใช้สร้างความประทับใจก่อนเข้า product",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    },
+    {
+      "fact_id": "bone_024",
+      "tier": "T4_COMMON_WISDOM",
+      "sub_topic_id": "osteoporosis_risk",
+      "statement_th": "'อายุเยอะแล้วอย่ายกหนัก กลัวหลังพัง' — เป็นคำเตือนที่แพทย์เคยใช้ แต่ LIFTMOR (2018) และ LIFTMOR-M (2020) ท้าทายความเชื่อนี้ — 'ถ้าทำภายใต้ supervision และท่าถูก การยกหนักคือสิ่งที่กระดูกต้องการ' — ใช้เป็น opinion frame ไม่ใช่ universal advice",
+      "statement_en": "'Old people should not lift heavy — you'll hurt your back' — a long-standing medical caution that LIFTMOR (2018) and LIFTMOR-M (2020) have challenged: 'under supervision and with correct form, heavy lifting is what aging bone needs' — use as opinion frame, not universal advice.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_bone_003",
+      "entities_mentioned": ["belinda_beck", "liftmor_trial", "liftmor_m_trial"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/32224255/", "org": "Bone / PubMed", "source_tier": "A", "year": 2020, "title": "A comparison of high-intensity resistance and impact training on cortical and trabecular bone in older men with osteopenia and osteoporosis (LIFTMOR-M) — Harding AT et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["คำห้ามเก่าของหมออาจผิด", "ท้าความเชื่อหลังพัง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "T4 wrap — ต้องใส่คำว่า 'ภายใต้การดูแลของผู้เชี่ยวชาญ' และห้ามสร้าง impression 'ลุงป้ายกขึ้นยิมคนเดียวได้เลย'",
+      "usage_notes": "Opinion frame สำหรับเปิดทาง product + professional training angle",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.bones",
+      "harvested_at": "2026-04-22T12:00:00"
+    }
+  ]
+}

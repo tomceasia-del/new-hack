@@ -1,0 +1,107 @@
+{
+  "domain_id": "hormones",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 12,
+    "last_harvested": "2026-04-22",
+    "notes": "Hook templates harvested from UncleD's dominant hook patterns (insult_reality / awe / curiosity / pain / shock) — anchored to tier-A hormones facts. Each template deployable with a fact_id substitution. Hormones domain has 30 UncleD clips; many hooks mirror his exact phrasing ('ไทรอยด์ต่ำ', 'เทสลดเพราะอายุ?', 'คอร์ติซอลพัง')."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_horm_001_thyroid_blame",
+      "style": "insult_reality",
+      "pattern_th": "ไทรอยด์ต่ำมึงเลยอ้วน ใช่ป่ะ? — ไม่ใช่ไอ้สัส งานวิจัย __X__ บอกว่าไทรอยด์ต่ำเต็ม ๆ ลงน้ำหนักแค่ __Y__ กก.เท่านั้น",
+      "example_th": "ไทรอยด์ต่ำมึงเลยอ้วน ใช่ป่ะ? — ไม่ใช่ไอ้สัส งานของ Karmisholt 2009 (J Clin Endocrinol Metab) บอกว่าคนเป็น hypothyroid เต็มตัวลงน้ำหนักได้เฉลี่ยแค่ 2-4 กิโลหลังกินยา — ที่เหลือคือกินเกินกับนอนพัง ไม่ใช่ต่อมไทรอยด์",
+      "facts_used": ["horm_005", "horm_024"],
+      "effectiveness_notes": "UncleD signature 'ไม่ใช่ไอ้สัส' flip. ใช้ตอน viewer หลอกตัวเองว่าอ้วนเพราะต่อม — debunk myth แรงมาก"
+    },
+    {
+      "template_id": "hook_horm_002_test_age_myth",
+      "style": "insult_reality",
+      "pattern_th": "เทส-ลดเพราะอายุ? ไม่ใช่ไอ้สัส — เทส-ของคนยุคนี้ต่ำกว่าคนอายุเท่ากันเมื่อ __X__ ปีที่แล้วถึง __Y__%",
+      "example_th": "เทส-ลดเพราะอายุ? ไม่ใช่ไอ้สัส — Travison 2007 (JAMA) พบเทสโทสเตอโรนของชายอเมริกันอายุ 60 ในปี 2004 ต่ำกว่าชายอายุ 60 ในปี 1988 ถึง 17% แปลว่ารุ่นมึงไม่ได้แก่ — มึงใช้ชีวิตเฮงซวยขึ้น",
+      "facts_used": ["horm_004"],
+      "effectiveness_notes": "Generation-shaming hook ที่ UncleD ใช้เป็น signature — shifting blame จาก 'อายุ' ไปที่ 'lifestyle'"
+    },
+    {
+      "template_id": "hook_horm_003_cortisol_belly",
+      "style": "pain",
+      "pattern_th": "มึงพุงย้อย แม้ออกกำลังกายตลอด ใช่ป่ะ? ไม่ใช่เพราะขี้เกียจ — เป็นเพราะ __X__",
+      "example_th": "มึงพุงย้อย แม้ออกกำลังกายตลอด ใช่ป่ะ? ไม่ใช่เพราะขี้เกียจ — เป็นเพราะ cortisol มึงขึ้นตลอด 24 ชม. ไม่ลงกลางคืน (Epel 2000) → 11β-HSD1 ในไขมันพุงเปลี่ยน cortisone → cortisol ในเซลล์ไขมันเอง แปลว่าเครียดเรื้อรัง = เอว +2-3 นิ้วต่อปี",
+      "facts_used": ["horm_006", "horm_022"],
+      "effectiveness_notes": "Pain recognition → biology explanation. ลบความรู้สึก 'ตัวเองล้มเหลว' → reframe ว่าฮอร์โมนพัง"
+    },
+    {
+      "template_id": "hook_horm_004_fasting_gh_shock",
+      "style": "awe",
+      "pattern_th": "ร่างกายมึงฉลาดกว่าที่คิด — อดอาหาร __X__ วัน GH pulse เพิ่มจาก __Y__ เป็น __Z__",
+      "example_th": "ร่างกายมึงฉลาดกว่าที่คิด — อดอาหาร 5 วัน GH pulse เพิ่มจาก 5.8 เป็น 9.9 ครั้งต่อ 24 ชม. (Ho 1988 J Clin Invest) — เกือบเท่าตัว! คือเหตุผลที่คนทำ fasting ดูแน่น ไม่ใช่ยุบเหี่ยว",
+      "facts_used": ["horm_001"],
+      "effectiveness_notes": "Awe + numeric shock. ตรงกับ UncleD claim 'IF เพิ่มโกรทฮอร์โมน' ใน clip IF 16/8. ใช้ชนะ 'IF = อดอาหารผอมเหี่ยว' myth"
+    },
+    {
+      "template_id": "hook_horm_005_sleep_testosterone",
+      "style": "shock",
+      "pattern_th": "นอน __X__ ชั่วโมง __Y__ คืน = เทส-เหมือนผู้ชายแก่กว่าตัวเอง __Z__ ปี",
+      "example_th": "นอน 5 ชั่วโมง 7 คืนติด = เทส-ลด 10-15% (Leproult JAMA 2011) = เทส-ของมึงเท่าผู้ชายแก่กว่าตัวเอง 10-15 ปีเลย — แค่ตัดนอน 2 ชั่วโมง/คืน",
+      "facts_used": ["horm_014"],
+      "effectiveness_notes": "Age-equivalent shock framing — UncleD pattern ใช้การเทียบอายุเพื่อสร้าง urgency. Numeric + pain"
+    },
+    {
+      "template_id": "hook_horm_006_insulin_silent",
+      "style": "curiosity",
+      "pattern_th": "มีตัวเลขในใบเลือดที่หมอมึงไม่เคยเช็ค — แต่มันบอก __X__ ล่วงหน้า __Y__ ปี",
+      "example_th": "มีตัวเลขในใบเลือดที่หมอมึงไม่เคยเช็ค — แต่มันบอกว่ามึงกำลังจะเป็นเบาหวานล่วงหน้า 10-20 ปี — มันคือ fasting insulin (ปกติ <10 mIU/L). น้ำตาลปกติ ≠ อินซูลินปกติ",
+      "facts_used": ["horm_002"],
+      "effectiveness_notes": "Curiosity gap + insider knowledge — UncleD pattern 'หมอไม่บอก / ตรวจไม่ครบ'. ดีสำหรับ hook นำเข้า lab panel niche"
+    },
+    {
+      "template_id": "hook_horm_007_leptin_not_willpower",
+      "style": "pain",
+      "pattern_th": "มึงไม่ได้ไม่มี willpower — มึงมี leptin resistance คนอ้วนมี leptin __X__ เท่าของคนผอม แต่สมองไม่ได้ยิน",
+      "example_th": "มึงไม่ได้ไม่มี willpower — มึงมี leptin resistance! คนอ้วนมี leptin สูงเป็น 4-10 เท่าของคนผอม แต่สมอง (hypothalamus) ไม่ได้ยิน เลยหิวตลอดเวลา — Myers 2010 อธิบาย SOCS3/PTP1B blockade ชัดเจน",
+      "facts_used": ["horm_023"],
+      "effectiveness_notes": "Reframe willpower → physiology. สำคัญมากสำหรับ audience ที่รู้สึกผิดกับตัวเอง"
+    },
+    {
+      "template_id": "hook_horm_008_blue_light_hormones",
+      "style": "shock",
+      "pattern_th": "ไถมือถือก่อนนอน __X__ ชั่วโมง = ฮอร์โมน __Y__ ลด __Z__%",
+      "example_th": "ไถมือถือ 4 ชั่วโมงก่อนนอน = melatonin ลด 55%! เลื่อนไปช้า 1.5 ชั่วโมง (Chang PNAS 2015) — และเมื่อ melatonin พัง → cortisol กลางคืนไม่ลง → GH pulse กลางดึกไม่ปล่อย → แก่ไวกว่าเดิม 3 อย่าง",
+      "facts_used": ["horm_009", "horm_026"],
+      "effectiveness_notes": "Triple domino hook (melatonin → cortisol → GH) — UncleD ชอบ chain reaction. Numeric very specific"
+    },
+    {
+      "template_id": "hook_horm_009_pcos_not_mystery",
+      "style": "insult_reality",
+      "pattern_th": "PCOS = โรคฮอร์โมนลึกลับ? ไม่ใช่ — รากมันคือ __X__ ตัวเดียว",
+      "example_th": "PCOS = โรคฮอร์โมนลึกลับเหรอ? ไม่ใช่ไอ้สัส — รากมันคือ insulin resistance ตัวเดียว. 50-70% ของคน PCOS ดื้ออินซูลิน (Diamanti 2012). Insulin สูง → ovary สร้าง androgen เกิน → สิว-ขน-ไม่ตกไข่ แก้อินซูลินก่อน = แก้ PCOS ได้ 80%",
+      "facts_used": ["horm_010", "horm_019"],
+      "effectiveness_notes": "Mystery → simple-root reframe. Empowering สำหรับผู้หญิงวัย 20-35 ที่รู้สึกว่า PCOS จัดการไม่ได้"
+    },
+    {
+      "template_id": "hook_horm_010_ghrelin_fiber",
+      "style": "curiosity",
+      "pattern_th": "ทำไม __X__ อิ่มนาน แต่ __Y__ หิวใน 2 ชั่วโมง? — เพราะ ghrelin มัน __Z__",
+      "example_th": "ทำไมกินข้าวกับผักเต็มจานอิ่มนาน แต่กินข้าวกับน้ำอัดลมหิวใน 2 ชั่วโมง? — เพราะ ghrelin ลดตามปริมาตรอาหาร + fiber + protein ไม่ใช่ตาม kcal. อาหารน้ำตาลสูง fiber ต่ำ = ghrelin กลับมาเร็ว = หิวเรื่อย ๆ (Cummings 2004)",
+      "facts_used": ["horm_007", "horm_027"],
+      "effectiveness_notes": "Question-comparison hook ที่ UncleD ใช้มาก ('ทำไม X...แต่ Y...'). เชื่อมกับ niche ผัก/fiber"
+    },
+    {
+      "template_id": "hook_horm_011_estrogen_men",
+      "style": "shock",
+      "pattern_th": "ผู้ชายที่พุงใหญ่มีเอสโตรเจน __X__ กว่าผู้ชายผอมถึง __Y__ เท่า — ไม่เชื่อใช่ป่ะ?",
+      "example_th": "ผู้ชายที่พุงใหญ่มีเอสโตรเจนสูงกว่าผู้ชายผอมได้ 1.5-2 เท่า — ไม่เชื่อใช่ป่ะ? เพราะไขมันพุงมี aromatase เยอะ → เปลี่ยน testosterone → estradiol ได้เลย. ยิ่งพุงเยอะ ยิ่งเทส-ตก ยิ่งนมโต วน loop (Cohen 2008)",
+      "facts_used": ["horm_018"],
+      "effectiveness_notes": "Shock + body-image reframe สำหรับผู้ชายลงพุง. 'loop' pattern เป็น UncleD signature"
+    },
+    {
+      "template_id": "hook_horm_012_cortisol_morning_rhythm",
+      "style": "awe",
+      "pattern_th": "ตื่นเช้ามาเฉื่อย? มึงรู้ป่ะว่าร่างกายปล่อย __X__ ทะลุ __Y__% ใน __Z__ นาทีแรกหลังตื่น",
+      "example_th": "ตื่นเช้ามาเฉื่อย? มึงรู้ป่ะว่าร่างกายปล่อย cortisol ทะลุ 50-75% ใน 30-45 นาทีแรกหลังตื่น — เรียก Cortisol Awakening Response (CAR) มันคือ 'เครื่องยนต์สตาร์ทวันใหม่' ไม่ใช่เรื่องเลวร้าย — ถ้า CAR แบน = พัง, ถ้าสูงเกิน = เครียดสะสม",
+      "facts_used": ["horm_006"],
+      "effectiveness_notes": "Reframe cortisol จาก 'ฮอร์โมนเลว' → 'ฮอร์โมนจำเป็น' — UncleD myth-bust pattern. Good transition สู่ adaptogen content"
+    }
+  ]
+}

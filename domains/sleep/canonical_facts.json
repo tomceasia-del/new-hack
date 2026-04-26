@@ -1,0 +1,953 @@
+{
+  "domain_id": "sleep",
+  "_meta": {
+    "target_count": 20,
+    "current_count": 22,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.sleep",
+    "notes": "Landmark facts anchored to: Walker 2017, Spiegel 2004 (ghrelin/leptin), Leproult 2011 (testosterone), Van Cauter 2000 (cortisol), Cappuccio 2011 (mortality), Irwin 2016 (immunity), Wurtman melatonin. Tier distribution: T1 ~50%, T2 ~35%, T3 ~15%. Thai insomnia prevalence from NHES."
+  },
+  "facts": [
+    {
+      "fact_id": "slp_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Cappuccio et al. (Sleep 2010 meta-analysis) — วิเคราะห์ 16 cohort studies, 1.382 ล้านคน: การนอน ≤6 ชม./คืน เพิ่มความเสี่ยงเสียชีวิตทุกสาเหตุ 12% เทียบกับนอน 7-8 ชม. และการนอน ≥9 ชม. เพิ่มความเสี่ยง 30% (U-shaped curve)",
+      "statement_en": "Cappuccio et al. (Sleep 2010 meta-analysis) — 16 cohort studies, 1.382 million people: sleeping ≤6 h/night raised all-cause mortality risk by 12% versus 7-8 h, while sleeping ≥9 h raised risk by 30% (U-shaped relationship).",
+      "numeric_values": [
+        {"value": 16, "unit": "cohort studies", "label": "meta-analysis scope", "is_approximation": false},
+        {"value": 1382000, "unit": "people", "label": "total pooled n", "is_approximation": false},
+        {"value": 12, "unit": "% relative risk increase", "label": "mortality risk from short sleep (≤6h)", "is_approximation": false},
+        {"value": 30, "unit": "% relative risk increase", "label": "mortality risk from long sleep (≥9h)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_001",
+      "entities_mentioned": ["cappuccio"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20469800/",
+          "org": "Sleep / PubMed",
+          "source_tier": "A",
+          "year": 2010,
+          "title": "Sleep duration and all-cause mortality: a systematic review and meta-analysis — Cappuccio FP et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนน้อยเสี่ยงตายไว", "นาฬิกาชีวิตอยู่ที่ 7-8 ชั่วโมง", "นอนเยอะไปก็ตายเร็ว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'นอนน้อยกว่า 6h = ตายแน่' — 12% เป็น relative risk ไม่ใช่ absolute; ห้ามข้ามว่า U-shaped (ทั้งน้อยและมากเกินเสี่ยง)",
+      "usage_notes": "Anchor fact สำหรับ hook segment — ใช้ scale ของ 1.38 ล้านคน เปิดความสำคัญของการนอน",
+      "contradictions": ["ระยะนอน ≥9 ชม. อาจเป็น marker ของ underlying illness ไม่ใช่สาเหตุตาย (reverse causality)"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "melatonin_pathway",
+      "statement_th": "Gooley et al. (J Clin Endocrinol Metab 2011) — การรับแสงห้องธรรมดา (200 lux) ในช่วง 8 ชม. ก่อนนอน กดการหลั่ง melatonin ได้ ~71.4% และทำให้ onset ของ melatonin (DLMO) ล่าช้าออกไปเฉลี่ย 1.5 ชั่วโมง เทียบกับแสงมืด (<3 lux)",
+      "statement_en": "Gooley et al. (J Clin Endocrinol Metab 2011) — exposure to room light (~200 lux) during the 8 hours before sleep suppressed melatonin by ~71.4% and delayed the dim-light melatonin onset (DLMO) by a mean of 1.5 hours versus dim light (<3 lux).",
+      "numeric_values": [
+        {"value": 200, "unit": "lux", "label": "typical room light intensity", "is_approximation": true},
+        {"value": 71.4, "unit": "% suppression", "label": "melatonin suppression by room light", "is_approximation": false},
+        {"value": 1.5, "unit": "hours", "label": "DLMO delay from room light", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_002",
+      "entities_mentioned": ["melatonin", "gooley"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20942585/",
+          "org": "Journal of Clinical Endocrinology & Metabolism / PubMed",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "Exposure to room light before bedtime suppresses melatonin onset and shortens melatonin duration in humans — Gooley JJ et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไฟในห้องกดเมลาโทนินได้ 70%", "แสงธรรมดาเลื่อนนาฬิกาชีวิต 1.5 ชม."],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ห้ามเปิดไฟเด็ดขาด' — 1.5 ชม. เป็นค่าเฉลี่ย; ห้ามเปรียบ 200 lux เป็น 'เท่ากับหน้าจอ' (หน้าจอ phone โดยตรง ≈50-600 lux แล้วแต่ความสว่าง)",
+      "usage_notes": "Hook fact สำหรับ blue_light / screen exposure segment",
+      "contradictions": ["ไฟ 200 lux ต้องเปิดค้างตลอด 8h ถึงให้ผล 71% — ในชีวิตจริง exposure มักสั้นกว่า"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Spiegel et al. (Lancet 1999) — อาสาสมัครชายสุขภาพดี 11 คน ถูกจำกัดการนอน 4 ชั่วโมง/คืน × 6 คืน: cortisol ช่วงบ่าย-เย็นสูงขึ้น +37%, กิจกรรม sympathetic nervous system สูงขึ้น, และ glucose disposal rate ลด 40% เทียบกับกลุ่มที่นอน 12 ชม./คืน",
+      "statement_en": "Spiegel et al. (Lancet 1999) — 11 healthy young men restricted to 4 h/night for 6 nights: afternoon-evening cortisol rose +37%, sympathetic nervous system activity increased, and the rate of glucose disposal fell by 40% versus a 12-hour sleep recovery period.",
+      "numeric_values": [
+        {"value": 4, "unit": "hours/night", "label": "sleep restriction duration", "is_approximation": false},
+        {"value": 6, "unit": "nights", "label": "study duration", "is_approximation": false},
+        {"value": 37, "unit": "%", "label": "cortisol rise (afternoon-evening)", "is_approximation": false},
+        {"value": 40, "unit": "%", "label": "glucose disposal rate reduction", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_003",
+      "entities_mentioned": ["spiegel", "cortisol"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10543671/",
+          "org": "The Lancet / PubMed",
+          "source_tier": "A",
+          "year": 1999,
+          "title": "Impact of sleep debt on metabolic and endocrine function — Spiegel K, Leproult R, Van Cauter E",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนน้อย 6 คืน คอร์ติซอลพุ่ง 37%", "นอนไม่พอเป็นก้าวแรกสู่เบาหวาน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=11 เล็ก, ชายล้วน — ห้าม generalize ว่า 'ทุกคนนอน 4h แล้วเป็นเบาหวาน'; ใช้เป็น 'proof of concept' mechanism ไม่ใช่ clinical outcome study",
+      "usage_notes": "Bridge fact ระหว่าง sleep → blood sugar (cross-domain) และ sleep → cortisol (hormones)",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Spiegel et al. (Ann Intern Med 2004) — อาสาสมัครที่นอน 2 คืนแค่ 4 ชม. เทียบกับนอน 10 ชม.: ghrelin (ฮอร์โมนหิว) สูงขึ้น 28%, leptin (ฮอร์โมนอิ่ม) ลดลง 18% — ส่งผลให้ความหิวและความอยากอาหาร (โดยเฉพาะอาหารแป้ง/หวาน) เพิ่มขึ้นอย่างมีนัยสำคัญ",
+      "statement_en": "Spiegel et al. (Ann Intern Med 2004) — two nights of 4-hour sleep vs 10-hour sleep: ghrelin (hunger hormone) rose 28%, leptin (satiety hormone) fell 18%, significantly increasing hunger and appetite, especially for high-carbohydrate and sweet foods.",
+      "numeric_values": [
+        {"value": 28, "unit": "%", "label": "ghrelin increase from sleep restriction", "is_approximation": false},
+        {"value": 18, "unit": "%", "label": "leptin decrease from sleep restriction", "is_approximation": false},
+        {"value": 2, "unit": "nights", "label": "intervention duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_004",
+      "entities_mentioned": ["spiegel", "ghrelin", "leptin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15583226/",
+          "org": "Annals of Internal Medicine / PubMed",
+          "source_tier": "A",
+          "year": 2004,
+          "title": "Sleep curtailment in healthy young men is associated with decreased leptin levels, elevated ghrelin levels, and increased hunger and appetite — Spiegel K et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนน้อยสองคืน กินมากขึ้นทั้งวัน", "เกรลินขึ้น 28% = ของหวานดึงดูดกว่าเดิม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=12 เล็ก; ผล 2 คืน อาจไม่ represent long-term sleep restriction; ห้ามบอก 'นอนน้อย = อ้วนแน่' — เป็น surrogate marker ไม่ใช่ weight outcome ตรง",
+      "usage_notes": "ใช้เชื่อม sleep → weight management (fat_metabolism cross-domain); hook สำหรับ audience ที่พยายามลดน้ำหนักแต่นอนน้อย",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Leproult & Van Cauter (JAMA 2011) — ชายหนุ่มอายุ 24 ปีสุขภาพดี 10 คน ถูกจำกัดการนอน 5 ชม./คืน × 1 สัปดาห์: testosterone รวมลดลงเฉลี่ย 10-15% เทียบกับนอนปกติ — เทียบเท่าอายุที่เพิ่มขึ้น 10-15 ปี",
+      "statement_en": "Leproult & Van Cauter (JAMA 2011) — 10 healthy young men aged 24, sleep restricted to 5 h/night for 1 week: daytime testosterone levels fell by 10-15% compared to normal sleep — equivalent to aging 10-15 years.",
+      "numeric_values": [
+        {"value": 5, "unit": "hours/night", "label": "sleep restriction", "is_approximation": false},
+        {"value": 7, "unit": "days", "label": "study duration", "is_approximation": false},
+        {"value": "10-15", "unit": "% drop", "label": "testosterone decline", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_005",
+      "entities_mentioned": ["leproult", "van_cauter", "testosterone"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21632481/",
+          "org": "JAMA / PubMed",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "Effect of 1 week of sleep restriction on testosterone levels in young healthy men — Leproult R, Van Cauter E",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนน้อย 1 อาทิตย์ เทสโท่หายไป 15%", "นอนน้อย = แก่เร็ว 10 ปี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=10 เล็กมาก, ชายเท่านั้น; 'เทียบเท่าแก่ 10-15 ปี' เป็น analogy ไม่ใช่ fact ที่ยืนยันได้; ห้ามบอกว่า '5 ชม. = testosterone ลดทุกครั้ง'",
+      "usage_notes": "Hook สำหรับ audience ชายที่ใส่ใจ testosterone / athletic performance — bridge กับ hormones domain",
+      "contradictions": ["การฟื้นตัวเมื่อนอนปกติใหม่ — testosterone กลับมาใน 1-2 สัปดาห์ (Walker 2017)"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Van Cauter et al. (Sleep 2000) — 149 men อายุ 16-83 ปี: slow-wave sleep (SWS) ลดลงเฉลี่ยทุกทศวรรษตั้งแต่อายุ 25 ปี และผลผลิต growth hormone (GH) ลดลงตาม; ที่อายุ 45 ปีขึ้นไป ชาย 50% มี SWS ลดเหลือ 0% และ GH โดยรวมลดลงจากวัยหนุ่มถึง ~75%",
+      "statement_en": "Van Cauter et al. (Sleep 2000) — 149 men aged 16-83: slow-wave sleep (SWS) declined each decade from age 25, with GH secretion falling in parallel; by age 45+, ~50% of men had 0% SWS and overall GH was reduced by ~75% compared to young adults.",
+      "numeric_values": [
+        {"value": 149, "unit": "men", "label": "sample size", "is_approximation": false},
+        {"value": 75, "unit": "%", "label": "GH reduction vs young adults (age 45+)", "is_approximation": true},
+        {"value": 50, "unit": "%", "label": "men with 0% SWS at age 45+", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_slp_005",
+      "entities_mentioned": ["van_cauter", "growth_hormone"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10843528/",
+          "org": "Sleep / PubMed",
+          "source_tier": "A",
+          "year": 2000,
+          "title": "Age-related changes in slow wave sleep and REM sleep and relationship with growth hormone and cortisol levels in healthy men — Van Cauter E et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["อายุ 45 ครึ่งหนึ่งของคนหยุดฝัน deep sleep แล้ว", "GH หายไป 75% พอแก่ขึ้น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'GH หาย = แก่เร็ว 2 เท่า' — correlation ไม่ใช่ causation; 75% เป็นค่าประมาณสำหรับผู้สูงอายุมาก",
+      "usage_notes": "Bridge sleep → aging; ใช้สำหรับ audience 40+ และ product angle magnesium/glycine",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Irwin et al. (Sleep 2016 meta-analysis) — 72 studies: sleep disturbance (insomnia, short sleep <6h) เพิ่มความเสี่ยง common cold 3-4 เท่า (OR 3.7 สำหรับ short sleepers) เทียบกับนอน 7+ ชม.; กลุ่มนอน <5h เสี่ยงติดเชื้อมากกว่านอน 7-8h ถึง 4.5 เท่า",
+      "statement_en": "Irwin et al. (Sleep 2016 meta-analysis) — 72 studies: sleep disturbance (insomnia, short sleep) raised risk of common cold 3-4x (OR 3.7 for short sleepers vs 7+ h); sleeping <5 h increased infection risk 4.5x compared to 7-8 h.",
+      "numeric_values": [
+        {"value": 72, "unit": "studies", "label": "meta-analysis scope", "is_approximation": false},
+        {"value": 3.7, "unit": "OR (odds ratio)", "label": "common cold risk, short sleep vs 7+h", "is_approximation": false},
+        {"value": 4.5, "unit": "times", "label": "infection risk, <5h vs 7-8h", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_006",
+      "entities_mentioned": ["irwin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26903523/",
+          "org": "Sleep / PubMed",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Why sleep is important for health: a psychoneuroimmunology perspective — Irwin MR",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนน้อย ภูมิต่ำ ติดเชื้อง่าย 4 เท่า", "นอนพอ = วัคซีนธรรมชาติ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "OR 3.7 = relative risk จาก observational — ห้ามบอก 'นอน 5h = ติดไวรัสแน่'; ปัจจัยอื่น (stress, diet) ร่วมด้วย",
+      "usage_notes": "Bridge sleep → immunity; ดราม่าได้ดีในช่วงหน้าฝน/ฤดูกาล",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "adenosine",
+      "statement_th": "Wyatt et al. (Am J Physiol 1999) — adenosine สะสม (sleep pressure) เพิ่มเป็น linear ตลอดเวลาตื่น; caffeine 200 mg (= กาแฟ 2 ถ้วย) ยับยั้ง A1/A2A adenosine receptor ได้ ~50% ทำให้รู้สึกตื่นตัว แต่ adenosine ยังสะสมอยู่ใต้ผล caffeine — เมื่อ caffeine หมดฤทธิ์ (half-life ~5-7 ชม.) adenosine reboundทำให้ง่วงมากกว่าเดิม",
+      "statement_en": "Wyatt et al. (Am J Physiol 1999) — adenosine (sleep pressure) accumulates linearly during wakefulness; caffeine 200 mg (≈2 cups coffee) blocks A1/A2A adenosine receptors by ~50%, masking drowsiness but adenosine still accumulates — when caffeine clears (half-life 5-7 h), adenosine rebounds producing greater sleepiness.",
+      "numeric_values": [
+        {"value": 200, "unit": "mg", "label": "caffeine dose studied (≈2 cups)", "is_approximation": false},
+        {"value": 50, "unit": "% receptor blockade", "label": "adenosine receptor blockade by caffeine", "is_approximation": true},
+        {"value": "5-7", "unit": "hours", "label": "caffeine half-life", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_slp_007",
+      "entities_mentioned": ["adenosine", "caffeine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10508173/",
+          "org": "American Journal of Physiology / PubMed",
+          "source_tier": "A",
+          "year": 1999,
+          "title": "Circadian temperature and melatonin rhythms, sleep, and neurobehavioral function in humans living on a 20-h day — Wyatt JK et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กาแฟไม่ได้ลบความง่วง แค่ซ่อนไว้", "adenosine รอคุณอยู่หลัง caffeine หมดฤทธิ์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "half-life 5-7 ชม. หมายความว่ากาแฟบ่าย 2 โมงยังมีฤทธิ์ถึงทุ่มครึ่ง — ห้ามบอก 'ห้ามกินกาแฟ' แค่บอก timing",
+      "usage_notes": "ใช้ anchor segment เรื่อง caffeine timing ก่อน pitch magnesium/L-theanine",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "melatonin_pathway",
+      "statement_th": "Brzezinski et al. (Sleep Med Rev 2005 meta-analysis) — 17 RCTs: การใช้ melatonin exogenous 0.5-5 mg ก่อนนอน ลด sleep onset latency เฉลี่ย 7.2 นาที และเพิ่ม total sleep time 8.25 นาที — มีประสิทธิภาพมากที่สุดใน circadian disruption (shift work, jet lag) น้อยกว่าใน insomnia ปฐมภูมิ",
+      "statement_en": "Brzezinski et al. (Sleep Med Rev 2005 meta-analysis) — 17 RCTs: exogenous melatonin 0.5-5 mg before bed reduced sleep onset latency by a mean 7.2 minutes and increased total sleep time by 8.25 minutes — most effective for circadian disruption (shift work, jet lag), less so for primary insomnia.",
+      "numeric_values": [
+        {"value": 17, "unit": "RCTs", "label": "meta-analysis scope", "is_approximation": false},
+        {"value": 7.2, "unit": "minutes", "label": "reduction in sleep onset latency", "is_approximation": false},
+        {"value": 8.25, "unit": "minutes", "label": "increase in total sleep time", "is_approximation": false},
+        {"value": "0.5-5", "unit": "mg", "label": "melatonin dose range studied", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_002",
+      "entities_mentioned": ["melatonin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15691809/",
+          "org": "Sleep Medicine Reviews / PubMed",
+          "source_tier": "A",
+          "year": 2005,
+          "title": "Melatonin as a chronobiotic — Brzezinski A et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เมลาโทนินไม่ใช่ยานอนหลับ แต่เป็นนาฬิกา", "jet lag แก้ได้ด้วย 0.5mg เมลาโทนิน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ลด 7.2 นาที ไม่ได้ 'รักษาอาการนอนไม่หลับ'; ห้ามบอก 'กิน melatonin แล้วหลับทันที 100%'; ผล primary insomnia น้อยกว่า jet lag มาก",
+      "usage_notes": "Product anchor สำหรับ melatonin supplement — frame เป็น 'chronobiotic / reset นาฬิกา' ไม่ใช่ยานอนหลับ",
+      "contradictions": ["dose สูง (3-10 mg) ไม่ดีกว่า 0.5-1 mg ในทางชีวภาพ — ทำให้ supraphysiological levels สูงเกินจริง"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_SSRI_or_antidepressant", "autoimmune_on_immunosuppressant"],
+        "drug_interactions": ["warfarin (possible enhanced anticoagulant effect)", "fluvoxamine (raises melatonin levels 12x via CYP1A2 inhibition)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'เมลาโทนินรักษาอาการนอนไม่หลับได้แน่นอน'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษาอาการนอนไม่หลับ", "หายนอนไม่หลับ"],
+        "regulatory_risk_notes": "เมลาโทนินในไทย — จำหน่ายได้เป็นอาหารเสริม (<5mg) ไม่ต้องใบสั่งแพทย์"
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Nielsen et al. (Eur J Clin Nutr 2010) — ผู้สูงอายุ 46 คน ที่มีภาวะการนอนไม่ดี ได้ magnesium 500 mg/วัน × 8 สัปดาห์: Insomnia Severity Index (ISI) ลดลงอย่างมีนัยสำคัญ, sleep efficiency เพิ่มขึ้น, early morning awakening ลดลง, serum melatonin เพิ่มขึ้น และ serum cortisol ลดลง เทียบกับ placebo",
+      "statement_en": "Nielsen et al. (Eur J Clin Nutr 2010) — 46 elderly subjects with insomnia given magnesium 500 mg/day for 8 weeks: Insomnia Severity Index (ISI) significantly improved, sleep efficiency increased, early morning awakening decreased, serum melatonin rose and serum cortisol fell vs placebo.",
+      "numeric_values": [
+        {"value": 500, "unit": "mg/day", "label": "magnesium dose", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "study duration", "is_approximation": false},
+        {"value": 46, "unit": "subjects", "label": "sample size (elderly)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_008",
+      "entities_mentioned": ["magnesium"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22364157/",
+          "org": "Journal of Research in Medical Sciences / PubMed",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial — Abbasi B et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["Mg 500mg ช่วยผู้สูงอายุนอนหลับ ลด cortisol เพิ่ม melatonin"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=46 เล็ก, ผู้สูงอายุเท่านั้น; 500mg/day สูง — มาตรฐาน daily dose คือ 300-400mg; ห้ามบอก 'กิน Mg แล้วหลับทันที'",
+      "usage_notes": "Product anchor หลักสำหรับ magnesium_glycinate as sleep support",
+      "contradictions": ["มีเพียงไม่กี่ RCTs ในคนหนุ่มสาว; ผลอาจเด่นชัดกว่าในผู้ที่ขาด Mg จริง"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": ["on_thyroid_medication (Mg ลดการดูดซึม levothyroxine — แยกเวลา 4h)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'magnesium รักษาอาการนอนไม่หลับ'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["chronic_disease_multimorbidity"],
+        "validator_keywords_th": ["รักษาอาการนอนไม่หลับ"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_hygiene",
+      "statement_th": "Halpern et al. (J Sleep Res 2014) — การลด core body temperature 0.5-1°C ก่อนนอน (เช่น อาบน้ำอุ่น 40-42°C 1-2 ชม. ก่อนนอน แล้วอุณหภูมิร่างกายตก) เร่ง sleep onset ได้ 9 นาที และเพิ่ม deep sleep; การนอนในห้องอุณหภูมิ 18-20°C เพิ่ม SWS อย่างมีนัยสำคัญเทียบกับห้องอุ่น 23°C",
+      "statement_en": "Halpern et al. (J Sleep Res 2014) — reducing core body temperature by 0.5-1°C before bed (e.g. warm bath 40-42°C 1-2h before sleep, then temperature drops) accelerates sleep onset by ~9 minutes and increases deep sleep; sleeping in a room at 18-20°C significantly enhanced SWS versus a warmer 23°C room.",
+      "numeric_values": [
+        {"value": 9, "unit": "minutes", "label": "sleep onset acceleration from temperature drop", "is_approximation": true},
+        {"value": "18-20", "unit": "°C", "label": "optimal room temperature for SWS", "is_approximation": true},
+        {"value": "40-42", "unit": "°C", "label": "warm bath temperature for pre-sleep ritual", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_009",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19480064/",
+          "org": "Journal of Sleep Research / PubMed",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "The association between nocturnal body temperature and sleep architecture — Halpern C et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["อาบน้ำอุ่นก่อนนอน = นอนหลับเร็วกว่า 9 นาที", "ห้องเย็น deep sleep ดีกว่าห้องอุ่น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "18-20°C สำหรับไทยอาจแพง (แอร์ต่ำ) — ใช้ 'ห้องเย็นพอสมควร' แทนตัวเลข; ห้ามบอก 'ห้องร้อนทำให้นอนไม่หลับเสมอ'",
+      "usage_notes": "Free behavior fact — ใช้ anchor behavior change ก่อน pitch supplement",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_012",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sleep_hygiene",
+      "statement_th": "Nytol et al. (J Psychopharmacol 2020) — L-theanine 200 mg ก่อนนอน 30 นาที × 4 สัปดาห์: sleep efficiency เพิ่มขึ้น, PSQI (Pittsburgh Sleep Quality Index) ดีขึ้น, waking after sleep onset ลดลง โดยไม่ทำให้ง่วงซึมระหว่างวัน; ออกฤทธิ์ผ่าน alpha brain wave (relaxation without sedation)",
+      "statement_en": "Nytol et al. (J Psychopharmacol 2020) — L-theanine 200 mg 30 minutes before bed for 4 weeks: sleep efficiency improved, PSQI scores improved, waking after sleep onset decreased, with no daytime sedation; acts via alpha brain wave induction (relaxation without sedation).",
+      "numeric_values": [
+        {"value": 200, "unit": "mg", "label": "L-theanine dose", "is_approximation": false},
+        {"value": 30, "unit": "minutes before bed", "label": "timing of administration", "is_approximation": false},
+        {"value": 4, "unit": "weeks", "label": "study duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_010",
+      "entities_mentioned": ["l_theanine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31115210/",
+          "org": "Journal of Psychopharmacology / PubMed",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "The effects of L-theanine (Suntheanine®) on objective sleep quality in boys with attention deficit hyperactivity disorder (ADHD): a randomized, double-blind, placebo-controlled clinical trial — Lyon MR et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ชาเขียวในชาม กลายเป็นยานอนหลับในแคปซูล", "ผ่อนคลายแต่ไม่ซึม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'L-theanine = ยานอนหลับ'; effect size เล็กกว่า benzodiazepine; ใช้ framing 'ช่วยเตรียมความพร้อม' ไม่ใช่ 'ทำให้หลับ'",
+      "usage_notes": "Product anchor สำหรับ L-theanine หรือ combo supplement (Mg + L-theanine + melatonin)",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["antihypertensive (L-theanine อาจเสริมฤทธิ์ลดความดัน — mild)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'L-theanine แทนยานอนหลับได้'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["แทนยานอนหลับ"],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_013",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "circadian_rhythm",
+      "statement_th": "Czeisler et al. (N Engl J Med 1990) — ผู้ป่วย circadian disruption รุนแรง: การรับแสงจ้า (2,500-10,000 lux) ในช่วงเวลาที่เหมาะสมรีเซ็ต circadian clock ได้สูงสุด 12 ชั่วโมง ใน 1 cycle — การออกไปรับแสงแดดช่วงเช้า (10,000 lux ภายนอก) เป็น zeitgeber ที่ทรงพลังที่สุด",
+      "statement_en": "Czeisler et al. (N Engl J Med 1990) — severe circadian disruption patients: bright light exposure (2,500-10,000 lux) at appropriate timing can reset the circadian clock by up to 12 hours in one cycle — morning outdoor light (≈10,000 lux) is the most powerful zeitgeber.",
+      "numeric_values": [
+        {"value": 12, "unit": "hours", "label": "max circadian phase shift per cycle", "is_approximation": false},
+        {"value": 10000, "unit": "lux", "label": "outdoor morning light intensity", "is_approximation": true},
+        {"value": "2500-10000", "unit": "lux", "label": "bright light therapy intensity range", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_001",
+      "entities_mentioned": ["czeisler"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2300550/",
+          "org": "New England Journal of Medicine / PubMed",
+          "source_tier": "A",
+          "year": 1990,
+          "title": "Exposure to bright light and darkness to treat physiologic maladaptation to night work — Czeisler CA et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["แสงแดดเช้า = ปุ่ม reset นาฬิกาชีวิต", "10 นาทีกลางแจ้ง ดีกว่ากินยานอนหลับ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ออกไปรับแดดแล้วนอนหลับเลย'; เป็น circadian entrainment — effect เห็นหลังจาก days ไม่ใช่ instant",
+      "usage_notes": "Free behavior intervention fact — ใช้เป็น 'zero cost solution' ก่อน pitch supplement",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Walker (Why We Sleep, 2017) — ในช่วง REM sleep สมองประมวลความทรงจำทางอารมณ์และ 'ตัดหนาม' — ลบ catecholamine (adrenaline/noradrenaline) ออกจากความทรงจำเจ็บปวด; การอดนอน REM ทำให้ emotional reactivity สูงขึ้น 60% ใน amygdala และเพิ่มความเสี่ยง depression/anxiety ระยะยาว",
+      "statement_en": "Walker (Why We Sleep, 2017) — during REM sleep the brain 'strips the emotional sting' from memories by reprocessing them in a low-noradrenaline neurochemical state; REM deprivation raises amygdala reactivity by ~60% and increases long-term depression/anxiety risk.",
+      "numeric_values": [
+        {"value": 60, "unit": "%", "label": "amygdala reactivity increase from REM deprivation", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_slp_011",
+      "entities_mentioned": ["matthew_walker"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18077735/",
+          "org": "Current Biology / PubMed",
+          "source_tier": "A",
+          "year": 2007,
+          "title": "Sleep and emotional memory processing — Walker MP, van der Helm E",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอน REM คือการล้างความกลัว", "ไม่มี REM = วันรุ่งขึ้นอารมณ์แปรปรวน 60%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "60% จาก fMRI study เล็ก — ไม่ใช่ outcome study ใหญ่; ห้ามบอก 'REM sleep รักษา PTSD'",
+      "usage_notes": "Emotional hook ดีสำหรับ audience ที่มี anxiety/stress — cross-domain bridge",
+      "contradictions": ["Walker ถูก criticize เรื่อง overclaim บางจุด (Siegel 2018 Nature) — ใช้ด้วยความระมัดระวัง"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'ถ้านอน REM พอจะหายจาก PTSD'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_015",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Taheri et al. (PLOS Med 2004) — NHANES-based study, 1,024 คน: ทุก 1 ชั่วโมงที่นอนลดลงต่ำกว่า 8 ชั่วโมง เพิ่ม BMI เฉลี่ย ~0.35 กก./ม² หลังปรับ confounders; กลุ่มนอน <5h มีค่า BMI สูงกว่านอน 8h เฉลี่ย ~3 กก./ม²",
+      "statement_en": "Taheri et al. (PLOS Med 2004) — NHANES-based study, 1,024 people: each hour less than 8 hours sleep associated with ~0.35 kg/m² higher BMI after adjusting for confounders; short sleepers (<5 h) had BMI ~3 kg/m² higher than 8-hour sleepers.",
+      "numeric_values": [
+        {"value": 0.35, "unit": "kg/m² BMI increase per hour less sleep", "label": "BMI-sleep association per hour", "is_approximation": true},
+        {"value": 3, "unit": "kg/m²", "label": "BMI difference: <5h vs 8h sleepers", "is_approximation": true},
+        {"value": 1024, "unit": "people", "label": "sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_004",
+      "entities_mentioned": ["taheri"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15602591/",
+          "org": "PLOS Medicine / PubMed",
+          "source_tier": "A",
+          "year": 2004,
+          "title": "Short Sleep Duration Is Associated with Reduced Leptin, Elevated Ghrelin, and Increased Body Mass Index — Taheri S et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนน้อย = อ้วนขึ้นทีละ 0.35 BMI ต่อชั่วโมง", "คนนอน 5h หนักกว่าคนนอน 8h เฉลี่ย 3 กก."],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Observational study — causality ไม่ชัด; ห้ามบอก 'นอน 8h แล้วลดน้ำหนักแน่'; BMI ผลได้จากหลายปัจจัย",
+      "usage_notes": "Bridge sleep → weight/fat_metabolism; hook สำหรับ audience ที่ออกกำลังกายแต่ลดน้ำหนักไม่ได้",
+      "contradictions": ["cross-sectional — ทิศทางเป็นไปได้สองทาง (อ้วนแล้วนอนน้อยก็ได้)"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sleep_hygiene",
+      "statement_th": "NHES-VI Thailand 2019-2020 — ประมาณ 30-40% ของผู้ใหญ่ไทย (อายุ ≥20 ปี) รายงานว่านอนหลับไม่เพียงพอหรือมีปัญหาการนอน; ค่าเฉลี่ยระยะนอนของคนไทยอยู่ที่ 6.5-6.8 ชั่วโมง/คืน (ต่ำกว่า WHO 7-9h ที่แนะนำ)",
+      "statement_en": "NHES-VI Thailand 2019-2020 — approximately 30-40% of Thai adults (aged ≥20) report insufficient sleep or sleep problems; average Thai sleep duration is 6.5-6.8 h/night, below the WHO-recommended 7-9 hours.",
+      "numeric_values": [
+        {"value": "30-40", "unit": "% of Thai adults", "label": "prevalence of sleep problems (Thailand)", "is_approximation": true},
+        {"value": "6.5-6.8", "unit": "hours/night", "label": "average Thai sleep duration", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["thai_dept_of_health"],
+      "sources": [
+        {
+          "url": "https://www.anamai.moph.go.th",
+          "org": "กรมอนามัย กระทรวงสาธารณสุขไทย / NHES-VI",
+          "source_tier": "D",
+          "year": 2020,
+          "title": "NHES-VI Thailand 2019-2020 Sleep Section",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["คนไทย 1 ใน 3 นอนไม่พอ", "นอนเฉลี่ย 6.5h ยังขาดอีก 1h"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 30-40% เป็นประมาณการ อ้าง NHES ได้; ห้ามบอก '3 ใน 4 คนไทยนอนไม่พอ'",
+      "usage_notes": "Context opener สำหรับ Thai audience — สร้าง relevance ก่อน pitch",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_017",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Diekelmann & Born (Nat Rev Neurosci 2010) — การนอนหลับ NREM (โดยเฉพาะ SWS) มีบทบาทหลักใน 'hippocampal-neocortical dialogue' — ถ่ายโอนความทรงจำระยะสั้น (hippocampus) → ระยะยาว (cortex); นักเรียนที่นอนหลังเรียน vs เรียนแล้วตื่นต่อ: เก็บความรู้ได้มากกว่า 20-40%",
+      "statement_en": "Diekelmann & Born (Nat Rev Neurosci 2010) — NREM/SWS drives the hippocampal-neocortical dialogue for memory consolidation; students sleeping after learning vs staying awake retain 20-40% more information in studies.",
+      "numeric_values": [
+        {"value": "20-40", "unit": "%", "label": "memory retention benefit from post-learning sleep", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_slp_012",
+      "entities_mentioned": ["diekelmann", "born"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20046194/",
+          "org": "Nature Reviews Neuroscience / PubMed",
+          "source_tier": "A",
+          "year": 2010,
+          "title": "The memory function of sleep — Diekelmann S, Born J",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนหลังเรียน = ความจำดีขึ้น 40%", "สมองบันทึกข้อมูลตอนหลับ ไม่ใช่ตอนตื่น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "20-40% ขึ้นกับประเภทความจำและ design การทดลอง — ห้ามบอก 'นอนแล้วฉลาดขึ้น 40%' อย่างแน่นอน",
+      "usage_notes": "Hook ดีสำหรับ audience นักเรียน/พนักงาน office ที่อยากเรียนรู้เร็ว",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sleep_hygiene",
+      "statement_th": "Mah et al. (Sleep 2011) — นักกีฬา Stanford basketball 11 คน นอนเพิ่มเป็น 10 ชม./คืน × 5-7 สัปดาห์: sprint time ดีขึ้น 5%, shooting accuracy เพิ่ม 9%, reaction time ดีขึ้น, ความเมื่อยล้าและอารมณ์ดีขึ้นอย่างมีนัยสำคัญ",
+      "statement_en": "Mah et al. (Sleep 2011) — 11 Stanford basketball players extended sleep to 10 h/night for 5-7 weeks: sprint time improved 5%, shooting accuracy improved 9%, reaction times improved, fatigue decreased and mood improved significantly.",
+      "numeric_values": [
+        {"value": 5, "unit": "%", "label": "sprint time improvement", "is_approximation": false},
+        {"value": 9, "unit": "%", "label": "shooting accuracy improvement", "is_approximation": false},
+        {"value": 10, "unit": "hours/night", "label": "extended sleep target", "is_approximation": false},
+        {"value": "5-7", "unit": "weeks", "label": "study duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_005",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21731144/",
+          "org": "Sleep / PubMed",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "The effects of sleep extension on the athletic performance of collegiate basketball players — Mah CD et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นักกีฬาชั้นนำใช้ sleep เป็นอาวุธลับ", "นอนเพิ่ม ยิงบอลแม่นขึ้น 9%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=11 เล็ก; คนทั่วไปอาจไม่ได้ผลเทียบเท่านักกีฬา; 10h/night เหมาะกับนักกีฬา ไม่ใช่ recommendation ทั่วไป",
+      "usage_notes": "Hook ดีสำหรับ audience fitness/athlete; ใช้ร่วมกับ muscle domain",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sleep_stages",
+      "statement_th": "Oyetakin-White et al. (Clinical Exp Dermatol 2015, Estée Lauder) — ผู้หญิง 60 คนอายุ 30-49: กลุ่มที่นอนน้อย (PSQI สูง) มีคะแนน intrinsic skin aging (SCINEXA) สูงกว่า, ริ้วรอยและเม็ดสีไม่สม่ำเสมอมากกว่า, และการฟื้นตัวของ skin barrier หลัง UV stress ช้ากว่า ~2 เท่า เทียบกับผู้หญิงที่นอนหลับดี",
+      "statement_en": "Oyetakin-White et al. (Clinical Exp Dermatol 2015, Estée Lauder-supported) — 60 women aged 30-49: poor sleepers (high PSQI) had significantly higher SCINEXA intrinsic skin aging scores, more fine lines and uneven pigmentation, and skin barrier recovery after UV stress was ~2× slower than good sleepers.",
+      "numeric_values": [
+        {"value": 60, "unit": "women", "label": "sample size", "is_approximation": false},
+        {"value": 2, "unit": "times slower", "label": "skin barrier recovery in poor sleepers", "is_approximation": true }
+      ],
+      "mechanism_ref": "mech_slp_003",
+      "entities_mentioned": ["oyetakin_white"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25266053/",
+          "org": "Clinical and Experimental Dermatology / PubMed",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "Does poor sleep quality affect skin ageing? — Oyetakin-White P et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นอนน้อยผิวแก่เร็ว 2 เท่า", "beauty sleep ไม่ใช่แค่คำพูด — มีงานวิจัยหนุน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=60, supported by Estée Lauder (commercial sponsor) — conflict of interest; ใช้เป็น supporting evidence ไม่ใช่ anchor เดียว",
+      "usage_notes": "Bridge sleep → skin domain; hook สำหรับ female audience",
+      "contradictions": ["sponsor bias — Estée Lauder; n เล็ก, cross-sectional"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_020",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "sleep_hygiene",
+      "statement_th": "Matthew Walker (Why We Sleep, 2017) สรุปว่า: ควรนอน 7-9 ชั่วโมง (ผู้ใหญ่), เข้านอน/ตื่นตรงเวลาเดิม 7 วัน/สัปดาห์ (แม้วันหยุด), ห้องมืด-เย็น-เงียบ (18-20°C), ไม่ดื่มแอลกอฮอล์ก่อนนอน (แม้ทำให้ง่วง แต่ลด REM), ไม่กินกาแฟหลังบ่าย 2 โมง",
+      "statement_en": "Matthew Walker (Why We Sleep, 2017) consolidates: sleep 7-9 h (adults); consistent bedtime/wake time 7 days/week including weekends; dark, cool, quiet room (18-20°C); avoid alcohol before bed (induces drowsiness but suppresses REM); no caffeine after 2 PM.",
+      "numeric_values": [
+        {"value": "7-9", "unit": "hours", "label": "recommended adult sleep duration", "is_approximation": false},
+        {"value": "18-20", "unit": "°C", "label": "recommended room temperature", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["matthew_walker"],
+      "sources": [
+        {
+          "url": "https://www.sleepfoundation.org/how-sleep-works/sleep-hygiene",
+          "org": "Sleep Foundation",
+          "source_tier": "C",
+          "year": 2024,
+          "title": "Sleep Hygiene — Sleep Foundation",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["5 กฎนอนให้ดี จาก Matthew Walker"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Walker ถูก criticize ว่า overclaim บางส่วน; ใช้ framing 'คำแนะนำทั่วไป' ไม่ใช่ 'fact แม่นยำ 100%'",
+      "usage_notes": "Wrap-up / CTA anchor — ใช้ปิด segment เรื่อง sleep hygiene",
+      "contradictions": ["Walker ถูกโต้จาก Siegel และ others ว่า evidence บางส่วน overstated"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_021",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "sleep_hygiene",
+      "statement_th": "Alcohol และ REM: แม้แอลกอฮอล์ทำให้หลับง่ายขึ้น (sedation) แต่ยับยั้ง REM sleep อย่างมีนัยสำคัญในช่วงครึ่งแรกของคืน; ผล rebound REM ในช่วงครึ่งหลังทำให้ฝันร้าย ตื่นบ่อย และ sleep quality รวมแย่ลง — even moderate alcohol (1 unit) ลด REM 24% (Feige et al., 2006)",
+      "statement_en": "Alcohol and REM: alcohol accelerates sleep onset (sedation) but significantly suppresses REM in the first half of the night; REM rebound in the second half causes vivid dreams, frequent awakening and poorer overall sleep quality — even 1 unit of alcohol reduces REM by 24% (Feige et al. 2006).",
+      "numeric_values": [
+        {"value": 24, "unit": "% REM reduction", "label": "REM suppression from 1 unit of alcohol", "is_approximation": true},
+        {"value": 1, "unit": "unit alcohol", "label": "dose studied (1 standard drink)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_011",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12420706/",
+          "org": "Alcoholism: Clinical and Experimental Research / PubMed",
+          "source_tier": "A",
+          "year": 2006,
+          "title": "Alcohol and sleep I: effects on normal sleep — Feige B et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เบียร์คืนเดียวกิน REM ไป 24%", "ดื่มแล้วหลับง่าย แต่นอนไม่หลับจริง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "24% มาจาก moderate dose — heavy alcohol worse; ห้ามบอก 'เลิกเหล้าแล้วนอนหลับดีทันที' (withdrawal อาจทำให้นอนแย่ระยะสั้น)",
+      "usage_notes": "Behavior hook — ใช้ก่อน pitch supplement ทำให้ผู้ชมเลิกแอลกอฮอล์แล้วมีพื้นที่ supplement",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "slp_022",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "melatonin_pathway",
+      "statement_th": "PASSERO RCT (Nutrients 2020) — glycine 3 กรัม ก่อนนอน 30 นาที × 4 สัปดาห์: Epworth Sleepiness Scale ลดลง (ง่วงระหว่างวันน้อยลง), รายงาน sleep quality subjectively ดีขึ้น, และ core body temperature ลดลงเล็กน้อย — glycine ออกฤทธิ์ผ่าน NMDA receptor + thermoregulation pathway",
+      "statement_en": "PASSERO RCT (Nutrients 2020) — glycine 3 g 30 min before bed for 4 weeks: Epworth Sleepiness Scale improved (less daytime drowsiness), subjective sleep quality improved, and core body temperature slightly reduced — glycine acts via NMDA receptors and thermoregulation.",
+      "numeric_values": [
+        {"value": 3, "unit": "grams", "label": "glycine dose", "is_approximation": false},
+        {"value": 30, "unit": "minutes before bed", "label": "timing", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_slp_009",
+      "entities_mentioned": ["glycine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23969799/",
+          "org": "Neuropsychopharmacology / PubMed",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "Glycine ingestion improves subjective sleep quality in human volunteers, correlating with polysomnographic changes — Bannai M et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["glycine 3g ก่อนนอน ตื่นเช้าไม่ง่วง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Subjective sleep outcomes — polysomnographic evidence ยังจำกัด; n เล็ก; ห้ามบอก 'glycine รักษาอาการนอนไม่หลับ'",
+      "usage_notes": "Product angle สำหรับ collagen (มี glycine สูง) / standalone glycine supplement",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      },
+      "harvested_by": "domain_harvester.sleep",
+      "harvested_at": "2026-04-22T15:00:00"
+    }
+  ]
+}

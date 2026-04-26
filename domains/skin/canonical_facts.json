@@ -1,0 +1,652 @@
+{
+  "domain_id": "skin",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 26,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.skin",
+    "notes": "≥70% of facts target UncleD's existing skin/anti-aging claims (astaxanthin antioxidant power, gluta/collagen, UV damage to cells, aging 5 years ahead, zinc deficiency, vitamin C). Skin = TikTok Shop hottest niche → extra care on compliance boundaries."
+  },
+  "facts": [
+    {
+      "fact_id": "skin_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sunscreen_spf",
+      "statement_th": "SPF 30 บล็อก UVB ประมาณ 97% และ SPF 50 บล็อกประมาณ 98% — ส่วนต่างแค่ 1% แต่ราคาต่างกันเป็นเท่า; ไม่มี SPF ไหนบล็อกได้ 100% และ SPF ที่เกิน 50+ ทาง FDA ไม่ยอมให้เคลมตัวเลขสูงกว่านั้น",
+      "statement_en": "SPF 30 blocks about 97% of UVB and SPF 50 blocks about 98% — only a 1% marginal gain. No sunscreen blocks 100% of UV, and the U.S. FDA caps label claims above SPF 50 at 'SPF 50+' because the extra protection is statistically insignificant.",
+      "numeric_values": [
+        {"value": 96.7, "unit": "%", "label": "UVB blocked by SPF 30", "is_approximation": false},
+        {"value": 98, "unit": "%", "label": "UVB blocked by SPF 50", "is_approximation": false},
+        {"value": 50, "unit": "SPF", "label": "FDA labeling cap (SPF 50+)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_002",
+      "entities_mentioned": ["aad", "fda_sunscreen"],
+      "sources": [
+        {"url": "https://www.aad.org/public/everyday-care/sun-protection/sunscreen-patients/sunscreen-faqs", "org": "American Academy of Dermatology", "source_tier": "A", "year": 2024, "title": "Sunscreen FAQs — SPF, UVA/UVB, broad-spectrum", "access_date": "2026-04-22"},
+        {"url": "https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun", "org": "U.S. FDA", "source_tier": "A", "year": 2022, "title": "Sunscreen: How to Help Protect Your Skin from the Sun", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["correction", "shock", "ยิ่งแพงยิ่งดีหรือ?"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข 97/98% — ห้ามพูดว่า SPF สูงกว่า = ปลอดภัยกว่าเท่าตัว",
+      "usage_notes": "ใช้ทำลาย myth 'SPF 100 = 100% ปลอดภัย' — เหมาะกับ acquisition funnel กันแดด",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "photoaging_uv",
+      "statement_th": "แสง UV คือตัวการหลักของการแก่ผิว — งานวิจัยคลาสสิคระบุว่า 'ประมาณ 80-90% ของริ้วรอยและความแก่ที่เห็นได้บนผิว' มาจากแดด ไม่ใช่อายุ เรียกว่า photoaging หรือ extrinsic aging",
+      "statement_en": "UV exposure is the dominant driver of visible skin aging — approximately 80-90% of facial skin aging (wrinkles, pigment changes, loss of elasticity) is attributable to sun exposure rather than chronological age — termed photoaging or extrinsic aging.",
+      "numeric_values": [
+        {"value": "80-90", "unit": "%", "label": "share of visible facial aging attributable to UV", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_001",
+      "entities_mentioned": ["gary_fisher", "john_voorhees", "aad"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24354878/", "org": "J Drugs Dermatol / PubMed", "source_tier": "A", "year": 2013, "title": "Photoaging: mechanisms and repair — Friedman PM", "access_date": "2026-04-22"},
+        {"url": "https://www.aad.org/public/everyday-care/sun-protection/sunscreen-patients/preventing-skin-cancer", "org": "American Academy of Dermatology", "source_tier": "A", "year": 2024, "title": "Prevent skin cancer — AAD (photoaging section)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["pain", "shock", "มึงแก่เพราะแดด ไม่ใช่เพราะอายุ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ใช้ '80-90%' เป็นช่วง ไม่ใช่ตัวเลข precise ตัวเดียว",
+      "usage_notes": "คู่กับ UncleD clip 7596960617911684372 ('แดดมันไม่ได้เผาแค่ผิว แต่มันเผาลึกถึงระดับเซลล์') — T1 anchor",
+      "contradictions": ["ตัวเลข 80% มาจาก Flament 2013 Skin Res Technol ซึ่งเป็น observational — ไม่ใช่ RCT"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "photoaging_uv",
+      "statement_th": "UVA ส่องทะลุลงถึงชั้นหนังแท้ (dermis) ซึ่งเป็นชั้นที่มีคอลลาเจนอยู่ ประมาณว่า UVA ~50% ทะลุถึงชั้นหนังแท้ ส่วน UVB แทบทั้งหมดถูกดูดซับที่ชั้นหนังกำพร้า — เลยเป็นเหตุผลว่า UVA = aging, UVB = burning",
+      "statement_en": "UVA penetrates to the dermis (where collagen lives) — about 20-50% of incident UVA reaches the dermis, while UVB is almost entirely absorbed by the epidermis. This is why UVA drives photoaging and UVB drives sunburn and skin cancer.",
+      "numeric_values": [
+        {"value": "20-50", "unit": "%", "label": "share of incident UVA reaching dermis", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_001",
+      "entities_mentioned": ["aad"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/17515510/", "org": "Photodermatol Photoimmunol Photomed / PubMed", "source_tier": "A", "year": 2007, "title": "UV radiation and the skin — Matsumura Y, Ananthaswamy HN", "access_date": "2026-04-22"},
+        {"url": "https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/what-is-uv-radiation", "org": "American Academy of Dermatology", "source_tier": "A", "year": 2024, "title": "What is UV radiation? — AAD", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["pain", "curiosity", "UVA = Aging, UVB = Burning"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูดว่า UVA ทะลุ 100% — ช่วง 20-50% เท่านั้น",
+      "usage_notes": "ใช้อธิบายทำไมต้องทาครีมกันแดด broad-spectrum / PA++++",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "matrix_metalloproteinases",
+      "statement_th": "งานวิจัยคลาสสิคของ Fisher et al. (Univ. Michigan, NEJM 1997) พบว่า แค่ UV โดนผิว '2 เท่าของค่าที่ทำให้แดง' (2 MED) แค่ครั้งเดียว ก็กระตุ้นให้ผิวผลิตเอนไซม์ MMP-1 มากขึ้นเกือบเท่าตัว ภายใน 24 ชั่วโมง — MMP-1 คือเอนไซม์ที่ย่อยคอลลาเจน",
+      "statement_en": "Landmark in vivo human study (Fisher et al., NEJM 1997; mechanism reviews 2002) showed that a single UV exposure of just 2× the minimal erythema dose (2 MED) induces MMP-1 (collagenase) mRNA and protein within 8-24 hours — this is how UV degrades dermal collagen.",
+      "numeric_values": [
+        {"value": 2, "unit": "MED", "label": "UV dose triggering MMP induction", "is_approximation": false},
+        {"value": "8-24", "unit": "hours", "label": "time to peak MMP-1 induction", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_001",
+      "entities_mentioned": ["gary_fisher", "john_voorhees", "mmp_1"],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJM199711133372003", "org": "New England Journal of Medicine", "source_tier": "A", "year": 1997, "title": "Pathophysiology of premature skin aging induced by ultraviolet light — Fisher GJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["shock", "UV = เครื่องย่อยคอลลาเจน", "awe"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข 2 MED, 8-24 ชม.",
+      "usage_notes": "ใช้เป็น mechanism anchor — อธิบายทำไม UV ทำให้คอลลาเจนพัง",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "collagen_synthesis",
+      "statement_th": "RCT ที่โด่งดัง (Proksch 2014) ให้ผู้หญิงอายุ 45-65 ปี 114 คน กินเปปไทด์คอลลาเจน 2.5 กรัม/วันต่อเนื่อง 8 สัปดาห์ — พบว่า 'ริ้วรอยรอบดวงตาลดลงประมาณ 20%' และพบ procollagen type I ในผิวเพิ่มขึ้นประมาณ 65% ในการตรวจชิ้นเนื้อ",
+      "statement_en": "Double-blind placebo-controlled RCT (Proksch E et al., Skin Pharmacol Physiol 2014) — 114 women aged 45-65 taking 2.5 g bioactive collagen peptides daily for 8 weeks had a significant ~20% reduction in eye wrinkle volume vs placebo, plus ~65% increase in procollagen type I content in skin biopsies.",
+      "numeric_values": [
+        {"value": 2.5, "unit": "g/day", "label": "collagen peptide dose", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "study duration", "is_approximation": false},
+        {"value": 20, "unit": "%", "label": "eye wrinkle volume reduction", "is_approximation": false},
+        {"value": 65, "unit": "%", "label": "procollagen I increase", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_003",
+      "entities_mentioned": ["proksch_collagen_team", "collagen_type_1"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24401291/", "org": "Skin Pharmacology and Physiology / PubMed", "source_tier": "A", "year": 2014, "title": "Oral supplementation of specific collagen peptides has beneficial effects on human skin physiology: a double-blind, placebo-controlled study — Proksch E et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "มีงานวิจัยจริง", "collagen peptide ≠ collagen drink"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูด 'คอลลาเจนยี่ห้อใดก็ได้' — RCT นี้ใช้ VERISOL® hydrolysate specific; ห้ามเปลี่ยน 2.5g/20%/65%",
+      "usage_notes": "ใช้ตอบ myth 'ดื่มคอลลาเจนไม่ได้ผล' — mid-funnel content สำหรับ collagen product",
+      "contradictions": ["Cochrane-style meta 2019 (Choi et al.) ระบุ effect size heterogeneous — เฉพาะ bioactive peptides เท่านั้นที่มีหลักฐาน ไม่ใช่คอลลาเจนทุกรูปแบบ"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "collagen_synthesis",
+      "statement_th": "คอลลาเจนในชั้นหนังแท้ของผิวคน ~80-85% คือคอลลาเจนชนิดที่ 1 (type I) ส่วนอีก ~8-15% คือชนิดที่ 3 (type III) — เวลาแก่ type III ลดลงเร็วกว่า ทำให้ผิวบางและหย่อนเร็ว",
+      "statement_en": "In adult dermis, ~80-85% of collagen is type I and ~8-15% is type III. Type III declines faster with age, contributing to thinning and laxity. Dermal collagen content is estimated to decline by ~1% per year after age 20 (Shuster 1975).",
+      "numeric_values": [
+        {"value": "80-85", "unit": "%", "label": "dermal collagen Type I share", "is_approximation": false},
+        {"value": "8-15", "unit": "%", "label": "dermal collagen Type III share", "is_approximation": false},
+        {"value": 1, "unit": "% per year", "label": "dermal collagen decline after age 20", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_003",
+      "entities_mentioned": ["collagen_type_1", "collagen_type_3", "jouni_uitto"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/1174398/", "org": "Br J Dermatol / PubMed", "source_tier": "A", "year": 1975, "title": "The influence of age and sex on skin thickness, skin collagen and density — Shuster S, Black MM, McVitie E", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["curiosity", "ตัวเลขลดปีละ 1% ตั้งแต่ 20"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "คำว่า 'ปีละ 1%' มาจาก 1975 study — ใช้ได้ แต่เสริม 'โดยประมาณ' / 'จากงานวิจัยเก่า'",
+      "usage_notes": "ใช้เป็น hook 'มึงหายคอลลาเจนทุกปีตั้งแต่ 20' — pair กับ fact skin_005",
+      "contradictions": ["ตัวเลข 1%/ปีมักถูก over-cite — งานวิจัยสมัยใหม่ (in vivo ultrasound) บอกลดลงไม่ linear"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hormonal_skin",
+      "statement_th": "ผู้หญิงวัยหมดประจำเดือน จะสูญเสียคอลลาเจนในผิวประมาณ 30% ใน 5 ปีแรกหลังหมดประจำเดือน — แล้วหลังจากนั้นลดลงประมาณ 2.1% ต่อปี (Brincat 1987)",
+      "statement_en": "Postmenopausal women lose approximately 30% of their skin collagen in the first 5 years after menopause, then ~2.1% per year thereafter (Brincat et al., Obstet Gynecol 1987; restated Brincat 2005 Climacteric).",
+      "numeric_values": [
+        {"value": 30, "unit": "%", "label": "skin collagen loss in first 5 years postmenopause", "is_approximation": false},
+        {"value": 5, "unit": "years", "label": "postmenopausal window", "is_approximation": false},
+        {"value": 2.1, "unit": "% per year", "label": "subsequent collagen decline rate", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_003",
+      "entities_mentioned": ["collagen_type_1"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/3658266/", "org": "Obstet Gynecol / PubMed", "source_tier": "A", "year": 1987, "title": "Skin collagen changes in postmenopausal women receiving different regimens of estrogen therapy — Brincat M et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/16139781/", "org": "Climacteric / PubMed", "source_tier": "A", "year": 2005, "title": "Estrogens and the skin — Brincat MP et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["shock", "pain", "ผู้หญิงวัยทอง 30% หาย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข 30%/5ปี/2.1% — ห้ามแนะนำ HRT โดยไม่ปรึกษาแพทย์",
+      "usage_notes": "ใช้ segment ผู้หญิง 40+ — linkage: estrogen → collagen → skin (overlap กับ domain hormones)",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "retinoids",
+      "statement_th": "Retinol ที่ขายใน OTC ต้องผ่าน 2 ขั้นตอนในผิวก่อนจะใช้งานได้ (retinol → retinaldehyde → retinoic acid) — ทำให้ potency เฉลี่ยประมาณ 1/20 เท่าของ tretinoin (retinoic acid) ที่เป็นยาตามใบสั่งแพทย์",
+      "statement_en": "Over-the-counter retinol must be oxidized in two steps inside keratinocytes (retinol → retinaldehyde → retinoic acid) before activating nuclear RAR/RXR receptors — giving it roughly 1/10 to 1/20 the clinical potency of prescription tretinoin (retinoic acid).",
+      "numeric_values": [
+        {"value": "1/10 to 1/20", "unit": "ratio", "label": "retinol potency vs tretinoin", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_004",
+      "entities_mentioned": ["retinol", "retinoic_acid", "albert_kligman"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/16691020/", "org": "Dermatol Surg / PubMed", "source_tier": "A", "year": 2006, "title": "Topical retinoids in clinical practice: a reference guide — Mukherjee S et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/3944480/", "org": "J Am Acad Dermatol", "source_tier": "A", "year": 1986, "title": "Topical tretinoin for photoaged skin — Kligman AM et al. (landmark)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["correction", "ครีม retinol ที่ห้างไม่เท่ายาที่หมอจ่าย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูด 'retinol ไร้ผล' — มันได้ผล แค่ช้ากว่า",
+      "usage_notes": "ใช้ setup product angle vs expectation management",
+      "contradictions": ["อัตราส่วน 1/20 เป็น consensus textbook ไม่ใช่ตัวเลข RCT เดียว"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "vitamin_c_topical",
+      "statement_th": "วิตามินซีแบบทา (L-ascorbic acid) ที่จะซึมผ่านผิวได้จริง ต้องมีค่า pH < 3.5 และความเข้มข้น 10-20% ตามงานวิจัยของ Sheldon Pinnell (Duke, 2001) — เกิน 20% ไม่ได้ช่วยเพิ่ม แต่กัดผิวมากขึ้น",
+      "statement_en": "Topical L-ascorbic acid only penetrates human skin when formulated at pH < 3.5 and 10-20% concentration, per Sheldon Pinnell's landmark work (Duke University, J Invest Dermatol 2001). Beyond 20% adds no benefit but increases irritation; ferulic acid + alpha-tocopherol co-formulation ~8× stabilizes the antioxidant effect.",
+      "numeric_values": [
+        {"value": 3.5, "unit": "pH (max)", "label": "maximum pH for skin penetration", "is_approximation": false},
+        {"value": "10-20", "unit": "%", "label": "effective concentration range", "is_approximation": false},
+        {"value": 8, "unit": "× fold", "label": "photoprotection multiplier with ferulic acid", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_008",
+      "entities_mentioned": ["sheldon_pinnell", "l_ascorbic_acid"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11705373/", "org": "J Invest Dermatol / PubMed", "source_tier": "A", "year": 2001, "title": "Topical L-ascorbic acid: percutaneous absorption studies — Pinnell SR et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["correction", "วิตามินซีไม่ใช่แค่ใส่แล้วใช้ได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูด '%สูงสุด = ดีสุด' — ต้องอยู่ในช่วง 10-20%",
+      "usage_notes": "ใช้ educate consumer — ทำลาย myth วิตามินซีเซรั่มยี่ห้อใดก็ได้",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hyperpigmentation",
+      "statement_th": "Niacinamide (วิตามิน B3) ที่ 5% ทาผิวต่อเนื่อง 8 สัปดาห์ ลดฝ้า/จุดด่างดำได้อย่างมีนัยสำคัญ (RCT P&G 2002) โดยกลไกคือการ 'บล็อกการส่ง melanosome จาก melanocyte ไปที่ keratinocyte' ประมาณ 35-68% ใน in vitro",
+      "statement_en": "A Hakozaki 2002 split-face RCT (Br J Dermatol) showed 5% niacinamide applied topically for 8 weeks significantly reduced hyperpigmentation vs vehicle — mechanism: blocks melanosome transfer from melanocytes to keratinocytes by 35-68% in vitro.",
+      "numeric_values": [
+        {"value": 5, "unit": "%", "label": "topical niacinamide concentration", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "study duration", "is_approximation": false},
+        {"value": "35-68", "unit": "%", "label": "melanosome transfer inhibition in vitro", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_005",
+      "entities_mentioned": ["niacinamide", "hakozaki_niacinamide", "tyrosinase", "mitf"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12100180/", "org": "Br J Dermatol / PubMed", "source_tier": "A", "year": 2002, "title": "The effect of niacinamide on reducing cutaneous pigmentation — Hakozaki T et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "กลไกที่เจ๋ง — blocker ไม่ใช่ killer"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูด niacinamide 'killed melanin' — มัน block การส่ง ไม่ใช่ทำลาย melanin",
+      "usage_notes": "ใช้ product angle niacinamide vs hydroquinone — ความปลอดภัยสูงกว่า",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "age_glycation",
+      "statement_th": "AGEs (advanced glycation end-products) เช่น pentosidine เกาะคอลลาเจนผิวหนังอย่าง 'ไม่สามารถถอดได้' — เพราะ half-life ของคอลลาเจนในผิวนาน ~15 ปี AGEs เลยสะสมขึ้นตามอายุและระดับน้ำตาล ทำให้ผิวแข็งและเหลือง",
+      "statement_en": "AGEs such as pentosidine form covalent crosslinks on dermal collagen. Because adult dermal collagen has a half-life of ~15 years, pentosidine accumulates with age and hyperglycemia — making skin stiffer and yellower. Pentosidine levels in skin roughly double between age 20 and 80.",
+      "numeric_values": [
+        {"value": 15, "unit": "years", "label": "dermal collagen half-life", "is_approximation": true},
+        {"value": "2×", "unit": "fold", "label": "pentosidine increase from age 20→80", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_006",
+      "entities_mentioned": ["age_pentosidine", "age_cml", "vincent_monnier"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/1757889/", "org": "J Clin Invest / PubMed", "source_tier": "A", "year": 1991, "title": "Pentosidine and aging — Sell DR, Monnier VM", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10954734/", "org": "J Invest Dermatol / PubMed", "source_tier": "A", "year": 2000, "title": "Non-enzymatic glycation of skin collagen in aging and diabetes — Verzijl N et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "shock", "น้ำตาล = เชื่อมผิวให้กรอบ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูดว่า 'กินน้ำตาลครั้งเดียว = AGE ถาวร' — มันสะสมระยะยาว",
+      "usage_notes": "อธิบาย low-sugar lifestyle + skin — overlap กับ UncleD content สายคุมน้ำตาล",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "antioxidants_glutathione",
+      "statement_th": "Astaxanthin เป็น carotenoid ที่ในการทดสอบ singlet-oxygen quenching (in vitro) แรงกว่า β-carotene ~100 เท่า และแรงกว่าวิตามินอีในระบบลิพิดเฉพาะทาง ประมาณหลายร้อยถึงหลายพันเท่า — ตัวเลข '6,000 เท่าของวิตามินซี' มาจาก chemiluminescence assay lipid-phase เฉพาะ ไม่ใช่ in vivo",
+      "statement_en": "Astaxanthin quenches singlet oxygen (¹O₂) ~100× more than β-carotene in vitro (Nishida 2007 comparison), and in specific lipid-phase chemiluminescence assays is reported as ~6000× more potent than L-ascorbic acid — but these numbers are assay-specific and do NOT translate 1:1 to skin benefit in vivo.",
+      "numeric_values": [
+        {"value": 100, "unit": "× fold", "label": "vs β-carotene (singlet-oxygen quenching, in vitro)", "is_approximation": true},
+        {"value": 6000, "unit": "× fold", "label": "vs vitamin C (lipid-phase chemiluminescence assay)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_007",
+      "entities_mentioned": ["astaxanthin", "nishida_2007_astaxanthin"],
+      "sources": [
+        {"url": "https://www.carotenoidscience.com/no/11/no11.html", "org": "Carotenoid Science (industry journal)", "source_tier": "B", "year": 2007, "title": "Quenching activities of common hydrophilic and lipophilic antioxidants against singlet oxygen using chemiluminescence — Nishida Y, Yamashita E, Miki W", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21569256/", "org": "Mar Drugs / PubMed", "source_tier": "A", "year": 2011, "title": "Astaxanthin: A Review of its Chemistry and Applications — Ambati RR et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "shock", "แรงกว่าวิตามินซี 6,000 เท่า"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องบอกว่ามันคือ 'ผลจากห้องแล็บ singlet-oxygen เฉพาะทาง' ไม่ใช่ผลจริงในร่างกาย — ห้ามเคลมว่ามันแรงกว่าวิตามินซี 6000 เท่าในการรักษาใดๆ",
+      "usage_notes": "UncleD ใช้ stat นี้บ่อย (clips 7557718891397483777, หลายคลิป astaxanthin) — ต้อง frame ให้ถูกว่าเป็น in vitro",
+      "contradictions": ["ไม่มี in vivo RCT ที่ยืนยันว่า astaxanthin = 6000× vitamin C ในมนุษย์ — ตัวเลขมาจาก assay specific"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_013",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "antioxidants_glutathione",
+      "statement_th": "Astaxanthin ชนิดกิน ที่โดสประมาณ 6-12 มก./วัน ต่อเนื่อง 8-16 สัปดาห์ มี RCT เล็กๆ หลายชิ้นระบุว่าลดริ้วรอยและปรับความยืดหยุ่นผิวได้อย่างมีนัยสำคัญ (Tominaga 2012, Ito 2018)",
+      "statement_en": "Oral astaxanthin 6-12 mg/day for 8-16 weeks has shown statistically significant improvements in wrinkle depth, skin elasticity, and moisture in small human RCTs (Tominaga 2012 Acta Biochim Pol; Ito 2018 Nutrients — n=65, 12 mg/day).",
+      "numeric_values": [
+        {"value": "6-12", "unit": "mg/day", "label": "oral astaxanthin dose", "is_approximation": false},
+        {"value": "8-16", "unit": "weeks", "label": "study duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_007",
+      "entities_mentioned": ["astaxanthin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22428137/", "org": "Acta Biochim Pol / PubMed", "source_tier": "A", "year": 2012, "title": "Cosmetic benefits of astaxanthin on human subjects — Tominaga K et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29941810/", "org": "Nutrients / PubMed", "source_tier": "A", "year": 2018, "title": "The Protective Role of Astaxanthin for UV-Induced Skin Deterioration in Healthy People — Ito N et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "มีงานวิจัยจริงในคน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "RCT เหล่านี้ n เล็ก (40-65 คน) — ใช้คำว่า 'มีงานวิจัยระดับเริ่มต้น' ไม่ใช่ 'ได้ผล 100%'",
+      "usage_notes": "สนับสนุน UncleD clip 7582442585516543240 ('ถ้าคุณเปิดใจทานแอสต้าวีว่า 30 วัน')",
+      "contradictions": ["ไม่มี meta-analysis ขนาดใหญ่ของ astaxanthin → skin (Cochrane ยังไม่ review)"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "hormonal_skin",
+      "statement_th": "สิวผู้ใหญ่ (adult acne) พบในผู้หญิงวัย 25-45 ปี ประมาณ 15-22% และมักเป็นสิวฮอร์โมนบริเวณกราม/คาง/คอ — สัมพันธ์กับรอบประจำเดือน (เห่อก่อนมีประจำ) และ androgen sensitivity ของต่อมไขมัน",
+      "statement_en": "Adult female acne affects approximately 15-22% of women aged 25-45 (Tanghetti 2014 J Clin Aesthet Dermatol — 22% prevalence survey). Lesions typically cluster on the jawline/chin/neck, flare premenstrually, and reflect androgen sensitivity of sebaceous glands rather than poor hygiene.",
+      "numeric_values": [
+        {"value": "15-22", "unit": "%", "label": "adult female acne prevalence (25-45y)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_010",
+      "entities_mentioned": ["c_acnes", "sebum"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24688624/", "org": "J Clin Aesthet Dermatol / PubMed", "source_tier": "A", "year": 2014, "title": "The role of inflammation in the pathology of acne — Tanghetti EA", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/18554293/", "org": "J Am Acad Dermatol / PubMed", "source_tier": "A", "year": 2008, "title": "Prevalence of facial acne in adults — Collier CN et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["correction", "insult_reality", "สิวไม่ใช่เพราะสกปรก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'สิวฮอร์โมนรักษาด้วยอาหารเสริมได้แน่นอน' — ต้องพบแพทย์หากรุนแรง",
+      "usage_notes": "Hook สำหรับ segment ผู้หญิง 25+ — UncleD clip 7601046274883833089 (zinc + สิวขึ้น)",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_015",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hormonal_skin",
+      "statement_th": "Zinc ปริมาณ ~30 มก./วัน มี RCT/meta-analysis หลายชิ้น (Yee 2020, Cervantes 2018) ยืนยันว่า ลดจำนวนสิวอักเสบได้ประมาณ 40-50% ภายใน 12 สัปดาห์ — กลไก: ต้านแบคทีเรีย C. acnes + ยับยั้ง 5α-reductase",
+      "statement_en": "Meta-analyses of zinc for inflammatory acne (Cervantes et al. 2018 J Drugs Dermatol; Yee 2020 Dermatol Surg) show zinc supplementation at ~30 mg/day (elemental) reduces inflammatory lesion count by roughly 40-50% over 12 weeks. Mechanism combines antibacterial activity against C. acnes plus partial 5α-reductase inhibition.",
+      "numeric_values": [
+        {"value": 30, "unit": "mg/day", "label": "elemental zinc dose", "is_approximation": true},
+        {"value": "40-50", "unit": "%", "label": "inflammatory lesion reduction", "is_approximation": true},
+        {"value": 12, "unit": "weeks", "label": "study duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_010",
+      "entities_mentioned": ["c_acnes"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29243351/", "org": "J Drugs Dermatol / PubMed", "source_tier": "A", "year": 2018, "title": "The role of zinc in the treatment of acne: A review of the literature — Cervantes J et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/32697511/", "org": "Dermatol Ther / PubMed", "source_tier": "A", "year": 2020, "title": "A review of the role of zinc in treatment of acne vulgaris — Yee BE et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "สิวตัวจริงแพ้ซิงค์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูด 'ซิงค์รักษาสิวได้ 100%' — RCT บอก ~40-50%",
+      "usage_notes": "Direct support UncleD clip 7601046274883833089 ('ขาดซิงค์ → สิวขึ้น')",
+      "contradictions": ["ขนาดมาตรฐานในบาง RCT สูงถึง 90-200 mg zinc gluconate (=~30mg elemental) ต่อวัน — ระวัง Cu deficiency ถ้าใช้นาน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_016",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "skin_barrier",
+      "statement_th": "ชั้นหนังกำพร้าด้านนอกสุด (stratum corneum) หนาแค่ 10-20 ไมครอน (บางกว่ากระดาษ A4) แต่ทำหน้าที่ป้องกันน้ำระเหย (TEWL) 99% — เมื่อเกราะพัง น้ำระเหยเร็ว ผิวแห้ง แดง คัน ตอบสนองต่อสารต่างๆ มากขึ้น",
+      "statement_en": "The stratum corneum is only 10-20 µm thick (thinner than A4 paper) yet is responsible for ~99% of the skin's barrier against transepidermal water loss (TEWL). When this 'brick and mortar' structure fails, TEWL rises, and the skin becomes dry, itchy, and reactive.",
+      "numeric_values": [
+        {"value": "10-20", "unit": "µm", "label": "stratum corneum thickness", "is_approximation": false},
+        {"value": 99, "unit": "%", "label": "share of water barrier function", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_011",
+      "entities_mentioned": ["ceramides", "peter_elias"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/16434297/", "org": "J Invest Dermatol Symp Proc / PubMed", "source_tier": "A", "year": 2005, "title": "Stratum corneum and beyond — Elias PM", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "บางกว่ากระดาษแต่กันน้ำระเหย 99%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูดว่าเกราะผิวเสียแล้ว 'หายไม่ได้' — มัน renew ทุก ~28 วัน",
+      "usage_notes": "Education fact — base สำหรับ ceramide moisturizer angle",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_017",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "stratum_corneum_ceramides",
+      "statement_th": "ชั้น stratum corneum มีลิพิดระหว่างเซลล์ที่ประกอบด้วย ceramides ~50%, cholesterol ~25%, free fatty acids ~15% — ถ้าสัดส่วนผิดเพี้ยน ผิวแห้ง/แพ้ง่าย/อักเสบ",
+      "statement_en": "Stratum corneum intercellular lipid lamellae are composed of roughly 50% ceramides, 25% cholesterol, and 15% free fatty acids (+ minor sulphates). Disruption of this ratio underlies atopic dermatitis, aging xerosis, and barrier-reactive skin.",
+      "numeric_values": [
+        {"value": 50, "unit": "%", "label": "ceramide share", "is_approximation": true},
+        {"value": 25, "unit": "%", "label": "cholesterol share", "is_approximation": true},
+        {"value": 15, "unit": "%", "label": "FFA share", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_011",
+      "entities_mentioned": ["ceramides", "peter_elias"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15303105/", "org": "J Lipid Res / PubMed", "source_tier": "A", "year": 2003, "title": "The skin barrier: lipids and abnormalities — Feingold KR", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["curiosity", "ผิวคือไขมัน 50%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ใช้ตัวเลขเป็นช่วง ไม่ใช่ตัวเลขเดียว",
+      "usage_notes": "Anchor สำหรับ ceramide cream / barrier repair product angle",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "hyperpigmentation",
+      "statement_th": "Glutathione ฉีดเข้าหลอดเลือดในขนาดสูง (600-1200 มก./สัปดาห์) ในงานวิจัยเล็กๆ ที่เอเชียพบว่า ลดเมลานินผิว (L* value) ได้อย่างมีนัยสำคัญ — แต่ FDA Philippines และ FDA ไทย ออกประกาศ 'ไม่รับรอง glutathione IV เพื่อความขาว' เพราะเสี่ยงภาวะไตล้มเหลว Stevens-Johnson",
+      "statement_en": "High-dose IV glutathione (600-1200 mg/week) has shown skin-lightening effects in small Asian trials, but regulators including FDA Philippines (2011 advisory) have explicitly warned against its use for skin whitening due to risks of Stevens-Johnson syndrome, toxic epidermal necrolysis, and kidney failure. Oral glutathione's bioavailability is poor (<2%).",
+      "numeric_values": [
+        {"value": "600-1200", "unit": "mg/week", "label": "IV glutathione dose range in studies", "is_approximation": false},
+        {"value": 2, "unit": "%", "label": "oral glutathione bioavailability", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_005",
+      "entities_mentioned": ["glutathione", "tyrosinase"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27000386/", "org": "Clin Cosmet Investig Dermatol / PubMed", "source_tier": "A", "year": 2016, "title": "Glutathione as a skin whitening agent: facts, myths, evidence and controversies — Sonthalia S et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["shock", "correction", "IV กลูต้า = เสี่ยง Stevens-Johnson"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเคลมว่า oral glutathione ขาวได้ 100% — bioavailability ต่ำ",
+      "usage_notes": "ใช้ทำลาย myth 'กลูต้ายิ่งโดส IV สูงยิ่งดี' — UncleD Gluta+Collagen clips (7562571412729236743, 7572555272745389320, etc.)",
+      "contradictions": ["บาง RCT เล็ก เช่น Arjinpathana 2012 รายงานว่า oral glutathione 500 mg/day ลด L* ได้เล็กน้อย — effect size อยู่ในระดับ minimally clinically significant"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "hyperpigmentation",
+      "statement_th": "Lycopene จากมะเขือเทศ (รวมมะเขือเทศสีขาว) กินต่อเนื่อง 10-12 สัปดาห์ ที่ 10-40 มก./วัน เพิ่ม Minimal Erythema Dose (ค่ากันแดด 'ในตัว') ได้ประมาณ 20-40% ในงานวิจัย human (Stahl 2001)",
+      "statement_en": "Oral lycopene from tomato paste (10-40 mg/day) taken for 10-12 weeks increases human minimal erythema dose (MED) by ~20-40% — effectively adding an internal photoprotection equivalent to about SPF 1.3-1.5 (Stahl et al. 2001, 2007).",
+      "numeric_values": [
+        {"value": "10-40", "unit": "mg/day", "label": "lycopene dose", "is_approximation": true},
+        {"value": "20-40", "unit": "%", "label": "MED increase", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_007",
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11238811/", "org": "J Nutr / PubMed", "source_tier": "A", "year": 2001, "title": "Dietary tomato paste protects against ultraviolet light-induced erythema in humans — Stahl W et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "กันแดดจากอาหาร"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูด 'กินมะเขือเทศแทนครีมกันแดดได้' — เพิ่ม MED แค่ ~SPF 1.3",
+      "usage_notes": "Support UncleD 'White Tomato + Gluta' clips (7602588789474905365, 7615253380302245137)",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_020",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "hyperpigmentation",
+      "statement_th": "การ 'ผิวขาวขึ้น' จากอาหารเสริมมีเพดาน — ยีน (MC1R/SLC24A5/SLC45A2) กำหนด 'เพดานผิว' ของแต่ละคน — คนผิวเข้มทางพันธุกรรมไม่สามารถขาวจัดได้ด้วยอาหารเสริม (AAD position statement)",
+      "statement_en": "Constitutive skin color is largely determined by genetics (MC1R, SLC24A5, SLC45A2 polymorphisms). Supplements and topical brighteners can only reverse hyperpigmentation/tan back toward baseline — they cannot lighten skin below the genetic ceiling. This is dermatology consensus (AAD position statements).",
+      "numeric_values": [],
+      "mechanism_ref": "mech_skin_005",
+      "entities_mentioned": ["aad", "mitf"],
+      "sources": [
+        {"url": "https://www.aad.org/public/diseases/a-z/hyperpigmentation-treatment", "org": "American Academy of Dermatology", "source_tier": "A", "year": 2024, "title": "Hyperpigmentation: overview, causes, and treatment — AAD", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["correction", "ผิวมึงมีเพดานทางยีน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "อย่าพูดว่า supplement 'ไม่ทำงาน' — แค่ลดส่วนที่เกินไปจากเพดาน",
+      "usage_notes": "Compliance — TikTok Shop ไม่อนุญาต before/after ขาวจัด",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_021",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "retinoids",
+      "statement_th": "Tretinoin 0.05% ทาทุกคืน 6-12 เดือน RCT ยืนยันว่า ลดริ้วรอยละเอียด เปลี่ยนความหยาบผิว และเพิ่ม procollagen ในชิ้นเนื้อได้ — แต่ 50% ของคนใช้เจอ 'retinization period' (แดง/ลอก/คันช่วง 2-4 สัปดาห์แรก)",
+      "statement_en": "Tretinoin 0.05% applied nightly for 6-12 months significantly reduces fine wrinkles, improves skin roughness, and increases dermal procollagen on biopsy (Kligman 1986; Griffiths 1993 NEJM). Roughly 50% of users experience transient 'retinization' (erythema, peeling, stinging) in weeks 2-4 that resolves with continued use.",
+      "numeric_values": [
+        {"value": 0.05, "unit": "%", "label": "tretinoin concentration", "is_approximation": false},
+        {"value": "6-12", "unit": "months", "label": "study duration", "is_approximation": false},
+        {"value": 50, "unit": "%", "label": "incidence of retinization irritation", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_004",
+      "entities_mentioned": ["retinoic_acid", "albert_kligman"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/3944480/", "org": "J Am Acad Dermatol", "source_tier": "A", "year": 1986, "title": "Topical tretinoin for photoaged skin — Kligman AM et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/8421403/", "org": "N Engl J Med", "source_tier": "A", "year": 1993, "title": "Restoration of collagen formation in photodamaged human skin by tretinoin — Griffiths CE et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "ยา anti-aging ที่มี RCT ชัดที่สุด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุว่าเป็นยา prescription (ในไทยซื้อได้ที่ร้านยาแต่ไม่ควรใช้ตอนท้อง)",
+      "usage_notes": "Anchor เทียบกับ retinol OTC — fact skin_008 คู่กัน",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_022",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sunscreen_spf",
+      "statement_th": "การทาครีมกันแดดในชีวิตจริงส่วนใหญ่ 'ทาไม่พอ' — AAD แนะนำปริมาณ ~2 มก./ตร.ซม. (ประมาณ 1/4 ช้อนชาสำหรับหน้า, ~1 ช้อนโต๊ะสำหรับทั้งตัว) แต่จริงๆ คนทั่วไปทาแค่ 25-50% ของจำนวนนั้น → SPF 50 ที่ทาไม่พอ อาจเหลือค่าจริงแค่ SPF 10-15",
+      "statement_en": "AAD recommends sunscreen application at ~2 mg/cm² (roughly a quarter-teaspoon for the face, ~1 ounce/shot-glass for the full body). Real-world use is typically only 25-50% of this amount — meaning an SPF 50 product may deliver only effective SPF 10-15 in practice.",
+      "numeric_values": [
+        {"value": 2, "unit": "mg/cm²", "label": "AAD recommended sunscreen density", "is_approximation": false},
+        {"value": "25-50", "unit": "%", "label": "typical real-world application share", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_002",
+      "entities_mentioned": ["aad"],
+      "sources": [
+        {"url": "https://www.aad.org/public/everyday-care/sun-protection/sunscreen-patients/sunscreen-faqs", "org": "American Academy of Dermatology", "source_tier": "A", "year": 2024, "title": "Sunscreen FAQs — How much sunscreen should I use?", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["shock", "correction", "มึงทาแค่ 1/4 ของที่ควรทา"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยน 2 mg/cm² — ให้เปรียบเทียบง่ายๆ '¼ ช้อนชา' ได้",
+      "usage_notes": "Education content — drive trust before product sell",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_023",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "hormonal_skin",
+      "statement_th": "ยีนเซลล์ของ melanocyte ในผู้หญิงมีตัวรับเอสโตรเจน — ทำให้ฝ้า (melasma) 'hormonal-linked' และมักเห่อตอนท้อง กินยาคุม หรือ HRT (AAD/JAMA Derm consensus)",
+      "statement_en": "Melanocytes express estrogen receptors (ERα/ERβ), explaining why melasma commonly flares during pregnancy ('chloasma' or 'mask of pregnancy'), oral contraceptive use, and HRT. Melasma prevalence in pregnancy is ~50-70% in women with darker skin types (Fitzpatrick IV-VI).",
+      "numeric_values": [
+        {"value": "50-70", "unit": "%", "label": "melasma prevalence in pregnancy (Fitzpatrick IV-VI)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_005",
+      "entities_mentioned": ["aad", "mitf"],
+      "sources": [
+        {"url": "https://www.aad.org/public/diseases/a-z/melasma-overview", "org": "American Academy of Dermatology", "source_tier": "A", "year": 2024, "title": "Melasma: Overview — AAD", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21777216/", "org": "J Am Acad Dermatol / PubMed", "source_tier": "A", "year": 2011, "title": "Melasma: an up-to-date comprehensive review — Sheth VM, Pandya AG", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["correction", "ฝ้ามึงไม่ใช่เพราะกรรม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามแนะนำให้หยุดยาคุมโดยไม่ปรึกษาแพทย์",
+      "usage_notes": "เหมาะกับ segment ฝ้า/จุดด่างดำ — overlap กับ hormones domain",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_024",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "photoaging_uv",
+      "statement_th": "อัตราการหมุนเวียนเซลล์ผิว (skin turnover) อายุ 20 = ประมาณ 28 วัน, อายุ 40 = ~45-50 วัน, อายุ 60 = 60+ วัน — เลยเป็นเหตุผลที่ 'ฝ้า/รอยสิว' หายช้าลงเมื่ออายุเพิ่ม",
+      "statement_en": "Epidermal turnover time lengthens with age — roughly 28 days at age 20, ~45-50 days at age 40, and 60+ days after 60. This is why hyperpigmentation, post-inflammatory marks, and scars fade more slowly in older skin.",
+      "numeric_values": [
+        {"value": 28, "unit": "days", "label": "epidermal turnover age 20", "is_approximation": false},
+        {"value": "45-50", "unit": "days", "label": "epidermal turnover age 40", "is_approximation": true},
+        {"value": 60, "unit": "+ days", "label": "epidermal turnover age 60+", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_011",
+      "entities_mentioned": ["leslie_baumann"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19917145/", "org": "J Invest Dermatol / PubMed", "source_tier": "A", "year": 2010, "title": "Epidermal differentiation and keratin gene expression — Candi E, Schmidt R, Melino G", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["curiosity", "pain", "ผิวมึงหมุนช้าลงทุกปี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ใช้ช่วงตัวเลข ไม่ precise เกิน",
+      "usage_notes": "ใช้อธิบายทำไมต้อง 'ใช้ต่อเนื่อง' — set expectation",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_025",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "hormonal_skin",
+      "statement_th": "การนอนน้อย (<6 ชม./คืน) ต่อเนื่องทำให้ผิวหน้าดูแก่ขึ้นอย่างเห็นได้ — RCT ขนาดเล็ก (Univ. Hospitals 2013, Estée Lauder-sponsored) พบ 'คนนอนน้อย' มีค่า SCINEXA score แก่กว่าจริง 2-5 ปี และ skin barrier ฟื้นจากการแพ้ช้ากว่าเท่าตัว",
+      "statement_en": "Chronic poor sleep (<6 hr/night) visibly ages facial skin — a 2013 clinical study (Oyetakin-White, Univ. Hospitals Case Medical Center, supported by Estée Lauder) showed poor sleepers had significantly higher intrinsic skin-aging (SCINEXA) scores and roughly 2× slower recovery of skin barrier function after stress.",
+      "numeric_values": [
+        {"value": 6, "unit": "hours", "label": "sleep threshold for 'poor sleeper' group", "is_approximation": false},
+        {"value": 2, "unit": "×", "label": "barrier-recovery slowdown vs good sleepers", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_skin_009",
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25266053/", "org": "Clin Exp Dermatol / PubMed", "source_tier": "A", "year": 2015, "title": "Does poor sleep quality affect skin ageing? — Oyetakin-White P et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["shock", "นอนน้อย = หน้าแก่ 5 ปี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "RCT เป็น industry-sponsored — ใช้ 'มีงานวิจัยระบุ' ไม่ใช่ 'พิสูจน์ 100%'",
+      "usage_notes": "Support UncleD clip 7611450725234691349 ('สิ่งที่ทำให้เราหน้าแก่กว่าวัย 5 ปี')",
+      "contradictions": ["Industry-sponsored study — independent replication จำกัด"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "skin_026",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sunscreen_spf",
+      "statement_th": "RCT 4.5 ปี (Hughes 2013, QIMR Australia, n=903) ยืนยันครั้งแรกว่า 'การใช้กันแดด daily ช่วยชะลอความแก่ของผิว' — กลุ่มที่ใช้กันแดด SPF 15+ ทุกวัน มีสัญญาณความแก่ของผิว (micro-topography) 'ช้ากว่ากลุ่มควบคุม 24%'",
+      "statement_en": "A landmark 4.5-year RCT in Queensland, Australia (Hughes MC et al., Ann Intern Med 2013, n=903) provided the first prospective evidence that daily sunscreen use (SPF 15+) slows skin aging — sunscreen users showed 24% less skin aging (by micro-topography) than the discretionary-use control group.",
+      "numeric_values": [
+        {"value": 4.5, "unit": "years", "label": "study duration", "is_approximation": false},
+        {"value": 903, "unit": "participants", "label": "sample size", "is_approximation": false},
+        {"value": 24, "unit": "%", "label": "reduction in photoaging signs (micro-topography)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_skin_002",
+      "entities_mentioned": ["aad"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23732711/", "org": "Ann Intern Med / PubMed", "source_tier": "A", "year": 2013, "title": "Sunscreen and prevention of skin aging: a randomized trial — Hughes MC, Williams GM, Baker P, Green AC", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["awe", "ครีมกันแดดที่ถูกกว่าบำรุง คือ skincare ที่ดีสุด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยน 24%/4.5 ปี — 903 คนคือ N ที่แน่นอน",
+      "usage_notes": "T1 anchor — ทำให้กันแดดดูน่าลงทุนกว่าบำรุง",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.skin",
+      "harvested_at": "2026-04-22T14:00:00"
+    }
+  ]
+}

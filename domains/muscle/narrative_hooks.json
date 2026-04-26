@@ -1,0 +1,152 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00"
+  },
+  "hooks": [
+    {
+      "hook_id": "hook_muscle_001",
+      "hook_th": "อายุ 30 กล้ามเนื้อเริ่มหายแล้ว",
+      "hook_type": "visceral_fact",
+      "sub_topic_id": "sarcopenia",
+      "fact_ref": "muscle_001",
+      "dramatization_notes": "สั้น กระทบ ทำให้คนอายุ 30+ หยุดฟัง ใช้เป็น hook 3 วินาทีแรกของวิดีโอได้เลย"
+    },
+    {
+      "hook_id": "hook_muscle_002",
+      "hook_th": "ทุกปีที่ผ่านไป กล้ามเนื้อหายไป 1%",
+      "hook_type": "countdown_fear",
+      "sub_topic_id": "sarcopenia",
+      "fact_ref": "muscle_001",
+      "dramatization_notes": "สร้าง sense of urgency ค่อยๆ สะสม ใช้กับ graphic แสดง timer หรือ percentage ลดลง"
+    },
+    {
+      "hook_id": "hook_muscle_003",
+      "hook_th": "ถึง 70 ปีเหลือกล้ามเนื้อแค่ 70%",
+      "hook_type": "visceral_fact",
+      "sub_topic_id": "sarcopenia",
+      "fact_ref": "muscle_001",
+      "dramatization_notes": "ตัวเลขสะท้อนอย่างชัดเจน ทำให้เห็นภาพ ใช้กับ before/after visual"
+    },
+    {
+      "hook_id": "hook_muscle_004",
+      "hook_th": "ครีเอทีนไม่ใช่ steroid — ร่างกายสร้างเองอยู่แล้ว",
+      "hook_type": "myth_buster",
+      "sub_topic_id": "creatine_mechanics",
+      "fact_ref": "muscle_003",
+      "dramatization_notes": "Debunk hook สำหรับคนที่กลัวครีเอทีน ตามด้วยอธิบาย mechanism ใน 30 วินาที"
+    },
+    {
+      "hook_id": "hook_muscle_005",
+      "hook_th": "กิน BCAA อยู่? คุณกำลังจ่ายเงินซื้อครึ่งเดียวของสิ่งที่ต้องการ",
+      "hook_type": "paradigm_shift",
+      "sub_topic_id": "eaa_vs_bcaa",
+      "fact_ref": "muscle_008",
+      "dramatization_notes": "ท้าทาย assumption ของคนที่กิน BCAA อยู่ ตามด้วย EAA upgrade angle"
+    },
+    {
+      "hook_id": "hook_muscle_006",
+      "hook_th": "window 30 นาทีหลังออกกำลังกาย? มิธเก่า — จริงๆ มี 48 ชั่วโมง",
+      "hook_type": "myth_buster",
+      "sub_topic_id": "mps",
+      "fact_ref": "muscle_005",
+      "dramatization_notes": "ชิ่ง conventional wisdom ด้วยข้อมูลจากงานวิจัย ทำให้คน stop และฟัง"
+    },
+    {
+      "hook_id": "hook_muscle_007",
+      "hook_th": "นอนหลับคือกะดึกของโรงงานกล้ามเนื้อ",
+      "hook_type": "vivid_analogy",
+      "sub_topic_id": "sleep_recovery",
+      "fact_ref": "muscle_004",
+      "dramatization_notes": "Analogy ที่ visual และเข้าใจง่าย ใช้เป็น hook ก่อนเข้าเรื่องโปรตีนก่อนนอน"
+    },
+    {
+      "hook_id": "hook_muscle_008",
+      "hook_th": "นอนน้อยกว่า 6 ชม. กล้ามเนื้อซ่อมตัวเองไม่ได้",
+      "hook_type": "visceral_fact",
+      "sub_topic_id": "sleep_recovery",
+      "fact_ref": "muscle_010",
+      "dramatization_notes": "ตัวเลข 6 ชม. เป็น threshold ที่จำง่าย และ relatable กับคนทำงาน"
+    },
+    {
+      "hook_id": "hook_muscle_009",
+      "hook_th": "แก่แล้วต้องการโปรตีนมากขึ้น ไม่ใช่น้อยลง",
+      "hook_type": "counterintuitive",
+      "sub_topic_id": "sarcopenia",
+      "fact_ref": "muscle_011",
+      "dramatization_notes": "ต่อต้าน ความเชื่อที่ว่า 'คนแก่กินน้อยลง' ใช้กับ angle whey + HMB สำหรับผู้สูงอายุ"
+    },
+    {
+      "hook_id": "hook_muscle_010",
+      "hook_th": "ออกกำลังกายไม่พอ? กล้ามเนื้อหายเร็วกว่าเวลาแก่",
+      "hook_type": "urgency",
+      "sub_topic_id": "resistance_training_aging",
+      "fact_ref": "muscle_009",
+      "dramatization_notes": "เพิ่ม urgency สำหรับคนที่ 'รู้ว่าควรออก แต่ไม่ได้ออก'"
+    },
+    {
+      "hook_id": "hook_muscle_011",
+      "hook_th": "กล้ามเนื้อน้อย = เสี่ยงล้ม เสี่ยงกระดูกหัก เสี่ยงตายเร็ว",
+      "hook_type": "fear_consequence",
+      "sub_topic_id": "sarcopenia",
+      "fact_ref": "muscle_019",
+      "dramatization_notes": "Fear-based hook ที่มีหลักฐานรองรับ ใช้กับ angle ผู้สูงอายุและครอบครัว ระวังอย่าให้ดู alarmist เกินไป"
+    },
+    {
+      "hook_id": "hook_muscle_012",
+      "hook_th": "leucine ต่ำกว่า 2g ต่อมื้อ = กล้ามเนื้อไม่ตอบสนอง",
+      "hook_type": "visceral_fact",
+      "sub_topic_id": "protein_timing",
+      "fact_ref": "muscle_002",
+      "dramatization_notes": "Technical fact ที่ทรงพลัง ใช้กับ audience ที่สนใจ detail เรื่องโปรตีน"
+    },
+    {
+      "hook_id": "hook_muscle_013",
+      "hook_th": "HMB — โล่กันกล้ามเนื้อสลายในวันที่ออกกำลังกายไม่ได้",
+      "hook_type": "solution_frame",
+      "sub_topic_id": "hmb_catabolism",
+      "fact_ref": "muscle_007",
+      "dramatization_notes": "Solution-first hook ที่ระบุ use case ชัดเจน เหมาะกับคนที่บาดเจ็บหรือป่วย"
+    },
+    {
+      "hook_id": "hook_muscle_014",
+      "hook_th": "ยกน้ำหนัก 3 วันต่อสัปดาห์ = ชะลอความแก่ได้จริง",
+      "hook_type": "empowering_fact",
+      "sub_topic_id": "resistance_training_aging",
+      "fact_ref": "muscle_009",
+      "dramatization_notes": "Empowering hook ที่ให้ action ชัดเจน ไม่ใช่แค่ scare ใช้กับ content ที่ motivate ให้เริ่มออกกำลังกาย"
+    },
+    {
+      "hook_id": "hook_muscle_015",
+      "hook_th": "โปรตีน 1.6g/kg — เส้นล่างสุดที่กล้ามเนื้อต้องการ",
+      "hook_type": "benchmark_fact",
+      "sub_topic_id": "mps",
+      "fact_ref": "muscle_015",
+      "dramatization_notes": "ตัวเลข benchmark ที่ให้ context ชัดเจน ใช้กับ graphic 'คำนวณโปรตีนที่คุณต้องการ'"
+    },
+    {
+      "hook_id": "hook_muscle_016",
+      "hook_th": "ครีเอทีน 5g/วัน — ราคาถูกที่สุดสำหรับผลลัพธ์ที่มีหลักฐานดีที่สุด",
+      "hook_type": "value_proposition",
+      "sub_topic_id": "creatine_mechanics",
+      "fact_ref": "muscle_003",
+      "dramatization_notes": "ใช้เปรียบเทียบ cost-per-benefit ของครีเอทีน vs supplement อื่น"
+    },
+    {
+      "hook_id": "hook_muscle_017",
+      "hook_th": "โปรตีนก่อนนอน — กล้ามเนื้อสร้างตัวเองได้ตลอดคืน",
+      "hook_type": "behavioral_tip",
+      "sub_topic_id": "sleep_recovery",
+      "fact_ref": "muscle_004",
+      "dramatization_notes": "Actionable hook ที่เปลี่ยน behavior ง่าย — เพิ่ม whey/casein ก่อนนอน"
+    },
+    {
+      "hook_id": "hook_muscle_018",
+      "hook_th": "กล้ามเนื้อไม่โตเพิ่มทั้งที่ออกกำลังกายทุกวัน? น้ำหนักเท่าเดิมคือปัญหา",
+      "hook_type": "diagnosis",
+      "sub_topic_id": "resistance_training_aging",
+      "fact_ref": "muscle_016",
+      "dramatization_notes": "Diagnose ปัญหาที่คนเจอบ่อย — platform stall ก่อน upsell progressive overload concept"
+    }
+  ]
+}

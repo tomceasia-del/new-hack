@@ -1,0 +1,65 @@
+{
+  "domain_id": "energy",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.energy"
+  },
+  "sub_topics": [
+    {
+      "id": "sub_atp",
+      "label_th": "การสังเคราะห์ ATP และไมโตคอนเดรีย",
+      "label_en": "ATP Synthesis & Mitochondria",
+      "description": "กระบวนการผลิตพลังงาน ATP ผ่าน Oxidative Phosphorylation ใน mitochondria รวมถึงบทบาทของ electron transport chain และ ATP synthase",
+      "prevalence_th": "ปัญหาพลังงานต่ำ, ล้าง่าย, ประสิทธิภาพการออกกำลังกายต่ำ",
+      "product_relevance": "CoQ10, NAD_precursor, B_complex"
+    },
+    {
+      "id": "sub_nad",
+      "label_th": "NAD+ และวัฏจักรรีดอกซ์",
+      "label_en": "NAD+ Metabolism & Aging",
+      "description": "NAD+ (Nicotinamide Adenine Dinucleotide) เป็นโมเลกุลพาหะอิเล็กตรอนหลักที่ลดลงตามอายุ ส่งผลต่อ sirtuin activity และ mitochondrial biogenesis",
+      "prevalence_th": "ภาวะเหนื่อยล้าเรื้อรัง, อาการแก่ก่อนวัย, ประสิทธิภาพร่างกายลดลงหลังอายุ 40+",
+      "product_relevance": "NAD_precursor (NMN, NR)"
+    },
+    {
+      "id": "sub_coq10",
+      "label_th": "CoQ10 และห่วงโซ่อิเล็กตรอน",
+      "label_en": "CoQ10 & Electron Transport Chain",
+      "description": "Coenzyme Q10 (Ubiquinol/Ubiquinone) ทำหน้าที่เป็นตัวส่งอิเล็กตรอนระหว่าง Complex I/II กับ Complex III ใน ETC รวมถึงเป็นสารต้านอนุมูลอิสระ",
+      "prevalence_th": "ผู้สูงอายุ, ผู้ใช้ยา statin, ผู้ที่มีภาวะหัวใจล้มเหลว, นักกีฬา",
+      "product_relevance": "CoQ10"
+    },
+    {
+      "id": "sub_iron",
+      "label_th": "ธาตุเหล็กและการขนส่งออกซิเจน",
+      "label_en": "Iron & Oxygen Transport",
+      "description": "ธาตุเหล็กเป็นส่วนประกอบหลักของฮีโมโกลบินและไมโอโกลบิน ช่วยขนส่ง O2 ไปยัง mitochondria สำหรับ oxidative phosphorylation",
+      "prevalence_th": "ผู้หญิงวัยเจริญพันธุ์ ~20-30% มีภาวะ ferritin ต่ำ, มังสวิรัติ, นักวิ่ง",
+      "product_relevance": "iron"
+    },
+    {
+      "id": "sub_bvit",
+      "label_th": "วิตามิน B และกระบวนการเผาผลาญพลังงาน",
+      "label_en": "B Vitamins & Energy Metabolism",
+      "description": "วิตามิน B1, B2, B3, B5 เป็น coenzyme ที่จำเป็นในวัฏจักร Krebs, glycolysis, และ beta-oxidation ขาดไม่ได้แม้แต่ขั้นเดียว",
+      "prevalence_th": "ผู้กินมังสวิรัติ/วีแกน (B12), ผู้ดื่มแอลกอฮอล์ (B1), ผู้สูงอายุ",
+      "product_relevance": "B_complex"
+    },
+    {
+      "id": "sub_adaptogens",
+      "label_th": "อะแดปโตเจนและความทนทานต่อความเครียด",
+      "label_en": "Adaptogens & Stress Resilience",
+      "description": "สมุนไพร adaptogen (Ashwagandha, Rhodiola, Ginseng) ปรับสมดุล HPA axis ลดคอร์ติซอล และฟื้นฟูพลังงานหลังความเครียดเรื้อรัง",
+      "prevalence_th": "วัยทำงาน burnout, นักกีฬาที่ overtraining, ผู้มีความเครียดเรื้อรัง",
+      "product_relevance": "adaptogens"
+    },
+    {
+      "id": "sub_cfs",
+      "label_th": "Chronic Fatigue Syndrome (ME/CFS)",
+      "label_en": "Myalgic Encephalomyelitis / Chronic Fatigue Syndrome",
+      "description": "โรคเหนื่อยล้าเรื้อรัง (ME/CFS) มีความเชื่อมโยงกับ mitochondrial dysfunction, การอักเสบระดับเซลล์, และความผิดปกติของระบบ immune-neuroendocrine",
+      "prevalence_th": "ประชากรโลก ~0.2-0.4%, ผู้หญิงมากกว่าผู้ชาย 2:1, มักเกิดหลังการติดเชื้อไวรัส",
+      "product_relevance": "CoQ10, NAD_precursor, B_complex, adaptogens"
+    }
+  ]
+}

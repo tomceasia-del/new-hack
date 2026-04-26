@@ -1,0 +1,799 @@
+{
+  "domain_id": "blood_sugar",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 24,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.blood_sugar",
+    "notes": "Landmark facts anchored to: DiRECT (Lean 2018), Counterpoint (Lim 2011), STEP-1 (Wilding 2021), Berberine head-to-head (Yin 2008), Johnston vinegar (2004). Tier distribution: T1 ~50%, T2 ~35%, T3 ~15%. Thai prevalence framed via IDF Atlas + Thai NHES."
+  },
+  "facts": [
+    {
+      "fact_id": "bs_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "DiRECT Trial (Lancet 2018) — ใน UK primary care, ผู้ป่วยเบาหวานชนิดที่ 2 ที่เข้าร่วมโปรแกรม total diet replacement (825-853 kcal/วัน) + maintenance: 46% เข้าสู่ภาวะ remission ที่ 12 เดือน และ 64% ในกลุ่มที่ลดน้ำหนักได้ ≥10 กิโล (หมายเหตุ: 'remission' = HbA1c <6.5% โดยไม่ต้องกินยา)",
+      "statement_en": "DiRECT Trial (Lancet 2018) — in UK primary care, type 2 diabetes patients on an 825-853 kcal/day total diet replacement plus structured maintenance: 46% achieved remission at 12 months, rising to 64% among those who lost ≥10 kg (remission = HbA1c <6.5% off all glucose-lowering drugs).",
+      "numeric_values": [
+        {"value": 46, "unit": "%", "label": "12-month T2D remission rate (overall)", "is_approximation": false},
+        {"value": 64, "unit": "%", "label": "remission in subgroup losing ≥10 kg", "is_approximation": false},
+        {"value": 298, "unit": "patients", "label": "intervention arm n", "is_approximation": false},
+        {"value": "825-853", "unit": "kcal/day", "label": "total diet replacement calorie range", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_002",
+      "entities_mentioned": ["roy_taylor", "matthew_lean", "direct_trial"],
+      "sources": [
+        {
+          "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(17)33102-1/fulltext",
+          "org": "The Lancet",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Primary care-led weight management for remission of type 2 diabetes (DiRECT): an open-label, cluster-randomised trial — Lean MEJ et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เบาหวานถอยหลังได้", "ลด 10 โลเปลี่ยนชีวิต", "ยาไม่ใช่คำตอบเดียว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามใช้คำว่า 'รักษา/หาย' ให้ใช้ 'สงบ/remission/ถอยหลัง' เท่านั้น; ห้ามการันตี 'ลด 10 กิโล = หายแน่' (46% ไม่ใช่ 100%); ต้องเสริมว่าทำภายใต้การดูแลทางการแพทย์",
+      "usage_notes": "Landmark fact — ใช้เป็น anchor สำหรับ Thai audience ที่กลัวว่า 'เป็นเบาหวานต้องกินยาไปตลอดชีวิต'. Cross-domain ใช้ร่วมกับ fat_metabolism fat_006/fat_007",
+      "contradictions": ["5-year follow-up (Thom 2024 Lancet D&E) พบว่า remission คงที่ได้ประมาณ 11-13% ที่ 5 ปี — ดังนั้น remission ไม่ใช่ 'หายขาด' ต้องคุมน้ำหนักต่อเนื่อง"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hepatic_glucose",
+      "statement_th": "Counterpoint Study (Lim et al., Diabetologia 2011) — ผู้ป่วย T2D 11 คน ทานเพียง 600 kcal/วัน นาน 8 สัปดาห์ → ตับหยุดปล่อยน้ำตาลเกินภายใน 7 วัน (hepatic glucose output กลับเป็นปกติ) และ first-phase insulin response ของตับอ่อนฟื้นกลับสู่ใกล้ปกติภายใน 8 สัปดาห์",
+      "statement_en": "Counterpoint Study (Lim et al., Diabetologia 2011) — 11 T2D patients on 600 kcal/day for 8 weeks: hepatic glucose output normalized within 7 days, and first-phase insulin response from the pancreas recovered close to normal by week 8.",
+      "numeric_values": [
+        {"value": 600, "unit": "kcal/day", "label": "very-low-calorie diet", "is_approximation": false},
+        {"value": 7, "unit": "days", "label": "time to normalize liver glucose output", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "time to recover 1st-phase insulin response", "is_approximation": false},
+        {"value": 11, "unit": "patients", "label": "sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_002",
+      "entities_mentioned": ["roy_taylor", "counterpoint_study"],
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3168743/",
+          "org": "Diabetologia / PubMed Central",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "Reversal of type 2 diabetes: normalisation of beta cell function in association with decreased pancreas and liver triacylglycerol — Lim EL et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["7 วันเปลี่ยนตับ", "8 สัปดาห์ตับอ่อนกลับมาเกิด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามชวน audience อด 600 kcal เอง — ต้อง medical supervision; ห้ามใช้คำว่า 'หายเบาหวาน' (ใช้ 'สงบ/remission')",
+      "usage_notes": "Proof-of-concept fact ที่เสริม bs_001 — ใช้เมื่ออธิบายว่าเบาหวานไม่ใช่ 'โรคตลอดชีวิต' เสมอไป",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Head-to-head RCT (Yin et al., Metabolism 2008) — ผู้ป่วยเบาหวาน T2 ที่ได้ berberine 500 mg วันละ 3 ครั้ง × 3 เดือน: HbA1c ลดลง 0.89% และ fasting glucose ลด 2.8 mmol/L — ผลเทียบเท่ากับ metformin 500 mg × 3 ครั้ง (HbA1c ลด 0.87%)",
+      "statement_en": "Head-to-head RCT (Yin et al., Metabolism 2008) — T2D patients given berberine 500 mg TID for 3 months: HbA1c fell by 0.89% and fasting glucose by 2.8 mmol/L — comparable to metformin 500 mg TID (HbA1c drop 0.87%).",
+      "numeric_values": [
+        {"value": 500, "unit": "mg TID", "label": "berberine dose", "is_approximation": false},
+        {"value": 0.89, "unit": "% (HbA1c absolute)", "label": "berberine HbA1c reduction", "is_approximation": false},
+        {"value": 0.87, "unit": "% (HbA1c absolute)", "label": "metformin HbA1c reduction (comparator)", "is_approximation": false},
+        {"value": 2.8, "unit": "mmol/L", "label": "fasting glucose reduction on berberine", "is_approximation": false},
+        {"value": 36, "unit": "patients (berberine arm)", "label": "sample size per arm", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_003",
+      "entities_mentioned": ["berberine", "metformin"],
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2410097/",
+          "org": "Metabolism / PubMed Central",
+          "source_tier": "A",
+          "year": 2008,
+          "title": "Efficacy of Berberine in Patients with Type 2 Diabetes — Yin J, Xing H, Ye J",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เบอร์เบอรีน = เมทฟอร์มินจากธรรมชาติ", "สารจากพืชสู้ยาหมอได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'berberine = metformin 100% ทุกคน' — Yin 2008 มี n เล็ก 36 คนต่อกลุ่ม, จีน population; ห้ามบอกให้ audience หยุดยาหมอและเปลี่ยนมากิน berberine แทน; ต้องระบุว่า 'ปรึกษาแพทย์'",
+      "usage_notes": "Cornerstone fact สำหรับ product angle berberine — landmark ในการวิจัย nutraceutical",
+      "contradictions": ["ไม่ใช่ทุก meta-analysis เห็นผลขนาดนี้ — Lan 2015 เห็น -0.62% HbA1c เฉลี่ย; bioavailability ต่ำ (<5%) เป็นข้อจำกัด"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Meta-analysis (Lan et al., J Ethnopharmacol 2015) — รวม 27 RCT, 2,569 คน: berberine ลด fasting plasma glucose เฉลี่ย 0.71 mmol/L, HbA1c 0.62%, insulin resistance (HOMA-IR) 0.49 และลด TG/LDL ร่วมด้วย — safety profile เทียบเท่า placebo",
+      "statement_en": "Meta-analysis (Lan et al., J Ethnopharmacol 2015) — 27 RCTs, 2,569 patients: berberine reduced fasting plasma glucose by 0.71 mmol/L, HbA1c by 0.62%, HOMA-IR by 0.49, and also lowered TG/LDL — safety profile similar to placebo.",
+      "numeric_values": [
+        {"value": 27, "unit": "RCTs", "label": "meta-analysis study count", "is_approximation": false},
+        {"value": 2569, "unit": "patients", "label": "total pooled n", "is_approximation": false},
+        {"value": 0.71, "unit": "mmol/L", "label": "FPG reduction", "is_approximation": false},
+        {"value": 0.62, "unit": "% (HbA1c absolute)", "label": "HbA1c reduction", "is_approximation": false},
+        {"value": 0.49, "unit": "(unitless)", "label": "HOMA-IR reduction", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_003",
+      "entities_mentioned": ["berberine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25498346/",
+          "org": "Journal of Ethnopharmacology / PubMed",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "Meta-analysis of the effect and safety of berberine in the treatment of type 2 diabetes mellitus, hypertension and hyperlipidemia — Lan J et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["งานวิจัย 27 ชิ้นชี้ตรงกัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข HbA1c -0.62% → -1.0%; ห้ามบอกว่า berberine = insulin หรือเป็น 'ยารักษาเบาหวาน'",
+      "usage_notes": "รองรับ product angle berberine ด้วย peer-reviewed evidence weight สูงกว่า single RCT",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hba1c_metrics",
+      "statement_th": "ADA Standards of Care 2024 — เกณฑ์วินิจฉัยเบาหวานคือ: HbA1c ≥ 6.5%, หรือ fasting plasma glucose ≥ 126 mg/dL, หรือ 2-hour plasma glucose ≥ 200 mg/dL หลัง OGTT 75 กรัม, หรือ random glucose ≥ 200 mg/dL + อาการคลาสสิก; prediabetes = HbA1c 5.7-6.4% หรือ FPG 100-125 mg/dL",
+      "statement_en": "ADA Standards of Care 2024 — Diabetes diagnostic criteria: HbA1c ≥ 6.5%, OR fasting plasma glucose ≥ 126 mg/dL, OR 2-hour plasma glucose ≥ 200 mg/dL on 75 g OGTT, OR random glucose ≥ 200 mg/dL with classic symptoms; prediabetes = HbA1c 5.7-6.4% or FPG 100-125 mg/dL.",
+      "numeric_values": [
+        {"value": 6.5, "unit": "%", "label": "HbA1c diabetes cutoff", "is_approximation": false},
+        {"value": 126, "unit": "mg/dL", "label": "fasting plasma glucose cutoff", "is_approximation": false},
+        {"value": 200, "unit": "mg/dL", "label": "2h OGTT cutoff", "is_approximation": false},
+        {"value": "5.7-6.4", "unit": "% (HbA1c)", "label": "prediabetes range", "is_approximation": false},
+        {"value": "100-125", "unit": "mg/dL (FPG)", "label": "prediabetes fasting glucose range", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["hba1c", "glucose", "ada"],
+      "sources": [
+        {
+          "url": "https://diabetesjournals.org/care/article/47/Supplement_1/S20/153954/2-Diagnosis-and-Classification-of-Diabetes",
+          "org": "Diabetes Care / ADA",
+          "source_tier": "A",
+          "year": 2024,
+          "title": "2. Diagnosis and Classification of Diabetes: Standards of Care in Diabetes—2024",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ตัวเลขที่บอกว่าคุณกำลังจะเป็นเบาหวาน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข cutoff ห้ามปรับ; ใช้เป็น reference ได้ แต่ห้ามบอก audience ให้ 'วินิจฉัยตัวเอง'",
+      "usage_notes": "Reference fact — ใช้เมื่อต้อง anchor 'เกณฑ์มาตรฐาน' ใน script",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "GLP_1",
+      "statement_th": "STEP-1 Trial (Wilding et al., NEJM 2021) — ผู้ใหญ่ที่มี obesity 1,961 คน ฉีด semaglutide 2.4 mg/สัปดาห์ × 68 สัปดาห์: น้ำหนักลดเฉลี่ย 14.9% เทียบกับ 2.4% ใน placebo; 86% ของกลุ่มยาลดได้ ≥5% ของน้ำหนักตัว",
+      "statement_en": "STEP-1 Trial (Wilding et al., NEJM 2021) — 1,961 adults with obesity on weekly subcutaneous semaglutide 2.4 mg for 68 weeks: mean weight loss 14.9% vs 2.4% in placebo; 86% achieved ≥5% weight loss.",
+      "numeric_values": [
+        {"value": 14.9, "unit": "% body weight", "label": "mean weight loss on semaglutide", "is_approximation": false},
+        {"value": 2.4, "unit": "% body weight", "label": "mean weight loss on placebo", "is_approximation": false},
+        {"value": 68, "unit": "weeks", "label": "trial duration", "is_approximation": false},
+        {"value": 1961, "unit": "adults", "label": "sample size", "is_approximation": false},
+        {"value": 86, "unit": "%", "label": "proportion achieving ≥5% weight loss", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_004",
+      "entities_mentioned": ["semaglutide", "glp_1", "step_1_trial"],
+      "sources": [
+        {
+          "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
+          "org": "New England Journal of Medicine",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Once-Weekly Semaglutide in Adults with Overweight or Obesity — Wilding JPH et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["Ozempic effect", "ฮอร์โมนลำไส้กลายเป็นยา"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามโปรโมต semaglutide ใน ad (เป็น prescription drug); ใช้เพื่ออธิบายพลังของ GLP-1 เท่านั้น; ห้ามบอก supplement ใด ๆ = Ozempic",
+      "usage_notes": "ใช้เปิด mechanism ของ GLP-1 ให้ audience เห็นขนาด — นำเข้าสู่ GLP-1-boosting nutraceuticals (fiber, protein first)",
+      "contradictions": ["weight regain หลังหยุดยา — STEP-4 แสดงว่าถ้าหยุดยา น้ำหนักกลับมาประมาณ 2/3 ภายใน 1 ปี"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "glucose_spike",
+      "statement_th": "Johnston et al. (Diabetes Care 2004) — ผู้ที่มี insulin resistance กิน apple cider vinegar 20 ml (กรดอะซีติก 1.05 g) ก่อนอาหารคาร์บสูง: postprandial glucose ลดลง 34% และ postprandial insulin ลดลง 20% เทียบกับ placebo ภายในเวลา 60 นาที",
+      "statement_en": "Johnston et al. (Diabetes Care 2004) — insulin-resistant subjects given 20 ml apple cider vinegar (1.05 g acetic acid) before a high-carb meal: 34% reduction in postprandial glucose and 20% reduction in postprandial insulin vs placebo over 60 minutes.",
+      "numeric_values": [
+        {"value": 20, "unit": "ml", "label": "vinegar volume", "is_approximation": false},
+        {"value": 1.05, "unit": "g", "label": "acetic acid dose", "is_approximation": false},
+        {"value": 34, "unit": "%", "label": "postprandial glucose reduction", "is_approximation": false},
+        {"value": 20, "unit": "%", "label": "postprandial insulin reduction", "is_approximation": false},
+        {"value": 60, "unit": "minutes", "label": "measurement window", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_007",
+      "entities_mentioned": ["acetic_acid"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/14694010/",
+          "org": "Diabetes Care / PubMed",
+          "source_tier": "A",
+          "year": 2004,
+          "title": "Vinegar Improves Insulin Sensitivity to a High-Carbohydrate Meal in Subjects With Insulin Resistance or Type 2 Diabetes — Johnston CS, Kim CM, Buller AJ",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["น้ำส้มสายชู 1 ช้อนลดน้ำตาลได้ 34%", "เบรกแป้งก่อนกิน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'วันละ 1 ช้อน = หายเบาหวาน'; effect เป็น 'acute postprandial' ไม่ใช่ 'cure'; ต้องเตือนเรื่อง enamel ฟันและ GERD",
+      "usage_notes": "Anchor สำหรับ product angle apple cider vinegar; ยังใช้อธิบายหลักการ 'food order' ได้",
+      "contradictions": ["ผลระยะยาวใน HbA1c เล็กน้อย (เฉลี่ย -0.16% ใน meta-analysis) — ดีใน acute control มากกว่า long-term disease modification"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Cinnamon meta-analysis (Allen et al., Ann Fam Med 2013) — 10 RCTs, 543 คน: อบเชย 1-6 กรัม/วัน ลด fasting plasma glucose 24 mg/dL, TG 30 mg/dL, total cholesterol 16 mg/dL และ LDL 9 mg/dL (HbA1c ไม่ลดชัดเจน)",
+      "statement_en": "Cinnamon meta-analysis (Allen et al., Ann Fam Med 2013) — 10 RCTs, 543 patients: cinnamon 1-6 g/day reduced fasting plasma glucose by 24 mg/dL, triglycerides by 30 mg/dL, total cholesterol by 16 mg/dL, and LDL by 9 mg/dL (no significant HbA1c change).",
+      "numeric_values": [
+        {"value": 10, "unit": "RCTs", "label": "study count", "is_approximation": false},
+        {"value": 543, "unit": "patients", "label": "pooled n", "is_approximation": false},
+        {"value": "1-6", "unit": "g/day", "label": "cinnamon dose range", "is_approximation": false},
+        {"value": 24, "unit": "mg/dL", "label": "FPG reduction", "is_approximation": false},
+        {"value": 30, "unit": "mg/dL", "label": "TG reduction", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_001",
+      "entities_mentioned": ["cinnamon_mhcp"],
+      "sources": [
+        {
+          "url": "https://www.annfammed.org/content/11/5/452",
+          "org": "Annals of Family Medicine",
+          "source_tier": "A",
+          "year": 2013,
+          "title": "Cinnamon Use in Type 2 Diabetes: An Updated Systematic Review and Meta-Analysis — Allen RW et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เครื่องเทศในครัวช่วยคุมน้ำตาล"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'อบเชยรักษาเบาหวาน'; ต้องเตือน — cassia cinnamon มี coumarin (พิษต่อตับที่ dose สูง); แนะนำ Ceylon cinnamon",
+      "usage_notes": "Anchor สำหรับ product angle cinnamon; HbA1c ไม่เปลี่ยนชัด → ใช้ framing 'ช่วยเสริม' ไม่ใช่ 'รักษา'",
+      "contradictions": ["Cochrane 2012 สรุปว่า evidence คุณภาพต่ำ; ประสิทธิภาพแตกต่างกันระหว่าง Cassia vs Ceylon cinnamon"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Chromium picolinate RCT (Anderson et al., Diabetes 1997) — ผู้ป่วย T2D 180 คน แบ่งรับ chromium picolinate 200 หรือ 1,000 µg/วัน × 4 เดือน: HbA1c ลด 0.8% และ fasting insulin ลด 26% ที่ขนาด 1,000 µg (กลุ่ม 200 µg ไม่เห็นผลชัด)",
+      "statement_en": "Chromium picolinate RCT (Anderson et al., Diabetes 1997) — 180 T2D patients randomized to 200 or 1,000 µg/day of chromium picolinate for 4 months: at 1,000 µg, HbA1c fell 0.8% and fasting insulin 26% (no significant effect at 200 µg).",
+      "numeric_values": [
+        {"value": 1000, "unit": "µg/day", "label": "effective chromium picolinate dose", "is_approximation": false},
+        {"value": 0.8, "unit": "% (HbA1c absolute)", "label": "HbA1c reduction at 1000 µg", "is_approximation": false},
+        {"value": 26, "unit": "%", "label": "fasting insulin reduction", "is_approximation": false},
+        {"value": 180, "unit": "patients", "label": "sample size", "is_approximation": false},
+        {"value": 4, "unit": "months", "label": "trial duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_009",
+      "entities_mentioned": ["chromium"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9356027/",
+          "org": "Diabetes / PubMed",
+          "source_tier": "A",
+          "year": 1997,
+          "title": "Elevated intakes of supplemental chromium improve glucose and insulin variables in individuals with type 2 diabetes — Anderson RA et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["แร่ธาตุที่ขาดในคนดื้ออินซูลิน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก '1000 µg = หายเบาหวาน'; ต้องระบุ dose และเตือนว่าขนาดสูงต้องปรึกษาแพทย์; ห้ามบอกให้หยุดยาหมอ",
+      "usage_notes": "Anchor สำหรับ product angle chromium picolinate",
+      "contradictions": ["ผลใน Western population ต่ำกว่าใน Chinese cohort (Anderson 1997 เอง) — อาจเพราะ chromium status แตกต่าง; meta-analyses อื่นเห็นผลเล็กลงมาก"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "NATHAN 1 Trial (Ziegler et al., Diabetes Care 2011) — ผู้ป่วย diabetic sensorimotor polyneuropathy 460 คน ได้ alpha-lipoic acid 600 mg/วัน × 4 ปี: อาการทางระบบประสาท (Neuropathy Impairment Score — Lower Limb) ดีขึ้นอย่างมีนัยสำคัญเทียบ placebo (NIS-LL Δ -1.3 vs +0.4 points)",
+      "statement_en": "NATHAN 1 Trial (Ziegler et al., Diabetes Care 2011) — 460 patients with mild-to-moderate diabetic sensorimotor polyneuropathy given oral alpha-lipoic acid 600 mg/day for 4 years: significant improvement in Neuropathy Impairment Score - Lower Limb (NIS-LL Δ -1.3 vs +0.4 with placebo).",
+      "numeric_values": [
+        {"value": 600, "unit": "mg/day", "label": "ALA dose", "is_approximation": false},
+        {"value": 4, "unit": "years", "label": "trial duration", "is_approximation": false},
+        {"value": 460, "unit": "patients", "label": "sample size", "is_approximation": false},
+        {"value": -1.3, "unit": "NIS-LL points", "label": "ALA arm score change (improvement)", "is_approximation": false},
+        {"value": 0.4, "unit": "NIS-LL points", "label": "placebo arm score change (worsening)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_011",
+      "entities_mentioned": ["alpha_lipoic_acid"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21994478/",
+          "org": "Diabetes Care / PubMed",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "Efficacy and safety of antioxidant treatment with α-lipoic acid over 4 years in diabetic polyneuropathy — Ziegler D et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["นิ้วชา-แสบ-ร้อน ไม่จำเป็นต้องทน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "กรอบคือ 'ลดอาการ neuropathy' — ห้ามบอก 'รักษา nerve damage ให้กลับเป็นปกติ'; ห้ามใช้คำว่า 'ยา'",
+      "usage_notes": "Anchor สำหรับ product angle alpha-lipoic acid; ใช้ pair กับ audience ที่มี nerve symptoms",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Myo-Inositol RCT (Costantino et al., Eur Rev Med Pharmacol Sci 2009) — ผู้หญิง PCOS 42 คน ได้ myo-inositol 2 กรัม × 2 ครั้ง/วัน × 12-16 สัปดาห์: HOMA-IR ลดลง 75%, LH/FSH ratio ลดลง, และ insulin AUC ลดลง — 72% ของกลุ่มรับการตกไข่กลับมา",
+      "statement_en": "Myo-Inositol RCT (Costantino et al., Eur Rev Med Pharmacol Sci 2009) — 42 PCOS women given myo-inositol 2 g BID for 12-16 weeks: HOMA-IR fell 75%, LH/FSH ratio improved, insulin AUC fell, and 72% of the treated group resumed ovulation.",
+      "numeric_values": [
+        {"value": 2, "unit": "g BID", "label": "myo-inositol dose", "is_approximation": false},
+        {"value": "12-16", "unit": "weeks", "label": "trial duration", "is_approximation": true},
+        {"value": 75, "unit": "%", "label": "HOMA-IR reduction", "is_approximation": false},
+        {"value": 72, "unit": "%", "label": "ovulation restoration rate", "is_approximation": false},
+        {"value": 42, "unit": "women", "label": "sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_010",
+      "entities_mentioned": ["myo_inositol"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17952759/",
+          "org": "European Review for Medical and Pharmacological Sciences / PubMed",
+          "source_tier": "A",
+          "year": 2007,
+          "title": "Metabolic and hormonal effects of myo-inositol in women with PCOS: a double-blind trial — Costantino D et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["PCOS + น้ำตาลในเลือด — 2 เรื่องคือโรคเดียวกัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'inositol รักษา PCOS'; กรอบคือ 'ปรับ insulin sensitivity ที่เกี่ยวข้องกับ PCOS'; ไม่ใช่ contraceptive หรือ fertility drug",
+      "usage_notes": "Anchor สำหรับ product angle inositol — สำคัญสำหรับ Thai female audience 25-45 ที่ overlap เบาหวาน + PCOS",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_012",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "glucose_spike",
+      "statement_th": "Glucomannan RCT (Vuksan et al., Diabetes Care 1999) — ผู้ป่วย T2D ได้ konjac glucomannan 0.5 กรัม/100 kcal อาหาร × 3 สัปดาห์: fructosamine ลด 5.2%, total cholesterol ลด 11.1%, LDL ลด 20.7%, apoB ลด 12.9% และ systolic BP ลด 6.9%",
+      "statement_en": "Glucomannan RCT (Vuksan et al., Diabetes Care 1999) — T2D patients given konjac glucomannan 0.5 g per 100 kcal of food for 3 weeks: fructosamine fell 5.2%, total cholesterol 11.1%, LDL 20.7%, apoB 12.9%, and systolic BP 6.9%.",
+      "numeric_values": [
+        {"value": 0.5, "unit": "g/100 kcal", "label": "glucomannan dose intensity", "is_approximation": false},
+        {"value": 3, "unit": "weeks", "label": "trial duration", "is_approximation": false},
+        {"value": 5.2, "unit": "%", "label": "fructosamine reduction", "is_approximation": false},
+        {"value": 20.7, "unit": "%", "label": "LDL-C reduction", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_006",
+      "entities_mentioned": ["glucomannan"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10333897/",
+          "org": "Diabetes Care / PubMed",
+          "source_tier": "A",
+          "year": 1999,
+          "title": "Konjac-Mannan and American Ginseng: emerging alternative therapies for type 2 diabetes mellitus — Vuksan V et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ไฟเบอร์เจล เบรกน้ำตาล"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'กลูโคแมนแนนรักษาเบาหวาน'; ต้องเตือนเรื่อง choking/GI obstruction หากกินโดยไม่มีน้ำเพียงพอ",
+      "usage_notes": "Anchor สำหรับ product angle fiber/glucomannan",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_013",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Magnesium meta-analysis (Veronese et al., Eur J Clin Nutr 2016) — 18 RCTs, 1,473 คน: magnesium supplementation 100-500 mg/วัน × ≥4 เดือน ลด fasting glucose 0.31 mmol/L และปรับ HOMA-IR ดีขึ้นในผู้ที่ IR หรือ hypomagnesemia",
+      "statement_en": "Magnesium meta-analysis (Veronese et al., Eur J Clin Nutr 2016) — 18 RCTs, 1,473 patients: magnesium supplementation 100-500 mg/day for ≥4 months reduced fasting glucose by 0.31 mmol/L and improved HOMA-IR, especially in IR or hypomagnesemic individuals.",
+      "numeric_values": [
+        {"value": 18, "unit": "RCTs", "label": "study count", "is_approximation": false},
+        {"value": 1473, "unit": "patients", "label": "pooled n", "is_approximation": false},
+        {"value": 0.31, "unit": "mmol/L", "label": "FPG reduction", "is_approximation": false},
+        {"value": "100-500", "unit": "mg/day", "label": "magnesium dose range", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_001",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27329332/",
+          "org": "European Journal of Clinical Nutrition / PubMed",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Effect of magnesium supplementation on glucose metabolism in people with or at risk of diabetes: a systematic review and meta-analysis of double-blind RCTs — Veronese N et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["แร่ธาตุที่คนไทย 60% ขาด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "กรอบ 'สนับสนุน insulin sensitivity' — ห้ามบอกว่า 'magnesium glycinate รักษาเบาหวาน'; ต้องเตือนเรื่อง diarrhea ที่ dose สูง (magnesium citrate/oxide)",
+      "usage_notes": "Anchor สำหรับ product angle magnesium_glycinate (cross-domain กับ sleep)",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Ben Bikman (Why We Get Sick, 2020) เสนอว่า hyperinsulinemia เกิดขึ้นก่อนการวินิจฉัยเบาหวาน 10-20 ปี — ในระยะนี้ HbA1c ยังปกติ แต่ fasting insulin สูงขึ้นเรื่อย ๆ เพื่อกดน้ำตาลให้อยู่ในเกณฑ์; fasting insulin ปกติ < 5-10 µU/mL — ค่าสูงคือสัญญาณเตือนที่ HbA1c มองไม่เห็น",
+      "statement_en": "Ben Bikman ('Why We Get Sick', 2020) argues hyperinsulinemia develops 10-20 years before formal T2D diagnosis — during this period HbA1c is still normal but fasting insulin climbs to maintain euglycemia; normal fasting insulin < 5-10 µU/mL, and high values are an early warning that HbA1c misses entirely.",
+      "numeric_values": [
+        {"value": "10-20", "unit": "years", "label": "lead time of hyperinsulinemia before T2D diagnosis", "is_approximation": true},
+        {"value": "5-10", "unit": "µU/mL", "label": "optimal fasting insulin upper bound", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bs_008",
+      "entities_mentioned": ["ben_bikman", "insulin"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29453741/",
+          "org": "Nature Reviews Endocrinology / PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Pathophysiology of type 2 diabetes mellitus — DeFronzo RA et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["HbA1c ปกติไม่ได้แปลว่าไม่เสี่ยง", "สัญญาณเตือน 20 ปีที่คุณมองข้าม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "'10-20 ปี' เป็นกรอบเฉลี่ย — ห้าม definite ว่า 'ทุกคน'; fasting insulin <5-10 คือ reference ทั่วไป ไม่ใช่เกณฑ์ official ของ WHO/ADA",
+      "usage_notes": "Hook สำคัญสำหรับ audience 35+ ที่ 'ตรวจแล้วปกติ' — ให้ checkup เพิ่ม fasting insulin",
+      "contradictions": ["ADA ไม่แนะนำ fasting insulin เป็น routine screen — ใช้ clinically ในงานวิจัยมากกว่า"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_015",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "dawn_phenomenon",
+      "statement_th": "Dawn phenomenon — ในผู้ป่วยเบาหวาน T2D น้ำตาลในเลือดเพิ่มขึ้นเฉลี่ย 20-50 mg/dL ระหว่างตี 4 ถึง 8 โมงเช้า จากผลของคอร์ติซอล + GH ที่พุ่งตาม circadian rhythm กระตุ้น hepatic glucose output — แม้ไม่ได้กินข้าวเลย (Monnier & Colette 2015; StatPearls 2024)",
+      "statement_en": "Dawn phenomenon — in T2D patients, fasting glucose rises on average 20-50 mg/dL between 4-8 AM due to circadian cortisol + GH surges driving hepatic glucose output, even without any food intake (Monnier & Colette 2015; StatPearls 2024).",
+      "numeric_values": [
+        {"value": "20-50", "unit": "mg/dL", "label": "typical dawn glucose rise in T2D", "is_approximation": true},
+        {"value": "4-8", "unit": "AM", "label": "time window", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_005",
+      "entities_mentioned": ["cortisol", "growth_hormone"],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK430893/",
+          "org": "StatPearls / NCBI",
+          "source_tier": "A",
+          "year": 2024,
+          "title": "Dawn Phenomenon — Varghese RT, Jialal I",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ตื่นเช้าน้ำตาลสูงทั้งที่ไม่ได้กินอะไร"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเหมาว่าทุกคนเป็น dawn phenomenon — น้ำตาลเช้าสูงอาจเกิดจาก Somogyi effect (rebound from nocturnal hypoglycemia) แทน — ต้อง frame เป็น 'ถ้าตรวจพบบ่อย ให้ปรึกษาแพทย์'",
+      "usage_notes": "ใช้อธิบาย audience T2D/prediabetic ที่งงว่าทำไม FBG ตอนเช้าสูงกว่าก่อนนอน",
+      "contradictions": ["Somogyi phenomenon (rebound) แยกไม่ออกโดยไม่มี CGM/3 AM glucose check"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_016",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hba1c_metrics",
+      "statement_th": "HOMA-IR formula (Matthews et al., Diabetologia 1985) — HOMA-IR = (fasting insulin µU/mL × fasting glucose mg/dL) / 405 — ค่า <1.0 = insulin sensitive, 1.0-1.9 = early IR, ≥2.0 = significant IR, ≥2.9 = severe IR (threshold ขึ้นอยู่กับ lab reference)",
+      "statement_en": "HOMA-IR (Matthews et al., Diabetologia 1985) — HOMA-IR = (fasting insulin µU/mL × fasting glucose mg/dL) / 405 — <1.0 = insulin sensitive, 1.0-1.9 = early IR, ≥2.0 = significant IR, ≥2.9 = severe (thresholds vary by lab/population).",
+      "numeric_values": [
+        {"value": 405, "unit": "(denominator)", "label": "HOMA-IR constant for mg/dL units (22.5 for mmol/L)", "is_approximation": false},
+        {"value": 1.0, "unit": "(unitless)", "label": "normal insulin sensitivity upper bound", "is_approximation": true},
+        {"value": 2.9, "unit": "(unitless)", "label": "severe IR threshold", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bs_008",
+      "entities_mentioned": ["insulin", "glucose"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3899825/",
+          "org": "Diabetologia / PubMed",
+          "source_tier": "A",
+          "year": 1985,
+          "title": "Homeostasis model assessment: insulin resistance and beta-cell function from fasting plasma glucose and insulin concentrations in man — Matthews DR et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["สูตรที่หมอไม่บอกคุณ", "คำนวณเสี่ยงเบาหวานเองได้"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 405 และ cutoffs ต้องคงที่; ห้ามแนะนำ audience ให้ 'วินิจฉัยตัวเอง' ว่าเป็น IR โดยไม่ปรึกษาแพทย์",
+      "usage_notes": "Reference fact — ใช้เมื่อพูดเรื่อง 'ตรวจอะไรบ้าง' ใน check-up",
+      "contradictions": ["HOMA-IR ไม่ได้ใช้เป็น routine diagnostic ในบางประเทศ; euglycemic clamp เป็น gold standard แต่ไม่ practical"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_017",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "postprandial_glucose",
+      "statement_th": "Hall et al. (PLOS Biology 2018) — CGM study ในคนปกติ 57 คน: กินขนมปังขาว 50 กรัมแบบเดียวกัน postprandial glucose peak แตกต่างกัน 20-108 mg/dL ระหว่างคน; 25% ของผู้เข้าร่วมมี 'severe glucotype' (spike เกิน 140 mg/dL) แม้ HbA1c ปกติ",
+      "statement_en": "Hall et al. (PLOS Biology 2018) — CGM study in 57 healthy subjects: after identical 50 g white-bread meals, postprandial glucose peaks varied 20-108 mg/dL between individuals; 25% of participants had a 'severe glucotype' (spikes >140 mg/dL) despite normal HbA1c.",
+      "numeric_values": [
+        {"value": 57, "unit": "subjects", "label": "CGM sample size", "is_approximation": false},
+        {"value": 50, "unit": "g", "label": "standardized white bread carb load", "is_approximation": false},
+        {"value": "20-108", "unit": "mg/dL", "label": "inter-individual glucose peak range", "is_approximation": false},
+        {"value": 140, "unit": "mg/dL", "label": "severe glucotype spike threshold", "is_approximation": false},
+        {"value": 25, "unit": "%", "label": "proportion with severe glucotype", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["glucose", "hba1c"],
+      "sources": [
+        {
+          "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2005143",
+          "org": "PLOS Biology",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Glucotypes reveal new patterns of glucose dysregulation — Hall H et al. (Snyder lab)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["คนสองคนกินของเหมือนกัน น้ำตาลขึ้นไม่เท่ากัน", "HbA1c ปกติไม่แปลว่าน้ำตาลนิ่ง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ทุกคนต้องใช้ CGM'; frame เป็น 'individual variation' ไม่ใช่ 'one-size-fits-all'",
+      "usage_notes": "ใช้อธิบายทำไม 'glycemic index' ไม่เป็นจริงกับทุกคน + justify การทดลองเองด้วย CGM",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "glucose_spike",
+      "statement_th": "Meal sequencing — Shukla et al. (Diabetes Care 2015) — ผู้ป่วย T2D 11 คน กินผัก + โปรตีนก่อน แล้วค่อยกินคาร์บ (15 นาทีหลัง) vs กินคาร์บก่อน: postprandial glucose ที่ 30/60/120 นาที ลดลง 28.6%, 36.7%, 16.8% ตามลำดับ และ insulin ลด 23.4%",
+      "statement_en": "Meal sequencing — Shukla et al. (Diabetes Care 2015) — 11 T2D patients eating vegetables + protein first, then carbs 15 minutes later (vs carbs first): postprandial glucose at 30/60/120 min dropped by 28.6%, 36.7%, and 16.8% respectively, and insulin by 23.4%.",
+      "numeric_values": [
+        {"value": 15, "unit": "minutes", "label": "delay before carbs", "is_approximation": false},
+        {"value": 28.6, "unit": "%", "label": "glucose reduction at 30 min", "is_approximation": false},
+        {"value": 36.7, "unit": "%", "label": "glucose reduction at 60 min", "is_approximation": false},
+        {"value": 23.4, "unit": "%", "label": "insulin reduction AUC", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_006",
+      "entities_mentioned": ["insulin", "glucose"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26106234/",
+          "org": "Diabetes Care / PubMed",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "Food Order Has a Significant Impact on Postprandial Glucose and Insulin Levels — Shukla AP et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["กินผักก่อนข้าว ง่ายกว่าคุมแคล"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "n=11 เล็ก — ต้อง frame เป็น 'การทดลอง' ไม่ใช่ universal cure; ไม่ใช่ทางเลือกแทนยา",
+      "usage_notes": "ข้อเสนอแนะเชิง practical — 'zero-cost intervention' ที่ audience ทำตามได้ทันที",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "DiRECT 5-year follow-up (Thom et al., Lancet D&E 2024) — จาก DiRECT cohort: 11-13% ของผู้เข้าร่วมในกลุ่ม intervention ยังคงสงบเบาหวานที่ 5 ปี และ mean weight loss sustained ~6.1 kg — แสดงว่า remission 'คงทน' ได้ แต่ต้องรักษาน้ำหนักต่อเนื่อง",
+      "statement_en": "DiRECT 5-year follow-up (Thom et al., Lancet Diabetes & Endocrinol 2024) — from the DiRECT cohort, ~11-13% of intervention participants maintained T2D remission at 5 years and sustained mean weight loss of ~6.1 kg — remission is durable but requires ongoing weight maintenance.",
+      "numeric_values": [
+        {"value": "11-13", "unit": "%", "label": "sustained 5-year remission rate", "is_approximation": true},
+        {"value": 5, "unit": "years", "label": "follow-up duration", "is_approximation": false},
+        {"value": 6.1, "unit": "kg", "label": "sustained mean weight loss", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_002",
+      "entities_mentioned": ["roy_taylor", "direct_trial"],
+      "sources": [
+        {
+          "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(23)00385-6/fulltext",
+          "org": "Lancet Diabetes & Endocrinology",
+          "source_tier": "A",
+          "year": 2024,
+          "title": "Long-term outcomes (5 years) after the Diabetes Remission Clinical Trial (DiRECT) — Thom G et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["remission คงทนได้ แต่ต้องไม่กลับไปอ้วน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้อง balance — ห้ามโปรโมตว่า 'หายแน่' เพียง 11-13% ที่ 5 ปี; กรอบคือ 'ควบคุมได้ ไม่ใช่ rescue ครั้งเดียวจบ'",
+      "usage_notes": "Realism anchor — ใช้คู่กับ bs_001 เพื่อไม่ให้ audience เข้าใจผิดว่า 46% = ตลอดชีวิต",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_020",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "metabolic_syndrome",
+      "statement_th": "IDF Diabetes Atlas 2021 / Thai NHES-VI (2019-2020) — ผู้ใหญ่ไทยอายุ ≥20 ปีประมาณ 10.8% เป็นเบาหวาน (≈6 ล้านคน) และอีกประมาณ 16.8% เป็น prediabetes; เกินครึ่งของผู้ป่วยไม่ได้รับการวินิจฉัย (undiagnosed)",
+      "statement_en": "IDF Diabetes Atlas 2021 / Thai NHES-VI (2019-2020) — approximately 10.8% of Thai adults ≥20 y have diabetes (~6 million people) and another ~16.8% have prediabetes; over half of cases remain undiagnosed.",
+      "numeric_values": [
+        {"value": 10.8, "unit": "% of Thai adults", "label": "T2D prevalence (Thailand)", "is_approximation": true},
+        {"value": 16.8, "unit": "%", "label": "prediabetes prevalence", "is_approximation": true},
+        {"value": 6, "unit": "million people", "label": "estimated Thai T2D adults", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["idf", "thai_dept_of_health", "diabetes_association_thailand"],
+      "sources": [
+        {
+          "url": "https://diabetesatlas.org/data/en/country/196/th.html",
+          "org": "International Diabetes Federation — Diabetes Atlas (Thailand)",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "IDF Diabetes Atlas, 10th edn — Thailand country profile",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["1 ใน 10 คนไทยเป็นเบาหวาน", "ครึ่งหนึ่งยังไม่รู้ตัว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข ~10.8% และ ~6 ล้าน ใช้ได้ — ห้าม inflate เป็น '30% ของคนไทย'; cite ได้ว่า NHES/IDF",
+      "usage_notes": "Context anchor สำหรับ Thai audience — เปิด script ได้ด้วย scale of problem",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_021",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "glucose_spike",
+      "statement_th": "Fructose-specific hepatic de novo lipogenesis — ฟรุกโตส bypass ขั้นตอน rate-limiting ของ glycolysis (PFK-1) → ตับเปลี่ยนเป็นไขมันได้ถึงประมาณ 30% ของ fructose load ในคน insulin-resistant เทียบกับ <5% ในคนปกติ; HFCS ทำให้ NAFLD/visceral fat เพิ่ม (Stanhope 2009; Lustig)",
+      "statement_en": "Fructose-specific hepatic DNL — fructose bypasses the rate-limiting step of glycolysis (PFK-1) so up to ~30% of a fructose load can be converted to liver fat in insulin-resistant individuals vs <5% in healthy controls; HFCS drives NAFLD and visceral adiposity (Stanhope 2009; Lustig).",
+      "numeric_values": [
+        {"value": 30, "unit": "%", "label": "fructose → hepatic fat conversion (IR subjects)", "is_approximation": true},
+        {"value": 5, "unit": "%", "label": "fructose → fat conversion (healthy)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bs_002",
+      "entities_mentioned": ["fructose", "robert_lustig"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19381015/",
+          "org": "J Clin Invest / PubMed",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Consuming fructose-sweetened, not glucose-sweetened, beverages increases visceral adiposity and lipids and decreases insulin sensitivity in overweight/obese humans — Stanhope KL et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["น้ำผลไม้ไม่ใช่เพื่อน", "ฟรุกโตสวิ่งตรงเข้าตับ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ผลไม้ = ยาพิษ'; ผลไม้ทั้งลูกมีไฟเบอร์ buffer แต่น้ำหวาน/HFCS ต่างออกไป",
+      "usage_notes": "ใช้ bridge blood_sugar → fat_metabolism (NAFLD/visceral fat)",
+      "contradictions": ["ตัวเลข 30% เป็น upper bound — RCT ปกติเห็น 1-5% direct de novo lipogenesis from single fructose load; 30% คือขีดจำกัดของ chronic high-fructose diet in IR"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_022",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "postprandial_glucose",
+      "statement_th": "Walking after meals — Reynolds et al. (Diabetologia 2016 meta-analysis, 7 studies) — การเดินเบา 10-15 นาทีหลังอาหารลด postprandial glucose excursion ประมาณ 12-22% เทียบกับการนั่งเฉย; มีประสิทธิภาพมากที่สุดในมื้อเย็น",
+      "statement_en": "Post-meal walking — Reynolds et al. (Diabetologia 2016 meta-analysis, 7 studies) — 10-15 minutes of light walking after meals reduces postprandial glucose excursion by ~12-22% vs remaining seated; effect largest after the evening meal.",
+      "numeric_values": [
+        {"value": "10-15", "unit": "minutes", "label": "walking duration", "is_approximation": true},
+        {"value": "12-22", "unit": "%", "label": "postprandial glucose reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_bs_001",
+      "entities_mentioned": ["glut4"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27747394/",
+          "org": "Diabetologia / PubMed",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Advice to walk after meals is more effective for lowering postprandial glycaemia in type 2 diabetes mellitus than advice that does not specify timing — Reynolds AN et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["เดิน 10 นาที ดีกว่ายานิดหน่อย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'เดินหลังกินแทนยาได้'",
+      "usage_notes": "Behavioral intervention fact — ใช้คู่กับ bs_018 meal sequencing",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_023",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Jason Fung (The Diabetes Code, 2018) สรุปว่า T2D = โรคของ 'อินซูลินสูงเกินไปเรื้อรัง' ไม่ใช่ 'น้ำตาลสูงเกินไป' — การกิน insulin/sulfonylurea เพิ่มให้ผู้ป่วยอาจลดตัวเลข HbA1c ได้แต่ทำให้ 'ต้นเหตุ' (hyperinsulinemia) แย่ลง; การเลี่ยงคาร์บ + IF เป็นวิธีลดอินซูลินที่แท้จริง",
+      "statement_en": "Jason Fung (The Diabetes Code, 2018) argues T2D is fundamentally a disease of chronic hyperinsulinemia, not hyperglycemia — prescribing more insulin or sulfonylureas may lower HbA1c but worsens the underlying driver; carb restriction + therapeutic fasting directly lower insulin.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_bs_008",
+      "entities_mentioned": ["jason_fung", "insulin"],
+      "sources": [
+        {
+          "url": "https://www.thefastingmethod.com",
+          "org": "The Fasting Method / IDM (Jason Fung)",
+          "source_tier": "B",
+          "year": 2023,
+          "title": "Intensive Dietary Management Program — reference library",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["หมอให้ยามากขึ้น = โรคคุณแย่ลง", "อินซูลินสูงคือตัวร้ายจริง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามแนะนำ audience ให้หยุดยาเอง — Fung framework มี controversy; frame ว่า 'มุมมอง emerging' ไม่ใช่ 'fact ที่ ADA รับรอง'",
+      "usage_notes": "Thought-leader anchor — ใช้เมื่อ frame insulin-centric hypothesis",
+      "contradictions": ["ADA ยังคงแนะนำ insulin ในผู้ป่วยที่ HbA1c สูง; Fung framework เหมาะเฉพาะ T2D (ไม่ใช่ T1D)"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    },
+    {
+      "fact_id": "bs_024",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Low-carb diet RCT meta (Goldenberg et al., BMJ 2021) — 23 RCTs, 1,357 คน: low-carb diet (<130 g/d) ช่วยให้ 57% ของผู้ป่วย T2D เข้าสู่ remission ที่ 6 เดือน เทียบกับ 31% ในกลุ่มควบคุม; ประโยชน์ลดลงที่ 12 เดือนแต่ยัง superior",
+      "statement_en": "Low-carb diet RCT meta (Goldenberg et al., BMJ 2021) — 23 RCTs, 1,357 patients: low-carbohydrate diets (<130 g/d) achieved T2D remission in 57% of patients at 6 months vs 31% in control diets; benefit attenuates by 12 months but remains superior.",
+      "numeric_values": [
+        {"value": 23, "unit": "RCTs", "label": "study count", "is_approximation": false},
+        {"value": 1357, "unit": "patients", "label": "pooled n", "is_approximation": false},
+        {"value": 130, "unit": "g carbs/day", "label": "low-carb threshold", "is_approximation": false},
+        {"value": 57, "unit": "%", "label": "remission at 6 months (low-carb)", "is_approximation": false},
+        {"value": 31, "unit": "%", "label": "remission at 6 months (control)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_bs_002",
+      "entities_mentioned": ["richard_bernstein", "jason_fung"],
+      "sources": [
+        {
+          "url": "https://www.bmj.com/content/372/bmj.m4743",
+          "org": "BMJ",
+          "source_tier": "A",
+          "year": 2021,
+          "title": "Efficacy and safety of low and very low carbohydrate diets for type 2 diabetes remission: systematic review and meta-analysis — Goldenberg JZ et al.",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": ["ลดแป้ง = ลดเบาหวาน ตรงไป"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ผลที่ 12 เดือนลดลง — ต้อง frame ว่าต้องคุมต่อเนื่อง; ห้ามบอกว่า 'low-carb รักษา T1D' (ไม่ใช่); ผู้ใช้ insulin ต้องปรึกษาแพทย์ก่อน เพราะ dose ต้องลด",
+      "usage_notes": "เชื่อม low-carb ให้มี evidence weight ก่อน pitch product angle",
+      "contradictions": ["DIETFITS 2018 ไม่เห็น low-carb ดีกว่า low-fat ในการลดน้ำหนัก — Goldenberg meta เน้น T2D remission ไม่ใช่ weight"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.blood_sugar",
+      "harvested_at": "2026-04-22T15:00:00"
+    }
+  ]
+}

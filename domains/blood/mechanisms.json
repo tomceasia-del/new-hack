@@ -1,0 +1,269 @@
+{
+  "domain_id": "blood",
+  "_meta": {
+    "target_count": 10,
+    "current_count": 11,
+    "last_harvested": "2026-04-22"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_blood_001",
+      "label_th": "เอนโดทีเลียม → eNOS → NO → หลอดเลือดขยาย",
+      "label_en": "Endothelium → eNOS → NO → vasodilation",
+      "description_th": "เมื่อเลือดไหลผ่าน endothelial cell เกิด shear stress → เปิด calcium channel + phosphorylate eNOS → eNOS ใช้ L-arginine + O2 + BH4 ผลิต NO + L-citrulline; NO กระจายเข้า smooth muscle ใต้ผนัง → จับ sGC → cGMP สูง → PKG → หลอดเลือดคลายตัว + ยับยั้ง platelet aggregation",
+      "description_en": "Shear stress from flowing blood activates eNOS in endothelial cells → eNOS converts L-arginine + O2 + BH4 → NO + L-citrulline; NO diffuses into underlying smooth muscle → binds soluble guanylate cyclase → cGMP rises → PKG activates → vasodilation + platelet inhibition.",
+      "chain": [
+        {"step": 1, "actor": "blood flow / agonists (acetylcholine, bradykinin)", "action": "activates", "target": "eNOS in endothelium", "effect": "NOS dimerization stabilized"},
+        {"step": 2, "actor": "eNOS", "action": "catalyzes", "target": "L-arginine + O2 + NADPH (BH4 cofactor)", "effect": "produces NO + L-citrulline"},
+        {"step": 3, "actor": "NO (half-life ~2 s)", "action": "diffuses to", "target": "vascular smooth muscle", "effect": "activates sGC"},
+        {"step": 4, "actor": "sGC", "action": "converts", "target": "GTP → cGMP", "effect": "cGMP rises, activates PKG"},
+        {"step": 5, "actor": "PKG", "action": "reduces", "target": "intracellular Ca²⁺ in smooth muscle", "effect": "vasodilation, BP decreases"},
+        {"step": 6, "actor": "NO (parallel)", "action": "inhibits", "target": "platelet aggregation + leukocyte adhesion", "effect": "antithrombotic + anti-inflammatory"}
+      ],
+      "analogies_th": [
+        "NO เหมือน 'ลมหายใจ' ที่หลอดเลือดพ่นออกมาเพื่อ relax ตัวเอง",
+        "PDE5 inhibitor (ไวอากร้า) = ยืดเวลาสัญญาณ NO ในจุดเฉพาะ — ร่างกายก็ทำเองได้ถ้า pathway แข็งแรง"
+      ],
+      "sources": [
+        {"url": "https://www.nobelprize.org/prizes/medicine/1998/summary/", "org": "Nobel Foundation", "source_tier": "A", "year": 1998, "title": "1998 Nobel Prize — NO as signaling molecule", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12438303/", "org": "Biochem Pharmacol", "source_tier": "A", "year": 2003, "title": "Förstermann & Münzel — eNOS coupling/uncoupling", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "nitric_oxide",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_002",
+      "label_th": "ทางลัด nitrate → nitrite → NO ผ่านแบคทีเรียในปาก (Lundberg pathway)",
+      "label_en": "Nitrate → nitrite → NO pathway (Lundberg enterosalivary)",
+      "description_th": "กินผักใบเขียว/บีทรูท → nitrate (NO3-) ถูกดูดซึมในลำไส้ → 25% ถูก concentrate กลับที่ต่อมน้ำลาย → แบคทีเรียคอมเมนซัลที่หลังลิ้นรีดิวซ์ nitrate → nitrite (NO2-) → กลืนลงกระเพาะ → ในที่กรด/ออกซิเจนต่ำ กลายเป็น NO ไปขยายหลอดเลือด — เป็นทางสร้าง NO ที่ไม่ต้องใช้ eNOS/ออกซิเจน",
+      "description_en": "Dietary nitrate (leafy greens/beetroot) is absorbed in gut → ~25% is actively concentrated by salivary glands → oral commensal bacteria on tongue reduce nitrate → nitrite → swallowed to stomach → in acidic/hypoxic conditions converts to NO → systemic vasodilation. Bypasses eNOS entirely.",
+      "chain": [
+        {"step": 1, "actor": "leafy greens / beetroot", "action": "deliver", "target": "~400 mg nitrate / 100 g spinach (Hord 2009)", "effect": "plasma nitrate rises within 30 min"},
+        {"step": 2, "actor": "salivary glands", "action": "concentrate", "target": "plasma nitrate 10-20× into saliva", "effect": "enterosalivary loop"},
+        {"step": 3, "actor": "oral nitrate-reducing bacteria (Veillonella, Prevotella)", "action": "reduce", "target": "nitrate → nitrite", "effect": "nitrite enters circulation on swallowing"},
+        {"step": 4, "actor": "acidic stomach + hypoxic tissues", "action": "further reduce", "target": "nitrite → NO", "effect": "vasodilation independent of eNOS"},
+        {"step": 5, "actor": "antibacterial mouthwash", "action": "kills", "target": "oral nitrate-reducing bacteria", "effect": "breaks pathway → BP rises ~3.5 mmHg (Kapil 2013)"}
+      ],
+      "analogies_th": [
+        "แบคทีเรียในปาก = 'โรงงานผลิต NO แห่งที่สอง' สำหรับคนที่ eNOS อ่อนตามอายุ",
+        "บีทรูท 1 แก้ว = ชาร์จ NO ได้ 2-3 ชั่วโมง"
+      ],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nrd2466", "org": "Nature Reviews Drug Discovery", "source_tier": "A", "year": 2008, "title": "Lundberg, Weitzberg, Gladwin — nitrate-nitrite-NO pathway", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23183324/", "org": "Free Radic Biol Med", "source_tier": "A", "year": 2013, "title": "Kapil — mouthwash destroys oral nitrate-reducing bacteria → BP rises", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "nitric_oxide",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_003",
+      "label_th": "Endothelial dysfunction — BH4 ถูก oxidize → eNOS 'uncouple' ผลิต superoxide แทน NO",
+      "label_en": "Endothelial dysfunction — BH4 oxidation → eNOS uncoupling",
+      "description_th": "ในภาวะอักเสบ/น้ำตาลสูง/LDL oxidize → ROS ทำลาย BH4 → eNOS ขาด cofactor → electron ที่ควรไป L-arginine ไปหา O2 แทน → ผลิต superoxide (O2⁻·) — ตัว superoxide รวมตัวกับ NO ที่เหลือ → peroxynitrite (ONOO⁻) ซึ่งยิ่งทำลาย BH4 เป็นวงจรบวก; ผลสุดท้าย NO ต่ำ + oxidative stress สูง = endothelial dysfunction",
+      "description_en": "Inflammation/hyperglycemia/oxLDL generate ROS → oxidize BH4 → eNOS loses cofactor → electrons uncouple from L-arginine and reduce O2 instead → produces superoxide; superoxide + remaining NO → peroxynitrite, which further oxidizes BH4 — a vicious cycle. Net: low NO + high oxidative stress = endothelial dysfunction.",
+      "chain": [
+        {"step": 1, "actor": "risk factors (HTN, T2D, oxLDL, smoking)", "action": "generate", "target": "ROS in endothelium", "effect": "oxidative stress rises"},
+        {"step": 2, "actor": "ROS", "action": "oxidize", "target": "BH4 → BH2", "effect": "eNOS cofactor depleted"},
+        {"step": 3, "actor": "uncoupled eNOS", "action": "transfers electrons to", "target": "O2 instead of L-arginine", "effect": "superoxide produced"},
+        {"step": 4, "actor": "superoxide + residual NO", "action": "combine to", "target": "peroxynitrite (ONOO⁻)", "effect": "further BH4 oxidation — vicious loop"},
+        {"step": 5, "actor": "endothelium", "action": "loses", "target": "vasodilation capacity", "effect": "FMD drops — earliest CVD marker"}
+      ],
+      "analogies_th": [
+        "BH4 ขาด → eNOS กลายร่างจาก 'พ่นลมหายใจ' เป็น 'พ่นไฟ'",
+        "endothelium เหมือนท่อภายในที่ผิวเริ่มขรุขระ → ของไหลช้า + เกาะตะกอน"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12438303/", "org": "Biochem Pharmacol", "source_tier": "A", "year": 2003, "title": "Förstermann eNOS uncoupling", "access_date": "2026-04-22"},
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.112.093245", "org": "Circulation", "source_tier": "A", "year": 2012, "title": "Flammer endothelial function review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "endothelial_function",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_004",
+      "label_th": "Hepcidin → ferroportin → คุมเหล็กเข้า-ออกร่างกาย",
+      "label_en": "Hepcidin → ferroportin iron regulation",
+      "description_th": "ตับสัมผัสเหล็ก/อักเสบ → หลั่ง hepcidin → hepcidin จับ ferroportin บน enterocyte + macrophage → ferroportin ถูก endocytose + ทำลาย → เหล็กถูกล็อกไม่ให้ออกมาในกระแสเลือด; การอักเสบเรื้อรัง (IL-6) กระตุ้น hepcidin → anemia of chronic disease; ส่วน hemochromatosis (HFE C282Y) ทำให้ hepcidin ต่ำผิดปกติ → ferroportin เปิดไม่ปิด → เหล็กล้นร่างกาย",
+      "description_en": "Liver senses iron/inflammation → secretes hepcidin → hepcidin binds ferroportin on enterocytes/macrophages → ferroportin is internalized and degraded → iron trapped, not released to plasma. Chronic inflammation (IL-6) elevates hepcidin → anemia of chronic disease. HFE C282Y mutation impairs hepcidin production → ferroportin stays open → iron overload (hemochromatosis).",
+      "chain": [
+        {"step": 1, "actor": "high iron / inflammation (IL-6)", "action": "stimulates", "target": "hepcidin gene in hepatocyte", "effect": "serum hepcidin rises"},
+        {"step": 2, "actor": "hepcidin", "action": "binds", "target": "ferroportin on enterocyte + macrophage", "effect": "complex internalized, ferroportin degraded"},
+        {"step": 3, "actor": "enterocyte", "action": "fails to export", "target": "absorbed dietary iron", "effect": "iron trapped in gut cell, sloughed off"},
+        {"step": 4, "actor": "HFE C282Y homozygote", "action": "blunts", "target": "hepcidin response to iron", "effect": "ferroportin stays open → iron overload"},
+        {"step": 5, "actor": "chronic inflammation", "action": "elevates", "target": "hepcidin inappropriately", "effect": "anemia of chronic disease (normal iron stores, unavailable)"}
+      ],
+      "analogies_th": [
+        "Hepcidin = ผู้คุมกุญแจคลังเหล็ก — ส่งไปล็อก ferroportin (ประตู) เมื่อเหล็กพอ",
+        "Hemochromatosis = คนพันธุกรรมเปลี่ยนกุญแจไม่ได้ ประตูเปิดตลอด → เหล็กไหลท่วมตับ/หัวใจ"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26780889/", "org": "Blood / ASH", "source_tier": "A", "year": 2016, "title": "Goodnough & Schrier — iron deficiency anemia review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "iron_metabolism",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_005",
+      "label_th": "Homocysteine methylation cycle — B12/folate/B6 คือเครื่องย่อย",
+      "label_en": "Homocysteine methylation cycle (B12/folate/B6)",
+      "description_th": "Methionine → SAM (methyl donor ของร่างกาย) → SAH → Hcy; Hcy ต้อง 'ถูกกำจัด' 2 ทาง: (1) remethylation กลับเป็น methionine โดย methionine synthase (ใช้ methyl-B12 + 5-MTHF จาก folate) หรือโดย BHMT (ใช้ betaine) หรือ (2) transsulfuration ผ่าน CBS (ใช้ B6) → cystathionine → cysteine; ถ้าขาด B12/folate/B6 หรือ MTHFR variant → Hcy สะสม → endothelial damage + prothrombotic",
+      "description_en": "Methionine → SAM → SAH → homocysteine. Hcy must be cleared via (1) remethylation to methionine by methionine synthase (requires methyl-B12 + 5-MTHF) or BHMT (betaine), or (2) transsulfuration by CBS (requires B6) → cysteine. B12/folate/B6 deficiency or MTHFR variants → Hcy accumulates → endothelial damage + thrombosis risk.",
+      "chain": [
+        {"step": 1, "actor": "dietary methionine", "action": "activated to", "target": "SAM (universal methyl donor)", "effect": "powers DNA/protein methylation"},
+        {"step": 2, "actor": "SAM", "action": "donates methyl → becomes", "target": "SAH → hydrolyzed to Hcy", "effect": "Hcy enters blood if not cleared"},
+        {"step": 3, "actor": "methionine synthase", "action": "remethylates", "target": "Hcy → methionine", "effect": "requires methyl-B12 + 5-MTHF (from MTHFR)"},
+        {"step": 4, "actor": "MTHFR C677T variant", "action": "reduces", "target": "5,10-MTHF → 5-MTHF conversion ~70%", "effect": "homozygote TT → higher Hcy, especially low-folate intake"},
+        {"step": 5, "actor": "CBS + B6 (alternative)", "action": "converts", "target": "Hcy → cystathionine → cysteine", "effect": "transsulfuration clears excess Hcy"},
+        {"step": 6, "actor": "elevated Hcy (>15 μmol/L)", "action": "damages", "target": "endothelium (ROS + uncouples eNOS)", "effect": "prothrombotic + atherogenic"}
+      ],
+      "analogies_th": [
+        "Hcy = 'ถังขยะในเลือด' — B12/folate/B6 คือรถเก็บขยะ ขาดคนใดคนหนึ่งขยะล้น",
+        "MTHFR variant = รถเก็บขยะวิ่งช้าลง — ต้องโยน methylfolate ใส่โดยตรง"
+      ],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/388260", "org": "JAMA", "source_tier": "A", "year": 1995, "title": "Boushey Hcy meta-analysis", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12163577/", "org": "Am J Clin Nutr", "source_tier": "A", "year": 2005, "title": "Homocysteine Lowering Trialists Collaboration", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "homocysteine",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_006",
+      "label_th": "LDL / ApoB → retention → foam cell → atherosclerosis",
+      "label_en": "LDL / ApoB retention → foam cell → atherosclerosis",
+      "description_th": "อนุภาคที่มี ApoB (LDL, VLDL remnant, Lp(a)) ผ่านเข้าสู่ subendothelial space → ติดกับ proteoglycans ผ่าน ApoB-binding site → ถูก oxidize → macrophage กิน → กลายเป็น foam cell → สะสมเป็น fatty streak → plaque; จำนวนอนุภาค (ApoB) สำคัญกว่า 'น้ำหนักไขมัน' ในอนุภาค (LDL-C) เพราะแต่ละอนุภาคเป็น 'กระสุนนัดหนึ่ง'",
+      "description_en": "ApoB-containing particles (LDL, VLDL remnants, Lp(a)) traverse endothelium into subendothelial space → bind proteoglycans via ApoB → oxidize → macrophages engulf → foam cells → fatty streak → plaque. Particle number (ApoB) matters more than cholesterol mass per particle (LDL-C) because each particle is an atherogenic 'bullet'.",
+      "chain": [
+        {"step": 1, "actor": "ApoB-containing lipoproteins", "action": "cross", "target": "endothelium into intima", "effect": "concentration-dependent retention"},
+        {"step": 2, "actor": "ApoB (and Lp(a) apo(a))", "action": "binds", "target": "intimal proteoglycans", "effect": "particles trapped"},
+        {"step": 3, "actor": "ROS in intima", "action": "oxidize", "target": "retained LDL → oxLDL", "effect": "pro-inflammatory DAMP"},
+        {"step": 4, "actor": "monocytes recruited by VCAM-1", "action": "differentiate to", "target": "macrophages", "effect": "scavenger-receptor uptake of oxLDL"},
+        {"step": 5, "actor": "macrophages", "action": "become", "target": "foam cells", "effect": "fatty streak forms"},
+        {"step": 6, "actor": "time + persistent ApoB exposure", "action": "builds", "target": "fibrous plaque → vulnerable plaque", "effect": "rupture → MI/stroke"}
+      ],
+      "analogies_th": [
+        "ApoB = จำนวน 'กระสุน' ที่ยิงผนังหลอดเลือดต่อวัน — LDL-C = น้ำหนักของกระสุนแต่ละนัด",
+        "Lp(a) = กระสุนพันธุกรรม — ลดด้วยยาไม่ค่อยได้ แต่ปริมาณรู้ครั้งเดียวในชีวิตก็พอ"
+      ],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2752979", "org": "JAMA Cardiology", "source_tier": "A", "year": 2019, "title": "Sniderman ApoB vs LDL-C vs non-HDL-C", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23467902/", "org": "Nat Rev Cardiol", "source_tier": "A", "year": 2013, "title": "Libby atherosclerosis review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ApoB",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_007",
+      "label_th": "Flow-Mediated Dilation (FMD) — วัดสุขภาพ endothelium ด้วย ultrasound",
+      "label_en": "Flow-Mediated Dilation (FMD)",
+      "description_th": "วัดเส้นผ่านศูนย์กลาง brachial artery ด้วย ultrasound → พันผ้ารัดแขนด้วย 200 mmHg 5 นาที เพื่อสร้าง reactive hyperemia → ปล่อย → shear stress กระตุ้น eNOS → NO pulse → หลอดเลือดขยาย; % การขยายเทียบ baseline = FMD (%); คนหนุ่มสาวสุขภาพดี ~8-10%, คน CVD <5%; FMD ลดก่อน lipid/BP ขึ้นหลายปี = earliest CVD marker",
+      "description_en": "Brachial artery diameter measured by ultrasound; a cuff at 200 mmHg for 5 min creates reactive hyperemia; release → high shear stress activates eNOS → NO pulse → vasodilation. %dilation vs baseline = FMD%. Healthy young ~8-10%, CVD <5%. FMD declines years before clinical lipid/BP changes — earliest detectable CVD marker.",
+      "chain": [
+        {"step": 1, "actor": "cuff inflation 200 mmHg × 5 min", "action": "blocks", "target": "distal forearm flow", "effect": "post-cuff reactive hyperemia"},
+        {"step": 2, "actor": "reactive hyperemia", "action": "creates", "target": "high shear stress at endothelium", "effect": "eNOS phosphorylated (Ser1177)"},
+        {"step": 3, "actor": "eNOS pulse", "action": "releases", "target": "NO → smooth muscle", "effect": "vasodilation"},
+        {"step": 4, "actor": "ultrasound", "action": "measures", "target": "diameter change %", "effect": "FMD (%) quantified"},
+        {"step": 5, "actor": "low FMD (<5%)", "action": "predicts", "target": "future CVD events", "effect": "earlier than conventional risk factors"}
+      ],
+      "analogies_th": [
+        "FMD = 'การวัดยืดหยุ่นของท่อ' — ท่อแข็งตึงกว่าปกติ บอกว่าเริ่มเสื่อม",
+        "FMD ลดเป็น check engine light ของหัวใจ — ขึ้นก่อนเครื่องพัง"
+      ],
+      "sources": [
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.112.093245", "org": "Circulation", "source_tier": "A", "year": 2012, "title": "Flammer FMD/endothelial function review", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "endothelial_function",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_008",
+      "label_th": "L-citrulline → bypass first-pass arginase → plasma arginine ขึ้นจริง",
+      "label_en": "L-citrulline bypasses hepatic arginase",
+      "description_th": "L-arginine กินเข้าไป ~40-50% ถูก arginase ในลำไส้/ตับทำลายก่อนถึงหลอดเลือด; L-citrulline ข้ามตับ → ไต convert เป็น arginine → plasma arginine ขึ้นมากกว่าการกิน L-arginine ตรงในปริมาณเท่ากัน → eNOS substrate มากขึ้น → BP ตก ~7/4 mmHg (Figueroa meta 2017 ใน pre-hypertensives)",
+      "description_en": "Oral L-arginine is 40-50% destroyed by arginase in gut and liver (first-pass); L-citrulline bypasses liver entirely and is converted to arginine in kidney → plasma arginine rises more efficiently than equivalent oral L-arginine. Result: more eNOS substrate → BP drops ~7/4 mmHg (Figueroa meta 2017 in pre-hypertensives).",
+      "chain": [
+        {"step": 1, "actor": "oral L-citrulline (3-6 g)", "action": "absorbed via", "target": "small intestine", "effect": "bypasses gut arginase activity"},
+        {"step": 2, "actor": "portal vein citrulline", "action": "passes through", "target": "liver unchanged", "effect": "liver lacks citrulline-arginine machinery"},
+        {"step": 3, "actor": "kidney proximal tubule", "action": "converts", "target": "citrulline → arginine (via ASS + ASL)", "effect": "systemic arginine rises"},
+        {"step": 4, "actor": "elevated plasma arginine", "action": "supplies", "target": "eNOS in endothelium", "effect": "more NO production"},
+        {"step": 5, "actor": "increased NO", "action": "reduces", "target": "vascular resistance", "effect": "SBP/DBP reduction"}
+      ],
+      "analogies_th": [
+        "L-arginine กินตรง = เอาเงินเดินผ่านด่านจ่ายภาษีครึ่งหนึ่ง; L-citrulline = ทางลัดไม่ต้องผ่านด่าน"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29040417/", "org": "Nutrition Reviews", "source_tier": "A", "year": 2017, "title": "Figueroa L-citrulline pooled BP analysis", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "nitric_oxide",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_009",
+      "label_th": "Vitamin K2 → activates MGP → กันแคลเซียมออกจากหลอดเลือด",
+      "label_en": "Vitamin K2 → MGP activation → arterial anti-calcification",
+      "description_th": "Matrix Gla Protein (MGP) เป็น inhibitor ของ vascular calcification — ต้องถูก γ-carboxylate โดย vitamin K-dependent carboxylase; K2 (MK-7) มี half-life ~72 ชม. และมีประสิทธิภาพกระจายสู่ extrahepatic tissue (หลอดเลือด/กระดูก) ดีกว่า K1; ขาด K2 → MGP inactive → แคลเซียมสะสมในผนังหลอดเลือด (arterial stiffness) แทนกระดูก",
+      "description_en": "Matrix Gla Protein inhibits vascular calcification, but requires vitamin K-dependent γ-carboxylation to be active; K2 (MK-7) has ~72 h half-life and preferentially targets extrahepatic tissue (arteries, bone) vs K1 (liver-targeting, ~1-2 h). K2 deficiency → inactive MGP → calcium deposits in arterial wall instead of bone.",
+      "chain": [
+        {"step": 1, "actor": "diet (natto, cheese, egg yolk)", "action": "provides", "target": "MK-4 / MK-7 vitamin K2", "effect": "absorbed via chylomicrons"},
+        {"step": 2, "actor": "MK-7 (long half-life)", "action": "reaches", "target": "extrahepatic tissues (vessel/bone)", "effect": "available as carboxylase cofactor"},
+        {"step": 3, "actor": "γ-carboxylase + K2", "action": "activates", "target": "MGP (Gla-residues)", "effect": "MGP can bind Ca²⁺ and inhibit crystal growth"},
+        {"step": 4, "actor": "active MGP", "action": "prevents", "target": "hydroxyapatite formation in arterial media", "effect": "reduces arterial stiffness"},
+        {"step": 5, "actor": "Rotterdam cohort", "action": "observed", "target": "57% lower CV mortality in top K2 tertile", "effect": "Geleijnse 2004 J Nutr"}
+      ],
+      "analogies_th": [
+        "K2 = 'ตำรวจจราจร' ที่พาแคลเซียมไปกระดูก ไม่ให้แวะแอบสะสมในหลอดเลือด"
+      ],
+      "sources": [
+        {"url": "https://academic.oup.com/jn/article/134/11/3100/4688424", "org": "J Nutr", "source_tier": "A", "year": 2004, "title": "Geleijnse Rotterdam K2/CVD", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "endothelial_function",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_010",
+      "label_th": "Niacin (B3) → ลด VLDL ที่ตับ + ลด lipolysis → ลด LDL/TG, ขึ้น HDL",
+      "label_en": "Niacin → reduces hepatic VLDL + adipocyte lipolysis → improves lipid panel",
+      "description_th": "Niacin ปริมาณสูง (1-3 g/d) จับ GPR109A บน adipocyte → ลด lipolysis → FFA ไหลเข้าตับน้อย → VLDL ผลิตน้อย → LDL/TG ลด; niacin ยังลด Apo(a) ได้ ~20-30% (ยาลดไขมันน้อยตัวที่ทำได้); flush เกิดเพราะ GPR109A บน Langerhans cell ของผิว → PGD2 → vasodilation ชั่วคราว 15-30 นาที",
+      "description_en": "High-dose niacin (1-3 g/d) binds GPR109A on adipocytes → suppresses lipolysis → less FFA flux to liver → less VLDL assembly → lower LDL/TG. Niacin also lowers Lp(a) 20-30% (rare ability). Flush occurs because GPR109A on skin Langerhans cells triggers PGD2 → transient 15-30 min vasodilation.",
+      "chain": [
+        {"step": 1, "actor": "high-dose niacin (1-3 g)", "action": "binds", "target": "GPR109A on adipocytes", "effect": "cAMP drops → HSL inhibited"},
+        {"step": 2, "actor": "reduced lipolysis", "action": "lowers", "target": "FFA delivery to liver", "effect": "reduced VLDL-TG synthesis"},
+        {"step": 3, "actor": "lower VLDL", "action": "leads to", "target": "lower LDL + lower TG", "effect": "HDL rises (mechanism less clear)"},
+        {"step": 4, "actor": "skin Langerhans cells", "action": "release", "target": "PGD2 via GPR109A", "effect": "flush, itch, warmth"},
+        {"step": 5, "actor": "AIM-HIGH 2011 NEJM", "action": "showed", "target": "no CV outcome benefit on top of statin", "effect": "niacin lowers numbers but not all-cause mortality in add-on"}
+      ],
+      "analogies_th": [
+        "Niacin = 'ปิดก๊อก' ที่ไขมันอิสระไม่ให้ไหลไปทำ VLDL ที่ตับ",
+        "Flush = สัญญาณว่า niacin ทำงานที่ผิว ไม่ใช่อาการแพ้"
+      ],
+      "sources": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1107579", "org": "NEJM", "source_tier": "A", "year": 2011, "title": "AIM-HIGH niacin + statin trial", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "lipid_panel",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_blood_011",
+      "label_th": "Statin → HMG-CoA reductase block → LDL ลง + CoQ10 ลดลงด้วย",
+      "label_en": "Statin → HMG-CoA reductase inhibition → LDL + CoQ10 depletion",
+      "description_th": "Statin ยับยั้ง HMG-CoA reductase (rate-limiting step ของ cholesterol synthesis) → ตับลด intracellular cholesterol → upregulate LDL receptor → ดูด LDL/ApoB จากเลือดเข้าตับมากขึ้น → LDL ในเลือดลด 30-50%; ผลข้างเคียง: mevalonate pathway เดียวกันผลิต CoQ10 ด้วย → CoQ10 ในเลือด/กล้ามเนื้อลด ~30-40% → myopathy risk (ubiquinol 100-200 mg/d อาจช่วย)",
+      "description_en": "Statins inhibit HMG-CoA reductase (rate-limiting in cholesterol synthesis) → hepatocytes deplete intracellular cholesterol → upregulate LDL receptor → clear more LDL/ApoB from blood → 30-50% LDL reduction. Side effect: the mevalonate pathway also produces CoQ10 → serum/muscle CoQ10 drops ~30-40% → may contribute to statin-associated myopathy (ubiquinol 100-200 mg/d often used as adjunct).",
+      "chain": [
+        {"step": 1, "actor": "statin", "action": "inhibits", "target": "HMG-CoA reductase in hepatocyte", "effect": "intracellular cholesterol falls"},
+        {"step": 2, "actor": "low hepatic cholesterol", "action": "upregulates", "target": "LDL receptors (via SREBP-2)", "effect": "more LDL uptake from plasma"},
+        {"step": 3, "actor": "LDL receptors", "action": "clear", "target": "circulating LDL/ApoB", "effect": "LDL-C down 30-50%"},
+        {"step": 4, "actor": "same pathway", "action": "also produces", "target": "CoQ10 (ubiquinone)", "effect": "muscle/plasma CoQ10 falls"},
+        {"step": 5, "actor": "CoQ10 depletion", "action": "contributes to", "target": "myopathy in susceptible patients", "effect": "ubiquinol 100-200 mg/d commonly added"}
+      ],
+      "analogies_th": [
+        "Statin = ปิดโรงงานน้ำมันที่ตับ — ตับเลยไปดูดไขมันจากท่อ (เลือด) เข้ามาใช้",
+        "CoQ10 = ผลพลอยเสียที่ปิดโรงงานเดียวกัน — เติมกลับได้ถ้าเล่นกล้ามแล้วปวด"
+      ],
+      "sources": [
+        {"url": "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.108.776203", "org": "Circulation", "source_tier": "A", "year": 2012, "title": "Ference Mendelian randomization LDL/ApoB", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "lipid_panel",
+      "confidence": "high"
+    }
+  ]
+}

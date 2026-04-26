@@ -1,0 +1,146 @@
+{
+  "domain_id": "stress",
+  "_meta": {"current_count": 8, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.stress"},
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_stress_001",
+      "label_th": "HPA Axis — วงจร Cortisol: Hypothalamus → Pituitary → Adrenal",
+      "label_en": "HPA Axis Stress Response: CRH → ACTH → Cortisol Cascade",
+      "description_th": "Stressor (psychological/physical) → hypothalamus หลั่ง CRH → anterior pituitary หลั่ง ACTH → adrenal cortex หลั่ง cortisol; cortisol เพิ่ม blood glucose (gluconeogenesis), ลด immune response, เพิ่ม alertness; negative feedback: cortisol จับ GR ใน hippocampus + hypothalamus → ยับยั้ง CRH/ACTH (ปิดวงจร); chronic stress → GR desensitization → negative feedback ล้มเหลว → cortisol สูงเรื้อรัง",
+      "description_en": "Stressor → hypothalamic CRH → anterior pituitary ACTH → adrenal cortisol; cortisol raises blood glucose, suppresses immunity, increases alertness; negative feedback: cortisol binds GR in hippocampus/hypothalamus → suppresses CRH/ACTH; chronic stress → GR desensitization → feedback failure → chronically elevated cortisol.",
+      "chain": [
+        {"step": 1, "actor": "Perceived stressor (psychological or physical)", "action": "activates", "target": "Paraventricular Nucleus (PVN) of hypothalamus", "effect": "CRH (Corticotropin-Releasing Hormone) released into portal blood"},
+        {"step": 2, "actor": "CRH in anterior pituitary", "action": "triggers", "target": "corticotroph cells", "effect": "ACTH (Adrenocorticotropic Hormone) secreted into bloodstream"},
+        {"step": 3, "actor": "ACTH at adrenal cortex (zona fasciculata)", "action": "stimulates", "target": "cortisol synthesis from cholesterol", "effect": "cortisol peaks ~20-30 min after stressor"},
+        {"step": 4, "actor": "Cortisol (multiple targets)", "action": "simultaneously", "target": "liver, muscle, immune cells, brain", "effect": "raises blood glucose, suppresses inflammation, heightens alertness"},
+        {"step": 5, "actor": "Cortisol at hippocampal GR (negative feedback)", "action": "inhibits", "target": "CRH/ACTH production", "effect": "response shuts down in acute stress"},
+        {"step": 6, "actor": "Chronic stress → repeated cortisol surges", "action": "downregulates", "target": "hippocampal GR expression", "effect": "feedback impaired → elevated baseline cortisol → hippocampal atrophy, immune suppression, visceral fat"}
+      ],
+      "analogies_th": ["HPA = alarm system ที่ออกแบบมาให้ดังแล้วหยุด; chronic stress = alarm ดังค้างตลอดเวลา", "cortisol = ผู้จัดการฉุกเฉิน — เก่งในวิกฤต แต่ทำลายองค์กรถ้าอยู่ถาวร"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/8922220/", "org": "PubMed", "source_tier": "A", "year": 1996, "title": "Stress, Glucocorticoids, and Damage to the Nervous System — Sapolsky RM", "access_date": "2026-04-22"}],
+      "sub_topic_id": "HPA_axis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_stress_002",
+      "label_th": "SNS Fight-or-Flight — Adrenaline + Noradrenaline Response",
+      "label_en": "Sympathetic Nervous System Acute Stress: Catecholamine Release",
+      "description_th": "Immediate threat → amygdala activates (threat detection center) → amygdala signal → locus coeruleus (noradrenaline) + hypothalamus → SNS activation → adrenal medulla → adrenaline + noradrenaline release ภายใน วินาที; effects: HR ขึ้น, BP ขึ้น, bronchial dilation, glycogenolysis ใน liver (glucose for muscles), pupil dilation, blood flow redirected to muscle/brain; gut and immune temporarily suppressed",
+      "description_en": "Threat → amygdala activates → locus coeruleus + hypothalamus → SNS → adrenal medulla releases adrenaline/noradrenaline within seconds; HR rises, BP rises, bronchodilation, hepatic glycogenolysis, pupil dilation, blood flow to muscle/brain; gut and immunity transiently suppressed.",
+      "chain": [
+        {"step": 1, "actor": "Amygdala (threat detection)", "action": "activates via rapid thalamus→amygdala shortcut", "target": "lateral hypothalamus + locus coeruleus", "effect": "noradrenaline floods PFC, limbic system within 1-2 seconds"},
+        {"step": 2, "actor": "Hypothalamic SNS activation", "action": "fires preganglionic neurons to", "target": "adrenal medulla (chromaffin cells)", "effect": "adrenaline + noradrenaline secreted into bloodstream"},
+        {"step": 3, "actor": "Catecholamines (blood)", "action": "bind β-adrenoreceptors", "target": "heart, lungs, liver, vasculature", "effect": "HR↑, contractility↑, bronchial dilation, hepatic glycogenolysis → blood glucose↑"},
+        {"step": 4, "actor": "Catecholamines", "action": "suppress", "target": "digestive, reproductive, and immune function", "effect": "non-emergency systems paused for short-term survival"}
+      ],
+      "analogies_th": ["SNS = ปุ่ม emergency ที่ทำงานทันที; HPA = backup ที่ตามมาทีหลัง", "adrenaline = ยาฉุกเฉินที่ร่างกายฉีดให้ตัวเอง — ดีในวิกฤต อันตรายถ้าฉีดทุกวัน"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/9922220/", "source_tier": "A", "year": 2004, "title": "Why Zebras Don't Get Ulcers — Sapolsky RM", "access_date": "2026-04-22"}],
+      "sub_topic_id": "HPA_axis",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_stress_003",
+      "label_th": "Chronic Cortisol → Hippocampal Atrophy และ Cognitive Impairment",
+      "label_en": "Chronic Cortisol Exposure Causes Hippocampal Dendritic Retraction and Neuronal Loss",
+      "description_th": "Cortisol จับ GR ใน hippocampus → เพิ่ม glutamate release (excitotoxicity) → NMDA receptor overactivation → calcium influx → mitochondrial dysfunction → dendrite retraction + reduced neurogenesis (ลด BDNF); chronic = cumulative damage → volume loss; เลิก stress → partial recovery possible (neuroplasticity)",
+      "description_en": "Cortisol binds hippocampal GR → excess glutamate release (excitotoxicity) → NMDA overactivation → calcium influx → mitochondrial dysfunction → dendritic retraction + reduced neurogenesis (via BDNF suppression); chronic exposure = cumulative volume loss; stress reduction allows partial recovery.",
+      "chain": [
+        {"step": 1, "actor": "Elevated cortisol (chronic)", "action": "activates GR in CA3 hippocampal neurons", "target": "presynaptic glutamate release machinery", "effect": "excess glutamate in synapse"},
+        {"step": 2, "actor": "Excess glutamate", "action": "overactivates NMDA receptors", "target": "postsynaptic CA3 neurons", "effect": "excessive Ca²⁺ influx → mitochondrial dysfunction → ROS"},
+        {"step": 3, "actor": "ROS and dendritic stress", "action": "cause", "target": "dendritic retraction in CA3 pyramidal neurons", "effect": "structural hippocampal damage"},
+        {"step": 4, "actor": "Cortisol suppression of BDNF", "action": "reduces", "target": "adult neurogenesis in dentate gyrus", "effect": "neurogenesis decreases → volume loss accelerates"},
+        {"step": 5, "actor": "Stress reduction + exercise + antidepressants", "action": "restore", "target": "BDNF levels + neurogenesis", "effect": "partial hippocampal recovery → improved memory"}
+      ],
+      "analogies_th": ["cortisol เรื้อรัง = กรดที่ค่อยๆ กัดกร่อน hippocampus", "ลด stress ทัน = กอบกู้สมองได้บางส่วน — neuroplasticity ยังทำงาน"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/8598379/", "source_tier": "A", "year": 1996, "title": "Hippocampal atrophy in recurrent major depression — Sheline YI et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "cortisol_brain",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_stress_004",
+      "label_th": "Vagal Tone — Brake System ที่ตรงข้ามกับ SNS",
+      "label_en": "Vagal Tone (Parasympathetic) as Counter-Regulation to Sympathetic Stress",
+      "description_th": "Vagus nerve (CN X) เป็น parasympathetic nerve หลักที่เชื่อม brainstem กับ heart, gut, immune cells; high vagal tone (HRV สูง) = ตอบสนองต่อ stress ได้ดี + recovery เร็ว; slow breathing (5-6 breaths/min) → activate baroreflex → NTS ใน medulla → vagal efferent → SA node → HR ลด + cortisol ลด; low vagal tone สัมพันธ์กับ CVD, depression, anxiety",
+      "description_en": "Vagus nerve (CN X) is primary parasympathetic nerve connecting brainstem to heart/gut/immune; high vagal tone (high HRV) = better stress response and faster recovery; slow breathing (5-6/min) activates baroreflex → NTS → vagal efferents → SA node → HR/BP reduction + cortisol reduction; low HRV = CVD, depression, anxiety risk.",
+      "chain": [
+        {"step": 1, "actor": "Slow diaphragmatic breathing (5-6 cycles/min)", "action": "stretches diaphragm → activates", "target": "thoracic mechanoreceptors + baroreceptors in aorta", "effect": "afferent signal to NTS (nucleus tractus solitarius) in medulla"},
+        {"step": 2, "actor": "NTS activation", "action": "increases", "target": "vagal efferent output to SA node + AV node", "effect": "heart rate slows, HRV increases"},
+        {"step": 3, "actor": "Vagal signal to adrenal cortex and lymphoid organs", "action": "reduces", "target": "cortisol release and systemic inflammation (via cholinergic anti-inflammatory pathway)", "effect": "cortisol ลด, TNF-α ลด"},
+        {"step": 4, "actor": "Regular vagal stimulation (breathing, meditation, cold exposure)", "action": "upregulates", "target": "vagal tone baseline (HRV increase over weeks)", "effect": "chronic stress resilience improved"}
+      ],
+      "analogies_th": ["vagal tone = ระบบ brake ของร่างกาย; SNS = accelerator", "HRV สูง = รถที่มี brake ดี จึง accelerate ได้แรงโดยไม่หลุดโค้ง"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/30246386/", "source_tier": "B", "year": 2018, "title": "How breath-control can change your life — Zaccaro A et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "mind_body",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_stress_005",
+      "label_th": "Cortisol → Visceral Fat Accumulation",
+      "label_en": "Glucocorticoid Receptor Activation in Visceral Adipocytes Drives Abdominal Fat Storage",
+      "description_th": "Visceral adipocytes (ไขมันในช่องท้อง) มี GR density สูงกว่า subcutaneous fat; cortisol จับ GR → upregulate lipoprotein lipase (LPL) ใน visceral adipocytes → เพิ่ม triglyceride uptake; cortisol ยัง stimulate hepatic gluconeogenesis → เพิ่ม blood glucose → insulin ขึ้น → fat storage เพิ่ม; visceral fat itself ผลิต cortisol ด้วย (11β-HSD1) → amplification loop",
+      "description_en": "Visceral adipocytes have higher GR density than subcutaneous fat; cortisol binds GR → upregulates LPL in visceral fat → increases TG uptake; cortisol stimulates hepatic gluconeogenesis → raises insulin → more fat storage; visceral fat expresses 11β-HSD1 (produces local cortisol) → amplification loop.",
+      "chain": [
+        {"step": 1, "actor": "Chronic cortisol elevation", "action": "activates GR in visceral adipocytes (high receptor density)", "target": "LPL + adipogenesis genes", "effect": "preferential fat uptake and storage in visceral depots"},
+        {"step": 2, "actor": "Cortisol → hepatic gluconeogenesis", "action": "raises blood glucose → insulin spike", "target": "insulin signaling in adipocytes", "effect": "more lipogenesis in all fat depots, especially visceral"},
+        {"step": 3, "actor": "Visceral adipose 11β-HSD1 enzyme", "action": "converts inactive cortisone → active cortisol locally", "target": "local GR in same tissue", "effect": "amplification loop — more local cortisol → more visceral fat"},
+        {"step": 4, "actor": "Expanded visceral fat depot", "action": "secretes", "target": "pro-inflammatory cytokines (TNF-α, IL-6)", "effect": "systemic inflammation, insulin resistance → metabolic syndrome"}
+      ],
+      "analogies_th": ["cortisol สูง = คำสั่ง 'เก็บสำรองไว้ที่ท้อง ก่อนเลย'; visceral fat ยิ่งใหญ่ ยิ่งผลิต cortisol เอง = snowball"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/11498314/", "source_tier": "A", "year": 2001, "title": "Glucocorticoids and visceral fat — Björntorp P", "access_date": "2026-04-22"}],
+      "sub_topic_id": "stress_metabolism",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_stress_006",
+      "label_th": "Adaptogens — Ashwagandha/Rhodiola กับ HPA Modulation",
+      "label_en": "Adaptogen Mechanisms: Withanolides and Rosavins Modulate HPA Axis and HSP70",
+      "description_th": "Adaptogens (Ashwagandha withanolides, Rhodiola rosavins/salidroside) มีกลไกหลายทาง: 1) ลด CRH/ACTH secretion → ลด cortisol; 2) ยับยั้ง cortisol-induced GR downregulation (preserve feedback); 3) modulate Hsp70/Hsp90 (heat shock proteins) → เพิ่ม cell stress resistance; 4) Ashwagandha withanolides → GABA-A receptor positive allosteric modulation → ลด anxiety; Rhodiola salidroside → monoamine oxidase inhibition + 5-HT uptake inhibition",
+      "description_en": "Adaptogens modulate HPA via: 1) reducing CRH/ACTH secretion; 2) preventing cortisol-induced GR downregulation; 3) upregulating HSP70/HSP90 (cellular stress resistance); 4) Ashwagandha withanolides → GABA-A positive allosteric modulation → anxiolysis; Rhodiola salidroside → MAO inhibition + 5-HT reuptake inhibition → mood support.",
+      "chain": [
+        {"step": 1, "actor": "Ashwagandha withanolides", "action": "modulate", "target": "GABA-A receptor (positive allosteric modulation)", "effect": "anxiolytic effect similar to benzodiazepine mechanism but much weaker/safer"},
+        {"step": 2, "actor": "Withanolides", "action": "inhibit", "target": "CRH secretion from hypothalamus (via NF-κB, cortisol feedback)", "effect": "reduced ACTH → reduced cortisol"},
+        {"step": 3, "actor": "Rhodiola salidroside/rosavin", "action": "inhibit MAO-A (partial)", "target": "serotonin degradation in synapse", "effect": "serotonin + dopamine levels rise → fatigue/mood improvement"},
+        {"step": 4, "actor": "Both adaptogens", "action": "upregulate", "target": "HSP70 (heat shock protein) → cellular stress defense", "effect": "cells better handle cortisol-induced oxidative stress"}
+      ],
+      "analogies_th": ["adaptogen = ปรับ volume ของ alarm system ให้ดังพอดี — ไม่ปิด แต่ไม่ดังเกิน", "withanolide ใน Ashwagandha = key ที่ไปจับ GABA receptor เหมือน benzodize แต่อ่อนกว่า 100 เท่า"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/23439798/", "source_tier": "B", "year": 2012, "title": "Safety and efficacy of ashwagandha root extract — Chandrasekhar K et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "adaptogen",
+      "confidence": "medium"
+    },
+    {
+      "mechanism_id": "mech_stress_007",
+      "label_th": "Mindfulness กับ Prefrontal Cortex — Top-Down Emotional Regulation",
+      "label_en": "Mindfulness Strengthens PFC-Amygdala Inhibitory Circuit — Top-Down Stress Regulation",
+      "description_th": "Amygdala (bottom-up threat detector) → triggers stress response; Prefrontal Cortex (top-down regulator) → inhibits amygdala via GABAergic interneurons; chronic stress → PFC thinning → amygdala hyperactivation; mindfulness practice → increase PFC thickness (Lazar 2005 Harvard, 20yr meditators vs control) + reduce amygdala volume/reactivity → improved emotional regulation; mechanism: PFC→amygdala inhibitory synapse strengthened by repetitive mindful attention practice",
+      "description_en": "Amygdala (bottom-up threat detection) → stress response; PFC (top-down regulator) inhibits amygdala via GABAergic interneurons; chronic stress → PFC thinning → amygdala hyperactivity; mindfulness training increases PFC thickness and reduces amygdala reactivity (Lazar 2005, Hölzel 2011); PFC→amygdala inhibitory synapses strengthened by practice.",
+      "chain": [
+        {"step": 1, "actor": "Threat perception → amygdala activation", "action": "fires", "target": "HPA axis + SNS (bottom-up)", "effect": "stress response initiated"},
+        {"step": 2, "actor": "mPFC (medial prefrontal cortex)", "action": "sends GABAergic inhibitory projections to", "target": "basolateral amygdala", "effect": "top-down regulation = cortical control of emotional response"},
+        {"step": 3, "actor": "Mindfulness practice (weeks-months)", "action": "increases gray matter in", "target": "mPFC, insula, anterior cingulate cortex (ACC)", "effect": "stronger inhibitory pathway to amygdala"},
+        {"step": 4, "actor": "Thickened PFC + reduced amygdala volume", "action": "results in", "target": "lower cortisol reactivity + faster cortisol recovery", "effect": "stress resilience: same stressor → smaller cortisol spike + faster return to baseline"}
+      ],
+      "analogies_th": ["PFC = CEO ที่บังคับ amygdala (ระบบความกลัว) ไม่ให้ panic; mindfulness = training ให้ CEO แข็งแรงขึ้น", "คนที่ meditate นาน = amygdala เล็กลง PFC ใหญ่ขึ้น — ข้อมูลจาก Harvard MRI"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/24395196/", "source_tier": "A", "year": 2014, "title": "Mindfulness meditation programs for psychological stress — Goyal M et al.", "access_date": "2026-04-22"}],
+      "sub_topic_id": "mind_body",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_stress_008",
+      "label_th": "Gut-Brain Stress Axis — Microbiome และ Cortisol Feedback",
+      "label_en": "Gut-Brain Bidirectional Stress Loop via HPA-Microbiome-Vagal Pathways",
+      "description_th": "Cortisol ลด mucus layer ใน gut → เพิ่ม permeability → LPS จาก gram-negative bacteria เข้า bloodstream → TLR4 activation → IL-6, TNF-α → systemic inflammation → penetrates BBB → neuroinflammation → worsened anxiety/depression; gut bacteria ผลิต GABA, serotonin (90% of body 5-HT), short-chain FA (propionate, butyrate) → vagus nerve → mood regulation; stress ลด diversity → cycle worsens",
+      "description_en": "Cortisol reduces gut mucus → increased permeability → LPS enters blood → TLR4 → IL-6/TNF-α → neuroinflammation → worse anxiety; gut bacteria produce GABA, 5-HT (90% of body serotonin), SCFA (butyrate/propionate) → vagal signal → mood; stress reduces gut diversity → bidirectional worsening loop.",
+      "chain": [
+        {"step": 1, "actor": "Cortisol (chronic elevation)", "action": "decreases", "target": "mucin production by goblet cells", "effect": "gut barrier permeability increases"},
+        {"step": 2, "actor": "LPS (from gram-negative bacteria) entering blood", "action": "activates", "target": "TLR4 on macrophages and endothelium", "effect": "systemic inflammatory cytokines (IL-6, TNF-α, IL-1β)"},
+        {"step": 3, "actor": "Neuroinflammation (cytokines cross BBB)", "action": "activate", "target": "microglia in brain", "effect": "IDO pathway: tryptophan → kynurenine (not serotonin) → depression, anxiety"},
+        {"step": 4, "actor": "Butyrate (from Bifidobacterium, Firmicutes)", "action": "maintains", "target": "gut tight junction proteins (claudin, occludin)", "effect": "gut barrier integrity; also vagal HDAC inhibition → anti-anxiety signal"},
+        {"step": 5, "actor": "Stress-induced microbiome disruption", "action": "reduces", "target": "Lactobacillus, Bifidobacterium, butyrate producers", "effect": "less serotonin, less GABA, more leaky gut → feedback worsens anxiety"}
+      ],
+      "analogies_th": ["gut = brain ที่สอง; stress ทำลาย gut → gut ส่งสัญญาณวนกลับทำให้ stress แย่กว่าเดิม", "butyrate จาก microbiome = 'น้ำมัน' ที่หล่อ gut-brain axis ให้ทำงานดี"],
+      "sources": [{"url": "https://pubmed.ncbi.nlm.nih.gov/21791993/", "source_tier": "A", "year": 2011, "title": "The gut-brain axis — Mayer EA", "access_date": "2026-04-22"}],
+      "sub_topic_id": "gut_brain_stress",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "domain_id": "skin",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 8,
+    "last_harvested": "2026-04-22T00:00:00",
+    "harvested_by": "domain_harvester.skin"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_skin_001",
+      "popular_belief_th": "ดื่มคอลลาเจนแล้วคอลลาเจนจะไปที่ผิวโดยตรง",
+      "popular_belief_en": "Drinking collagen supplements delivers collagen directly to skin.",
+      "reality_th": "คอลลาเจนที่กินเข้าไปจะถูกย่อยโดยเอนไซม์ในกระเพาะและลำไส้เป็นกรดอะมิโนและไดเปปไทด์ก่อน ร่างกายไม่ดูดซึม 'คอลลาเจน' ทั้งโมเลกุล — แต่ bioactive collagen peptides (โดยเฉพาะ VERISOL® type) มีหลักฐาน RCT ว่า peptide เล็ก (Pro-Hyp, Hyp-Gly) ดูดซึมเข้าเลือดและกระตุ้น fibroblast ให้สร้างคอลลาเจนเองมากขึ้น",
+      "reality_en": "Ingested collagen is hydrolyzed to amino acids and small peptides by digestive enzymes — whole collagen molecules are not absorbed. However, specific bioactive collagen peptides (e.g. VERISOL® hydrolysate) contain Pro-Hyp and Hyp-Gly dipeptides that are absorbed intact into blood and stimulate fibroblast collagen synthesis — evidenced by RCT biopsy data showing +65% procollagen I (Proksch 2014).",
+      "mechanism_explanation_th": "กลไกที่แท้จริงคือ peptide ขนาดเล็กกระตุ้นผิวให้สร้างคอลลาเจนเอง ไม่ใช่การ 'เติมคอลลาเจน' โดยตรง — เหมือนกินวัตถุดิบให้โรงงานสร้างของใหม่ ไม่ใช่นำเข้าสินค้าสำเร็จรูป",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/24401291/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_skin_002",
+      "popular_belief_th": "กลูต้า (Glutathione) IV โดสสูงยิ่งขาวยิ่งดี — ยิ่งฉีดเยอะยิ่งผลเยอะ",
+      "popular_belief_en": "Higher IV glutathione doses = faster and more skin whitening results.",
+      "reality_th": "IV glutathione โดสสูง (600-1200 mg/สัปดาห์) มีรายงานผลข้างเคียงร้ายแรงได้แก่ Stevens-Johnson syndrome, toxic epidermal necrolysis, ไตล้มเหลว — FDA Philippines (2011) และ FDA ไทยออกประกาศห้ามใช้เพื่อความขาว; oral glutathione bioavailability ต่ำมาก (<2% ตามการศึกษาเก่า) แม้ liposomal form จะดีกว่าแต่ยังขาดหลักฐาน RCT ขนาดใหญ่",
+      "reality_en": "High-dose IV glutathione carries serious risks (Stevens-Johnson syndrome, TEN, renal failure) documented in case reports — FDA Philippines and Thailand's FDA have issued explicit safety warnings. Oral glutathione bioavailability is low; liposomal forms show improvement but lack large RCT validation. Neither form can override genetic skin color ceiling.",
+      "mechanism_explanation_th": "กลูตาไธโอนทำให้ผิวกระจ่างขึ้นได้ผ่านการเปลี่ยน eumelanin → pheomelanin (เปลี่ยนสัดส่วนเมลานิน) ไม่ใช่ 'ลบ' เมลานินทิ้ง — และมีเพดานทางพันธุกรรม; โดสสูงเกินไม่ได้เร่งผล แต่เพิ่มความเสี่ยง",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27000386/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_skin_003",
+      "popular_belief_th": "สิวเกิดเพราะล้างหน้าไม่สะอาด / กินอาหารมัน",
+      "popular_belief_en": "Acne is caused by poor face-washing hygiene or eating greasy food.",
+      "reality_th": "สิวเกิดจาก androgen กระตุ้นต่อมไขมัน + C. acnes overgrowth ในรูขุมขน — ไม่ใช่เพราะ 'สกปรก' บนผิว; งานวิจัย meta-analysis (Romanska-Knight 2016) ยืนยันว่าการล้างหน้าบ่อยเกินทำลาย barrier ทำให้สิวแย่ลง; ส่วนอาหาร — มี evidence ว่า high-glycemic diet และนม (ผ่าน IGF-1) เพิ่มสิว แต่ไม่ใช่ 'อาหารมัน' โดยตรง",
+      "reality_en": "Acne is driven by androgen-stimulated sebum hypersecretion + C. acnes colonisation + follicular hyperkeratosis — primarily internal, not surface dirt. Excessive face-washing disrupts the skin barrier and worsens acne. High-glycemic diet and dairy (via IGF-1 pathway) have evidence supporting acne association; dietary fat alone does not.",
+      "mechanism_explanation_th": "ต่อมไขมันตอบสนองต่อ DHT ใต้ผิว ล้างผิวด้านบนกี่ครั้งก็ไม่ถึงต่อมไขมัน — เหมือนดับไฟในท่อประปาโดยราดน้ำบนพื้นบ้าน",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/24688624/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_skin_004",
+      "popular_belief_th": "SPF สูงกว่า = ป้องกันได้มากกว่าอย่างเป็นเท่า — SPF 100 ป้องกันได้ 2 เท่าของ SPF 50",
+      "popular_belief_en": "SPF 100 protects twice as well as SPF 50.",
+      "reality_th": "SPF ไม่ scale เป็นเส้นตรง: SPF 50 บล็อก 98% ของ UVB, SPF 100 บล็อก 99% — ต่างกันแค่ 1%; FDA สหรัฐไม่อนุญาตให้ label เกิน 'SPF 50+' เพราะตัวเลขที่สูงกว่าไม่มีความหมาย clinical จริง; ปัจจัยสำคัญกว่าคือปริมาณที่ทา (ทาพอ 2 mg/cm²) และ reapply ทุก 2 ชั่วโมง",
+      "reality_en": "SPF math is logarithmic, not linear: SPF 50 blocks 98%, SPF 100 blocks 99% — a clinically insignificant 1% difference. The U.S. FDA caps sunscreen labeling at 'SPF 50+' for this reason. Application amount and reapplication frequency matter far more than SPF number above 30.",
+      "mechanism_explanation_th": "SPF = 1/(1-fraction blocked) — ยิ่งใกล้ 100% ยิ่งต้องใช้ค่า SPF สูงมากขึ้นเพื่อกั้นแค่ fraction เล็กๆ เพิ่มเติม กฎของผลตอบแทนลดลง (diminishing returns)",
+      "source_url": "https://www.aad.org/public/everyday-care/sun-protection/sunscreen-patients/sunscreen-faqs",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_skin_005",
+      "popular_belief_th": "Retinol ยิ่งใช้เยอะยิ่งได้ผลเร็ว — ใช้ทุกวันตั้งแต่ต้น concentration สูงๆ",
+      "popular_belief_en": "Higher retinol concentration applied daily from the start gives faster results.",
+      "reality_th": "Retinol ในปริมาณสูงหรือใช้บ่อยเกินไปทำให้ผิวแดง/ลอก/คัน (retinoid dermatitis หรือ retinization) ที่เป็นเหตุให้หยุดใช้ — ทำให้ไม่ได้ผลเลย; วิธีที่ได้ผลที่สุดคือ 'start low, go slow' — เริ่มที่ 0.025-0.05% สัปดาห์ละ 2-3 ครั้ง แล้วค่อยเพิ่ม; tretinoin 0.05% ใน RCT (Griffiths 1993) ต้องใช้ 6-12 เดือนถึงเห็นผลเต็มที่",
+      "reality_en": "Using high-dose retinol too frequently causes retinoid dermatitis (erythema, peeling, stinging) in ~50% of users — leading to discontinuation and no benefit. The gold standard approach is 'start low (0.025%), go slow (2-3×/week), increase gradually'. Maximum anti-aging effect requires 6-12 months of consistent use even with prescription tretinoin (Griffiths 1993 NEJM).",
+      "mechanism_explanation_th": "Retinoid receptor (RAR) downregulates when overstimulated — ผิวต้องปรับตัวก่อนจึงจะตอบสนองอย่างสม่ำเสมอ; เร่งเกินไปเหมือนกดคันเร่งจนล้อหมุนฟรี",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/8421403/",
+      "uncled_addressable": false,
+      "narrative_potential": "medium"
+    },
+    {
+      "myth_id": "myth_skin_006",
+      "popular_belief_th": "อาหารเสริมทำให้ผิว 'ขาวขึ้น' ได้ไม่มีเพดาน — กินนานพอผิวขาวได้แน่นอน",
+      "popular_belief_en": "Supplements can make skin as white as desired if taken long enough — no limit.",
+      "reality_th": "สีผิวพื้นฐาน (constitutive skin color) กำหนดโดยยีน MC1R, SLC24A5, SLC45A2 — อาหารเสริมสามารถลด 'tan' หรือ hyperpigmentation กลับสู่ baseline เท่านั้น ไม่สามารถทำให้ผิวขาวเกินกว่า genetic ceiling ได้; AAD ระบุชัดว่า supplement ทำได้แค่ 'even out tone' ไม่ใช่ 'whitening beyond baseline'",
+      "reality_en": "Constitutive skin color is genetically fixed by polymorphisms in MC1R, SLC24A5, SLC45A2. Supplements and topicals can reverse acquired hyperpigmentation (tan, melasma, PIH) back toward the genetic baseline — they cannot lighten below constitutive baseline. AAD categorically distinguishes 'tone-evening' from 'permanent whitening'.",
+      "mechanism_explanation_th": "ยีนกำหนดจำนวนและ activity ของ melanocyte รวมถึง MC1R receptor sensitivity — ไม่มีสารใดปิดยีนได้จากภายนอกในระยะยาว; ที่ supplement ทำได้คือลด 'overclock' ของ tyrosinase ที่เกินจาก UV/inflammation กลับสู่ baseline",
+      "source_url": "https://www.aad.org/public/diseases/a-z/hyperpigmentation-treatment",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_skin_007",
+      "popular_belief_th": "ฝ้าเกิดเพราะกรรม / โชคร้าย / ไม่มีทางแก้ได้",
+      "popular_belief_en": "Melasma is caused by bad luck or genetics alone and cannot be managed.",
+      "reality_th": "ฝ้า (melasma) มีปัจจัยหลัก 3 ประการที่ controllable: UV exposure, estrogen levels (ยาคุม/ฮอร์โมน/ท้อง), และ heat/inflammation — melanocyte มี estrogen receptor (ERα/ERβ) ทำให้ฮอร์โมนกระตุ้นได้โดยตรง; การจัดการฝ้าด้วย broad-spectrum sunscreen (PA++++), niacinamide, tranexamic acid, tretinoin มีหลักฐาน RCT ชัดเจน",
+      "reality_en": "Melasma has three key modifiable triggers: UV (primary — stimulates MITF/tyrosinase directly), estrogen (melanocytes express ERα/ERβ → progesterone/estrogen spike triggers melanogenesis — explains 50-70% pregnancy melasma prevalence in Fitzpatrick IV-VI), and heat/infrared radiation. Broad-spectrum SPF, niacinamide, tranexamic acid, and tretinoin combination have RCT-supported efficacy.",
+      "mechanism_explanation_th": "ฝ้าเป็น 'ปัญหาสิ่งแวดล้อม' มากกว่า 'ชะตากรรม' — ถ้าไม่โดนแดดและควบคุมฮอร์โมนได้ ฝ้าจะเข้มขึ้นช้ามาก",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21777216/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_skin_008",
+      "popular_belief_th": "Vitamin C เซรั่มยี่ห้อไหนก็ใช้ได้เหมือนกัน — แค่มี vitamin C อยู่ก็พอ",
+      "popular_belief_en": "Any vitamin C serum works the same — just having vitamin C in the formula is enough.",
+      "reality_th": "L-ascorbic acid ซึมผิวได้ต้องมีเงื่อนไข pH <3.5 และ 10-20% — product หลายตัวใช้ vitamin C derivative (ascorbyl glucoside, MAP, AA2G) ที่ stable กว่าแต่ต้องแปลงก่อนจึงจะ active ในผิว และอาจมี potency ต่ำกว่า; นอกจากนี้ vitamin C ออกซิไดซ์เร็วมากเมื่อเปิดขวด — product สีเหลือง/ส้มแสดงว่า oxidized แล้วและ efficacy ลดลงมาก",
+      "reality_en": "Only L-ascorbic acid is directly active — it requires pH <3.5 and 10-20% concentration for stratum corneum penetration (Pinnell 2001). Stable derivatives (ascorbyl glucoside, AA2G, MAP) are converted to L-AA in skin but at variable efficiency. Oxidized L-AA (yellow-orange solution) has drastically reduced antioxidant potency — consumers often use inactive product without knowing.",
+      "mechanism_explanation_th": "pH <3.5 ทำให้ L-ascorbic acid อยู่ในรูป protonated (ไม่มีประจุ) ซึ่งซึมผ่าน lipophilic stratum corneum ได้ — ที่ pH สูงกว่า มันมีประจุลบ (ascorbate ion) ซึมผ่านไขมันไม่ได้",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11705373/",
+      "uncled_addressable": false,
+      "narrative_potential": "medium"
+    }
+  ]
+}

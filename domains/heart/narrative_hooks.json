@@ -1,0 +1,119 @@
+{
+  "domain_id": "heart",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 12,
+    "last_harvested": "2026-04-22",
+    "notes": "Hook templates for cardiovascular — heart is UncleD's strongest 'pain/shock' gate. Templates target the fear of silent atherosclerosis + misinformation around cholesterol tests + statins. Every template has safety-compliant example and forbidden closings."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_heart_001_silent_buildup",
+      "style": "shock",
+      "pattern_th": "หัวใจวาย__X__ ไม่ได้เกิดขึ้นใน __Y__ — มันสะสมมา __Z__ ปี",
+      "example_th": "หัวใจวายเฉียบพลันไม่ได้เกิดขึ้นใน 1 นาที — มันสะสมมา 20-30 ปีในหลอดเลือด; งาน autopsy PDAY พบว่าคนอายุ 25-34 ถึง 30% มี fibrous plaque แล้ว — ตอนที่คุณเริ่มรู้สึกอาการ plaque มีอยู่ในหลอดเลือดคุณมาครึ่งชีวิตแล้ว",
+      "facts_used": ["heart_009", "heart_017"],
+      "effectiveness_notes": "Pain/shock hook — UncleD's strongest gate pattern. Pair กับ fact PDAY ให้ credibility; ห้าม close ด้วย 'supplement X ป้องกัน 100%'",
+      "safety_note": "ห้าม LLM pair กับ product claim แบบ 'กิน X แล้วหยุด buildup ได้'; ใช้ close ว่า 'ตรวจ ApoB/CAC ตั้งแต่อายุ 40'"
+    },
+    {
+      "template_id": "hook_heart_002_normal_not_safe",
+      "style": "insult_reality",
+      "pattern_th": "ตรวจ __X__ ปกติ ≠ ปลอดภัย — ต้องตรวจ __Y__",
+      "example_th": "ตรวจคอเลสเตอรอลปกติ ≠ ปลอดภัย — ต้องตรวจ ApoB และ Lp(a); คน 'total cholesterol ปกติ' 30% มี ApoB สูง = เสี่ยง CVD เหมือนคนคอเลสเตอรอลสูง — หมอไทยส่วนใหญ่ยังไม่สั่งตรวจ ApoB เป็น standard",
+      "facts_used": ["heart_003", "heart_005"],
+      "effectiveness_notes": "Myth-flip hook + empowers viewer ให้ถามแพทย์; เป็น curriculum moment สำหรับ UncleD",
+      "safety_note": "OK ให้ LLM push testing; ห้าม LLM ประเมินผลเลือดแทนแพทย์"
+    },
+    {
+      "template_id": "hook_heart_003_global_killer",
+      "style": "awe",
+      "pattern_th": "โรค __X__ ฆ่าคนไป __Y__ คนต่อปีทั่วโลก — มากกว่า __Z__ รวมกัน",
+      "example_th": "โรคหัวใจและหลอดเลือดฆ่าคนไป 17.9 ล้านคนต่อปีทั่วโลก (WHO 2023) — มากกว่ามะเร็งทุกชนิดรวมกัน — และ 80% ของกรณีป้องกันได้ด้วยการเปลี่ยนพฤติกรรมตั้งแต่อายุ 30-40",
+      "facts_used": ["heart_001"],
+      "effectiveness_notes": "Awe + urgency hook + WHO authority — ใช้ open thread ได้ทรงพลัง",
+      "safety_note": "ห้ามอ้างว่า supplement X ป้องกัน 80% ได้; 'การเปลี่ยนพฤติกรรม' = diet + exercise + smoking cessation + BP/LDL control"
+    },
+    {
+      "template_id": "hook_heart_004_silent_plaque_age",
+      "style": "shock",
+      "pattern_th": "คุณกิน __X__ วันนี้ไหม? ถ้าไม่ __Y__ ของคุณเริ่มแข็งตั้งแต่อายุ __Z__",
+      "example_th": "คุณกินผักใบเขียววันนี้ไหม? ถ้าไม่ — หลอดเลือดของคุณเริ่มสะสมคราบ plaque ตั้งแต่อายุ 25; endothelial dysfunction เริ่มก่อน cholesterol สูง, ก่อนความดันสูง, และก่อนที่คุณจะรู้สึกอะไร",
+      "facts_used": ["heart_009", "heart_002"],
+      "effectiveness_notes": "Pain-recognition แบบ daily-behavior hook — ทำให้ viewer เชื่อมกับ action ทันที",
+      "safety_note": "OK ให้ชี้ไปที่ lifestyle intervention; ห้าม close ด้วย 'green superfood supplement = leafy greens'"
+    },
+    {
+      "template_id": "hook_heart_005_calcium_paradox",
+      "style": "curiosity",
+      "pattern_th": "แคลเซียมของคุณไปที่ __X__ หรือ ไปที่ __Y__?",
+      "example_th": "แคลเซียมที่คุณกินทุกวัน — มันไปที่กระดูก หรือ ไปที่หลอดเลือด? คำตอบขึ้นกับ Vitamin K2 ในร่างกายคุณ; คนเอเชียที่ไม่กิน natto/อาหารหมัก → K2 ต่ำ → 'calcium paradox' — กระดูกพรุน + หลอดเลือดแข็ง พร้อมกัน",
+      "facts_used": ["heart_016"],
+      "effectiveness_notes": "Curiosity + dual-pain (bones + heart) hook; เปิดเส้นทางสู่ angle_vitamin_K2_MK7",
+      "safety_note": "ห้าม recommend K2 ในคนกิน warfarin; ต้องเตือน warfarin interaction"
+    },
+    {
+      "template_id": "hook_heart_006_genetic_bomb",
+      "style": "shock",
+      "pattern_th": "20% ของประชากร มี __X__ สูงทางพันธุกรรม — และ __Y__",
+      "example_th": "20% ของประชากรมี Lp(a) สูงทางพันธุกรรม — และคุณอาจไม่เคยรู้ ตรวจครั้งเดียวในชีวิตก็พอ แต่ถ้าไม่เคยตรวจ = ไม่รู้ว่าอยู่ใน 20% นั้น; คน Lp(a) สูงเสี่ยง MI เร็วกว่าคนทั่วไป 10-15 ปี",
+      "facts_used": ["heart_005"],
+      "effectiveness_notes": "Shock + actionable hook — Lp(a) เป็น under-tested mega-topic ในไทย",
+      "safety_note": "แนะนำตรวจ Lp(a) ครั้งเดียว; ห้าม claim 'supplement X ลด Lp(a) ได้'  (มีแค่ niacin + pelacarsen ยังไม่ออกตลาด)"
+    },
+    {
+      "template_id": "hook_heart_007_reduce_it_number",
+      "style": "shock",
+      "pattern_th": "งานวิจัย __X__ คนพบว่า __Y__ ลด __Z__ ได้ __W__%",
+      "example_th": "งานวิจัย 8,179 คนในชื่อ REDUCE-IT (NEJM 2019) พบว่า EPA dose สูง 4 g/day ลดการเสียชีวิตจากหัวใจ + stroke + MI ได้ 25% ใน 5 ปี — ไม่ใช่ omega-3 ธรรมดาในร้านขายยา แต่เป็น icosapent ethyl (prescription)",
+      "facts_used": ["heart_004", "heart_019"],
+      "effectiveness_notes": "Number-shock + trial-authority hook; ใช้เปิดเรื่อง angle_omega_3_epa_high_dose",
+      "safety_note": "ต้องระบุ 'prescription dose' + 'high-risk population'; ห้ามอ้างว่า omega-3 ทั่วไปให้ผลเทียบ REDUCE-IT"
+    },
+    {
+      "template_id": "hook_heart_008_statin_truth",
+      "style": "insult_reality",
+      "pattern_th": "คุณเกลียด statin — แต่ __X__",
+      "example_th": "คุณเกลียด statin — แต่ JUPITER trial (NEJM 2008) พบว่า rosuvastatin 20 mg ลด MI + stroke ได้ 44% ในคน LDL ปกติแต่ hsCRP สูง; statin-denial ในยุคนี้ = ปล่อยโอกาสป้องกัน #1 ผ่านไป แล้วไปหวังกับ supplement หลังเกิดเหตุ",
+      "facts_used": ["heart_007", "heart_008"],
+      "effectiveness_notes": "Counter-narrative hook — UncleD บางคลิปสายต่อต้าน 'big pharma'; hook นี้ reframe statin เป็น 'evidence-based' ไม่ใช่ 'enemy'",
+      "safety_note": "ห้าม imply ทุกคนควรกิน statin; การตัดสินใจต้องคุยแพทย์พิจารณา risk score"
+    },
+    {
+      "template_id": "hook_heart_009_warranty",
+      "style": "awe",
+      "pattern_th": "มีผลตรวจหนึ่งที่ถ้าเป็น 0 = __X__ ใน 10 ปี",
+      "example_th": "มีผลตรวจ 'CAC score' ที่ถ้าค่าเป็น 0 — ความเสี่ยง heart attack ใน 10 ปีเหลือต่ำกว่า 1% แม้ LDL จะสูง (MESA cohort); นี่คือ 'warranty period' ที่ Attia พูดถึง — ใช้ตัดสินว่าจะกิน statin primary prevention หรือไม่",
+      "facts_used": ["heart_002"],
+      "effectiveness_notes": "Awe + hopeful hook (ปกติ cardiovascular content เน้น fear; hook นี้ balance)",
+      "safety_note": "ต้องระบุว่า CAC=0 เป็นแค่ 5-10 ปี warranty, ไม่ใช่ตลอดชีวิต"
+    },
+    {
+      "template_id": "hook_heart_010_natural_deception",
+      "style": "insult_reality",
+      "pattern_th": "__X__ จาก 'ธรรมชาติ' — แต่จริงๆ มันคือ __Y__ ที่ไม่มี QC",
+      "example_th": "Red yeast rice จาก 'ธรรมชาติ' — แต่ molecule ที่มันมีคือ lovastatin = ยา statin ตัวเดียวกันเปี๊ยบ; ที่แย่กว่ายา dose ใน OTC brand มีตั้งแต่ 0 ถึง 20 mg — ไม่มี QC เข้มเหมือน pharmaceutical — 'natural' กลายเป็นคำหลอก",
+      "facts_used": ["heart_012"],
+      "effectiveness_notes": "Insult-reality hook + reframe 'natural' fallacy — educational ที่แรง",
+      "safety_note": "OK ชี้ข้อเสีย red yeast rice; ห้าม recommend brand/dose เฉพาะ; ห้าม claim statin ปลอดภัยกว่า 100%"
+    },
+    {
+      "template_id": "hook_heart_011_thai_uncled_style",
+      "style": "pain",
+      "pattern_th": "ลุงอายุ __X__ ตรวจ __Y__ ปกติทุกปี — แต่วันนึง __Z__",
+      "example_th": "ลุงอายุ 55 ตรวจคอเลสเตอรอลปกติทุกปี — แต่วันนึงนั่งดูทีวีอยู่ดีๆ แล้วล้มฟุบ — ทำไม? เพราะ 'ปกติ' ของห้อง lab คือ LDL <130 แต่เขาไม่เคยตรวจ ApoB กับ Lp(a); plaque สะสมมา 20 ปีโดยไม่โผล่ใน panel มาตรฐาน",
+      "facts_used": ["heart_003", "heart_005", "heart_009"],
+      "effectiveness_notes": "Thai storytelling + UncleD tonality (ลุง, ครอบครัว, ความสูญเสีย) — เหมาะกับ viewer 40+",
+      "safety_note": "OK ใช้ narrative; ห้าม end ด้วย 'ถ้าลุงกิน X คงไม่ตาย' (counterfactual + overclaim)"
+    },
+    {
+      "template_id": "hook_heart_012_reversal_exception",
+      "style": "curiosity",
+      "pattern_th": "มีแค่ __X__ อย่างเดียวที่ __Y__ จริงๆ — ไม่ใช่ __Z__",
+      "example_th": "มีแค่ 'smoking cessation' อย่างเดียวที่ลดเสี่ยงหัวใจวายได้ 50% ภายใน 1 ปี — ไม่ใช่ exercise, ไม่ใช่ supplement, ไม่ใช่ diet แบบพลิกหน้ามือเป็นหลังมือ; จบบุหรี่วันนี้ = เอา 10-15 ปีชีวิตกลับคืนมา",
+      "facts_used": ["heart_010"],
+      "effectiveness_notes": "Curiosity + surprising-magnitude hook; ใช้ redirect audience จาก supplement-obsessed → behavior-intervention",
+      "safety_note": "ตรงกับ evidence; ห้าม pair กับ 'กิน X ช่วยเลิกบุหรี่'"
+    }
+  ]
+}

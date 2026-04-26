@@ -1,0 +1,69 @@
+{
+  "domain_id": "energy",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.energy"
+  },
+  "primary_th": ["พลังงาน", "เหนื่อย", "ล้า", "อ่อนเพลีย", "ไมโตคอนเดรีย", "ATP"],
+  "primary_en": ["energy", "fatigue", "mitochondria", "ATP", "exhaustion", "tiredness"],
+  "aliases_th": [
+    "หมดแรง", "ไม่มีแรง", "ง่วงนอนตลอด", "อ่อนแรง", "เซลล์พลังงาน",
+    "พลังชีวิต", "ความเหนื่อยล้าเรื้อรัง", "ฟื้นตัวช้า", "ประสิทธิภาพต่ำ"
+  ],
+  "aliases_en": [
+    "chronic fatigue", "CFS", "ME/CFS", "energy depletion", "low energy",
+    "brain fog", "burnout", "post-exertional malaise", "mitochondrial dysfunction"
+  ],
+  "jargon_th": [
+    "ไมโตคอนเดรีย", "ATP", "NAD+", "CoQ10", "ยูบิควินอล", "ซีโอเทน",
+    "วิตามินบีคอมเพล็กซ์", "ธาตุเหล็ก", "เฟอร์ริติน", "ฮีโมโกลบิน",
+    "อะแดปโตเจน", "อาชวากันธา", "โรดิโอลา", "จินเส็ง", "คอร์ติซอล",
+    "ฟรีเรดิคัล", "อนุมูลอิสระ", "Electron Transport Chain", "วัฏจักรเครบส์"
+  ],
+  "jargon_en": [
+    "CoQ10", "coenzyme Q10", "ubiquinol", "ubiquinone", "NAD+", "NADH", "NMN",
+    "nicotinamide riboside", "NR", "ATP synthase", "oxidative phosphorylation",
+    "electron transport chain", "ETC", "Krebs cycle", "citric acid cycle",
+    "mitochondrial biogenesis", "PGC-1alpha", "sirtuin", "SIRT1",
+    "ashwagandha", "rhodiola", "adaptogen", "ferritin", "hemoglobin",
+    "reactive oxygen species", "ROS", "mtDNA", "Complex I", "Complex III",
+    "thiamine", "riboflavin", "niacin", "pantothenic acid"
+  ],
+  "regex_patterns": [
+    {
+      "pattern": "เหนื่อย|ล้า|หมดแรง|อ่อนเพลีย|ไม่มีแรง",
+      "case_insensitive": true,
+      "description": "Thai fatigue complaint patterns"
+    },
+    {
+      "pattern": "\\bCoQ10\\b|\\bcoenzyme\\s*q\\s*10\\b|ubiquinol|ubiquinone",
+      "case_insensitive": true,
+      "description": "CoQ10 variants"
+    },
+    {
+      "pattern": "\\bNAD\\+?\\b|\\bNMN\\b|nicotinamide\\s*(mono)?nucleotide|nicotinamide\\s*riboside",
+      "case_insensitive": true,
+      "description": "NAD+ precursor variants"
+    },
+    {
+      "pattern": "\\bATP\\b|mitochondri(a|al|on)|electron\\s*transport",
+      "case_insensitive": true,
+      "description": "Core energy biology terms"
+    },
+    {
+      "pattern": "ferritin|iron\\s*defici|ธาตุเหล็ก|เฟอร์ริติน",
+      "case_insensitive": true,
+      "description": "Iron deficiency patterns"
+    },
+    {
+      "pattern": "ashwagandha|withan|rhodiola|ginseng|adaptogen|อาชวากันธา|โรดิโอลา",
+      "case_insensitive": true,
+      "description": "Adaptogen plant names"
+    },
+    {
+      "pattern": "statin|สแตติน|ยาลดไขมัน",
+      "case_insensitive": true,
+      "description": "Statin drug references (CoQ10 depletion context)"
+    }
+  ]
+}

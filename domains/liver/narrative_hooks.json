@@ -1,0 +1,108 @@
+{
+  "domain_id": "liver",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 12,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.liver",
+    "notes": "Hook templates ต้องหลีกเลี่ยงคำว่า 'ล้างพิษ/รีเซ็ตตับ' เด็ดขาด; แกนเรื่องหลักคือ 'โยงแฉน้ำอัดลม' (fructose → uric acid → fatty liver) + 'ผอมแต่ตับพัง' (lean NAFLD) + 'ตับกลับมาได้' (Taylor reversal)"
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_liver_001_soda_uric_bombshell",
+      "style": "shock",
+      "pattern_th": "คุณรู้มั้ย — น้ำอัดลมแค่กระป๋องเดียว ทำให้กรดยูริกในเลือดขึ้นได้ภายใน __X__ นาที? แต่ข้าวไม่ทำ — เพราะ __Y__",
+      "example_th": "คุณรู้มั้ย — น้ำอัดลมแค่กระป๋องเดียว ทำให้กรดยูริกในเลือดขึ้นได้ภายใน 30 นาที? แต่ข้าวไม่ทำ — เพราะฟรุกโตสเข้าตับทางลัดที่กลูโคสไม่ได้ใช้ มันดูด ATP ของเซลล์ตับจนต้องรีไซเคิลเป็นยูริก! — Johnson 2013, Diabetes",
+      "facts_used": ["liver_008"],
+      "effectiveness_notes": "แกนของ series 'โยงแฉน้ำอัดลม' — pattern shock + causality reveal; UncleD audience ชอบ comparison 'น้ำอัดลม vs ข้าว' มาก"
+    },
+    {
+      "template_id": "hook_liver_002_85_percent_hyperuricemia",
+      "style": "shock",
+      "pattern_th": "งานวิจัย BMJ ติดตามคน __N__ คนนาน __Y__ ปี — คนดื่มน้ำอัดลมวันละ 2 กระป๋อง เสี่ยงยูริกสูงขึ้น __X__%",
+      "example_th": "งานวิจัย BMJ 2008 ติดตามคน 46,393 คนนาน 22 ปี — คนดื่มน้ำอัดลมวันละ 2 กระป๋อง เสี่ยงยูริกสูงขึ้น 85%! แปลว่าทุกเช้าที่คุณเปิดกระป๋อง คุณกำลังปั่น 'โรงงานยูริก' ในตับ",
+      "facts_used": ["liver_007"],
+      "effectiveness_notes": "Numeric + epidemiology shock — ตัวเลข 85% + 46,393 คน + 22 ปี ให้ authority; ใช้เป็น hook แรกของ thread 'โยงแฉน้ำอัดลม'"
+    },
+    {
+      "template_id": "hook_liver_003_lean_fatty_liver",
+      "style": "shock",
+      "pattern_th": "คุณผอมแต่ตับคุณ 'อ้วน' ได้ — __X__% ของคนเอเชียที่ BMI ปกติก็มีไขมันพอกตับ",
+      "example_th": "คุณผอมแต่ตับคุณ 'อ้วน' ได้! 10-20% ของคนเอเชียที่ BMI ต่ำกว่า 25 มีไขมันพอกตับ — เพราะคนเอเชียเก็บไขมัน visceral มากกว่า subcutaneous พุงฝังในเลยใหญ่กว่าด้านนอก — TOFI (Thin Outside, Fat Inside)",
+      "facts_used": ["liver_009"],
+      "effectiveness_notes": "Pain-recognition hook สำหรับคนที่คิดว่า 'ผอม = ปลอดภัย' — ขยาย audience"
+    },
+    {
+      "template_id": "hook_liver_004_7_days_reversal",
+      "style": "awe",
+      "pattern_th": "ตับของคุณฉลาดกว่าที่คิด — แค่ __X__ วัน ไขมันในตับก็ลดได้ __Y__%",
+      "example_th": "ตับของคุณฉลาดกว่าที่คิด — แค่ 7 วันที่กิน 600-800 kcal น้ำตาลในเลือดก็กลับมาปกติ ไขมันในตับลดไป 30% งานของ Roy Taylor ที่ Newcastle เปลี่ยนวิธีมองเบาหวานทั้งโลก! (อย่าทำเองนะ — ต้องอยู่ภายใต้การดูแลแพทย์)",
+      "facts_used": ["liver_004"],
+      "effectiveness_notes": "Hope-based hook — ขายความหวังแต่มี safety guardrail; effective กับ audience 40+ ที่เพิ่งรู้ว่าเป็น prediabetic"
+    },
+    {
+      "template_id": "hook_liver_005_detox_myth_flip",
+      "style": "insult_reality",
+      "pattern_th": "คนส่วนใหญ่คิดว่าต้อง 'ล้างพิษตับ' สัปดาห์ละครั้ง — แต่ความจริงคือ __Y__",
+      "example_th": "คนส่วนใหญ่คิดว่าต้อง 'ล้างพิษตับ' สัปดาห์ละครั้ง — แต่ความจริงคือ ตับทำงาน 24 ชั่วโมงต่อวัน ไม่มีวันหยุด ด้วย CYP450 + Phase 2 ที่เซลล์ตับ 300,000 ล้านเซลล์ช่วยกัน; ที่คุณเสียเงินซื้อคอร์ส detox ไม่มีหลักฐานเลยซักงาน — ซ้ำร้าย juice cleanse ที่มีฟรุกโตสเยอะ ยังทำให้ไขมันตับเพิ่มด้วย",
+      "facts_used": ["liver_011", "liver_012"],
+      "effectiveness_notes": "Myth-flip + insult reality — ใช้ข้อมูลพลิกความเชื่อตั้งแต่ 3 วินาทีแรก; audience อายุ 30+ ที่เคยซื้อคอร์ส cleanse จะ hook แรง"
+    },
+    {
+      "template_id": "hook_liver_006_number_shock_npc",
+      "style": "shock",
+      "pattern_th": "NAFLD มีอยู่ใน __X__% ของประชากรโลก — คือคน __N__ คนจากทุก __M__ คนรอบตัวคุณ",
+      "example_th": "NAFLD อยู่ใน 25% ของประชากรโลก — คือคน 1 ใน 4 คนรอบตัวคุณมีไขมันพอกตับ แต่ส่วนใหญ่ไม่รู้ เพราะไม่มีอาการจนถึง F3 fibrosis! (Younossi 2016, Hepatology)",
+      "facts_used": ["liver_001"],
+      "effectiveness_notes": "Prevalence + stealth disease shock — 'ไม่มีอาการ' เป็นปุ่มแตะความกลัวที่แรงมาก"
+    },
+    {
+      "template_id": "hook_liver_007_lustig_bitter_truth",
+      "style": "historic_framing",
+      "pattern_th": "ปี __Y__ หมอ __X__ ที่ __Z__ ขึ้น lecture ชื่อ '__T__' — อยู่บน YouTube จนถึงวันนี้มีคนดู __N__ ล้านครั้ง",
+      "example_th": "ปี 2009 Robert Lustig ที่ UCSF ขึ้น lecture ชื่อ 'Sugar: The Bitter Truth' — อยู่บน YouTube จนถึงวันนี้มีคนดูมากกว่า 100 ล้านครั้ง เขาบอกว่าน้ำตาลฟรุกโตสไม่ใช่แค่แคลอรี่ แต่มันคือ 'สารพิษเรื้อรัง' ที่เล่นงานตับเหมือนแอลกอฮอล์!",
+      "facts_used": ["liver_005"],
+      "effectiveness_notes": "Authority + social proof — Lustig เป็น figure ที่ผู้บริโภคสาย health ในไทยรู้จัก; 100M views ทำให้เรื่องน่าเชื่อ"
+    },
+    {
+      "template_id": "hook_liver_008_NAC_antidote_trap",
+      "style": "curiosity",
+      "pattern_th": "มียาตัวหนึ่งที่แพทย์ใช้ช่วยชีวิตคนกินยาเกินขนาด — แต่ขายอยู่ในร้านขายยาทั่วไปในราคา __X__ บาท",
+      "example_th": "มียาตัวหนึ่งที่แพทย์ใช้ช่วยชีวิตคนกิน Tylenol เกินขนาด — แต่ขายอยู่ในร้านขายยาทั่วไปในราคาเม็ดละไม่ถึง 10 บาท! มันคือ NAC — แต่ระวังนะ กินคู่กับ Tylenol เพื่อ 'กันตับ' ไม่ใช่ไอเดียที่ดี (อธิบายในคลิปนี้)",
+      "facts_used": ["liver_014"],
+      "effectiveness_notes": "Curiosity gap + safety correction — hook ด้วยความน่าสงสัย แต่จบด้วย correction; ใช้ debunk myth NAC + Paracetamol synergy"
+    },
+    {
+      "template_id": "hook_liver_009_green_tea_paradox",
+      "style": "shock",
+      "pattern_th": "สารที่คนเข้าใจว่า 'ต้านอนุมูลอิสระดีต่อตับ' — จริง ๆ แล้ว __X__ มี case report __Y__",
+      "example_th": "สารที่คนเข้าใจว่า 'ต้านอนุมูลอิสระดีต่อตับ' — สารสกัดชาเขียวเข้มข้น (EGCG) เกิน 800 mg/วัน จริง ๆ แล้วมี case report ตับอักเสบรุนแรงถึงขั้นปลูกถ่ายตับ ใน FDA adverse event database! ดื่มชาเขียว 2-3 แก้วปลอดภัย แต่เม็ดสกัดเข้มข้นอีกเรื่อง",
+      "facts_used": ["liver_015"],
+      "effectiveness_notes": "Paradox hook + safety education — audience เคยได้ยินแต่ข้อดี ชอบ 'ด้านมืด' ของ green tea extract"
+    },
+    {
+      "template_id": "hook_liver_010_alcohol_equivalent",
+      "style": "shock",
+      "pattern_th": "คุณไม่ดื่มแอลกอฮอล์ แต่ตับของคุณก็เหมือนกำลังดื่ม — เพราะ __X__",
+      "example_th": "คุณไม่ดื่มแอลกอฮอล์ แต่ตับของคุณก็เหมือนกำลังดื่ม — เพราะฟรุกโตสถูกเผาในตับด้วย pathway คล้าย ๆ แอลกอฮอล์เลย! Robert Lustig เรียกน้ำอัดลมว่า 'แอลกอฮอล์ที่เด็กดื่มได้' — นี่คือเหตุผลที่ AASLD เปลี่ยนชื่อ NAFLD เป็น MASLD เพื่อสะท้อนว่ามันคือ metabolic disease ไม่ใช่แค่ 'ไม่ดื่มเหล้า'",
+      "facts_used": ["liver_001", "liver_005"],
+      "effectiveness_notes": "Fructose-as-alcohol framing — เป็นหนึ่งใน hook ที่แรงที่สุดของ Lustig; ใช้เชื่อม MASLD rebrand กับ 'โยงแฉน้ำอัดลม'"
+    },
+    {
+      "template_id": "hook_liver_011_pioglitazone_vit_e_tools",
+      "style": "curiosity",
+      "pattern_th": "AASLD guideline บอกว่ามีแค่ __X__ อย่างเท่านั้นที่มีหลักฐานช่วย NASH — อย่างแรกคือยา __Y__ อย่างที่สองคือ __Z__",
+      "example_th": "AASLD guideline บอกว่ามีแค่ 2 อย่างเท่านั้นที่มีหลักฐานช่วย NASH — อย่างแรกคือยา pioglitazone (55% หายใน NEJM 2006) อย่างที่สองคือวิตามินอี 800 IU (43% หายใน PIVENS trial); ทั้งคู่ต้อง biopsy-proven ก่อน — ไม่ใช่ใครก็กินได้",
+      "facts_used": ["liver_018", "liver_019"],
+      "effectiveness_notes": "Curiosity gap + authority — list '2 อย่างเท่านั้น' จาก AASLD กระตุ้นอยากรู้; จบด้วย safety gating"
+    },
+    {
+      "template_id": "hook_liver_012_uric_acid_silent_alarm",
+      "style": "pain",
+      "pattern_th": "ถ้าคุณตรวจเลือดเจอ 'กรดยูริก' สูงกว่า __X__ mg/dL แม้ไม่มีอาการเก๊าท์ — นั่นไม่ใช่แค่ 'ค่านิดหน่อยเกิน' — มันคือ __Y__",
+      "example_th": "ถ้าคุณตรวจเลือดเจอกรดยูริกสูงกว่า 5.5 (หญิง) / 6 (ชาย) แม้ไม่มีอาการเก๊าท์ — นั่นไม่ใช่แค่ 'ค่านิดหน่อยเกิน' — มันคือสัญญาณว่าตับคุณกำลังรับฟรุกโตสเกิน และอาจเป็นตัวเตือนแรกของ NAFLD + metabolic syndrome + ความดันสูง (Kuwabara 2018)",
+      "facts_used": ["liver_007", "liver_010"],
+      "effectiveness_notes": "Pain + re-interpretation — audience ที่เคยถูกหมอบอก 'ยูริกสูงนิดหน่อยไม่เป็นไร' จะ hook แรง; เชื่อมยูริก → ฟรุกโตส → น้ำอัดลม"
+    }
+  ]
+}

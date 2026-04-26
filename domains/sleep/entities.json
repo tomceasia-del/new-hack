@@ -1,0 +1,37 @@
+{
+  "domain_id": "sleep",
+  "_meta": {"last_harvested": "2026-04-22", "harvested_by": "domain_harvester.sleep"},
+  "people": [
+    {"id": "matthew_walker", "name": "Matthew Walker", "title": "Professor of Neuroscience and Psychology", "affiliation": "UC Berkeley, Center for Human Sleep Science", "known_for": "'Why We Sleep' (2017) — popular sleep science; REM & emotional memory; sleep deprivation research", "verifiable": true},
+    {"id": "eve_van_cauter", "name": "Eve Van Cauter", "title": "Professor Emerita, Medicine", "affiliation": "University of Chicago", "known_for": "Sleep and neuroendocrine function; GH/cortisol/leptin and sleep architecture research", "verifiable": true},
+    {"id": "karine_spiegel", "name": "Karine Spiegel", "title": "Researcher, Neuroendocrinology", "affiliation": "INSERM / University of Lyon", "known_for": "Landmark Lancet 1999 and Ann Intern Med 2004 studies on sleep debt, ghrelin, leptin", "verifiable": true},
+    {"id": "leproult", "name": "Rachel Leproult", "title": "Sleep Researcher", "affiliation": "Université Libre de Bruxelles", "known_for": "JAMA 2011 — 1-week sleep restriction and testosterone decline in young men", "verifiable": true},
+    {"id": "cappuccio", "name": "Francesco Cappuccio", "title": "Professor of Cardiovascular Medicine and Epidemiology", "affiliation": "University of Warwick", "known_for": "Meta-analyses linking sleep duration to mortality (Sleep 2010)", "verifiable": true},
+    {"id": "michael_irwin", "name": "Michael Irwin", "title": "Professor of Psychiatry", "affiliation": "UCLA Semel Institute", "known_for": "Sleep and immunity; NK cell activity and sleep (Sleep 2016)", "verifiable": true},
+    {"id": "charles_czeisler", "name": "Charles Czeisler", "title": "Baldino Professor of Sleep Medicine", "affiliation": "Harvard Medical School / Brigham and Women's Hospital", "known_for": "Circadian biology; light-dark cycles and circadian phase shifting (NEJM 1990)", "verifiable": true},
+    {"id": "van_dongen", "name": "Hans Van Dongen", "title": "Research Professor", "affiliation": "Washington State University", "known_for": "Cumulative sleep debt — psychomotor vigilance test (Sleep 2003)", "verifiable": true},
+    {"id": "jan_born", "name": "Jan Born", "title": "Professor of Medical Psychology", "affiliation": "Universität Tübingen", "known_for": "Memory consolidation and sleep; hippocampal-neocortical dialogue (Nat Rev Neurosci 2010)", "verifiable": true}
+  ],
+  "molecules": [
+    {"id": "melatonin", "name": "Melatonin", "label_th": "เมลาโทนิน", "family": "hormone/indolamine", "role": "Pineal gland hormone signaling darkness; MT1/MT2 receptor agonist; circadian timer"},
+    {"id": "adenosine", "name": "Adenosine", "label_th": "อะดีโนซีน", "family": "purine nucleoside", "role": "Sleep pressure accumulation during wakefulness; A1/A2A receptor agonist; caffeine's target"},
+    {"id": "ghrelin", "name": "Ghrelin", "label_th": "เกรลิน", "family": "peptide hormone", "role": "Hunger hormone from stomach; elevated by sleep deprivation; drives hyperphagia"},
+    {"id": "leptin", "name": "Leptin", "label_th": "เลปติน", "family": "adipokine", "role": "Satiety hormone from adipocytes; reduced by sleep deprivation; nocturnal peak"},
+    {"id": "growth_hormone", "name": "Growth Hormone (GH)", "label_th": "ฮอร์โมนการเจริญเติบโต", "family": "pituitary hormone", "role": "70-80% daily secretion during first SWS; lipolysis, protein synthesis"},
+    {"id": "cortisol", "name": "Cortisol", "label_th": "คอร์ติซอล", "family": "glucocorticoid", "role": "HPA stress hormone; normally low at night; elevated by sleep deprivation"},
+    {"id": "magnesium", "name": "Magnesium (Mg²⁺)", "label_th": "แมกนีเซียม", "family": "mineral/electrolyte", "role": "GABA-A cofactor; NMDA blocker; HIOMT cofactor for melatonin synthesis"},
+    {"id": "l_theanine", "name": "L-Theanine", "label_th": "แอล-ธีอะนีน", "family": "amino acid analog", "role": "Alpha brain wave inducer; GABA/NMDA modulation; relaxation without sedation"},
+    {"id": "caffeine", "name": "Caffeine", "label_th": "คาเฟอีน", "family": "xanthine alkaloid", "role": "Adenosine receptor antagonist; blocks A1/A2A; half-life 5-7h; masks sleep pressure"},
+    {"id": "glycine", "name": "Glycine", "label_th": "ไกลซีน", "family": "amino acid", "role": "NMDA receptor co-agonist; peripheral vasodilation for temperature drop; sleep onset support"}
+  ],
+  "organizations": [
+    {"id": "aasm", "name": "American Academy of Sleep Medicine", "type": "academic", "url": "https://aasm.org"},
+    {"id": "nhlbi_sleep", "name": "NIH National Heart, Lung, and Blood Institute — Sleep Disorders", "type": "regulatory", "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation"},
+    {"id": "sleep_foundation", "name": "Sleep Foundation", "type": "academic", "url": "https://www.sleepfoundation.org"},
+    {"id": "thai_dept_of_health", "name": "กรมอนามัย กระทรวงสาธารณสุขไทย", "type": "regulatory", "url": "https://www.anamai.moph.go.th"}
+  ],
+  "case_studies": [
+    {"id": "basetti_sleep_debt_14days", "name": "Van Dongen 14-Day Sleep Debt Study", "claim_to_fame": "นอน 6h × 14 คืน ทำให้ performance เทียบเท่าอดนอน 48h แต่ผู้เข้าร่วมรู้สึก 'ชิน' แล้ว (metacognitive failure)", "year": 2003, "source": "Van Dongen HPA et al., Sleep 2003 (PMID 12705823)"},
+    {"id": "stanford_basketball_sleep", "name": "Stanford Basketball Sleep Extension", "claim_to_fame": "นักกีฬาบาสเกตบอล 11 คน นอน 10h × 5-7 สัปดาห์: sprint +5%, shooting accuracy +9%", "year": 2011, "source": "Mah CD et al., Sleep 2011 (PMID 21731144)"}
+  ]
+}

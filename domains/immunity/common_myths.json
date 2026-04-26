@@ -1,0 +1,118 @@
+{
+  "domain_id": "immunity",
+  "_meta": {"current_count": 9, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.immunity"},
+  "myths": [
+    {
+      "myth_id": "myth_imm_001",
+      "myth_statement_th": "Vitamin C ขนาดสูงป้องกันหวัดได้ 100% และรักษาหวัดได้ใน 1 วัน",
+      "myth_statement_en": "High-dose Vitamin C prevents colds 100% and cures them in 1 day.",
+      "reality_th": "ผิด: Cochrane review Hemila 2013 (29 trials, n=11,306) พบ Vitamin C ลดระยะเวลา 8% ในผู้ใหญ่ — ไม่ใช่ prevention ในประชากรทั่วไป; Linus Pauling claim (50-100x RDA) ไม่ได้รับการพิสูจน์; ประโยชน์มีในนักกีฬา/ผู้ที่ physical stress สูง (18% reduction)",
+      "reality_en": "False: Cochrane 2013 (29 RCTs, n=11,306) found Vitamin C reduces cold duration only 8% in adults — no prevention benefit in general population; Linus Pauling megadose claims unverified; benefit exists in physically stressed populations (18% reduction).",
+      "mechanism_refs": ["mech_imm_001"],
+      "evidence_quality": "high",
+      "myth_origin_th": "Linus Pauling (2x Nobel Laureate) popularized megadose Vitamin C in 1970s; never properly RCT'd; wellness culture perpetuated",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_imm_002"]
+    },
+    {
+      "myth_id": "myth_imm_002",
+      "myth_statement_th": "'Boost immunity' ได้ด้วย supplement — ยิ่งกระตุ้นมาก ยิ่งดี",
+      "myth_statement_en": "You can 'boost' immunity with supplements — the more stimulated, the better.",
+      "reality_th": "ผิดอย่างพื้นฐาน: immune system ที่ overactive = autoimmune disease (lupus, RA, Crohn's); เป้าหมายคือ balanced, optimal immunity ไม่ใช่ hyperactivated; Echinacea และ immune stimulants ในผู้ป่วย autoimmune อาจกระตุ้น disease flare; claim ที่ถูกต้องคือ 'support normal immune function'",
+      "reality_en": "Fundamentally false: overactive immunity = autoimmune disease (lupus, RA, Crohn's, MS); the goal is balanced optimal immunity, not hyperactivated; immune stimulants in autoimmune patients may trigger disease flares; correct claim = 'support normal immune function'.",
+      "mechanism_refs": ["mech_imm_001", "mech_imm_002"],
+      "evidence_quality": "high",
+      "myth_origin_th": "supplement marketing; wellness culture; misunderstanding of immunology",
+      "dangerous_if_believed": true,
+      "safety_warning": "ผู้ป่วย autoimmune disease ห้ามใช้ immune stimulant supplements โดยไม่ปรึกษาแพทย์",
+      "fact_refs": ["fact_imm_020"]
+    },
+    {
+      "myth_id": "myth_imm_003",
+      "myth_statement_th": "Vitamin D ขนาดสูงมาก (50,000 IU/day) ดีกว่า 2,000-4,000 IU/day",
+      "myth_statement_en": "Very high dose Vitamin D (50,000 IU/day) is better than 2,000-4,000 IU/day.",
+      "reality_th": "อันตราย: Vitamin D เป็น fat-soluble → ขนาดสูงเรื้อรัง → Vitamin D toxicity (hypercalcemia → calcification ในไต, หลอดเลือด, ปอด); Endocrine Society: optimal 25-OHD = 40-60 ng/mL → ทำได้ด้วย 1,500-4,000 IU/day สำหรับคนส่วนใหญ่; 50,000 IU/day ใช้ใน therapeutic loading สำหรับ severe deficiency ภายใต้การดูแลแพทย์เท่านั้น",
+      "reality_en": "Dangerous: Vitamin D is fat-soluble → chronic megadose → hypercalcemia → calcification (kidneys, vasculature, lungs); optimal 25-OHD = 40-60 ng/mL achieved with 1,500-4,000 IU/day; 50,000 IU/day is therapeutic loading only under medical supervision.",
+      "mechanism_refs": ["mech_imm_003"],
+      "evidence_quality": "high",
+      "myth_origin_th": "biohacking culture; oversimplification of 'more is better'; therapeutic loading doses taken out of context",
+      "dangerous_if_believed": true,
+      "safety_warning": "Vitamin D toxicity เป็นอันตราย: ห้าม claim ขนาดสูง >4,000 IU/day ใน content โดยไม่มี medical supervision disclaimer",
+      "fact_refs": ["fact_imm_001"]
+    },
+    {
+      "myth_id": "myth_imm_004",
+      "myth_statement_th": "Detox diet/juice cleanse ช่วย 'ล้างพิษ' และเพิ่มภูมิคุ้มกัน",
+      "myth_statement_en": "Detox diets and juice cleanses 'flush toxins' and enhance immunity.",
+      "reality_th": "ไม่มีหลักฐาน: ไม่มี RCT ที่พิสูจน์ว่า 'detox diet' ช่วยขับ specific toxins หรือเพิ่ม immune function; ตับและไตทำ detoxification ตามธรรมชาติ; juice cleanse อาจลด protein intake → ลด antibody production + lymphocyte proliferation; เสีย fiber จาก whole food → ลด SCFA → ลด gut immunity",
+      "reality_en": "No evidence: no RCT proves detox diets remove specific toxins or enhance immunity; liver and kidneys perform detoxification naturally; juice cleanses may reduce protein → impair antibody production + lymphocyte proliferation; loss of whole food fiber → reduced SCFA → reduced gut immunity.",
+      "mechanism_refs": ["mech_imm_004"],
+      "evidence_quality": "high",
+      "myth_origin_th": "wellness industry; pseudoscience; alternative medicine traditions; supplement/juice brands",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_imm_005",
+      "myth_statement_th": "Echinacea ปลอดภัยสำหรับทุกคน รวมถึงผู้ที่มีโรค autoimmune",
+      "myth_statement_en": "Echinacea is safe for everyone including those with autoimmune conditions.",
+      "reality_th": "อันตรายสำหรับกลุ่มเฉพาะ: Echinacea กระตุ้น innate + adaptive immunity → ผู้ป่วย lupus, RA, MS, IBD อาจเกิด disease flare; แพ้พืชตระกูล Asteraceae (chamomile, ragweed) → cross-reactivity กับ Echinacea; Cochrane review เองระบุว่า contraindicated ใน autoimmune disease",
+      "reality_en": "Dangerous for specific populations: Echinacea stimulates innate + adaptive immunity → may trigger flares in lupus, RA, MS, IBD patients; Asteraceae allergy (chamomile, ragweed) → cross-reactivity; Cochrane review notes autoimmune disease contraindication.",
+      "mechanism_refs": ["mech_imm_001"],
+      "evidence_quality": "high",
+      "myth_origin_th": "natural = safe fallacy; lack of contraindication awareness in wellness content",
+      "dangerous_if_believed": true,
+      "safety_warning": "ผู้ป่วย autoimmune disease หรือแพ้พืชตระกูล Asteraceae — ห้ามใช้ Echinacea",
+      "fact_refs": ["fact_imm_016"]
+    },
+    {
+      "myth_id": "myth_imm_006",
+      "myth_statement_th": "เมื่ออายุมากขึ้น ภูมิคุ้มกันอ่อนลงและไม่สามารถทำอะไรได้",
+      "myth_statement_en": "Age-related immune decline is inevitable and nothing can be done about it.",
+      "reality_th": "บางส่วนผิด: immunosenescence เกิดขึ้นจริงและ thymus involutes (naïve T-cell ลด 90% ใน >70ปี); อย่างไรก็ตาม: nutritional interventions (Zinc, Se, Vit D, E) can partially reverse immunosenescence; exercise ลด NK cell aging; Mediterranean diet รักษา microbiome diversity + regulatory T-cells",
+      "reality_en": "Partially false: immunosenescence is real and thymus involutes; however, nutritional interventions (Zinc, Se, Vit D, E) can partially reverse immunosenescence; exercise reduces NK cell aging; Mediterranean diet preserves microbiome diversity and regulatory T-cells.",
+      "mechanism_refs": ["mech_imm_002"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "fatalism about aging; lack of awareness about nutritional immunology in elderly",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_imm_015"]
+    },
+    {
+      "myth_id": "myth_imm_007",
+      "myth_statement_th": "Cold exposure (อาบน้ำเย็น, อากาศหนาว) ทำให้ไม่เป็นหวัด",
+      "myth_statement_en": "Cold exposure (cold showers, cold weather) prevents getting sick.",
+      "reality_th": "ส่วนใหญ่ผิด: colds เกิดจากไวรัส ไม่ใช่อุณหภูมิ; cold exposure ตามธรรมชาติไม่ได้ป้องกันการติดเชื้อ rhinovirus; อย่างไรก็ตาม: chronic cold exposure (Wim Hof-style) มีหลักฐานจำกัดว่า modulate immune response + เพิ่ม noradrenaline; อยู่ใน warm, crowded indoor space กลับเพิ่มการแพร่เชื้อ (ไม่ใช่ความเย็น)",
+      "reality_en": "Mostly false: colds are caused by viruses (rhinovirus), not temperature; natural cold exposure does not prevent rhinovirus infection; however, chronic cold exposure (Wim Hof-style) has limited evidence for immune modulation; being in warm crowded indoor spaces actually increases transmission.",
+      "mechanism_refs": ["mech_imm_001"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "cultural belief, folk wisdom, correlation between winter and colds (indoor crowding ≠ cold temperature)",
+      "dangerous_if_believed": false,
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_imm_008",
+      "myth_statement_th": "Antibiotics ช่วยรักษาหวัดและ flu ได้",
+      "myth_statement_en": "Antibiotics can treat colds and the flu.",
+      "reality_th": "ผิดอย่างสิ้นเชิงและอันตราย: หวัดและ flu เกิดจากไวรัส; antibiotics ฆ่าเฉพาะ bacteria; การใช้ antibiotics โดยไม่จำเป็น → antibiotic resistance + ทำลาย gut microbiome (ลด Lactobacillus/Bifidobacterium) → ลด secretory IgA → เพิ่มความเสี่ยงการติดเชื้อในอนาคต",
+      "reality_en": "Completely false and dangerous: colds/flu are viral; antibiotics only kill bacteria; unnecessary antibiotic use → antibiotic resistance + gut microbiome destruction (reduces Lactobacillus/Bifidobacterium) → reduced sIgA → increased future infection susceptibility.",
+      "mechanism_refs": ["mech_imm_004"],
+      "evidence_quality": "high",
+      "myth_origin_th": "patient demand for 'treatment'; historic overprescribing by physicians; cultural misunderstanding",
+      "dangerous_if_believed": true,
+      "safety_warning": "การแนะนำ antibiotics สำหรับ viral infection เป็น medical misinformation ที่อันตราย",
+      "fact_refs": []
+    },
+    {
+      "myth_id": "myth_imm_009",
+      "myth_statement_th": "Multivitamin ครบสูตรทำให้ไม่ต้องกิน supplement อื่นสำหรับ immunity",
+      "myth_statement_en": "A complete multivitamin covers all immune supplement needs.",
+      "reality_th": "ส่วนใหญ่ผิด: multivitamin มัก dose ต่ำกว่า therapeutic range สำหรับ immunity; Vit D ใน MV ส่วนใหญ่ = 400-1000 IU (ต่ำกว่า optimal 2000-4000 IU); Zinc ใน MV ส่วนใหญ่ = 8-11mg (ต่ำกว่า lozenge dose 75mg ที่ใช้ใน cold RCTs); Omega-3 ไม่มีใน MV ทั่วไป; ควร customize ตาม individual deficiency (ทดสอบ 25-OHD, CBC, Hb ก่อน)",
+      "reality_en": "Mostly false: standard multivitamins contain doses far below therapeutic immune range; Vit D typically 400-1000 IU (below optimal 2000-4000 IU); Zinc 8-11mg (far below 75mg cold lozenge dose); Omega-3 absent from most MV; optimal approach = test individual deficiencies before supplementing.",
+      "mechanism_refs": ["mech_imm_003"],
+      "evidence_quality": "medium",
+      "myth_origin_th": "supplement marketing; one-pill solution appeal; cost optimization by manufacturers",
+      "dangerous_if_believed": false,
+      "fact_refs": ["fact_imm_019"]
+    }
+  ]
+}

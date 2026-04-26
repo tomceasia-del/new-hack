@@ -1,0 +1,163 @@
+{
+  "domain_id": "blood_sugar",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 9,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.blood_sugar"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_bs_001",
+      "popular_belief_th": "เป็นเบาหวานแล้วหายไม่ได้ ต้องกินยาไปตลอดชีวิต",
+      "popular_belief_en": "Once you have type 2 diabetes, it's a life sentence — you'll be on meds forever",
+      "truth_th": "T2D 'สงบ (remission)' ได้ — DiRECT Trial (Lancet 2018) แสดงว่า 46% ของผู้ป่วย T2D กลับมา HbA1c <6.5% โดยไม่ต้องใช้ยาที่ 12 เดือน หลังลดน้ำหนัก 10-15 กิโลผ่านโปรแกรม very-low-calorie diet; ใน 5 ปี ~11-13% ยังคง remission",
+      "truth_en": "T2D can enter remission — DiRECT Trial (Lancet 2018) showed 46% of T2D patients achieved HbA1c <6.5% off medications at 12 months after losing 10-15 kg via a VLCD program; ~11-13% maintain remission at 5 years.",
+      "why_popular": "ข้อความจากบุคลากรสุขภาพ + ยุค pre-2011 ที่ยังไม่มีหลักฐาน reversal; 'โรคเรื้อรัง' framing ทำให้คนเข้าใจว่าคือ 'ตลอดชีวิต'",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(17)33102-1/fulltext", "org": "The Lancet", "source_tier": "A", "year": 2018, "title": "DiRECT Trial — Lean MEJ et al.", "access_date": "2026-04-22"},
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3168743/", "org": "Diabetologia / PMC", "source_tier": "A", "year": 2011, "title": "Counterpoint — Lim EL et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["bs_001", "bs_002", "bs_019", "bs_024"],
+      "composer_directive": "ห้ามใช้คำว่า 'รักษา/หาย' — ใช้ 'สงบ/remission/ถอยหลัง' เท่านั้น; ต้องชี้ว่าต้องคุมน้ำหนักต่อเนื่อง",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bs_002",
+      "popular_belief_th": "ข้าวกล้อง/ข้าวไรซ์เบอร์รี่กินเท่าไหร่ก็ไม่ขึ้นน้ำตาล เพราะเป็นคาร์บดี",
+      "popular_belief_en": "Brown rice / whole-grain rice doesn't raise blood sugar because it's 'healthy carbs'",
+      "truth_th": "ข้าวกล้องมี glycemic index ต่ำกว่าข้าวขาวเพียงเล็กน้อย (~68 vs 73) และในปริมาณที่คนไทยกินจริง (1-2 จาน) ก็ยังทำให้น้ำตาล spike ชัดเจน; UncleD คลิป 7577286721813925138 เน้นว่า 'ข้าวสวยหรือไรซ์เบอร์รี่ ตับเปลี่ยนเป็นไขมันเหมือนกันเมื่อกินเกิน'",
+      "truth_en": "Brown rice has only marginally lower glycemic index than white rice (~68 vs 73), and in Thai portion sizes (1-2 plates) still spikes glucose substantially; the liver converts excess carbs to fat identically regardless of brown or white rice.",
+      "why_popular": "การตลาด 'whole grain' + ความเชื่อว่า 'ข้าวกล้อง = ข้าวเพื่อสุขภาพ' + ไม่มี education เรื่อง portion vs glycemic load",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/30786393/", "org": "Lancet / PubMed", "source_tier": "A", "year": 2019, "title": "Carbohydrate quality and human health — Reynolds A et al.", "access_date": "2026-04-22"},
+        {"url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2005143", "org": "PLOS Biology", "source_tier": "A", "year": 2018, "title": "Glucotypes reveal new patterns of glucose dysregulation — Hall H et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "glucose_spike",
+      "counter_facts": ["bs_017", "bs_021"],
+      "composer_directive": "ห้าม demonize ข้าวกล้อง — frame เป็น 'ดีกว่าข้าวขาวเล็กน้อย แต่ไม่ใช่ free pass'; portion และ meal order สำคัญกว่า",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_bs_003",
+      "popular_belief_th": "คนผอมไม่เป็นเบาหวาน ถ้าน้ำหนักปกติแปลว่าปลอดภัย",
+      "popular_belief_en": "Only overweight people get diabetes — if you're skinny you're safe",
+      "truth_th": "'TOFI' (Thin Outside, Fat Inside) = คนผอมที่มีไขมันแทรกในตับ/ตับอ่อน — เป็นเบาหวานได้โดย BMI ปกติ; Asian ethnicity มี 'personal fat threshold' ต่ำกว่าฝรั่งมาก คนไทย BMI 23-25 อาจมี visceral fat เกินแล้ว; DiRECT แสดงว่า T2D remission ขึ้นกับ 'personal fat loss' ไม่ใช่ absolute BMI",
+      "truth_en": "'TOFI' (Thin Outside, Fat Inside) — skinny people with ectopic liver/pancreas fat can develop T2D at normal BMI; Asians have a lower personal fat threshold and can be metabolically unwell at BMI 23-25; DiRECT shows T2D remission depends on personal fat loss, not absolute BMI.",
+      "why_popular": "ภาพลักษณ์ 'คนอ้วน = เบาหวาน' ในสื่อ; ไม่มี routine DEXA/MRI ในคลินิกทั่วไป",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8247294/", "org": "Diabet Med / PMC", "source_tier": "A", "year": 2021, "title": "Type 2 diabetes and remission — Taylor R.", "access_date": "2026-04-22"},
+        {"url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP092009", "org": "Experimental Physiology / Wiley", "source_tier": "A", "year": 2025, "title": "Twin Cycle Hypothesis — Taylor R.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hepatic_glucose",
+      "counter_facts": ["bs_014", "bs_021"],
+      "composer_directive": "Frame 'skinny fat' หรือ 'ผอมแต่ไม่แข็งแรง' เป็น Asian-relevant risk; ห้ามให้ audience รู้สึกปลอดภัยจาก BMI เพียงอย่างเดียว",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bs_004",
+      "popular_belief_th": "น้ำผลไม้คั้นสดดีต่อสุขภาพ ช่วยลดน้ำตาล — เพราะมาจากผลไม้ธรรมชาติ",
+      "popular_belief_en": "Fresh fruit juice is healthy and helps lower blood sugar because it's 'natural'",
+      "truth_th": "น้ำผลไม้คั้นสดตัดไฟเบอร์ออก → ฟรุกโตส+กลูโคสเข้ากระแสเลือดเร็วเท่า soda; Stanhope 2009 (JCI) แสดงว่า fructose-sweetened เครื่องดื่ม ทำ visceral fat เพิ่มและ insulin sensitivity ลดลงภายใน 10 สัปดาห์; ตับเปลี่ยนฟรุกโตสเป็นไขมันได้ถึง 30% ในคน IR",
+      "truth_en": "Fresh juice strips out the fiber → fructose + glucose enter the bloodstream as fast as soda; Stanhope 2009 (JCI) showed fructose-sweetened beverages increased visceral fat and reduced insulin sensitivity in 10 weeks; up to 30% of a fructose load converts to liver fat in IR individuals.",
+      "why_popular": "Juice bar marketing + 'natural = healthy' fallacy + ร้าน smoothie ยุค wellness",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19381015/", "org": "J Clin Invest / PubMed", "source_tier": "A", "year": 2009, "title": "Consuming fructose-sweetened beverages — Stanhope KL et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "glucose_spike",
+      "counter_facts": ["bs_021"],
+      "composer_directive": "ไม่ demonize ผลไม้ทั้งลูก — frame เป็น 'ผลไม้ทั้งลูก OK, น้ำผลไม้ ≈ น้ำหวาน'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bs_005",
+      "popular_belief_th": "หวานน้อย/สารให้ความหวานแทนน้ำตาล (artificial sweetener) ปลอดภัยสำหรับคนเบาหวาน",
+      "popular_belief_en": "Artificial sweeteners are safe for diabetics because they don't raise blood sugar",
+      "truth_th": "Suez et al. (Nature 2014 + Cell 2022) แสดงว่าสารให้ความหวานบางชนิด (saccharin, sucralose, aspartame) เปลี่ยน gut microbiome → เกิด glucose intolerance; WHO 2023 แนะนำว่า NSS (non-sugar sweeteners) ไม่ช่วยลด body fat ระยะยาว และอาจเพิ่มความเสี่ยง T2D",
+      "truth_en": "Suez et al. (Nature 2014 + Cell 2022) showed some artificial sweeteners (saccharin, sucralose, aspartame) alter gut microbiome → induce glucose intolerance; WHO 2023 guideline states NSS do not reduce body fat long-term and may increase T2D risk.",
+      "why_popular": "'ไม่มีน้ำตาล = ไม่ขึ้นน้ำตาล' — ตรรกะตรงๆ ไม่คำนึงถึง gut/insulin response; อุตสาหกรรมอาหาร low-sugar โปรโมตหนัก",
+      "reveal_style": "curiosity",
+      "sources_debunking": [
+        {"url": "https://www.who.int/news/item/15-05-2023-who-advises-not-to-use-non-sugar-sweeteners-for-weight-control-in-newly-released-guideline", "org": "World Health Organization", "source_tier": "A", "year": 2023, "title": "WHO advises not to use non-sugar sweeteners for weight control", "access_date": "2026-04-22"},
+        {"url": "https://www.nature.com/articles/nature13793", "org": "Nature", "source_tier": "A", "year": 2014, "title": "Artificial sweeteners induce glucose intolerance by altering the gut microbiota — Suez J et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["bs_005", "bs_020"],
+      "composer_directive": "ห้ามประกาศว่า 'สารให้ความหวานทำให้เป็นเบาหวาน' แบบ deterministic — หลักฐานยังมีความขัดแย้ง; frame ว่า 'ไม่ใช่ free pass'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bs_006",
+      "popular_belief_th": "ตรวจ HbA1c ปกติแล้วไม่ต้องกังวล — น้ำตาลในร่างกายเรียบร้อย",
+      "popular_belief_en": "If my HbA1c is normal, my blood sugar is fine and I don't need to worry",
+      "truth_th": "HbA1c คือค่าเฉลี่ย 3 เดือน — ไม่จับ 'glucose spike' สูงที่เกิด 1-2 ชั่วโมงต่อมื้อ; Hall 2018 (PLOS Biol) พบว่า 25% ของคน HbA1c ปกติมี 'severe glucotype' (spike >140 mg/dL); ยิ่งกว่านั้น fasting insulin สูง 10-20 ปีก่อน HbA1c จะเริ่มขยับ (Bikman)",
+      "truth_en": "HbA1c is a 3-month average — it misses glucose spikes that happen 1-2 h after meals; Hall 2018 (PLOS Biol) found 25% of people with normal HbA1c had 'severe glucotype' spikes >140 mg/dL; worse, fasting insulin rises 10-20 years before HbA1c reflects anything (Bikman).",
+      "why_popular": "ADA/แพทย์ใช้ HbA1c เป็น primary marker; คนไข้เชื่อ number แรกที่หมอแจ้ง",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2005143", "org": "PLOS Biology", "source_tier": "A", "year": 2018, "title": "Glucotypes reveal new patterns of glucose dysregulation — Hall H et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29453741/", "org": "Nat Rev Endocrinol / PubMed", "source_tier": "A", "year": 2018, "title": "Pathophysiology of type 2 diabetes mellitus — DeFronzo RA et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hba1c_metrics",
+      "counter_facts": ["bs_014", "bs_016", "bs_017"],
+      "composer_directive": "สนับสนุนให้คนขอตรวจ fasting insulin + OGTT เพิ่ม — ไม่ใช่เพียง HbA1c; แต่ห้ามบอกให้ audience 'วินิจฉัยตัวเอง'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bs_007",
+      "popular_belief_th": "กินหวานเยอะ ๆ เท่านั้นทำให้เป็นเบาหวาน",
+      "popular_belief_en": "You only get diabetes if you eat lots of sugar",
+      "truth_th": "T2D เกิดจากอินซูลินสูงเรื้อรัง — ไม่ใช่จาก 'น้ำตาลสูง' เท่านั้น; คาร์บทุกรูปแบบ (ข้าว, ขนม, ผลไม้, น้ำผลไม้) เพิ่มอินซูลิน; hyperinsulinemia ปรากฏ 10-20 ปีก่อน T2D แม้คนที่ไม่ได้กินหวานจัด; stress, นอนน้อย, และไขมันพุงก็ทำให้ IR ได้",
+      "truth_en": "T2D results from chronic hyperinsulinemia — not just high sugar intake; all carbs (rice, starches, fruit, juice) raise insulin; hyperinsulinemia precedes T2D by 10-20 years even in people who don't eat much sugar; stress, poor sleep, and visceral fat also drive insulin resistance.",
+      "why_popular": "ชื่อโรค 'น้ำตาลสูง' ทำให้คนโฟกัสที่ 'น้ำตาล' เท่านั้น — ละเลยบทบาทของคาร์บ, อินซูลิน, และ lifestyle",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29453741/", "org": "Nat Rev Endocrinol / PubMed", "source_tier": "A", "year": 2018, "title": "Pathophysiology of type 2 diabetes mellitus — DeFronzo RA et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.bmj.com/content/372/bmj.m4743", "org": "BMJ", "source_tier": "A", "year": 2021, "title": "Low-carb diets for T2D remission meta — Goldenberg JZ et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["bs_014", "bs_023", "bs_024"],
+      "composer_directive": "ใช้ 'คาร์บเกิน → อินซูลินสูง → เบาหวาน' framing; ไม่ shame ของหวาน but broaden lens",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_bs_008",
+      "popular_belief_th": "อบเชย / น้ำส้มสายชู / สมุนไพร = แทนยาเบาหวานได้ ถ้ากินทุกวัน",
+      "popular_belief_en": "Cinnamon / apple cider vinegar / herbs can replace diabetes medication if taken daily",
+      "truth_th": "สารธรรมชาติเหล่านี้ช่วย 'เสริม' glycemic control ได้จริง (vinegar ลด postprandial glucose 34%, cinnamon ลด FPG 24 mg/dL, berberine เทียบเท่า metformin ใน head-to-head) แต่ไม่ใช่ 'ทดแทน' medication โดยเฉพาะในผู้ป่วย T2D ที่กิน insulin — การหยุดยาเองทำให้น้ำตาล rebound สูงอันตราย (DKA ใน T1D, HHS ใน T2D severe)",
+      "truth_en": "These natural compounds genuinely 'support' glycemic control (vinegar cuts postprandial glucose 34%, cinnamon lowers FPG 24 mg/dL, berberine matches metformin head-to-head) but are not substitutes for medication, especially in T2D patients on insulin — stopping medication unilaterally can cause dangerous rebound hyperglycemia (DKA in T1D, HHS in severe T2D).",
+      "why_popular": "'สมุนไพรธรรมชาติ = ปลอดภัย' fallacy + การตลาดสินค้า detox/cleanse",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2410097/", "org": "Metabolism / PMC", "source_tier": "A", "year": 2008, "title": "Yin 2008 berberine T2D", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/14694010/", "org": "Diabetes Care / PubMed", "source_tier": "A", "year": 2004, "title": "Johnston 2004 vinegar IR", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["bs_003", "bs_004", "bs_007", "bs_008"],
+      "composer_directive": "สำคัญ — ห้ามบอก 'สมุนไพรแทนยา'; frame 'ตัวเสริม/support' และต้องปรึกษาแพทย์ก่อนเปลี่ยน med",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_bs_009",
+      "popular_belief_th": "ต้องกินน้อยมื้อย่อย 5-6 มื้อ จะคุมน้ำตาลได้ดีกว่า",
+      "popular_belief_en": "Eat 5-6 small meals a day to keep blood sugar stable",
+      "truth_th": "การกินบ่อยทำให้อินซูลินสูงตลอดวัน — insulin สูงเรื้อรังคือ root cause ของ T2D; intermittent fasting 16:8 ลด fasting insulin, HOMA-IR, และ HbA1c ได้ชัดเจนใน 4-8 สัปดาห์ (Welton 2020 systematic review); eTRE (กินเสร็จก่อน 3 โมงเย็น) ช่วย insulin sensitivity แม้ไม่ลดน้ำหนัก (Sutton 2018 Cell Metab)",
+      "truth_en": "Frequent meals keep insulin chronically elevated — and chronic insulin is the root cause of T2D; 16:8 intermittent fasting significantly lowers fasting insulin, HOMA-IR, and HbA1c within 4-8 weeks (Welton 2020); early time-restricted eating improves insulin sensitivity even without weight loss (Sutton 2018 Cell Metab).",
+      "why_popular": "โภชนาการยุค 90s-2000s สอน '5-6 มื้อเล็ก' + diabetes educators แนะนำ stable glucose หมายถึง 'ไม่ให้ขึ้น-ลงเยอะ'",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7021351/", "org": "Can Fam Physician / PMC", "source_tier": "A", "year": 2020, "title": "Welton 2020 IF systematic review", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29805099/", "org": "Cell Metabolism / PubMed", "source_tier": "A", "year": 2018, "title": "Sutton 2018 eTRE insulin sensitivity", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["bs_014", "bs_019", "bs_024"],
+      "composer_directive": "อนุญาตให้ challenge 5-6 meals แต่ต้องเตือน T1D/T2D ที่ใช้ insulin ว่าต้องปรึกษาแพทย์ก่อน fasting",
+      "uncleped_debunked": true
+    }
+  ]
+}

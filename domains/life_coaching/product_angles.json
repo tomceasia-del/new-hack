@@ -1,0 +1,292 @@
+{
+  "domain_id": "life_coaching",
+  "_meta": {
+    "current_count": 8,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.life_coaching",
+    "compliance_note": "life_coaching domain ห้าม claim รักษาโรคจิต/ซึมเศร้า/วิตกกังวล ห้ามแทนที่ therapist ห้ามรับประกันผลลัพธ์"
+  },
+  "angles": [
+    {
+      "angle_id": "lc_angle_001",
+      "product_category": "habit_tracking_app",
+      "problem_th": "รู้ว่าควรทำ แต่ทำไม่สม่ำเสมอ — ขาด Cue ที่ชัดเจนและ accountability",
+      "mechanism_claim_th": "App สร้าง daily Cue (notification) และ visual Reward (streak) ทำให้ Habit Loop สมบูรณ์และ Basal Ganglia เริ่ม encode พฤติกรรมได้เร็วขึ้น",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยสร้าง cue และ reward loop ที่สม่ำเสมอ",
+        "ติดตามพฤติกรรมและเห็นความก้าวหน้า",
+        "เพิ่มความสม่ำเสมอของนิสัยใหม่"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า app รับประกันว่าจะสร้างนิสัยได้ใน X วัน",
+        "ห้ามบอกว่า app แก้ปัญหาสุขภาพจิตได้",
+        "ห้ามใช้คำว่า 'รักษา' หรือ 'บำบัด'"
+      ],
+      "supporting_facts": ["lc_001", "lc_002", "lc_017"],
+      "narrative_frames": [
+        "วางรากฐาน habit loop ด้วย app แทนการพึ่ง willpower",
+        "Streak = psychological reward ที่ทำให้สมองอยากทำต่อ",
+        "เห็น progress = competence signal = intrinsic motivation เพิ่ม"
+      ],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า app สร้างนิสัยได้ใน 21 วัน",
+          "ห้ามอ้างว่า app รักษาโรคใดๆ"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษา", "บำบัด", "21 วัน"],
+        "regulatory_risk_notes": "ต้องไม่ register เป็น medical device — เป็น lifestyle/productivity tool เท่านั้น"
+      }
+    },
+    {
+      "angle_id": "lc_angle_002",
+      "product_category": "journaling_planner",
+      "problem_th": "มีเป้าหมาย แต่ไม่มี structured reflection ทำให้ไม่เรียนรู้จากความผิดพลาด และ goals ยังเป็น abstract",
+      "mechanism_claim_th": "Journaling สร้าง Implementation Intention (ถ้า X แล้วฉันทำ Y) และ structured reflection กระตุ้น Prefrontal Cortex processing ทำให้ goals เป็น concrete และมีแผนที่ชัด",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยกำหนด implementation intention ที่ชัดเจน",
+        "เพิ่มความชัดเจนของเป้าหมายและ action plan",
+        "ส่งเสริม self-reflection และ growth mindset"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า journal รักษาซึมเศร้าหรือวิตกกังวล",
+        "ห้ามรับประกันผลลัพธ์ใดๆ"
+      ],
+      "supporting_facts": ["lc_007", "lc_012", "lc_019"],
+      "narrative_frames": [
+        "ความต่างระหว่าง dream กับ goal คือ deadline และ plan — journal สร้างทั้งสอง",
+        "Implementation intention เพิ่มสำเร็จ 2-3 เท่า — journal ทำให้เขียนออกมาได้",
+        "เขียนทุกวัน = daily review สร้าง self-awareness loop"
+      ],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า journal รักษาโรคซึมเศร้าหรือ anxiety"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษา", "บำบัด", "ซึมเศร้า"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "lc_angle_003",
+      "product_category": "online_coaching_program",
+      "problem_th": "รู้ว่าควรเปลี่ยน แต่ขาด accountability, structured framework, และ personalized guidance",
+      "mechanism_claim_th": "โปรแกรม coaching ให้ Autonomy Support (SDT) ผ่านการ coach ที่ไม่สั่ง แต่ guide — เพิ่ม Competence ผ่าน skill-building และ Relatedness ผ่าน community/coach relationship ทำให้ Intrinsic Motivation เพิ่มขึ้นอย่างยั่งยืน",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยสร้างระบบและ framework สำหรับ goal achievement",
+        "เพิ่ม accountability และ consistency",
+        "ส่งเสริม self-awareness และ decision-making skills"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า coaching แทนที่ therapist หรือจิตแพทย์",
+        "ห้ามบอกว่า coaching รักษา depression, anxiety, ADHD",
+        "ห้ามรับประกัน income หรือ career outcome"
+      ],
+      "supporting_facts": ["lc_010", "lc_006", "lc_007"],
+      "narrative_frames": [
+        "Coach ที่ดีไม่ได้บอกคำตอบ — แต่ช่วยให้คุณหาคำตอบตัวเอง (Autonomy)",
+        "Accountability partner เพิ่ม completion rate ได้ถึง 65% (American Society of Training and Development)",
+        "ระบบดีกว่า willpower — coaching ช่วยสร้างระบบ"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["clinical depression", "anxiety disorder", "PTSD", "ADHD — ต้องพบแพทย์ก่อน"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า coaching รักษาโรคจิตเวช",
+          "ห้ามบอกว่า coaching แทน therapy",
+          "ห้ามรับประกัน outcome ใดๆ"
+        ],
+        "required_disclaimer_th": "Life Coaching เป็นบริการ goal-setting และ personal development ไม่ใช่การรักษาทางการแพทย์หรือจิตวิทยาคลินิก",
+        "audience_exclusions": ["ผู้ที่มีอาการซึมเศร้าหรือวิตกกังวลระดับคลินิก ควรพบผู้เชี่ยวชาญก่อน"],
+        "validator_keywords_th": ["รักษา", "บำบัด", "ซึมเศร้า", "ADHD", "วิตกกังวล"],
+        "regulatory_risk_notes": "อย. Thailand: coaching program ที่ใช้คำว่า 'บำบัด' หรือ 'รักษา' อาจถูก regulate เป็น medical service"
+      }
+    },
+    {
+      "angle_id": "lc_angle_004",
+      "product_category": "productivity_course_digital",
+      "problem_th": "มีงานล้นมือ ผัดวันประกันพรุ่ง และรู้สึก overwhelmed — ส่งผลต่อผลงานและความสุข",
+      "mechanism_claim_th": "คอร์สสอน emotion regulation technique (ลด task aversion), environment design (ลด friction), และ decision batching (ลด decision fatigue) — แก้ที่ root cause ของ procrastination",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยเพิ่มความสม่ำเสมอในการทำงาน",
+        "ลด overwhelm และเพิ่ม clarity",
+        "สอนเทคนิค prioritization และ focus"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามรับประกัน income หรือ career promotion",
+        "ห้ามบอกว่าคอร์สรักษา burnout ระดับคลินิก"
+      ],
+      "supporting_facts": ["lc_008", "lc_009", "lc_018", "lc_006"],
+      "narrative_frames": [
+        "ผัดวันไม่ใช่ปัญหาเวลา — แต่ปัญหา emotion; คอร์สนี้แก้ที่ต้นเหตุ",
+        "Decision fatigue ทำให้ผู้พิพากษาตัดสินผิด — คุณก็ไม่ต่างกัน",
+        "2 นาทีแรกคือด่านที่ยากที่สุด — เรียนรู้วิธีข้ามด่านนี้"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["burnout ระดับ clinical หรือ work-related mental health crisis ควรพบแพทย์"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามรับประกัน salary increase หรือ promotion",
+          "ห้ามบอกว่าคอร์สรักษา burnout ทางคลินิก"
+        ],
+        "required_disclaimer_th": "ผลลัพธ์ขึ้นอยู่กับการลงมือทำของแต่ละบุคคล",
+        "audience_exclusions": ["ผู้ที่มี clinical burnout หรือ mental health crisis ควรพบผู้เชี่ยวชาญก่อน"],
+        "validator_keywords_th": ["รับประกัน", "รักษา", "เงินเดือนขึ้น"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "lc_angle_005",
+      "product_category": "mindfulness_meditation_app",
+      "problem_th": "สมองทำงาน autopilot ตลอด ไม่ pause ไตร่ตรอง ทำให้ตัดสินใจจากอารมณ์บ่อย",
+      "mechanism_claim_th": "Mindfulness practice เสริม Prefrontal Cortex control เหนือ Amygdala — งาน meta-analysis (Khoury et al. 2015) พบว่า mindfulness ลด psychological distress และเพิ่ม self-regulation; Meditation ยังลด Default Mode Network activity (mind-wandering)",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยลดความเครียดและเพิ่ม focus",
+        "เสริม self-awareness และการสังเกต thought patterns",
+        "ส่งเสริม emotional regulation"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า meditation รักษา anxiety disorder หรือ depression ทางคลินิก",
+        "ห้ามบอกว่า app แทน MBSR program ที่ clinical settings",
+        "ห้ามอ้างว่า meditation เพิ่ม IQ หรือ cure cognitive disorders"
+      ],
+      "supporting_facts": ["lc_013", "lc_005"],
+      "narrative_frames": [
+        "5 นาทีต่อวัน ฝึกให้สมองส่วนที่ 'คิด' เป็นนาย แทนที่สมองส่วน 'อารมณ์'",
+        "Mindfulness ไม่ใช่เรื่อง spiritual — มันคือ PFC training"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["PTSD — meditation อาจ trigger traumatic memory ควรทำกับ trained therapist"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า app รักษา anxiety หรือ depression",
+          "ห้ามบอกว่าแทน clinical MBSR"
+        ],
+        "required_disclaimer_th": "เนื้อหานี้เป็น lifestyle tool ไม่ใช่การรักษาทางการแพทย์",
+        "audience_exclusions": ["ผู้ที่มี PTSD ควรทำ mindfulness กับ trained therapist เท่านั้น"],
+        "validator_keywords_th": ["รักษา", "PTSD", "บำบัด"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "lc_angle_006",
+      "product_category": "book_atomic_habits_style",
+      "problem_th": "อยากเปลี่ยนชีวิตแต่ไม่รู้จะเริ่มที่ไหน หรือเคยลองแล้วล้มเหลวซ้ำๆ",
+      "mechanism_claim_th": "หนังสือ behavior science ให้ evidence-based framework ทำให้เข้าใจว่าทำไมถึงล้มเหลวและวิธีแก้ที่ถูกต้อง — เปลี่ยน narrative จาก 'ฉันแย่' เป็น 'ระบบฉันแย่ และแก้ได้'",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ให้ความรู้และ framework สำหรับ behavior change",
+        "เปลี่ยน perspective เกี่ยวกับ habit และ success",
+        "เป็น practical guide สำหรับ self-improvement"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามรับประกันว่าอ่านแล้วชีวิตจะเปลี่ยน",
+        "ห้ามบอกว่าแก้ปัญหา clinical mental health"
+      ],
+      "supporting_facts": ["lc_001", "lc_006", "lc_019"],
+      "narrative_frames": [
+        "หนังสือเล่มนี้ไม่สอนให้ 'พยายามมากขึ้น' — สอนให้ 'ออกแบบระบบที่ดีขึ้น'",
+        "knowledge คือ leverage — รู้ว่าสมองทำงานยังไง เปลี่ยนได้ตรงจุด"
+      ],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามรับประกันผลลัพธ์จากการอ่าน"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "lc_angle_007",
+      "product_category": "environment_design_tools",
+      "problem_th": "อยากเปลี่ยนพฤติกรรม (กินดี, ออกกำลังกาย, อ่านหนังสือ) แต่ environment เดิมดึงกลับตลอด",
+      "mechanism_claim_th": "Environment design (ลด friction สำหรับ good habits + เพิ่ม friction สำหรับ bad habits) ทำงานโดยไม่ต้องใช้ Willpower — Fogg Behavior Model: เพิ่ม Ability = เพิ่มโอกาสพฤติกรรมเกิดขึ้น",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลด friction ในการทำ good habits",
+        "เพิ่ม friction ให้ bad habits",
+        "ออกแบบ space ที่ support behavior goal"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามบอกว่า product รับประกันเลิกนิสัยเก่าได้",
+        "ห้ามอ้าง health benefit เกินจริง"
+      ],
+      "supporting_facts": ["lc_006", "lc_020"],
+      "narrative_frames": [
+        "วางรองเท้าวิ่งหน้าเตียง = ไม่ต้องใช้ willpower เลยตอนเช้า",
+        "Environment คือ invisible hand ที่กำลังตัดสินชะตาคุณอยู่ทุกวัน"
+      ],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "angle_id": "lc_angle_008",
+      "product_category": "accountability_coaching_subscription",
+      "problem_th": "รู้ว่าต้องทำ มี plan แล้ว แต่ขาด external accountability ทำให้ prioritize อย่างอื่นแทนเสมอ",
+      "mechanism_claim_th": "External accountability กระตุ้น Relatedness (SDT) และ Social Commitment Effect (Ariely) — การบอกเป้าหมายต่อผู้อื่นสร้าง social contract ที่เพิ่ม follow-through; ASTD research พบว่า accountability partner เพิ่ม completion rate ~65%",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "เพิ่ม consistency และ follow-through",
+        "ให้ structured check-in และ feedback",
+        "เพิ่ม motivation ผ่าน social commitment"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามรับประกันว่าจะสำเร็จ 100%",
+        "ห้ามบอกว่าแทน therapist หรือ counselor"
+      ],
+      "supporting_facts": ["lc_010", "lc_007"],
+      "narrative_frames": [
+        "ทำคนเดียวได้ แต่ทำกับคนอื่นได้เร็วกว่าและสม่ำเสมอกว่า",
+        "Social commitment ไม่ใช่ weakness — มันคือ feature ที่ brain ใช้"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า accountability coaching รักษาโรคจิตเวช",
+          "ห้ามรับประกัน specific outcome"
+        ],
+        "required_disclaimer_th": "ผลลัพธ์ขึ้นอยู่กับการลงมือทำของแต่ละบุคคล",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รับประกัน", "รักษา"],
+        "regulatory_risk_notes": null
+      }
+    }
+  ]
+}

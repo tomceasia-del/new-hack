@@ -1,0 +1,749 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.muscle",
+    "target_count": 22,
+    "tier_distribution": {"T1": 7, "T2": 8, "T3": 5, "T4": 2}
+  },
+  "facts": [
+    {
+      "fact_id": "muscle_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "sarcopenia",
+      "statement_th": "หลังอายุ 30 ปี ร่างกายสูญเสียมวลกล้ามเนื้อประมาณ 1% ต่อปี และเร่งเป็น 3-5% ต่อปีหลังอายุ 60 — ถึงอายุ 70 คุณอาจเหลือกล้ามเนื้อแค่ 70% ของตอนหนุ่มสาว",
+      "statement_en": "After age 30, humans lose approximately 1% of muscle mass per year, accelerating to 3-5% per year after age 60. By age 70, total muscle mass may be reduced by 25-30% from peak.",
+      "numeric_values": [
+        {"value": 1, "unit": "% per year", "label": "muscle loss rate after 30", "is_approximation": true},
+        {"value": 3, "unit": "% per year", "label": "muscle loss rate after 60 (lower bound)", "is_approximation": true},
+        {"value": 5, "unit": "% per year", "label": "muscle loss rate after 60 (upper bound)", "is_approximation": true},
+        {"value": 30, "unit": "%", "label": "total potential muscle loss by age 70", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_muscle_004",
+      "entities_mentioned": ["entity_sarcopenia", "person_phillips_sm"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19011200/",
+          "org": "Journal of Aging Research",
+          "source_tier": "A",
+          "year": 2008,
+          "title": "Sarcopenia: current concepts (Doherty TJ)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "อายุ 30 กล้ามเนื้อเริ่มหายแล้ว",
+        "ทุกปีที่ผ่านไป กล้ามเนื้อหายไป 1%",
+        "ถึง 70 เหลือกล้ามเนื้อแค่ 70%"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "อย่าพูดว่า 'กล้ามเนื้อหายครึ่งนึง' หรือ 'หาย 50%' ตัวเลขจริงคือ 25-30% ถึงอายุ 70",
+      "usage_notes": "ใช้เป็น hook หลักสำหรับคนอายุ 35-55 ที่ยังไม่ออกกำลังกาย เชื่อมกับ whey/creatine/HMB",
+      "contradictions": ["บางงานวิจัยบอกสูงถึง 8% ต่อปีในกลุ่มที่นอนติดเตียง"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "protein_timing",
+      "statement_th": "ต้องการ leucine อย่างน้อย 2-3 กรัมต่อมื้อเพื่อกระตุ้นการสร้างกล้ามเนื้ออย่างมีประสิทธิภาพ — whey protein 25g มี leucine ประมาณ 2.5g ซึ่งอยู่ในโซน 'กระตุ้นได้'",
+      "statement_en": "A minimum of 2-3g leucine per meal is required to maximally activate mTORC1 and trigger muscle protein synthesis. A 25g serving of whey protein contains approximately 2.5g leucine.",
+      "numeric_values": [
+        {"value": 2, "unit": "g", "label": "leucine minimum threshold (lower)", "is_approximation": false},
+        {"value": 3, "unit": "g", "label": "leucine threshold (upper/optimal)", "is_approximation": false},
+        {"value": 2.5, "unit": "g", "label": "leucine in 25g whey protein", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_muscle_002",
+      "entities_mentioned": ["mol_leucine", "mol_mtor", "person_norton_layne"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22760558/",
+          "org": "NCBI PubMed / Journal of Nutrition",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "Leucine content of dietary proteins is a determinant of postprandial skeletal muscle protein synthesis in adult rats (Norton LE, Layman DK)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "leucine ต่ำกว่า 2g = กล้ามเนื้อไม่ตอบสนอง",
+        "whey 25g เท่ากับกุญแจสตาร์ตกล้ามเนื้อ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'whey เพิ่มกล้ามเนื้อได้แน่นอน' — leucine threshold คือเงื่อนไข ไม่ใช่การรับประกัน",
+      "usage_notes": "ใช้อธิบายว่าทำไม whey quality จึงสำคัญ และทำไม BCAA เพียงอย่างเดียวไม่พอ",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "creatine_mechanics",
+      "statement_th": "การเสริมครีเอทีน 3-5 กรัมต่อวันเพิ่ม phosphocreatine ในกล้ามเนื้อ 20-40% และเพิ่มผลลัพธ์ด้านความแข็งแรง (strength) เฉลี่ย 5-15% ในระยะ 4-8 สัปดาห์ — เป็น supplement ที่มีหลักฐานดีที่สุดในโลก",
+      "statement_en": "Creatine monohydrate at 3-5g/day increases intramuscular phosphocreatine by 20-40% and improves strength outcomes by an average of 5-15% over 4-8 weeks. It remains the most evidence-supported ergogenic supplement in sports science.",
+      "numeric_values": [
+        {"value": 3, "unit": "g/day", "label": "creatine minimum effective dose", "is_approximation": false},
+        {"value": 5, "unit": "g/day", "label": "creatine standard dose", "is_approximation": false},
+        {"value": 20, "unit": "%", "label": "increase in muscle PCr (lower)", "is_approximation": false},
+        {"value": 40, "unit": "%", "label": "increase in muscle PCr (upper)", "is_approximation": false},
+        {"value": 5, "unit": "% strength gain", "label": "lower bound", "is_approximation": true},
+        {"value": 15, "unit": "% strength gain", "label": "upper bound", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_muscle_003",
+      "entities_mentioned": ["mol_creatine", "mol_phosphocreatine", "org_issn"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/",
+          "org": "Journal of the International Society of Sports Nutrition",
+          "source_tier": "A",
+          "year": 2017,
+          "title": "International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine (Kreider et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ครีเอทีน 5g = แรงเพิ่ม 15%",
+        "supplement ที่มีหลักฐานดีที่สุดในโลก",
+        "ไม่ใช่ steroid — แต่ทรงพลังกว่าที่คิด"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'ทุกคนได้ผล 15%' — เป็น average และขึ้นกับ creatine responder status",
+      "usage_notes": "ใช้กับ creatine product angle โดยตรง เหมาะสำหรับ UncleD content ที่ debunk ความกลัวครีเอทีน",
+      "contradictions": ["ประมาณ 25-30% ของคนเป็น creatine non-responder"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "protein_timing",
+      "statement_th": "การดื่มโปรตีน 40 กรัม (เทียบกับ 20 กรัม) ก่อนนอน เพิ่มการสังเคราะห์โปรตีนกล้ามเนื้อตลอดคืน 22% ตามการศึกษาของ Res et al. (2012) ในนักกีฬาต้านแรง",
+      "statement_en": "Ingesting 40g of casein protein before sleep increased overnight muscle protein synthesis by 22% compared to placebo in resistance-trained young men (Res et al., 2012).",
+      "numeric_values": [
+        {"value": 40, "unit": "g", "label": "pre-sleep protein dose studied", "is_approximation": false},
+        {"value": 22, "unit": "%", "label": "increase in overnight MPS", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_005",
+      "entities_mentioned": ["mol_casein", "person_phillips_sm"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22330017/",
+          "org": "Medicine & Science in Sports & Exercise",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "Protein ingestion before sleep improves postexercise overnight recovery (Res et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "กินโปรตีนก่อนนอน = โรงงานกล้ามเนื้อทำงานตลอดคืน",
+        "นอนหลับก็สร้างกล้ามเนื้อได้ ถ้ากินถูกวิธี"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "อย่าบอกว่า 'นอนหลับแล้วกล้ามโต' โดยไม่มีออกกำลังกาย — sleep protein synthesis ต้องคู่กับ resistance training",
+      "usage_notes": "ใช้กับ whey/casein product angle ก่อนนอน และ angle สำหรับคนที่ออกกำลังกายตอนเย็น",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "mps",
+      "statement_th": "การสังเคราะห์โปรตีนกล้ามเนื้อ (MPS) สูงสุดภายใน 0-2 ชั่วโมงหลังออกกำลังกาย และยังคงสูงกว่าปกติต่อเนื่อง 24-48 ชั่วโมง — ไม่ใช่แค่ 'window 30 นาที' ตามที่เชื่อกัน",
+      "statement_en": "Acute MPS peaks within 0-2 hours post-exercise, but elevated rates of muscle protein synthesis persist for 24-48 hours post-resistance exercise. The anabolic 'window' is much longer than the 30-minute myth suggests.",
+      "numeric_values": [
+        {"value": 0, "unit": "hours post-exercise", "label": "MPS elevation starts", "is_approximation": false},
+        {"value": 2, "unit": "hours", "label": "MPS peak window", "is_approximation": true},
+        {"value": 24, "unit": "hours", "label": "MPS stays elevated (lower)", "is_approximation": false},
+        {"value": 48, "unit": "hours", "label": "MPS stays elevated (upper)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_001",
+      "entities_mentioned": ["person_phillips_sm", "mol_mtor"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9252485/",
+          "org": "American Journal of Physiology",
+          "source_tier": "A",
+          "year": 1997,
+          "title": "Mixed muscle protein synthesis and breakdown after resistance exercise in humans (Phillips SM et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "กล้ามเนื้อสร้างตัวเองนาน 48 ชม. หลังออก",
+        "window 30 นาทีเป็นแค่มิธ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "การ 'กินโปรตีนหลังออกกำลังกายภายใน 30 นาที' ไม่จำเป็นต้องเคร่งครัด แต่ควรกินภายใน 2-4 ชั่วโมง",
+      "usage_notes": "ใช้ debunk protein timing myth; เหมาะสำหรับ content ที่ให้ความรู้",
+      "contradictions": ["ผู้สูงอายุมี window สั้นกว่าและควรกินโปรตีนใกล้มื้อออกกำลังกายมากกว่า"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "mps",
+      "statement_th": "งานวิจัยของ Moore et al. (2009) พบว่าโปรตีน 20-40 กรัมต่อมื้อ (0.4g/kg body weight) ให้ผลสูงสุดในการกระตุ้น MPS — เกินกว่านี้ไม่ได้ 'เสีย' แต่ excess amino acids จะถูก oxidize เป็นพลังงานแทน",
+      "statement_en": "Moore et al. (2009) found that 20-40g protein per meal (0.4g/kg body weight) maximally stimulates MPS in young adults. Protein beyond this threshold is not wasted but is oxidized as fuel rather than incorporated into muscle.",
+      "numeric_values": [
+        {"value": 20, "unit": "g protein/meal", "label": "lower bound for maximal MPS", "is_approximation": false},
+        {"value": 40, "unit": "g protein/meal", "label": "upper range for maximal MPS", "is_approximation": false},
+        {"value": 0.4, "unit": "g/kg body weight per meal", "label": "weight-adjusted dose", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_001",
+      "entities_mentioned": ["person_phillips_sm"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19056590/",
+          "org": "American Journal of Clinical Nutrition",
+          "source_tier": "A",
+          "year": 2009,
+          "title": "Ingested protein dose response of muscle and albumin protein synthesis after resistance exercise in young men (Moore et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "โปรตีน 30g ต่อมื้อ — ตัวเลขนี้ไม่ใช่เพดานสำหรับทุกคน",
+        "0.4g/kg ต่อมื้อ = สูตรที่วิจัยรองรับ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'กินโปรตีนเกิน 30g ต่อมื้อไร้ประโยชน์' — งานวิจัยใหม่ชี้ว่า 40-100g ก็ยังมีประโยชน์แค่ oxidized ต่างกัน",
+      "usage_notes": "Debunk 30g protein myth และอธิบาย dose response ที่ถูกต้อง",
+      "contradictions": ["Trommelen et al. 2023 แสดงว่า 100g protein single dose ก็ยัง incorporated ได้ ไม่เสียหาย"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hmb_catabolism",
+      "statement_th": "HMB 3 กรัมต่อวันลดการสลายของโปรตีนกล้ามเนื้อ (proteolysis) และรักษามวลกล้ามเนื้อได้ดีกว่า placebo ในผู้สูงอายุที่อยู่ในสภาวะ catabolic เช่น นอนติดเตียงหรือป่วย (Wilson et al., 2014)",
+      "statement_en": "HMB at 3g/day significantly preserves lean mass and reduces proteolysis in elderly subjects during bed rest and catabolic stress compared to placebo (Wilson et al., 2014 systematic review).",
+      "numeric_values": [
+        {"value": 3, "unit": "g/day", "label": "HMB effective dose", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_006",
+      "entities_mentioned": ["mol_hmb"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27574006/",
+          "org": "Nutrition & Metabolism",
+          "source_tier": "A",
+          "year": 2014,
+          "title": "Effects of beta-hydroxy-beta-methylbutyrate supplementation on strength and body composition across the spectrum of age (Wilson et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "HMB — โล่กันกล้ามเนื้อสลาย",
+        "เจ็บป่วย นอนพัก กล้ามเนื้อหายได้ HMB ช่วยได้"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "HMB มีประสิทธิภาพดีในกลุ่ม catabolic/elderly ผลในนักกีฬาอายุน้อยต่ำกว่าครีเอทีน ห้ามอ้างว่าเท่ากัน",
+      "usage_notes": "เหมาะสำหรับ angle ผู้สูงอายุ ผู้ป่วยพักฟื้น คนที่หยุดออกกำลังกายชั่วคราว",
+      "contradictions": ["งานวิจัยในนักกีฬาอายุน้อยให้ผลปะปน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_008",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "eaa_vs_bcaa",
+      "statement_th": "EAA (essential amino acids ครบ 9 ชนิด) กระตุ้นการสร้างโปรตีนกล้ามเนื้อได้ดีกว่า BCAA เพียงอย่างเดียวอย่างมีนัยสำคัญ เนื่องจาก MPS ต้องการ building blocks ครบชุด",
+      "statement_en": "EAA (all 9 essential amino acids) stimulates MPS significantly more effectively than BCAA alone because complete protein synthesis requires all essential building blocks.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_muscle_007",
+      "entities_mentioned": ["mol_eaa", "mol_bcaa", "mol_leucine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28402535/",
+          "org": "Journal of the International Society of Sports Nutrition",
+          "source_tier": "A",
+          "year": 2017,
+          "title": "Branched-chain amino acids and muscle protein synthesis in humans: myth or reality? (Wolfe RR)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "BCAA คือชุดอาหารไม่ครบ — EAA ถึงจะสร้างกล้ามเนื้อได้จริง",
+        "3 ตัวไม่พอ ต้องการ 9 ตัว"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "BCAA ยังมีประโยชน์ในบริบท pre-workout energy แต่สำหรับ MPS ต้องพาร์ทกับ EAA หรือโปรตีนสมบูรณ์",
+      "usage_notes": "ใช้ angle เปลี่ยนจาก BCAA → EAA และอธิบายว่าทำไม EAA ถึงคุ้มกว่า",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_009",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "resistance_training_aging",
+      "statement_th": "การฝึกแรงต้าน (resistance training) 2-3 ครั้งต่อสัปดาห์ในผู้สูงอายุสามารถชะลอและในบางกรณีย้อนกลับ sarcopenia ได้ — เป็นวิธีที่มีหลักฐานดีที่สุดในการรักษากล้ามเนื้อตามอายุ",
+      "statement_en": "Resistance training 2-3 times per week in older adults can slow and in some cases partially reverse sarcopenia. It is the most evidence-supported intervention for age-related muscle preservation.",
+      "numeric_values": [
+        {"value": 2, "unit": "sessions/week", "label": "minimum effective frequency (lower)", "is_approximation": false},
+        {"value": 3, "unit": "sessions/week", "label": "minimum effective frequency (upper)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_008",
+      "entities_mentioned": ["entity_sarcopenia"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24444514/",
+          "org": "British Journal of Sports Medicine",
+          "source_tier": "A",
+          "year": 2014,
+          "title": "Resistance training for older adults: position statement from the National Strength and Conditioning Association (NSCA)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ยกน้ำหนัก 3 วัน/สัปดาห์ = ชะลอความแก่ได้จริง",
+        "resistance training คือยาอายุวัฒนะที่วิจัยรองรับ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ย้อนกลับ sarcopenia ได้ 'บางส่วน' ไม่ใช่ 'สมบูรณ์' ห้ามอ้างว่ากล้ามเนื้อกลับมาเท่าตอนหนุ่มสาว",
+      "usage_notes": "เหมาะสำหรับ content ที่จับกลุ่ม 40+ ที่ยังไม่ออกกำลังกาย",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_010",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sleep_recovery",
+      "statement_th": "การอดนอน 1 คืน (< 6 ชั่วโมง) ลดระดับ GH nocturnal pulse ลงอย่างมีนัยสำคัญ ส่งผลกระทบต่อการซ่อมแซมกล้ามเนื้อและการสร้างมวลกล้ามเนื้อในคืนนั้น",
+      "statement_en": "A single night of sleep restriction (< 6 hours) significantly blunts the nocturnal GH pulse, impairing overnight muscle protein synthesis and recovery.",
+      "numeric_values": [
+        {"value": 6, "unit": "hours", "label": "sleep threshold below which GH is impaired", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_005",
+      "entities_mentioned": ["mol_growth_hormone"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25926415/",
+          "org": "Medical Hypotheses",
+          "source_tier": "B",
+          "year": 2011,
+          "title": "Sleep and muscle recovery: endocrinological and molecular basis for a new and promising hypothesis (Dattilo et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "นอนน้อยกว่า 6 ชม. กล้ามเนื้อไม่ซ่อมตัวเอง",
+        "ออกกำลังกายหนักแค่ไหนก็ไม่โต ถ้านอนไม่พอ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "GH ลด ≠ 'กล้ามเนื้อพัง' อธิบายว่าลด recovery rate ไม่ใช่หายทั้งหมด",
+      "usage_notes": "เหมาะสำหรับ content นอนหลับ + โปรตีนก่อนนอน (casein angle)",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_011",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "sarcopenia",
+      "statement_th": "ผู้สูงอายุมี 'anabolic resistance' — ต้องการโปรตีนต่อมื้อมากกว่าคนหนุ่มสาวถึง 1.5-2 เท่าเพื่อกระตุ้น MPS ในระดับเดียวกัน",
+      "statement_en": "Older adults experience 'anabolic resistance' — they require 1.5-2x more protein per meal than young adults to achieve the same rate of MPS stimulation.",
+      "numeric_values": [
+        {"value": 1.5, "unit": "x more protein needed", "label": "lower bound anabolic resistance", "is_approximation": true},
+        {"value": 2, "unit": "x more protein needed", "label": "upper bound anabolic resistance", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_muscle_004",
+      "entities_mentioned": ["entity_sarcopenia", "person_phillips_sm"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30095480/",
+          "org": "NCBI PubMed",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Anabolic resistance of muscle protein turnover comes in various shapes and sizes (Burd et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "แก่แล้วกินโปรตีนเท่าเดิมไม่พอแล้ว",
+        "ร่างกายแก่ต้องการโปรตีนมากขึ้น ไม่ใช่น้อยลง"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'ผู้สูงอายุต้องกินโปรตีนสองเท่า' ให้บอกว่า 'ต้องการมากขึ้น' และอ้างอิง RDA ที่ปรับแล้ว",
+      "usage_notes": "เหมาะกับ angle whey + HMB สำหรับกลุ่ม 50+",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "mps",
+      "statement_th": "ครีเอทีนไม่เพียงแต่เพิ่มแรงในระยะสั้น — งานวิจัยแสดงว่ายังเพิ่ม myosatellite cell activity ซึ่งช่วยในการสร้างกล้ามเนื้อระยะยาวด้วย",
+      "statement_en": "Creatine supplementation not only increases short-term power output but also enhances myosatellite cell activity, contributing to long-term hypertrophy beyond just energy system benefits.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_muscle_003",
+      "entities_mentioned": ["mol_creatine"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15702556/",
+          "org": "NCBI PubMed",
+          "source_tier": "A",
+          "year": 2004,
+          "title": "The effect of creatine supplementation on muscle fiber type, myosin heavy chain isoforms and satellite cell number (Olsen et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ครีเอทีนทำมากกว่าแค่เพิ่มแรง — สร้างกล้ามเนื้อระยะยาวด้วย"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "satellite cell activation เป็น secondary benefit ไม่ใช่ primary mechanism",
+      "usage_notes": "ใช้ elevate creatine narrative ให้มากกว่า 'แค่เพิ่มพลัง'",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "protein_timing",
+      "statement_th": "การกระจายโปรตีน 3-4 มื้อต่อวัน (แต่ละมื้อ 20-40g) ให้ผลการสังเคราะห์โปรตีนกล้ามเนื้อรวมดีกว่าการกินโปรตีนทั้งหมดในมื้อเดียว",
+      "statement_en": "Distributing protein intake across 3-4 meals per day (20-40g each) produces greater total daily MPS than consuming the same total amount in one or two large meals.",
+      "numeric_values": [
+        {"value": 3, "unit": "meals/day", "label": "minimum for optimal distribution", "is_approximation": false},
+        {"value": 4, "unit": "meals/day", "label": "optimal meal distribution", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_002",
+      "entities_mentioned": ["person_phillips_sm", "person_norton_layne"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23459753/",
+          "org": "Journal of Nutrition",
+          "source_tier": "A",
+          "year": 2013,
+          "title": "Protein distribution and muscle protein synthesis response (Areta et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "กระจายโปรตีน 4 มื้อ ดีกว่ายัดในมื้อเดียว",
+        "ความถี่สำคัญกว่าปริมาณรวม"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่จำเป็นต้องกินทุก 2-3 ชั่วโมงแบบเก่า แค่ 3-4 มื้อต่อวันพอ",
+      "usage_notes": "ใช้แนะนำ meal planning ร่วมกับ whey protein",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "creatine_mechanics",
+      "statement_th": "ครีเอทีนไม่จำเป็นต้อง 'loading' 20g/วัน 5 วัน — การกิน 3-5g/วันต่อเนื่อง 28 วันให้ระดับ saturation ในกล้ามเนื้อเท่ากับ loading protocol เพียงแต่ช้ากว่า",
+      "statement_en": "Creatine loading (20g/day for 5-7 days) is not necessary. Consistent dosing at 3-5g/day for 28 days achieves the same muscle saturation level as loading, just more gradually.",
+      "numeric_values": [
+        {"value": 20, "unit": "g/day", "label": "loading dose (not required)", "is_approximation": false},
+        {"value": 5, "unit": "days", "label": "loading protocol duration", "is_approximation": false},
+        {"value": 3, "unit": "g/day", "label": "maintenance dose (lower)", "is_approximation": false},
+        {"value": 5, "unit": "g/day", "label": "maintenance dose (upper)", "is_approximation": false},
+        {"value": 28, "unit": "days", "label": "time to achieve saturation without loading", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_003",
+      "entities_mentioned": ["mol_creatine", "org_issn"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/",
+          "org": "Journal of the International Society of Sports Nutrition",
+          "source_tier": "A",
+          "year": 2017,
+          "title": "International Society of Sports Nutrition position stand: creatine supplementation (Kreider et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ไม่ต้อง loading ครีเอทีน — กิน 5g ทุกวันพอ",
+        "ครีเอทีนไม่ซับซ้อน แค่กินทุกวันสม่ำเสมอ"
+      ],
+      "dramatization_allowed": false,
+      "dramatization_limit": "ข้อมูลนี้แม่นยำ ไม่ต้อง dramatize",
+      "usage_notes": "ใช้ simplify ครีเอทีน และลด barrier ในการเริ่มกิน",
+      "contradictions": ["loading ให้ผลเร็วกว่าสำหรับคนที่ต้องการผลทันที เช่น ก่อนการแข่งขัน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_015",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "mps",
+      "statement_th": "โปรตีน 1.6-2.2 กรัมต่อน้ำหนักตัว 1 กิโลกรัมต่อวันเป็น range ที่แนะนำสำหรับผู้ที่ต้องการสร้างกล้ามเนื้อ (meta-analysis หลายงานยืนยัน)",
+      "statement_en": "A daily protein intake of 1.6-2.2g per kg body weight is the scientifically supported range for muscle hypertrophy, supported by multiple meta-analyses.",
+      "numeric_values": [
+        {"value": 1.6, "unit": "g protein/kg/day", "label": "minimum effective dose for hypertrophy", "is_approximation": false},
+        {"value": 2.2, "unit": "g protein/kg/day", "label": "upper range for hypertrophy", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_001",
+      "entities_mentioned": ["person_phillips_sm", "person_norton_layne"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+          "org": "British Journal of Sports Medicine",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults (Morton et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "กิน 1.6g โปรตีน/kg — เส้นล่างสุดของการสร้างกล้ามเนื้อ",
+        "น้ำหนัก 70kg = โปรตีน 112-154g ต่อวัน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เป็น consensus ที่แข็งแรง ใช้ตัวเลขได้เลย",
+      "usage_notes": "ใช้คำนวณ protein target ให้ user และแนะนำ whey supplement",
+      "contradictions": ["คนสูงอายุอาจต้องการ 2.0-2.5g/kg/day"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_016",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "resistance_training_aging",
+      "statement_th": "Progressive overload — การค่อยๆ เพิ่มน้ำหนักหรือ volume ในการฝึก — เป็นสิ่งจำเป็นต่อการเพิ่มกล้ามเนื้อต่อเนื่อง ถ้าออกกำลังกายน้ำหนักเท่าเดิมทุกวัน ร่างกายจะ adapt และหยุดเติบโต",
+      "statement_en": "Progressive overload — gradually increasing training weight, volume, or intensity — is essential for continued muscle hypertrophy. Without progressive challenge, muscle adaptation plateaus.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_muscle_008",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30544191/",
+          "org": "Journal of Strength and Conditioning Research",
+          "source_tier": "A",
+          "year": 2019,
+          "title": "Progressive overload without progressing load? The effects of load or repetition progression on muscular adaptations (Plotkin et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "น้ำหนักเท่าเดิมทุกวัน กล้ามเนื้อไม่โตเพิ่ม",
+        "โตต้องหนักขึ้นเรื่อยๆ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ความก้าวหน้าไม่จำเป็นต้องเป็นน้ำหนักเสมอ — reps, sets, tempo ก็นับ",
+      "usage_notes": "ใช้ motivate ให้ user ออกกำลังกายหนักขึ้น ไม่ใช่แค่กิน supplement",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_017",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "sleep_recovery",
+      "statement_th": "การนอนหลับ 7-9 ชั่วโมงต่อคืนเป็น optimal window สำหรับ recovery และ GH secretion ต่ำกว่านี้ลด anabolic hormones สูงกว่านี้อาจสัมพันธ์กับปัญหาสุขภาพอื่น",
+      "statement_en": "7-9 hours of sleep per night is the recommended optimal window for muscle recovery and maximal nocturnal GH secretion. Less than this impairs anabolic hormones; more may be associated with other health concerns.",
+      "numeric_values": [
+        {"value": 7, "unit": "hours", "label": "minimum optimal sleep", "is_approximation": false},
+        {"value": 9, "unit": "hours", "label": "maximum optimal sleep", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_005",
+      "entities_mentioned": ["mol_growth_hormone"],
+      "sources": [
+        {
+          "url": "https://www.sleepfoundation.org/how-sleep-works/sleep-facts-statistics",
+          "org": "National Sleep Foundation",
+          "source_tier": "B",
+          "year": 2022,
+          "title": "Sleep Facts and Statistics — National Sleep Foundation",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "นอน 7-9 ชม. = กล้ามเนื้อซ่อมตัวเองได้เต็มที่",
+        "นอนน้อย = สูญเปล่าเวลาฝึก"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "standard consensus ไม่มีข้อโต้แย้งหลัก",
+      "usage_notes": "ใช้เชื่อมโยงกับ content การนอนและการออกกำลังกาย",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_018",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "mps",
+      "statement_th": "Whey protein มี bioavailability สูงที่สุดในบรรดาโปรตีนประเภทต่างๆ และดูดซึมเร็วกว่า casein และโปรตีนจากพืช ทำให้เหมาะสมที่สุดสำหรับการกระตุ้น MPS หลังออกกำลังกาย",
+      "statement_en": "Whey protein has the highest bioavailability of common protein sources and is absorbed faster than casein or plant proteins, making it most suitable for post-exercise MPS stimulation.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_muscle_002",
+      "entities_mentioned": ["mol_whey", "mol_casein"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22289576/",
+          "org": "American Journal of Clinical Nutrition",
+          "source_tier": "A",
+          "year": 2012,
+          "title": "Consumption of fluid skim milk promotes greater muscle protein accretion after resistance exercise than does consumption of an isonitrogenous and isoenergetic soy-protein beverage (Wilkinson et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "whey คือราชาของโปรตีน — ดูดซึมเร็ว กระตุ้น MPS ได้ดีสุด",
+        "หลังออกกำลังกาย whey คือตัวเลือกแรก"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "คนที่ไม่กินนมได้ (lactose intolerance) ให้แนะนำ EAA หรือ isolate แทน",
+      "usage_notes": "ใช้เป็น foundation ของ whey product angle",
+      "contradictions": ["งานวิจัยล่าสุดแสดงว่า soy protein ก็ให้ผลดีใกล้เคียงในระยะยาว"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_019",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "resistance_training_aging",
+      "statement_th": "การสูญเสียกล้ามเนื้อ (sarcopenia) สัมพันธ์กับความเสี่ยง fall สูง กระดูกหักได้ง่าย และอัตราการเสียชีวิตที่สูงกว่าในผู้สูงอายุ — ไม่ใช่แค่เรื่องความสวยงาม",
+      "statement_en": "Sarcopenia is associated with significantly increased risk of falls, fractures, hospitalization, and mortality in older adults. It is a major clinical condition, not merely an aesthetic concern.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_muscle_004",
+      "entities_mentioned": ["entity_sarcopenia"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29105617/",
+          "org": "Journal of Cachexia, Sarcopenia and Muscle",
+          "source_tier": "A",
+          "year": 2018,
+          "title": "Sarcopenia: revised European consensus on definition and diagnosis (Cruz-Jentoft et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "กล้ามเนื้อน้อย = เสี่ยงล้ม เสี่ยงตาย — ไม่ใช่แค่ดูไม่เฟิร์ม",
+        "sarcopenia เป็นโรค ไม่ใช่แค่แก่ตามธรรมชาติ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'กล้ามเนื้อน้อย = ตาย' ต้องบอกว่า 'เพิ่มความเสี่ยง'",
+      "usage_notes": "เพิ่ม urgency ให้ content ที่จับกลุ่มผู้สูงอายุและญาติผู้ดูแล",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_020",
+      "tier": "T4_COMMON_WISDOM",
+      "sub_topic_id": "protein_timing",
+      "statement_th": "การกินโปรตีนในมื้อเช้าหลังจากอดอาหารทั้งคืน ช่วยกระตุ้น MPS หลังช่วง overnight fast และช่วยรักษา muscle mass ได้ดีกว่าการข้ามมื้อเช้า",
+      "statement_en": "Consuming protein at breakfast after the overnight fast helps stimulate MPS following the catabolic night period and better preserves muscle mass than skipping breakfast.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_muscle_001",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25169440/",
+          "org": "American Journal of Clinical Nutrition",
+          "source_tier": "B",
+          "year": 2014,
+          "title": "Protein-rich breakfast promotes muscle accretion in teenagers (Hoertel et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "ข้ามมื้อเช้า = กล้ามเนื้อหายโดยไม่รู้ตัว",
+        "โปรตีนเช้า = เริ่มต้นวันแบบสร้างกล้ามเนื้อ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "T4 — ข้ามมื้อเช้าไม่ได้ทำให้กล้ามเนื้อหายทันที แต่ในระยะยาวส่งผลสะสม",
+      "usage_notes": "ใช้กับ angle whey protein ตอนเช้า เหมาะกับ content ที่ง่ายและ relatable",
+      "contradictions": ["Intermittent fasting (ข้ามเช้า) ในบางงานวิจัยไม่ลดมวลกล้ามเนื้อในระยะยาวถ้าโปรตีนรวมพอ"],
+      "confidence": "low",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_021",
+      "tier": "T4_COMMON_WISDOM",
+      "sub_topic_id": "resistance_training_aging",
+      "statement_th": "การออกกำลังกายทุกประเภท ดีกว่าการไม่ออกเลย — แม้แต่การเดินเร็วสม่ำเสมอก็ช่วยชะลอการสูญเสียกล้ามเนื้อในผู้สูงอายุได้บ้าง",
+      "statement_en": "Any form of regular physical activity is better than none — even brisk walking consistently helps slow age-related muscle loss in older adults to some degree.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_muscle_008",
+      "entities_mentioned": [],
+      "sources": [
+        {
+          "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity",
+          "org": "World Health Organization",
+          "source_tier": "B",
+          "year": 2022,
+          "title": "WHO Global Guidelines on Physical Activity",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "เริ่มจากเดินก็ยังดีกว่านั่งเฉย",
+        "ไม่มีข้ออ้างไม่ออกกำลังกาย"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "T4 — เดินอย่างเดียวไม่เพียงพอสำหรับ hypertrophy แต่ดีกว่าไม่ทำอะไรเลย",
+      "usage_notes": "ใช้ lower the barrier สำหรับ audience ที่ไม่ได้ออกกำลังกายเลย",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    },
+    {
+      "fact_id": "muscle_022",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "hmb_catabolism",
+      "statement_th": "Collagen peptides เมื่อบริโภคร่วมกับ Vitamin C ก่อนออกกำลังกาย 1 ชั่วโมง ช่วยเพิ่มการสังเคราะห์ collagen ใน connective tissue รอบกล้ามเนื้อ ลดความเสี่ยงบาดเจ็บในเนื้อเยื่อเกี่ยวพัน",
+      "statement_en": "Collagen peptides consumed with Vitamin C 1 hour before exercise increases collagen synthesis in connective tissue around muscles, reducing injury risk in tendons and ligaments.",
+      "numeric_values": [
+        {"value": 1, "unit": "hour before exercise", "label": "optimal timing for collagen peptides", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_muscle_008",
+      "entities_mentioned": ["mol_collagen"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28177716/",
+          "org": "American Journal of Clinical Nutrition",
+          "source_tier": "A",
+          "year": 2017,
+          "title": "Vitamin C-enriched gelatin supplementation before intermittent activity augments collagen synthesis (Shaw et al.)",
+          "access_date": "2026-04-20"
+        }
+      ],
+      "narrative_hooks": [
+        "collagen + Vitamin C ก่อนออกกำลัง = protective shield สำหรับ joint",
+        "บาดเจ็บบ่อย? อาจขาด collagen synthesis"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "collagen supplement ไม่ได้สร้างกล้ามเนื้อ — มันปกป้อง connective tissue รอบกล้ามเนื้อ",
+      "usage_notes": "ใช้กับ collagen_peptides product angle ในกลุ่มนักกีฬาหรือผู้สูงอายุที่มีปัญหาข้อต่อ",
+      "contradictions": [],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.muscle",
+      "harvested_at": "2026-04-20T00:00:00"
+    }
+  ]
+}

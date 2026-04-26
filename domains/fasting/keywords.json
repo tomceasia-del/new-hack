@@ -1,0 +1,23 @@
+{
+  "domain_id": "fasting",
+  "primary_th": [
+    "อดอาหาร",
+    "อด",
+    "IF",
+    "ฟาสติ้ง",
+    "ฟาส"
+  ],
+  "primary_en": [
+    "fasting",
+    "intermittent fasting",
+    "IF",
+    "time-restricted eating",
+    "autophagy",
+    "extended fast"
+  ],
+  "aliases_th": [],
+  "aliases_en": [],
+  "jargon_th": [],
+  "jargon_en": [],
+  "regex_patterns": []
+}

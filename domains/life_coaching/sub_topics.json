@@ -1,0 +1,85 @@
+{
+  "domain_id": "life_coaching",
+  "sub_topics": [
+    {
+      "id": "habit_formation",
+      "label_th": "การสร้างนิสัย",
+      "label_en": "Habit Formation",
+      "description": "กระบวนการสร้างพฤติกรรมซ้ำอัตโนมัติผ่าน cue-routine-reward loop และ identity-based change",
+      "key_concepts": ["habit loop", "cue", "routine", "reward", "identity-based habits", "habit stacking", "implementation intention"],
+      "related_sub_topics": ["self_control", "behavior_design"],
+      "difficulty": "basic",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "mindset",
+      "label_th": "กรอบความคิด",
+      "label_en": "Mindset & Growth Mindset",
+      "description": "ความเชื่อเกี่ยวกับความสามารถของตนเอง — Growth Mindset เชื่อว่าพัฒนาได้, Fixed Mindset เชื่อว่าตายตัว",
+      "key_concepts": ["growth mindset", "fixed mindset", "neuroplasticity", "self-efficacy", "attribution style"],
+      "related_sub_topics": ["resilience", "self_control"],
+      "difficulty": "basic",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "self_control",
+      "label_th": "การควบคุมตนเอง",
+      "label_en": "Self-Control & Willpower",
+      "description": "ความสามารถในการต้านแรงกระตุ้นระยะสั้นเพื่อเป้าหมายระยะยาว — ถูก deplete ได้ แต่ระบบ environment ช่วยได้",
+      "key_concepts": ["ego depletion", "delayed gratification", "marshmallow test", "temptation bundling", "environment design"],
+      "related_sub_topics": ["habit_formation", "behavior_design"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "procrastination",
+      "label_th": "การผัดวันประกันพรุ่ง",
+      "label_en": "Procrastination",
+      "description": "การหลีกเลี่ยงงานแม้รู้ว่าผลเสียตามมา — เกิดจาก emotion avoidance ไม่ใช่ time management",
+      "key_concepts": ["emotion avoidance", "task aversion", "2-minute rule", "action precedes motivation", "fear of failure"],
+      "related_sub_topics": ["self_control", "motivation"],
+      "difficulty": "basic",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "motivation",
+      "label_th": "แรงจูงใจ",
+      "label_en": "Motivation",
+      "description": "แรงขับเคลื่อนพฤติกรรม — แบ่งเป็น Intrinsic (ภายใน) และ Extrinsic (ภายนอก); intrinsic มี long-term effect ดีกว่า",
+      "key_concepts": ["intrinsic motivation", "extrinsic motivation", "Self-Determination Theory", "autonomy", "competence", "relatedness", "dopamine"],
+      "related_sub_topics": ["habit_formation", "procrastination"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "behavior_design",
+      "label_th": "การออกแบบพฤติกรรม",
+      "label_en": "Behavior Design & Environment",
+      "description": "การปรับ environment และ context เพื่อทำให้พฤติกรรมที่ต้องการเกิดง่ายขึ้น — BJ Fogg's Tiny Habits model",
+      "key_concepts": ["Fogg Behavior Model", "motivation + ability + prompt", "friction reduction", "choice architecture", "nudge theory"],
+      "related_sub_topics": ["habit_formation", "self_control"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "resilience",
+      "label_th": "ความยืดหยุ่นทางจิตใจ",
+      "label_en": "Resilience & Mental Toughness",
+      "description": "ความสามารถในการฟื้นตัวจากความล้มเหลวและความเครียด — สร้างได้ด้วย reframing, self-compassion, growth mindset",
+      "key_concepts": ["resilience", "post-traumatic growth", "self-compassion", "reframing", "learned helplessness", "learned optimism"],
+      "related_sub_topics": ["mindset", "motivation"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "decision_making",
+      "label_th": "การตัดสินใจ",
+      "label_en": "Decision Making & Cognitive Bias",
+      "description": "กระบวนการตัดสินใจ — System 1 (อัตโนมัติ/อารมณ์) vs System 2 (ไตร่ตรอง/เหตุผล); bias ที่ทำให้ตัดสินใจผิด",
+      "key_concepts": ["System 1 / System 2", "loss aversion", "present bias", "cognitive bias", "decision fatigue", "WOOP method"],
+      "related_sub_topics": ["self_control", "procrastination"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    }
+  ]
+}

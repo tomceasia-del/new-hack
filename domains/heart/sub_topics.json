@@ -1,0 +1,102 @@
+{
+  "domain_id": "heart",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.heart"
+  },
+  "sub_topics": [
+    {
+      "id": "ApoB_LDL",
+      "label_th": "ApoB vs LDL-C (จำนวนอนุภาคอะเทอโรเจนิก)",
+      "label_en": "ApoB vs LDL-C (atherogenic particle count)",
+      "description": "ApoB วัด 'จำนวนอนุภาค' ของ LDL/VLDL/IDL/Lp(a)/ไคโลไมครอน — 1 ApoB ต่อ 1 อนุภาคที่เข้าไปเจาะผนังหลอดเลือดได้ทุกอนุภาค; Sniderman 2019 พิสูจน์ว่า ApoB ทำนาย CVD ได้ดีกว่า LDL-C โดยเฉพาะคนที่ไตรกลีเซอไรด์สูง (metabolic syndrome) ที่ LDL-C 'ปกติ' แต่ ApoB สูงซ่อน",
+      "key_concepts": [
+        "apolipoprotein B-100",
+        "one ApoB per atherogenic particle",
+        "discordance LDL-C vs ApoB",
+        "non-HDL-C",
+        "particle number vs cholesterol mass",
+        "Sniderman 2019 meta-analysis",
+        "Attia 'ApoB-first' framework"
+      ],
+      "related_sub_topics": ["atherosclerosis", "lipoprotein_a"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "atherosclerosis",
+      "label_th": "อะเทอโรสเคลอโรซิส (หลอดเลือดแข็ง/คราบไขมัน)",
+      "label_en": "Atherosclerosis",
+      "description": "กระบวนการ 4 ขั้น: (1) endothelial injury → (2) LDL/ApoB ลอดเข้าไปติดใต้ชั้น endothelium → (3) oxidized LDL ถูก macrophage กินกลายเป็น foam cell + necrotic core → (4) plaque rupture หรือ erosion → thrombus อุดตัน = heart attack/stroke; สะสมเงียบ 20-30 ปีก่อนจะ 'event' จริง",
+      "key_concepts": [
+        "endothelial injury",
+        "LDL retention hypothesis",
+        "foam cell formation",
+        "fibrous cap",
+        "vulnerable plaque",
+        "plaque rupture vs erosion",
+        "thrombosis",
+        "Virmani plaque classification"
+      ],
+      "related_sub_topics": ["endothelial_dysfunction", "ApoB_LDL", "calcium_score"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "endothelial_dysfunction",
+      "label_th": "เยื่อบุหลอดเลือดเสื่อม (ผนังในของหลอดเลือด)",
+      "label_en": "Endothelial Dysfunction",
+      "description": "ขั้นแรกสุดของโรคหลอดเลือดก่อนมีคราบ — เยื่อบุในผลิต nitric oxide (NO) ได้น้อยลง ทำให้หลอดเลือดหดง่าย, inflammatory molecule ทะลุผ่าน, platelet เกาะ; เกิดที่จุด 'bifurcation' ที่ shear stress ไหลผิดปกติ (Davies 2009 Nature Rev Cardiol); เริ่มได้ตั้งแต่อายุ 20-30 ในคนที่กินอาหารแปรรูป/ไม่ออกกำลังกาย",
+      "key_concepts": [
+        "eNOS uncoupling",
+        "nitric oxide bioavailability",
+        "shear stress (laminar vs disturbed)",
+        "bifurcations as high-risk sites",
+        "vascular inflammation",
+        "FMD (flow-mediated dilation)",
+        "ADMA inhibitor"
+      ],
+      "related_sub_topics": ["atherosclerosis"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "calcium_score",
+      "label_th": "คะแนนแคลเซียมในหลอดเลือดหัวใจ (CAC/Agatston score)",
+      "label_en": "Coronary Artery Calcium (CAC) Score",
+      "description": "CT scan ใช้วัดปริมาณแคลเซียมใน plaque ของหลอดเลือดหัวใจ — Agatston score 0 = ไม่มี plaque แคลเซียม; MESA cohort พบว่า CAC=0 ให้ '10-year warranty' เสี่ยงต่ำกว่า 1% แม้ LDL สูง; CAC >100 = ต้องจัดการเข้มมาก",
+      "key_concepts": [
+        "Agatston method (1990)",
+        "CAC=0 warranty",
+        "MESA cohort",
+        "percentile by age/sex",
+        "CAC >100 high risk",
+        "CAC >400 very high risk",
+        "power calcification (NOT soft plaque)",
+        "radiation dose ~1 mSv"
+      ],
+      "related_sub_topics": ["atherosclerosis", "ApoB_LDL"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "lipoprotein_a",
+      "label_th": "ไลโปโปรตีน เอ (Lp(a)) — ปัจจัยเสี่ยงทางพันธุกรรม",
+      "label_en": "Lipoprotein(a) [Lp(a)]",
+      "description": "LDL-like particle ที่มี apolipoprotein(a) เกาะเพิ่ม — ถูกกำหนดโดยยีน LPA เกือบทั้งหมด; ~20% ของประชากรโลกมีค่า >50 mg/dL (high risk); ไม่ตอบสนองต่ออาหาร/ออกกำลังกาย/statin; pelacarsen (antisense) ใน phase 3 Lp(a)HORIZON (Tsimikas 2017 JACC review)",
+      "key_concepts": [
+        "apo(a) + LDL particle",
+        "LPA gene inherited",
+        "~20% elevated globally",
+        "Lp(a) >50 mg/dL (or >125 nmol/L)",
+        "pro-atherogenic + pro-thrombotic",
+        "test once in lifetime",
+        "pelacarsen antisense trial",
+        "not lowered by diet or exercise"
+      ],
+      "related_sub_topics": ["ApoB_LDL", "atherosclerosis"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    }
+  ]
+}

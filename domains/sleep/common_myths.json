@@ -1,0 +1,132 @@
+{
+  "domain_id": "sleep",
+  "_meta": {"current_count": 9, "last_harvested": "2026-04-22", "harvested_by": "domain_harvester.sleep"},
+  "myths": [
+    {
+      "myth_id": "slp_myth_001",
+      "popular_belief_th": "นอนน้อยในสัปดาห์ นอนชดเชยวันหยุดได้",
+      "popular_belief_en": "You can 'catch up' on sleep debt by sleeping in on weekends",
+      "truth_th": "Killgore et al. & Dinges meta-analysis: cognitive impairment และ metabolic damage สะสมจาก sleep debt ไม่สามารถฟื้นคืนได้ทั้งหมดจากการนอนชดเชย 2 วัน; ความตื่นตัวอาจรู้สึกดีขึ้น แต่ performance deficit และ insulin sensitivity ยังบกพร่องต่อไปหลายวัน",
+      "truth_en": "Cognitive and metabolic damage from chronic sleep debt cannot be fully reversed by two nights of recovery sleep; subjective alertness improves faster than objective performance and insulin sensitivity.",
+      "why_popular": "การนอนชดเชยรู้สึกดี subjectively — ทำให้คนคิดว่า 'ใช้ได้'",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12705823/", "org": "Sleep / PubMed", "source_tier": "A", "year": 2003, "title": "The cumulative cost of additional wakefulness — Van Dongen HPA et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_stages",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "slp_myth_002",
+      "popular_belief_th": "ดื่มแอลกอฮอล์ก่อนนอนช่วยให้นอนหลับดีขึ้น",
+      "popular_belief_en": "Drinking alcohol before bed helps you sleep better",
+      "truth_th": "แอลกอฮอล์เป็น CNS depressant ทำให้หลับง่ายขึ้น (sleep onset ลดลง) แต่ยับยั้ง REM sleep ในช่วงครึ่งคืนแรก 24-40%; rebound ช่วงครึ่งหลังทำให้ฝัน vivid, ตื่นบ่อย, snoring เพิ่ม, OSA แย่ลง; sleep quality รวมแย่ลงชัดเจน",
+      "truth_en": "Alcohol is a CNS depressant (reduces sleep latency) but suppresses REM by 24-40% in the first half of the night, causing REM rebound, vivid dreams, frequent awakening, increased snoring, and worsening sleep apnea.",
+      "why_popular": "ความรู้สึก 'ง่วง' หลังดื่มทำให้คิดว่า 'นอนหลับดี'; เป็นความเชื่อสังคมไทย",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12420706/", "org": "ACER / PubMed", "source_tier": "A", "year": 2006, "title": "Alcohol and sleep I: effects on normal sleep — Feige B et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_hygiene",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "slp_myth_003",
+      "popular_belief_th": "ร่างกายปรับชินกับนอนน้อยได้ในระยะยาว",
+      "popular_belief_en": "The body 'adapts' to chronic short sleep over time",
+      "truth_th": "Van Dongen et al. (Sleep 2003) — ผู้ที่นอน 6h × 14 วัน รู้สึก subjectively ว่า 'ชิน' แล้ว แต่ psychomotor vigilance test แย่ลงทุกวันโดยไม่หยุด และ performance เทียบเท่ากับอดนอน 48h; การ 'ชิน' เป็น adaptation ของ perception ไม่ใช่ biology จริง",
+      "truth_en": "Van Dongen et al. (Sleep 2003) — subjects sleeping 6h × 14 days felt subjectively adapted, but psychomotor vigilance test scores deteriorated daily without plateauing, matching performance of 48-hour total deprivation; the 'adaptation' is perceptual, not biological.",
+      "why_popular": "คนรู้สึกว่าตัวเอง 'ชิน' เพราะสูญเสีย ability ในการประเมินระดับง่วงของตัวเอง (metacognitive failure)",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12705823/", "org": "Sleep / PubMed", "source_tier": "A", "year": 2003, "title": "The cumulative cost of additional wakefulness — Van Dongen HPA et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_stages",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "slp_myth_004",
+      "popular_belief_th": "ยิ่งนอนมากยิ่งดี — นอน 10h+ คือดีที่สุด",
+      "popular_belief_en": "More sleep is always better — 10 or more hours is ideal",
+      "truth_th": "Cappuccio meta-analysis (Sleep 2010): นอน ≥9h เพิ่มความเสี่ยงเสียชีวิตทุกสาเหตุ 30%; แต่เป็น U-shaped — การนอนเกินในคนสุขภาพดีอาจเป็น symptom ของโรคแฝง (depression, hypothyroidism, CFS) ไม่ใช่ 'สุขภาพดี'; ผู้ใหญ่ส่วนใหญ่ต้องการ 7-9h",
+      "truth_en": "Cappuccio meta-analysis: sleeping ≥9h raises all-cause mortality 30% (U-shaped curve); hypersomnia in healthy adults is often a symptom of underlying disease (depression, hypothyroidism, CFS), not a sign of optimal health.",
+      "why_popular": "'มากย่อมดีกว่า' ทั่วไป; เห็นนักกีฬาเน้นนอน 10h จึงคิดว่าทุกคนต้องการ",
+      "reveal_style": "curiosity",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20469800/", "org": "Sleep / PubMed", "source_tier": "A", "year": 2010, "title": "Sleep duration and all-cause mortality: meta-analysis — Cappuccio FP et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_stages",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "slp_myth_005",
+      "popular_belief_th": "กินเมลาโทนินเยอะๆ นอนหลับได้นานขึ้น",
+      "popular_belief_en": "Higher melatonin doses = longer, deeper sleep",
+      "truth_th": "Melatonin เป็น chronobiotic ไม่ใช่ hypnotic — ออกฤทธิ์เป็น 'timer' ไม่ใช่ 'ยานอนหลับ'; ขนาด 0.5mg มีประสิทธิภาพเทียบเท่า 10mg ในงานวิจัย; dose สูง (3-10mg) ทำให้ระดับ melatonin ในเลือด supraphysiological 10-100 เท่า (ปกติ 100-200 pg/mL กลางดึก) อาจลดความไวของ receptor ลงได้",
+      "truth_en": "Melatonin is a chronobiotic, not a hypnotic — it signals timing, not sedation; 0.5 mg is as effective as 10 mg in RCTs; high doses (3-10 mg) create supraphysiological blood levels 10-100x normal, potentially downregulating receptor sensitivity.",
+      "why_popular": "ตลาดขาย 10mg เพราะดูคุ้มกว่า 0.5mg; consumer thinking 'more = better'",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15691809/", "org": "Sleep Med Rev / PubMed", "source_tier": "A", "year": 2005, "title": "Melatonin as a chronobiotic — Brzezinski A et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "melatonin_pathway",
+      "safety_warning": {"risk_level": "yellow", "contraindications": ["on_SSRI_or_antidepressant"], "drug_interactions": ["fluvoxamine (raises melatonin 12x)"], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": "supplement_th", "audience_exclusions": ["on_prescription_medications"], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "slp_myth_006",
+      "popular_belief_th": "นอนดึกตี 2 ตี 3 แต่ตื่นสาย ชดเชยชั่วโมงได้ ไม่มีผล",
+      "popular_belief_en": "Going to bed at 2-3 AM but sleeping in compensates for the late schedule — it's just different hours",
+      "truth_th": "Circadian misalignment: แม้ชั่วโมงนอนรวมครบ (7-8h) แต่นอนผิดเวลา (late chronotype forced) กดการหลั่ง GH pulse (SWS ช่วงแรกของคืนปกติ ≈ 22:00-02:00) และลด REM ช่วงเช้า; Van Cauter et al.: cortisol เย็นยังสูงแม้นอนครบ ถ้านอนผิด circadian phase",
+      "truth_en": "Circadian misalignment: even with 7-8h total sleep, sleeping at the wrong clock time suppresses the early-night GH pulse and morning REM; Van Cauter et al.: evening cortisol remains elevated even with adequate hours if circadian phase is misaligned.",
+      "why_popular": "คนคิดว่าชั่วโมงนอนคือทุกอย่าง ไม่รู้ว่า timing สำคัญพอกัน",
+      "reveal_style": "curiosity",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/30903585/", "org": "Current Biology / PubMed", "source_tier": "A", "year": 2019, "title": "Circadian misalignment disrupts lipid metabolism — Depner CM et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "circadian_rhythm",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "slp_myth_007",
+      "popular_belief_th": "แสงจากโทรศัพท์ไม่ส่งผลถ้ากด Night Mode แล้ว",
+      "popular_belief_en": "Night Mode (blue light filter) on phones completely solves the sleep problem",
+      "truth_th": "Chang et al. (PNAS 2015) — แม้ Night Mode ลด blue light ได้บางส่วน แต่ความสว่าง (luminance) ของหน้าจอยังกด melatonin; อีกทั้งการ engage กับ content (social media, news) กระตุ้น cortisol/dopamine รักษาความตื่นตัวเหนือกว่าผลของ blue light อย่างเดียว; Harvard Health: Night Mode ลดผลแสงได้ ~23% เท่านั้น",
+      "truth_en": "Chang et al. (PNAS 2015) — Night Mode reduces some blue light but screen luminance still suppresses melatonin; additionally, engaging with stimulating content (social media, news) elevates cortisol/dopamine, maintaining arousal beyond the light effect alone; Night Mode reduces impact by only ~23%.",
+      "why_popular": "แอปเปิ้ล/Google ทำการตลาดว่า Night Mode ดีสำหรับการนอน — consumer เชื่อ 100%",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25535358/", "org": "PNAS / PubMed", "source_tier": "A", "year": 2015, "title": "Evening use of light-emitting eReaders negatively affects sleep — Chang AM et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "blue_light",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "slp_myth_008",
+      "popular_belief_th": "งีบ 10-30 นาทีทำให้นอนกลางคืนแย่ลง",
+      "popular_belief_en": "Napping in the afternoon ruins nighttime sleep",
+      "truth_th": "Mednick et al. (Nat Neurosci 2003): งีบ 60-90 นาที (รวม REM) เสริม perceptual learning เทียบเท่ากับนอนทั้งคืน; งีบ 10-20 นาที (power nap) ลด sleepiness โดยไม่เกิด sleep inertia; ปัญหาเกิดถ้างีบ >90 นาที หรืองีบช่วงเย็น (หลัง 15:00) ซึ่งลด adenosine pressure ก่อนนอน — ถ้างีบถูกเวลาและระยะเหมาะสม ไม่ขัดนอนกลางคืน",
+      "truth_en": "Mednick et al. (Nat Neurosci 2003): a 60-90 min nap (including REM) enhances perceptual learning equivalent to a full night; a 10-20 min power nap reduces sleepiness without inertia; problems arise with naps >90 min or late afternoon naps (after 3 PM) which reduce adenosine pressure; correctly timed naps do not disrupt nighttime sleep.",
+      "why_popular": "คนงีบนานเกินไปแล้วนอนไม่หลับกลางคืน → สรุปว่า 'งีบไม่ดี' ทั้งหมด",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12819785/", "org": "Nature Neuroscience / PubMed", "source_tier": "A", "year": 2003, "title": "Sleep and the price of plasticity — Mednick SC et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_hygiene",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    },
+    {
+      "myth_id": "slp_myth_009",
+      "popular_belief_th": "ออกกำลังกายกลางคืนดึก ทำให้นอนหลับดีขึ้น",
+      "popular_belief_en": "Exercising late at night (10 PM+) improves sleep quality",
+      "truth_th": "Uniformly, vigorous exercise ≤1h ก่อนนอน เพิ่ม core body temperature +1-2°C, cortisol, adrenaline → ขัดกระบวนการ temperature drop ที่จำเป็นสำหรับ sleep onset; Stutz et al. (Sports Med 2019 review): exercise ก่อนนอน <1h ทำให้ sleep latency เพิ่มขึ้น ≈ 8 นาที; ออกกำลังกายช่วงเช้า-บ่ายดีที่สุดต่อ sleep quality",
+      "truth_en": "Stutz et al. (Sports Med 2019): vigorous exercise within 1h of bedtime raises core temperature, cortisol, and adrenaline → delays sleep onset by ~8 minutes; morning-afternoon exercise is optimal for sleep quality.",
+      "why_popular": "หลายคนออกกำลังกายดึกแล้วรู้สึกอ่อนเพลีย → คิดว่าช่วยนอน; ออกกำลังกายใดๆ มักดีต่อการนอนระยะยาวจริง",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/30374944/", "org": "Sports Medicine / PubMed", "source_tier": "A", "year": 2019, "title": "Effects of Evening Exercise on Sleep in Healthy Participants: A Systematic Review — Stutz J et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "sleep_hygiene",
+      "safety_warning": {"risk_level": "green", "contraindications": [], "drug_interactions": [], "medical_supervision_required": false, "forbidden_scripts_th": [], "required_disclaimer_th": null, "audience_exclusions": [], "validator_keywords_th": [], "regulatory_risk_notes": null}
+    }
+  ]
+}

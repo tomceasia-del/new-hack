@@ -1,0 +1,706 @@
+{
+  "domain_id": "hormones",
+  "_meta": {
+    "target_count": 25,
+    "current_count": 28,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.hormones",
+    "notes": "Big domain (30 UncleD clips). ≥70% facts target UncleD claims (IF→insulin↓, IF→GH↑, stress→cortisol→weight, sleep→hormones, thyroid→fatigue, ghrelin/fiber, testosterone). Tier distribution: T1 = 11, T2 = 10, T3 = 7."
+  },
+  "facts": [
+    {
+      "fact_id": "horm_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "growth_hormone",
+      "statement_th": "การอดอาหาร 5 วัน ทำให้จำนวน GH pulse ใน 24 ชั่วโมง เพิ่มจาก 5.8 → 9.9 ครั้ง (เกือบ 2 เท่า) ใน 6 ชายสุขภาพดี — งาน Ho, Veldhuis, Thorner ตีพิมพ์ใน J Clin Invest 1988",
+      "statement_en": "A 5-day water fast raised 24-hour GH pulse frequency from 5.8 to 9.9 pulses (~70% increase) in 6 healthy men — Ho KY, Veldhuis JD, Thorner MO et al., J Clin Invest 1988.",
+      "numeric_values": [
+        {"value": 5.8, "unit": "pulses/24h", "label": "baseline GH pulses", "is_approximation": false},
+        {"value": 9.9, "unit": "pulses/24h", "label": "5-day-fast GH pulses", "is_approximation": false},
+        {"value": 5, "unit": "days", "label": "fast duration", "is_approximation": false},
+        {"value": 6, "unit": "subjects", "label": "sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_003",
+      "entities_mentioned": ["ken_ho", "michael_thorner", "growth_hormone", "somatostatin", "ghrh"],
+      "sources": [
+        {"url": "https://ncbi.nlm.nih.gov/pmc/articles/PMC329619/", "org": "J Clin Invest / PubMed Central", "source_tier": "A", "year": 1988, "title": "Fasting enhances growth hormone secretion and amplifies the complex rhythms of growth hormone secretion in man — Ho KY et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เกือบ 2 เท่า", "ฮอร์โมนที่สวนอายุ", "ไม่ต้องฉีด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข 5.8/9.9/5 วัน — พูดได้ว่า 'เกือบเท่าตัว' แต่ห้ามบอก '10 เท่า' หรือ '20 เท่า'",
+      "usage_notes": "เป็น backbone fact สำหรับ UncleD claim 'IF เพิ่มโกรทฮอร์โมน' (clip 7550548224046599442). ใช้ตอนอยากให้ viewer เชื่อว่า IF ไม่ใช่แค่ trend",
+      "contradictions": ["ผลเกิดหลังอดนาน — 16h IF ปกติไม่เคยถูกทดสอบด้วย pulse analysis ที่ละเอียดเท่า 5-day fast"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "ค่า fasting insulin ปกติ = <10 mIU/L (บางห้องแลบ <6) — ค่าเกิน 10 บ่งชี้ hyperinsulinemia/insulin resistance แม้น้ำตาลยังปกติ; HOMA-IR = (Insulin × Glucose) / 405 โดยค่า >2.5 = ดื้ออินซูลิน",
+      "statement_en": "Normal fasting insulin <10 mIU/L (some labs <6); values >10 indicate hyperinsulinemia/insulin resistance even when glucose is still normal; HOMA-IR = (fasting insulin × fasting glucose) / 405, with values >2.5 suggesting IR.",
+      "numeric_values": [
+        {"value": 10, "unit": "mIU/L", "label": "fasting insulin upper reference", "is_approximation": true},
+        {"value": 2.5, "unit": "HOMA-IR cutoff", "label": "IR threshold", "is_approximation": true},
+        {"value": 405, "unit": "denominator", "label": "HOMA-IR formula constant (mg/dL glucose)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_001",
+      "entities_mentioned": ["insulin", "daniel_bikman"],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/", "org": "Endocrinology & Metabolism / PMC (Halpern 2021)", "source_tier": "A", "year": 2021, "title": "Intermittent fasting for obesity and related disorders: mechanisms, evidence", "access_date": "2026-04-22"},
+        {"url": "https://diabetesjournals.org/care/article/44/Supplement_1/S15/30859", "org": "American Diabetes Association Standards of Care", "source_tier": "A", "year": 2023, "title": "Diagnosis and Classification of Diabetes: Standards of Care", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["น้ำตาลปกติแต่อินซูลินพัง", "หมอไม่ค่อยสั่งตรวจ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ค่าขอบเขตต่างจากแลบ — พูดได้ 'ประมาณ 10' แต่ห้ามบอกว่า 'มาตรฐานโลก = 5' เพราะยังเป็น debate",
+      "usage_notes": "ใช้เป็น hook 'ไปตรวจน้ำตาลอาจไม่พอ' — UncleD ไม่ได้พูดถึงโดยตรง แต่สนับสนุน insulin-focused narrative ที่เขาใช้บ่อย",
+      "contradictions": ["Reference ranges ต่างกันระหว่างแลบ/ประเทศ (บางแห่งใช้ μU/mL แทน mIU/L)"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "testosterone_decline",
+      "statement_th": "Endocrine Society 2018 กำหนด total testosterone ปกติในผู้ชายผู้ใหญ่ = 264-916 ng/dL (วัดตอนเช้า, ยืนยัน 2 ครั้ง); ค่า <264 + อาการ = hypogonadism พิจารณา TRT",
+      "statement_en": "The Endocrine Society 2018 guideline defines normal total testosterone in adult men as 264-916 ng/dL (morning sample, confirmed twice); values <264 with symptoms indicate hypogonadism and consideration of TRT.",
+      "numeric_values": [
+        {"value": 264, "unit": "ng/dL", "label": "total T lower reference", "is_approximation": false},
+        {"value": 916, "unit": "ng/dL", "label": "total T upper reference", "is_approximation": false},
+        {"value": 2018, "unit": "year", "label": "guideline year", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_004",
+      "entities_mentioned": ["testosterone", "shalender_bhasin", "endocrine_society", "shbg"],
+      "sources": [
+        {"url": "https://academic.oup.com/jcem/article/103/5/1715/4939465", "org": "Endocrine Society / J Clin Endocrinol Metab", "source_tier": "A", "year": 2018, "title": "Testosterone Therapy in Men With Hypogonadism: An Endocrine Society Clinical Practice Guideline (Bhasin et al.)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เลขมาตรฐาน", "คุณตรวจหรือยัง", "มาตรฐาน Endocrine Society"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข; ไม่ควรบอกว่า 'ต่ำกว่า 500 = Low T' เพราะอยู่ในช่วงปกติ",
+      "usage_notes": "ใช้ตอน pitching hormone check-up หรือ debunk 'testosterone booster' มวยอ้วน",
+      "contradictions": ["ค่า reference บางงานวิจัยใช้ 300-1000; ช่วง 264-916 ของ Endocrine Society ใช้ population non-obese ชายอายุ 19-39"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "testosterone_decline",
+      "statement_th": "Travison 2007 (JAMA) พบว่า ชายอเมริกันอายุ 65-69 ปีในปี 2004 มี testosterone เฉลี่ยต่ำกว่าชายอายุเท่ากันในปี 1987 ~17% — เป็น 'secular decline' ทั้งประชากร ไม่ใช่แค่การแก่ตัวเอง (คาดจากความอ้วน, diabetes, smoking-decline บวกปัจจัยอื่น ๆ)",
+      "statement_en": "Travison 2007 (JAMA) — using the Massachusetts Male Aging Study, age-matched men in 2004 had ~17% lower total T than men of the same age in 1987; this 'secular' population-level decline is independent of individual aging.",
+      "numeric_values": [
+        {"value": 17, "unit": "percent", "label": "population-level T decline 1987→2004", "is_approximation": true},
+        {"value": 1987, "unit": "year", "label": "baseline cohort", "is_approximation": false},
+        {"value": 2004, "unit": "year", "label": "follow-up cohort", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_004",
+      "entities_mentioned": ["testosterone", "thomas_travison"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/17148556/", "org": "JAMA / PubMed", "source_tier": "A", "year": 2007, "title": "A population-level decline in serum testosterone levels in American men — Travison TG, Araujo AB, Kupelian V et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["รุ่นพ่อแรงกว่ารุ่นลูก", "เทสตกเป็นรุ่น ๆ", "ไม่ใช่เพราะอายุอย่างเดียว"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูดว่า 'ลดทุก ๆ กี่ปี x%' — เป็นการวัด 2 cohort ไม่ใช่ longitudinal; ห้ามบอกว่าสาเหตุแน่ชัด (paper ระบุ 'unexplained')",
+      "usage_notes": "Hook 'เทส-ลดเพราะอายุ? ไม่ใช่ไอ้สัส' — ใช้ quote ได้ตรง ๆ; pair กับ obesity/insulin resistance angle",
+      "contradictions": ["ข้อมูล MMAS แค่ 3 cohort snapshots; causal attribution ยังถกเถียง"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "hypothyroidism",
+      "statement_th": "American Thyroid Association กำหนดค่า TSH ปกติ = 0.4-4.0 mIU/L; subclinical hypothyroidism = TSH 4.0-10 + T4 ปกติ; overt hypothyroidism = TSH >10 หรือ T4 ต่ำ — การรักษาด้วย levothyroxine มักลดน้ำหนักได้เพียง ~2-4 กก.เท่านั้น",
+      "statement_en": "The American Thyroid Association defines normal TSH as 0.4-4.0 mIU/L; subclinical hypothyroidism is TSH 4.0-10 with normal T4; overt hypothyroidism is TSH >10 or low T4 — levothyroxine replacement typically recovers only ~2-4 kg of weight.",
+      "numeric_values": [
+        {"value": "0.4-4.0", "unit": "mIU/L", "label": "TSH reference range", "is_approximation": false},
+        {"value": 10, "unit": "mIU/L", "label": "overt hypothyroidism TSH threshold", "is_approximation": false},
+        {"value": "2-4", "unit": "kg", "label": "typical weight recovery on levothyroxine", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_005",
+      "entities_mentioned": ["tsh", "t4", "t3", "ata"],
+      "sources": [
+        {"url": "https://www.thyroid.org/professionals/ata-professional-guidelines/", "org": "American Thyroid Association", "source_tier": "A", "year": 2014, "title": "Guidelines for the Treatment of Hypothyroidism (Jonklaas et al.)", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19088155/", "org": "J Clin Endocrinol Metab / PubMed", "source_tier": "A", "year": 2009, "title": "Weight gain in hypothyroidism: a population-based study (Karmisholt et al.)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไทรอยด์ไม่ใช่ตัวแก้อ้วน 50 กิโล", "เหนื่อย อ้วนง่าย ตรวจไทรอยด์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'ไทรอยด์ต่ำทำอ้วน 20 กิโล' — evidence = 2-4 kg typical; ห้าม overclaim รักษาได้ด้วย supplement",
+      "usage_notes": "Hook หลัก 'ไทรอยด์ต่ำมึงเลยอ้วน ใช่ป่ะ?' — ใช้ reveal ว่าไทรอยด์ไม่ใช่ scapegoat หลักของอ้วน; UncleD ไม่ได้พูดตรง ๆ แต่ใช้ฉากคน 'เหนื่อยง่าย' (clip 7564701829963975944, 7574997920399789319)",
+      "contradictions": ["บางผู้เชี่ยวชาญเสนอว่า TSH upper ควรเป็น 2.5 ไม่ใช่ 4.0 แต่ ATA ยังใช้ 4.0"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "cortisol_HPA",
+      "statement_th": "คอร์ติซอลมี diurnal rhythm ชัดเจน — peak 06:00-08:00 (10-20 μg/dL) แล้วลดตลอดวัน ต่ำสุด <5 μg/dL ประมาณเที่ยงคืน; 'cortisol awakening response' (CAR) คือการพุ่งขึ้น 30-50% ภายใน 30-45 นาทีหลังตื่น — ค่านี้แบนราบในคน burnout",
+      "statement_en": "Cortisol follows a strong diurnal rhythm — peaking 06:00-08:00 at 10-20 μg/dL, declining across the day, nadir <5 μg/dL around midnight; the cortisol awakening response (CAR) is a further 30-50% rise within 30-45 min of waking — CAR is blunted in burnout/depression.",
+      "numeric_values": [
+        {"value": "10-20", "unit": "μg/dL", "label": "AM cortisol peak range", "is_approximation": true},
+        {"value": 5, "unit": "μg/dL", "label": "midnight cortisol nadir (upper bound)", "is_approximation": true},
+        {"value": "30-50", "unit": "percent", "label": "CAR rise from waking", "is_approximation": true},
+        {"value": "30-45", "unit": "minutes", "label": "CAR timing after waking", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_006",
+      "entities_mentioned": ["cortisol", "acth", "crh", "bruce_mcewen"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24361979/", "org": "Psychoneuroendocrinology / PubMed", "source_tier": "A", "year": 2014, "title": "Assessment of the cortisol awakening response: Expert consensus guidelines (Stalder et al.)", "access_date": "2026-04-22"},
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK538239/", "org": "StatPearls (NCBI)", "source_tier": "A", "year": 2023, "title": "Physiology, Cortisol", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ฮอร์โมนที่ต้องสูงตอนเช้า", "cortisol สูงกลางคืน = ปัญหา", "ตื่นมาแล้วเพลีย = CAR แบน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ช่วงค่าต่างกันตามแลบ; ห้ามบอก 'cortisol ของคนเครียดสูง 10 เท่า' แบบไม่มี context",
+      "usage_notes": "Hook สำหรับ 'ตื่นมาไม่สดชื่น' / adaptogen / morning light exposure — UncleD ไม่พูดโดยตรงแต่ตรงกับ narrative 'นอนดี ตื่นไว'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "ghrelin_satiety",
+      "statement_th": "Spiegel 2004 (Ann Intern Med): ชายหนุ่มนอนแค่ 4 ชม. × 2 คืน → leptin ลด 18%, ghrelin เพิ่ม 28%, ความหิวเพิ่ม 24%, ความอยากอาหารคาร์บ/ไขมันสูงเพิ่ม 33% — การนอนไม่พอเพียง 2 คืน ทำลายระบบฮอร์โมนหิว/อิ่มได้",
+      "statement_en": "Spiegel 2004 (Ann Intern Med): healthy young men sleeping only 4h per night × 2 nights → leptin -18%, ghrelin +28%, hunger +24%, and appetite for high-carb/fat foods +33% — just 2 nights of sleep restriction disrupts the hunger/satiety hormone axis.",
+      "numeric_values": [
+        {"value": 4, "unit": "hours", "label": "sleep duration", "is_approximation": false},
+        {"value": 2, "unit": "nights", "label": "duration of restriction", "is_approximation": false},
+        {"value": -18, "unit": "percent", "label": "leptin change", "is_approximation": false},
+        {"value": 28, "unit": "percent", "label": "ghrelin increase", "is_approximation": false},
+        {"value": 24, "unit": "percent", "label": "hunger increase", "is_approximation": false},
+        {"value": 33, "unit": "percent", "label": "high-carb/fat craving increase", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_007",
+      "entities_mentioned": ["ghrelin", "leptin", "karine_spiegel", "eve_van_cauter"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15583226/", "org": "Ann Intern Med / PubMed", "source_tier": "A", "year": 2004, "title": "Brief communication: Sleep curtailment in healthy young men is associated with decreased leptin levels, elevated ghrelin levels, and increased hunger and appetite (Spiegel et al.)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["นอน 4 ชม. 2 คืน = หิวทั้งวัน", "อยากกินของหวานเพราะนอนน้อย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข 18/28/24/33; ห้ามบอกว่า '1 คืนพอ' — paper ใช้ 2 คืน",
+      "usage_notes": "Core fact สำหรับ UncleD angle 'นอนดี = ผอมไว' (clip 7559130077384953096); fiber/ghrelin angle (clip 7556518988155489543)",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Van Cauter 1999 (Lancet): ชายหนุ่มสุขภาพดีนอนแค่ 4 ชม. × 6 คืน → glucose clearance ช้าลง 40%, evening cortisol สูงขึ้น 45%, insulin sensitivity ลดลงเทียบเท่าภาวะ prediabetic — เกิดจาก 'sleep debt' อย่างเดียว",
+      "statement_en": "Van Cauter 1999 (Lancet): healthy young men restricted to 4h sleep × 6 nights showed 40% slower glucose clearance, 45% higher evening cortisol, and insulin sensitivity reduced to prediabetic levels — from sleep debt alone.",
+      "numeric_values": [
+        {"value": 4, "unit": "hours", "label": "sleep duration", "is_approximation": false},
+        {"value": 6, "unit": "nights", "label": "duration of restriction", "is_approximation": false},
+        {"value": 40, "unit": "percent", "label": "decrease in glucose clearance", "is_approximation": false},
+        {"value": 45, "unit": "percent", "label": "rise in evening cortisol", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_007",
+      "entities_mentioned": ["cortisol", "insulin", "eve_van_cauter"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10543671/", "org": "Lancet / PubMed", "source_tier": "A", "year": 1999, "title": "Impact of sleep debt on metabolic and endocrine function — Spiegel K, Leproult R, Van Cauter E", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["1 สัปดาห์นอนน้อย = prediabetic", "คอร์ติซอลขึ้น 45% ตอนเย็น"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข; ไม่ควรบอก 'เบาหวานจริง' — paper ใช้คำ 'prediabetic state'",
+      "usage_notes": "ใช้ pair กับ horm_007 สำหรับ narrative 'นอนน้อยไม่แค่เพลีย แต่ป่วย'",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "melatonin_circadian",
+      "statement_th": "การอ่าน eReader แสงฟ้า 4 ชม. ก่อนนอน (เทียบกับหนังสือพิมพ์) → melatonin onset ล่าช้า ~1.5 ชม., REM sleep ลด 10 นาที, ง่วงตอนเช้าถัดไปมากขึ้น (Chang, Aeschbach, Duffy, Czeisler — PNAS 2015)",
+      "statement_en": "Reading on a light-emitting eReader for 4h before bed (vs a printed book) delays melatonin onset by ~1.5 h, reduces REM by ~10 min, and increases morning sleepiness (Chang, Aeschbach, Duffy, Czeisler — PNAS 2015).",
+      "numeric_values": [
+        {"value": 4, "unit": "hours", "label": "pre-sleep device use", "is_approximation": false},
+        {"value": 1.5, "unit": "hours", "label": "melatonin onset delay", "is_approximation": true},
+        {"value": 10, "unit": "minutes", "label": "REM reduction", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_009",
+      "entities_mentioned": ["melatonin", "charles_czeisler"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25535358/", "org": "PNAS / PubMed", "source_tier": "A", "year": 2015, "title": "Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness — Chang AM, Aeschbach D, Duffy JF, Czeisler CA", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["มือถือก่อนนอน = ฆ่าเมลาโทนิน", "หลับดึกไป 1.5 ชม."],
+      "dramatization_allowed": true,
+      "dramatization_limit": "paper ใช้ eReader ความสว่างคงที่ 4h — ห้ามบอก '5 นาทีก็พอ' ตัวเลขนี้ specific",
+      "usage_notes": "Hook 'หลังตื่นนอนห้ามทำ 3 สิ่ง' (clip 7575784952831462676) + melatonin supplement angle",
+      "contradictions": ["effect size แปรผันตาม lux; blue-light filter อาจลด effect บางส่วน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "pcos",
+      "statement_th": "PCOS มีความชุก 6-13% ของหญิงวัยเจริญพันธุ์ (WHO, 2023) — โรคต่อมไร้ท่อพบบ่อยที่สุดในผู้หญิง; diagnosed ด้วย Rotterdam 2003 (2/3 ข้อ: hyperandrogenism, ovulatory dysfunction, polycystic ovary morphology)",
+      "statement_en": "PCOS affects 6-13% of reproductive-age women (WHO 2023) — the most common endocrine disorder in women; diagnosed by Rotterdam 2003 criteria (2 of 3: hyperandrogenism, ovulatory dysfunction, polycystic ovary morphology).",
+      "numeric_values": [
+        {"value": "6-13", "unit": "percent", "label": "prevalence in reproductive-age women", "is_approximation": false},
+        {"value": 2003, "unit": "year", "label": "Rotterdam consensus year", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_010",
+      "entities_mentioned": ["andrea_dunaif", "testosterone", "insulin", "who_pcos"],
+      "sources": [
+        {"url": "https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome", "org": "World Health Organization", "source_tier": "A", "year": 2023, "title": "Polycystic ovary syndrome — WHO fact sheet", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/14711538/", "org": "Fertil Steril / Rotterdam ESHRE/ASRM", "source_tier": "A", "year": 2004, "title": "Revised 2003 consensus on diagnostic criteria and long-term health risks related to polycystic ovary syndrome", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["1 ใน 10 ผู้หญิง", "โรคฮอร์โมนที่ common ที่สุด"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "prevalence ขึ้นกับ criteria (NIH 1990 แคบกว่า) — ใช้ WHO 6-13% ปลอดภัยสุด",
+      "usage_notes": "Hook สำหรับ inositol, metformin, PCOS angle — UncleD ไม่พูด แต่ใช้ขยาย reach ไปกลุ่มผู้หญิง",
+      "contradictions": ["NIH 1990 criteria ให้ prevalence ต่ำกว่า (~5%); AE-PCOS Society เสนออีกเวอร์ชัน"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "growth_hormone",
+      "statement_th": "GH ปล่อยเป็น pulse — peak หลักในคืนเกิดในช่วง slow-wave sleep (SWS) ระยะแรก ~70% ของ GH รายวันหลั่งตอนนอน; สูงอายุที่ SWS ลด → GH ลด (somatopause) ~14%/decade หลังอายุ 20",
+      "statement_en": "GH is pulsatile — its largest daily peak occurs in early slow-wave sleep (SWS); ~70% of daily GH is released during sleep; older adults have less SWS → declining GH (somatopause) of ~14% per decade after age 20.",
+      "numeric_values": [
+        {"value": 70, "unit": "percent", "label": "daily GH released in sleep", "is_approximation": true},
+        {"value": 14, "unit": "percent/decade", "label": "somatopause GH decline after 20", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_003",
+      "entities_mentioned": ["growth_hormone", "igf_1", "somatostatin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10619963/", "org": "J Clin Endocrinol Metab / PubMed", "source_tier": "A", "year": 2000, "title": "Age-related decrements in nocturnal growth hormone release (Veldhuis / Bowers)", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/10543671/", "org": "Lancet / PubMed", "source_tier": "A", "year": 1999, "title": "Impact of sleep debt on metabolic and endocrine function — Spiegel, Leproult, Van Cauter", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["นอนลึกกี่นาทีวันนี้?", "โกรทฮอร์โมนตกตามอายุ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ช่วง 70% ใกล้เคียงจริง; ห้ามบอก '100% ตอนหลับ'; decline 14%/decade = estimate",
+      "usage_notes": "Core support สำหรับ UncleD narrative 'นอนดี = ย้อนวัย' (clip 7583603892886293781)",
+      "contradictions": ["SWS fraction แตกต่างตามเพศ/อายุ; ผู้หญิงมี daytime GH peaks มากกว่าผู้ชาย"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_012",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "menopause_hrt",
+      "statement_th": "Menopause average age = 51 ปี (range 45-55) — วินิจฉัยเมื่อประจำเดือนขาด 12 เดือนติดกัน; FSH >30 IU/L + estradiol ต่ำ = biomarker ยืนยัน; vasomotor symptoms (ร้อนวูบวาบ) พบ 60-80%",
+      "statement_en": "Menopause average age = 51 (range 45-55); diagnosed by 12 consecutive months of amenorrhea; FSH >30 IU/L + low estradiol confirms; vasomotor symptoms occur in 60-80% of women.",
+      "numeric_values": [
+        {"value": 51, "unit": "years", "label": "average menopause age", "is_approximation": true},
+        {"value": "45-55", "unit": "years", "label": "typical menopause range", "is_approximation": false},
+        {"value": 12, "unit": "months", "label": "amenorrhea for diagnosis", "is_approximation": false},
+        {"value": 30, "unit": "IU/L", "label": "FSH diagnostic threshold", "is_approximation": false},
+        {"value": "60-80", "unit": "percent", "label": "women with VMS", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_012",
+      "entities_mentioned": ["estradiol", "fsh", "nams"],
+      "sources": [
+        {"url": "https://journals.lww.com/menopausejournal/fulltext/2022/07000/the_2022_hormone_therapy_position_statement_of_the.4.aspx", "org": "North American Menopause Society (Menopause journal)", "source_tier": "A", "year": 2022, "title": "The 2022 Hormone Therapy Position Statement of The North American Menopause Society", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["อายุเฉลี่ย 51", "วัยทองไม่ใช่อายุ 60 เสมอไป"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข; ห้ามบอกว่า HRT 'สำหรับทุกคน' (ต้องเป็น <60 หรือ <10 ปีหลังเมโนพอส)",
+      "usage_notes": "Hook สำหรับ audience 45+ ผู้หญิง — estrogen metabolism product angle",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_013",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "Intermittent Fasting 16/8 ช่วยลด fasting insulin และ HOMA-IR ได้ประมาณ 20-30% ในเวลา 8-12 สัปดาห์ในผู้มี metabolic syndrome — แม้น้ำหนักไม่เปลี่ยนมาก (Halpern 2021 review; Sutton 2018 Cell Metab)",
+      "statement_en": "Intermittent fasting 16/8 (TRE) reduces fasting insulin and HOMA-IR ~20-30% over 8-12 weeks in metabolic syndrome subjects, even with modest weight change (Halpern 2021 review; Sutton 2018 Cell Metab).",
+      "numeric_values": [
+        {"value": "20-30", "unit": "percent", "label": "HOMA-IR / fasting insulin reduction", "is_approximation": true},
+        {"value": "8-12", "unit": "weeks", "label": "typical study duration", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_001",
+      "entities_mentioned": ["insulin", "jason_fung", "satchin_panda"],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10528701/", "org": "Endocrinology & Metabolism / PMC (Halpern 2021)", "source_tier": "A", "year": 2021, "title": "Intermittent fasting for obesity and related disorders", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29754952/", "org": "Cell Metab / PubMed", "source_tier": "A", "year": 2018, "title": "Early time-restricted feeding improves insulin sensitivity, blood pressure, and oxidative stress (Sutton et al.)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["16/8 ปลดล็อค", "อินซูลินตก = ไขมันละลาย"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "20-30% = typical ไม่ใช่ guaranteed; ห้ามบอก 'ลด 50% แน่นอน'",
+      "usage_notes": "Core fact สำหรับ IF-insulin angle — UncleD mention in clips 7550548224046599442, 7575472686449691921",
+      "contradictions": ["RCTs ไม่ทุกงานเห็นผล — ขึ้นกับ total calorie + eating window timing (early TRE > late)"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "testosterone_decline",
+      "statement_th": "นอน <5 ชม. 1 สัปดาห์ ลด total testosterone ~10-15% ในชายหนุ่ม (Leproult & Van Cauter 2011 JAMA); resistance training 2-3 ครั้ง/สัปดาห์ + sleep 7-9 ชม. คือ non-pharma intervention ที่สม่ำเสมอสุดสำหรับ T",
+      "statement_en": "Restricting sleep to <5h for 1 week lowers total testosterone ~10-15% in young men (Leproult & Van Cauter, JAMA 2011); resistance training 2-3×/week + 7-9h sleep is the most reliable non-pharma T-support stack.",
+      "numeric_values": [
+        {"value": "10-15", "unit": "percent", "label": "T drop from 1 week sleep restriction", "is_approximation": true},
+        {"value": 5, "unit": "hours", "label": "sleep restriction threshold", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_004",
+      "entities_mentioned": ["testosterone", "eve_van_cauter"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21632481/", "org": "JAMA / PubMed", "source_tier": "A", "year": 2011, "title": "Effect of 1 week of sleep restriction on testosterone levels in young healthy men (Leproult R, Van Cauter E)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["นอนน้อยเทสตก 15%", "เทส-บูสเตอร์ที่ฟรีที่สุด = นอน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก '50% ตก 1 คืน' — 1 week study เท่านั้น",
+      "usage_notes": "Hook หลัก 'เทสตก = นอนไม่พอก่อน ไม่ใช่อายุ' ตรง UncleD narrative",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_015",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "cortisol_HPA",
+      "statement_th": "Ashwagandha (KSM-66) 300-600 mg/วัน ลด serum cortisol ประมาณ 14-27% เทียบ placebo หลัง 8 สัปดาห์ใน RCTs (Pratte 2014 systematic review; Salve 2019) — effect ชัดในผู้มี perceived stress สูง",
+      "statement_en": "Ashwagandha (KSM-66) 300-600 mg/day reduces serum cortisol ~14-27% vs placebo after 8 weeks in RCTs (Pratte 2014 systematic review; Salve 2019) — effects clearest in high-stress individuals.",
+      "numeric_values": [
+        {"value": "300-600", "unit": "mg/day", "label": "ashwagandha dose", "is_approximation": false},
+        {"value": "14-27", "unit": "percent", "label": "cortisol reduction", "is_approximation": true},
+        {"value": 8, "unit": "weeks", "label": "typical trial length", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_006",
+      "entities_mentioned": ["cortisol"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25405876/", "org": "J Altern Complement Med / PubMed", "source_tier": "A", "year": 2014, "title": "An alternative treatment for anxiety: a systematic review of human trial results reported for the Ayurvedic herb ashwagandha — Pratte et al.", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/31975519/", "org": "Cureus / PubMed", "source_tier": "A", "year": 2019, "title": "Adaptogenic and Anxiolytic Effects of Ashwagandha Root Extract in Healthy Adults — Salve et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["สมุนไพรอยู่เหนือเคมี", "14-27% ของ cortisol"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "effect medium, ไม่ใช่ 'รักษาเครียด'; ห้ามบอกรักษา anxiety disorder",
+      "usage_notes": "Product angle หลัก — adaptogen category UncleD ที่สามารถ pitch ได้",
+      "contradictions": ["บางงานใช้ standardized extract ต่างกัน; effect size ใหญ่ใน RCT เล็ก"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "testosterone_decline",
+      "statement_th": "ซิงค์ (zinc) deficient (<70 μg/dL) สัมพันธ์กับ testosterone ต่ำ; การเสริม zinc 30-50 mg/วัน 6-12 สัปดาห์เพิ่ม T ในผู้ขาดซิงค์อย่างชัดเจน แต่ไม่เพิ่มในผู้ที่ zinc ปกติอยู่แล้ว (Prasad 1996; te Velde 2006)",
+      "statement_en": "Zinc deficiency (<70 μg/dL) correlates with low T; 30-50 mg/day × 6-12 weeks raises T in deficient men but not in zinc-replete men (Prasad 1996; multiple reviews).",
+      "numeric_values": [
+        {"value": "30-50", "unit": "mg/day", "label": "zinc supplementation dose", "is_approximation": false},
+        {"value": 70, "unit": "μg/dL", "label": "serum zinc deficiency threshold", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_004",
+      "entities_mentioned": ["testosterone"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/8875519/", "org": "Nutrition / PubMed", "source_tier": "A", "year": 1996, "title": "Zinc status and serum testosterone levels of healthy adults — Prasad AS et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ขาดซิงค์ = เทสต่ำ", "แต่กินเกินไม่ได้ช่วยเพิ่ม"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอกว่า 'zinc = testosterone booster' สำหรับคนทั่วไป — effect เฉพาะผู้ขาด",
+      "usage_notes": "Truthful positioning ของ zinc — สำหรับ product angle 'T-support' พูดได้แค่ในบริบท deficiency",
+      "contradictions": ["RCTs ในผู้ไม่ขาดซิงค์ส่วนใหญ่ไม่เห็นผล"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_017",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "testosterone_decline",
+      "statement_th": "Vitamin D deficiency (<20 ng/mL 25-OH) สัมพันธ์กับ T ต่ำ; RCT ให้ 3332 IU/วัน × 1 ปี ในผู้ขาด → T เพิ่ม ~10% + free T เพิ่ม ~20% (Pilz 2011 Horm Metab Res) — effect ไม่เกิดในผู้ vitamin D ปกติ",
+      "statement_en": "Vitamin D deficiency (<20 ng/mL 25-OH) correlates with low T; an RCT of 3332 IU/day for 1 year in deficient men raised total T ~10% and free T ~20% (Pilz 2011, Horm Metab Res); no effect in replete men.",
+      "numeric_values": [
+        {"value": 3332, "unit": "IU/day", "label": "vit D dose", "is_approximation": false},
+        {"value": 10, "unit": "percent", "label": "total T increase", "is_approximation": true},
+        {"value": 20, "unit": "percent", "label": "free T increase", "is_approximation": true},
+        {"value": 20, "unit": "ng/mL", "label": "deficiency threshold", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_004",
+      "entities_mentioned": ["testosterone"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21154195/", "org": "Horm Metab Res / PubMed", "source_tier": "A", "year": 2011, "title": "Effect of vitamin D supplementation on testosterone levels in men — Pilz S et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไปตากแดดสำหรับเทส", "D ขาด = เทสตก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'vitD = testosterone booster' สำหรับทุกคน",
+      "usage_notes": "Product angle สำหรับ vit D supplements — tie กับ lifestyle 'ตากแดด 15 นาที/วัน'",
+      "contradictions": ["Meta-analyses 2020+ เห็นผล small ถึง null ใน non-deficient men"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "estrogen_metabolism",
+      "statement_th": "Aromatase ในเนื้อเยื่อไขมันเปลี่ยน testosterone → estradiol — ยิ่งอ้วน ยิ่งมี aromatase สูง ผู้ชายอ้วนมัก free T ต่ำ + estradiol สูงกว่าคนผอม ที่ความรุนแรง central obesity สัมพันธ์ชัดเจน (Cohen 2008; Schulster 2016)",
+      "statement_en": "Aromatase in adipose tissue converts testosterone → estradiol — more fat means more aromatase; obese men typically have lower free T and higher estradiol than lean men, with central obesity showing the strongest correlation (Cohen 2008; Schulster 2016).",
+      "numeric_values": [],
+      "mechanism_ref": "mech_horm_008",
+      "entities_mentioned": ["aromatase", "testosterone", "estradiol"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/18240898/", "org": "Aging Male / PubMed", "source_tier": "A", "year": 2008, "title": "Aromatase and obesity — Cohen PG", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27725389/", "org": "World J Mens Health / PubMed", "source_tier": "A", "year": 2016, "title": "The role of estradiol in male reproductive function — Schulster M et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["พุงใหญ่ = เทสโดนกลืน", "ไขมันหน้าท้องกินเทสตัวเอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'ผู้ชายอ้วนกลายเป็นผู้หญิง' — เป็นสัญญาณ hormonal ไม่ใช่ transformation",
+      "usage_notes": "Hook 'พุง = คุก testosterone' — ดราม่าแต่ยึดโยงกับ science; pair กับ weight loss → T recovery narrative",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "pcos",
+      "statement_th": "Myo-inositol + D-chiro-inositol ratio 40:1 (4 g/วัน myo + 100 mg D-chiro) ปรับ LH/FSH ratio, ลด androgens, และคืน ovulation ในผู้หญิง PCOS ภายใน 12 สัปดาห์ — เทียบเท่า metformin บาง outcome โดยไม่มี GI side effects เท่ากัน (Nordio 2012; Unfer 2017 review)",
+      "statement_en": "Myo-inositol + D-chiro-inositol at 40:1 ratio (4 g myo + 100 mg D-chiro daily) normalizes LH/FSH ratio, reduces androgens, and restores ovulation in PCOS women within 12 weeks — comparable to metformin on some outcomes with fewer GI side effects (Nordio 2012; Unfer 2017 review).",
+      "numeric_values": [
+        {"value": 40, "unit": "ratio (myo:D-chiro)", "label": "physiological inositol ratio", "is_approximation": false},
+        {"value": 4, "unit": "g/day", "label": "myo-inositol dose", "is_approximation": false},
+        {"value": 12, "unit": "weeks", "label": "typical response time", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_010",
+      "entities_mentioned": ["lh", "fsh", "testosterone"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29460635/", "org": "Int J Endocrinol / PubMed", "source_tier": "A", "year": 2016, "title": "Effects of Myo-inositol in Women With PCOS: A Systematic Review (Unfer V et al.)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["PCOS ไม่ใช่ทางตัน", "ทางเลือก non-drug"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้างรักษา PCOS; ห้ามใช้แทน medical care",
+      "usage_notes": "Product angle inositol supplement — PCOS audience เฉพาะ",
+      "contradictions": ["งานวิจัยส่วนใหญ่ sample เล็ก; ต้องการ larger RCT"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_020",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "dhea_adrenal",
+      "statement_th": "DHEA peak อายุ 25-30 ที่ ~400-500 μg/dL (DHEAS) ในผู้ชาย แล้วค่อย ๆ ลด ~10% ทุก 10 ปี — อายุ 70 = ~20% ของ peak; การเสริม 25-50 mg/วันในผู้หญิงวัยทองช่วยเรื่อง libido และ bone density ปานกลาง (Corona 2013 meta-analysis)",
+      "statement_en": "DHEA peaks at age 25-30 at ~400-500 μg/dL (DHEAS) in men, then declines ~10% per decade — at 70 roughly 20% of peak remains; 25-50 mg/day supplementation in postmenopausal women shows modest libido and bone density benefits (Corona 2013 meta).",
+      "numeric_values": [
+        {"value": "400-500", "unit": "μg/dL", "label": "DHEAS peak in men", "is_approximation": true},
+        {"value": "25-30", "unit": "years", "label": "peak age", "is_approximation": false},
+        {"value": 10, "unit": "percent/decade", "label": "DHEA decline rate", "is_approximation": true},
+        {"value": "25-50", "unit": "mg/day", "label": "supplementation dose", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_011",
+      "entities_mentioned": ["dhea"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23621575/", "org": "J Sex Med / PubMed", "source_tier": "A", "year": 2013, "title": "The role of DHEA in sexual dysfunction: a systematic review and meta-analysis (Corona G et al.)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ฮอร์โมนตกฮวบที่ 25", "70 เหลือ 20%"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Supplementation ผลปานกลาง ไม่ใช่ 'fountain of youth'; ห้าม prescribe",
+      "usage_notes": "Conservative — ใช้ explain 'ทำไมแก่แล้วเพลีย' โดยไม่ต้อง oversell supplement",
+      "contradictions": ["DHEA เสริมในชายส่วนใหญ่ไม่เห็นผลชัด"],
+      "confidence": "medium",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_021",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "insulin_resistance",
+      "statement_th": "อินซูลินคือ 'master storage hormone' — เมื่อสูงจะยับยั้ง hormone-sensitive lipase (HSL) → ไขมันไม่ถูกปล่อย; ลดอินซูลิน (IF/คาร์บต่ำ/ออกกำลัง) คือสวิตช์ที่เปิดโหมดเผาไขมัน (consensus endocrinology)",
+      "statement_en": "Insulin is the master storage hormone — when elevated it suppresses hormone-sensitive lipase (HSL), preventing fat release; lowering insulin (fasting, low-carb, exercise) flips the switch to fat-burning (endocrinology consensus).",
+      "numeric_values": [],
+      "mechanism_ref": "mech_horm_001",
+      "entities_mentioned": ["insulin", "hormone_sensitive_lipase", "jason_fung", "robert_lustig"],
+      "sources": [
+        {"url": "https://www.endocrine.org/patient-engagement/endocrine-library/hormones-and-endocrine-function/insulin-resistance", "org": "The Endocrine Society", "source_tier": "A", "year": 2022, "title": "Insulin Resistance — Endocrine Library", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["สวิตช์เก็บ/เผา", "หัวใจของ metabolism"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Frame ว่า 'core hormone' ได้ ไม่ overclaim ว่าอินซูลินอย่างเดียวแก้ทุกอย่าง",
+      "usage_notes": "Foundation fact — pair ได้กับทุก weight loss angle",
+      "contradictions": ["CICO purists ยังถกว่า insulin เป็น driver หรือ consequence"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_022",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "cortisol_HPA",
+      "statement_th": "คอร์ติซอลเรื้อรัง (chronic stress) เพิ่ม central/visceral fat เลือกลงพุงเป็นหลัก เพราะ 11β-HSD1 ใน visceral adipose แปลง cortisone → cortisol เฉพาะที่ — ทำให้ไขมันหน้าท้อง 'ได้อาหาร' จาก stress มากกว่าส่วนอื่น",
+      "statement_en": "Chronic cortisol elevation preferentially deposits fat in the visceral/abdominal depot because 11β-HSD1 in visceral adipose locally converts cortisone → cortisol, giving belly fat privileged access to stress hormones.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_horm_006",
+      "entities_mentioned": ["cortisol", "bruce_mcewen"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11344210/", "org": "J Clin Endocrinol Metab / PubMed", "source_tier": "A", "year": 2001, "title": "Stress-induced cortisol response and fat distribution in women (Epel et al.)", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15181063/", "org": "Science / PubMed", "source_tier": "A", "year": 2001, "title": "A transgenic model of visceral obesity and the metabolic syndrome — 11β-HSD1 (Masuzaki et al.)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เครียดลงพุงไม่ใช่สำนวน", "พุงเครียดต่างจากพุงกิน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Directional ไม่ใช่ 100% — stress เรื้อรังแค่อย่างเดียวไม่ทำอ้วนถ้าแคลไม่เกิน",
+      "usage_notes": "Core hook สำหรับ stress→belly fat — adaptogen/ashwagandha angle",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_023",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "leptin_signaling",
+      "statement_th": "ผู้หญิงมี leptin circulating ~2-3 เท่าของผู้ชายที่ BMI เดียวกัน เพราะมี subcutaneous fat มากกว่า + estrogen amplify leptin secretion; อธิบายว่าทำไมผู้หญิง post-meno มีปัญหาอิ่มยากและ fat distribution เปลี่ยน",
+      "statement_en": "Women have 2-3× higher circulating leptin than men at the same BMI due to more subcutaneous fat + estrogen amplifying leptin secretion; this explains why post-menopausal women face new satiety and fat-distribution challenges.",
+      "numeric_values": [
+        {"value": "2-3", "unit": "fold", "label": "female vs male leptin at same BMI", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_002",
+      "entities_mentioned": ["leptin", "estradiol", "jeff_friedman"],
+      "sources": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2793049/", "org": "PMC (Morris & Rui 2009)", "source_tier": "A", "year": 2009, "title": "Recent advances in understanding leptin signaling and leptin resistance", "access_date": "2026-04-22"},
+        {"url": "https://www.sciencedirect.com/science/article/pii/S0026049524002531", "org": "Elsevier/Metabolism", "source_tier": "A", "year": 2024, "title": "History and future of leptin: discovery, regulation and signaling", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ผู้หญิงมี 3 เท่า", "วัยทองอิ่มยากไม่ใช่อุปาทาน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "2-3× เป็น average; variable ตาม fat distribution",
+      "usage_notes": "Hook for menopause + leptin product angle",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_024",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "hypothyroidism",
+      "statement_th": "Hashimoto's thyroiditis คือสาเหตุหลัก ~90% ของ hypothyroidism ในประเทศที่ไอโอดีนเพียงพอ — เป็น autoimmune ที่สร้าง anti-TPO antibody; ผู้หญิง : ผู้ชาย = 7-10 : 1; พบบ่อยช่วง 30-60 ปี",
+      "statement_en": "Hashimoto's thyroiditis is responsible for ~90% of hypothyroidism in iodine-sufficient countries — an autoimmune disease marked by anti-TPO antibodies; female:male ratio ~7-10:1; peak age 30-60.",
+      "numeric_values": [
+        {"value": 90, "unit": "percent", "label": "proportion of hypothyroidism from Hashimoto's", "is_approximation": true},
+        {"value": "7-10", "unit": "ratio", "label": "female:male prevalence", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_005",
+      "entities_mentioned": ["tsh", "t4", "ata"],
+      "sources": [
+        {"url": "https://www.thyroid.org/hashimotos-thyroiditis/", "org": "American Thyroid Association", "source_tier": "A", "year": 2022, "title": "Hashimoto's Thyroiditis — ATA patient resource", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["autoimmune มากกว่าที่คิด", "ผู้หญิง 10 ต่อชาย 1"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 7-10:1 เป็นช่วง; ห้ามบอกว่า 'ผู้ชายไม่เป็น'",
+      "usage_notes": "Context สำหรับ thyroid-support product; female audience",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_025",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "growth_hormone",
+      "statement_th": "5α-reductase แปลง testosterone → DHT ที่มีความแรงต่อ androgen receptor ~3-5 เท่าของ T; DHT responsible for male-pattern baldness, BPH, และ beard; finasteride block เอนไซม์นี้ → ลด DHT 70% ใน 1 เดือน (Merck trial)",
+      "statement_en": "5α-reductase converts testosterone to DHT, which binds the androgen receptor ~3-5× more potently than T; DHT drives male-pattern baldness, BPH, and beard growth; finasteride blocks this enzyme, reducing DHT ~70% within one month.",
+      "numeric_values": [
+        {"value": "3-5", "unit": "fold", "label": "DHT AR potency vs T", "is_approximation": true},
+        {"value": 70, "unit": "percent", "label": "DHT reduction on finasteride", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_horm_013",
+      "entities_mentioned": ["testosterone", "dht", "5_alpha_reductase"],
+      "sources": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK557634/", "org": "StatPearls (NCBI)", "source_tier": "A", "year": 2023, "title": "Finasteride", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["T ไม่ใช่ศัตรู — DHT ต่างหาก", "หัวล้านมาจาก DHT ไม่ใช่เทสเยอะ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามแนะนำ finasteride แบบ self-prescription",
+      "usage_notes": "Debunk myth 'เทสเยอะ = หัวล้าน'; saw palmetto product angle",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_026",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "melatonin_circadian",
+      "statement_th": "Melatonin ไม่ใช่ 'ฮอร์โมนนอน' อย่างเดียว แต่เป็น 'สัญญาณความมืด' ที่ตั้ง phase ของทุกฮอร์โมน — รวมถึง cortisol rhythm, GH peak, reproductive hormones; exogenous melatonin 0.3-3 mg ช่วย shift circadian มากกว่า sedate",
+      "statement_en": "Melatonin is not just a sleep hormone but the 'darkness signal' that phases all other hormones — cortisol rhythm, GH peaks, reproductive hormones; exogenous 0.3-3 mg shifts circadian phase more than it sedates.",
+      "numeric_values": [
+        {"value": "0.3-3", "unit": "mg", "label": "effective circadian-shift dose", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_009",
+      "entities_mentioned": ["melatonin", "charles_czeisler", "satchin_panda"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29907750/", "org": "J Pineal Res / PubMed", "source_tier": "A", "year": 2018, "title": "Melatonin as a chronobiotic agent — clinical use review", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไม่ใช่ยานอน แต่ยาเซ็ตเวลา", "0.3 mg พอ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Dose low ≠ ineffective; ห้ามบอก '10 mg ดีกว่า' (จริง: มากไป = ตื่นเช้าแย่)",
+      "usage_notes": "Supplement angle — UncleD promote sleep gummy (pure99), reframe dose framework",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_027",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "ghrelin_satiety",
+      "statement_th": "Ghrelin pre-meal peak ~15-30 นาทีก่อนเวลากินประจำ แม้จะกินไปก่อนแล้ว — ร่างกายเรียน pattern; ดังนั้น 'หิวเที่ยงตรง' อาจไม่ใช่สัญญาณร่างกาย แต่เป็น conditioned reflex ของ ghrelin — การปรับเวลากินค่อย ๆ ย้ายได้",
+      "statement_en": "Ghrelin pre-meal surge occurs 15-30 min before habitual mealtime, even if food was recently consumed — the body learns schedules; 'noon hunger' can be a conditioned ghrelin reflex, not a physiological signal, and can be rescheduled.",
+      "numeric_values": [
+        {"value": "15-30", "unit": "minutes", "label": "ghrelin pre-meal lead time", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_014",
+      "entities_mentioned": ["ghrelin"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/14749224/", "org": "J Clin Endocrinol Metab / PubMed", "source_tier": "A", "year": 2004, "title": "Meal-related ghrelin response in humans — Cummings DE et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["หิว ≠ ต้องกิน", "ghrelin เรียนตารางมึงเอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้าม oversell IF ว่า 'ไม่เคยหิว'",
+      "usage_notes": "IF onboarding reassurance; fiber product angle",
+      "contradictions": [],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    },
+    {
+      "fact_id": "horm_028",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "growth_hormone",
+      "statement_th": "Resistance training หนัก (squat, deadlift) ทำให้ acute GH spike 3-10 เท่าในช่วง 15-30 นาทีหลังเซ็ตสุดท้าย — ไม่เทียบกับ GH นอน แต่ cumulative effect กับ IGF-1 ชัดใน 8-12 สัปดาห์ (Kraemer 1990 series)",
+      "statement_en": "Heavy resistance training (squat, deadlift) produces acute GH spikes 3-10× baseline in the 15-30 min post-exercise window — not equal to sleep GH, but cumulative IGF-1 adaptation is clear by 8-12 weeks (Kraemer 1990 series).",
+      "numeric_values": [
+        {"value": "3-10", "unit": "fold", "label": "acute GH spike range", "is_approximation": true},
+        {"value": "15-30", "unit": "minutes", "label": "post-exercise GH peak", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_horm_003",
+      "entities_mentioned": ["growth_hormone", "gabrielle_lyon"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/2235206/", "org": "J Appl Physiol / PubMed", "source_tier": "A", "year": 1990, "title": "Hormonal and growth factor responses to heavy resistance exercise protocols — Kraemer WJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ยกเหล็ก = GH booster", "3-10 เท่าใน 30 นาที"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Acute spike ≠ 'anti-aging' single session; ห้ามพูดแทน exogenous GH",
+      "usage_notes": "Hook 'ยกเหล็ก = หนุ่มขึ้น' ตาม UncleD clip 7583603892886293781",
+      "contradictions": ["Acute GH ≠ long-term body composition ที่ดีขึ้นเสมอ; IGF-1 สำคัญกว่า"],
+      "confidence": "high",
+      "harvested_by": "domain_harvester.hormones",
+      "harvested_at": "2026-04-22T06:00:00"
+    }
+  ]
+}

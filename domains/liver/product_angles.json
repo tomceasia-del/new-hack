@@ -1,0 +1,387 @@
+{
+  "domain_id": "liver",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.liver",
+    "product_categories_from_taxonomy": ["milk_thistle_silymarin", "NAC_n_acetyl_cysteine", "TUDCA_tauroursodeoxycholic", "choline_phosphatidylcholine", "berberine", "vitamin_E_tocopherol", "omega_3_EPA_DHA", "curcumin", "artichoke_extract", "dandelion_root", "glutathione_liposomal"],
+    "notes": "All angles include mandatory safety_warning. Forbidden scripts enforced at domain level: no 'ล้างพิษ', no 'รีเซ็ตตับ', no 'รักษาตับอักเสบ'. Green tea EGCG and TUDCA are flagged orange."
+  },
+  "angles": [
+    {
+      "angle_id": "angle_liver_milk_thistle_silymarin",
+      "product_category": "milk_thistle_silymarin",
+      "problem_th": "ไขมันพอกตับ + ALT/AST เริ่มขึ้น แต่ยังไม่ถึงขั้นหมอจ่ายยา — อยากมีตัวช่วยแบบไม่รบกวนการใช้ชีวิต",
+      "mechanism_claim_th": "Silybin (active flavonolignan) จับ membrane phospholipid ของ hepatocyte → ลด lipid peroxidation + activate Nrf2 antioxidant pathway → ช่วย hepatic antioxidant capacity; Loguercio 2012 RCT ใน NAFLD (silybin-PC-vitE) แสดง ALT/AST ดีขึ้น + liver stiffness ลดลง",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานปกติของตับ (อย. อนุญาต)",
+        "เป็นสารต้านอนุมูลอิสระที่เซลล์ตับ",
+        "ใช้ควบคู่กับการปรับพฤติกรรมอาหาร/ออกกำลังกาย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษาตับอักเสบ B/C",
+        "ห้ามอ้างว่า 'ล้างพิษตับ' หรือ 'รีเซ็ตตับ'",
+        "ห้ามอ้างว่าทดแทนการเลิกเหล้า",
+        "ห้ามอ้างว่าลดไขมันตับโดยไม่ต้องลดน้ำหนัก"
+      ],
+      "supporting_facts": ["liver_013"],
+      "narrative_frames": [
+        "Silymarin = 'ยางรองเซลล์ตับ' — ไม่ใช่ยา แต่ช่วยเซลล์ตับทนต่อสารที่เข้ามาเยอะทุกวัน",
+        "Support the process, don't replace the liver"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["warfarin_use", "tamoxifen_use", "cyclosporine_use"],
+        "drug_interactions": ["warfarin (CYP2C9 inhibition, INR increase)", "statins (CYP3A4 competition)", "tamoxifen (reduced efficacy)", "cyclosporine (reduced clearance)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'รักษาตับอักเสบ'",
+          "ห้ามพูด 'ล้างพิษตับ'",
+          "ห้ามพูด 'ไม่ต้องเลิกเหล้า'",
+          "ห้ามพูด 'ทดแทนยาตับ'"
+        ],
+        "required_disclaimer_th": "liver_th",
+        "audience_exclusions": ["on_warfarin", "on_tamoxifen", "active_hepatitis_b_c", "pregnant_lactating"],
+        "validator_keywords_th": ["ล้างพิษตับ", "รักษาตับอักเสบ", "รีเซ็ตตับ", "ไม่ต้องเลิกเหล้า"],
+        "regulatory_risk_notes": "อย. ไทย — milk thistle เป็นอาหารเสริม ห้ามอ้างรักษาโรค; warn ลูกค้าที่ใช้ warfarin"
+      }
+    },
+    {
+      "angle_id": "angle_liver_NAC_n_acetyl_cysteine",
+      "product_category": "NAC_n_acetyl_cysteine",
+      "problem_th": "ตับทำงานหนักจากยา/อาหาร/มลพิษ → ระดับ glutathione ลดลง → liver enzyme เริ่มผิดปกติ",
+      "mechanism_claim_th": "NAC เป็น precursor ของ cysteine ซึ่งเป็น rate-limiting amino acid ของ glutathione synthesis; การเติม NAC ขนาด 600-1200 mg/day สามารถเพิ่ม intracellular GSH ในผู้ที่มี GSH depletion; Khoshbaten 2010 RCT: NAC 600 mg × 2 ใน NAFLD 3 เดือน → ALT ลดลง",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนระดับ glutathione ในตับ",
+        "ช่วย antioxidant capacity ของร่างกาย",
+        "ใช้เป็นส่วนประกอบในผลิตภัณฑ์บำรุงตับ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ากิน NAC แล้วกิน paracetamol ได้เยอะขึ้น",
+        "ห้ามอ้างว่าเป็น antidote ทั่วไป (antidote = IV เท่านั้น สำหรับ overdose)",
+        "ห้ามอ้างว่าแทน liver function test"
+      ],
+      "supporting_facts": ["liver_014"],
+      "narrative_frames": [
+        "NAC = 'วัตถุดิบ' ที่ตับเอาไปสร้าง glutathione เอง — ไม่ใช่ antioxidant ปลอมภายนอก",
+        "GSH คือ master antioxidant ที่ตับขาดได้จริงในคน NAFLD"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["nitroglycerin_use", "active_asthma"],
+        "drug_interactions": ["nitroglycerin (hypotension)", "carbamazepine (reduced levels)", "acetaminophen (reduces efficacy of overdose antidote if delayed)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'กิน paracetamol ได้เยอะ เพราะมี NAC'",
+          "ห้ามพูด 'NAC แทน antidote ที่โรงพยาบาล'",
+          "ห้ามพูด 'ล้างพิษตับ'"
+        ],
+        "required_disclaimer_th": "liver_th",
+        "audience_exclusions": ["pregnant_lactating", "on_nitroglycerin", "acute_asthma"],
+        "validator_keywords_th": ["paracetamol ได้เยอะ", "antidote ที่บ้าน", "ล้างพิษ"],
+        "regulatory_risk_notes": "อย. ไทย — NAC 600 mg รูปเม็ดฟู่มีทะเบียนเป็น mucolytic (ยา) ไม่ใช่อาหารเสริม — ต้องระวังคำอ้างถ้าขายเป็น supplement"
+      }
+    },
+    {
+      "angle_id": "angle_liver_TUDCA_tauroursodeoxycholic",
+      "product_category": "TUDCA_tauroursodeoxycholic",
+      "problem_th": "ตับทำงานหนักจากยาบางกลุ่ม (steroid, statin) → bile flow เริ่มผิดปกติ → คิดว่าอยากให้ bile flow ราบรื่น",
+      "mechanism_claim_th": "TUDCA (taurine-conjugated ursodeoxycholic acid) เป็น hydrophilic bile acid ที่ displace hydrophobic toxic bile acids + reduce ER stress ผ่าน chaperone-like activity; ใน PBC ผู้ป่วยใช้ UDCA/TUDCA เป็น first-line therapy",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "ใช้เป็น bile acid supplement ภายใต้การดูแลแพทย์",
+        "มีหลักฐานใน cholestasis บางรูปแบบ (ต้อง Rx)",
+        "งานวิจัยยังอยู่ในระยะเริ่มต้นสำหรับ NAFLD/ER stress"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามขายเป็น OTC ว่ารักษา NAFLD/NASH",
+        "ห้ามอ้างใช้คู่กับ oral steroid 'ป้องกันตับ'",
+        "ห้ามอ้างว่าเป็น 'natural' — TUDCA คือ pharmaceutical bile acid",
+        "ห้ามแนะนำในคนที่มีนิ่วถุงน้ำดี"
+      ],
+      "supporting_facts": ["liver_016"],
+      "narrative_frames": [
+        "TUDCA คือ 'ยา' ไม่ใช่วิตามิน — ต้องการแพทย์ประเมิน",
+        "Education only: TUDCA เป็นหนึ่งในเครื่องมือสำหรับ cholestasis ที่ใช้ภายใต้ supervision"
+      ],
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["gallstones_symptomatic", "bile_duct_obstruction", "pregnancy_lactation", "under_18"],
+        "drug_interactions": ["oral contraceptives (reduced efficacy debated)", "antacids (reduced absorption)", "bile acid sequestrants (reduced TUDCA)", "oral steroids (misused in bodybuilding)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'TUDCA ป้องกันตับจาก steroid'",
+          "ห้ามพูด 'ใครก็กินได้'",
+          "ห้ามพูด 'ทดแทน ursodiol ที่แพทย์สั่ง'",
+          "ห้ามพูด 'ล้างพิษตับ'"
+        ],
+        "required_disclaimer_th": "liver_th",
+        "audience_exclusions": ["gallstones", "pregnant_lactating", "under_18", "bodybuilders_on_oral_steroids", "bile_duct_disease"],
+        "validator_keywords_th": ["TUDCA ป้องกันตับ", "กินคู่ steroid", "รักษา cholestasis เอง"],
+        "regulatory_risk_notes": "อย. ไทย — UDCA เป็นยาควบคุม (Rx); TUDCA ยังไม่ชัดเจน แต่ควรระวังการ position เป็นอาหารเสริมกินได้ตามใจ"
+      }
+    },
+    {
+      "angle_id": "angle_liver_choline_phosphatidylcholine",
+      "product_category": "choline_phosphatidylcholine",
+      "problem_th": "คนที่ไม่กินไข่/ตับ/ถั่วเหลือง — มีความเสี่ยง choline deficiency → VLDL export ผิดปกติ → ไขมันสะสมในตับ",
+      "mechanism_claim_th": "Choline เป็นองค์ประกอบของ phosphatidylcholine (PC) ซึ่งเป็นส่วนประกอบหลักของ VLDL envelope; ถ้าขาด PC ตับจะ assemble VLDL ไม่ได้ → triglyceride คั่งใน hepatocyte → NAFLD (Zeisel 2003). Adequate intake (NIH): ชาย 550, หญิง 425 mg/day",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "สนับสนุนการสร้าง phosphatidylcholine สำหรับ cell membrane + lipoprotein",
+        "ใช้เสริมเมื่อการกินอาหารไม่เพียงพอ",
+        "เกี่ยวข้องกับ methyl metabolism + brain health"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ารักษา NAFLD",
+        "ห้ามอ้างว่า 'ทำให้ฉลาด' (over-claim)",
+        "ห้ามอ้างว่าทดแทนการเลิกเหล้า"
+      ],
+      "supporting_facts": ["liver_017"],
+      "narrative_frames": [
+        "Choline = 'รถบรรทุก' ที่ขนไขมันออกจากตับ — ไม่พอ = ของค้างคลัง",
+        "คนไทยที่ไม่กินไข่วันละฟองมักขาด choline"
+      ],
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": ["trimethylaminuria_tmau"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'รักษาไขมันพอกตับ'",
+          "ห้ามพูด 'ล้างพิษตับ'"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["trimethylaminuria_tmau"],
+        "validator_keywords_th": ["รักษาไขมันพอกตับ", "ล้างพิษ"],
+        "regulatory_risk_notes": "Choline มี UL 3.5 g/day — ปกติ supplement 400-600 mg ปลอดภัย; TMAU flare เป็น rare concern"
+      }
+    },
+    {
+      "angle_id": "angle_liver_berberine",
+      "product_category": "berberine",
+      "problem_th": "NAFLD + insulin resistance + prediabetes — อยากได้ตัวช่วยแบบ 'metformin ธรรมชาติ' แต่ไม่ต้องไปหาหมอ",
+      "mechanism_claim_th": "Berberine ยับยั้ง mitochondrial complex I → AMP/ATP ratio ↑ → AMPK activation → ↓ ACC (ลด DNL) + ↑ CPT-1 (เพิ่ม β-oxidation) + modulate gut microbiome; Yan 2015 Metabolism RCT: berberine 500 mg × 3 × 16 wk ใน NAFLD → liver fat ลด 52%",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนการเผาผลาญไขมันในตับ",
+        "ช่วย glycemic + lipid profile",
+        "ใช้ควบคู่กับการปรับอาหาร/ออกกำลังกาย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่าทดแทน metformin / รักษาเบาหวาน",
+        "ห้ามอ้างว่าลดน้ำหนักโดยไม่ต้องคุมอาหาร",
+        "ห้ามใช้คู่กับ statin โดยไม่ระวัง (สูตร berberine + red yeast rice + statin = hepatotoxicity risk)"
+      ],
+      "supporting_facts": ["liver_018"],
+      "narrative_frames": [
+        "Berberine = 'สวิตช์ AMPK' ตัวเดียวกับ metformin แต่ธรรมชาติ",
+        "ไม่ใช่ยา — เป็นตัวช่วยให้ตับเปิดโหมด burn ได้ง่ายขึ้น"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["pregnancy_lactation", "neonatal_jaundice", "statin_use_high_dose", "cyclosporine_use"],
+        "drug_interactions": ["metformin (hypoglycemia additive)", "statin (hepatotoxicity when stacked with red yeast rice)", "cyclosporine (CYP3A4 substrate competition)", "warfarin (mild CYP2C9)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'เลิก metformin แล้วกิน berberine แทน'",
+          "ห้ามพูด 'รักษาเบาหวาน'",
+          "ห้ามพูด 'ล้างพิษตับ'"
+        ],
+        "required_disclaimer_th": "diabetes_th",
+        "audience_exclusions": ["pregnant_lactating", "type_2_diabetes_on_medication_uncontrolled", "on_cyclosporine", "neonates"],
+        "validator_keywords_th": ["แทน metformin", "เลิกยาเบาหวาน", "รักษาเบาหวาน"],
+        "regulatory_risk_notes": "อย. ไทย — berberine เป็นอาหารเสริม ห้ามอ้างรักษาเบาหวาน; หลายยี่ห้อขาย combo กับ red yeast rice ที่ต้อง flag hepatotoxicity"
+      }
+    },
+    {
+      "angle_id": "angle_liver_vitamin_E_tocopherol",
+      "product_category": "vitamin_E_tocopherol",
+      "problem_th": "ผู้ป่วย NASH ที่ไม่เป็นเบาหวาน + biopsy-proven — อยากได้ตัวช่วยที่มีหลักฐานระดับ guideline",
+      "mechanism_claim_th": "Vitamin E (α-tocopherol 800 IU/day) ลด oxidative stress + lipid peroxidation ใน hepatocyte; PIVENS trial (Sanyal 2010, NEJM) ใน non-diabetic NASH: improvement 43% vs placebo 19% — AASLD guideline แนะนำเป็น option สำหรับ non-diabetic biopsy-proven NASH",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "มีหลักฐาน RCT ใน non-diabetic NASH (biopsy-proven)",
+        "AASLD guideline แนะนำเป็น option",
+        "สนับสนุน antioxidant status"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างใช้ใน diabetic NAFLD (หลักฐานขัดแย้ง)",
+        "ห้ามอ้างลดความเสี่ยง prostate cancer (SELECT trial แสดงว่าเพิ่มความเสี่ยง)",
+        "ห้ามอ้างป้องกันหัวใจ",
+        "ห้ามกิน >800 IU/day (เพิ่ม mortality ใน meta-analysis)"
+      ],
+      "supporting_facts": ["liver_019"],
+      "narrative_frames": [
+        "Vitamin E 800 IU = 1 ใน 2 เครื่องมือเดียวที่ AASLD แนะนำใน NASH (อีกอันคือ pioglitazone)",
+        "ใช้เฉพาะ biopsy-proven NASH non-diabetic — ไม่ใช่ทั่วไป"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["warfarin_use", "antiplatelet_use", "diabetes_type_2", "prostate_cancer_risk_male"],
+        "drug_interactions": ["warfarin (bleeding risk)", "aspirin/clopidogrel (bleeding)", "statin (absorption interaction)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'ใครก็กิน vit E 800 IU ได้'",
+          "ห้ามพูด 'ป้องกันหัวใจ'",
+          "ห้ามพูด 'ลดความเสี่ยงมะเร็ง'",
+          "ห้ามพูด 'ยิ่งกินเยอะยิ่งดี'"
+        ],
+        "required_disclaimer_th": "liver_th",
+        "audience_exclusions": ["type_2_diabetes", "on_warfarin", "on_antiplatelet", "male_prostate_history", "pregnant_lactating"],
+        "validator_keywords_th": ["vit E 800 IU ทุกคน", "ป้องกันมะเร็ง", "ป้องกันหัวใจ"],
+        "regulatory_risk_notes": "อย. ไทย — vit E เป็นวิตามินเสริม ห้ามอ้างรักษา NASH; dose 800 IU ต้องระบุชัดว่าใช้เฉพาะ biopsy-proven"
+      }
+    },
+    {
+      "angle_id": "angle_liver_omega_3_EPA_DHA",
+      "product_category": "omega_3_EPA_DHA",
+      "problem_th": "ไขมันพอกตับ + triglyceride สูง — อยากลดโดยไม่ต้องกิน statin",
+      "mechanism_claim_th": "EPA/DHA ยับยั้ง SREBP-1c + activate PPARα → ↓ DNL + ↑ β-oxidation; Scorletti 2020 WELCOME RCT: DHA+EPA 4g/day × 18 mo ใน NAFLD ↓ liver fat 6% (small effect); ใช้ดีสำหรับ hypertriglyceridemia (>500 mg/dL) — icosapent ethyl เป็น FDA-approved",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลด serum triglyceride",
+        "สนับสนุนการเผาผลาญไขมันในตับ",
+        "ใช้ร่วมกับการปรับอาหาร"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา NAFLD เดี่ยว (effect small)",
+        "ห้ามอ้างทดแทน statin",
+        "ห้ามอ้างป้องกันหัวใจแบบสัมบูรณ์"
+      ],
+      "supporting_facts": ["liver_023"],
+      "narrative_frames": [
+        "Omega-3 = 'สวิตช์' ให้ตับเผาไขมันแทนที่จะเก็บ",
+        "เป็นตัวเสริม ไม่ใช่ยาหลัก"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["warfarin_use", "pre_surgery", "fish_allergy"],
+        "drug_interactions": ["warfarin (mild bleeding risk)", "aspirin (additive antiplatelet)", "antihypertensives (mild BP additive)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'ทดแทน statin'",
+          "ห้ามพูด 'รักษาไขมันพอกตับ'",
+          "ห้ามพูด 'ป้องกันหัวใจ 100%'"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["on_warfarin_unsupervised", "pre_surgery_1wk", "severe_fish_allergy"],
+        "validator_keywords_th": ["แทน statin", "รักษา NAFLD", "ป้องกันหัวใจการันตี"],
+        "regulatory_risk_notes": "อย. ไทย — น้ำมันปลาเป็นอาหารเสริม; dose 2-4 g EPA+DHA ปลอดภัยทั่วไป"
+      }
+    },
+    {
+      "angle_id": "angle_liver_curcumin",
+      "product_category": "curcumin",
+      "problem_th": "ALT/AST สูงเล็กน้อย + low-grade inflammation — อยากใช้สารธรรมชาติลดการอักเสบ",
+      "mechanism_claim_th": "Curcumin ยับยั้ง NF-κB + activate Nrf2 → ลด hepatic inflammation + oxidative stress; Panahi 2017 meta-analysis ใน NAFLD RCTs (curcumin 500-1500 mg with piperine/phospholipid) → ALT ลด, liver fat ลด; bioavailability ต่ำเว้นแต่จะใช้ phospholipid complex / nano",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุน antioxidant + anti-inflammatory status ของตับ",
+        "ใช้สูตร phospholipid/nano เพื่อ bioavailability",
+        "ใช้คู่กับการปรับอาหาร"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษาตับอักเสบ",
+        "ห้ามอ้างแทน NSAIDs",
+        "ห้ามอ้างรักษามะเร็ง"
+      ],
+      "supporting_facts": [],
+      "narrative_frames": [
+        "Curcumin = ตัวปิดสวิตช์ NF-κB ที่ไฟลุกในเซลล์ตับ",
+        "bioavailability ต่ำ — ต้อง formula เฉพาะ"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["warfarin_use", "gallstones", "iron_deficiency_anemia"],
+        "drug_interactions": ["warfarin (CYP3A4/2C9)", "iron supplements (chelation)", "anticoagulants (bleeding)", "chemotherapy drugs (variable)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'รักษาตับอักเสบ'",
+          "ห้ามพูด 'รักษามะเร็งตับ'",
+          "ห้ามพูด 'ล้างพิษตับ'"
+        ],
+        "required_disclaimer_th": "liver_th",
+        "audience_exclusions": ["on_warfarin", "gallstones_symptomatic", "severe_iron_deficiency", "pregnant_lactating"],
+        "validator_keywords_th": ["รักษาตับอักเสบ", "รักษามะเร็ง", "ล้างพิษตับ"],
+        "regulatory_risk_notes": "อย. ไทย — ขมิ้นชันเป็นสมุนไพรที่มีทะเบียนบางตัวเป็นยา; ต้องระวังคำอ้างรักษาโรค"
+      }
+    },
+    {
+      "angle_id": "angle_liver_artichoke_extract",
+      "product_category": "artichoke_extract",
+      "problem_th": "อาหารไม่ย่อย + ท้องอืดหลังกินไขมัน + liver enzyme สูงเล็กน้อย",
+      "mechanism_claim_th": "Cynarin ใน artichoke leaf เพิ่ม bile flow + ลด triglyceride + antioxidant; Panahi 2018 RCT: artichoke leaf extract 600 mg × 2 × 2 เดือน ใน NAFLD → ALT/AST/TG ลด; Kirchhoff 1994 แสดง choleretic effect",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุนการไหลของน้ำดี",
+        "ช่วยย่อยไขมัน",
+        "สนับสนุน lipid profile"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา NAFLD",
+        "ห้ามอ้างใช้ในคนที่มีนิ่วถุงน้ำดี"
+      ],
+      "supporting_facts": [],
+      "narrative_frames": [
+        "Artichoke = ตัวกระตุ้นการไหลของน้ำดีแบบธรรมชาติ",
+        "ช่วยย่อยไขมัน ไม่ใช่ 'ล้างพิษ'"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["gallstones", "bile_duct_obstruction", "asteraceae_allergy"],
+        "drug_interactions": ["anticoagulants (mild)", "diuretics (additive)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'ล้างพิษตับ'",
+          "ห้ามพูด 'รักษาไขมันพอกตับ'",
+          "ห้ามขายให้คนมีนิ่วถุงน้ำดี"
+        ],
+        "required_disclaimer_th": "liver_th",
+        "audience_exclusions": ["gallstones", "bile_duct_obstruction", "asteraceae_plant_allergy", "pregnant_lactating"],
+        "validator_keywords_th": ["ล้างพิษตับ", "รักษา NAFLD", "สลายนิ่ว"],
+        "regulatory_risk_notes": "อย. ไทย — artichoke เป็นอาหารเสริม ห้ามอ้างรักษาโรคตับ"
+      }
+    },
+    {
+      "angle_id": "angle_liver_glutathione_liposomal",
+      "product_category": "glutathione_liposomal",
+      "problem_th": "Oxidative stress จาก lifestyle (นอนน้อย, แอลกอฮอล์, มลพิษ) + ต้องการ antioxidant ที่ตับใช้โดยตรง",
+      "mechanism_claim_th": "Glutathione (GSH) เป็น tripeptide (Glu-Cys-Gly) ที่ตับใช้ conjugate NAPQI, aldehyde, และ xenobiotic; oral GSH bioavailability ต่ำ เว้นแต่ liposomal form (Sinha 2018 RCT: liposomal GSH เพิ่ม GSH ในเลือด); alternative คือ precursor (NAC/glycine)",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุน antioxidant capacity",
+        "liposomal form = bioavailable กว่า plain oral",
+        "ใช้คู่กับ NAC/glycine precursor ได้"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างรักษา NAFLD/NASH",
+        "ห้ามอ้างขาว skin whitening (off-label ที่ถูก อย. จับตา)",
+        "ห้ามอ้างว่า IV glutathione ปลอดภัยทุกคน (Thailand มี case ALF)"
+      ],
+      "supporting_facts": [],
+      "narrative_frames": [
+        "Glutathione = master antioxidant ที่ตับใช้ทุกวัน — liposomal = ส่งถึงเซลล์จริง",
+        "ไม่ใช่ 'ล้างพิษ' แต่คือ 'เติมวัตถุดิบ' ให้ระบบตับเอง"
+      ],
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["chemotherapy_active", "asthma_sulfur_sensitive"],
+        "drug_interactions": ["chemotherapy (may reduce efficacy)", "antipsychotic (clozapine interaction debated)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'ล้างพิษตับ'",
+          "ห้ามพูด 'ผิวขาว'",
+          "ห้ามโปรโมท IV glutathione โดยไม่มีแพทย์"
+        ],
+        "required_disclaimer_th": "liver_th",
+        "audience_exclusions": ["active_chemotherapy", "sulfur_sensitivity", "pregnant_lactating"],
+        "validator_keywords_th": ["ล้างพิษตับ", "ผิวขาว", "IV glutathione ที่บ้าน"],
+        "regulatory_risk_notes": "อย. ไทย — glutathione oral เป็นอาหารเสริม แต่ IV glutathione skin whitening อยู่ใน regulatory high-alert; ห้ามพาดพิงความขาว"
+      }
+    }
+  ]
+}

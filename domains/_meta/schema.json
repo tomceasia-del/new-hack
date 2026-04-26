@@ -1,0 +1,221 @@
+{
+  "$version": "1.0.0",
+  "description": "Schema for each domain folder — ทุก domain ต้องมี 9 files ตาม shape นี้",
+  "note_for_agents": "Agent ที่ harvest domain ต้องเขียน 9 files ต่อ 1 domain ตาม schema นี้ — ถ้า field ไหนหาไม่ได้ ใส่ null อย่างชัดเจน",
+
+  "files": {
+
+    "keywords.json": {
+      "purpose": "Lookup dictionary — เอาไว้ map text ของ transcript → domain",
+      "schema": {
+        "domain_id": "string (fat_metabolism, skin, ...)",
+        "primary_th": "list[string] — คำไทยที่ใช้ชี้โดเมนนี้ได้แน่ ๆ",
+        "primary_en": "list[string] — English equivalents",
+        "aliases_th": "list[string] — คำสแลง/คำพูด/คำซ้อน (พุง, ลดพุง, อ้วนฉุ)",
+        "aliases_en": "list[string] — slang/colloquial",
+        "jargon_th": "list[string] — ศัพท์วิชาการไทย (เผาผลาญ, ไขมันในช่องท้อง)",
+        "jargon_en": "list[string] — technical (lipolysis, adipogenesis, beta-oxidation)",
+        "regex_patterns": "list[{pattern: string, case_insensitive: bool, description: string}]"
+      }
+    },
+
+    "sub_topics.json": {
+      "purpose": "โครงสร้างย่อยของโดเมน — ใช้ route fact ไปที่ subtopic ที่ถูก",
+      "schema": {
+        "domain_id": "string",
+        "sub_topics": [
+          {
+            "id": "string (insulin_resistance)",
+            "label_th": "string",
+            "label_en": "string",
+            "description": "string (1 ประโยคอธิบาย)",
+            "key_concepts": "list[string]",
+            "related_sub_topics": "list[string]",
+            "difficulty": "basic | intermediate | advanced",
+            "uncleped_mentioned": "bool (True ถ้า UncleD เล่นเรื่องนี้)"
+          }
+        ]
+      }
+    },
+
+    "canonical_facts.json": {
+      "purpose": "Pool of verified facts ที่ composer จะดึงไปใช้ — หัวใจของทั้งระบบ",
+      "schema": {
+        "domain_id": "string",
+        "facts": [
+          {
+            "fact_id": "string (fat_001, fat_002)",
+            "tier": "T1_VERIFIED_EXACT | T2_VERIFIED_DIRECTIONAL | T3_MAINSTREAM_CONSENSUS | T4_COMMON_WISDOM",
+            "sub_topic_id": "string",
+            "statement_th": "string — ประโยคภาษาไทยที่ใช้ในสคริปต์ได้ (1-2 ประโยค)",
+            "statement_en": "string — English source statement",
+            "numeric_values": [
+              {"value": "number|string", "unit": "string", "label": "string", "is_approximation": "bool"}
+            ],
+            "mechanism_ref": "string|null (id ใน mechanisms.json)",
+            "entities_mentioned": "list[string (id ใน entities.json)]",
+            "sources": [
+              {"url": "string", "org": "string", "source_tier": "A|B|C|D", "year": "number|null", "title": "string", "access_date": "YYYY-MM-DD"}
+            ],
+            "narrative_hooks": "list[string] — วิธีเล่าที่ดราม่า (ที่สุดในโลก, ใครกล้ากว่านี้)",
+            "dramatization_allowed": "bool",
+            "dramatization_limit": "string — อธิบาย boundary (ห้ามเปลี่ยนตัวเลข, ห้ามเปลี่ยน unit)",
+            "usage_notes": "string — ใช้ตอนไหน เหมาะกับ segment ไหน",
+            "contradictions": "list[string] — ข้อขัดแย้ง (ถ้ามี) เพื่อ warning composer",
+            "confidence": "high | medium | low",
+            "safety_warning": {
+              "_required": true,
+              "_spec_file": "../safety/risk_taxonomy.json",
+              "risk_level": "green | yellow | orange | red (ดู ../safety/risk_taxonomy.json)",
+              "contraindications": "list[string] — ids จาก risk_taxonomy.contraindications",
+              "drug_interactions": "list[string] — free-text หรือ ids จาก risk_taxonomy.drug_interaction_classes (เช่น 'warfarin (bleeding risk)')",
+              "medical_supervision_required": "bool — true ถ้าต้องแพทย์ดูแล (extended fast, vitamin D megadose, keto + DM)",
+              "forbidden_scripts_th": "list[string] — ประโยคที่ห้ามใช้กับ fact นี้เด็ดขาด",
+              "required_disclaimer_th": "string|null — template_id จาก ../safety/disclaimer_library.json หรือ full text",
+              "audience_exclusions": "list[string] — ids จาก risk_taxonomy.audience_exclusions",
+              "validator_keywords_th": "list[string] — คำเฉพาะ fact ที่ validator ต้อง scan (แยกจาก master list ใน ../safety/validator_keywords.json)",
+              "regulatory_risk_notes": "string|null — notes เกี่ยวกับ อย. ไทย / legal liability"
+            },
+            "harvested_by": "string (agent_id)",
+            "harvested_at": "YYYY-MM-DDThh:mm:ss"
+          }
+        ]
+      }
+    },
+
+    "mechanisms.json": {
+      "purpose": "Causal chains — cell/molecule interactions ที่อธิบาย 'ทำไม' ของ facts",
+      "schema": {
+        "domain_id": "string",
+        "mechanisms": [
+          {
+            "mechanism_id": "string (mech_fat_001)",
+            "label_th": "string (เช่น 'insulin → lipogenesis → fat storage')",
+            "label_en": "string",
+            "description_th": "string (2-4 ประโยคอธิบาย chain)",
+            "description_en": "string",
+            "chain": [
+              {"step": 1, "actor": "string (insulin)", "action": "string (signals)", "target": "string (adipocyte GLUT4)", "effect": "string"}
+            ],
+            "analogies_th": "list[string] — วิธีเปรียบเทียบ (โรงงาน / ปุ่ม / สวิตช์)",
+            "sources": "list (same as canonical_facts.sources)",
+            "sub_topic_id": "string",
+            "confidence": "high | medium | low"
+          }
+        ]
+      }
+    },
+
+    "entities.json": {
+      "purpose": "บุคคล โมเลกุล องค์กร ในโดเมน — reuse ใน facts/mechanisms",
+      "schema": {
+        "domain_id": "string",
+        "people": [
+          {"id": "string", "name": "string", "title": "string", "affiliation": "string", "known_for": "string", "verifiable": "bool"}
+        ],
+        "molecules": [
+          {"id": "string", "name": "string", "label_th": "string", "family": "string (hormone/peptide/lipid)", "role": "string"}
+        ],
+        "organizations": [
+          {"id": "string", "name": "string", "type": "academic|regulatory|research", "url": "string"}
+        ],
+        "case_studies": [
+          {"id": "string", "name": "string (Angus Barbieri)", "claim_to_fame": "string", "year": "number", "source": "string"}
+        ]
+      }
+    },
+
+    "common_myths.json": {
+      "purpose": "สิ่งที่คนทั่วไปเข้าใจผิด — เป็น hook material ชั้นดี (UncleD ใช้บ่อย)",
+      "schema": {
+        "domain_id": "string",
+        "myths": [
+          {
+            "myth_id": "string",
+            "popular_belief_th": "string",
+            "truth_th": "string",
+            "why_popular": "string — ทำไมคนเชื่อผิด",
+            "reveal_style": "shock | curiosity | correction",
+            "sources_debunking": "list (same as canonical_facts.sources)",
+            "sub_topic_id": "string"
+          }
+        ]
+      }
+    },
+
+    "product_angles.json": {
+      "purpose": "มุมขายสินค้าของแต่ละ sub-category — ใช้ทำสคริปต์ขายสินค้าในโดเมน",
+      "schema": {
+        "domain_id": "string",
+        "angles": [
+          {
+            "angle_id": "string",
+            "product_category": "string (whey_protein, magnesium_glycinate)",
+            "problem_th": "string — ปัญหาผู้บริโภค",
+            "mechanism_claim_th": "string — วิธีที่สินค้าอ้างว่าช่วย",
+            "evidence_tier": "T1|T2|T3|T4 — ระดับ evidence ของ mechanism",
+            "allowed_claim_boundary": "list[string] — พูดได้แค่ไหน (ห้ามบอกรักษาโรค)",
+            "forbidden_claim_boundary": "list[string] — ห้ามพูด",
+            "supporting_facts": "list[fact_id]",
+            "narrative_frames": "list[string]",
+            "safety_warning": {
+              "_required": true,
+              "_spec_file": "../safety/risk_taxonomy.json",
+              "risk_level": "green | yellow | orange | red",
+              "contraindications": "list[string] — ids จาก risk_taxonomy.contraindications",
+              "drug_interactions": "list[string]",
+              "medical_supervision_required": "bool",
+              "forbidden_scripts_th": "list[string] — scripts ห้ามใช้ขายสินค้านี้",
+              "required_disclaimer_th": "string|null",
+              "audience_exclusions": "list[string]",
+              "validator_keywords_th": "list[string]",
+              "regulatory_risk_notes": "string|null — อย. / FDA Thailand notes"
+            }
+          }
+        ]
+      }
+    },
+
+    "sources.json": {
+      "purpose": "Master URL registry + tier — ป้องกัน duplicate",
+      "schema": {
+        "domain_id": "string",
+        "sources": [
+          {"url": "string", "org": "string", "tier": "A|B|C|D", "reliability_notes": "string", "last_accessed": "YYYY-MM-DD"}
+        ]
+      }
+    },
+
+    "narrative_hooks.json": {
+      "purpose": "วิธีเล่าดราม่า ที่ framing facts ให้น่าสนใจ (style guide)",
+      "schema": {
+        "domain_id": "string",
+        "hook_templates": [
+          {
+            "template_id": "string",
+            "style": "awe | shock | pain | curiosity | insult_reality",
+            "pattern_th": "string (เช่น 'คุณรู้มั้ยว่า __X__ มีคนเคยทำ __Y__ ได้')",
+            "example_th": "string",
+            "facts_used": "list[fact_id]",
+            "effectiveness_notes": "string"
+          }
+        ]
+      }
+    }
+  },
+
+  "tier_reference": {
+    "source_tiers": {
+      "A": "Peer-reviewed journals (PubMed, NEJM, BMJ) + official bodies (WHO, NIH)",
+      "B": "Respected experts' own content (Huberman, Attia, Fung) + university .edu",
+      "C": "Mainstream medical institutions (Mayo, Cleveland, Harvard Health)",
+      "D": "Thai official bodies (กรมอนามัย, สสส.) + respected mainstream Thai health"
+    },
+    "fact_tiers": {
+      "T1_VERIFIED_EXACT": "ตรวจสอบได้ precise — มี source เฉพาะเจาะจง",
+      "T2_VERIFIED_DIRECTIONAL": "direction ถูก magnitude ±30% — ใช้ได้ต้อง frame ด้วย 'ประมาณ'",
+      "T3_MAINSTREAM_CONSENSUS": "consensus ในวงการ ไม่ต้องมี source เดี่ยว",
+      "T4_COMMON_WISDOM": "ความเชื่อนิยมพูด ไม่ผิด แต่ไม่ใช่ hard science — ใช้ได้ถ้า wrap เป็น opinion"
+    }
+  }
+}

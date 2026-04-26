@@ -1,0 +1,98 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 8,
+    "last_harvested": "2026-04-20T00:00:00"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_muscle_001",
+      "popular_belief_th": "กินโปรตีนเกิน 30 กรัมต่อมื้อ ร่างกายดูดซึมไม่ได้ — ที่เหลือเสียไปหมดเลย",
+      "popular_belief_en": "The body can only absorb 30g of protein per meal — anything above is wasted.",
+      "reality_th": "ร่างกายดูดซึม amino acids ได้เกือบหมดโดยไม่มีเพดาน แต่ MPS stimulation มี dose-response ceiling ที่ประมาณ 20-40g ต่อมื้อ โปรตีนส่วนเกินถูก oxidize เป็นพลังงาน ไม่ได้ 'ทิ้ง' — เพียงแต่ไม่ได้ใช้สร้างกล้ามเนื้อทั้งหมด งานวิจัยล่าสุด (Trommelen 2023) แสดงว่า 100g ก็ยังมีประโยชน์สำหรับ synthesis ในระยะยาว",
+      "reality_en": "The body absorbs nearly all protein with no strict ceiling. MPS stimulation has a dose-response ceiling of 20-40g per meal, but excess protein is oxidized as fuel — not wasted. Recent research shows even 100g single doses contribute to muscle protein synthesis over a longer time window.",
+      "mechanism_explanation_th": "การดูดซึม amino acids เกิดในลำไส้เล็กตลอดเวลา — อัตราดูดซึมแค่ช้าลงเมื่อปริมาณมาก ไม่ใช่หยุดดูดซึม MPS ceiling ไม่ใช่ 'absorption ceiling' เป็นคนละเรื่องกัน",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19056590/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_muscle_002",
+      "popular_belief_th": "ครีเอทีนเป็น steroid หรือทำให้ไตพัง ควรหลีกเลี่ยง",
+      "popular_belief_en": "Creatine is a steroid or causes kidney damage and should be avoided.",
+      "reality_th": "ครีเอทีนเป็นสารที่ร่างกายสร้างเองตามธรรมชาติจาก arginine + glycine + methionine และพบในเนื้อสัตว์ทุกชนิด ไม่ใช่ steroid แต่อย่างใด งานวิจัย 30+ ปีและ ISSN position stand 2017 ยืนยันว่า creatine monohydrate ปลอดภัยสำหรับคนไตปกติ",
+      "reality_en": "Creatine is a naturally occurring compound synthesized in the body from amino acids, found in all animal meats. It is absolutely not a steroid. Over 30 years of research and the 2017 ISSN position stand confirm it is safe for individuals with healthy kidneys.",
+      "mechanism_explanation_th": "ครีเอทีนถูก metabolize เป็น creatinine ซึ่งขับออกทางไต การตรวจเลือด creatinine จึงอาจสูงขึ้นเล็กน้อยในคนกินครีเอทีน แต่นี่คือ biomarker ไม่ใช่ kidney damage — ต่างกันสิ้นเชิง",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28615996/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_muscle_003",
+      "popular_belief_th": "ต้องกินโปรตีนภายใน 30 นาทีหลังออกกำลังกาย ไม่งั้นกล้ามเนื้อจะไม่โต ('anabolic window')",
+      "popular_belief_en": "You must consume protein within 30 minutes of exercise or the anabolic window closes and gains are lost.",
+      "reality_th": "MPS จะสูงกว่าปกติต่อเนื่อง 24-48 ชั่วโมงหลังออกกำลังกาย ไม่ใช่แค่ 30 นาที การกินโปรตีนภายใน 2-4 ชั่วโมงหลังออกกำลังกายก็ยังได้ผลดี ที่สำคัญกว่า 'timing' คือ protein intake รวมต่อวันที่เพียงพอ",
+      "reality_en": "MPS remains elevated for 24-48 hours post-exercise, not just 30 minutes. Protein consumed within 2-4 hours post-workout is still highly effective. Total daily protein intake is more critical than precise timing for most people.",
+      "mechanism_explanation_th": "mTORC1 ยังคง sensitized ต่อ leucine เป็นเวลานานหลังออกกำลังกาย ไม่ได้ปิดลงทันที งานวิจัย meta-analysis (Schoenfeld & Aragon 2013) แสดงว่า timing effect มีน้อยมากเมื่อ protein intake รวมเท่ากัน",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23360586/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_muscle_004",
+      "popular_belief_th": "ผู้หญิงที่ยกน้ำหนักจะกลายเป็นร่างกายใหญ่โต เหมือนนักเพาะกาย",
+      "popular_belief_en": "Women who lift weights will become bulky and masculine-looking.",
+      "reality_th": "ผู้หญิงมีระดับ testosterone ต่ำกว่าผู้ชาย 10-20 เท่า ทำให้ศักยภาพ hypertrophy ต่ำกว่ามาก การยกน้ำหนักในผู้หญิงจะได้ผล lean, toned look และกล้ามเนื้อที่แข็งแรง — ไม่ใช่ร่างกายแบบ bodybuilder ที่ต้องใช้ steroid ร่วมด้วย",
+      "reality_en": "Women have 10-20x lower testosterone than men, severely limiting hypertrophic capacity. Resistance training in women produces a lean, toned physique with functional strength — not a bodybuilder appearance, which requires exogenous hormones.",
+      "mechanism_explanation_th": "testosterone เป็น key anabolic hormone สำหรับ muscle hypertrophy สูงสุด ผู้หญิงมีระดับ T ต่ำกว่าผู้ชายมาก + มี myostatin มากกว่า ทำให้กล้ามเนื้อโตยากกว่าตามชีววิทยา",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/26553453/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_muscle_005",
+      "popular_belief_th": "BCAA เป็น supplement จำเป็นสำหรับการสร้างกล้ามเนื้อ ดีกว่า whey protein ทั่วไป",
+      "popular_belief_en": "BCAAs are essential for muscle building and superior to regular whey protein.",
+      "reality_th": "BCAA เป็นเพียง 3 ใน 9 EAA และไม่เพียงพอสำหรับการสร้างโปรตีนกล้ามเนื้อสมบูรณ์ หากได้รับโปรตีนครบจากอาหารหรือ whey แล้ว BCAA ให้ประโยชน์เพิ่มน้อยมาก งานวิจัย (Wolfe 2017) สรุปว่า BCAA เพียงอย่างเดียว 'cannot independently promote net muscle protein accretion'",
+      "reality_en": "BCAAs are only 3 of 9 EAAs and cannot independently complete muscle protein synthesis. If total protein intake is adequate via food or whey, additional BCAA supplementation provides minimal benefit. Wolfe (2017) concluded BCAAs alone cannot promote net muscle protein accretion.",
+      "mechanism_explanation_th": "การสังเคราะห์โปรตีนกล้ามเนื้อต้องการ EAA ครบ 9 ชนิด เหมือนการสร้างโมเลกุลโปรตีนที่มีกรดอะมิโน 20 ชนิดในสัดส่วนที่กำหนด ขาดแม้แต่ตัวเดียวก็ synthesis ไม่สมบูรณ์",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28402535/",
+      "uncled_addressable": true,
+      "narrative_potential": "medium"
+    },
+    {
+      "myth_id": "myth_muscle_006",
+      "popular_belief_th": "คนแก่ไม่ควรยกน้ำหนัก เพราะเสี่ยงบาดเจ็บและกระดูกเปราะ",
+      "popular_belief_en": "Older adults should avoid weight training because it is too risky and may cause injury.",
+      "reality_th": "ผู้สูงอายุได้รับประโยชน์จาก resistance training มากที่สุด งานวิจัยแสดงว่าการยกน้ำหนักเพิ่มความหนาแน่นกระดูก ลดความเสี่ยงล้ม เพิ่มความสมดุล และชะลอ sarcopenia — อันตรายของการไม่ออกกำลังกายมากกว่าอันตรายของการออกกำลังกายอย่างถูกต้อง",
+      "reality_en": "Older adults gain the most benefit from resistance training. Research shows weight training increases bone density, reduces fall risk, improves balance, and slows sarcopenia. The risk of NOT exercising far exceeds the risk of properly supervised resistance training.",
+      "mechanism_explanation_th": "mechanical loading บนกระดูกกระตุ้น osteoblast activity เพิ่มความหนาแน่นกระดูก ในขณะที่กล้ามเนื้อที่แข็งแรงขึ้นช่วย stabilize ข้อต่อ ลด fall risk การหลีกเลี่ยงออกกำลังกายทำให้ทั้งกล้ามเนื้อและกระดูกอ่อนแอลงเร็วขึ้น",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/24444514/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_muscle_007",
+      "popular_belief_th": "การออกกำลังกายแอโรบิก (วิ่ง, ปั่นจักรยาน) เพียงพอสำหรับสุขภาพและการรักษาร่างกายที่ดี ไม่จำเป็นต้องยกน้ำหนัก",
+      "popular_belief_en": "Aerobic exercise alone (running, cycling) is sufficient for health — weight training is unnecessary.",
+      "reality_th": "Cardio เพียงอย่างเดียวไม่ป้องกัน sarcopenia ได้ดีพอ เพราะไม่ได้สร้าง mechanical tension ที่กล้ามเนื้อต้องการเพื่อรักษา mass การผสม resistance training + aerobic คือ optimal strategy สำหรับสุขภาพระยะยาว",
+      "reality_en": "Cardio alone is insufficient to prevent sarcopenia because it does not provide adequate mechanical loading for muscle maintenance. Combined resistance training plus aerobic exercise is the optimal strategy for long-term health and longevity.",
+      "mechanism_explanation_th": "กล้ามเนื้อต้องการ mechanical tension (จากการต้านแรง) เพื่อกระตุ้น FAK → mTORC1 pathway การวิ่งให้ low-level endurance load แต่ไม่เพียงพอสำหรับ hypertrophy หรือ muscle preservation ในระดับที่ต้องการ",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30095480/",
+      "uncled_addressable": true,
+      "narrative_potential": "medium"
+    },
+    {
+      "myth_id": "myth_muscle_008",
+      "popular_belief_th": "โปรตีนจากพืชด้อยกว่าโปรตีนจากสัตว์มาก จึงไม่เหมาะสำหรับการสร้างกล้ามเนื้อเลย",
+      "popular_belief_en": "Plant protein is so inferior to animal protein that it is useless for muscle building.",
+      "reality_th": "โปรตีนจากพืชมี leucine และ EAA บางส่วนต่ำกว่า ทำให้ต้องกินปริมาณมากกว่าเพื่อ trigger leucine threshold แต่การผสม plant proteins หลายชนิด (เช่น ถั่ว+ธัญพืช) หรือ plant protein isolate คุณภาพสูงสามารถ support MPS ได้ดีพอสมควร งานวิจัยระยะยาวพบผล hypertrophy ใกล้เคียงกัน",
+      "reality_en": "Plant proteins have lower leucine and EAA density, requiring higher doses to hit leucine threshold. However, combining plant sources (legumes + grains) or using quality plant isolates can adequately support MPS. Long-term research shows comparable hypertrophy outcomes.",
+      "mechanism_explanation_th": "สัดส่วน EAA และ leucine ต่ำกว่าใน plant protein หมายความว่าต้องกินมากขึ้น 20-40% เพื่อได้ leucine เท่ากัน ไม่ใช่ว่า 'ใช้ไม่ได้' แต่ 'ต้องปรับ dose'",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34595674/",
+      "uncled_addressable": false,
+      "narrative_potential": "medium"
+    }
+  ]
+}

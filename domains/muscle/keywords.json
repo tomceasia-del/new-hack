@@ -1,0 +1,155 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.muscle"
+  },
+  "primary_th": [
+    "กล้ามเนื้อ",
+    "โปรตีน",
+    "ครีเอทีน",
+    "ซาร์โคพีเนีย",
+    "การสร้างกล้ามเนื้อ",
+    "มวลกล้ามเนื้อ",
+    "การฝึกแรงต้าน",
+    "โปรตีนเวย์",
+    "กรดอะมิโน",
+    "ลิวซีน"
+  ],
+  "primary_en": [
+    "muscle",
+    "protein",
+    "creatine",
+    "sarcopenia",
+    "muscle building",
+    "muscle mass",
+    "resistance training",
+    "whey protein",
+    "amino acids",
+    "leucine"
+  ],
+  "aliases_th": [
+    "กล้ามโต",
+    "เพิ่มกล้ามเนื้อ",
+    "สร้างกล้ามเนื้อ",
+    "ลดกล้ามเนื้อ",
+    "กล้ามฝ่อ",
+    "กล้ามหาย",
+    "ยกน้ำหนัก",
+    "เวท",
+    "ฟิตเนส",
+    "ออกกำลังกาย",
+    "กล้ามเนื้ออ่อนแรง",
+    "ผอมแห้งไม่มีกล้าม",
+    "หุ่นดี",
+    "เฟิร์ม",
+    "แน่น",
+    "น้ำหนักกล้ามเนื้อ",
+    "lean mass",
+    "ร่างกายแข็งแรง"
+  ],
+  "aliases_en": [
+    "hypertrophy",
+    "lean mass",
+    "muscle gain",
+    "muscle loss",
+    "muscle wasting",
+    "muscle atrophy",
+    "strength training",
+    "weight training",
+    "gym",
+    "bodybuilding",
+    "fitness",
+    "bulk",
+    "cut",
+    "shred",
+    "tone",
+    "muscle preservation"
+  ],
+  "jargon_th": [
+    "MPS (muscle protein synthesis)",
+    "MPB (muscle protein breakdown)",
+    "anabolic",
+    "catabolic",
+    "mTOR",
+    "leucine threshold",
+    "phosphocreatine",
+    "BCAA",
+    "EAA",
+    "HMB",
+    "anabolic window",
+    "progressive overload",
+    "satellite cells",
+    "myofibrillar protein",
+    "sarcoplasmic",
+    "type I fiber",
+    "type II fiber",
+    "IGF-1",
+    "GH pulse",
+    "slow-wave sleep"
+  ],
+  "jargon_en": [
+    "muscle protein synthesis",
+    "muscle protein breakdown",
+    "mTORC1",
+    "leucine threshold",
+    "phosphocreatine",
+    "BCAA",
+    "EAA",
+    "HMB",
+    "anabolic resistance",
+    "anabolic window",
+    "progressive overload",
+    "satellite cells",
+    "myofibrillar hypertrophy",
+    "ubiquitin-proteasome pathway",
+    "IGF-1",
+    "nocturnal GH pulse",
+    "slow-wave sleep",
+    "PDCAAS",
+    "DIAAS",
+    "creatine loading"
+  ],
+  "regex_patterns": [
+    {
+      "pattern": "กล้าม(?:เนื้อ)?(?:โต|หาย|ฝ่อ|สลาย|ลด|เพิ่ม)?",
+      "case_insensitive": true,
+      "description": "Thai muscle-related terms"
+    },
+    {
+      "pattern": "(?:whey|เวย์)[\\s]?(?:protein|โปรตีน)?",
+      "case_insensitive": true,
+      "description": "Whey protein mentions in Thai/English"
+    },
+    {
+      "pattern": "(?:creatine|ครีเอทีน)",
+      "case_insensitive": true,
+      "description": "Creatine mentions"
+    },
+    {
+      "pattern": "(?:sarcopenia|ซาร์โคพีเนีย|กล้ามเนื้อฝ่อ)",
+      "case_insensitive": true,
+      "description": "Sarcopenia mentions"
+    },
+    {
+      "pattern": "(?:leucine|ลิวซีน|EAA|BCAA|HMB)",
+      "case_insensitive": true,
+      "description": "Key muscle-related supplements and amino acids"
+    },
+    {
+      "pattern": "(?:protein|โปรตีน)[\\s]?(?:synthesis|สังเคราะห์)?",
+      "case_insensitive": true,
+      "description": "Protein synthesis terms"
+    },
+    {
+      "pattern": "(?:resistance|weight)[\\s]?training|ยกน้ำหนัก|ฝึกแรงต้าน",
+      "case_insensitive": true,
+      "description": "Resistance training mentions"
+    },
+    {
+      "pattern": "(?:muscle|กล้ามเนื้อ)[\\s]?(?:loss|หาย|ลด|สูญเสีย)",
+      "case_insensitive": true,
+      "description": "Muscle loss terms"
+    }
+  ]
+}

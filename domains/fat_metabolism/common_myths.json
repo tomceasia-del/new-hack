@@ -1,0 +1,138 @@
+{
+  "domain_id": "fat_metabolism",
+  "_meta": {
+    "target_count": 5,
+    "current_count": 8,
+    "last_harvested": "2026-04-22"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_fat_001",
+      "popular_belief_th": "ทำ sit-up / crunch เยอะ ๆ แล้วไขมันหน้าท้องจะยุบ (spot reduction)",
+      "popular_belief_en": "Doing lots of sit-ups / crunches will burn off belly fat (spot reduction)",
+      "truth_th": "ร่างกายดึงไขมันออกจากคลังทั้งตัวพร้อมกันตามพันธุกรรม/เพศ/ฮอร์โมน การฝึกกล้ามเนื้อเฉพาะจุดเพิ่ม 'กล้าม' ใต้ไขมันได้ แต่ไม่ได้ 'ละลาย' ไขมันตรงนั้น (Vispute et al. 2011 ทดลอง sit-up 6 สัปดาห์ → ไม่ลดไขมันหน้าท้อง)",
+      "truth_en": "Fat is mobilized systemically from all adipose depots based on genetics, sex, and hormones — spot training builds muscle under the fat layer but does not preferentially melt regional fat (Vispute et al. 2011).",
+      "why_popular": "นิตยสารฟิตเนส + โฆษณาเครื่องออกกำลังกายในช่วง 1990-2010 โปรโมตหนัก ทำให้หลายรุ่นเชื่อตาม",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21804427/", "org": "J Strength Cond Res / PubMed", "source_tier": "A", "year": 2011, "title": "The effect of abdominal exercise on abdominal fat — Vispute et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "white_adipose_tissue",
+      "counter_facts": ["fat_010"],
+      "composer_directive": "ถ้า LLM จะพูดเรื่อง 'ลดพุง' ห้ามสื่อว่า sit-up ละลายไขมันหน้าท้อง ให้พูดว่า 'ลดไขมันทั้งตัว → หน้าท้องค่อย ๆ บางลง'",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_fat_002",
+      "popular_belief_th": "เหงื่อออกเยอะ = ไขมันละลาย / ใส่ชุดซาวน่าวิ่งแล้วลดพุง",
+      "popular_belief_en": "Sweating a lot means fat is melting / sauna suits burn belly fat",
+      "truth_th": "เหงื่อคือการระบายความร้อน ไม่ใช่การเผาไขมัน น้ำหนักที่ลดทันทีหลังซาวน่าคือน้ำ ดื่มน้ำกลับก็ขึ้นทันที การลดไขมันจริงต้องอยู่ใน calorie/insulin deficit ต่อเนื่องหลายสัปดาห์",
+      "truth_en": "Sweating is thermoregulation, not fat oxidation. Post-sauna weight drop is water loss that returns with rehydration — real fat loss requires sustained caloric/insulin deficit over weeks.",
+      "why_popular": "ภาพตาชั่งหลังซาวน่า 'ลด 2 กิโล!' ขายง่ายมาก ทั้ง ๆ ที่เป็นน้ำล้วน",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.mayoclinic.org/healthy-lifestyle/weight-loss/expert-answers/sweating-and-weight-loss/faq-20058077", "org": "Mayo Clinic", "source_tier": "C", "year": 2023, "title": "Does sweating burn more calories?", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "metabolic_syndrome",
+      "counter_facts": ["fat_012"],
+      "composer_directive": "ห้าม LLM เขียนสคริปต์ที่บอก 'ใส่ชุดลดพุง → เหงื่อออก → ไขมันละลาย' UncleD debunk แล้ว",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_fat_003",
+      "popular_belief_th": "กินไขมันทำให้อ้วน / อาหาร low-fat ดีต่อสุขภาพที่สุด",
+      "popular_belief_en": "Eating fat makes you fat / low-fat is the healthiest diet",
+      "truth_th": "คาร์โบไฮเดรต/น้ำตาลกระตุ้นอินซูลินแรงกว่าไขมัน อินซูลินสูงคือสวิตช์ 'เก็บไขมัน' RCT อย่าง DIETFITS 2018 + งาน Ludwig แสดงว่าไม่มีข้อได้เปรียบของ low-fat เหนือ low-carb ในการลดน้ำหนัก",
+      "truth_en": "Carbs/sugar raise insulin more than dietary fat — insulin is the master storage signal. DIETFITS 2018 and Ludwig's work show no advantage of low-fat over low-carb for weight loss.",
+      "why_popular": "USDA Food Pyramid 1992 + Ancel Keys 7-country study + low-fat marketing ยุค 80-90s",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/2673150", "org": "JAMA", "source_tier": "A", "year": 2018, "title": "Low-Fat vs Low-Carbohydrate Diet on 12-Month Weight Loss (DIETFITS) — Gardner et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["fat_004", "fat_016"],
+      "composer_directive": "อนุญาตให้ท้าทาย 'กินไขมันแล้วอ้วน' แต่ห้าม demonize carb แบบสุดโต่ง",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_fat_004",
+      "popular_belief_th": "คาร์ดิโอหนัก ๆ เผาไขมันได้ดีกว่าทุกอย่าง",
+      "popular_belief_en": "Heavy cardio is the best way to burn fat",
+      "truth_th": "คาร์ดิโอเผาแคลอรี่ขณะออก แต่: กระตุ้นความหิว compensation, ไม่สร้างกล้ามเนื้อ (BMR คงที่), และถ้านอนไม่พอคอร์ติซอลสูงทำให้ไขมันพุงเพิ่ม ส่วนผสม resistance training + protein พอ + sleep ดีที่สุดสำหรับ body composition",
+      "truth_en": "Cardio burns calories during the session but triggers hunger compensation, doesn't build muscle, and when paired with poor sleep raises cortisol → visceral fat. Resistance training + adequate protein + sleep is superior for body composition.",
+      "why_popular": "ฟิตเนสยุค 90s โปรโมต 'fat burning zone' + เครื่องคาร์ดิโอแสดง calories burned",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3848416/", "org": "Obesity Reviews / PMC", "source_tier": "A", "year": 2012, "title": "Influence of resistance exercise on lean body mass — Peterson et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "metabolic_syndrome",
+      "counter_facts": ["fat_018"],
+      "composer_directive": "Frame sleep + weight training เป็น 'tier 1 tool' ไม่ใช่ cardio เดี่ยว",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_fat_005",
+      "popular_belief_th": "กินมื้อย่อย 5-6 มื้อเล็กจะ 'กระตุ้นเมตาบอลิซึม' ให้เผาผลาญเร็วขึ้น",
+      "popular_belief_en": "Eating 5-6 small meals 'stokes the metabolism' and burns more fat",
+      "truth_th": "ความถี่มื้ออาหารไม่เปลี่ยน TDEE อย่างมีนัยสำคัญ RCT (Cameron et al. 2010) แสดงว่า TEF เท่ากันเมื่อแคลอรี่รวมเท่ากัน การกินบ่อยทำให้อินซูลินสูงตลอดวัน → ยับยั้ง lipolysis",
+      "truth_en": "Meal frequency does not meaningfully alter TDEE — RCTs show identical TEF when total calories match. Frequent meals keep insulin elevated all day, suppressing lipolysis.",
+      "why_popular": "นิตยสารฟิตเนส + เทรนเนอร์ยุค 90s-2000s สอนต่อๆ กันมา",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20193122/", "org": "Br J Nutr / PubMed", "source_tier": "A", "year": 2010, "title": "Increased meal frequency does not promote greater weight loss — Cameron et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["fat_005", "fat_007"],
+      "composer_directive": "ห้ามใช้วลี 'กระตุ้นเมตาบอลิซึม' แบบลอย ๆ ต้องอธิบายเป็นแค่ TEF",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_fat_006",
+      "popular_belief_th": "อดอาหาร = กล้ามเนื้อหาย / เมตาบอลิซึมพัง",
+      "popular_belief_en": "Fasting destroys muscle and wrecks your metabolism",
+      "truth_th": "IF สั้น (<72 ชม.) กล้ามเนื้อถูกรักษาด้วย GH ที่พุ่งขึ้น + ketones เป็นเชื้อเพลิงสมอง Ho 1988 พบ GH pulse frequency เพิ่มเกือบเท่าตัวใน 5 วัน Metabolism ลดชัดเจนก็เมื่ออดเป็นสัปดาห์ + ไม่ฝึก resistance",
+      "truth_en": "Short fasts (<72h) preserve muscle via elevated GH + ketogenesis. Ho 1988 showed GH pulse frequency nearly doubled after a 5-day fast. Metabolic adaptation is meaningful only in prolonged severe restriction without resistance training.",
+      "why_popular": "เทรนเนอร์บอกให้กินทุก 3 ชม. + กลัว 'starvation mode' จาก Minnesota study ที่ context ต่าง",
+      "reveal_style": "curiosity",
+      "sources_debunking": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC329619/", "org": "J Clin Invest / PMC", "source_tier": "A", "year": 1988, "title": "Fasting enhances growth hormone secretion — Ho et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "ketosis",
+      "counter_facts": ["fat_002", "fat_003"],
+      "composer_directive": "Frame IF แบบ UncleD ได้ แต่ต้องระบุ 'short fast' + resistance training + protein เสมอ",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_fat_007",
+      "popular_belief_th": "อ้วนเพราะกรรมพันธุ์ล้วน ๆ แก้ไม่ได้",
+      "popular_belief_en": "Obesity is purely genetic and can't be changed",
+      "truth_th": "ยีน (FTO, MC4R) เพิ่มแนวโน้มได้ไม่เกิน 2-5 กก.ในผู้ใหญ่โดยเฉลี่ย การระบาดของโรคอ้วนใน 50 ปีสวนกับ gene frequency ที่คงที่ environment (อาหาร, การนอน, activity, stress) อธิบายส่วนใหญ่",
+      "truth_en": "FTO/MC4R variants explain only ~2-5 kg adult weight difference on average. Obesity has tripled in 50 years while allele frequencies are constant — environment dominates.",
+      "why_popular": "ครอบครัวอ้วนร่วมกัน + ข่าว 'ยีนอ้วน' ถูกอ่านผิดบริบท",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://www.science.org/doi/10.1126/science.1141634", "org": "Science", "source_tier": "A", "year": 2007, "title": "A common variant in the FTO gene is associated with body mass index — Frayling et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "leptin_resistance",
+      "counter_facts": ["fat_011", "fat_013"],
+      "composer_directive": "กระตุ้น agency แต่ไม่ shaming ผู้ที่มียีนแรงหรือใช้ยาที่ทำให้อ้วน",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_fat_008",
+      "popular_belief_th": "แคลอรี่คืออย่างเดียวที่สำคัญ 'calorie in = calorie out' ไม่ว่าจะมาจากอะไร",
+      "popular_belief_en": "A calorie is a calorie — only total calories matter regardless of source",
+      "truth_th": "500 kcal น้ำตาล vs 500 kcal โปรตีน ร่างกายตอบสนองต่างกันมาก: TEF (2-3% vs 20-30%), insulin spike vs satiety, gut microbiome, food volume ต่าง Ludwig & Ebbeling JAMA Intern Med 2018 สรุปว่า carb-insulin model มีน้ำหนักทางชีววิทยา",
+      "truth_en": "500 kcal of sugar vs 500 kcal of protein are metabolized very differently: TEF 2-3% vs 20-30%; insulin spike vs satiety; microbiome and volume effects. Ludwig & Ebbeling JAMA Intern Med 2018 supports hormonal/thermic asymmetry.",
+      "why_popular": "นักโภชนาการกระแสหลัก + คณะกรรมการโภชนาการใช้ slogan นี้มานาน",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2673472", "org": "JAMA Internal Medicine", "source_tier": "A", "year": 2018, "title": "The carbohydrate-insulin model of obesity — Ludwig & Ebbeling", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "insulin_resistance",
+      "counter_facts": ["fat_016", "fat_019"],
+      "composer_directive": "ท้าทาย CICO อย่างง่าย ๆ ได้ แต่ไม่ดูถูก calorie accounting ในระยะสั้น",
+      "uncleped_debunked": false
+    }
+  ]
+}

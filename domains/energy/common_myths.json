@@ -1,0 +1,77 @@
+{
+  "domain_id": "energy",
+  "_meta": {
+    "target_count": 6,
+    "current_count": 6,
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.energy"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_energy_001",
+      "popular_belief_th": "เครื่องดื่มชูกำลังและกาแฟให้ 'พลังงาน' จริงๆ กับร่างกาย",
+      "popular_belief_en": "Energy drinks and caffeine give your body real energy",
+      "reality_th": "กาแฟและ caffeine ไม่ได้สร้าง ATP เพิ่มขึ้นเลย — พวกมันแค่ 'บล็อก' adenosine receptors ทำให้สัญญาณง่วงหายไปชั่วคราว แต่ ATP debt ยังอยู่ครบ พอ caffeine หมดฤทธิ์ adenosine ที่สะสมอยู่จะระเบิดออกมาพร้อมกัน ทำให้ยิ่งเหนื่อยหนักกว่าเดิม",
+      "reality_en": "Caffeine and energy drinks do not produce ATP. They block adenosine receptors, masking the fatigue signal temporarily. When the effect wears off, accumulated adenosine floods receptors causing rebound fatigue — often worse than before.",
+      "mechanism_explanation_th": "Adenosine เป็นสารที่สะสมระหว่างการตื่นนอน เมื่อจับ adenosine receptor จะทำให้รู้สึกง่วง Caffeine มี structure คล้าย adenosine จึงแย่งจับ receptor แทน แต่ ATP ที่แท้จริงไม่ได้เพิ่ม ร่างกายไม่ได้ 'มีพลังงานมากขึ้น' แต่แค่ 'ไม่รู้สึกว่าขาด'",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19088898/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_energy_002",
+      "popular_belief_th": "ถ้าเหนื่อย ต้องนอนเพิ่มเท่านั้น ไม่มีสาเหตุอื่น",
+      "popular_belief_en": "Fatigue is always caused by insufficient sleep and nothing else",
+      "reality_th": "ความเหนื่อยล้ามีสาเหตุหลากหลาย ได้แก่ การขาดธาตุเหล็ก (ferritin ต่ำ), การขาด NAD+, CoQ10 ต่ำ, วิตามิน B12 ต่ำ, ภาวะ hypothyroidism, ความเครียดเรื้อรัง และ mitochondrial dysfunction การนอนเพิ่มโดยไม่แก้ root cause ไม่ได้ช่วยอะไรในกรณีเหล่านี้",
+      "reality_en": "Fatigue has multiple root causes beyond sleep deprivation, including iron deficiency, NAD+ depletion, low CoQ10, B12 deficiency, hypothyroidism, chronic stress, and mitochondrial dysfunction. Sleep alone cannot resolve fatigue caused by nutritional deficiencies.",
+      "mechanism_explanation_th": "เมื่อ ferritin ต่ำหรือ CoQ10 ขาด ไมโตคอนเดรียผลิต ATP ได้น้อยลงแม้จะนอนหลับพักผ่อนครบ เพราะ substrate หรือ cofactor ที่จำเป็นไม่มี — เหมือนรถถังน้ำมันครบแต่หัวเทียนหาย",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12626353/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_energy_003",
+      "popular_belief_th": "CoQ10 เป็นยาสำหรับผู้ป่วยโรคหัวใจเท่านั้น คนสุขภาพดีไม่ต้องกิน",
+      "popular_belief_en": "CoQ10 is only for heart patients — healthy people don't need it",
+      "reality_th": "ทุกเซลล์ในร่างกายที่ต้องการพลังงาน (กล้ามเนื้อ สมอง ตับ ไต) ต้องการ CoQ10 ในการผลิต ATP ผ่าน ETC ระดับ CoQ10 ลดลงตามอายุในทุกเนื้อเยื่อ และผู้ที่กินยา statin สูญเสีย CoQ10 เพิ่มเติม — ไม่ใช่แค่ผู้ป่วยหัวใจที่ได้ประโยชน์จากการเสริม CoQ10",
+      "reality_en": "CoQ10 is required in every energy-producing cell in the body. Its levels decline with age in all tissues, and statin drugs deplete it further. Athletes, aging adults, and anyone with chronic fatigue can benefit — not only heart patients.",
+      "mechanism_explanation_th": "CoQ10 เป็น electron carrier ที่ขาดไม่ได้ใน ETC ในทุกเซลล์ที่ใช้ oxidative phosphorylation ระดับ CoQ10 ที่ต่ำในกล้ามเนื้อหรือสมองมีผลต่อ ATP production และ fatigue โดยตรง ไม่ใช่เฉพาะหัวใจ",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2813174/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_energy_004",
+      "popular_belief_th": "กินธาตุเหล็กเพิ่มเติมได้เลย ยิ่งมากยิ่งมีพลังงาน",
+      "popular_belief_en": "More iron supplementation always equals more energy",
+      "reality_th": "ธาตุเหล็กเกินระดับที่ร่างกายต้องการเป็นอันตราย (iron overload) เพราะ Fe²⁺ เกินจะเกิด Fenton reaction สร้าง hydroxyl radical ซึ่งเป็น free radical ที่ทำลาย DNA ตับ และเนื้อเยื่ออื่นๆ ควรตรวจ ferritin และ CBC ก่อนเสมอ",
+      "reality_en": "Excess iron causes oxidative damage via the Fenton reaction (Fe²⁺ + H2O2 → Fe³⁺ + •OH + OH⁻), damaging DNA, liver, and tissues. Supplementation should only be done with confirmed deficiency via lab testing (ferritin, CBC).",
+      "mechanism_explanation_th": "ธาตุเหล็กส่วนเกินสะสมในตับและเนื้อเยื่อ กระตุ้น Fenton reaction ผลิต hydroxyl radical ซึ่งเป็น ROS ที่รุนแรงที่สุด ทำลาย lipid membrane, DNA, และโปรตีน — เพิ่มความเสี่ยงโรคตับ เบาหวาน และโรคหัวใจในระยะยาว",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12626353/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_energy_005",
+      "popular_belief_th": "โรคเหนื่อยล้าเรื้อรัง (CFS) เป็นแค่เรื่องในหัว / คนขี้เกียจ / ซึมเศร้า",
+      "popular_belief_en": "Chronic Fatigue Syndrome (CFS/ME) is psychological — laziness or depression",
+      "reality_th": "ME/CFS เป็นโรคทางชีวเคมีที่มีหลักฐานของ mitochondrial dysfunction, การอักเสบระดับ neuroimmune, และ dysautonomia ที่วัดได้จริง ผู้ป่วยมีระดับ ATP production ต่ำกว่าปกติในระดับเซลล์ และมีการเปลี่ยนแปลงทาง biomarker ที่ชัดเจน — ไม่ใช่ปัญหาทางจิตเวชแต่อย่างเดียว",
+      "reality_en": "ME/CFS has measurable biological abnormalities: mitochondrial dysfunction, Complex I impairment, neuroinflammation, dysautonomia, and distinct immune abnormalities (notably HERV activation and NK cell dysfunction). Multiple biomarkers differentiate it from depression.",
+      "mechanism_explanation_th": "งานวิจัยพบว่า lymphocytes ของผู้ป่วย CFS มี mitochondrial membrane potential ต่ำกว่าคนปกติ Complex I activity ลดลง และ ATP production rate ต่ำกว่า นี่เป็นหลักฐาน objective ที่วัดได้ในห้องปฏิบัติการ ไม่ใช่แค่ subjective report",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/26946770/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    },
+    {
+      "myth_id": "myth_energy_006",
+      "popular_belief_th": "การกินน้ำตาลหรือคาร์โบไฮเดรตเยอะๆ จะทำให้มีพลังงานมากขึ้น",
+      "popular_belief_en": "Eating more sugar and carbohydrates gives you more lasting energy",
+      "reality_th": "น้ำตาลให้ ATP เร็วแต่สั้น เกิด glucose spike → insulin spike → glucose drop → พลังงานตกฮวบ วงจรนี้ทำให้รู้สึกเหนื่อยและง่วงมากกว่าเดิมหลังกินน้ำตาล พลังงานที่ sustainable มาจากการเผาผลาญไขมันและ mitochondrial oxidative phosphorylation ซึ่งให้ ATP มากและนานกว่ามาก",
+      "reality_en": "High-sugar meals trigger glucose spikes followed by rapid insulin-driven crashes, causing rebound fatigue. Sustainable energy comes from fat oxidation and mitochondrial oxidative phosphorylation (34-36 ATP/glucose vs 2 from glycolysis), which provides steady ATP without the crash.",
+      "mechanism_explanation_th": "Glycolysis ใน cytoplasm ผลิต ATP เพียง 2 โมเลกุลต่อ glucose และเกิดเร็ว ทำให้ glucose spike แต่จากนั้น insulin พา glucose เข้าเซลล์ทำให้ blood glucose ตก ขณะที่ mitochondrial oxidative phosphorylation ผลิต ATP มากกว่า 17 เท่าต่อ glucose และมีความเสถียรกว่า",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK26894/",
+      "uncled_addressable": true,
+      "narrative_potential": "high"
+    }
+  ]
+}

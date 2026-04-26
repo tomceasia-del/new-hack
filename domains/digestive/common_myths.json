@@ -1,0 +1,280 @@
+{
+  "domain_id": "digestive",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_dig_001",
+      "popular_belief_th": "โยเกิร์ตถ้วยเดียวต่อวันก็พอสำหรับ 'ลำไส้แข็งแรง'",
+      "popular_belief_en": "One yogurt cup per day is enough for gut health",
+      "truth_th": "โยเกิร์ตพาณิชย์ส่วนใหญ่มี Lactobacillus/Bifido แค่ 1-2 สายพันธุ์ และ CFU ลดลงเหลือ <10⁸ ก่อนหมดอายุ; Stanford 2021 ต้องใช้อาหารหมัก 6 serving/วัน 10 สัปดาห์ถึงเพิ่ม diversity — โยเกิร์ต 1 ถ้วยอย่างเดียวไม่พอ ต้องผสม kimchi, miso, kefir, natto ให้หลากหลาย",
+      "truth_en": "Commercial yogurts typically carry only 1-2 strains and CFU declines below 10⁸ before expiry; Stanford 2021 required 6 servings/day of diverse fermented foods for 10 weeks to move the microbiome — one yogurt alone is insufficient.",
+      "why_popular": "โฆษณาโยเกิร์ตตั้งแต่ยุค Activia (Danone 2006) ทำให้คนเข้าใจว่า 1 ถ้วย = แก้ได้",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://www.cell.com/cell/fulltext/S0092-8674(21)00754-6", "org": "Cell", "source_tier": "A", "year": 2021, "title": "Gut-microbiota-targeted diets modulate human immune status — Wastyk et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "gut_microbiome",
+      "counter_facts": ["dig_016", "dig_019"],
+      "composer_directive": "ถ้าจะพูดเรื่องโยเกิร์ต ต้อง pair กับความหลากหลาย — kimchi, natto, kefir, kombucha; ห้าม single-product claim",
+      "uncleped_debunked": false,
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "myth_id": "myth_dig_002",
+      "popular_belief_th": "กรดในกระเพาะเยอะเกินไป ทำให้เป็นกรดไหลย้อน",
+      "popular_belief_en": "Too much stomach acid causes GERD",
+      "truth_th": "GERD ส่วนใหญ่เกิดจาก transient LES relaxations (กล้ามเนื้อวงแหวนปากกระเพาะคลายผิดเวลา) ไม่ใช่กรดมาก; หลายคนมี 'low stomach acid' (hypochlorhydria) แต่ยัง GERD; การกิน PPI ลดกรด ไม่ได้แก้ LES ที่หย่อน — ทำไมคนจำนวนมากยังมีอาการแม้กิน omeprazole",
+      "truth_en": "GERD arises mainly from transient LES relaxations (misfiring of the esophageal sphincter), not excess acid; many sufferers actually have low stomach acid (hypochlorhydria); PPIs reduce acid but don't tighten the sphincter — why many patients stay symptomatic on omeprazole.",
+      "why_popular": "ยี่ห้อยาลดกรด + คำว่า 'กรดเกิน' ในโฆษณาไทย ทำให้เข้าใจผิดมา 30 ปี",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.nejm.org/doi/full/10.1056/NEJMra0802697", "org": "NEJM", "source_tier": "A", "year": 2008, "title": "Pathophysiology of GERD — Kahrilas PJ", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "H_pylori",
+      "counter_facts": ["dig_018"],
+      "composer_directive": "อนุญาต reframe 'กรดเกิน' เป็น 'sphincter หย่อน' แต่ห้ามแนะนำให้หยุดยา PPI",
+      "uncleped_debunked": true,
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกให้หยุดยาลดกรดเอง"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["หยุด PPI", "เลิกยาลดกรดเอง"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "myth_id": "myth_dig_003",
+      "popular_belief_th": "'ลำไส้รั่ว' เป็นเรื่องเพ้อ ไม่มีในวิทยาศาสตร์",
+      "popular_belief_en": "'Leaky gut' is pseudoscience",
+      "truth_th": "คำว่า 'leaky gut syndrome' ยังไม่เป็น ICD diagnosis แต่กลไก increased intestinal permeability และ zonulin-mediated tight junction regulation เป็นวิทยาศาสตร์แท้ — Fasano 2000 (zonulin discovery) ตีพิมพ์ใน J Cell Sci และ Physiol Rev; เป็นกลไกหลักใน celiac disease, T1D, IBD",
+      "truth_en": "While 'leaky gut syndrome' is not a formal ICD diagnosis, the underlying mechanism of increased intestinal permeability and zonulin-mediated tight-junction regulation is real science — Fasano's 2000 zonulin discovery is published in J Cell Sci and reviewed in Physiol Rev; it's a central mechanism in celiac disease, T1D, and IBD.",
+      "why_popular": "Wellness influencers โปรโมต 'leaky gut cure' ผิด ๆ → แพทย์กระแสหลักปัดเป็น pseudoscience รวม แต่ความจริงคือ 'ภาวะ' เป็นของจริง, 'การขายสินค้ารักษา' เป็นโฆษณาเกิน",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3384703/", "org": "Physiol Rev / PMC", "source_tier": "A", "year": 2011, "title": "Zonulin and its regulation of intestinal barrier function — Fasano A", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "intestinal_permeability",
+      "counter_facts": ["dig_004"],
+      "composer_directive": "Reframe 'leaky gut' = 'increased intestinal permeability'; ห้าม pitch supplement ว่า 'รักษา leaky gut หายขาด'",
+      "uncleped_debunked": false,
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามขาย supplement ว่า 'รักษา leaky gut'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รักษาลำไส้รั่ว", "ซ่อมลำไส้ 100%"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "myth_id": "myth_dig_004",
+      "popular_belief_th": "ท้องผูกคือ 'ขี้' ค้างในลำไส้ 1-2 สัปดาห์จนเป็นพิษ (autointoxication)",
+      "popular_belief_en": "Constipation means stool rots in the colon for 1-2 weeks and poisons the body (autointoxication)",
+      "truth_th": "Autointoxication theory ถูกปฏิเสธตั้งแต่ปี 1919 (Alvarez) — ลำไส้ไม่ได้ดูดซับของเสียกลับเข้าเลือด; ท้องผูกคือ transit time ยาว (>72 ชม.) Bristol 1-2 — รักษาด้วยน้ำ + ไฟเบอร์ (psyllium 10 g) + ขยับตัว ไม่ใช่ 'detox'/'colonic irrigation' ที่เสี่ยง electrolyte imbalance + bowel perforation",
+      "truth_en": "The autointoxication theory was refuted in 1919 (Alvarez) — the colon does not reabsorb toxins from stool; constipation is simply slow transit (>72 h, Bristol 1-2) — treated with water + fiber (psyllium 10 g) + movement, not colonic irrigation which risks electrolyte imbalance and bowel perforation.",
+      "why_popular": "ร้านขาย 'detox' + 'colon cleansing' ในไทยขายความกลัวนี้มาหลายสิบปี",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/21592132/", "org": "J Fam Pract / PubMed", "source_tier": "A", "year": 2011, "title": "The dangers of colon cleansing — Mishori R et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "stool_analysis",
+      "counter_facts": ["dig_005", "dig_015"],
+      "composer_directive": "ห้าม pitch colonic irrigation / detox tea / 'ล้างลำไส้' เป็นทางออก; ใช้ psyllium + hydration + exercise",
+      "uncleped_debunked": false,
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามแนะนำ colon cleansing/hydrotherapy"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ล้างลำไส้", "detox ลำไส้", "colon cleanse"],
+        "regulatory_risk_notes": "อย. ไทย: colonic hydrotherapy ไม่ได้ขึ้นทะเบียนเป็นการรักษา — ห้าม claim ผลเชิงรักษา"
+      }
+    },
+    {
+      "myth_id": "myth_dig_005",
+      "popular_belief_th": "ยิ่งมี probiotic CFU สูง = ยิ่งดี (กิน 100 billion ดีกว่า 10 billion)",
+      "popular_belief_en": "More probiotic CFU is better (100 billion > 10 billion)",
+      "truth_th": "Dose-response ใน probiotic ไม่ linear — การศึกษาส่วนใหญ่ที่ได้ผล (Cochrane AAD review) ใช้ 10⁹-10¹⁰ CFU/วัน; ปริมาณ 10¹¹+ ไม่ได้ให้ผลดีกว่าอย่างมีนัยสำคัญและอาจเพิ่มอาการ GI side effects; ที่สำคัญคือ strain specificity (fact dig_019) และ viability",
+      "truth_en": "Probiotic dose-response isn't linear — most positive trials (Cochrane AAD review) used 10⁹-10¹⁰ CFU/day; 10¹¹+ doesn't show significantly better outcomes and may increase GI side effects; what matters is strain identity (fact dig_019) and viability.",
+      "why_popular": "การตลาดใช้ตัวเลข CFU ใหญ่ ๆ ดึงดูดตา; ลูกค้าเข้าใจว่า 'มาก = ดี'",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/31039284/", "org": "Cochrane Database Syst Rev / PubMed", "source_tier": "A", "year": 2019, "title": "Probiotics for AAD — Goldenberg JZ et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "gut_microbiome",
+      "counter_facts": ["dig_019"],
+      "composer_directive": "ถ้าพูดเรื่อง CFU ต้องระบุ strain + viability; ห้าม hype 'CFU สูงสุดในไทย'",
+      "uncleped_debunked": false,
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "myth_id": "myth_dig_006",
+      "popular_belief_th": "กินเผ็ด/เปรี้ยวทำให้เป็นแผลในกระเพาะ",
+      "popular_belief_en": "Spicy or acidic food causes stomach ulcers",
+      "truth_th": "ส่วนใหญ่แผลในกระเพาะเกิดจาก H. pylori หรือ NSAIDs ไม่ใช่อาหารเผ็ด/เปรี้ยว (Marshall & Warren 1984; Nobel 2005); อาหารเผ็ดอาจ 'ระคายเคือง' คนที่มีแผลอยู่แล้ว แต่ไม่ได้ทำให้เกิดแผล; capsaicin ในพริกบางงานวิจัย 'ป้องกัน' แผลด้วยซ้ำ (TRPV1 cytoprotection)",
+      "truth_en": "Most peptic ulcers arise from H. pylori or NSAID use, not spicy/acidic foods (Marshall & Warren 1984; Nobel 2005); spicy food can irritate an existing ulcer but doesn't cause it; capsaicin in chili actually has cytoprotective effects via TRPV1 in some studies.",
+      "why_popular": "ภูมิปัญญาไทย + คำพูดพ่อแม่ส่งต่อมา — เข้าใจผิดระดับวัฒนธรรม",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://www.nobelprize.org/prizes/medicine/2005/press-release/", "org": "Nobel Foundation", "source_tier": "A", "year": 2005, "title": "Marshall & Warren Nobel Prize 2005", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "H_pylori",
+      "counter_facts": ["dig_009", "dig_010"],
+      "composer_directive": "Reframe 'เผ็ดทำให้เป็นแผล' = 'H. pylori ต่างหาก' — แต่ยอมรับว่า spicy อาจ worsen ถ้ามีแผลอยู่แล้ว",
+      "uncleped_debunked": true,
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่ากินเผ็ดได้โดยไม่ระวังถ้ามีแผลอยู่แล้ว"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "myth_id": "myth_dig_007",
+      "popular_belief_th": "ถ้ากินแล้วท้องอืด แสดงว่า probiotic/prebiotic ทำงาน",
+      "popular_belief_en": "Bloating after probiotics/prebiotics means it's 'working'",
+      "truth_th": "ท้องอืดใน 1-2 สัปดาห์แรกอาจเป็นเรื่องปกติ (microbiome ปรับตัว) แต่ถ้าต่อเนื่อง >2 สัปดาห์หรือรุนแรง = สัญญาณ SIBO / FODMAP intolerance → ไม่ใช่ 'ทำงานดี' แต่เป็น mismatch; ควรลดขนาด หรือพบแพทย์ตรวจ breath test (Pimentel et al.)",
+      "truth_en": "Bloating during the first 1-2 weeks can be normal microbial adjustment, but persistent (>2 weeks) or severe bloating signals SIBO/FODMAP intolerance — not 'working'; reduce dose or consult physician for breath test (Pimentel et al.).",
+      "why_popular": "Wellness influencers บอกว่าอาการทุกอย่างคือ 'detox reaction' — แก้ข้อข้องใจของลูกค้า",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/32247735/", "org": "Am J Gastroenterol / PubMed", "source_tier": "A", "year": 2020, "title": "ACG SIBO Guideline — Pimentel et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "H_pylori",
+      "counter_facts": ["dig_013", "dig_022"],
+      "composer_directive": "ห้าม frame 'ท้องอืด = probiotic ทำงานดี'; ถ้า audience complain ต้อง refer to physician",
+      "uncleped_debunked": false,
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่าอาการแย่ = detox reaction = ดี"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["detox reaction", "healing crisis"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "myth_id": "myth_dig_008",
+      "popular_belief_th": "อาหารเสริมดีท็อกซ์ลำไส้ 'รีเซ็ต' จุลินทรีย์ได้ใน 3-7 วัน",
+      "popular_belief_en": "Gut detox supplements 'reset' your microbiome in 3-7 days",
+      "truth_th": "Microbiome ใช้เวลาเปลี่ยน composition เฉลี่ย 4-6 สัปดาห์ (Wu et al., Science 2011; David et al., Nature 2014 แสดง shift ภายใน 24 ชม. ของ extreme diet change แต่กลับสู่ baseline เมื่อกลับไปกินปกติ); ไม่มีอาหารเสริมใดที่ 'reset' permanent ใน 1 สัปดาห์ — การเปลี่ยนจริงต้อง sustained dietary pattern",
+      "truth_en": "Microbiome composition shifts take ~4-6 weeks on average (Wu et al., Science 2011; David et al., Nature 2014 shows rapid 24-h change with extreme diet but reversion on resuming baseline); no supplement can 'permanently reset' the microbiome in 7 days — lasting change requires sustained dietary pattern.",
+      "why_popular": "Detox industry ขาย 'quick fix'; ราคาสูง, สินค้า non-committal",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://www.nature.com/articles/nature12820", "org": "Nature", "source_tier": "A", "year": 2014, "title": "Diet rapidly and reproducibly alters the human gut microbiome — David LA, Maurice CF et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "gut_microbiome",
+      "counter_facts": ["dig_002", "dig_016"],
+      "composer_directive": "ห้าม pitch 'reset microbiome ใน 7 วัน'; frame ว่าเป็น 'เริ่มการเปลี่ยนแปลง' ที่ต้องทำต่อเนื่อง",
+      "uncleped_debunked": false,
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอก 'รีเซ็ตลำไส้ใน 7 วัน'"],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["รีเซ็ตลำไส้", "reset microbiome", "detox 7 วัน"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "myth_id": "myth_dig_009",
+      "popular_belief_th": "ถ้าขี้เป็นรูปดี (Bristol 3-4) แสดงว่าลำไส้สุขภาพดี 100%",
+      "popular_belief_en": "Good stool form (Bristol 3-4) means the gut is 100% healthy",
+      "truth_th": "Bristol scale บอก transit time และ water balance เท่านั้น — ยังมี markers อื่น: สี, กลิ่น, เลือดปน, mucus, microbial diversity, inflammation (fecal calprotectin) — stool form ปกติไม่ได้ rule out IBD, colon cancer, malabsorption; ต้องดูหลายมิติ",
+      "truth_en": "The Bristol scale reflects transit time and water balance only — other markers matter: color, smell, blood, mucus, microbial diversity, inflammation (fecal calprotectin); normal stool form does not rule out IBD, colon cancer, or malabsorption.",
+      "why_popular": "Bristol ง่ายจำ + ดูเห็นภาพ ทำให้คนใช้เป็นตัวสรุปเดียว",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5102849/", "org": "Gut / PMC", "source_tier": "A", "year": 2016, "title": "Stool consistency is strongly associated with gut microbiota — Vandeputte D et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "stool_analysis",
+      "counter_facts": ["dig_005"],
+      "composer_directive": "เสริม Bristol ด้วย red flags (เลือด, สีดำ, น้ำหนักลด) — ห้าม self-clearance",
+      "uncleped_debunked": false,
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "myth_id": "myth_dig_010",
+      "popular_belief_th": "น้ำส้มสายชูหมัก (apple cider vinegar) ช่วยย่อยอาหาร + กำจัด H. pylori",
+      "popular_belief_en": "Apple cider vinegar aids digestion and kills H. pylori",
+      "truth_th": "ACV มี pH 2-3 ใกล้กรดกระเพาะอยู่แล้ว → ไม่เพิ่ม acid ชัดเจน; ในหลอดทดลอง ACV อาจยับยั้ง H. pylori แต่ไม่มี RCT มนุษย์พิสูจน์ว่าเทียบเท่า antibiotic; ACV เข้มข้นทำลาย enamel ฟันและระคายหลอดอาหาร — เป็น 'tonic' ไม่ใช่ medical treatment",
+      "truth_en": "ACV has pH 2-3, similar to stomach acid — doesn't meaningfully boost acidity; in vitro, ACV may inhibit H. pylori but no human RCTs prove it equivalent to antibiotics; concentrated ACV erodes tooth enamel and irritates the esophagus — a 'tonic' rather than medical treatment.",
+      "why_popular": "Health influencers + natural medicine online — framing 'ancient wisdom'",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/34551057/", "org": "Nutrients / PubMed", "source_tier": "A", "year": 2021, "title": "Apple Cider Vinegar: A Review of Health Effects and Evidence — Launholt TL et al.", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "H_pylori",
+      "counter_facts": ["dig_010", "dig_021"],
+      "composer_directive": "ยอมรับ ACV เป็น lifestyle tonic ได้ แต่ห้ามอ้างว่ารักษา H. pylori/GERD",
+      "uncleped_debunked": false,
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": ["digoxin (hypokalemia risk)", "diuretic (potassium interaction)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า ACV รักษา H. pylori/GERD"],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ACV รักษา H pylori", "apple cider vinegar แทน antibiotic"],
+        "regulatory_risk_notes": null
+      }
+    }
+  ]
+}

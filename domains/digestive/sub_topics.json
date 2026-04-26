@@ -1,0 +1,152 @@
+{
+  "domain_id": "digestive",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.digestive"
+  },
+  "sub_topics": [
+    {
+      "id": "gut_microbiome",
+      "label_th": "ไมโครไบโอมในลำไส้",
+      "label_en": "Gut Microbiome",
+      "description": "ชุมชนจุลินทรีย์ ~38-100 ล้านล้านตัว (มวลรวม ~0.2-2 กก.) ในลำไส้ใหญ่ — องค์ประกอบและความหลากหลาย (diversity) สัมพันธ์กับสุขภาพเผาผลาญ ภูมิคุ้มกัน และสมอง",
+      "key_concepts": [
+        "alpha diversity (Shannon/Simpson index)",
+        "beta diversity",
+        "Firmicutes/Bacteroidetes ratio (F/B)",
+        "Bifidobacterium",
+        "Lactobacillus / Lactiplantibacillus",
+        "Akkermansia muciniphila",
+        "Faecalibacterium prausnitzii",
+        "keystone species",
+        "dysbiosis",
+        "Human Microbiome Project",
+        "ZOE PREDICT",
+        "30 plants per week"
+      ],
+      "related_sub_topics": ["SCFA", "intestinal_permeability", "bile_acid", "vagal_tone"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "SCFA",
+      "label_th": "กรดไขมันสายสั้น (SCFA)",
+      "label_en": "Short-Chain Fatty Acids",
+      "description": "อะซีเตต โพรพิโอเนต และบิวทิเรต ที่เกิดจากการหมักไฟเบอร์โดยแบคทีเรียในลำไส้ใหญ่ — บิวทิเรตเป็นเชื้อเพลิงหลักของเซลล์เยื่อบุลำไส้ (colonocyte) และกระตุ้น Treg anti-inflammatory",
+      "key_concepts": [
+        "butyrate",
+        "acetate",
+        "propionate",
+        "colonocyte fuel (~70%)",
+        "HDAC inhibition",
+        "GPR41 / FFAR3",
+        "GPR43 / FFAR2",
+        "Treg induction",
+        "MAC (microbiota-accessible carbohydrates)",
+        "β-oxidation in colonocytes",
+        "GLP-1 / PYY secretion"
+      ],
+      "related_sub_topics": ["gut_microbiome", "intestinal_permeability"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "intestinal_permeability",
+      "label_th": "การซึมผ่านของลำไส้ (\"ลำไส้รั่ว\")",
+      "label_en": "Intestinal Permeability ('Leaky Gut')",
+      "description": "ภาวะที่ tight junctions ระหว่างเซลล์เยื่อบุลำไส้คลายตัวผิดปกติ → โมเลกุลใหญ่ (LPS, gliadin, food antigens) เล็ดลอดเข้าสู่กระแสเลือด → กระตุ้นระบบภูมิคุ้มกัน. Alessio Fasano ค้นพบ zonulin ปี 2000 เป็น regulator หลัก",
+      "key_concepts": [
+        "tight junctions",
+        "zonulin (pre-haptoglobin 2)",
+        "ZO-1 / occludin / claudin",
+        "LPS translocation",
+        "metabolic endotoxemia",
+        "gliadin trigger",
+        "lactulose:mannitol test",
+        "celiac disease",
+        "TLR4 activation"
+      ],
+      "related_sub_topics": ["gut_microbiome", "SCFA", "bile_acid"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "H_pylori",
+      "label_th": "เฮลิโคแบคเตอร์ ไพโลไร (H. pylori)",
+      "label_en": "Helicobacter pylori",
+      "description": "แบคทีเรียเกลียวในกระเพาะที่อาศัย urease สร้างแอมโมเนียเพื่อทน pH ต่ำ — เป็นสาเหตุหลักของแผลในกระเพาะ/ลำไส้เล็กส่วนต้น และ stomach cancer; Marshall & Warren ได้ Nobel 2005. กำจัดด้วย triple/quadruple therapy (ABX + PPI)",
+      "key_concepts": [
+        "urease enzyme",
+        "CagA virulence factor",
+        "peptic ulcer disease",
+        "gastric adenocarcinoma (IARC Group 1)",
+        "urea breath test",
+        "stool antigen test",
+        "triple therapy (PPI + clarithromycin + amoxicillin)",
+        "quadruple therapy (bismuth)",
+        "antibiotic resistance (clarithromycin)"
+      ],
+      "related_sub_topics": ["gut_microbiome", "stool_analysis"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "bile_acid",
+      "label_th": "กรดน้ำดี / เส้นทางวิลเลเบล",
+      "label_en": "Bile Acid / Enterohepatic Circulation",
+      "description": "กรดน้ำดีปฐมภูมิ (cholic, chenodeoxycholic) ถูกสังเคราะห์ในตับจาก cholesterol, หลั่งเข้าลำไส้เล็กเพื่อ emulsify ไขมัน, ถูก reabsorb 95% ที่ ileum ผ่าน ASBT — ส่วนเหลือถูกดัดแปลงโดยแบคทีเรียเป็น secondary bile acids (DCA, LCA) ซึ่งเป็น ligands ของ FXR/TGR5",
+      "key_concepts": [
+        "primary bile acids (cholic, chenodeoxycholic)",
+        "secondary bile acids (deoxycholic, lithocholic)",
+        "ASBT (apical sodium bile acid transporter)",
+        "FXR (farnesoid X receptor)",
+        "TGR5 (GPBAR1)",
+        "7α-dehydroxylation",
+        "enterohepatic circulation (~95% reabsorbed)",
+        "CYP7A1 feedback",
+        "bile acid sequestrant (cholestyramine)"
+      ],
+      "related_sub_topics": ["gut_microbiome", "intestinal_permeability"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "vagal_tone",
+      "label_th": "โทนของเส้นประสาทเวกัส / แกนสมอง-ลำไส้",
+      "label_en": "Vagal Tone / Brain-Gut Axis",
+      "description": "เส้นประสาทเวกัส (cranial nerve X) เชื่อมสมอง-ลำไส้แบบสองทาง — ~80% ของใยประสาทเป็น afferent (ลำไส้ส่งข้อมูลขึ้นสมอง) และวัด vagal tone ทางอ้อมผ่าน Heart Rate Variability (HRV); ความเครียดเรื้อรัง → vagal tone ต่ำ → motility/permeability แย่ลง",
+      "key_concepts": [
+        "afferent fibers (~80%)",
+        "enteric nervous system (~500M neurons)",
+        "brain-gut axis",
+        "HRV (heart rate variability)",
+        "gut-derived serotonin (5-HT)",
+        "microbial metabolites (SCFA, LPS signaling)",
+        "polyvagal theory",
+        "slow breathing / diaphragmatic breathing"
+      ],
+      "related_sub_topics": ["gut_microbiome", "SCFA"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "stool_analysis",
+      "label_th": "การวิเคราะห์อุจจาระ / Bristol scale",
+      "label_en": "Stool Analysis / Bristol Stool Form Scale",
+      "description": "Bristol Stool Form Scale (Heaton 1997) แบ่งอุจจาระเป็น 7 ชนิด ตามรูปร่าง/ความแข็ง — Type 1-2 = ท้องผูก, Type 3-4 = ปกติ, Type 5-7 = ท้องเสีย; สีและความสม่ำเสมอเป็น non-invasive marker ของ transit time, bile secretion, microbiome, bleeding",
+      "key_concepts": [
+        "Bristol Type 1-7",
+        "colonic transit time (normal 24-72h)",
+        "SITZMARKS radiopaque marker test",
+        "stool color (green = fast transit, pale = bile obstruction, black = melena, red = lower GI bleed)",
+        "fecal calprotectin (inflammation)",
+        "fecal occult blood test (FIT)",
+        "stool FODMAP",
+        "Rome IV IBS criteria"
+      ],
+      "related_sub_topics": ["gut_microbiome", "bile_acid", "H_pylori"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    }
+  ]
+}

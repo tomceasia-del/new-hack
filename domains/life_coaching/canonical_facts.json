@@ -1,0 +1,834 @@
+{
+  "domain_id": "life_coaching",
+  "_meta": {
+    "target_count": 18,
+    "current_count": 20,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.life_coaching",
+    "notes": "Key research: James Clear Atomic Habits (identity-based change), BJ Fogg Tiny Habits (behavior model), Carol Dweck Growth Mindset (Stanford), Walter Mischel marshmallow test (delayed gratification), Roy Baumeister ego depletion, Daniel Kahneman System 1/2, Martin Seligman learned optimism/PERMA, Phillippa Lally habit formation timeline (UCL 2010). Compliance CRITICAL: ห้าม claim รักษาโรคจิต/ซึมเศร้า/วิตกกังวล, ห้ามแทนที่นักบำบัด, ห้ามรับประกันผล."
+  },
+  "facts": [
+    {
+      "fact_id": "lc_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "habit_formation",
+      "statement_th": "การสร้างนิสัยใหม่ใช้เวลาเฉลี่ย 66 วัน (ช่วง 18-254 วัน) ไม่ใช่ 21 วันอย่างที่เข้าใจกัน — งานวิจัยจาก University College London ติดตาม 96 คน 12 สัปดาห์",
+      "statement_en": "Habit formation takes an average of 66 days (range 18-254 days), not 21 days — UCL 2010 study by Phillippa Lally tracking 96 participants over 12 weeks.",
+      "numeric_values": [
+        {"value": 66, "unit": "days", "label": "average habit formation time", "is_approximation": true},
+        {"value": 18, "unit": "days", "label": "minimum observed", "is_approximation": false},
+        {"value": 254, "unit": "days", "label": "maximum observed", "is_approximation": false},
+        {"value": 96, "unit": "participants", "label": "study sample size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_lc_001",
+      "entities_mentioned": ["phillippa_lally", "ucl"],
+      "sources": [
+        {
+          "url": "https://onlinelibrary.wiley.com/doi/10.1002/ejsp.674",
+          "org": "European Journal of Social Psychology",
+          "source_tier": "A",
+          "year": 2010,
+          "title": "How are habits formed: Modelling habit formation in the real world",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "21 วันสร้างนิสัยได้? ผมบอกเลยว่าไม่จริง — งานวิจัยบอก 66 วันเฉลี่ย และบางคนใช้ถึง 254 วัน",
+        "ถ้าคุณล้มเหลวสัปดาห์ที่ 3 ก็ไม่ผิดกติกา — นิสัยยังไม่ก่อตัวเลย"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามเปลี่ยนตัวเลข 66/21/254 — สามารถ frame ว่า '21 วันเป็นตำนานเท็จ' ได้",
+      "usage_notes": "myth-busting hook ชั้นดี — เปิดคลิปได้เลย",
+      "contradictions": ["ตัวเลข 21 วันมาจาก Dr. Maxwell Maltz ยุค 1960 (ศัลยกรรม) ไม่ใช่ habit research"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่าใช้เวลา X วันแน่นอน (individual variation สูงมาก)"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["21 วัน", "66 วัน"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "habit_formation",
+      "statement_th": "Charles Duhigg และ MIT research พิสูจน์ว่านิสัยทำงานเป็น loop 3 ขั้น: Cue (ตัวกระตุ้น) → Routine (พฤติกรรม) → Reward (รางวัล) — เมื่อ loop ถูกฝังในสมองแล้ว Basal Ganglia เข้าควบคุมแทน Prefrontal Cortex",
+      "statement_en": "MIT research (Graybiel lab) demonstrated the habit loop: Cue → Routine → Reward. Once habits are encoded, basal ganglia takes over from prefrontal cortex, making behavior automatic.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_001",
+      "entities_mentioned": ["charles_duhigg", "ann_graybiel", "mit"],
+      "sources": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2866765/",
+          "org": "Annals of the New York Academy of Sciences / MIT",
+          "source_tier": "A",
+          "year": 2008,
+          "title": "Habits, rituals, and the evaluative brain (Graybiel)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "สมองคุณไม่ได้คิดตอนทำนิสัย — มันปิด Prefrontal Cortex แล้วเปิด Autopilot",
+        "Cue คือปุ่ม Routine คือโปรแกรม Reward คือ fuel — ถ้าอยากเปลี่ยนนิสัยต้องเปลี่ยน Cue ก่อน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่ simplify ว่า 'สมองปิด' — ใช้ว่า 'สมองส่วนอัตโนมัติเข้าควบคุม'",
+      "usage_notes": "ใช้อธิบาย mechanism ก่อน sell habit-building product",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "mindset",
+      "statement_th": "Carol Dweck จาก Stanford ค้นพบว่าเด็กที่ได้รับคำชมว่า 'ฉลาด' มีแนวโน้มเลือกงานง่ายกว่า เพื่อปกป้องภาพลักษณ์ ขณะที่เด็กที่ได้รับคำชมว่า 'พยายาม' กล้าเลือกงานยากขึ้น — พิสูจน์ว่า praise type สร้าง Fixed vs Growth Mindset",
+      "statement_en": "Carol Dweck's Stanford research showed children praised for intelligence chose easier tasks to protect their image, while children praised for effort chose harder challenges — demonstrating how praise type creates Fixed vs Growth Mindset.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_002",
+      "entities_mentioned": ["carol_dweck", "stanford"],
+      "sources": [
+        {
+          "url": "https://www.tandfonline.com/doi/abs/10.1080/0022027980300403",
+          "org": "Journal of Experimental Psychology / Stanford",
+          "source_tier": "A",
+          "year": 1998,
+          "title": "Praise for intelligence can undermine children's motivation and performance (Mueller & Dweck)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "บอกลูกว่า 'เก่งมาก' อาจทำร้ายเขากว่าที่คิด — งานวิจัย Stanford พิสูจน์แล้ว",
+        "คำชมผิดประเภทสร้าง Fixed Mindset โดยไม่รู้ตัว"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่บอกว่าคำชมทุกอย่างเป็นอันตราย — เฉพาะ 'ฉลาด/เก่ง' ที่ tie กับ fixed ability",
+      "usage_notes": "เหมาะกับ content parenting / self-development opener",
+      "contradictions": ["replication attempts มีผสม — แต่ core finding คงอยู่ใน meta-analysis"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "self_control",
+      "statement_th": "Walter Mischel ทดสอบ Marshmallow Test กับเด็กอายุ 4 ขวบในยุค 1960-1970 พบว่าเด็กที่รอมาร์ชเมลโลว์ได้นานกว่า มีแนวโน้ม SAT scores สูงกว่า, สุขภาพดีกว่า, และรายได้สูงกว่าในวัยผู้ใหญ่ — แม้ผลจะ moderate และมีปัจจัย SES เกี่ยวข้อง",
+      "statement_en": "Walter Mischel's Stanford Marshmallow Test (1960s-70s) found children who delayed gratification had higher SAT scores, better health outcomes, and higher income in adulthood — though effect size is moderate and SES is a confound.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_003",
+      "entities_mentioned": ["walter_mischel", "stanford"],
+      "sources": [
+        {
+          "url": "https://www.science.org/doi/10.1126/science.2658056",
+          "org": "Science / Stanford",
+          "source_tier": "A",
+          "year": 1989,
+          "title": "Delay of gratification in children (Mischel et al.)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "มาร์ชเมลโลว์ 1 ชิ้น ตอนอายุ 4 ขวบ บอกอนาคตได้ — นักวิทยาศาสตร์ Stanford ติดตาม 40 ปี",
+        "เด็กที่รอได้ ไม่ใช่เพราะอดทนกว่า แต่เพราะ distract ตัวเองเก่งกว่า"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุว่า SES (ฐานะครอบครัว) เป็นตัวแปรร่วม — ไม่ใช่ willpower อย่างเดียว",
+      "usage_notes": "hook ชั้นดีสำหรับ self-control content",
+      "contradictions": ["2018 replication study (Tyler Watts, NYU) พบว่า SES เป็นตัวอธิบายหลัก — ต้องระวังการ oversimplify"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้าม deterministic — ห้ามบอกว่า 'รอไม่ได้ตอนเด็ก = ล้มเหลวตลอด'"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_005",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "self_control",
+      "statement_th": "Baumeister และคณะ เสนอทฤษฎี Ego Depletion ว่า Willpower ใช้พลังงานจริงๆ — การตัดสินใจและการควบคุมตนเองมากเกินไปในวันเดียวทำให้ self-control ลดลงในช่วงบ่าย (แม้ผลการทดลอง replicate ไม่สม่ำเสมอ)",
+      "statement_en": "Baumeister's ego depletion theory proposes willpower is a limited resource — excessive decision-making and self-control deplete it throughout the day, with weaker self-control later. Replication results are mixed but directionally supported.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_003",
+      "entities_mentioned": ["roy_baumeister"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10231267/",
+          "org": "Journal of Personality and Social Psychology",
+          "source_tier": "A",
+          "year": 1998,
+          "title": "Ego depletion: Is the active self a limited resource? (Baumeister et al.)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "Willpower ไม่ใช่ character — มันเป็น resource ที่หมดได้ เหมือนแบตมือถือ",
+        "คนที่ดูเหมือน 'มีวินัย' ไม่ได้มี willpower มากกว่า แต่ตัดสินใจน้อยกว่าในแต่ละวัน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้อง frame ว่า 'ทฤษฎีนี้ยังถกเถียงกันอยู่' — ใช้เป็น practical framework ไม่ใช่ absolute fact",
+      "usage_notes": "ใช้ justify environment design / habit stacking แทน relying on willpower",
+      "contradictions": ["large meta-analysis 2016 (Hagger) failed to replicate in multi-lab study — ego depletion effect อาจเล็กกว่าที่คิด"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "behavior_design",
+      "statement_th": "BJ Fogg จาก Stanford พัฒนา Fogg Behavior Model: พฤติกรรมเกิดขึ้นเมื่อ Motivation + Ability + Prompt มาพร้อมกัน — วิธีที่ทรงพลังที่สุดคือเพิ่ม Ability (ลด friction) ไม่ใช่เพิ่ม Motivation",
+      "statement_en": "BJ Fogg's Behavior Model (Stanford): B = MAP (Motivation × Ability × Prompt). The most reliable approach is increasing Ability (reducing friction), not increasing Motivation which is volatile.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_004",
+      "entities_mentioned": ["bj_fogg", "stanford"],
+      "sources": [
+        {
+          "url": "https://behaviormodel.org/",
+          "org": "Stanford Persuasive Tech Lab / BJ Fogg",
+          "source_tier": "B",
+          "year": 2009,
+          "title": "A behavior model for persuasive design (Fogg)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "ปัญหาไม่ใช่คุณขาด Motivation — ปัญหาคือ friction มันสูงเกินไป",
+        "วางรองเท้าวิ่งไว้หน้าเตียงก่อนนอน = เพิ่ม Ability ได้โดยไม่ต้องใช้ Willpower เลย"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่บอกว่า Motivation ไม่สำคัญเลย — แค่ Ability เสถียรกว่า",
+      "usage_notes": "core framework สำหรับ behavior design products และ coaching programs",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "behavior_design",
+      "statement_th": "Implementation Intention — การวางแผนว่า 'ถ้า X แล้วฉันจะทำ Y' เพิ่มอัตราสำเร็จของ goal ขึ้นถึง 2-3 เท่า เทียบกับแค่ตั้งเป้าหมาย — meta-analysis จาก 94 การทดลอง โดย Peter Gollwitzer",
+      "statement_en": "Implementation intentions ('If X, then I will do Y') increase goal achievement rates 2-3x compared to goal setting alone — meta-analysis of 94 independent studies by Peter Gollwitzer (2006).",
+      "numeric_values": [
+        {"value": "2-3", "unit": "times", "label": "improvement in goal achievement rate", "is_approximation": true},
+        {"value": 94, "unit": "studies", "label": "meta-analysis sample", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_lc_004",
+      "entities_mentioned": ["peter_gollwitzer"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16817867/",
+          "org": "American Psychologist",
+          "source_tier": "A",
+          "year": 2006,
+          "title": "Implementation intentions: Strong effects of simple plans (Gollwitzer & Sheeran)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "ตั้งเป้าหมายไม่พอ — ต้องบอกสมองว่า 'เมื่อไหร่ ที่ไหน อย่างไร' ด้วย",
+        "'ผมจะออกกำลังกาย' vs 'ผมจะวิ่ง 20 นาที หลังตื่นนอน ตอน 6 โมงเช้า วันจันทร์-ศุกร์' — ต่างกัน 3 เท่า"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ระวัง overstate — '2-3 เท่า' คือ meta-analysis average ไม่ใช่รับประกัน",
+      "usage_notes": "perfect for planning apps, journals, coaching programs",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "procrastination",
+      "statement_th": "Fuschia Sirois และ Timothy Pychyl พิสูจน์ว่า Procrastination ไม่ใช่ปัญหาของ Time Management แต่เป็น Emotion Regulation Problem — คนผัดวันเพราะกำลัง avoid ความรู้สึกไม่สบายใจที่เกี่ยวกับงาน (anxiety, boredom, frustration)",
+      "statement_en": "Research by Pychyl & Sirois demonstrates procrastination is an emotion regulation failure, not time management — people procrastinate to avoid task-related negative emotions (anxiety, boredom, self-doubt).",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_005",
+      "entities_mentioned": ["timothy_pychyl", "fuschia_sirois"],
+      "sources": [
+        {
+          "url": "https://doi.org/10.1080/15298868.2016.1160794",
+          "org": "Self and Identity / Carleton University",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Procrastination, Emotion Regulation and Well-Being (Sirois & Pychyl)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "คุณไม่ได้ขี้เกียจ — คุณแค่กำลัง avoid ความรู้สึกที่ไม่อยากรู้สึก",
+        "แก้ผัดวันด้วยการจัดตารางเวลาไม่ได้ผล เพราะมันไม่ใช่ปัญหาเวลา"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่ diagnose ว่า 'คุณมีปัญหาสุขภาพจิต' — procrastination ทั่วไปไม่ใช่ disorder",
+      "usage_notes": "powerful reframe ที่ช่วย self-compassion + เปิดรับ solution ใหม่",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["ADHD — procrastination อาจมีสาเหตุ neurological ต้องประเมินโดยผู้เชี่ยวชาญ"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้าม diagnose ADHD หรือโรคจิตใจใดๆ", "ห้ามบอกว่า coaching แก้ clinical ADHD ได้"],
+        "required_disclaimer_th": "เนื้อหานี้เป็นข้อมูลทั่วไป ไม่ใช่การวินิจฉัยทางการแพทย์",
+        "audience_exclusions": ["ผู้ที่สงสัยว่ามี ADHD ควรพบแพทย์ก่อน"],
+        "validator_keywords_th": ["ADHD", "โรค", "วินิจฉัย"],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_009",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "procrastination",
+      "statement_th": "2-Minute Rule จาก David Allen (Getting Things Done): ถ้างานใช้เวลาน้อยกว่า 2 นาที ให้ทำทันที — brain science รองรับด้วยหลัก 'action precedes motivation' ของ Pychyl: การลงมือก่อน แม้แค่นิดเดียว สร้าง momentum ต่อได้",
+      "statement_en": "David Allen's 2-Minute Rule + Pychyl's 'action precedes motivation' principle: starting a task, even for just 2 minutes, generates momentum and reduces emotional aversion through exposure.",
+      "numeric_values": [
+        {"value": 2, "unit": "minutes", "label": "minimum action threshold", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_lc_005",
+      "entities_mentioned": ["david_allen", "timothy_pychyl"],
+      "sources": [
+        {
+          "url": "https://gettingthingsdone.com/",
+          "org": "Getting Things Done / David Allen Company",
+          "source_tier": "B",
+          "year": 2001,
+          "title": "Getting Things Done: The Art of Stress-Free Productivity",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "ไม่อยากทำงาน? ให้ตั้งเวลา 2 นาทีก่อน — สมองไม่กลัว 2 นาที",
+        "Motivation ไม่ได้มาก่อนการลงมือ — มันมาหลัง"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่ overpromise ว่า '2 นาทีจะทำให้เสร็จทุกอย่าง'",
+      "usage_notes": "practical tip สำหรับ productivity content",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "motivation",
+      "statement_th": "Self-Determination Theory (SDT) ของ Deci & Ryan ระบุว่า Intrinsic Motivation ขึ้นกับการตอบสนองความต้องการ 3 อย่าง: Autonomy (ควบคุมตัวเอง), Competence (รู้สึกเก่ง), Relatedness (เชื่อมกับผู้อื่น) — เมื่อสามอย่างนี้ถูกตอบสนอง ผู้คนทำงานได้ดีขึ้นและมีความสุขมากขึ้น",
+      "statement_en": "Deci & Ryan's Self-Determination Theory: Intrinsic motivation requires Autonomy + Competence + Relatedness. When these three basic psychological needs are met, performance and well-being improve.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_006",
+      "entities_mentioned": ["edward_deci", "richard_ryan", "university_of_rochester"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11392867/",
+          "org": "Psychological Inquiry / University of Rochester",
+          "source_tier": "A",
+          "year": 2000,
+          "title": "The 'what' and 'why' of goal pursuits: Human needs and the self-determination of behavior (Deci & Ryan)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "คนทำงานดีไม่ใช่เพราะเงิน — แต่เพราะรู้สึกควบคุมได้ รู้สึกเก่ง และรู้สึกว่าตัวเองสำคัญ",
+        "3 ปุ่มที่สมองต้องกด ถึงจะ motivated จริง: อิสระ ความสามารถ ความสัมพันธ์"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่บอกว่า extrinsic reward เสมอ harmful — ขึ้นอยู่กับ context",
+      "usage_notes": "excellent for coaching programs emphasizing autonomy and mastery",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "motivation",
+      "statement_th": "Daniel Pink สังเคราะห์งานวิจัยกว่า 50 ปีใน 'Drive' (2009) พบว่า การให้ reward ภายนอก (เงิน, รางวัล) กับงาน creative สามารถทำลาย intrinsic motivation ได้ — เรียกว่า 'Overjustification Effect'",
+      "statement_en": "Daniel Pink's synthesis of 50+ years of research ('Drive') shows external rewards (money, prizes) for creative/cognitive tasks can reduce intrinsic motivation — the Overjustification Effect (Lepper, Greene, Nisbett 1973).",
+      "numeric_values": [
+        {"value": 50, "unit": "years", "label": "research synthesis span", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_lc_006",
+      "entities_mentioned": ["daniel_pink"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/4723209/",
+          "org": "Journal of Personality and Social Psychology",
+          "source_tier": "A",
+          "year": 1973,
+          "title": "Undermining children's intrinsic interest with extrinsic reward (Lepper, Greene, Nisbett)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "จ่ายเงินเด็กให้อ่านหนังสือ — แล้วเขาจะหยุดอ่านเองทันทีที่หยุดจ่าย",
+        "Reward ผิดที่ผิดทาง เปลี่ยน passion เป็น job"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่ overgeneralize ว่า 'ห้ามให้ reward เลย' — extrinsic reward OK สำหรับ routine tasks",
+      "usage_notes": "ใช้ discuss intrinsic vs extrinsic, สร้าง content เรื่อง meaningful goals",
+      "contradictions": ["reward สำหรับ routine/mechanical tasks ไม่ reduce motivation — เฉพาะ creative/interesting tasks"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_012",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "habit_formation",
+      "statement_th": "James Clear เสนอ '1% Better Every Day' concept ใน Atomic Habits (2018): การพัฒนา 1% ต่อวัน ทบต้นใน 1 ปี ให้ผล 37 เท่า — แม้ตัวเลขนี้เป็น mathematical model ไม่ใช่ RCT แต่ concept ของ marginal gains มีหลักฐานรองรับจาก British Cycling Team (Dave Brailsford)",
+      "statement_en": "James Clear's '1% Better Every Day': 1.01^365 = 37.78x improvement — a mathematical model. The underlying marginal gains concept is empirically supported by British Cycling Team's aggregate gains strategy (Dave Brailsford, 2002-2012).",
+      "numeric_values": [
+        {"value": 37, "unit": "times", "label": "1% daily compounding over 1 year (theoretical)", "is_approximation": true},
+        {"value": 1, "unit": "percent", "label": "daily improvement target", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_lc_001",
+      "entities_mentioned": ["james_clear", "dave_brailsford"],
+      "sources": [
+        {
+          "url": "https://jamesclear.com/atomic-habits",
+          "org": "James Clear / Penguin Random House",
+          "source_tier": "B",
+          "year": 2018,
+          "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "1% ดีขึ้นทุกวัน ใน 1 ปี = ดีขึ้น 37 เท่า — ไม่ใช่ magic แต่คือ math",
+        "ทีมจักรยาน British Cycling ชนะ Tour de France ด้วยการปรับปรุงทุกอย่าง 1% — จากยาสีฟัน ไปถึงหมอน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้อง frame ว่า 37x คือ theoretical model — ชีวิตจริง compounding ไม่เป็น linear",
+      "usage_notes": "strong opening hook สำหรับ long-form content",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามรับประกันว่าทำ 1% ทุกวันแล้วชีวิตดีขึ้น 37 เท่าในปีเดียว"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_013",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "decision_making",
+      "statement_th": "Daniel Kahneman นักเศรษฐศาสตร์รางวัล Nobel (2002) แบ่งกระบวนการคิดเป็น System 1 (เร็ว/อัตโนมัติ/อารมณ์) และ System 2 (ช้า/ไตร่ตรอง/เหตุผล) — การตัดสินใจผิดพลาดส่วนใหญ่เกิดจากการปล่อยให้ System 1 ทำงานในสถานการณ์ที่ควรใช้ System 2",
+      "statement_en": "Nobel laureate Daniel Kahneman (Thinking, Fast and Slow) identified System 1 (fast, automatic, emotional) and System 2 (slow, deliberate, rational). Most decision errors stem from relying on System 1 when System 2 is needed.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_007",
+      "entities_mentioned": ["daniel_kahneman", "princeton"],
+      "sources": [
+        {
+          "url": "https://www.penguinrandomhouse.com/books/89308/thinking-fast-and-slow-by-daniel-kahneman/",
+          "org": "Penguin Books / Princeton University",
+          "source_tier": "B",
+          "year": 2011,
+          "title": "Thinking, Fast and Slow",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "สมองคุณมี 2 ระบบ — ระบบแรกเร็วแต่ผิดบ่อย ระบบสองช้าแต่ถูกกว่า",
+        "ทุกครั้งที่คุณตัดสินใจด่วน — System 1 กำลัง hijack สมองคุณ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่บอกว่า System 1 เสมอ bad — มันจำเป็นสำหรับ rapid response",
+      "usage_notes": "ใช้อธิบาย cognitive bias, decision fatigue, impulsive eating",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_014",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "decision_making",
+      "statement_th": "Loss Aversion: Kahneman & Tversky พิสูจน์ว่าความเจ็บปวดจากการเสีย 100 บาท รู้สึกหนักกว่าความสุขจากการได้ 100 บาท ถึงประมาณ 2 เท่า — Prospect Theory ที่ทำให้ได้รับ Nobel Prize",
+      "statement_en": "Kahneman & Tversky's Prospect Theory (1979): Losses feel approximately 2x more painful than equivalent gains — Loss Aversion. This Nobel Prize-winning insight explains why people over-avoid risk.",
+      "numeric_values": [
+        {"value": 2, "unit": "times", "label": "loss aversion ratio", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_lc_007",
+      "entities_mentioned": ["daniel_kahneman", "amos_tversky"],
+      "sources": [
+        {
+          "url": "https://www.jstor.org/stable/1914185",
+          "org": "Econometrica",
+          "source_tier": "A",
+          "year": 1979,
+          "title": "Prospect Theory: An Analysis of Decision under Risk (Kahneman & Tversky)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "เสีย 100 บาท เจ็บปวดกว่าได้ 100 บาท ถึง 2 เท่า — นี่คือทำไมคนกลัวเสียมากกว่ากลัวพลาด",
+        "Loss Aversion ทำให้คุณไม่ลงมือ ไม่ลองสิ่งใหม่ — เพราะสมองคำนวณ 'เสีย' ผิดวิธี"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 2x คือ average ratio — individual ต่างกัน",
+      "usage_notes": "hook สำหรับ content เรื่องกล้าเปลี่ยนแปลง, เลิกนิสัยเก่า",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_015",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "resilience",
+      "statement_th": "Martin Seligman ค้นพบ Learned Helplessness ในการทดลองกับสุนัข (1967): สัตว์ที่เรียนรู้ว่า 'ฉันควบคุมผลไม่ได้' จะหยุดพยายามแม้สถานการณ์เปลี่ยน — Seligman พัฒนาเป็น Learned Optimism และ PERMA model ต่อมา",
+      "statement_en": "Seligman's Learned Helplessness (1967): Animals exposed to uncontrollable aversive events stop trying even when escape becomes possible. Seligman later developed Learned Optimism and PERMA well-being model from this foundation.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_002",
+      "entities_mentioned": ["martin_seligman", "university_of_pennsylvania"],
+      "sources": [
+        {
+          "url": "https://doi.org/10.1037/h0024514",
+          "org": "Journal of Experimental Psychology",
+          "source_tier": "A",
+          "year": 1967,
+          "title": "Failure to escape traumatic shock (Seligman & Maier)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "สุนัขที่เจ็บปวดจนหยุดพยายาม — นี่คือสิ่งที่เกิดกับคนที่ล้มเหลวซ้ำๆ โดยไม่มีใครบอกว่า 'มันเปลี่ยนได้'",
+        "Learned Helplessness เรียนรู้ได้ — Learned Optimism ก็เรียนรู้ได้เช่นกัน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ใช้ความระมัดระวังกับ animal experiment — frame เป็น 'insight จากการวิจัย' ไม่ใช่ justification ของ animal suffering",
+      "usage_notes": "powerful เพื่อ reframe ความล้มเหลวในอดีต",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["ผู้ที่มีภาวะซึมเศร้า (depression) ควรพบแพทย์ ไม่ใช่แค่ coaching"],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้ามบอกว่า coaching แก้ clinical depression ได้", "ห้าม diagnose ว่าใครมี learned helplessness"],
+        "required_disclaimer_th": "เนื้อหานี้เป็นข้อมูลทั่วไปด้านจิตวิทยา ไม่ใช่การรักษาหรือวินิจฉัยทางคลินิก",
+        "audience_exclusions": ["ผู้ที่มีอาการซึมเศร้า ควรพบจิตแพทย์หรือนักจิตวิทยาก่อน"],
+        "validator_keywords_th": ["ซึมเศร้า", "depression", "วินิจฉัย", "รักษา"],
+        "regulatory_risk_notes": "ห้ามนำเสนอ life coaching เป็นการรักษาโรคจิตเวชใดๆ"
+      }
+    },
+    {
+      "fact_id": "lc_016",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "resilience",
+      "statement_th": "Kristin Neff นักวิจัยจาก UT Austin พัฒนา Self-Compassion Scale และพิสูจน์ว่า Self-Compassion (ปฏิบัติต่อตนเองเหมือนเพื่อนสนิทเมื่อล้มเหลว) มีความสัมพันธ์ทางบวกกับ motivation, resilience, และ well-being มากกว่า self-criticism",
+      "statement_en": "Kristin Neff (UT Austin) validated the Self-Compassion Scale and showed self-compassion (treating oneself as a good friend when failing) correlates positively with motivation, resilience, and well-being — more than self-criticism does.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_002",
+      "entities_mentioned": ["kristin_neff", "ut_austin"],
+      "sources": [
+        {
+          "url": "https://self-compassion.org/the-research/",
+          "org": "University of Texas at Austin / Self-Compassion Research",
+          "source_tier": "B",
+          "year": 2003,
+          "title": "Self-Compassion: An Alternative Conceptualization of a Healthy Attitude Toward Oneself",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "ดุตัวเองหลังล้มเหลว ไม่ได้ทำให้พยายามมากขึ้น — งานวิจัยบอกตรงข้าม",
+        "ลองคุยกับตัวเองหลังล้มเหลว เหมือนคุณคุยกับเพื่อนสนิท — นั่นคือ Self-Compassion"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่บอกว่า self-compassion = ไม่รับผิดชอบ — มันต่างจาก self-pity",
+      "usage_notes": "ใช้ counter 'no pain no gain' mentality ที่เป็นอันตราย",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_017",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "behavior_design",
+      "statement_th": "Habit Stacking — James Clear แนะนำการ 'stack' นิสัยใหม่ต่อนิสัยเดิม เช่น 'หลังจากกาแฟเช้า ผมจะ meditate 1 นาที' — ใช้ existing habit เป็น cue สำหรับนิสัยใหม่ อิงหลักการของ Nathan DeWall's contextual cueing research",
+      "statement_en": "Habit stacking links a new behavior to an existing habit ('After I [current habit], I will [new habit]') — leverages existing neural pathways as reliable cues for new behavior.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_001",
+      "entities_mentioned": ["james_clear"],
+      "sources": [
+        {
+          "url": "https://jamesclear.com/habit-stacking",
+          "org": "James Clear",
+          "source_tier": "B",
+          "year": 2018,
+          "title": "Habit Stacking: The Simple Technique to Build New Habits (Atomic Habits)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "ไม่ต้องหา time slot ใหม่ — แค่ 'ต่อ' นิสัยใหม่เข้ากับนิสัยเดิม",
+        "สมองมี autopilot อยู่แล้ว — Habit Stacking คือการใส่ software ใหม่เข้าไปใน autopilot"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่รับประกัน success rate",
+      "usage_notes": "practical + actionable สำหรับ short-form TikTok",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_018",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "decision_making",
+      "statement_th": "Decision Fatigue: งานวิจัยจาก Ben-Gurion University (2011) ติดตามผู้พิพากษา 1,112 คดี พบว่าผู้พิพากษามี parole approval rate 65% ช่วงเช้า แต่ลดเหลือเกือบ 0% ก่อนพักก่อนที่จะกลับมา 65% หลังพัก — พิสูจน์ว่าการตัดสินใจมากเกินไปทำให้ default เป็น 'ปฏิเสธ'",
+      "statement_en": "Ben-Gurion University (2011) studied 1,112 parole hearings: judges approved 65% of cases in the morning, dropping to near 0% just before breaks, then returning to 65% after rest — demonstrating decision fatigue causes default 'no' responses.",
+      "numeric_values": [
+        {"value": 65, "unit": "percent", "label": "morning parole approval rate", "is_approximation": false},
+        {"value": 1112, "unit": "cases", "label": "total parole hearings studied", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_lc_007",
+      "entities_mentioned": ["shai_danziger", "ben_gurion_university"],
+      "sources": [
+        {
+          "url": "https://www.pnas.org/doi/10.1073/pnas.1018033108",
+          "org": "PNAS / Ben-Gurion University",
+          "source_tier": "A",
+          "year": 2011,
+          "title": "Extraneous factors in judicial decisions (Danziger et al.)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "ผู้พิพากษาที่ตัดสินชะตาชีวิตคุณ — อาจตัดสินแตกต่างกันแค่เพราะยังไม่ได้กินข้าว",
+        "1,112 คดี พิสูจน์ว่า Decision Fatigue เป็นจริง — ตัดสินใจสำคัญตอนเช้าเสมอ"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "มีการวิจัยโต้แย้งว่าอาจเป็น 'ลำดับ case' แทน hunger — frame เป็น compelling evidence ไม่ใช่ absolute proof",
+      "usage_notes": "hook ที่แข็งแกร่งมากสำหรับ decision-making / productivity content",
+      "contradictions": ["Lakens (2014) โต้แย้งว่า effect อาจมาจาก case ordering ไม่ใช่ decision fatigue โดยตรง"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "habit_formation",
+      "statement_th": "Identity-Based Habits (James Clear, Atomic Habits): การเปลี่ยนพฤติกรรมที่ยั่งยืนมาจากการเปลี่ยน Identity ก่อน ไม่ใช่ outcome — แทนที่จะพูดว่า 'ผมพยายามเลิกสูบบุหรี่' ให้พูดว่า 'ผมไม่ใช่คนสูบบุหรี่' — อิงหลัก cognitive dissonance ของ Festinger",
+      "statement_en": "Clear's Identity-Based Habits: Durable behavior change stems from identity shift first ('I am a non-smoker') rather than outcome focus ('I'm trying to quit') — grounded in Festinger's cognitive dissonance: behavior must align with self-concept.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_lc_002",
+      "entities_mentioned": ["james_clear", "leon_festinger"],
+      "sources": [
+        {
+          "url": "https://jamesclear.com/identity-based-habits",
+          "org": "James Clear",
+          "source_tier": "B",
+          "year": 2018,
+          "title": "Identity-Based Habits (Atomic Habits)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "คำถามไม่ใช่ 'คุณอยากได้อะไร' แต่คือ 'คุณอยากเป็นใคร'",
+        "นิสัยไม่เปลี่ยนเพราะคุณอยากผล — มันเปลี่ยนเมื่อคุณเปลี่ยน 'ตัวตน' ก่อน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ไม่บอกว่า identity change เป็นเรื่องง่ายหรือเร็ว",
+      "usage_notes": "core framing สำหรับ discipline_coach persona — ต่างจาก outcome-based coaching",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    },
+    {
+      "fact_id": "lc_020",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "behavior_design",
+      "statement_th": "Environment Design มีอิทธิพลต่อพฤติกรรมมากกว่า Willpower — Wansink's research (แม้จะมีข้อถกเถียง) และ Cornell Food Lab พิสูจน์ว่าขนาดชาม, ตำแหน่งอาหาร, แสง, และ social environment ส่งผลต่อปริมาณที่กินได้ถึง 20-50% โดยไม่รู้ตัว",
+      "statement_en": "Environment design influences behavior more than willpower — research on portion sizes, food placement, lighting, and social context shows 20-50% variation in eating behavior without conscious awareness (though Wansink's specific studies have replication issues, the directional effect is well-supported).",
+      "numeric_values": [
+        {"value": "20-50", "unit": "percent", "label": "behavior variation from environment (directional estimate)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_lc_004",
+      "entities_mentioned": ["brian_wansink"],
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16088943/",
+          "org": "American Journal of Clinical Nutrition",
+          "source_tier": "A",
+          "year": 2005,
+          "title": "Bottomless bowls: why visual cues of portion size may influence intake (Wansink et al.)",
+          "access_date": "2026-04-22"
+        }
+      ],
+      "narrative_hooks": [
+        "ใช้ชามใหญ่ กินเพิ่มขึ้นโดยไม่รู้ตัว — ไม่ใช่เพราะขาด Willpower แต่เพราะ Environment ควบคุมคุณอยู่",
+        "อยากกินน้อยลง? อย่าพึ่ง Willpower — เปลี่ยนขนาดจาน"
+      ],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ระวัง Wansink's studies มี replication issues — ใช้ directional claim เท่านั้น ไม่ cite ตัวเลขเจาะจง",
+      "usage_notes": "เชื่อม life_coaching กับ eating_discipline / fat_metabolism domain",
+      "contradictions": ["Wansink ถูกถอน papers หลายฉบับ เนื่องจาก data issues — ใช้ directional consensus เท่านั้น"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": ["ห้าม cite Wansink ตัวเลขเจาะจง — ใช้เฉพาะ directional principle"],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": [],
+        "regulatory_risk_notes": null
+      }
+    }
+  ]
+}

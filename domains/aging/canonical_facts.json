@@ -1,0 +1,979 @@
+{
+  "domain_id": "aging",
+  "_meta": {
+    "target_count": 22,
+    "current_count": 25,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.aging",
+    "notes": "Longevity is the highest-regulatory-risk domain — most human evidence for senolytics/NMN is mouse/early-phase. Every fact ships with safety_warning. Rapamycin facts are EDUCATIONAL ONLY and NEVER referenced by product_angles.supporting_facts."
+  },
+  "facts": [
+    {
+      "fact_id": "aging_001",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "mTOR_aging",
+      "statement_th": "Harrison et al. NIA ITP 2009 (Nature) — rapamycin ที่ให้หนูสายพันธุ์ผสมตอนอายุ 600 วัน (เทียบได้กับคนอายุ ~60 ปี) ยืดอายุเฉลี่ย +9% ในเพศผู้ และ +14% ในเพศเมีย — เป็นโมเลกุลแรกที่พิสูจน์ว่ายืดอายุเลี้ยงลูกด้วยนมได้แม้เริ่มให้ตอนแก่แล้ว",
+      "statement_en": "Harrison et al. (NIA ITP) 2009 Nature — rapamycin fed to genetically heterogeneous mice starting at 600 days old (~60-year-old humans equivalent) extended median lifespan +9% in males and +14% in females — the first molecule proven to extend mammalian lifespan even when started late in life.",
+      "numeric_values": [
+        {"value": 9, "unit": "%", "label": "median lifespan extension males", "is_approximation": false},
+        {"value": 14, "unit": "%", "label": "median lifespan extension females", "is_approximation": false},
+        {"value": 600, "unit": "days", "label": "mouse age at rapamycin start", "is_approximation": false},
+        {"value": 1900, "unit": "mice", "label": "ITP total cohort size across 3 labs", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_006",
+      "entities_mentioned": ["david_harrison", "richard_miller", "rapamycin_mol", "mtor_complex", "nia_itp"],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nature08221", "org": "Nature", "source_tier": "A", "year": 2009, "title": "Rapamycin fed late in life extends lifespan in genetically heterogeneous mice — Harrison DE, Strong R, Sharp ZD et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["โนเบล-grade landmark", "หนูไม่โกหก"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามใช้เป็น product angle — rapamycin เป็นยาสั่งแพทย์. อนุญาตพูดเชิง 'งานวิจัยพบ' เท่านั้น. ห้ามพูด '+9% = มนุษย์ = อายุยืนกว่า 7 ปี'",
+      "usage_notes": "Educational hook สำหรับ content แนว 'science of aging'. Pair กับ caveat ทุกครั้งว่า rapamycin ยังไม่ใช่การรักษาสำหรับชะลอวัยในมนุษย์ และไม่สามารถซื้อได้ในไทยโดยไม่มีใบสั่งแพทย์",
+      "contradictions": ["ITP 2014 follow-up: dose-response ไม่เป็นเส้นตรง ขนาดสูงมีผลข้างเคียง; ใน mTORC2 inhibition ทำให้ glucose intolerance"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "red",
+        "contraindications": ["autoimmune_on_immunosuppressant", "cancer_active_treatment", "pregnancy_lactation"],
+        "drug_interactions": ["immunosuppressant (duplicate mTOR inhibition — tacrolimus/cyclosporine)", "statin (CYP3A4 interaction)", "warfarin (monitoring required)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำให้หา rapamycin มากินเอง",
+          "ห้ามพูดว่า 'rapamycin ย้อนวัยมนุษย์ได้'",
+          "ห้ามพูด '+9% = มนุษย์อายุยืนกว่า 7 ปี'",
+          "ห้ามแนะนำ rapamycin off-label โดยไม่มีใบสั่งแพทย์"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "active_cancer_treatment", "on_prescription_medications", "chronic_disease_multimorbidity"],
+        "validator_keywords_th": ["rapamycin ย้อนวัย", "ซื้อ rapamycin", "rapamycin ไม่ต้องใบสั่งแพทย์", "rapamycin รักษาแก่"],
+        "regulatory_risk_notes": "อย. ไทย — Rapamycin (sirolimus) เป็นยาควบคุมที่ใช้ใน organ transplant; off-label ห้ามโฆษณาเด็ดขาด; ผิด พรบ.ยา 2510 ทันที. ใช้เฉพาะ educational framing"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_002",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "cellular_senescence",
+      "statement_th": "López-Otín และคณะ (Cell 2013 / 2023 updated) วางโครงความชราเป็น 'Hallmarks of Aging' — ฉบับปี 2023 ขยายเป็น 12 hallmarks รวมถึง genomic instability, telomere attrition, epigenetic alterations, loss of proteostasis, disabled autophagy, deregulated nutrient sensing, mitochondrial dysfunction, cellular senescence, stem cell exhaustion, altered intercellular communication, chronic inflammation, dysbiosis",
+      "statement_en": "López-Otín et al. (Cell 2013, updated 2023) established the 'Hallmarks of Aging' framework — the 2023 revision lists 12 hallmarks: genomic instability, telomere attrition, epigenetic alterations, loss of proteostasis, disabled autophagy, deregulated nutrient sensing, mitochondrial dysfunction, cellular senescence, stem cell exhaustion, altered intercellular communication, chronic inflammation, and dysbiosis.",
+      "numeric_values": [
+        {"value": 12, "unit": "hallmarks", "label": "2023 revision count", "is_approximation": false},
+        {"value": 9, "unit": "hallmarks", "label": "2013 original count", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": [],
+      "sources": [
+        {"url": "https://www.cell.com/cell/fulltext/S0092-8674(22)01570-7", "org": "Cell", "source_tier": "A", "year": 2023, "title": "Hallmarks of aging: An expanding universe — López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["แผนที่ความแก่", "12 ประตูที่เซลล์เปิดเอง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูดว่า 'แก้ได้ทั้ง 12 hallmarks' — ปัจจุบันมีเพียง intervention บางอันที่มีหลักฐานชัดเจน",
+      "usage_notes": "Foundation fact ใช้เป็น framework opener สำหรับ content ที่อธิบายว่า 'อะไรคือความแก่จริงๆ'",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'แก้ครบ 12 hallmarks ย้อนวัยได้'",
+          "ห้ามขายผลิตภัณฑ์โดยอ้างว่าแก้ hallmarks ได้ครบ"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["แก้ครบทุก hallmark", "ย้อนวัย 12 ระบบ"],
+        "regulatory_risk_notes": "เป็น scientific framework — ใช้เชิง education ได้ ไม่มี product claim"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_003",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "epigenetic_clock",
+      "statement_th": "Sinclair lab (Yang et al., Cell 2023; Lu et al., Nature 2020) — การใส่ transient OSK (Oct4/Sox2/Klf4) Yamanaka factors 3 ตัวแบบ pulse ใน retinal ganglion cells ของหนูแก่ reset DNA methylation age และ 'คืนสายตา' หนูแก่ที่เป็น glaucoma — เป็นหลักฐานเชิงทดลองแรกของ 'epigenetic rejuvenation' ใน mammal อวัยวะเดี่ยว",
+      "statement_en": "Sinclair lab (Yang et al. Cell 2023; Lu et al. Nature 2020) — transient pulsed OSK (Oct4/Sox2/Klf4) Yamanaka factors delivered via AAV to aged mouse retinal ganglion cells reset DNA methylation age and restored vision in glaucoma and old-age vision loss — the first experimental evidence of 'epigenetic rejuvenation' of a mammalian organ.",
+      "numeric_values": [
+        {"value": 3, "unit": "factors", "label": "OSK (subset of 4 Yamanaka)", "is_approximation": false},
+        {"value": 12, "unit": "months", "label": "mouse age treated", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_007",
+      "entities_mentioned": ["david_sinclair", "osk_factors"],
+      "sources": [
+        {"url": "https://www.nature.com/articles/s41586-020-2975-4", "org": "Nature", "source_tier": "A", "year": 2020, "title": "Reprogramming to recover youthful epigenetic information and restore vision — Lu Y et al.", "access_date": "2026-04-22"},
+        {"url": "https://www.cell.com/cell/fulltext/S0092-8674(22)01570-7", "org": "Cell", "source_tier": "A", "year": 2023, "title": "Loss of epigenetic information as a cause of mammalian aging — Yang JH et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ย้อนวัยในหนูพิสูจน์แล้ว", "OSK reset", "Sinclair Harvard"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามพูดว่า 'คนทำได้แบบเดียวกัน' — ยังไม่มี human trial. ย้ำว่า mouse model, AAV gene therapy, target อวัยวะเดียว (ตา)",
+      "usage_notes": "ใช้เป็น 'science breakthrough' hook — pair กับคำเตือน 'นี่คือหนู ไม่ใช่คน ยังต้องใช้เวลาอีกหลายปี'",
+      "contradictions": ["Nature News 2023 critique — การทดลองใน Yang 2023 ส่วน 'chemical reprogramming' (แทนที่ OSK ด้วย cocktail สารเคมี) ยังรอ replication"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'Sinclair พบวิธีย้อนวัยให้คนแล้ว'",
+          "ห้ามขายสินค้าโดยอ้างว่ามี OSK effect",
+          "ห้ามพูด 'biological age ลดลงได้ยืนยันแล้ว'"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": [],
+        "validator_keywords_th": ["Sinclair ย้อนวัยคน", "OSK ในคน", "ย้อนวัยในหนู = ใช้ได้กับคน"],
+        "regulatory_risk_notes": "อ้างผลงาน Sinclair ได้เพื่อการศึกษา; ห้ามเชื่อมโยงว่าสินค้าใดๆ 'ทำ OSK reprogramming' ได้ — gene therapy ไม่ใช่ supplement"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_004",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "telomere_shortening",
+      "statement_th": "Elizabeth Blackburn, Carol Greider และ Jack Szostak ได้รับรางวัลโนเบลสาขาสรีรวิทยา/การแพทย์ ปี 2009 จากการค้นพบว่าโครโมโซมถูกปกป้องโดย 'telomere' และเอนไซม์ 'telomerase' (TERT) ที่ต่อ TTAGGG repeats ที่ปลาย DNA — การหาย/สั้นลงของ telomere เป็น 1 ใน hallmarks of aging",
+      "statement_en": "Elizabeth Blackburn, Carol Greider, and Jack Szostak won the 2009 Nobel Prize in Physiology or Medicine for the discovery of how chromosomes are protected by telomeres and the enzyme telomerase (TERT), which adds TTAGGG repeats to DNA ends — telomere attrition is one of the classical hallmarks of aging.",
+      "numeric_values": [
+        {"value": 2009, "unit": "year", "label": "Nobel Prize year", "is_approximation": false},
+        {"value": 50, "unit": "bp", "label": "telomere loss per cell division (lower bound)", "is_approximation": true},
+        {"value": 200, "unit": "bp", "label": "telomere loss per cell division (upper bound)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_002",
+      "entities_mentioned": ["elizabeth_blackburn", "carol_greider", "telomerase"],
+      "sources": [
+        {"url": "https://www.nobelprize.org/prizes/medicine/2009/summary/", "org": "Nobel Foundation", "source_tier": "A", "year": 2009, "title": "The Nobel Prize in Physiology or Medicine 2009 — Blackburn, Greider, Szostak", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["โนเบล 2009", "ปลาย DNA ที่หายไป", "นาฬิกาใน DNA"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้างว่า supplement ใดๆ 'ต่อ telomere ได้' โดยไม่มี RCT หลักฐาน — ส่วนใหญ่ที่โฆษณาเป็น scam",
+      "usage_notes": "เป็น authority anchor เวลาพูดเรื่อง cellular aging — UncleD ยังไม่ใช้ แต่เป็น hook แข็งมาก",
+      "contradictions": ["Telomere length ใช้เป็น biomarker แต่ไม่ใช่ causative เสมอไป — คน/มะเร็งอาจมี telomere ยาว; คนอายุเยอะ telomere สั้นไม่เท่ากันทุกคน"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามโฆษณา 'supplement ยืด telomere' โดยไม่มี RCT",
+          "ห้ามแนะนำ telomerase gene therapy direct-to-consumer"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ยืด telomere ได้", "ต่อ telomere", "telomerase therapy"],
+        "regulatory_risk_notes": "ข้อเท็จจริงทางประวัติศาสตร์ Nobel — ใช้ได้เชิง education"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_005",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "epigenetic_clock",
+      "statement_th": "Horvath clock (Steve Horvath, UCLA, Genome Biology 2013) ใช้ระดับ DNA methylation ที่ 353 CpG sites เพื่อทำนาย 'อายุชีวภาพ' ที่สัมพันธ์กับอายุปฏิทินด้วย R=0.96 ครอบคลุม 51 ชนิดของเนื้อเยื่อ/เซลล์ — ช่วยแยก 'อายุที่ผ่านไป' จาก 'อายุที่ร่างกายสึกไป'",
+      "statement_en": "The Horvath clock (Steve Horvath, UCLA, Genome Biology 2013) uses DNA methylation levels at 353 CpG sites to predict 'biological age' with R=0.96 correlation to chronological age across 51 tissue/cell types — letting us separate 'years elapsed' from 'years of wear'.",
+      "numeric_values": [
+        {"value": 353, "unit": "CpG sites", "label": "Horvath clock markers", "is_approximation": false},
+        {"value": 0.96, "unit": "correlation R", "label": "accuracy vs chronological age", "is_approximation": false},
+        {"value": 51, "unit": "tissue types", "label": "training coverage", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_007",
+      "entities_mentioned": ["steve_horvath", "ucla_horvath"],
+      "sources": [
+        {"url": "https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-10-r115", "org": "Genome Biology / BMC", "source_tier": "A", "year": 2013, "title": "DNA methylation age of human tissues and cell types — Horvath S", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["calendar age ≠ biological age", "นาฬิกา epigenetic"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้าง 'ทดสอบเองได้ที่บ้าน ชัดเจน 100%' — test kits ใน DTC ยังมี confidence interval กว้าง 3-5 ปี",
+      "usage_notes": "Anchor hook สำหรับ content 'อายุจริงของคุณ' — ใช้ได้กับ content เชิง educational เท่านั้น ไม่ promise ว่า supplement ลด epigenetic age ได้",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามขายชุด test epigenetic age เป็น 'แม่นยำ 100%'",
+          "ห้ามการันตีว่าผลิตภัณฑ์ลด biological age ได้"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ลด biological age ได้แน่นอน", "ย้อนอายุเซลล์ได้"],
+        "regulatory_risk_notes": "Horvath clock ยังไม่ใช่ diagnostic ทางการแพทย์ — DTC test ถือเป็น wellness information ไม่ใช่การวินิจฉัย"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_006",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "NAD_decline",
+      "statement_th": "Massudi et al. 2012 (PLoS ONE) — วัด NAD+ ในตัวอย่างผิวหนังมนุษย์ต่างอายุพบว่า NAD+ ลดลงประมาณ 50% จากอายุ 20-30 ปี ไปยังอายุ 60-70 ปี; กิจกรรม SIRT1 ลดลงตามกัน — เป็นหลักฐานหลักของ 'NAD decline with aging'",
+      "statement_en": "Massudi et al. 2012 (PLoS ONE) — measured NAD+ in human skin biopsies across ages and found NAD+ dropped ~50% from ages 20-30 to 60-70, with corresponding SIRT1 activity decline — the anchor evidence for age-related NAD+ decline.",
+      "numeric_values": [
+        {"value": 50, "unit": "%", "label": "NAD+ decline from age 20-30 to 60-70", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_003",
+      "entities_mentioned": ["nad_plus", "sirtuin_1"],
+      "sources": [
+        {"url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0042357", "org": "PLoS ONE", "source_tier": "A", "year": 2012, "title": "Age-associated changes in oxidative stress and NAD+ metabolism in human tissue — Massudi H et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["50% ลดลงจากวัยรุ่น", "โมเลกุลที่หายไปกว่าครึ่ง"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามบอก 'เติม NAD แล้วย้อนวัย 100%' — restoration of NAD levels ≠ restoration of youthful function",
+      "usage_notes": "Core anchor ของ NMN/NR product angles — ใช้อธิบาย 'ทำไมควรเติม' แต่ไม่ promise outcome",
+      "contradictions": ["ตัวอย่างเป็น skin ไม่ใช่ systemic NAD; organ-specific decline rate ต่างกัน"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'เติม NMN ย้อนวัยเซลล์ได้แน่นอน'",
+          "ห้ามอ้าง 'NAD คือ fountain of youth'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["NMN ย้อนวัยแน่นอน", "NAD fountain of youth"],
+        "regulatory_risk_notes": "ข้อเท็จจริงทางชีววิทยา — ใช้อธิบาย 'ทำไมสนับสนุน NAD' แทน 'ย้อนวัย'"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_007",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "cellular_senescence",
+      "statement_th": "Yousefzadeh et al. 2018 (EBioMedicine) — สกรีน flavonoids 10 ตัวเพื่อดู senolytic activity; fisetin (จากสตรอว์เบอร์รี่/แอปเปิ้ล) มีฤทธิ์แรงที่สุด — การให้ fisetin ทาง oral ในหนูแก่ช่วยยืด median lifespan ประมาณ 10% และลด tissue senescence markers",
+      "statement_en": "Yousefzadeh et al. 2018 (EBioMedicine) — screened 10 flavonoids for senolytic activity; fisetin (from strawberries/apples) was most potent — oral fisetin in aged mice extended median lifespan ~10% and reduced tissue senescence markers.",
+      "numeric_values": [
+        {"value": 10, "unit": "%", "label": "median lifespan extension in aged mice", "is_approximation": true},
+        {"value": 10, "unit": "flavonoids", "label": "screened compounds", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_008",
+      "entities_mentioned": ["matt_yousefzadeh", "fisetin_mol", "p16ink4a"],
+      "sources": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/S2352396418303736", "org": "EBioMedicine / Elsevier", "source_tier": "A", "year": 2018, "title": "Fisetin is a senotherapeutic that extends health and lifespan — Yousefzadeh MJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เซลล์ซอมบี้ถูกกำจัด", "สารจากสตรอว์เบอร์รี่"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุ 'หนู' เสมอ — ใช้ตัวเลข 10% กับหนู ห้ามสื่อว่า 'คนจะอายุยืนขึ้น 10%'; human dose-equivalent (20 mg/kg × 2 วัน) ยังไม่มี RCT ที่พิสูจน์ outcome ระยะยาว",
+      "usage_notes": "Core anchor ของ fisetin senolytic angle — ต้อง pair disclaimer 'human trials ongoing'",
+      "contradictions": ["Mayo Clinic/Kirkland กำลังทำ ALL trials ในคน (Alleviation by Senolytics in Life) — ผลเบื้องต้น 2024 ยังไม่ชี้ชัดเจน"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_warfarin_or_anticoagulant", "cancer_active_treatment", "pregnancy_lactation"],
+        "drug_interactions": ["warfarin (flavonoid-CYP interaction)", "dasatinib (if co-administered in senolytic protocol)", "chemotherapy (unknown interactions)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'fisetin รักษามะเร็ง'",
+          "ห้ามอ้างว่า 'fisetin ย้อนวัยคน 10%'",
+          "ห้ามแนะนำ dose senolytic 20 mg/kg x 2 วัน โดยไม่มี supervision",
+          "ห้ามอ้างเป็นการรักษาโรค"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "active_cancer_treatment", "on_prescription_medications"],
+        "validator_keywords_th": ["fisetin รักษามะเร็ง", "fisetin ย้อนวัยคน", "ล้างเซลล์ซอมบี้หายขาด"],
+        "regulatory_risk_notes": "อย. ไทย — fisetin เป็นอาหารเสริม ห้ามอ้าง 'senolytic = ย้อนวัย'; ใช้ 'สนับสนุนสุขภาพเซลล์'"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_008",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "NAD_decline",
+      "statement_th": "Kumar, Sekhar et al. 2022 (J Gerontol Ser A) — RCT เปิดเผย N=24 ผู้สูงอายุ 70-80 ปี ให้ GlyNAC (glycine 100 mg/kg + N-acetylcysteine 100 mg/kg) 16 สัปดาห์ — พบการปรับปรุง glutathione, oxidative stress, mitochondrial function, insulin resistance, endothelial function, inflammation, genotoxicity, muscle strength, cognition, body composition, gait speed",
+      "statement_en": "Kumar, Sekhar et al. 2022 (J Gerontol Ser A) — open-label RCT in N=24 older adults age 70-80 given GlyNAC (glycine 100 mg/kg + NAC 100 mg/kg) for 16 weeks showed improvements in glutathione, oxidative stress, mitochondrial function, insulin resistance, endothelial function, inflammation, genotoxicity, muscle strength, cognition, body composition, and gait speed.",
+      "numeric_values": [
+        {"value": 24, "unit": "participants", "label": "trial size (small)", "is_approximation": false},
+        {"value": 16, "unit": "weeks", "label": "supplementation duration", "is_approximation": false},
+        {"value": 100, "unit": "mg/kg/day", "label": "glycine dose", "is_approximation": false},
+        {"value": 100, "unit": "mg/kg/day", "label": "NAC dose", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_011",
+      "entities_mentioned": ["rajagopal_kumar", "glycine_nac", "glutathione_mol"],
+      "sources": [
+        {"url": "https://academic.oup.com/biomedgerontology/article/78/1/75/6569016", "org": "Journal of Gerontology Series A / Oxford Academic", "source_tier": "A", "year": 2022, "title": "GlyNAC supplementation improves glutathione deficiency, oxidative stress, mitochondrial dysfunction, inflammation, aging hallmarks — Kumar P, Osahon OW, Sekhar RV et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["2 amino acids ธรรมดา", "กลูตาไธโอนกลับมา"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุว่าเป็น open-label N=24 (เล็ก ไม่มี placebo) — ห้ามพูดว่า 'พิสูจน์แล้วว่าย้อนวัย'. Dose 100 mg/kg = ~6-8 g/day สำหรับคน 60-80 kg",
+      "usage_notes": "Core anchor ของ glycine+NAC / GlyNAC product angle — โชคดีที่เป็น supplement familiar (NAC, glycine) มี safety profile รู้จัก",
+      "contradictions": ["RCT ยัง small; larger phase 3 ยังไม่มี; ผลที่รายงานหลายตัวทำให้ multiple comparisons issue"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant", "chronic_kidney_disease_stage_3_plus"],
+        "drug_interactions": ["nitroglycerin (NAC potentiates hypotension)", "activated charcoal (binds NAC)", "anticoagulants (mild bleeding risk with high-dose NAC)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามอ้างว่า 'GlyNAC ย้อนวัย 10 ปี'",
+          "ห้ามบอก 'รักษาโรค age-related'",
+          "ห้ามแนะนำ dose สูงให้ผู้มีโรคไต"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "chronic_disease_multimorbidity"],
+        "validator_keywords_th": ["GlyNAC ย้อนวัย", "รักษาโรคแก่", "แก้ aging ครบ"],
+        "regulatory_risk_notes": "อย. ไทย — glycine + NAC เป็นอาหารเสริม; ใช้ framing 'สนับสนุนระดับกลูตาไธโอน / antioxidant'"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_009",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy_aging",
+      "statement_th": "Wei, Brandhorst, Longo et al. 2017 (Science Translational Medicine) — ทดลอง 3 รอบของ 5-day Fasting-Mimicking Diet (FMD) แบบเดือนละ 1 ครั้ง ในอาสาสมัคร N=100 พบการลดลงของ BMI, ความดัน, IGF-1, CRP, glucose และผู้เขียนประเมินว่า 'biological age markers' ลดเฉลี่ย ~2.5 ปี",
+      "statement_en": "Wei, Brandhorst, Longo et al. 2017 (Science Translational Medicine) — three monthly cycles of 5-day fasting-mimicking diet (FMD) in N=100 adults reduced BMI, blood pressure, IGF-1, CRP, glucose, and authors estimated aggregate biological age markers dropped ~2.5 years.",
+      "numeric_values": [
+        {"value": 100, "unit": "participants", "label": "trial size", "is_approximation": false},
+        {"value": 3, "unit": "cycles", "label": "monthly FMD cycles", "is_approximation": false},
+        {"value": 5, "unit": "days per cycle", "label": "FMD length", "is_approximation": false},
+        {"value": 2.5, "unit": "years", "label": "biological age marker reduction (estimated)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_005",
+      "entities_mentioned": ["valter_longo", "usc_longevity"],
+      "sources": [
+        {"url": "https://www.science.org/doi/10.1126/scitranslmed.aai8700", "org": "Science Translational Medicine", "source_tier": "A", "year": 2017, "title": "Fasting-mimicking diet and markers/risk factors for aging, diabetes, cancer, and cardiovascular disease — Wei M et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["5 วัน × 3 เดือน = อายุเซลล์ลง 2.5 ปี", "FMD ของ Longo"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 2.5 ปีเป็น 'marker composite' ไม่ใช่ epigenetic age direct measure — ต้อง frame ว่า 'หลายตัวชี้วัดอายุดีขึ้น'",
+      "usage_notes": "Used extensively by Longo/ProLon — pair กับ fasting_th disclaimer (อดอาหารคน DM/pregnant ห้าม)",
+      "contradictions": ["เป็น surrogate markers — long-term mortality outcome ยังไม่มีจาก trial นี้"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["type_1_diabetes", "type_2_diabetes_on_medication", "pregnancy_lactation", "eating_disorder_history", "elderly_frail", "cancer_active_treatment", "under_18"],
+        "drug_interactions": ["insulin (severe hypoglycemia)", "sulfonylurea (hypoglycemia)", "warfarin (nutritional vitamin K changes)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำ FMD/5-day fast ให้ผู้เป็นเบาหวาน/กินยาเอง",
+          "ห้ามพูด 'ย้อนวัย 2.5 ปีได้แน่นอน'",
+          "ห้ามบอกว่า FMD รักษามะเร็ง"
+        ],
+        "required_disclaimer_th": "fasting_th",
+        "audience_exclusions": ["type_1_diabetes", "type_2_diabetes_on_medication", "pregnant_lactating", "eating_disorder_history", "under_18", "elderly_65_plus_frail", "active_cancer_treatment"],
+        "validator_keywords_th": ["FMD รักษามะเร็ง", "ย้อนวัย 2.5 ปีแน่นอน", "อดอาหาร 5 วันทุกคนทำได้"],
+        "regulatory_risk_notes": "Fasting >24 ชม. = lifestyle intervention ไม่ใช่การรักษาโรค; ผลิตภัณฑ์ FMD-like ต้อง frame เป็นอาหารเฉพาะ"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_010",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "epigenetic_clock",
+      "statement_th": "Waziry et al. 2023 (Nature Aging) — CALERIE-2 RCT, N=220 ผู้ใหญ่ไม่อ้วน ให้ลด calorie intake ประมาณ 12% เป็น 2 ปี; พบว่า DunedinPACE (biomarker อัตราการชราภาพ epigenetic) ช้าลง 2-3% เทียบกับกลุ่มควบคุม — RCT แรกของคนที่แสดงว่า caloric restriction ชะลอ biological aging ได้",
+      "statement_en": "Waziry et al. 2023 (Nature Aging) — CALERIE-2 RCT, N=220 non-obese adults on ~12% caloric restriction for 2 years; DunedinPACE epigenetic rate-of-aging biomarker slowed 2-3% vs control — the first human RCT evidence that CR slows biological aging.",
+      "numeric_values": [
+        {"value": 220, "unit": "participants", "label": "CALERIE-2 cohort", "is_approximation": false},
+        {"value": 12, "unit": "%", "label": "caloric restriction achieved", "is_approximation": true},
+        {"value": 2, "unit": "years", "label": "trial duration", "is_approximation": false},
+        {"value": 2.5, "unit": "%", "label": "DunedinPACE slowing (mid-range)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_005",
+      "entities_mentioned": ["calum_harvey", "calerie_trial"],
+      "sources": [
+        {"url": "https://www.nature.com/articles/s43587-022-00357-y", "org": "Nature Aging", "source_tier": "A", "year": 2023, "title": "Effect of long-term caloric restriction on DNA methylation measures of biological aging — Waziry R et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ลดแคลอรี่ = ชะลอนาฬิกา epigenetic", "CALERIE"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ตัวเลข 2-3% ช้าลง — effect size เล็ก. ห้ามพูด 'CR ย้อนวัย 10 ปี'; ต้องระบุว่าเป็น rate-slowing ไม่ใช่ reversal",
+      "usage_notes": "Gold-standard evidence สำหรับ CR / FMD framing — ช่วย counter myth 'CR แค่ลดน้ำหนัก'",
+      "contradictions": ["CR ที่ 12% ยั่งยืนยากในคนทั่วไป; compliance rate ของ CALERIE สูงเพราะเป็น motivated volunteers"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["eating_disorder_history", "elderly_frail", "under_18", "pregnancy_lactation"],
+        "drug_interactions": ["insulin (hypoglycemia)", "sulfonylurea (hypoglycemia)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'CR = ย้อนวัยยืนยันแล้ว 10 ปี'",
+          "ห้ามแนะนำ CR 25% (extreme) สำหรับคนปกติ",
+          "ห้ามแนะนำ CR ให้ผู้มี eating disorder history"
+        ],
+        "required_disclaimer_th": "generic_medical_th",
+        "audience_exclusions": ["eating_disorder_history", "under_18", "pregnant_lactating", "elderly_65_plus_frail"],
+        "validator_keywords_th": ["CR ย้อนวัยแน่นอน", "ลดแคลครึ่งหนึ่ง = อายุยืน"],
+        "regulatory_risk_notes": "CALERIE เป็น RCT ทางวิทยาศาสตร์ — ใช้อ้างเชิง educational ได้ ไม่ใช่ product claim"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_011",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "NAD_decline",
+      "statement_th": "Yoshino, Yoshino, Klein et al. 2021 (Science) — RCT แรกของ NMN ในคน: N=25 ผู้หญิงวัยหลังหมดประจำเดือน prediabetic, กิน NMN 250 mg/วัน 10 สัปดาห์ — พบการปรับปรุง muscle insulin sensitivity ชัดเจน (hyperinsulinemic-euglycemic clamp)",
+      "statement_en": "Yoshino, Yoshino, Klein et al. 2021 (Science) — first human RCT of NMN: N=25 postmenopausal prediabetic women given 250 mg/day NMN for 10 weeks showed significant improvement in muscle insulin sensitivity (hyperinsulinemic-euglycemic clamp).",
+      "numeric_values": [
+        {"value": 25, "unit": "women", "label": "trial size (small)", "is_approximation": false},
+        {"value": 250, "unit": "mg/day", "label": "NMN dose", "is_approximation": false},
+        {"value": 10, "unit": "weeks", "label": "duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_003",
+      "entities_mentioned": ["yoshino_j", "nmn"],
+      "sources": [
+        {"url": "https://www.science.org/doi/10.1126/science.abe9985", "org": "Science", "source_tier": "A", "year": 2021, "title": "Nicotinamide mononucleotide increases muscle insulin sensitivity in prediabetic women — Yoshino M et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["NMN ในคนจริง", "250 mg/วัน 10 สัปดาห์"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "จำกัดเฉพาะ postmenopausal prediabetic women — ห้ามสรุปว่า NMN ได้ผลในทุกคน. Outcome คือ insulin sensitivity ไม่ใช่ lifespan/skin aging",
+      "usage_notes": "Core anchor ของ NMN angle — honest framing ที่สุดคือ 'งานแรกในคนที่แสดงผลเชิงคลินิก'",
+      "contradictions": ["ไม่พบการเปลี่ยนแปลงใน body composition, blood pressure, lipid profile, liver fat, IL-6, TNF-α — effect scope แคบกว่าที่การตลาดอ้าง"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["pregnancy_lactation", "cancer_active_treatment"],
+        "drug_interactions": ["antidiabetic (theoretical hypoglycemia with insulin sensitization)", "methotrexate (niacin family CYP interaction)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'NMN ย้อนวัยได้แน่นอน'",
+          "ห้ามอ้างว่า 'NMN แทน exercise'",
+          "ห้ามแนะนำ dose สูง >1 g/day โดยไม่มี supervision",
+          "ห้ามอ้างว่า NMN รักษาเบาหวาน"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["under_18", "pregnant_lactating", "active_cancer_treatment"],
+        "validator_keywords_th": ["NMN ย้อนวัย", "NMN รักษาเบาหวาน", "NMN แทน exercise"],
+        "regulatory_risk_notes": "อย. ไทย — NMN ไม่ได้ขึ้นทะเบียนเป็นยา; FDA USA 2022 ออกแถลงว่า NMN เป็น drug article under investigation — ห้ามอ้าง anti-aging direct ในไทย; ใช้ 'สนับสนุนระดับ NAD'"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_012",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy_aging",
+      "statement_th": "Andreux et al. 2019 (Nature Metabolism) — urolithin A (ผลิตโดย gut microbiome จาก ellagitannins ในทับทิม/เบอร์รี/วอลนัท) 500 mg/วัน 4 สัปดาห์ ในผู้สูงอายุ พบ molecular signature ของ mitophagy + mitochondrial health ดีขึ้น (safety trial, first-in-human)",
+      "statement_en": "Andreux et al. 2019 (Nature Metabolism) — urolithin A (produced by gut microbiome from ellagitannins in pomegranate/berries/walnuts) at 500 mg/day for 4 weeks in older adults showed molecular signature of improved mitophagy + mitochondrial health (first-in-human safety trial).",
+      "numeric_values": [
+        {"value": 500, "unit": "mg/day", "label": "urolithin A dose", "is_approximation": false},
+        {"value": 4, "unit": "weeks", "label": "study duration", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_010",
+      "entities_mentioned": ["johan_auwerx", "urolithin_a_mol", "amazentis"],
+      "sources": [
+        {"url": "https://www.nature.com/articles/s42255-019-0073-4", "org": "Nature Metabolism", "source_tier": "A", "year": 2019, "title": "The mitophagy activator urolithin A is safe and induces a molecular signature of improved mitochondrial and cellular health in humans — Andreux PA et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ไมโตคอนเดรีย 'ล้างขยะ'", "ทับทิม + วอลนัทสำคัญ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Endpoint เป็น 'molecular signature' + safety — ไม่ใช่ lifespan/physical performance outcome. ห้ามพูด 'urolithin A ย้อนวัยไมโตคอนเดรีย'",
+      "usage_notes": "Premium angle สำหรับ urolithin A. สำคัญ: เพียง 30-40% ของคนแปลง ellagitannins → urolithin A เอง (gut microbiome-dependent) — จึง supplement มี logic",
+      "contradictions": ["Liu 2022 Cell Rep Med — subsequent trial in older adults ชี้ muscle endurance ดีขึ้นเล็กน้อย (~12%) แต่ไม่ใหญ่"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["pregnancy_lactation"],
+        "drug_interactions": ["no major known interactions but limited long-term data"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'urolithin A ย้อนวัยไมโตคอนเดรียได้แน่นอน'",
+          "ห้ามอ้างว่ารักษาโรค sarcopenia",
+          "ห้ามแนะนำ dose สูงมาก (>1000 mg/day) long-term"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18"],
+        "validator_keywords_th": ["urolithin A ย้อนวัย", "รักษา sarcopenia"],
+        "regulatory_risk_notes": "Urolithin A (Mitopure) ได้รับ FDA GRAS notification ในสหรัฐฯ; อย. ไทย ยังไม่มี specific guidance — ใช้ framing 'สนับสนุนการทำงานของไมโตคอนเดรีย'"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_013",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy_aging",
+      "statement_th": "Kiechl et al. 2018 (American Journal of Clinical Nutrition) — prospective cohort study 20 ปี N=829 คน: กลุ่มที่บริโภค spermidine จากอาหาร (wheat germ, natto, aged cheese, mushroom) สูงสุด 1/3 มี all-cause mortality ต่ำกว่ากลุ่มต่ำสุด 1/3 — equivalent ~5.7 ปีของ chronological age",
+      "statement_en": "Kiechl et al. 2018 (American Journal of Clinical Nutrition) — 20-year prospective cohort N=829: top-tertile dietary spermidine intake (wheat germ, natto, aged cheese, mushrooms) had all-cause mortality equivalent to being ~5.7 years younger than bottom-tertile.",
+      "numeric_values": [
+        {"value": 829, "unit": "participants", "label": "cohort size", "is_approximation": false},
+        {"value": 20, "unit": "years", "label": "follow-up duration", "is_approximation": false},
+        {"value": 5.7, "unit": "years", "label": "equivalent chronological age reduction (top vs bottom tertile)", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_009",
+      "entities_mentioned": ["frank_madeo", "spermidine_mol"],
+      "sources": [
+        {"url": "https://academic.oup.com/ajcn/article/108/2/371/5049626", "org": "American Journal of Clinical Nutrition / Oxford Academic", "source_tier": "A", "year": 2018, "title": "Higher spermidine intake is linked to lower mortality — Kiechl S et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["อาหารญี่ปุ่น (natto) + ฝั่งยุโรป (wheat germ)", "สเปอร์มิดีน 20 ปี"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Observational — มี confounders (diet quality overall). ห้ามพูด 'กิน natto ทุกวัน = อายุยืน 5.7 ปี' direct causal. Frame เป็น 'correlation + biological plausibility'",
+      "usage_notes": "Premium angle ของ spermidine supplement — มี natural framing (wheat germ extract) ดีกว่า NMN ในแง่ consumer trust",
+      "contradictions": ["Observational — ยังไม่มี RCT ใหญ่ในคน outcome mortality"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": ["no major known interactions"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'spermidine รักษาโรคแก่'",
+          "ห้ามการันตี 'อายุยืน 5.7 ปีแน่นอน' — correlation ≠ causation"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating"],
+        "validator_keywords_th": ["spermidine รักษาแก่", "กินแล้วอายุยืนแน่นอน 5.7 ปี"],
+        "regulatory_risk_notes": "Spermidine เป็นส่วนประกอบธรรมชาติในอาหาร — ขึ้นทะเบียนเป็นอาหารเสริม; ใช้ 'สนับสนุน cellular renewal / autophagy'"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_014",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "NAD_decline",
+      "statement_th": "Martens et al. 2018 (Nature Communications) — NR (nicotinamide riboside) 1 g/วัน 6-8 สัปดาห์ ในผู้ใหญ่วัยกลาง/สูงอายุ ทำให้ NAD+ ในเลือดเพิ่มขึ้น ~60% — แต่ผลเชิงคลินิก (blood pressure, vascular function) มีแค่ subgroup ที่ baseline สูงผิดปกติ",
+      "statement_en": "Martens et al. 2018 (Nature Communications) — NR (nicotinamide riboside) at 1 g/day for 6-8 weeks raised blood NAD+ ~60% in middle-aged/older adults — though downstream clinical effects (blood pressure, vascular function) were seen only in elevated-baseline subgroup.",
+      "numeric_values": [
+        {"value": 1, "unit": "g/day", "label": "NR dose", "is_approximation": false},
+        {"value": 60, "unit": "%", "label": "NAD+ rise in blood", "is_approximation": true},
+        {"value": 6, "unit": "weeks", "label": "trial duration (lower)", "is_approximation": false},
+        {"value": 8, "unit": "weeks", "label": "trial duration (upper)", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_003",
+      "entities_mentioned": ["nr"],
+      "sources": [
+        {"url": "https://www.nature.com/articles/ncomms2238", "org": "Nature Communications", "source_tier": "A", "year": 2018, "title": "Chronic nicotinamide riboside supplementation is well-tolerated and elevates NAD+ in healthy middle-aged and older adults — Martens CR et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["NR เพิ่ม NAD 60%", "bioavailability ชัดเจน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "NAD+ rise = pharmacokinetic fact; downstream clinical improvement ยังไม่ broad. ห้ามบอก 'NR = anti-aging 60% improvement'",
+      "usage_notes": "Core anchor NR — ChromaDex/Niagen มี patent; consumer trust สูง",
+      "contradictions": ["Subsequent RCTs (Remie 2020, Dollerup 2020) ไม่พบ improvement ใน insulin sensitivity หรือ muscle function"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["pregnancy_lactation", "cancer_active_treatment"],
+        "drug_interactions": ["antidiabetic (theoretical)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอก 'NR ย้อนวัย 60%'",
+          "ห้ามอ้างว่า NR รักษาโรคเรื้อรัง"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["pregnant_lactating", "under_18", "active_cancer_treatment"],
+        "validator_keywords_th": ["NR ย้อนวัย 60%", "NR รักษาแก่"],
+        "regulatory_risk_notes": "NR (Niagen) ได้ GRAS ในสหรัฐฯ; ขึ้นทะเบียนอาหารเสริมในหลายประเทศ; อย. ไทย ใช้ 'สนับสนุนระดับ NAD / พลังงานเซลล์'"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_015",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "cellular_senescence",
+      "statement_th": "Hickson et al. 2019 (EBioMedicine) — Mayo Clinic first-in-human senolytic trial: N=14 ผู้ป่วย IPF (pulmonary fibrosis) 3 รอบของ dasatinib 100 mg + quercetin 1000-1250 mg — ผลปรับปรุง physical function (6-minute walk, gait speed, sit-to-stand) หลังเพียง 3 สัปดาห์",
+      "statement_en": "Hickson et al. 2019 (EBioMedicine) — Mayo Clinic first-in-human senolytic trial: N=14 IPF patients given 3 cycles of dasatinib 100 mg + quercetin 1000-1250 mg showed improved physical function (6-minute walk, gait speed, sit-to-stand) after just 3 weeks.",
+      "numeric_values": [
+        {"value": 14, "unit": "patients", "label": "trial size (small, open-label)", "is_approximation": false},
+        {"value": 100, "unit": "mg", "label": "dasatinib per dose", "is_approximation": false},
+        {"value": 1000, "unit": "mg", "label": "quercetin dose lower", "is_approximation": false},
+        {"value": 1250, "unit": "mg", "label": "quercetin dose upper", "is_approximation": false},
+        {"value": 3, "unit": "cycles", "label": "treatment cycles", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_008",
+      "entities_mentioned": ["james_kirkland", "quercetin_mol", "mayo_kogod_aging"],
+      "sources": [
+        {"url": "https://www.sciencedirect.com/science/article/pii/S2352396419305912", "org": "EBioMedicine / Elsevier", "source_tier": "A", "year": 2019, "title": "Senolytics decrease senescent cells in humans — Hickson LJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["senolytic ในคนจริงแล้ว", "Mayo Clinic"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ต้องระบุ dasatinib เป็นยามะเร็ง prescription — ห้ามแนะนำให้หามาใช้เอง; quercetin 1000 mg × 2 วัน = pulsed dose, ห้ามกินทุกวัน",
+      "usage_notes": "สำหรับ quercetin senolytic angle ใช้ framing 'mechanism-based quercetin supplement' — ห้ามลอกเลียน D+Q protocol ทั้งชุด (dasatinib = Rx)",
+      "contradictions": ["Study open-label N=14 — หลักฐานยังน้อย; larger placebo-controlled trials ongoing"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "orange",
+        "contraindications": ["on_warfarin_or_anticoagulant", "cancer_active_treatment", "on_statin", "pregnancy_lactation"],
+        "drug_interactions": ["warfarin (quercetin CYP3A4 inhibition)", "cyclosporine (↑ levels)", "statin (CYP3A4)", "digoxin (theoretical)"],
+        "medical_supervision_required": true,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำ dasatinib + quercetin protocol เองโดยไม่มีแพทย์",
+          "ห้ามพูดว่า 'quercetin รักษา IPF/มะเร็ง'",
+          "ห้ามแนะนำ quercetin 1000 mg × 2 วัน เป็น senolytic ในคนทั่วไป"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_prescription_medications", "pregnant_lactating", "under_18", "active_cancer_treatment"],
+        "validator_keywords_th": ["quercetin รักษา IPF", "quercetin รักษามะเร็ง", "ล้าง zombie cells ได้แน่นอน", "D+Q ซื้อเอง"],
+        "regulatory_risk_notes": "Dasatinib = Rx ยามะเร็ง (Sprycel) — ห้ามโฆษณา/แนะนำ; quercetin ขึ้นทะเบียนเป็นอาหารเสริมใช้ได้แต่ห้ามอ้าง senolytic direct"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_016",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "telomere_shortening",
+      "statement_th": "Hayflick & Moorhead 1961 (Exp Cell Res) — เซลล์ fibroblast มนุษย์ปกติแบ่งตัวได้เพียง ~40-60 ครั้งเท่านั้นก่อน 'senescence' ถาวร — ทำลายความเชื่อ (ก่อนปี 1961) ว่าเซลล์ somatic เพาะเลี้ยงในจานทดลองเป็น 'อมตะ' — ขีดจำกัดนี้ถูกเรียกว่า 'Hayflick limit'",
+      "statement_en": "Hayflick & Moorhead 1961 (Exp Cell Res) — normal human fibroblasts in culture divide only ~40-60 times before permanent senescence — overturning the dogma (pre-1961) that somatic cells in culture were immortal. This limit is now called the 'Hayflick limit'.",
+      "numeric_values": [
+        {"value": 40, "unit": "divisions", "label": "Hayflick limit lower", "is_approximation": false},
+        {"value": 60, "unit": "divisions", "label": "Hayflick limit upper", "is_approximation": false},
+        {"value": 1961, "unit": "year", "label": "discovery year", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_002",
+      "entities_mentioned": ["leonard_hayflick"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/13905658/", "org": "Experimental Cell Research / PubMed", "source_tier": "A", "year": 1961, "title": "The serial cultivation of human diploid cell strains — Hayflick L, Moorhead PS", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["1961 เปลี่ยนชีววิทยา", "เซลล์ไม่อมตะ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Hayflick limit เป็น in vitro fibroblast — cell type อื่น (stem cells, germ cells) มี telomerase ต่างกัน",
+      "usage_notes": "Classic opening hook — 'เซลล์คุณมี counter ติดตัว'",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'ทำให้เซลล์แบ่งตัวได้ไม่จำกัดด้วย supplement'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["supplement ลบ Hayflick limit", "เซลล์อมตะด้วยสาร"],
+        "regulatory_risk_notes": "ข้อเท็จจริงประวัติศาสตร์ biology — ใช้เชิง education"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_017",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "cellular_senescence",
+      "statement_th": "Baker et al. 2016 (Nature) — หนู INK-ATTAC ที่สามารถ 'ลบ' เซลล์ที่ positive สำหรับ p16INK4a (senescence marker) อัตโนมัติ — ทำให้ median healthy lifespan ยาวขึ้น ~25% และชะลอ age-related dysfunction ในไต หัวใจ และไขมัน — เป็นหลักฐาน causal แรกว่าเซลล์ senescent ทำให้แก่จริง",
+      "statement_en": "Baker et al. 2016 (Nature) — INK-ATTAC transgenic mice that auto-delete p16INK4a-positive senescent cells extended median healthy lifespan ~25% and delayed age-related dysfunction in kidney, heart, and fat — the first causal evidence that senescent cells drive aging.",
+      "numeric_values": [
+        {"value": 25, "unit": "%", "label": "median healthspan extension", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_001",
+      "entities_mentioned": ["p16ink4a", "judith_campisi"],
+      "sources": [
+        {"url": "https://www.nature.com/articles/nature16932", "org": "Nature", "source_tier": "A", "year": 2016, "title": "Naturally occurring p16Ink4a-positive cells shorten healthy lifespan — Baker DJ et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ลบเซลล์ซอมบี้ = อายุยืน 25%", "เซลล์ผีสิงทำให้แก่"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "เป็นหนู transgenic — ไม่มี direct analog ในคน. 25% = mice; ห้ามสื่อว่าทำได้แบบเดียวกันในคน",
+      "usage_notes": "Anchor สำหรับ 'zombie cell' narrative ของ senolytic angles",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'มนุษย์ยืดอายุ 25% ได้แบบหนู'",
+          "ห้ามขายสินค้าโดยอ้าง 25% longer life"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ยืดอายุ 25% แน่นอน", "ลบเซลล์ซอมบี้คนได้"],
+        "regulatory_risk_notes": "mouse model paper — ใช้ educational ได้"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_018",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "NAD_decline",
+      "statement_th": "Camacho-Pereira et al. 2016 (Cell Metabolism) — CD38 (ตัวกิน NAD หลักในร่างกาย) เพิ่มขึ้นตามอายุในหลายเนื้อเยื่อ — CD38 knockout ในหนูทำให้ NAD+ สูงและป้องกัน mitochondrial dysfunction; แนะว่า 'CD38 inhibitor' เช่น apigenin อาจช่วย NAD preservation",
+      "statement_en": "Camacho-Pereira et al. 2016 (Cell Metabolism) — CD38 (the main NADase in mammals) increases with age in multiple tissues; CD38 knockout mice preserve NAD+ and are protected from mitochondrial dysfunction — suggesting CD38 inhibitors (e.g., apigenin) may aid NAD preservation.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_aging_004",
+      "entities_mentioned": ["cd38", "nad_plus"],
+      "sources": [
+        {"url": "https://www.cell.com/cell-metabolism/fulltext/S1550-4131(16)30142-0", "org": "Cell Metabolism", "source_tier": "A", "year": 2016, "title": "CD38 dictates age-related NAD decline and mitochondrial dysfunction — Camacho-Pereira J et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ทำไม NMN อย่างเดียวไม่พอ", "ต้องปิดรูรั่วก่อน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "CD38 inhibitor ในคน (apigenin จาก parsley) ยังไม่มี RCT outcome-oriented; ห้ามพูด 'แก้ CD38 = ย้อนวัย'",
+      "usage_notes": "Advanced content สำหรับ NMN + CD38 stack framing",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'apigenin แทน NMN'",
+          "ห้ามอ้างรักษาโรค"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["CD38 inhibitor รักษาแก่"],
+        "regulatory_risk_notes": "ข้อมูล mechanism — ใช้ได้ educational"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_019",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "telomere_shortening",
+      "statement_th": "Haycock et al. 2014 (BMJ meta-analysis) — รวม 24 studies N=43,725 — leukocyte telomere length (LTL) สั้น สัมพันธ์กับ coronary artery disease risk เพิ่ม 54% (RR 1.54); stroke ไม่ significant; ไม่ได้พิสูจน์ causation แต่เป็น biomarker ของ biological age",
+      "statement_en": "Haycock et al. 2014 (BMJ meta-analysis) — 24 studies, N=43,725 — short leukocyte telomere length (LTL) associated with 54% increase in coronary artery disease risk (RR 1.54); stroke not significant; doesn't prove causation but supports LTL as a biological-age biomarker.",
+      "numeric_values": [
+        {"value": 54, "unit": "%", "label": "CAD risk increase (short vs long LTL)", "is_approximation": false},
+        {"value": 43725, "unit": "participants", "label": "meta-analysis N", "is_approximation": false},
+        {"value": 24, "unit": "studies", "label": "meta-analysis size", "is_approximation": false}
+      ],
+      "mechanism_ref": "mech_aging_002",
+      "entities_mentioned": ["telomerase"],
+      "sources": [
+        {"url": "https://www.bmj.com/content/349/bmj.g4227", "org": "BMJ", "source_tier": "A", "year": 2014, "title": "Leucocyte telomere length and risk of cardiovascular disease: systematic review and meta-analysis — Haycock PC et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["หัวใจ = telomere", "เลือดบอกอายุ DNA"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "ห้ามอ้าง 'วัด telomere แล้วรู้วันตาย'; LTL + individual มี variance สูง",
+      "usage_notes": "Use เพื่อเชื่อม aging ↔ heart (cross-domain) — เสริม narrative 'ทำไมคนอายุมากหัวใจวาย'",
+      "contradictions": ["Mendelian randomization studies บางตัวไม่ support direct causal link telomere → CAD"],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามขายชุดตรวจ telomere โดยอ้าง 'ทำนายวันตาย'",
+          "ห้ามอ้าง 'supplement ยืด telomere ลด CAD 54%'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ทำนายวันตายด้วย telomere", "supplement ยืด telomere ลด CAD"],
+        "regulatory_risk_notes": "ข้อมูล biomarker — ใช้ educational ได้"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_020",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "telomere_shortening",
+      "statement_th": "Epel, Blackburn et al. 2004 (PNAS) — ผู้หญิงที่ดูแลลูกพิเศษความเครียดสูงเรื้อรังมี telomere สั้นกว่าและ telomerase activity ต่ำกว่ากลุ่มควบคุม — ความเครียดทางจิตใจเรื้อรัง = biological age acceleration เทียบได้ ~10 ปี",
+      "statement_en": "Epel, Blackburn et al. 2004 (PNAS) — mothers with chronic high-stress caregiving burden had shorter telomeres and lower telomerase activity than controls — chronic psychological stress = biological age acceleration of ~10 years.",
+      "numeric_values": [
+        {"value": 10, "unit": "years", "label": "equivalent biological age acceleration", "is_approximation": true}
+      ],
+      "mechanism_ref": "mech_aging_002",
+      "entities_mentioned": ["elisa_epel", "elizabeth_blackburn"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15574496/", "org": "PNAS / PubMed", "source_tier": "A", "year": 2004, "title": "Accelerated telomere shortening in response to life stress — Epel ES et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["เครียดแก่กว่าจริง 10 ปี", "Blackburn แนะนำโยคะ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Observational cross-sectional; ห้ามพูด 'เครียด = แก่กว่า 10 ปีแน่นอน' — ใช้ as correlation",
+      "usage_notes": "Core anchor ของ stress-management angles — pair กับ adaptogen/meditation content",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูดว่า 'ลดเครียด = ย้อนวัย 10 ปี'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ลดเครียดย้อนวัย 10 ปี"],
+        "regulatory_risk_notes": "lifestyle correlation — educational"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_021",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "mTOR_aging",
+      "statement_th": "Peter Attia (Outlive, 2023) เรียก 4 โรคที่ฆ่าคนอายุ 60+ ส่วนใหญ่ว่า 'The Four Horsemen' — atherosclerotic cardiovascular disease (ASCVD), cancer, neurodegenerative disease (Alzheimer/Parkinson), metabolic dysfunction (type 2 diabetes + NAFLD) — longevity strategy ต้องโฟกัสเลื่อนเวลาของทั้ง 4 พร้อมกัน",
+      "statement_en": "Peter Attia (Outlive, 2023) calls the 4 diseases that kill most 60+ adults 'The Four Horsemen' — atherosclerotic cardiovascular disease (ASCVD), cancer, neurodegenerative disease (Alzheimer/Parkinson), and metabolic dysfunction (type 2 diabetes + NAFLD) — longevity strategy must delay all four simultaneously.",
+      "numeric_values": [
+        {"value": 4, "unit": "diseases", "label": "Four Horsemen count", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["peter_attia"],
+      "sources": [
+        {"url": "https://peterattiamd.com", "org": "Peter Attia MD", "source_tier": "B", "year": 2023, "title": "Outlive: The Science and Art of Longevity — Peter Attia", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["4 โรคจะฆ่าคุณ", "ต้องต้าน 4 ทิศพร้อมกัน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Attia framework เป็น conceptual — ห้ามพูด 'supplement ป้องกัน 4 horsemen ทั้งหมด'",
+      "usage_notes": "Premium brand-safe framing สำหรับ longevity content — Peter Attia เป็น luxury doctor persona",
+      "contradictions": [],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามพูด 'supplement ป้องกัน 4 โรคนี้ได้ทั้งหมด'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ป้องกัน 4 โรคได้แน่นอน"],
+        "regulatory_risk_notes": "Conceptual framework — education OK"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_022",
+      "tier": "T1_VERIFIED_EXACT",
+      "sub_topic_id": "autophagy_aging",
+      "statement_th": "Mandsager et al. 2018 (JAMA Network Open) — N=122,007 ที่ทำ exercise stress test ณ Cleveland Clinic: กลุ่ม cardiorespiratory fitness 'elite' มี all-cause mortality ต่ำกว่ากลุ่ม low fitness ~80% — CRF เป็นหนึ่งใน biomarker เดียวที่ทำนาย longevity ได้แม่นยำที่สุด",
+      "statement_en": "Mandsager et al. 2018 (JAMA Network Open) — N=122,007 patients undergoing exercise stress test at Cleveland Clinic: 'elite' cardiorespiratory fitness group had ~80% lower all-cause mortality than low-fitness group — CRF is one of the single strongest longevity biomarkers known.",
+      "numeric_values": [
+        {"value": 122007, "unit": "patients", "label": "cohort", "is_approximation": false},
+        {"value": 80, "unit": "%", "label": "mortality reduction elite vs low fitness", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["peter_attia"],
+      "sources": [
+        {"url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2707428", "org": "JAMA Network Open", "source_tier": "A", "year": 2018, "title": "Association of Cardiorespiratory Fitness With Long-term Mortality Among Adults Undergoing Exercise Treadmill Testing — Mandsager K et al.", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ออกกำลังกายชนะทุก supplement", "VO2max = อายุยืน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "80% = extreme quintile — ห้ามสื่อว่า 'ออกกำลังกายวันละ 30 นาที ลดตาย 80%'. ต้อง frame 'elite vs low' = end of spectrum",
+      "usage_notes": "Core counter-hook สำหรับ 'ไม่มี supplement ใดทดแทนการออกกำลังกาย' — ใช้ใน premium content",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามแนะนำ exercise intensity สูงทันที สำหรับผู้มีโรคหัวใจเรื้อรัง"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": ["elderly_65_plus_frail"],
+        "validator_keywords_th": ["ออกกำลังกาย 80% mortality ลดแน่นอน"],
+        "regulatory_risk_notes": "lifestyle — no regulatory concern"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_023",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "cellular_senescence",
+      "statement_th": "Judith Campisi (Buck Institute) ค้นพบ SASP — senescence-associated secretory phenotype — เซลล์ senescent ไม่ได้ 'เงียบ' แต่หลั่ง cytokines (IL-6, IL-8, TNF-α), chemokines, growth factors, MMPs ที่สร้าง chronic inflammation ('inflammaging') และทำให้เซลล์ข้างเคียงกลายเป็น senescent ตาม — เป็น 'contagion' ของความแก่",
+      "statement_en": "Judith Campisi (Buck Institute) discovered the SASP — senescence-associated secretory phenotype — senescent cells are not silent but secrete cytokines (IL-6, IL-8, TNF-α), chemokines, growth factors, and MMPs driving chronic inflammation ('inflammaging') and converting neighboring cells to senescence — a 'contagion' of aging.",
+      "numeric_values": [],
+      "mechanism_ref": "mech_aging_001",
+      "entities_mentioned": ["judith_campisi", "buck_institute", "p16ink4a"],
+      "sources": [
+        {"url": "https://www.buckinstitute.org", "org": "Buck Institute", "source_tier": "B", "year": 2013, "title": "Buck Institute — Campisi Lab SASP research", "access_date": "2026-04-22"},
+        {"url": "https://www.cell.com/cell/fulltext/S0092-8674(22)01570-7", "org": "Cell", "source_tier": "A", "year": 2023, "title": "Hallmarks of aging update — cellular senescence / SASP", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["ความแก่ติดต่อได้เหมือนโรค", "เซลล์ผีบอกต่อ"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "SASP แม้เชิงกลไก 'contagion' จริง — แต่ไม่ติดต่อคนต่อคน; ใช้ metaphor ภายในร่างกาย",
+      "usage_notes": "Narrative hook แข็ง 'zombie cells make neighbors zombies too' — ใช้ได้กับ senolytic angles",
+      "contradictions": [],
+      "confidence": "high",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามบอกว่า 'ความแก่เป็นโรคติดต่อ' (misinterpretation)"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["ความแก่ติดต่อได้จริง"],
+        "regulatory_risk_notes": "mechanism — education"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_024",
+      "tier": "T3_MAINSTREAM_CONSENSUS",
+      "sub_topic_id": "NAD_decline",
+      "statement_th": "CoQ10 (coenzyme Q10 / ubiquinol) ระดับในเนื้อเยื่อลดลงตามอายุ — ~50% โดยอายุ 80 ปี; ubiquinol (rebuilt form) มี bioavailability สูงกว่า ubiquinone ประมาณ 3-4 เท่า และเหมาะสำหรับผู้สูงอายุที่ reduce capacity ลดลง โดยเฉพาะผู้กิน statin ที่ CoQ10 ในกล้ามเนื้อลดลง",
+      "statement_en": "Tissue CoQ10 (coenzyme Q10 / ubiquinol) levels decline with age — ~50% by age 80; ubiquinol (reduced form) has ~3-4× higher bioavailability than ubiquinone, especially important for elderly with reduced reductase capacity and for statin users whose muscle CoQ10 is depleted.",
+      "numeric_values": [
+        {"value": 50, "unit": "%", "label": "CoQ10 decline by age 80", "is_approximation": true},
+        {"value": 3, "unit": "x", "label": "ubiquinol bioavailability advantage lower", "is_approximation": true},
+        {"value": 4, "unit": "x", "label": "ubiquinol bioavailability advantage upper", "is_approximation": true}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["coq10_mol"],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/15574496/", "org": "PubMed (CoQ10 aging review)", "source_tier": "A", "year": 2005, "title": "Kalén A, Appelkvist EL, Dallner G — Age-related changes in the lipid compositions of rat and human tissues (CoQ10 decline)", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["โรงไฟฟ้าเซลล์หรี่ลง", "statin = CoQ10 โดน"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "CoQ10 อาการ 'statin-associated muscle symptoms' improvement จาก CoQ10 — meta-analyses mixed; ห้ามอ้าง 'รักษาปวดกล้ามเนื้อจาก statin'",
+      "usage_notes": "Premium CoQ10/ubiquinol angle — pair กับ 'mitochondrial fatigue' narrative",
+      "contradictions": ["RCT บางตัวไม่พบ CoQ10 ลด statin myopathy"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "yellow",
+        "contraindications": ["on_warfarin_or_anticoagulant"],
+        "drug_interactions": ["warfarin (CoQ10 structurally similar to vitamin K — monitor INR)", "blood pressure medications (possible additive BP lowering)"],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามอ้าง 'CoQ10 รักษาโรคหัวใจ'",
+          "ห้ามแนะนำให้หยุด statin แล้วกิน CoQ10 แทน"
+        ],
+        "required_disclaimer_th": "supplement_th",
+        "audience_exclusions": ["on_warfarin_or_anticoagulant"],
+        "validator_keywords_th": ["CoQ10 แทน statin", "CoQ10 รักษาหัวใจวาย"],
+        "regulatory_risk_notes": "CoQ10 ขึ้นทะเบียนอาหารเสริม — ใช้ 'สนับสนุนพลังงานเซลล์ / สุขภาพหัวใจ'"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    },
+    {
+      "fact_id": "aging_025",
+      "tier": "T2_VERIFIED_DIRECTIONAL",
+      "sub_topic_id": "mTOR_aging",
+      "statement_th": "Dan Buettner 'Blue Zones' — 5 ภูมิภาคที่มีความหนาแน่นของคนร้อยปี (centenarians) สูงที่สุดในโลก: Okinawa (ญี่ปุ่น), Sardinia (อิตาลี), Nicoya (คอสตาริกา), Ikaria (กรีซ), Loma Linda California (Seventh-day Adventists); pattern ร่วม: moderate caloric intake, plant-based diet, social bonds, natural movement, purpose",
+      "statement_en": "Dan Buettner's 'Blue Zones' — 5 global regions with the highest centenarian density: Okinawa (Japan), Sardinia (Italy), Nicoya (Costa Rica), Ikaria (Greece), Loma Linda California (Seventh-day Adventists); shared patterns: moderate caloric intake, plant-based diet, social bonds, natural movement, sense of purpose.",
+      "numeric_values": [
+        {"value": 5, "unit": "regions", "label": "Blue Zones count", "is_approximation": false}
+      ],
+      "mechanism_ref": null,
+      "entities_mentioned": ["dan_buettner"],
+      "sources": [
+        {"url": "https://bluezones.com/2016/11/power-9/", "org": "Blue Zones / Buettner", "source_tier": "B", "year": 2016, "title": "The Power 9 — Blue Zones lifestyle patterns — Buettner D", "access_date": "2026-04-22"}
+      ],
+      "narrative_hooks": ["5 ถิ่นอายุยืน", "คนอายุ 100 ปีกินอะไร"],
+      "dramatization_allowed": true,
+      "dramatization_limit": "Observational/journalistic — Blue Zones methodology วิจารณ์โดย Newman 2019 (ชี้ว่า vital records ไม่ครบ); ใช้เป็น 'lifestyle inspiration' ไม่ใช่ medical fact",
+      "usage_notes": "Premium narrative สำหรับ 'natural longevity' framing — ดีสำหรับ intro/outro ของ content",
+      "contradictions": ["Newman 2019 — Blue Zones correlations อาจเป็น artifact ของ bad vital records"],
+      "confidence": "medium",
+      "safety_warning": {
+        "risk_level": "green",
+        "contraindications": [],
+        "drug_interactions": [],
+        "medical_supervision_required": false,
+        "forbidden_scripts_th": [
+          "ห้ามอ้างว่า 'กินแบบ Okinawa = อายุ 100 แน่นอน'"
+        ],
+        "required_disclaimer_th": null,
+        "audience_exclusions": [],
+        "validator_keywords_th": ["กินแบบ Blue Zone อายุ 100 แน่นอน"],
+        "regulatory_risk_notes": "lifestyle observation — education OK"
+      },
+      "harvested_by": "domain_harvester.aging",
+      "harvested_at": "2026-04-22T14:00:00"
+    }
+  ]
+}

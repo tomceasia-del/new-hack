@@ -1,0 +1,9 @@
+{
+  "domain_id": "sleep",
+  "authoritative_sources_expected": [
+    "Matthew Walker",
+    "Andrew Huberman",
+    "Kirk Parsley"
+  ],
+  "sources": []
+}

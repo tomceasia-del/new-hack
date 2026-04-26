@@ -1,0 +1,24 @@
+{
+  "domain_id": "sleep",
+  "primary_th": [
+    "นอน",
+    "หลับ",
+    "ไม่หลับ",
+    "นอนไม่หลับ",
+    "เมลาโทนิน"
+  ],
+  "primary_en": [
+    "sleep",
+    "insomnia",
+    "melatonin",
+    "circadian",
+    "REM",
+    "deep sleep",
+    "sleep architecture"
+  ],
+  "aliases_th": [],
+  "aliases_en": [],
+  "jargon_th": [],
+  "jargon_en": [],
+  "regex_patterns": []
+}

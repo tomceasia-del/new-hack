@@ -1,0 +1,231 @@
+{
+  "domain_id": "skin",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.skin"
+  },
+  "sub_topics": [
+    {
+      "id": "collagen_synthesis",
+      "label_th": "การสร้างคอลลาเจน",
+      "label_en": "Collagen Synthesis",
+      "description": "ไฟโบรบลาสต์ในชั้นหนังแท้สร้าง procollagen → secrete → cleavage เป็น tropocollagen → cross-link เป็น mature collagen fibril โดยมี vitamin C, Fe2+ เป็น cofactor ของ prolyl/lysyl hydroxylase; Type I (~80-85%) + Type III (~8-15%) = major dermal collagens (Uitto 1986; Shuster 1975)",
+      "key_concepts": [
+        "procollagen I/III",
+        "hydroxyproline",
+        "hydroxylysine",
+        "prolyl hydroxylase",
+        "vitamin C cofactor",
+        "lysyl oxidase cross-link",
+        "fibroblast senescence"
+      ],
+      "related_sub_topics": ["photoaging_uv", "matrix_metalloproteinases", "age_glycation", "retinoids"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "photoaging_uv",
+      "label_th": "ผิวเสื่อมจากแดด",
+      "label_en": "Photoaging / UV damage",
+      "description": "UVA (320-400 nm) เข้าถึงชั้นหนังแท้ — กระตุ้น ROS → activate AP-1 → induce MMP-1/MMP-3/MMP-9 → ย่อยคอลลาเจน; UVB (280-320 nm) ทำ direct DNA damage (CPDs/6-4PP) บน epidermis — ไม่ลึกเท่า UVA แต่ mutagenic; photoaging ≈ 80-90% ของ visible skin aging (Uitto, Yaar)",
+      "key_concepts": [
+        "UVA1 vs UVA2",
+        "UVB direct DNA damage",
+        "CPDs / 6-4PP",
+        "AP-1 transcription factor",
+        "NF-kB inflammation",
+        "solar elastosis",
+        "MED (minimal erythema dose)",
+        "broad-spectrum protection"
+      ],
+      "related_sub_topics": ["matrix_metalloproteinases", "hyperpigmentation", "sunscreen_spf", "collagen_synthesis"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "age_glycation",
+      "label_th": "ไกลเคชั่น (AGE) ในผิว",
+      "label_en": "AGE Glycation of skin proteins",
+      "description": "น้ำตาลในเลือดจับตาย (non-enzymatic) กับ amino group ของคอลลาเจน → Schiff base → Amadori product → crosslinked AGE (pentosidine, CML, glucosepane); คอลลาเจน cross-link AGE ทำให้ผิวแข็ง/เหลือง/ริ้วรอยลึก — AGE สะสม ~3.7% ต่อทศวรรษในคนปกติ (Monnier 2005; Verzijl 2000)",
+      "key_concepts": [
+        "Maillard reaction",
+        "Schiff base",
+        "Amadori product",
+        "pentosidine",
+        "CML",
+        "glucosepane",
+        "RAGE receptor",
+        "skin autofluorescence (SAF)"
+      ],
+      "related_sub_topics": ["collagen_synthesis", "photoaging_uv"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "hormonal_acne",
+      "label_th": "สิวฮอร์โมน",
+      "label_en": "Hormonal acne",
+      "description": "Androgens (testosterone, DHT) กระตุ้น sebaceous gland → sebum เพิ่ม + keratinocyte hyperproliferation อุดปากรู → microcomedone → C. acnes overgrowth → IL-1α, TLR-2 → อักเสบ; ผู้หญิงวัย 20-40 มี adult acne ~25% มักขึ้นที่คาง/กราม (Zaenglein AAD guideline 2016)",
+      "key_concepts": [
+        "androgen receptor",
+        "5-alpha reductase",
+        "sebum composition",
+        "keratinocyte hyperproliferation",
+        "Cutibacterium acnes",
+        "TLR-2 signaling",
+        "IL-1α",
+        "adult female acne U-zone"
+      ],
+      "related_sub_topics": ["skin_barrier", "hyperpigmentation"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "skin_barrier",
+      "label_th": "เกราะป้องกันผิว",
+      "label_en": "Skin Barrier Function",
+      "description": "Stratum corneum = 'brick and mortar' — corneocytes (bricks) embedded ใน intercellular lipid lamellae (mortar) ประกอบด้วย ceramides ~50%, cholesterol ~25%, FFA ~10-15% (Elias model); barrier เสียหาย → TEWL เพิ่ม → แห้ง/ระคายง่าย/แพ้; NMF keeps water content 10-30%",
+      "key_concepts": [
+        "brick and mortar model",
+        "corneocyte",
+        "lipid lamellae",
+        "ceramide / cholesterol / FFA 3:1:1",
+        "natural moisturizing factor (NMF)",
+        "filaggrin",
+        "TEWL",
+        "skin pH 4.5-6.0 acid mantle"
+      ],
+      "related_sub_topics": ["stratum_corneum_ceramides", "hormonal_acne"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "stratum_corneum_ceramides",
+      "label_th": "ชั้นสตราตัมคอร์เนียม / เซราไมด์",
+      "label_en": "Stratum Corneum & Ceramides",
+      "description": "SC เป็นชั้นบนสุด ~15-20 μm ประกอบด้วย corneocytes ~15 layers; lipid lamellae มี ceramide 9 ชนิดหลัก (CER NS, NP, AS, AP, EOS...) สร้างโดย SPT (serine palmitoyltransferase) ใน keratinocyte → เผาพันธะ long-chain + sphingosine → ปล่อยใน lamellar bodies; ceramide ต่ำ = atopic dermatitis/eczema",
+      "key_concepts": [
+        "corneodesmosome",
+        "lamellar body",
+        "serine palmitoyltransferase",
+        "ceramide NP",
+        "acid ceramidase",
+        "filaggrin breakdown → NMF",
+        "desquamation"
+      ],
+      "related_sub_topics": ["skin_barrier"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "retinoids",
+      "label_th": "เรตินอยด์",
+      "label_en": "Retinoids",
+      "description": "Retinol (OTC) → 2-step oxidation → retinal → retinoic acid (prescription tretinoin); retinoic acid จับ RAR/RXR nuclear receptors → regulate gene transcription → ↑procollagen, ↓MMP-1, ↓keratinocyte hyperproliferation, ↑epidermal turnover; clinical: tretinoin 0.025-0.1% ทา 24-48 สัปดาห์ ลด fine wrinkles (Kligman 1986; Weiss 1988)",
+      "key_concepts": [
+        "retinyl ester → retinol → retinal → retinoic acid",
+        "RAR / RXR receptor",
+        "retinoic acid response element (RARE)",
+        "tretinoin vs retinol potency",
+        "adapalene (3rd-gen)",
+        "retinoid dermatitis",
+        "photostability issue"
+      ],
+      "related_sub_topics": ["collagen_synthesis", "photoaging_uv"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "hyperpigmentation",
+      "label_th": "ฝ้า-กระ-รอยดำ",
+      "label_en": "Hyperpigmentation / Melanogenesis",
+      "description": "Melanocyte (1:10 กับ keratinocyte ใน basal layer) สังเคราะห์ eumelanin/pheomelanin ผ่าน tyrosinase ใน melanosome → transfer ไป keratinocyte ผ่าน PAR-2/dendrite; UV, inflammation, estrogen (melasma), heat ทั้งหมดกระตุ้น MITF → tyrosinase up; treatment: hydroquinone, tretinoin, tranexamic acid, niacinamide",
+      "key_concepts": [
+        "tyrosinase pathway",
+        "DOPA → DHI → eumelanin",
+        "MITF master regulator",
+        "PAR-2 receptor",
+        "melanosome transfer",
+        "post-inflammatory hyperpigmentation (PIH)",
+        "melasma / estrogen link",
+        "niacinamide blocks melanosome transfer"
+      ],
+      "related_sub_topics": ["photoaging_uv", "hormonal_acne"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "vitamin_c_topical",
+      "label_th": "วิตามินซีทาผิว",
+      "label_en": "Topical Vitamin C",
+      "description": "L-ascorbic acid เป็น form เดียวที่ active — cofactor ของ prolyl/lysyl hydroxylase สำหรับ collagen + antioxidant สำหรับ neutralize ROS + tyrosinase inhibitor; ต้อง pH <3.5 เพื่อดูดซึม (Pinnell 2001; Draelos); จุดอ่อน: ออกซิไดซ์เป็น dehydroascorbic → สีเหลือง/ส้ม → effective ต่อเมื่อ fresh",
+      "key_concepts": [
+        "L-ascorbic acid",
+        "pH <3.5 requirement",
+        "10-20% optimal concentration",
+        "ferulic acid synergy",
+        "vitamin E synergy",
+        "photoprotection not replacement for SPF",
+        "stability challenge"
+      ],
+      "related_sub_topics": ["collagen_synthesis", "photoaging_uv", "hyperpigmentation"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "sunscreen_spf",
+      "label_th": "ครีมกันแดด / SPF",
+      "label_en": "Sunscreen / SPF",
+      "description": "SPF = ratio MED protected/unprotected skin → SPF 15 blocks 93%, SPF 30 blocks 97%, SPF 50 blocks 98%; chemical filters absorb UV, physical (ZnO, TiO2) reflect + absorb; broad-spectrum = UVA+UVB; คนทั่วไปทา <50% ของปริมาณ label (~2 mg/cm² เต็มโดส) = ได้ SPF เพียง 1/3 (AAD)",
+      "key_concepts": [
+        "SPF math",
+        "PA++++ rating (UVA)",
+        "broad-spectrum",
+        "2 mg/cm² standard dose",
+        "reapplication q2h",
+        "under-application gap",
+        "blue light / visible light",
+        "iron oxide tinted"
+      ],
+      "related_sub_topics": ["photoaging_uv", "hyperpigmentation"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "matrix_metalloproteinases",
+      "label_th": "เอนไซม์ย่อยคอลลาเจน (MMPs)",
+      "label_en": "Matrix Metalloproteinases",
+      "description": "MMP family = zinc-dependent endopeptidases; MMP-1 (collagenase-1) ย่อย collagen I/III triple-helix, MMP-3 (stromelysin) ย่อย proteoglycan + activate pro-MMPs, MMP-9 (gelatinase-B) ย่อย basement membrane; UV + ROS + AGE + smoking ทั้งหมด induce MMPs → กัด collagen → ริ้วรอย (Fisher 2002 NEJM)",
+      "key_concepts": [
+        "MMP-1 collagenase-1",
+        "MMP-3 stromelysin",
+        "MMP-9 gelatinase B",
+        "TIMP inhibitors",
+        "AP-1 transcription",
+        "UV induction within minutes",
+        "retinoid suppression"
+      ],
+      "related_sub_topics": ["collagen_synthesis", "photoaging_uv", "age_glycation"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "antioxidants_glutathione",
+      "label_th": "สารต้านอนุมูลอิสระ / กลูตาไธโอน",
+      "label_en": "Antioxidants & Glutathione",
+      "description": "Skin antioxidant network: vitamin C (hydrophilic) + vitamin E (lipophilic) + glutathione (intracellular tripeptide γ-Glu-Cys-Gly) + astaxanthin (carotenoid) + SOD/catalase/GPx (enzymatic); glutathione ทาน oral IV controversial — bioavailability ต่ำ (Richie 2015); astaxanthin singlet oxygen quenching ~100× beta-carotene, ~6000× vit C (Shimidzu 1996, Nishida 2007 — specific chemiluminescence assay)",
+      "key_concepts": [
+        "glutathione tripeptide",
+        "Nrf2 pathway",
+        "reduced vs oxidized GSH/GSSG ratio",
+        "astaxanthin singlet oxygen",
+        "carotenoid membrane stabilization",
+        "oral glutathione bioavailability",
+        "tyrosinase inhibition (glutathione as brightener)"
+      ],
+      "related_sub_topics": ["photoaging_uv", "vitamin_c_topical", "hyperpigmentation"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": true
+    }
+  ]
+}

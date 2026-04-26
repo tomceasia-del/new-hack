@@ -168,7 +168,6 @@
     .sel-no-pick {
       display: none;
     }
-    }
     /* Sales Formula chip — card แนวนอน badge + ชื่อสูตร + fitFor */
     .sales-formula-chip {
       position: relative;
@@ -414,10 +413,10 @@
       font-size: 1rem;
     }
     textarea.prompt::placeholder { color: var(--muted); }
-    /* รูปสินค้า + ตัวละคร 3 ช่อง แถวเดียว */
+    /* รูปสินค้า (input เดียว สูงสุด 5) + ตัวละคร 3 ช่อง */
     .drop-grid-images {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) repeat(3, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 1.15fr) repeat(3, minmax(0, 1fr));
       gap: 8px;
       align-items: stretch;
     }
@@ -483,6 +482,56 @@
     }
     .drop-clear:hover {
       filter: brightness(1.08);
+    }
+    .drop-multi-hint {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.35;
+      max-width: 100%;
+    }
+    .product-thumb-stack,
+    .multi-thumb-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+      min-height: 0;
+      width: 100%;
+    }
+    .product-thumb-stack .thumb,
+    .multi-thumb-stack .thumb {
+      max-height: 48px;
+      max-width: 25%;
+    }
+    .hero-analysis-toolbar {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-hero-analyze {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-2, rgba(255, 255, 255, 0.06));
+      color: var(--text);
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-hero-analyze:hover {
+      border-color: rgba(254, 44, 85, 0.45);
+    }
+    .hero-analysis-out {
+      display: none;
+      margin-top: 8px;
+      max-height: 240px;
+      overflow: auto;
+      font-size: 0.75rem;
+      line-height: 1.4;
     }
     .thumb {
       max-width: 100%;
@@ -629,7 +678,6 @@
     }
     .hook-family-box-sub {
       display: none;
-    }
     }
     .chip-grid.hook-family-inner {
       display: grid;
@@ -1151,6 +1199,76 @@
       margin: 0;
       font-size: 0.85rem;
     }
+    .domain-knowledge-section {
+      margin-bottom: 0;
+    }
+    .domain-knowledge-section .sec-title {
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+    .domain-knowledge-section .dk-hint {
+      margin: 0 0 10px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .domain-knowledge-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+    }
+    .domain-knowledge-select {
+      min-width: 12rem;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+    }
+    .domain-facts-input {
+      width: 4.5rem;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+    }
+    .domain-knowledge-section.is-domain-locked .domain-knowledge-select,
+    .domain-knowledge-section.is-domain-locked .domain-facts-input {
+      opacity: 0.85;
+    }
+    .domain-knowledge-gate {
+      margin: 0 0 10px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .domain-knowledge-gate[hidden] {
+      display: none !important;
+    }
+    .dialogue-rule-callout {
+      margin: 0 0 14px;
+      padding: 10px 12px 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: inset 3px 0 0 0 #3b82f6;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .dialogue-rule-callout strong {
+      font-weight: 600;
+    }
+    .dialogue-rule-callout ul {
+      margin: 6px 0 0 1.1em;
+      padding: 0;
+    }
+    .dialogue-rule-callout li {
+      margin: 4px 0;
+    }
     .api-key-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -1231,9 +1349,129 @@
       background: rgba(255, 69, 58, 0.42);
       box-shadow: none;
     }
+
+    /* ── Google OAuth gate (หน้าแรก / /cs บน Vercel) ───────────────────── */
+    body.auth-checking .wrap {
+      visibility: hidden;
+    }
+    body.auth-ok .wrap,
+    body.auth-bypass .wrap {
+      visibility: visible;
+    }
+    body.auth-locked .wrap {
+      display: none;
+    }
+    .auth-gate {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(900px 500px at 15% -5%, rgba(254, 44, 85, 0.14), transparent),
+        var(--bg);
+    }
+    body.auth-locked .auth-gate {
+      display: flex;
+    }
+    .auth-gate-card {
+      width: 100%;
+      max-width: 360px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 28px 36px;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+    .auth-gate-logo {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 12px;
+      background: var(--accent);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+    .auth-gate-title {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .auth-gate-sub {
+      margin: 0 0 20px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .auth-gate-error {
+      width: 100%;
+      background: rgba(254, 44, 85, 0.12);
+      border: 1px solid rgba(254, 44, 85, 0.35);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      color: #ff8b9a;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .btn-google--auth {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: #fff;
+      color: #1f1f1f;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      transition: box-shadow 0.15s, opacity 0.12s;
+    }
+    .btn-google--auth:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    .btn-google--auth:active {
+      opacity: 0.88;
+    }
+    .auth-gate-hint {
+      margin: 18px 0 0;
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .user-avatar-wrap {
+      flex-shrink: 0;
+    }
+    .user-display-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      max-width: 6.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   </style>
 </head>
-<body>
+<body class="auth-checking">
   <div id="mock1-file-warning" role="status">
     <strong>เปิดจากไฟล์ตรง (file://)</strong> — บราว์เซอร์มักบล็อกการเรียก Google (เช่น เจน Gemini)
     <br /><strong>ดู mock แบบ local:</strong> ดับเบิลคลิก <code>open-story-config-mock.command</code> หรือรัน <code>python3 serve_story_mock.py</code> — เปิดเป็น <code>http://127.0.0.1:8777+</code> (ลิงก์ใน <code>story-mock-server.url</code>)
@@ -1244,10 +1482,36 @@
       if (el) el.style.display = "block";
     }
   </script>
+
+  <div id="auth-gate" class="auth-gate" aria-modal="true" role="dialog" aria-labelledby="auth-gate-title">
+    <div class="auth-gate-card">
+      <div class="auth-gate-logo" aria-hidden="true">🎬</div>
+      <h2 id="auth-gate-title" class="auth-gate-title">Project CS</h2>
+      <p class="auth-gate-sub">ระบบสร้างสคริปต์วิดีโอ — เข้าสู่ระบบด้วย Google account ที่ได้รับสิทธิ์</p>
+      <div id="auth-gate-error" class="auth-gate-error" style="display: none" role="alert"></div>
+      <a class="btn-google--auth" href="/api/auth/login">
+        <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.36-8.16 2.36-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          <path fill="none" d="M0 0h48v48H0z"/>
+        </svg>
+        เข้าสู่ระบบด้วย Google
+      </a>
+      <p class="auth-gate-hint">หรือ <a href="login.html" class="api-console-link" style="margin: 0 2px; font-size: inherit">หน้า login แยก</a> — รัน <code>python3 serve_story_mock.py</code> จะยังใช้ mock ได้โดยไม่บังคับ OAuth</p>
+    </div>
+  </div>
+
   <div class="wrap">
     <header class="page-header">
       <h1>Project CS</h1>
       <div class="header-right">
+        <div id="user-menu" class="user-menu" hidden>
+          <span id="user-avatar-wrap" class="user-avatar-wrap"></span>
+          <span id="user-display-name" class="user-display-name" hidden></span>
+          <button type="button" class="btn-logout" id="header-logout-btn">ออกจากระบบ</button>
+        </div>
         <a class="app-switch-btn" href="/editor/">Video Editor v2 →</a>
       </div>
     </header>
@@ -1297,26 +1561,41 @@
       </div>
       <div class="drop-grid-images">
         <label class="drop" id="drop-product" data-key="product">
-          <input type="file" accept="image/*" data-key="product" />
+          <input type="file" accept="image/*" data-key="product" multiple />
           <strong>รูปสินค้า</strong>
+          <span class="drop-multi-hint">สูงสุด 5 รูป — เลือกหลายไฟล์ได้ในครั้งเดียว</span>
+          <div class="multi-thumb-stack" aria-hidden="true"></div>
           <span class="drop-hint" aria-hidden="true"></span>
         </label>
         <label class="drop" id="drop-char-1" data-key="character1">
-          <input type="file" accept="image/*" data-key="character1" />
-          <strong>ตัวละคร 1</strong>
+          <input type="file" accept="image/*" data-key="character1" multiple />
+          <strong>ตัวละคร 1 (Hero หลัก)</strong>
+          <span class="drop-multi-hint">สูงสุด 5 รูป / slot — consistency</span>
+          <div class="multi-thumb-stack" aria-hidden="true"></div>
           <span class="drop-hint" aria-hidden="true"></span>
         </label>
         <label class="drop" id="drop-char-2" data-key="character2">
-          <input type="file" accept="image/*" data-key="character2" />
+          <input type="file" accept="image/*" data-key="character2" multiple />
           <strong>ตัวละคร 2</strong>
+          <span class="drop-multi-hint">สูงสุด 5 รูป / slot</span>
+          <div class="multi-thumb-stack" aria-hidden="true"></div>
           <span class="drop-hint" aria-hidden="true"></span>
         </label>
         <label class="drop" id="drop-char-3" data-key="character3">
-          <input type="file" accept="image/*" data-key="character3" />
+          <input type="file" accept="image/*" data-key="character3" multiple />
           <strong>ตัวละคร 3</strong>
+          <span class="drop-multi-hint">สูงสุด 5 รูป / slot</span>
+          <div class="multi-thumb-stack" aria-hidden="true"></div>
           <span class="drop-hint" aria-hidden="true"></span>
         </label>
       </div>
+      <div class="hero-analysis-toolbar">
+        <button type="button" class="btn-hero-analyze" id="btn-hero-analyze" title="วิเคราะห์รูปตัวละคร (ทุก slot) ด้วย Gemini ได้ JSON ล็อก Hero">
+          วิเคราะห์ Hero จากรูป (JSON)
+        </button>
+        <span id="hero-analyze-status" style="font-size:0.78rem;color:var(--muted);"></span>
+      </div>
+      <pre class="preview hero-analysis-out" id="hero-analysis-out" aria-live="polite"></pre>
     </section>
 
     <!-- Voice Type — CHARACTER & VOICE CONSISTENCY (Phase 5) -->
@@ -1443,6 +1722,33 @@
       </div>
     </section>
 
+    <section id="section-domain-knowledge" class="domain-knowledge-section" data-section="domain" aria-label="Domain knowledge ท้องถิ่น">
+      <div class="sec-head">
+        <p class="sec-title">Domain knowledge (local)</p>
+      </div>
+      <p class="hint dk-hint">โหลด <code>domains/&lt;slug&gt;/canonical_facts.json</code> แนบก่อนเจน (ใช้ได้เฉพาะโหมดสตอรี่ + เลือกเนะเรทีฟ ผักนักเลง หรือ อวัยวะรวมตัว) — เปิดผ่าน <strong>http</strong> จาก root โปรเจกต์ (เช่น <code>python3 serve_story_mock.py</code>)</p>
+      <p id="domain-knowledge-gate" class="domain-knowledge-gate" hidden></p>
+      <div class="domain-knowledge-row">
+        <label class="field-label" for="domain-knowledge-select">โดเมน</label>
+        <select id="domain-knowledge-select" class="domain-knowledge-select" aria-label="เลือก canonical domain"></select>
+        <label class="field-label" for="domain-facts-count">สูงสุด (fact)</label>
+        <input type="number" id="domain-facts-count" class="domain-facts-input" min="1" max="25" value="6" />
+      </div>
+    </section>
+
+    <section id="section-product-facts" class="domain-knowledge-section" data-section="product-facts" aria-label="Product facts ท้องถิ่น">
+      <div class="sec-head">
+        <p class="sec-title">Product facts (local)</p>
+      </div>
+      <p class="hint dk-hint">โหลด <code>products/&lt;slug&gt;/product_facts.json</code> แนบก่อนเจน เพื่อให้โมเดลอ้างตัวเลขสินค้าได้ตรงขึ้น</p>
+      <div class="domain-knowledge-row">
+        <label class="field-label" for="product-facts-select">สินค้า</label>
+        <select id="product-facts-select" class="domain-knowledge-select" aria-label="เลือก product facts slug"></select>
+        <label class="field-label" for="product-facts-count">สูงสุด (fact)</label>
+        <input type="number" id="product-facts-count" class="domain-facts-input" min="1" max="25" value="8" />
+      </div>
+    </section>
+
     <section id="section-generate" data-section="generate">
       <div class="sec-head">
         <p class="sec-title">เจนสคริปต์ฉาก (Gemini · Storymode)</p>
@@ -1458,6 +1764,15 @@
       <div class="api-key-toolbar">
         <button type="button" class="btn btn-ghost" id="btn-save-api">บันทึกและตรวจสอบ</button>
         <p id="api-key-status" class="hint" aria-live="polite"></p>
+      </div>
+      <div class="dialogue-rule-callout" role="note" aria-label="กฎความยาวบทพูด">
+        <strong>กฎบทพูด (ยึดตาม system prompt ที่ส่งไป Gemini)</strong>
+        <ul>
+          <li>มาตรฐานคลิปสั้น: <strong>~8 วินาที ต่อ 1 ฉาก</strong> (Flow / short-form)</li>
+          <li>บทพูดหรือพากย์ <strong>ภาษาไทย 15-20 คำ ต่อ 1 ฉาก</strong> — นับ<strong>รวม</strong> dialogue ทั้งฉาก (รวมหลาย beat ในฉากเดียว = นับรวมเดียว ไม่ใช่ 15-20 ต่อ beat)</li>
+          <li>ห้ามน้อยกว่า 15 หรือเกิน 20 คำ/ฉาก; นับ/ตรวจก่อนส่ง; รายละเอียดฉากใส่ใน <strong>ภาพ/แอคชัน</strong> แทนการยืดบทพูด</li>
+          <li>โหมด ASMR (ถ้าเลือก): <strong>ไม่มี</strong> dialogue ตามกฎ system</li>
+        </ul>
       </div>
       <div class="generate-row">
         <button type="button" class="btn btn-primary" id="btn-generate">เจนสคริปต์ฉาก</button>
@@ -1615,7 +1930,16 @@
     );
 
     let mode = "story";
-    const files = { product: null, character1: null, character2: null, character3: null };
+    /** สินค้า + ตัวละครแต่ละ slot: อาร์เรย์สูงสุด 5 รูป (input multiple) */
+    const MULTI_IMAGE_MAX = 5;
+    const files = {
+      product: [],
+      character1: [],
+      character2: [],
+      character3: []
+    };
+    /** ผลวิเคราะห์ Hero (JSON) — แนบใน payload ตอนเจนสคริปต์ */
+    let heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
     let salesFormulaId = null;
     /** จำนวนฉากล่าสุดที่ใช้สุ่มสูตรขาย — สุ่มใหม่เมื่อจำนวนฉากเปลี่ยน หรือกดสุ่มใหม่ */
     let lastSalesRandomSceneCount = null;
@@ -2341,18 +2665,57 @@
       return Math.min(50, Math.max(1, n));
     }
 
+    /** สรุปลำดับรูป ref สำหรับบันทึก/หน้า result (ไม่มี base64) — สอดคล้อง imagesForGemini */
+    function buildImageRefOrderList(imagesForGemini) {
+      if (!Array.isArray(imagesForGemini) || !imagesForGemini.length) {
+        return [];
+      }
+      return imagesForGemini.map(function (im, i) {
+        return {
+          order: i + 1,
+          role: im.role || "",
+          slot: im.slot || "",
+          fileName: (im && im.name && String(im.name).trim()) || "(ไม่มีชื่อไฟล์)"
+        };
+      });
+    }
+
     function getCurrentPayload() {
       const hook = getSelectedHook();
       return {
         mode: mode === "story" ? "storymode" : "product_sell",
         prompt: document.getElementById("prompt").value.trim(),
         images: (function () {
-          const slots = [
-            { key: "product", role: "product", file: files.product },
-            { key: "character1", role: "character", file: files.character1 },
-            { key: "character2", role: "character", file: files.character2 },
-            { key: "character3", role: "character", file: files.character3 }
-          ];
+          var productStaged = Array.isArray(files.product) ? files.product.filter(function (f) { return f; }) : [];
+          var primaryProductFile = productStaged[0] || null;
+          var productSlots = [];
+          for (var pi = 0; pi < productStaged.length; pi++) {
+            productSlots.push({
+              key: pi === 0 ? "product" : "product" + (pi + 1),
+              role: "product",
+              file: productStaged[pi]
+            });
+          }
+          function expandCharacterSlot(ckey) {
+            var arr = Array.isArray(files[ckey]) ? files[ckey].filter(function (f) { return f; }) : [];
+            var out = [];
+            for (var ci = 0; ci < arr.length; ci++) {
+              out.push({
+                key: ci === 0 ? ckey : ckey + "_" + (ci + 1),
+                role: "character",
+                file: arr[ci]
+              });
+            }
+            return out;
+          }
+          var c1 = Array.isArray(files.character1) ? files.character1.filter(function (f) { return f; }) : [];
+          var c2 = Array.isArray(files.character2) ? files.character2.filter(function (f) { return f; }) : [];
+          var c3 = Array.isArray(files.character3) ? files.character3.filter(function (f) { return f; }) : [];
+          const slots = productSlots.concat(
+            expandCharacterSlot("character1"),
+            expandCharacterSlot("character2"),
+            expandCharacterSlot("character3")
+          );
           const imagesForGemini = slots
             .filter(function (s) { return s.file && s.file.data; })
             .map(function (s) {
@@ -2365,21 +2728,22 @@
               };
             });
           return {
-            productAttached: !!files.product,
-            characterAttached: !!(files.character1 || files.character2 || files.character3),
-            character1Attached: !!files.character1,
-            character2Attached: !!files.character2,
-            character3Attached: !!files.character3,
-            productName: files.product?.name || null,
-            characterName:
-              files.character1?.name ||
-              files.character2?.name ||
-              files.character3?.name ||
-              null,
-            characterNames: [files.character1?.name, files.character2?.name, files.character3?.name].filter(Boolean),
+            productAttached: !!primaryProductFile,
+            productAttachedCount: productStaged.length,
+            characterAttached: !!(c1.length || c2.length || c3.length),
+            character1Attached: c1.length > 0,
+            character2Attached: c2.length > 0,
+            character3Attached: c3.length > 0,
+            characterImageCounts: [c1.length, c2.length, c3.length],
+            productName: primaryProductFile?.name || null,
+            productNames: productStaged.map(function (f) { return f && f.name; }).filter(Boolean),
+            characterName: c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
+            characterNames: [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
             imagesForGemini: imagesForGemini
           };
         })(),
+        heroAnalysis: heroAnalysisCache.parsed,
+        heroAnalysisText: (heroAnalysisCache.rawText && String(heroAnalysisCache.rawText).trim()) || null,
         sceneCount: clampSceneValue(document.getElementById("scenes").value),
         narrativeStyleIds: selectedValues("narrative-chips").map((v) => Number(v)),
         narrativeStyles: selectedValues("narrative-chips")
@@ -2425,11 +2789,260 @@
             rv
           );
           return r ? { card: r.card, source: r.source, preview: r.cardTextThaiShort } : null;
+        })(),
+        domainKnowledgeSelection: (function () {
+          if (mode === "product" || !hasNarrativeForDomainKnowledge()) {
+            return null;
+          }
+          const sel = document.getElementById("domain-knowledge-select");
+          const nEl = document.getElementById("domain-facts-count");
+          if (!sel || !String(sel.value || "").trim()) {
+            return null;
+          }
+          return {
+            domainId: String(sel.value).trim(),
+            maxFacts: Math.min(25, Math.max(1, parseInt(nEl && nEl.value, 10) || 6))
+          };
+        })(),
+        productFactsSelection: (function () {
+          const sel = document.getElementById("product-facts-select");
+          const nEl = document.getElementById("product-facts-count");
+          if (!sel || !String(sel.value || "").trim()) {
+            return null;
+          }
+          return {
+            productId: String(sel.value).trim(),
+            maxFacts: Math.min(25, Math.max(1, parseInt(nEl && nEl.value, 10) || 8))
+          };
         })()
       };
     }
 
+    const DOMAIN_KNOWLEDGE_SLUGS = [
+      "aging", "blood", "blood_sugar", "bones", "brain", "digestive", "energy",
+      "fasting", "fat_metabolism", "heart", "hormones", "immunity", "life_coaching",
+      "liver", "muscle", "reproductive", "respiratory", "skin", "sleep", "stress", "supplements"
+    ];
+    DOMAIN_KNOWLEDGE_SLUGS.sort();
+    const NARRATIVE_IDS_DOMAIN_KNOWLEDGE = [36, 37];
+
+    function hasNarrativeForDomainKnowledge() {
+      if (mode !== "story") return false;
+      const ns = selectedValues("narrative-chips").map((v) => Number(v));
+      for (var i = 0; i < ns.length; i++) {
+        if (NARRATIVE_IDS_DOMAIN_KNOWLEDGE.indexOf(ns[i]) !== -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function isDomainKnowledgeInjectionAllowedFromPayload(payload) {
+      if (!payload || payload.mode !== "storymode") return false;
+      const ids = payload.narrativeStyleIds || [];
+      for (var j = 0; j < ids.length; j++) {
+        var n = Number(ids[j]);
+        if (n === 36 || n === 37) return true;
+      }
+      return false;
+    }
+
+    function syncDomainKnowledgeUI() {
+      const sec = document.getElementById("section-domain-knowledge");
+      const sel = document.getElementById("domain-knowledge-select");
+      const nEl = document.getElementById("domain-facts-count");
+      const gate = document.getElementById("domain-knowledge-gate");
+      const inProduct = mode === "product";
+      const inStory = mode === "story";
+      const allow = inStory && hasNarrativeForDomainKnowledge();
+
+      if (inProduct) {
+        if (sel && String(sel.value || "").trim()) {
+          sel.value = "";
+        }
+        if (sec) {
+          sec.hidden = true;
+          sec.setAttribute("aria-hidden", "true");
+          sec.classList.remove("is-domain-locked");
+        }
+        if (sel) sel.disabled = true;
+        if (nEl) nEl.disabled = true;
+        if (gate) gate.hidden = true;
+        return;
+      }
+      if (sec) {
+        sec.hidden = false;
+        sec.setAttribute("aria-hidden", "false");
+        sec.classList.toggle("is-domain-locked", !allow);
+      }
+      if (!allow) {
+        if (sel && String(sel.value || "").trim()) {
+          sel.value = "";
+        }
+        if (sel) sel.disabled = true;
+        if (nEl) nEl.disabled = true;
+        if (gate) {
+          gate.textContent = "เลือกสไตล์เนะเรทีฟอย่างน้อย 1: «ผักนักเลง» หรือ «อวัยวะรวมตัว» จึงจะใช้ domain knowledge ได้";
+          gate.hidden = false;
+        }
+        return;
+      }
+      if (sel) sel.disabled = false;
+      if (nEl) nEl.disabled = false;
+      if (gate) gate.hidden = true;
+    }
+
+    function initDomainKnowledgeSelect() {
+      const sel = document.getElementById("domain-knowledge-select");
+      if (!sel) return;
+      const frag = document.createDocumentFragment();
+      const o0 = document.createElement("option");
+      o0.value = "";
+      o0.textContent = "— ไม่ใส่ —";
+      frag.appendChild(o0);
+      DOMAIN_KNOWLEDGE_SLUGS.forEach(function (slug) {
+        const o = document.createElement("option");
+        o.value = slug;
+        o.textContent = slug.replace(/_/g, " ");
+        frag.appendChild(o);
+      });
+      while (sel.firstChild) {
+        sel.removeChild(sel.firstChild);
+      }
+      sel.appendChild(frag);
+    }
+
+    const PRODUCT_FACTS_SLUGS = [
+      "default_product"
+    ];
+
+    function initProductFactsSelect() {
+      const sel = document.getElementById("product-facts-select");
+      if (!sel) return;
+      const frag = document.createDocumentFragment();
+      const o0 = document.createElement("option");
+      o0.value = "";
+      o0.textContent = "— ไม่ใส่ —";
+      frag.appendChild(o0);
+      PRODUCT_FACTS_SLUGS.forEach(function (slug) {
+        const o = document.createElement("option");
+        o.value = slug;
+        o.textContent = slug.replace(/_/g, " ");
+        frag.appendChild(o);
+      });
+      while (sel.firstChild) {
+        sel.removeChild(sel.firstChild);
+      }
+      sel.appendChild(frag);
+    }
+
+    async function injectDomainKnowledgePayload(payload) {
+      if (payload && payload.domainKnowledgeText !== undefined) delete payload.domainKnowledgeText;
+      if (payload && payload.domainKnowledgeMeta !== undefined) delete payload.domainKnowledgeMeta;
+      if (!isDomainKnowledgeInjectionAllowedFromPayload(payload)) {
+        return;
+      }
+      const sel = document.getElementById("domain-knowledge-select");
+      const nEl = document.getElementById("domain-facts-count");
+      if (!sel || !String(sel.value || "").trim()) {
+        return;
+      }
+      if (location.protocol === "file:") {
+        throw new Error("Domain knowledge: เปิดหน้านี้ผ่าน http จาก root โปรเจกต์ (ไม่ใช่ file://) — รัน python3 serve_story_mock.py");
+      }
+      const maxN = Math.min(25, Math.max(1, parseInt(nEl && nEl.value, 10) || 6));
+      const slug = String(sel.value).trim();
+      const url = "domains/" + encodeURIComponent(slug) + "/canonical_facts.json";
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error("โหลด " + url + " ไม่ได้ (HTTP " + res.status + ") — รันเซิร์ฟเวอร์ที่ root โปรเจกต์");
+      }
+      const data = await res.json();
+      const rawFacts = Array.isArray(data.facts) ? data.facts : [];
+      const facts = rawFacts.slice(0, maxN);
+      const lines = facts.map(function (f, i) {
+        if (!f) return "";
+        const st =
+          (f.statement_th && String(f.statement_th).trim()) ||
+          (f.statement_en && String(f.statement_en).trim()) ||
+          "";
+        const id = f.fact_id || ("fact_" + (i + 1));
+        if (!st) return "";
+        return "[" + id + "] " + st;
+      }).filter(function (l) { return l.length; });
+      if (!lines.length) {
+        throw new Error("ไม่พบ fact ใช้ได้ใน " + url);
+      }
+      const domainId = (data && data.domain_id) || slug;
+      payload.domainKnowledgeText =
+        "โดเมน: " + domainId + " — ข้อเท็จจริงอ้างอิงจาก canonical_facts (local; ไม่ใช่คำแนะนำทางการแพทย์)\n" +
+        lines.join("\n");
+      payload.domainKnowledgeMeta = {
+        domainId: domainId,
+        loadedFactLines: lines.length,
+        maxRequested: maxN,
+        source: url
+      };
+    }
+
+    async function injectProductFactsPayload(payload) {
+      if (payload && payload.productFactsText !== undefined) delete payload.productFactsText;
+      if (payload && payload.productFactsMeta !== undefined) delete payload.productFactsMeta;
+      const sel = document.getElementById("product-facts-select");
+      const nEl = document.getElementById("product-facts-count");
+      if (!sel || !String(sel.value || "").trim()) {
+        return;
+      }
+      if (location.protocol === "file:") {
+        throw new Error("Product facts: เปิดหน้านี้ผ่าน http จาก root โปรเจกต์ (ไม่ใช่ file://) — รัน python3 serve_story_mock.py");
+      }
+      const maxN = Math.min(25, Math.max(1, parseInt(nEl && nEl.value, 10) || 8));
+      const slug = String(sel.value).trim();
+      const url = "products/" + encodeURIComponent(slug) + "/product_facts.json";
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error("โหลด " + url + " ไม่ได้ (HTTP " + res.status + ") — รันเซิร์ฟเวอร์ที่ root โปรเจกต์");
+      }
+      const data = await res.json();
+      const rawFacts = Array.isArray(data.facts) ? data.facts : [];
+      const facts = rawFacts.slice(0, maxN);
+      const lines = facts.map(function (f, i) {
+        if (!f) return "";
+        const id = f.fact_id || ("product_fact_" + (i + 1));
+        const st = (f.statement_th && String(f.statement_th).trim()) || "";
+        const nums = Array.isArray(f.numeric_values) ? f.numeric_values : [];
+        const numLine = nums
+          .map(function (nv) {
+            if (!nv) return "";
+            var v = nv.value != null ? String(nv.value).trim() : "";
+            var u = nv.unit != null ? String(nv.unit).trim() : "";
+            var lb = nv.label != null ? String(nv.label).trim() : "";
+            if (!v) return "";
+            return lb ? (lb + "=" + v + (u ? " " + u : "")) : (v + (u ? " " + u : ""));
+          })
+          .filter(Boolean)
+          .join(" ; ");
+        const base = st || numLine;
+        if (!base) return "";
+        return "[" + id + "] " + base + (st && numLine ? " | numeric: " + numLine : "");
+      }).filter(function (l) { return l.length; });
+      if (!lines.length) {
+        throw new Error("ไม่พบ fact ใช้ได้ใน " + url);
+      }
+      const productId = (data && data.product_id) || slug;
+      payload.productFactsText =
+        "สินค้า: " + productId + " — ตัวเลขอ้างอิงจาก product_facts (local)\n" +
+        lines.join("\n");
+      payload.productFactsMeta = {
+        productId: productId,
+        loadedFactLines: lines.length,
+        maxRequested: maxN,
+        source: url
+      };
+    }
+
     function updatePreview() {
+      syncDomainKnowledgeUI();
       const payload = getCurrentPayload();
       document.getElementById("json-out").textContent = JSON.stringify(payload, null, 2);
       syncVisualSelectedBox();
@@ -2649,13 +3262,16 @@
     document.getElementById("h1h2").addEventListener("change", updatePreview);
 
     function revokeDropThumb(lab) {
-      const old = lab.querySelector("img.thumb");
-      if (old) {
-        if (old.src.startsWith("blob:")) URL.revokeObjectURL(old.src);
+      lab.querySelectorAll("img.thumb").forEach(function (old) {
+        if (old.src && old.src.startsWith("blob:")) URL.revokeObjectURL(old.src);
         old.remove();
-      }
+      });
       const xb = lab.querySelector(".drop-clear");
       if (xb) xb.remove();
+    }
+
+    function isMultiFileKey(k) {
+      return k === "product" || k === "character1" || k === "character2" || k === "character3";
     }
 
     function clearPromptAndImages() {
@@ -2664,13 +3280,23 @@
       document.querySelectorAll(".drop input").forEach(function (inp) {
         const key = inp.dataset.key;
         inp.value = "";
-        if (key && Object.prototype.hasOwnProperty.call(files, key)) files[key] = null;
+        if (key && Object.prototype.hasOwnProperty.call(files, key)) {
+          files[key] = isMultiFileKey(key) ? [] : null;
+        }
         const lab = inp.closest(".drop");
         if (lab) {
           lab.classList.remove("has-file");
           revokeDropThumb(lab);
         }
       });
+      heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      var ho = document.getElementById("hero-analysis-out");
+      var hs = document.getElementById("hero-analyze-status");
+      if (ho) {
+        ho.textContent = "";
+        ho.style.display = "none";
+      }
+      if (hs) hs.textContent = "";
       updatePreview();
     }
 
@@ -2688,49 +3314,212 @@
       });
     }
 
-    document.querySelectorAll(".drop input").forEach(function (inp) {
-      inp.addEventListener("change", function (e) {
-        const key = e.target.dataset.key;
-        const f = e.target.files && e.target.files[0] ? e.target.files[0] : null;
-        files[key] = f ? { name: f.name, mimeType: f.type || "image/jpeg", data: null } : null;
-        const lab = e.target.closest(".drop");
-        if (!lab) return;
-        lab.classList.toggle("has-file", !!f);
+    function attachSingleDropClear(inp, key, lab) {
+      const clearBtn = document.createElement("button");
+      clearBtn.type = "button";
+      clearBtn.className = "drop-clear";
+      clearBtn.setAttribute("aria-label", "ลบรูปที่เลือก");
+      clearBtn.textContent = "\u2715";
+      clearBtn.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        inp.value = "";
+        if (isMultiFileKey(key)) {
+          files[key] = [];
+        } else {
+          files[key] = null;
+        }
+        if (isMultiFileKey(key) && (key === "character1" || key === "character2" || key === "character3")) {
+          heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          var ho = document.getElementById("hero-analysis-out");
+          var hs = document.getElementById("hero-analyze-status");
+          if (ho) {
+            ho.textContent = "";
+            ho.style.display = "none";
+          }
+          if (hs) hs.textContent = "";
+        }
+        lab.classList.remove("has-file");
         revokeDropThumb(lab);
-        if (f) {
-          readFileAsBase64(f).then(function (res) {
-            if (files[key] && files[key].name === f.name) {
-              files[key].mimeType = res.mimeType;
-              files[key].data = res.data;
-            }
+        updatePreview();
+      });
+      lab.appendChild(clearBtn);
+    }
+
+    function collectCharacterRefImagesForAnalysis() {
+      var out = [];
+      ["character1", "character2", "character3"].forEach(function (slot) {
+        var arr = files[slot] || [];
+        arr.forEach(function (f) {
+          if (f && f.data && f.mimeType) {
+            out.push({ mimeType: f.mimeType, data: f.data });
+          }
+        });
+      });
+      return out;
+    }
+
+    function buildHeroImageOrderLegend() {
+      var lines = [];
+      var idx = 0;
+      ["character1", "character2", "character3"].forEach(function (slot) {
+        var withData = (files[slot] || []).filter(function (f) {
+          return f && f.data;
+        });
+        if (!withData.length) {
+          return;
+        }
+        var n = withData.length;
+        lines.push(
+          "- indices " + idx + "…" + (idx + n - 1) + " → " + slot + " (" + n + " ref " + (n > 1 ? "images" : "image") + ")"
+        );
+        idx += n;
+      });
+      return lines.length ? lines.join("\n") : "";
+    }
+
+    function parseJsonFromGeminiText(s) {
+      s = String(s || "").trim();
+      var m = s.match(/```(?:json)?\s*([\s\S]*?)```/);
+      if (m) s = m[1].trim();
+      return JSON.parse(s);
+    }
+
+    ["product", "character1", "character2", "character3"].forEach(function (mkey) {
+      var inp = document.querySelector('.drop input[data-key="' + mkey + '"]');
+      if (!inp) return;
+      inp.setAttribute("multiple", "multiple");
+      inp.addEventListener("change", function (e) {
+        var key = e.target.dataset.key;
+        var lab = e.target.closest(".drop");
+        if (!lab) return;
+        if (isMultiFileKey(key) && (key === "character1" || key === "character2" || key === "character3")) {
+          heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          var hox = document.getElementById("hero-analysis-out");
+          var hsz = document.getElementById("hero-analyze-status");
+          if (hox) {
+            hox.textContent = "";
+            hox.style.display = "none";
+          }
+          if (hsz) hsz.textContent = "";
+        }
+        var raw = e.target.files ? Array.from(e.target.files) : [];
+        var list = raw.slice(0, MULTI_IMAGE_MAX);
+        if (raw.length > MULTI_IMAGE_MAX) {
+          console.warn("[mock] " + key + ": ใช้เฉพาะ " + MULTI_IMAGE_MAX + " รูปแรก จาก " + raw.length + " ไฟล์");
+        }
+        files[key] = list.map(function (f) {
+          return { name: f.name, mimeType: f.type || "image/jpeg", data: null };
+        });
+        lab.classList.toggle("has-file", list.length > 0);
+        revokeDropThumb(lab);
+        var stack = lab.querySelector(".multi-thumb-stack");
+        if (list.length && stack) {
+          Promise.all(list.map(readFileAsBase64)).then(function (results) {
+            list.forEach(function (f, i) {
+              if (files[key][i] && files[key][i].name === f.name) {
+                files[key][i].mimeType = results[i].mimeType;
+                files[key][i].data = results[i].data;
+              }
+            });
+            updatePreview();
           }).catch(function (err) {
             console.warn("[mock] readFileAsBase64 failed:", err);
           });
-          const url = URL.createObjectURL(f);
-          const img = document.createElement("img");
-          img.className = "thumb";
-          img.src = url;
-          img.alt = "";
-          inp.insertAdjacentElement("afterend", img);
-          const clearBtn = document.createElement("button");
-          clearBtn.type = "button";
-          clearBtn.className = "drop-clear";
-          clearBtn.setAttribute("aria-label", "ลบรูปที่เลือก");
-          clearBtn.textContent = "\u2715";
-          clearBtn.addEventListener("click", function (ev) {
-            ev.preventDefault();
-            ev.stopPropagation();
-            inp.value = "";
-            files[key] = null;
-            lab.classList.remove("has-file");
-            revokeDropThumb(lab);
-            updatePreview();
+          list.forEach(function (f) {
+            var url = URL.createObjectURL(f);
+            var img = document.createElement("img");
+            img.className = "thumb";
+            img.src = url;
+            img.alt = "";
+            stack.appendChild(img);
           });
-          lab.appendChild(clearBtn);
+          attachSingleDropClear(inp, key, lab);
         }
         updatePreview();
       });
     });
+
+    (function () {
+    var bHero = document.getElementById("btn-hero-analyze");
+    if (!bHero) return;
+    bHero.addEventListener("click", async function () {
+      const G = window.MockStorymodeGemini;
+      const stEl = document.getElementById("hero-analyze-status");
+      const outEl = document.getElementById("hero-analysis-out");
+      const keyEl = document.getElementById("gemini-api-key");
+      if (!G || !G.buildHeroAnalysisSystemPrompt) {
+        if (stEl) stEl.textContent = "โหลด gemini-core ไม่สำเร็จ";
+        return;
+      }
+      var imgs = collectCharacterRefImagesForAnalysis();
+      if (!imgs.length) {
+        if (stEl) stEl.textContent = "อัปโหลดรูปตัวละคร (slot 1–3) อย่างน้อย 1 รูปที่อ่านข้อมูลเสร็จแล้วก่อน";
+        return;
+      }
+      var apiKey = keyEl && keyEl.value ? keyEl.value.trim() : "";
+      if (!apiKey) {
+        try {
+          apiKey = (localStorage.getItem(GEMINI_API_STORAGE_KEY) || "").trim();
+        } catch (_) {}
+        if (apiKey && keyEl) keyEl.value = apiKey;
+      }
+      if (!apiKey && !window.__GEMINI_SERVER_MODE__) {
+        if (stEl) stEl.textContent = "ต้องมี API key หรือเซิร์ฟเวอร์ /api/gemini";
+        return;
+      }
+      const legend = buildHeroImageOrderLegend();
+      const sys = G.buildHeroAnalysisSystemPrompt();
+      const usr = G.buildHeroAnalysisUserMessage(legend);
+      if (stEl) stEl.textContent = "กำลังวิเคราะห์…";
+      var btnH = document.getElementById("btn-hero-analyze");
+      if (btnH) btnH.disabled = true;
+      try {
+        var res = await G.mockFetchGeminiStorymode(
+          apiKey,
+          sys,
+          usr,
+          imgs,
+          { skipStorySafety: true, temperature: 0.25, maxOutputTokens: 4096 }
+        );
+        var raw = res && res.text ? String(res.text) : "";
+        var parsed = null;
+        try {
+          parsed = parseJsonFromGeminiText(raw);
+        } catch (pe) {
+          if (stEl) stEl.textContent = "ได้ข้อความแล้ว แต่ parse JSON ไม่ผ่าน — ดู raw ด้านล่าง";
+        }
+        heroAnalysisCache = {
+          rawText: raw,
+          parsed: parsed,
+          at: Date.now(),
+          error: parsed ? null : "parse"
+        };
+        if (stEl) {
+          stEl.textContent = parsed
+            ? "เสร็จ — แนบอัตโนมัติตอนกด «เจนสคริปต์ฉาก»"
+            : (stEl.textContent || "ดู raw ด้านล่าง");
+        }
+        if (outEl) {
+          outEl.textContent = parsed
+            ? JSON.stringify(parsed, null, 2)
+            : raw;
+          outEl.style.display = "block";
+        }
+        updatePreview();
+      } catch (err) {
+        var msg = err && err.message ? err.message : String(err);
+        heroAnalysisCache = { rawText: null, parsed: null, at: null, error: msg };
+        if (stEl) stEl.textContent = "ผิดพลาด: " + msg;
+        if (outEl) {
+          outEl.textContent = msg;
+          outEl.style.display = "block";
+        }
+      } finally {
+        if (btnH) btnH.disabled = false;
+      }
+    });
+    })();
 
     document.getElementById("btn-refresh").addEventListener("click", updatePreview);
     document.getElementById("btn-copy").addEventListener("click", async () => {
@@ -2747,8 +3536,7 @@
     async function tryInitGeminiServerMode() {
       try {
         if (location.protocol === "file:") return;
-        const h = location.hostname;
-        if (h === "localhost" || h === "127.0.0.1") return;
+        /* localhost + serve_story_mock.py: รัน /api/gemini-verify บนเครื่อง = API คุณเป็น backend จริง */
         const r = await fetch("/api/gemini-verify");
         if (!r.ok) return;
         const j = await r.json().catch(() => ({}));
@@ -2899,6 +3687,7 @@
         status.textContent = "โหลด storymode-mock-enrich-bundle.js / storymode-mock-gemini-core.js ไม่สำเร็จ";
         return;
       }
+      syncDomainKnowledgeUI();
       const payload = getCurrentPayload();
       if (!payload.prompt) {
         status.textContent = "ใส่ Prompt (ส่วน 1) ก่อน";
@@ -2914,6 +3703,18 @@
         status.textContent = "กรอกค่าจาก Google AI Studio ก่อน (ลิงก์ด้านบน)";
         setApiGoogleLed("fail");
         return;
+      }
+
+      if (location.protocol === "file:") {
+        const dsel = document.getElementById("domain-knowledge-select");
+        if (
+          dsel &&
+          String(dsel.value || "").trim() &&
+          isDomainKnowledgeInjectionAllowedFromPayload(payload)
+        ) {
+          status.textContent = "Domain knowledge: ต้องเปิดผ่าน http ไม่ใช่ file:// — รัน python3 serve_story_mock.py";
+          return;
+        }
       }
 
       const btn = document.getElementById("btn-generate");
@@ -2944,15 +3745,36 @@
       }
 
       try {
+        if (function () {
+          const d = document.getElementById("domain-knowledge-select");
+          return (
+            d &&
+            String(d.value || "").trim() &&
+            isDomainKnowledgeInjectionAllowedFromPayload(payload)
+          );
+        }()) {
+          status.textContent = "กำลังโหลด domain knowledge…";
+        }
+        await injectDomainKnowledgePayload(payload);
+        await injectProductFactsPayload(payload);
+        if (payload && payload.domainKnowledgeText) {
+          status.textContent = "กำลังเจน — แนบ domain/product facts แล้ว…";
+        } else if (payload && payload.productFactsText) {
+          status.textContent = "กำลังเจน — แนบ product facts แล้ว…";
+        } else {
+          status.textContent = "กำลังเจน — ดูผลด้านล่าง…";
+        }
         const system = G.buildStorymodeSystemPromptFromPayload(payload);
         const user = G.buildStorymodeUserMessageFromPayload(payload);
         if (!user) throw new Error("User message ว่าง");
+        const imagesForGemini = (payload.images && payload.images.imagesForGemini) || [];
+        const imageRefOrder = buildImageRefOrderList(imagesForGemini);
         save({
           status: "processing",
           message: "กำลังเรียก Gemini…",
+          imageRefOrder: imageRefOrder,
           ts: Date.now()
         });
-        const imagesForGemini = (payload.images && payload.images.imagesForGemini) || [];
         const out = await G.mockFetchGeminiStorymode(apiKey, system, user, imagesForGemini);
         save({
           status: "done",
@@ -2960,18 +3782,27 @@
           model: out.model,
           truncated: !!out.truncated,
           error: null,
+          imageRefOrder: imageRefOrder,
           ts: Date.now()
         });
         status.textContent = "สำเร็จ — ดูผลในแท็บผลเจน";
         showMainTab('result');
       } catch (e) {
         const msg = e && e.message ? e.message : String(e);
+        var errRef = [];
+        try {
+          const imgsE = (payload && payload.images && payload.images.imagesForGemini) || [];
+          errRef = buildImageRefOrderList(imgsE);
+        } catch (_) {
+          errRef = [];
+        }
         save({
           status: "error",
           text: "",
           model: null,
           truncated: false,
           error: msg,
+          imageRefOrder: errRef,
           ts: Date.now()
         });
         status.textContent = msg + " (ดูรายละเอียดด้านล่าง)";
@@ -2984,6 +3815,18 @@
       }
     });
 
+    initDomainKnowledgeSelect();
+    initProductFactsSelect();
+    (function() {
+      const s = document.getElementById("domain-knowledge-select");
+      const n = document.getElementById("domain-facts-count");
+      const ps = document.getElementById("product-facts-select");
+      const pn = document.getElementById("product-facts-count");
+      if (s) s.addEventListener("change", updatePreview);
+      if (n) n.addEventListener("input", updatePreview);
+      if (ps) ps.addEventListener("change", updatePreview);
+      if (pn) pn.addEventListener("input", updatePreview);
+    })();
     applyFavoriteClasses();
     applySalesFormulaVisibility();
     applyHookSectionBehavior();
@@ -3023,35 +3866,112 @@
       if (tabResult)  tabResult.addEventListener("click",  function() { showMainTab("result");  });
     })();
 
-    /* ── Auth: render avatar & logout ─────────────────────────────────────── */
+  </script>
+  <script>
     (function () {
-      var wrap = document.getElementById('user-avatar-wrap');
-      if (!wrap) return;
-      try {
-        var user = window.__gcsUser || {};
+      function doLogout() {
+        location.replace("/api/auth/logout");
+      }
+      window.doLogout = doLogout;
+
+      function makePlaceholder(user) {
+        var d = document.createElement("div");
+        d.className = "user-avatar-placeholder";
+        d.textContent = (user.name || "?").charAt(0).toUpperCase();
+        return d;
+      }
+
+      function renderUserMenu(user) {
+        var wrap = document.getElementById("user-avatar-wrap");
+        var nameEl = document.getElementById("user-display-name");
+        if (!wrap || !user) return;
+        while (wrap.firstChild) wrap.removeChild(wrap.firstChild);
+        if (nameEl) {
+          if (user.name) {
+            nameEl.textContent = user.name;
+            nameEl.hidden = false;
+          } else {
+            nameEl.textContent = "";
+            nameEl.hidden = true;
+          }
+        }
         if (user.picture) {
-          var img = document.createElement('img');
+          var img = document.createElement("img");
           img.src = user.picture;
-          img.alt = user.name || '';
-          img.className = 'user-avatar';
-          img.onerror = function () { img.replaceWith(makePlaceholder(user)); };
+          img.alt = user.name || "";
+          img.className = "user-avatar";
+          img.onerror = function () {
+            img.replaceWith(makePlaceholder(user));
+          };
           wrap.appendChild(img);
         } else if (user.name) {
           wrap.appendChild(makePlaceholder(user));
         }
-      } catch (e) {}
-
-      function makePlaceholder(user) {
-        var d = document.createElement('div');
-        d.className = 'user-avatar-placeholder';
-        d.textContent = (user.name || '?').charAt(0).toUpperCase();
-        return d;
       }
-    })();
 
-    function doLogout() {
-      location.replace('/api/auth/logout');
-    }
+      var errMsgs = {
+        access_denied: "คุณยกเลิกการเข้าสู่ระบบ",
+        state_mismatch: "ข้อผิดพลาดความปลอดภัย กรุณาลองอีกครั้ง",
+        token_exchange_failed: "เชื่อมต่อ Google ไม่สำเร็จ กรุณาลองอีกครั้ง",
+        no_email: "บัญชี Google นี้ไม่มีอีเมลสำหรับยืนยันตัวตน กรุณาใช้บัญชีอื่น",
+        email_not_approved: "อีเมลนี้ยังไม่ได้รับอนุมัติให้เข้าใช้งาน กรุณาติดต่อผู้ดูแลระบบ"
+      };
+      var params = new URLSearchParams(location.search);
+      var qErr = params.get("error");
+
+      function showGateError() {
+        if (!qErr) return;
+        var el = document.getElementById("auth-gate-error");
+        if (!el) return;
+        el.textContent = errMsgs[qErr] || "เกิดข้อผิดพลาด: " + qErr;
+        el.style.display = "block";
+      }
+
+      var menu = document.getElementById("user-menu");
+      var outBtn = document.getElementById("header-logout-btn");
+
+      function finishUnlocked() {
+        document.body.classList.remove("auth-checking");
+        document.body.classList.add("auth-ok");
+        if (menu) menu.hidden = false;
+        if (outBtn) outBtn.addEventListener("click", doLogout);
+      }
+
+      function finishBypass() {
+        document.body.classList.remove("auth-checking");
+        document.body.classList.add("auth-bypass");
+      }
+
+      function finishLocked() {
+        document.body.classList.remove("auth-checking");
+        document.body.classList.add("auth-locked");
+        showGateError();
+      }
+
+      fetch("/api/auth/session", { credentials: "include" })
+        .then(function (r) {
+          if (r.status === 404 || r.status === 500) {
+            finishBypass();
+            return;
+          }
+          if (r.status === 401) {
+            finishLocked();
+            return;
+          }
+          return r.json().then(function (d) {
+            if (d && d.authenticated && d.user) {
+              window.__gcsUser = d.user;
+              renderUserMenu(d.user);
+              finishUnlocked();
+            } else {
+              finishLocked();
+            }
+          });
+        })
+        .catch(function () {
+          finishBypass();
+        });
+    })();
   </script>
 </body>
 </html>

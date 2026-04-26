@@ -1,0 +1,175 @@
+{
+  "domain_id": "liver",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.liver"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_liver_001",
+      "popular_belief_th": "ตับต้อง 'ล้างพิษ' เป็นประจำด้วยคอร์ส detox / juice cleanse / น้ำมะนาวโซดา",
+      "popular_belief_en": "The liver needs periodic 'detox' via cleanses, juice fasts, or lemon water protocols",
+      "truth_th": "ตับทำงาน Phase 1 (CYP450) + Phase 2 (conjugation) ตลอด 24/7 ด้วยเอนไซม์ในตัวเอง ไม่มีหลักฐานวิทยาศาสตร์ว่า 'คอร์สล้างพิษ' เพิ่มประสิทธิภาพ — NIH LiverTox และ BDA 2019 position statement ยืนยันว่า 'detox' เป็น marketing term ไม่ใช่ physiological mechanism; ยิ่งไปกว่านั้น juice cleanse ที่เต็มไปด้วยฟรุกโตสอาจเพิ่มไขมันตับ",
+      "truth_en": "The liver performs Phase 1 (CYP450) + Phase 2 (conjugation) continuously 24/7 via its own enzymes. There is no scientific evidence that 'detox courses' enhance its function — NIH LiverTox and the BDA 2019 position statement confirm 'detox' is marketing terminology, not a physiological mechanism. Worse, fructose-rich juice cleanses can worsen liver fat.",
+      "why_popular": "อุตสาหกรรมอาหารเสริมใช้คำว่า 'detox' กว่า 3 ทศวรรษเพราะขายง่าย + ให้ความรู้สึก 'สะอาดเร็ว' + viral ใน social media",
+      "reveal_style": "insult_reality",
+      "sources_debunking": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK547852/", "org": "NIH LiverTox", "source_tier": "A", "year": 2024, "title": "Detox diets and liver function — no evidence base", "access_date": "2026-04-22"},
+        {"url": "https://www.bda.uk.com/resource/detox-diets.html", "org": "British Dietetic Association", "source_tier": "B", "year": 2019, "title": "BDA position — Detox diets", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "phase_1_2_detox",
+      "counter_facts": ["liver_011", "liver_012"],
+      "composer_directive": "ห้ามใช้คำว่า 'ล้างพิษตับ / detox ตับ / รีเซ็ตตับ' เด็ดขาด — ให้ใช้ 'สนับสนุนการทำงานของตับ' หรือ 'ลดภาระตับ' แทน — อย. ไทย flag high",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_liver_002",
+      "popular_belief_th": "ไขมันพอกตับเกิดจาก 'กินไขมันเยอะ' — ต้องกินอาหาร low-fat",
+      "popular_belief_en": "Fatty liver is caused by eating dietary fat — you need a low-fat diet",
+      "truth_th": "NAFLD เกิดจากการที่ตับสร้างไขมันเอง (de novo lipogenesis, DNL) จากคาร์โบไฮเดรตและฟรุกโตสส่วนเกินเป็นหลัก ไม่ใช่ไขมันจากอาหารโดยตรง; ผู้ป่วย NAFLD ที่กิน low-fat high-carb diet มักแย่ลง — RCT เปรียบเทียบแสดงว่า Mediterranean/low-carb ดีกว่าในการลดไขมันตับ (Ryan 2013)",
+      "truth_en": "NAFLD is primarily caused by the liver making its own fat (de novo lipogenesis, DNL) from excess carbohydrates and fructose, not directly from dietary fat. Low-fat high-carb diets often worsen NAFLD patients — RCTs show Mediterranean/low-carb diets reduce liver fat more effectively (Ryan 2013).",
+      "why_popular": "USDA Food Pyramid 1992 + low-fat marketing ยุค 80s-90s ที่แพร่ไปทั่วโลกรวมไทย — โฆษณา 'margarine ดีกว่าเนย' ครองยุคนั้น",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/23623928/", "org": "J Hepatol", "source_tier": "A", "year": 2013, "title": "Ryan MC et al. — Mediterranean diet reduces hepatic steatosis", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAFLD",
+      "counter_facts": ["liver_005", "liver_006"],
+      "composer_directive": "Frame DNL เป็น 'โรงงานไขมันในตับ' — ไม่ demonize fat, focus ไปที่ fructose + refined carb",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_liver_003",
+      "popular_belief_th": "น้ำอัดลมไม่มี fat → ดื่มแล้วไม่เกี่ยวกับไขมันพอกตับ",
+      "popular_belief_en": "Soda has no fat → drinking it doesn't cause fatty liver",
+      "truth_th": "น้ำอัดลมมี HFCS/sucrose ~40-60g ต่อกระป๋อง; ฟรุกโตสในนั้น 50% เข้าตับโดยตรง bypass PFK → DNL → ไขมันในตับ; Abdelmalek 2010 Hepatology แสดงว่าฟรุกโตสสัมพันธ์กับ fibrosis severity; Maersk 2012 RCT แสดงว่าดื่มน้ำอัดลม 1L/วัน × 6 เดือน → ไขมันตับเพิ่ม 132-143%",
+      "truth_en": "Soda contains ~40-60g HFCS/sucrose per can. 50% of that fructose goes straight to the liver, bypassing PFK → DNL → liver fat. Abdelmalek 2010 (Hepatology) linked fructose to fibrosis severity. Maersk 2012 RCT: drinking 1L/day of regular soda for 6 months → liver fat rose 132-143%.",
+      "why_popular": "อุตสาหกรรมน้ำตาลลอบบี้ว่า 'ไขมันคือศัตรู' ตั้งแต่ยุค 60s → หลบข้อสังเกตจริงว่าน้ำตาลสร้างไขมันตับ",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19233943/", "org": "Hepatology", "source_tier": "A", "year": 2010, "title": "Abdelmalek MF et al. — Fructose + fibrosis", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22205311/", "org": "Am J Clin Nutr", "source_tier": "A", "year": 2012, "title": "Maersk M et al. — Sucrose-sweetened soft drinks and ectopic fat", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAFLD",
+      "counter_facts": ["liver_006", "liver_007", "liver_008"],
+      "composer_directive": "แกนหลักของ series 'โยงแฉน้ำอัดลม' — ใช้ Lustig/Johnson/Choi เป็น authority. Frame 'ไม่มี fat' เป็น 'กับดักที่อุตสาหกรรมตั้งเอาไว้'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_liver_004",
+      "popular_belief_th": "ไขมันพอกตับเป็นโรคของคนอ้วน — ถ้าน้ำหนักปกติก็ไม่เป็น",
+      "popular_belief_en": "Fatty liver is a disease of the obese — normal-weight people don't get it",
+      "truth_th": "Lean NAFLD พบได้ 10-20% ในเอเชีย (BMI <25) เพราะ visceral fat distribution สูงกว่าคนตะวันตก — Younossi 2019 meta-analysis ยืนยัน; ผู้ที่ BMI ปกติแต่มี insulin resistance + fructose intake สูงก็มี NAFLD ได้ — 'TOFI' (Thin Outside, Fat Inside) เป็นคำอธิบายคลาสสิค",
+      "truth_en": "Lean NAFLD is found in 10-20% of Asians (BMI <25) due to higher visceral fat distribution than Western populations — Younossi 2019 meta-analysis confirms this. Normal-BMI individuals with insulin resistance + high fructose intake can develop NAFLD — 'TOFI' (Thin Outside, Fat Inside) is a classic descriptor.",
+      "why_popular": "หมอไทย + สื่อมักเตือน 'คนอ้วน' เท่านั้น → ทำให้คนผอมไม่ระวัง + ไม่ตรวจ liver enzyme",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.29367", "org": "Hepatology / AASLD", "source_tier": "A", "year": 2018, "title": "AASLD NAFLD Practice Guidance — includes lean NAFLD", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "NAFLD",
+      "counter_facts": ["liver_002", "liver_009"],
+      "composer_directive": "ขยาย audience — คนผอมที่ดื่มน้ำอัดลม/น้ำผลไม้ก็เสี่ยง → hook 'ผอมแต่ตับพัง'",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_liver_005",
+      "popular_belief_th": "ไขมันพอกตับรักษาไม่หาย ต้องอยู่กับมันตลอดชีวิต",
+      "popular_belief_en": "Fatty liver is permanent — you have to live with it forever",
+      "truth_th": "NAFLD เป็นภาวะที่ reversible ในระยะ steatosis และ NASH แบบไม่มี fibrosis ขั้นสูง — Roy Taylor 2011 (Lim EL, Diabetologia) แสดงว่า VLCD 7 วันลดไขมันตับ 30%; Promrat 2010 Hepatology ลด >7% body weight → NASH histology ดีขึ้น 64-90%; แม้ F1-F2 fibrosis ก็ reverse ได้ถ้า trigger หยุด",
+      "truth_en": "NAFLD is reversible at the steatosis and even non-advanced NASH stages. Roy Taylor 2011 (Lim EL, Diabetologia) showed 7-day VLCD drops liver fat by 30%. Promrat 2010 (Hepatology) — losing >7% body weight improved NASH histology in 64-90% of patients. Even F1-F2 fibrosis can reverse once the trigger stops.",
+      "why_popular": "หมอบางคน communicate ว่า 'ดูแลตลอดชีวิต' แบบ chronic disease → ผู้ป่วยเข้าใจว่า irreversible",
+      "reveal_style": "hope_correction",
+      "sources_debunking": [
+        {"url": "https://aasldpubs.onlinelibrary.wiley.com/doi/10.1002/hep.23276", "org": "Hepatology / AASLD", "source_tier": "A", "year": 2010, "title": "Promrat K et al. — Weight loss and NASH histology", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "fatty_liver",
+      "counter_facts": ["liver_004", "liver_020"],
+      "composer_directive": "ให้ hope แต่ห้าม oversell 'หาย 100%' — ให้พูด 'reversible ถ้ายังไม่ถึง F3-F4'",
+      "uncleped_debunked": true
+    },
+    {
+      "myth_id": "myth_liver_006",
+      "popular_belief_th": "Milk thistle / silymarin รักษาตับอักเสบ B/C ได้ — กินยิ่งมากยิ่งดี",
+      "popular_belief_en": "Milk thistle / silymarin cures hepatitis B/C — the more you take, the better",
+      "truth_th": "Cochrane Review 2007 (18 RCTs) สรุปว่า silymarin ไม่มีหลักฐานเพียงพอใน alcoholic/viral hepatitis; NIH-funded SyNCH trial 2012 (silymarin vs placebo ใน chronic HCV) = negative; ผลใน NAFLD มี promising signal (Loguercio 2012, Wah Kheong 2017) แต่ยังไม่ถึง RCT ขนาดใหญ่; ที่สำคัญ — milk thistle ยับยั้ง CYP3A4/2C9 → interact กับ warfarin, statin, tamoxifen",
+      "truth_en": "Cochrane 2007 (18 RCTs) concluded silymarin has insufficient evidence for alcoholic/viral hepatitis. NIH-funded SyNCH trial 2012 (silymarin vs placebo in chronic HCV) was negative. NAFLD signals are promising (Loguercio 2012, Wah Kheong 2017) but lack large-scale RCTs. More importantly, milk thistle inhibits CYP3A4/2C9 → interacts with warfarin, statins, and tamoxifen.",
+      "why_popular": "ขายในไทยมา 20+ ปีด้วยคำว่า 'บำรุงตับ' + MLM network + packaging ที่เลียนแบบยา",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://jamanetwork.com/journals/jama/fullarticle/1213218", "org": "JAMA", "source_tier": "A", "year": 2012, "title": "SyNCH trial — Silymarin in chronic HCV (negative)", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "fatty_liver",
+      "counter_facts": ["liver_013"],
+      "composer_directive": "ห้ามขาย silymarin ว่า 'รักษาตับอักเสบ' — ให้ positioning เป็น 'supportive สำหรับ NAFLD lifestyle' + flag drug interaction",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_liver_007",
+      "popular_belief_th": "สารสกัดชาเขียว (EGCG) ยิ่งเข้มข้นยิ่งดีต่อตับ",
+      "popular_belief_en": "Concentrated green tea extract (EGCG) is better for the liver",
+      "truth_th": "EGCG dose สูง (>800 mg/day) มีรายงาน hepatotoxicity หลายเคสใน FDA Adverse Event Reporting + LiverTox; กลไก: สร้าง pro-oxidant effect + mitochondrial dysfunction เมื่อเกิน threshold; USP 2020 ออก caution label; EMA แนะนำไม่เกิน 800 mg EGCG/day; ดื่มชาเขียว 2-3 แก้ว/วัน = safe (ต่างจากสกัดเม็ด)",
+      "truth_en": "High-dose EGCG (>800 mg/day) has multiple hepatotoxicity reports in FDA FAERS + NIH LiverTox. Mechanism: pro-oxidant + mitochondrial dysfunction at supraphysiologic doses. USP 2020 issued a caution label; EMA recommends ≤800 mg EGCG/day. Drinking 2-3 cups of green tea daily is safe (different from concentrated capsules).",
+      "why_popular": "'ธรรมชาติ = ปลอดภัย' misconception + โฆษณา antioxidant marketing",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.ncbi.nlm.nih.gov/books/NBK548141/", "org": "NIH LiverTox", "source_tier": "A", "year": 2023, "title": "Green tea — hepatotoxicity profile", "access_date": "2026-04-22"},
+        {"url": "https://www.usp.org/sites/default/files/usp/document/our-work/GreenTea_Admonition_Label_Statement.pdf", "org": "USP", "source_tier": "B", "year": 2020, "title": "USP admonition for green tea extracts", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "phase_1_2_detox",
+      "counter_facts": ["liver_015"],
+      "composer_directive": "อนุญาตให้ promote ชาเขียวแบบ infusion แต่ห้ามชวนกินสกัดเม็ดเกิน 800 mg EGCG — ต้อง flag orange",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_liver_008",
+      "popular_belief_th": "NAC + Paracetamol = synergy / กินคู่ให้ตับปลอดภัย",
+      "popular_belief_en": "NAC + Paracetamol = synergy / take them together to protect the liver",
+      "truth_th": "NAC เป็น 'antidote' ใช้ตอน overdose เท่านั้น (IV 150 mg/kg loading) ไม่ใช่ supplement ปกติที่กินคู่; การกิน NAC ป้องกัน routine ไม่มีหลักฐาน + อาจทำให้ NAPQI ถูก clear เร็วเกินจน mask อาการ overdose; ที่สำคัญ — การ promote ว่า 'กิน paracetamol ได้เยอะเพราะมี NAC' เป็นข้อมูลอันตราย",
+      "truth_en": "NAC is a poisoning antidote used only for overdose (IV 150 mg/kg loading) — not a daily supplement paired with acetaminophen. Routine NAC as a pre-emptive protectant lacks evidence and may mask overdose symptoms by accelerating NAPQI clearance. Promoting 'you can take more paracetamol because NAC is there' is dangerous messaging.",
+      "why_popular": "TikTok health influencer + supplement brand เอา NAC มาขายคู่กับเนื้อหา 'กินยาแล้วตับพัง' ตลอด 2022-2025",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://www.bmj.com/content/2/6198/1097", "org": "BMJ", "source_tier": "A", "year": 1979, "title": "Prescott LF et al. — NAC protocol for paracetamol overdose", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "glutathione",
+      "counter_facts": ["liver_014"],
+      "composer_directive": "ห้ามเสนอ NAC เป็น 'ป้องกันตับจาก paracetamol ทั่วไป' — ให้ frame ว่า NAC เป็น antidote สำหรับ OD เท่านั้น + ใช้ routine ต่ำกว่า 600 mg/day",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_liver_009",
+      "popular_belief_th": "TUDCA เป็นอาหารเสริมธรรมชาติ — กินได้ตามใจ",
+      "popular_belief_en": "TUDCA is a natural supplement — you can take it freely",
+      "truth_th": "TUDCA คือ bile acid สังเคราะห์ที่ใช้เป็น 'ยา' ในหลายประเทศ (ยุโรป: ursodeoxycholic acid มี prescription-only; TUDCA ใช้ใน PBC/cholestasis); ขายเป็น supplement ในอเมริกา/ไทย แต่มี ER-stress modulation effect + gut microbiome change ที่ยังไม่มี long-term safety; ไม่ควรใช้ในหญิงตั้งครรภ์, คนที่มีนิ่วในถุงน้ำดี",
+      "truth_en": "TUDCA is a synthetic bile acid used as a drug in several countries (EU: ursodeoxycholic acid is prescription-only; TUDCA for PBC/cholestasis). It is sold as a supplement in the US/Thailand despite ER-stress modulation effects and gut microbiome alterations without long-term safety data. Not advised in pregnancy or gallstone disease.",
+      "why_popular": "Bodybuilding/biohacker community 2020-2025 ใช้ TUDCA คู่กับ oral steroid เพื่อ 'protect liver'",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/20359267/", "org": "J Pharmacol Exp Ther", "source_tier": "A", "year": 2010, "title": "Vang O et al. — TUDCA mechanism", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "bile_acid",
+      "counter_facts": ["liver_016"],
+      "composer_directive": "ห้าม promote TUDCA เป็น OTC — flag orange; ระบุว่าเป็น 'ยา' ในหลายประเทศ + ต้องใช้ภายใต้การดูแล",
+      "uncleped_debunked": false
+    },
+    {
+      "myth_id": "myth_liver_010",
+      "popular_belief_th": "กรดยูริกสูง = เป็นเก๊าท์เท่านั้น — ถ้าไม่ปวดข้อก็ไม่ต้องสนใจ",
+      "popular_belief_en": "High uric acid only matters if you have gout — no joint pain means no worry",
+      "truth_th": "Uric acid >5.5 mg/dL (หญิง) / >6.0 (ชาย) เป็น marker ของ fructose overload + metabolic syndrome แม้ไม่มีอาการ gout — Kuwabara 2018 แสดงว่าเป็น predictor ของ HTN, CKD, NAFLD, insulin resistance; กลไก: uric acid ยับยั้ง eNOS → endothelial dysfunction → hypertension; Johnson 2013 เสนอ fructose → uric acid เป็น 'sensor' ที่เตือน metabolic stress",
+      "truth_en": "Uric acid >5.5 mg/dL (women) / >6.0 (men) is a marker of fructose overload + metabolic syndrome even without gout symptoms. Kuwabara 2018 showed it predicts HTN, CKD, NAFLD, and insulin resistance. Mechanism: uric acid inhibits eNOS → endothelial dysfunction → hypertension. Johnson 2013 proposed fructose → uric acid as a metabolic stress 'sensor'.",
+      "why_popular": "แพทย์ไทยส่วนใหญ่ treat hyperuricemia เฉพาะเมื่อมี gout attack → ผู้ป่วยไม่รู้ว่าค่ายูริกสูงคือ red flag อื่น ๆ",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {"url": "https://diabetesjournals.org/diabetes/article/62/10/3307/15988", "org": "Diabetes (ADA)", "source_tier": "A", "year": 2013, "title": "Johnson RJ et al. — Sugar, uric acid, metabolic syndrome", "access_date": "2026-04-22"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/29158259/", "org": "Hypertension / PubMed", "source_tier": "A", "year": 2018, "title": "Kuwabara M et al. — Asymptomatic hyperuricemia predicts HTN", "access_date": "2026-04-22"}
+      ],
+      "sub_topic_id": "hyperuricemia",
+      "counter_facts": ["liver_007", "liver_008"],
+      "composer_directive": "แกนของ angle 'โยงแฉน้ำอัดลม' — frame ยูริกเป็น 'เครื่องวัดฟรุกโตสที่ล้นจากตับ' — ใช้ Johnson + Choi เป็น authority",
+      "uncleped_debunked": false
+    }
+  ]
+}

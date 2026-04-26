@@ -1,0 +1,26 @@
+{
+  "domain_id": "brain",
+  "primary_th": [
+    "สมอง",
+    "ความจำ",
+    "เบลอ",
+    "โฟกัส",
+    "สมาธิ",
+    "ขี้ลืม"
+  ],
+  "primary_en": [
+    "brain",
+    "cognition",
+    "memory",
+    "brain fog",
+    "focus",
+    "alzheimer",
+    "dementia",
+    "BDNF"
+  ],
+  "aliases_th": [],
+  "aliases_en": [],
+  "jargon_th": [],
+  "jargon_en": [],
+  "regex_patterns": []
+}

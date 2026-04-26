@@ -1,0 +1,194 @@
+{
+  "domain_id": "blood_sugar",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.blood_sugar",
+    "product_categories_from_taxonomy": ["berberine", "chromium", "cinnamon", "fiber", "alpha_lipoic_acid", "inositol", "apple_cider_vinegar", "magnesium_glycinate"]
+  },
+  "angles": [
+    {
+      "angle_id": "angle_bs_berberine",
+      "product_category": "berberine",
+      "problem_th": "คนที่ fasting glucose เริ่มสูง หรือเป็น prediabetes/T2D ระยะแรก — กลัวกินยาหมอตลอดชีวิต แต่ไม่อยากให้ตัวเลขขึ้นต่อไป",
+      "mechanism_claim_th": "Berberine ~500 mg วันละ 3 ครั้ง activate AMPK ในตับ → ลด hepatic glucose output + ลด de novo lipogenesis + เพิ่ม GLUT4 ในกล้ามเนื้อ — head-to-head RCT (Yin 2008): HbA1c ลด 0.89%, FBG ลด 2.8 mmol/L ใน 3 เดือน เทียบเท่ากับ metformin 500 mg ×3",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยสนับสนุนระดับน้ำตาลในเลือดให้อยู่ในเกณฑ์ที่เหมาะสม",
+        "ช่วยควบคุมน้ำตาลหลังอาหาร",
+        "สนับสนุนการทำงานของเมตาบอลิซึมน้ำตาลและไขมัน"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'รักษาเบาหวาน/หายเบาหวาน'",
+        "ห้ามอ้างว่า 'แทนยาหมอได้' หรือ 'หยุดเมทฟอร์มินได้'",
+        "ห้ามการันตี HbA1c reduction แน่นอน (effect size varies)",
+        "ห้ามใช้กับหญิงตั้งครรภ์/ให้นมบุตร (berberine contraindicated — aggravates neonatal jaundice)"
+      ],
+      "supporting_facts": ["bs_003", "bs_004", "bs_014", "bs_023"],
+      "narrative_frames": [
+        "Berberine = 'เมทฟอร์มินจากธรรมชาติ' (ระวังการใช้ wording — ต้อง frame ว่า 'มี mechanism คล้าย' ไม่ใช่ 'เท่ากัน')",
+        "สวิตช์เดียวกัน (AMPK) — เหมือนที่ยาหมอใช้ แต่จากพืช Berberis",
+        "ไม่ใช่ยา ไม่ใช่ magic — แต่งานวิจัย 27 ชิ้นชี้ตรงกันว่าช่วยได้"
+      ]
+    },
+    {
+      "angle_id": "angle_bs_chromium_picolinate",
+      "product_category": "chromium_picolinate",
+      "problem_th": "อยากให้ร่างกาย 'ตอบสนองอินซูลินดีขึ้น' โดยไม่ต้องฉีดอินซูลิน — คนที่ HOMA-IR เริ่มสูง, PCOS, หรือกิน craving หวานบ่อย",
+      "mechanism_claim_th": "Chromium (III) จับ apo-chromodulin เข้า amplify insulin receptor signaling → insulin ดันน้ำตาลเข้าเซลล์ได้ดีขึ้นที่ dose เดิม — Anderson 1997 (Diabetes): 1000 µg/วัน ลด HbA1c 0.8% และ fasting insulin 26% ใน 4 เดือน (T2D cohort)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยสนับสนุนการทำงานของอินซูลิน",
+        "ช่วยควบคุมความอยากหวาน (craving)",
+        "เสริมในคนที่อาจขาดโครเมียมจากอาหารแปรรูป"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'รักษาเบาหวาน'",
+        "ห้ามบอกว่า 'ลด HbA1c ได้ 0.8% แน่นอน' (Western cohort ผลต่ำกว่านี้)",
+        "ห้ามใช้แทน insulin/metformin",
+        "ห้ามใช้ dose >1000 µg/วัน โดยไม่ปรึกษาแพทย์ (อาจมี renal effects)"
+      ],
+      "supporting_facts": ["bs_009"],
+      "narrative_frames": [
+        "โครเมียม = เครื่องขยายเสียงอินซูลิน",
+        "ไม่ได้เพิ่มอินซูลิน แต่ทำให้อินซูลินที่มีทำงานเต็มเสียง"
+      ]
+    },
+    {
+      "angle_id": "angle_bs_cinnamon",
+      "product_category": "cinnamon",
+      "problem_th": "อยากใช้ของใกล้ตัว (เครื่องเทศ) ช่วยคุมน้ำตาล ไม่ต้องเปลี่ยน lifestyle เยอะ",
+      "mechanism_claim_th": "Cinnamon polyphenols (โดยเฉพาะ MHCP) mimic insulin ที่ receptor → autophosphorylate insulin receptor → glucose uptake ดีขึ้น; Allen 2013 meta-analysis (10 RCTs): FPG ลด 24 mg/dL ที่ 1-6 g/วัน",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนการควบคุมระดับน้ำตาลในเลือด",
+        "เสริมในอาหารเพื่อชะลอ glucose spike",
+        "ให้ใช้ Ceylon cinnamon (true cinnamon) ปลอดภัยกว่า Cassia"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'อบเชยรักษาเบาหวาน'",
+        "ห้ามบอก HbA1c จะลดชัด — meta-analysis ไม่พบผลต่อ HbA1c",
+        "ห้ามแนะนำ Cassia cinnamon >6 g/วันระยะยาว (coumarin toxic to liver)"
+      ],
+      "supporting_facts": ["bs_008"],
+      "narrative_frames": [
+        "เครื่องเทศในครัว = supplement ที่คุณมีอยู่แล้ว",
+        "งาน 10 ชิ้นชี้ว่าช่วยลด FPG — แต่ใช้ Ceylon ไม่ใช่ Cassia"
+      ]
+    },
+    {
+      "angle_id": "angle_bs_fiber_glucomannan",
+      "product_category": "fiber_glucomannan",
+      "problem_th": "กินข้าว/ของหวานแล้วน้ำตาลพุ่ง หิวเร็ว จุกจิก → ยิ่งกิน → ยิ่งน้ำตาลไม่นิ่ง",
+      "mechanism_claim_th": "Glucomannan (konjac fiber) ดูดน้ำ 50 เท่าของน้ำหนักตัวเอง → เจลในกระเพาะ → ชะลอ gastric emptying → postprandial glucose ลดลง; SCFAs จาก colonic fermentation → GLP-1/PYY → satiety; Vuksan 1999: fructosamine ลด 5.2%, LDL ลด 20.7% ใน 3 สัปดาห์",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยชะลอการดูดซึมน้ำตาลจากอาหาร",
+        "ช่วยให้อิ่มนาน ลดการกินจุกจิก",
+        "สนับสนุนระบบขับถ่าย",
+        "ช่วยลดคอเลสเตอรอล (meta + Vuksan 1999)"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'ดักจับไขมันออกจากร่างกาย' (mechanism ไม่จริง)",
+        "ห้ามอ้างว่า 'รักษาเบาหวาน'",
+        "ต้องเตือนการกินกับน้ำ — capsule แห้งอาจอุดหลอดอาหาร (choking hazard; FDA warning)",
+        "ห้ามใช้กับผู้ที่มี esophageal stricture หรือ dysphagia"
+      ],
+      "supporting_facts": ["bs_012"],
+      "narrative_frames": [
+        "ไฟเบอร์เจล = เบรกให้น้ำตาล",
+        "กินก่อนข้าว 15 นาที = เพิ่ม 'ช่องว่าง' ให้น้ำตาลไหลช้าลง"
+      ]
+    },
+    {
+      "angle_id": "angle_bs_alpha_lipoic_acid",
+      "product_category": "alpha_lipoic_acid",
+      "problem_th": "คนเบาหวาน T2D ที่เริ่มมี 'ชาปลายมือปลายเท้า', แสบร้อน, นิ้วชา (diabetic peripheral neuropathy) — อยากได้ตัวช่วยที่ไม่ใช่ยาแก้ปวด",
+      "mechanism_claim_th": "ALA 600 mg/วัน regenerate glutathione + activate AMPK → GLUT4 translocation + ลด oxidative stress บน peripheral nerves; NATHAN 1 Trial (Ziegler 2011, 460 คน, 4 ปี): Neuropathy Impairment Score ดีขึ้นอย่างมีนัยสำคัญ",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานของระบบประสาทในผู้มีน้ำตาลในเลือดสูง",
+        "ช่วยลดอาการชา/แสบ/ปวดที่ปลายมือปลายเท้าในผู้ป่วยเบาหวาน (frame as 'ลดอาการ')",
+        "สนับสนุน antioxidant network ของร่างกาย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'รักษา nerve damage ให้กลับมาปกติ'",
+        "ห้ามอ้างว่าเป็น 'ยา' — ALA อยู่ในหมวด supplement ในไทย",
+        "ห้ามใช้แทนการปรึกษาแพทย์สำหรับ neuropathy (อาจมีสาเหตุอื่น เช่น B12 deficiency)"
+      ],
+      "supporting_facts": ["bs_010"],
+      "narrative_frames": [
+        "ชาปลายมือปลายเท้า — ไม่จำเป็นต้องทน",
+        "antioxidant ที่ 'ชาร์จ' glutathione/vit C/E ให้ใช้ต่อ"
+      ]
+    },
+    {
+      "angle_id": "angle_bs_inositol",
+      "product_category": "inositol",
+      "problem_th": "ผู้หญิงที่มี PCOS + น้ำตาลขึ้นง่าย + รอบเดือนไม่ปกติ — ยาฝังอยากหลีกเลี่ยง",
+      "mechanism_claim_th": "Myo-inositol + D-chiro (40:1) เติม IPG pool ที่เป็น second messenger ของ insulin signal → ลด HOMA-IR, ปรับ LH/FSH ratio; Costantino 2009: HOMA-IR ลด 75%, 72% ของผู้ป่วยตกไข่กลับมาใน 12-16 สัปดาห์",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานของอินซูลินในระดับเซลล์",
+        "ช่วยปรับสมดุลระบบสืบพันธุ์ในผู้หญิง PCOS",
+        "สนับสนุนรอบเดือนที่สม่ำเสมอ"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'รักษา PCOS' หรือ 'ช่วยให้ตั้งครรภ์'",
+        "ห้ามใช้แทน metformin/ยาคุมในผู้ที่หมอสั่ง",
+        "ห้ามบอก HOMA-IR จะลด 75% แน่นอน"
+      ],
+      "supporting_facts": ["bs_011"],
+      "narrative_frames": [
+        "Inositol = ล่ามที่แปลคำสั่งอินซูลินเป็นภาษาในเซลล์",
+        "PCOS + น้ำตาลในเลือด — สองเรื่องคือเรื่องเดียวกัน"
+      ]
+    },
+    {
+      "angle_id": "angle_bs_apple_cider_vinegar",
+      "product_category": "apple_cider_vinegar",
+      "problem_th": "มีมื้อกินข้าว/ของหวานที่เลี่ยงไม่ได้ (งานเลี้ยง, ที่ทำงาน) — อยากได้ hack ก่อนกิน ไม่ใช่หลัง",
+      "mechanism_claim_th": "กรดอะซีติก 15-30 ml (1-2 ช้อนโต๊ะ) ก่อนมื้ออาหาร → ยับยั้ง α-amylase + ชะลอ gastric emptying → postprandial glucose ลด 34% (Johnston 2004); effect แรงที่สุดในคน insulin-resistant",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยควบคุมระดับน้ำตาลหลังมื้ออาหาร",
+        "ช่วยให้อิ่มและกินน้อยลงในมื้อ",
+        "เหมาะเป็นตัวช่วย acute ก่อนมื้อคาร์บสูง"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'ลดน้ำหนักได้ X กิโล'",
+        "ห้ามอ้างว่า 'รักษาเบาหวาน'",
+        "ต้องเตือนการกัดกร่อนเคลือบฟัน (enamel erosion) — ต้องบ้วนน้ำหลังดื่ม, ใช้หลอด",
+        "ห้ามดื่มแบบไม่เจือจาง — เสี่ยง esophageal burn; dilute in 250 ml water",
+        "ห้ามใช้ในผู้ที่มี GERD/gastric ulcer active"
+      ],
+      "supporting_facts": ["bs_007"],
+      "narrative_frames": [
+        "1-2 ช้อนก่อนกิน ลดน้ำตาลหลังอาหาร 34%",
+        "Hack ง่ายที่สุด — ไม่ต้องจ่ายค่ายา"
+      ]
+    },
+    {
+      "angle_id": "angle_bs_magnesium_glycinate",
+      "product_category": "magnesium_glycinate",
+      "problem_th": "คนที่ insulin resistance + นอนไม่หลับ + ตะคริว — 3 สัญญาณของการขาดแมกนีเซียม overlap กัน",
+      "mechanism_claim_th": "Magnesium เป็น cofactor ของ 300+ enzymes รวมถึง phosphatidylinositol 3-kinase ใน insulin signaling; Veronese 2016 meta-analysis (18 RCTs, 1,473 คน): 100-500 mg/วัน ลด FBG 0.31 mmol/L และปรับ HOMA-IR โดยเฉพาะใน hypomagnesemic/IR",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานของอินซูลิน",
+        "ช่วยเรื่องการนอนหลับ (cross-domain sleep)",
+        "ช่วยลดอาการตะคริว",
+        "แมกนีเซียม glycinate ดูดซึมดี ไม่ท้องเสียเหมือน oxide/citrate"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'รักษาเบาหวาน'",
+        "ห้ามใช้ dose >400 mg/วันในผู้ป่วยไตเสื่อม (CKD stage 3+) — ต้องปรึกษาแพทย์",
+        "ห้ามการันตี HbA1c reduction"
+      ],
+      "supporting_facts": ["bs_013"],
+      "narrative_frames": [
+        "แร่ธาตุที่ขาดใน 60% ของคนไทย (ประมาณ)",
+        "ไม่ใช่ยา แต่ปลดล็อก 300+ เอนไซม์ที่ร่างกายใช้"
+      ]
+    }
+  ]
+}

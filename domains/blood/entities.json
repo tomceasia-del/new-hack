@@ -1,0 +1,70 @@
+{
+  "domain_id": "blood",
+  "_meta": {
+    "last_harvested": "2026-04-22"
+  },
+  "people": [
+    {"id": "louis_ignarro", "name": "Louis J. Ignarro", "title": "Pharmacologist, Nobel Laureate (1998)", "affiliation": "UCLA School of Medicine", "known_for": "Co-discovery that nitric oxide is a signaling molecule in the cardiovascular system — 1998 Nobel Prize in Physiology or Medicine (shared with Furchgott & Murad)", "verifiable": true},
+    {"id": "robert_furchgott", "name": "Robert F. Furchgott", "title": "Pharmacologist, Nobel Laureate (1998)", "affiliation": "SUNY Downstate Medical Center", "known_for": "Discovery of endothelium-derived relaxing factor (EDRF), later identified as NO", "verifiable": true},
+    {"id": "ferid_murad", "name": "Ferid Murad", "title": "Physician, Nobel Laureate (1998)", "affiliation": "George Washington University", "known_for": "Showed that nitrovasodilators act via cGMP — link nitrates to NO signaling", "verifiable": true},
+    {"id": "nathan_bryan", "name": "Nathan S. Bryan", "title": "Biochemist, NO researcher", "affiliation": "formerly University of Texas Health Science Center at Houston", "known_for": "Nitrate-nitrite-NO biochemistry; oral microbiome nitrate reduction; dietary NO restoration", "verifiable": true},
+    {"id": "jon_lundberg", "name": "Jon O. Lundberg", "title": "Professor of Pharmacology", "affiliation": "Karolinska Institutet", "known_for": "Nitrate-nitrite-NO alternative pathway; Nature Reviews Drug Discovery 2008 landmark", "verifiable": true},
+    {"id": "eddie_weitzberg", "name": "Eddie Weitzberg", "title": "Professor of Anesthesiology & Intensive Care", "affiliation": "Karolinska Institutet", "known_for": "Co-author with Lundberg on dietary nitrate bioavailability and cardiovascular effects", "verifiable": true},
+    {"id": "andrew_webb", "name": "Andrew J. Webb", "title": "Clinical Pharmacologist", "affiliation": "St Bartholomew's / QMUL / King's College London", "known_for": "2008 BMJ Hypertension paper showing 500 mL beetroot juice dropped SBP ~10 mmHg in 2.5 h", "verifiable": true},
+    {"id": "peter_attia", "name": "Peter Attia", "title": "Physician, longevity author", "affiliation": "Early Medical / Attia Medical", "known_for": "'Outlive' — ApoB-centric cardiometabolic risk framework; Medicine 3.0 prevention", "verifiable": true},
+    {"id": "thomas_dayspring", "name": "Thomas Dayspring", "title": "Lipidologist, Clinical Professor", "affiliation": "formerly Virginia Commonwealth University; lipidologist educator", "known_for": "Lipoprotein particle concentration (ApoB / LDL-P) as CVD risk driver; lipidaholics rounds", "verifiable": true},
+    {"id": "allan_sniderman", "name": "Allan D. Sniderman", "title": "Professor of Medicine & Cardiology", "affiliation": "McGill University", "known_for": "Decades of research establishing ApoB as the single best atherogenic-lipoprotein metric", "verifiable": true},
+    {"id": "elizabeth_jeffery", "name": "Elizabeth H. Jeffery", "title": "Professor Emerita of Nutrition", "affiliation": "University of Illinois Urbana-Champaign", "known_for": "Cruciferous vegetable bioactives — sulforaphane, glucosinolates, bioavailability", "verifiable": true},
+    {"id": "yoshinori_seto", "name": "Frans Sacks", "title": "Professor of Cardiovascular Disease Prevention", "affiliation": "Harvard T.H. Chan School of Public Health", "known_for": "Lead investigator of DASH diet NEJM 1997 — reduced SBP 11.4 mmHg vs control", "verifiable": true},
+    {"id": "jerry_goodnough", "name": "Lawrence T. Goodnough", "title": "Professor of Pathology & Medicine", "affiliation": "Stanford University", "known_for": "Iron-deficiency anemia diagnosis; ferritin cut-off guidance", "verifiable": true},
+    {"id": "boushey_1995", "name": "Carol J. Boushey", "title": "Researcher", "affiliation": "University of Hawaii Cancer Center (at time of study affiliated with Washington State)", "known_for": "1995 JAMA meta-analysis establishing homocysteine as independent CVD risk factor", "verifiable": true},
+    {"id": "christian_heiss", "name": "Christian Heiss", "title": "Cardiovascular Researcher", "affiliation": "University of Surrey; formerly Heinrich Heine University Düsseldorf", "known_for": "Cocoa flavanol + FMD improvement trials; epicatechin mechanism", "verifiable": true}
+  ],
+  "molecules": [
+    {"id": "nitric_oxide", "name": "Nitric Oxide (NO)", "label_th": "ไนตริกออกไซด์", "family": "gaseous signaling molecule", "role": "Endothelium-derived vasodilator; half-life ~2 s; activates sGC → cGMP → smooth muscle relaxation; central player in erection, BP, platelet inhibition"},
+    {"id": "enos", "name": "Endothelial NO Synthase (eNOS / NOS3)", "label_th": "อีโนส", "family": "enzyme (oxidoreductase)", "role": "Uses L-arginine + O2 + NADPH + BH4 → L-citrulline + NO in endothelial cells; shear-stress + agonist activated"},
+    {"id": "l_arginine", "name": "L-Arginine", "label_th": "แอล-อาร์จินีน", "family": "amino acid", "role": "Substrate for eNOS; oral bioavailability ~50% (first-pass arginase); ~5-9 g/day needed to raise plasma levels meaningfully"},
+    {"id": "l_citrulline", "name": "L-Citrulline", "label_th": "แอล-ซิทรูลีน", "family": "amino acid", "role": "Bypasses hepatic arginase; converted to arginine in kidney → raises plasma arginine more reliably than oral arginine itself"},
+    {"id": "bh4", "name": "Tetrahydrobiopterin (BH4)", "label_th": "BH4", "family": "cofactor (pterin)", "role": "Essential eNOS cofactor — when oxidized/depleted eNOS 'uncouples' producing superoxide instead of NO (endothelial dysfunction)"},
+    {"id": "sgc_cgmp", "name": "Soluble Guanylate Cyclase / cGMP", "label_th": "sGC / cGMP", "family": "enzyme / second messenger", "role": "NO activates sGC → raises cGMP → activates PKG → vascular smooth muscle relaxation (target of PDE5 inhibitors like sildenafil)"},
+    {"id": "dietary_nitrate", "name": "Dietary Nitrate (NO3-)", "label_th": "ไนเตรตจากอาหาร", "family": "inorganic anion", "role": "Concentrated in leafy greens, beetroot; reduced to nitrite by oral bacteria, then to NO in acidic/hypoxic tissue — alternative to eNOS pathway"},
+    {"id": "dietary_nitrite", "name": "Nitrite (NO2-)", "label_th": "ไนไตรต์", "family": "inorganic anion", "role": "Intermediate between nitrate and NO; formed by oral nitrate-reducing bacteria; reduced further in stomach/vasculature to NO"},
+    {"id": "hepcidin", "name": "Hepcidin", "label_th": "เฮปซิดิน", "family": "peptide hormone (liver)", "role": "Master iron regulator — binds ferroportin causing its degradation → blocks iron export from enterocytes/macrophages; elevated by inflammation (IL-6)"},
+    {"id": "ferroportin", "name": "Ferroportin", "label_th": "เฟอร์โรพอร์ติน", "family": "membrane iron exporter", "role": "Only known cellular iron exporter; on basolateral enterocyte + macrophage surface; target of hepcidin"},
+    {"id": "ferritin", "name": "Ferritin", "label_th": "เฟอร์ริติน", "family": "iron storage protein", "role": "Intracellular iron storage (up to 4,500 Fe atoms/shell); serum ferritin reflects body iron stores BUT also rises in inflammation/liver damage"},
+    {"id": "transferrin", "name": "Transferrin", "label_th": "ทรานสเฟอร์ริน", "family": "plasma glycoprotein", "role": "Iron transport in blood; saturation (TSAT) = serum iron / TIBC × 100; TSAT >45% suggests iron overload"},
+    {"id": "hemoglobin", "name": "Hemoglobin", "label_th": "ฮีโมโกลบิน", "family": "iron-containing protein (tetramer)", "role": "Oxygen carrier in erythrocytes; heme iron binds O2 reversibly; low Hb = anemia"},
+    {"id": "apob_100", "name": "Apolipoprotein B-100", "label_th": "เอโพบี-100", "family": "apolipoprotein", "role": "Single ApoB-100 per VLDL / IDL / LDL / Lp(a) particle → ApoB = atherogenic particle count; produced in liver"},
+    {"id": "apoa1", "name": "Apolipoprotein A1", "label_th": "เอโพเอวัน", "family": "apolipoprotein", "role": "Main protein of HDL; ApoB/ApoA1 ratio = robust CVD predictor (INTERHEART)"},
+    {"id": "homocysteine", "name": "Homocysteine (Hcy)", "label_th": "โฮโมซิสเทอีน", "family": "sulfur amino acid", "role": "Intermediate in methionine metabolism; accumulates with B12/folate/B6 deficiency or MTHFR variants; elevated Hcy → endothelial damage"},
+    {"id": "methylfolate", "name": "5-Methyl-tetrahydrofolate (5-MTHF)", "label_th": "เมธิลโฟเลต", "family": "active folate", "role": "Active folate form; methyl donor to B12 in remethylation of Hcy to methionine; bypasses MTHFR bottleneck"},
+    {"id": "methylcobalamin", "name": "Methylcobalamin (methyl-B12)", "label_th": "เมธิลโคบาลามิน", "family": "active B12", "role": "Active cytoplasmic B12 form; required as cofactor for methionine synthase to remethylate Hcy"},
+    {"id": "niacin_b3", "name": "Niacin (Vitamin B3)", "label_th": "ไนอะซิน / B3", "family": "vitamin", "role": "At high dose (1-3 g/d) lowers LDL/TG, raises HDL, reduces Lp(a); causes flush via GPR109A → prostaglandin D2"},
+    {"id": "coq10_ubiquinol", "name": "Coenzyme Q10 (Ubiquinol/Ubiquinone)", "label_th": "โคคิวเท็น", "family": "electron carrier (mitochondrial)", "role": "Mitochondrial electron transport; depleted by statins (shared HMG-CoA pathway); ubiquinol is the reduced active form"},
+    {"id": "vitamin_k2_mk7", "name": "Vitamin K2 (menaquinone-7, MK-7)", "label_th": "วิตามิน K2", "family": "fat-soluble vitamin", "role": "Activates matrix Gla protein (MGP) and osteocalcin → keeps calcium out of arteries and into bones; half-life ~72 h (vs MK-4 ~1 h)"},
+    {"id": "pycnogenol", "name": "Pycnogenol (French Maritime Pine Bark Extract)", "label_th": "ไพคโนจินอล", "family": "oligomeric proanthocyanidin", "role": "Upregulates eNOS; scavenges ROS; clinical trials show improved FMD and modest BP reduction"},
+    {"id": "cocoa_flavanol", "name": "Cocoa Flavanol (epicatechin)", "label_th": "ฟลาวานอลโกโก้", "family": "polyphenol", "role": "Improves FMD within hours; increases eNOS activity; dose ~200-500 mg flavanols"}
+  ],
+  "organizations": [
+    {"id": "karolinska_institutet", "name": "Karolinska Institutet", "type": "academic", "url": "https://ki.se"},
+    {"id": "nih_nhlbi", "name": "NIH / National Heart, Lung, and Blood Institute", "type": "regulatory", "url": "https://www.nhlbi.nih.gov"},
+    {"id": "nejm", "name": "New England Journal of Medicine", "type": "academic", "url": "https://www.nejm.org"},
+    {"id": "circulation_journal", "name": "Circulation (American Heart Association)", "type": "academic", "url": "https://www.ahajournals.org/journal/circ"},
+    {"id": "aha", "name": "American Heart Association", "type": "regulatory", "url": "https://www.heart.org"},
+    {"id": "bmj", "name": "BMJ (British Medical Journal)", "type": "academic", "url": "https://www.bmj.com"},
+    {"id": "nobel_foundation", "name": "Nobel Foundation", "type": "academic", "url": "https://www.nobelprize.org"},
+    {"id": "attia_medical", "name": "Peter Attia — Early Medical", "type": "research", "url": "https://peterattiamd.com"}
+  ],
+  "case_studies": [
+    {"id": "webb_beetroot_2008", "name": "Webb Beetroot BP Study", "claim_to_fame": "500 mL beetroot juice in healthy volunteers → SBP drop ~10.4 mmHg peaking at 2.5 h (Hypertension / BMJ 2008)", "year": 2008, "source": "Webb AJ et al., Hypertension 2008; 51:784-790"},
+    {"id": "dash_sacks_1997", "name": "DASH Diet Trial", "claim_to_fame": "DASH diet (fruits/veg/low-fat dairy) reduced SBP 11.4 mmHg in hypertensives vs control at 8 weeks — landmark NEJM", "year": 1997, "source": "Sacks FM et al., NEJM 1997; 336:1117-1124"},
+    {"id": "lundberg_nitrate_2008", "name": "Lundberg Nitrate-Nitrite-NO Pathway", "claim_to_fame": "Nature Reviews Drug Discovery review establishing enterosalivary circulation of nitrate → nitrite → NO as clinically relevant alternative to eNOS", "year": 2008, "source": "Lundberg JO, Weitzberg E, Gladwin MT. Nat Rev Drug Discov 2008; 7:156-167"},
+    {"id": "boushey_hcy_1995", "name": "Boushey 1995 Hcy Meta-Analysis", "claim_to_fame": "Meta-analysis in JAMA establishing 10% SBP/coronary-disease excess risk per 5 μmol/L Hcy increase; helped frame homocysteine as modifiable CVD risk", "year": 1995, "source": "Boushey CJ et al., JAMA 1995; 274:1049-1057"},
+    {"id": "sniderman_apob_2019", "name": "Sniderman ApoB JAMA Cardiol 2019", "claim_to_fame": "Meta-analysis + Mendelian randomization showing ApoB is single best atherogenic-lipoprotein marker, superior to LDL-C and non-HDL-C", "year": 2019, "source": "Sniderman AD et al., JAMA Cardiol 2019; 4:1287-1295"},
+    {"id": "heiss_cocoa_2005", "name": "Heiss Cocoa Flavanol FMD Study", "claim_to_fame": "Cocoa flavanol beverage acutely increased FMD and circulating nitric oxide metabolites within 2 h (JACC 2005)", "year": 2005, "source": "Heiss C et al., JACC 2005; 46:1276-1283"},
+    {"id": "ignarro_nobel_1998", "name": "Ignarro / Furchgott / Murad NO Nobel", "claim_to_fame": "1998 Nobel Prize in Physiology or Medicine for the discovery that NO is a signaling molecule in the cardiovascular system", "year": 1998, "source": "NobelPrize.org — Advanced Information 1998"},
+    {"id": "kapil_mouthwash_2013", "name": "Kapil Mouthwash-BP Study", "claim_to_fame": "Antibacterial mouthwash for 7 days raised resting SBP ~3.5 mmHg by killing oral nitrate-reducing bacteria (Free Radic Biol Med 2013)", "year": 2013, "source": "Kapil V et al., Free Radic Biol Med 2013; 55:93-100"},
+    {"id": "figueroa_citrulline_2017", "name": "Figueroa L-Citrulline Meta-Analysis", "claim_to_fame": "Pooled analysis of L-citrulline/watermelon supplementation showing ~7/4 mmHg SBP/DBP reductions in pre-hypertensives", "year": 2017, "source": "Figueroa A et al., Nutr Rev 2017; 75:907-914"},
+    {"id": "geleijnse_rotterdam_2004", "name": "Rotterdam Study Vitamin K2 / CVD", "claim_to_fame": "Highest tertile of dietary K2 intake associated with 57% lower CVD mortality + less aortic calcification (Geleijnse J Nutr 2004)", "year": 2004, "source": "Geleijnse JM et al., J Nutr 2004; 134:3100-3105"}
+  ]
+}

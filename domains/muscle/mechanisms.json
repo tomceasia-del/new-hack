@@ -1,0 +1,193 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.muscle"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "mech_muscle_001",
+      "label_th": "mTORC1 pathway — สวิตช์เปิดสร้างกล้ามเนื้อ",
+      "label_en": "mTORC1 Activation — Muscle Building Switch",
+      "description_th": "mTORC1 (mechanistic Target of Rapamycin Complex 1) เป็น master regulator ของการสังเคราะห์โปรตีนในกล้ามเนื้อ กระตุ้นโดย leucine, insulin, และ mechanical tension จากการออกกำลังกาย เมื่อถูกกระตุ้น mTORC1 จะ phosphorylate p70S6K และ 4E-BP1 เพื่อเพิ่มการแปลรหัส mRNA เป็นโปรตีน",
+      "description_en": "mTORC1 is the master anabolic switch in muscle. It is activated by leucine (via Sestrin2-GATOR2 axis), insulin (via PI3K-Akt), and mechanical tension. Once activated, it phosphorylates p70S6K and 4E-BP1 to accelerate mRNA translation and muscle protein synthesis.",
+      "chain": [
+        {"step": 1, "actor": "Leucine / mechanical tension", "action": "activates", "target": "mTORC1 complex", "effect": "anabolic switch turned ON"},
+        {"step": 2, "actor": "mTORC1", "action": "phosphorylates", "target": "p70S6K and 4E-BP1", "effect": "ribosome activity increases"},
+        {"step": 3, "actor": "Ribosomes", "action": "translate mRNA into", "target": "muscle proteins (actin, myosin)", "effect": "muscle fiber repair and growth"},
+        {"step": 4, "actor": "MPS rate", "action": "exceeds", "target": "MPB (muscle protein breakdown)", "effect": "net muscle gain (hypertrophy)"}
+      ],
+      "analogies_th": [
+        "ร่างกายเหมือนโรงงาน mTORC1 คือ CEO ที่กดปุ่มสายการผลิต — ถ้าไม่มีสัญญาณ (leucine + ออกกำลังกาย) CEO ไม่สั่งงาน โรงงานก็หยุด",
+        "leucine คือกุญแจสตาร์ตรถ ถ้าใส่ไม่ครบ เครื่องยนต์ (mTOR) ไม่ติด ต่อให้มีน้ำมัน (โปรตีน) เต็มถัง"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22760558/", "org": "NCBI PubMed", "source_tier": "A", "year": 2012, "title": "Leucine content of dietary proteins is a determinant of postprandial skeletal muscle protein synthesis in adult rats (Norton & Layman)", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/31965526/", "org": "NCBI PubMed", "source_tier": "A", "year": 2020, "title": "mTORC1 and muscle protein synthesis: what do we really know? (Hodson et al.)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "mps",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_muscle_002",
+      "label_th": "Leucine Threshold — กุญแจขั้นต่ำสู่ MPS",
+      "label_en": "Leucine Threshold for MPS Activation",
+      "description_th": "ร่างกายต้องการ leucine อย่างน้อย 2-3 กรัมต่อมื้อเพื่อกระตุ้น mTORC1 อย่างมีนัยสำคัญ ต่ำกว่านี้ MPS จะไม่ถูกกระตุ้นเต็มที่ แม้จะมีโปรตีนอื่นๆ เพียงพอ Whey protein 25-30g มี leucine ประมาณ 2.5-3g ซึ่งอยู่ในช่วงที่เหมาะสม",
+      "description_en": "A minimum of ~2-3g leucine per meal is required to maximally stimulate mTORC1. Below this threshold, MPS is suboptimally activated regardless of total protein intake. Whey protein at 25-30g provides approximately 2.5-3g leucine, placing it in the effective range.",
+      "chain": [
+        {"step": 1, "actor": "Dietary protein (digestion)", "action": "releases", "target": "free leucine into portal blood", "effect": "blood leucine rises"},
+        {"step": 2, "actor": "Leucine sensor (Sestrin2)", "action": "detects threshold (~2g)", "target": "GATOR2 complex", "effect": "GATOR2 inhibits GATOR1"},
+        {"step": 3, "actor": "GATOR1 (inhibited)", "action": "releases brake on", "target": "Rag GTPases", "effect": "mTORC1 translocates to lysosome"},
+        {"step": 4, "actor": "mTORC1 (active)", "action": "drives", "target": "ribosomal protein synthesis", "effect": "MPS maximally elevated for 2-4 hours"}
+      ],
+      "analogies_th": [
+        "leucine คือน้ำมันที่ต้องเติมให้ถึงขีดเส้น — ถ้าเติมแค่ครึ่งถัง เครื่องยนต์สร้างกล้ามเนื้อก็ไม่ทำงานเต็มกำลัง",
+        "เหมือนระบบล็อกประตูที่ต้องใช้กุญแจ 2 ดอก — ออกกำลังกาย (กุญแจ 1) + leucine เพียงพอ (กุญแจ 2) — ขาดอันใดอันหนึ่ง ประตูสร้างกล้ามเนื้อไม่เปิด"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19056590/", "org": "NCBI PubMed", "source_tier": "A", "year": 2009, "title": "Ingestion of a protein hydrolysate is accompanied by an accelerated in vivo digestion and absorption rate when compared with its intact protein (Koopman et al.)", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24284442/", "org": "NCBI PubMed", "source_tier": "A", "year": 2014, "title": "Leucine as a pharmaconutrient in health and disease (Komar & Bhupinder)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "protein_timing",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_muscle_003",
+      "label_th": "Phosphocreatine resynthesis — แบตเตอรี่กล้ามเนื้อ",
+      "label_en": "Phosphocreatine Resynthesis — ATP Rapid Regeneration",
+      "description_th": "ครีเอทีนในกล้ามเนื้อถูกฟอสโฟรีเลตเป็น phosphocreatine (PCr) ซึ่งทำหน้าที่เป็นแหล่งพลังงาน ATP สำรองสำหรับการออกแรงระยะสั้นสูงสุด (0-10 วินาที) การเสริมครีเอทีนเพิ่ม PCr pool ทำให้ทำซ้ำในความหนักสูงได้มากขึ้น และฟื้นตัวระหว่าง set เร็วขึ้น",
+      "description_en": "Phosphocreatine (PCr) donates its phosphate group to ADP to rapidly regenerate ATP during maximal efforts (0-10 seconds). Creatine supplementation increases the muscle PCr pool, allowing more total work at high intensity and faster inter-set recovery via faster PCr resynthesis.",
+      "chain": [
+        {"step": 1, "actor": "Oral creatine (3-5g/day)", "action": "absorbed and transported", "target": "skeletal muscle via CreaT transporter", "effect": "intramuscular creatine pool increases 20-40%"},
+        {"step": 2, "actor": "Creatine kinase", "action": "phosphorylates creatine", "target": "PCr pool", "effect": "PCr stores elevated at rest"},
+        {"step": 3, "actor": "High-intensity effort (sprint/heavy lift)", "action": "depletes", "target": "ATP rapidly", "effect": "PCr donates phosphate → ATP regenerated within milliseconds"},
+        {"step": 4, "actor": "Higher PCr availability", "action": "enables", "target": "more reps/sets before fatigue", "effect": "greater training volume → superior long-term hypertrophy"}
+      ],
+      "analogies_th": [
+        "PCr เหมือน UPS (power backup) ของกล้ามเนื้อ — ไฟดับ (ATP หมด) แต่ UPS ทำงานต่อได้อีก 10 วินาที ครีเอทีนคือการอัพเกรด UPS ให้มีแบตใหญ่ขึ้น",
+        "ครีเอทีนเหมือนเติมน้ำมันสำรองในรถแข่ง — ไม่ได้เพิ่มแรงม้า แต่ทำให้วิ่งได้นานขึ้นก่อนปิตสต็อปครั้งต่อไป"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/12701815/", "org": "NCBI PubMed", "source_tier": "A", "year": 2003, "title": "Creatine supplementation and exercise performance: a brief review (Lemon)", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28615996/", "org": "NCBI PubMed", "source_tier": "A", "year": 2017, "title": "International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation (Kreider et al.)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "creatine_mechanics",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_muscle_004",
+      "label_th": "Sarcopenia — การสลายกล้ามเนื้อตามอายุ",
+      "label_en": "Sarcopenia — Age-Driven Muscle Wasting Pathway",
+      "description_th": "เมื่ออายุเพิ่มขึ้น ระดับ anabolic hormones (testosterone, IGF-1, GH) ลดลง ในขณะที่ inflammatory cytokines (IL-6, TNF-α) สูงขึ้น ทำให้ balance ระหว่าง MPS และ MPB เอียงไปทาง catabolism ส่งผลให้สูญเสียกล้ามเนื้อ 1-2% ต่อปีหลังอายุ 30 และเร่งขึ้นเป็น 3-5% ต่อปีหลัง 60",
+      "description_en": "Aging causes a decline in anabolic hormones (testosterone, IGF-1, GH) and rise in pro-inflammatory cytokines (IL-6, TNF-α). This creates 'anabolic resistance' — muscle protein synthesis becomes less responsive to protein and exercise stimuli, tipping the MPS:MPB balance toward net catabolism.",
+      "chain": [
+        {"step": 1, "actor": "Aging (post-30)", "action": "reduces", "target": "testosterone, IGF-1, GH levels", "effect": "anabolic signaling weakens"},
+        {"step": 2, "actor": "Chronic low-grade inflammation", "action": "activates", "target": "ubiquitin-proteasome and autophagy pathways", "effect": "muscle protein breakdown (MPB) increases"},
+        {"step": 3, "actor": "Anabolic resistance", "action": "reduces mTORC1 response to", "target": "protein intake and exercise", "effect": "older adults need MORE protein to achieve same MPS as young adults"},
+        {"step": 4, "actor": "Net MPB > MPS", "action": "results in", "target": "progressive muscle fiber atrophy", "effect": "1-3% muscle mass lost per year after 30"}
+      ],
+      "analogies_th": [
+        "กล้ามเนื้อหลังอายุ 30 เหมือนโรงงานที่เครื่องจักรเก่า — ต้องการวัตถุดิบ (โปรตีน) มากขึ้น และต้องกดปุ่ม (ออกกำลังกาย) หนักขึ้น เพื่อผลผลิตเท่าเดิม",
+        "เหมือนกำแพงที่กำลังพัง — ทุกปีที่ไม่ซ่อม รอยร้าวยิ่งใหญ่ขึ้น ต้องรีบซ่อมก่อนที่จะถล่มทั้งหลัง"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19011200/", "org": "NCBI PubMed", "source_tier": "A", "year": 2008, "title": "Sarcopenia: current concepts (Doherty)", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/30095480/", "org": "NCBI PubMed", "source_tier": "A", "year": 2018, "title": "Anabolic resistance of muscle protein turnover comes in various shapes and sizes (Burd et al.)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sarcopenia",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_muscle_005",
+      "label_th": "GH Pulse ระหว่างนอนหลับ — โรงงานทำงานตอนกลางคืน",
+      "label_en": "Nocturnal Growth Hormone Pulse & Overnight MPS",
+      "description_th": "Growth Hormone (GH) หลั่ง 70-75% ของปริมาณรายวันในช่วง slow-wave sleep (SWS) ระยะแรก GH กระตุ้นตับให้สร้าง IGF-1 ซึ่งกระตุ้น MPS และยับยั้ง proteolysis การนอนหลับไม่พอหรืออดนอนจะตัดวงจรนี้ ทำให้ recovery และ hypertrophy ลดลงอย่างมีนัยสำคัญ",
+      "description_en": "About 70-75% of daily GH secretion occurs during the first slow-wave sleep (SWS) episode. GH stimulates hepatic IGF-1 production, which activates PI3K-Akt-mTORC1 and drives overnight MPS. Sleep deprivation disrupts GH pulsatility, reducing anabolic signaling and impairing muscle recovery.",
+      "chain": [
+        {"step": 1, "actor": "Sleep onset → SWS", "action": "triggers", "target": "hypothalamic GHRH release", "effect": "pituitary releases GH pulse"},
+        {"step": 2, "actor": "GH", "action": "stimulates", "target": "hepatic IGF-1 production", "effect": "IGF-1 rises in circulation"},
+        {"step": 3, "actor": "IGF-1", "action": "activates PI3K-Akt-mTORC1 in", "target": "skeletal muscle", "effect": "MPS runs overnight during fasting state"},
+        {"step": 4, "actor": "Pre-sleep protein (casein/EAA)", "action": "provides substrate for", "target": "overnight MPS", "effect": "net protein accretion 22-40% higher vs placebo"}
+      ],
+      "analogies_th": [
+        "การนอนหลับคือกะกลางคืนของโรงงานกล้ามเนื้อ — คนงาน (GH/IGF-1) ซ่อมแซมทุกอย่างที่พังในช่วงกลางวัน ถ้าปิดโรงงานก่อนเวลา (นอนน้อย) งานสะสมค้างเติ่ง",
+        "ดื่มโปรตีนก่อนนอน = ทิ้งวัตถุดิบไว้หน้าโรงงานก่อนปิดประตู เพื่อให้คนงานกะดึกใช้ได้เลย"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/22330017/", "org": "NCBI PubMed", "source_tier": "A", "year": 2012, "title": "Protein ingestion before sleep improves postexercise overnight recovery (Res et al.)", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/25926415/", "org": "NCBI PubMed", "source_tier": "A", "year": 2015, "title": "Sleep and muscle recovery: endocrinological and molecular basis for a new and promising hypothesis (Dattilo et al.)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "sleep_recovery",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_muscle_006",
+      "label_th": "HMB และการยับยั้ง Ubiquitin-Proteasome Pathway",
+      "label_en": "HMB — Inhibition of Muscle Proteolysis",
+      "description_th": "HMB (β-Hydroxy β-Methylbutyrate) เป็น metabolite ของ leucine ที่ยับยั้ง ubiquitin-proteasome pathway (UPP) ซึ่งเป็นระบบหลักในการย่อยสลายโปรตีนกล้ามเนื้อ นอกจากนี้ HMB ยังกระตุ้น mTORC1 และยับยั้ง caspase-3 (enzyme ใน apoptosis ของ myocyte) ทำให้มีประสิทธิภาพโดยเฉพาะในภาวะ catabolic สูง",
+      "description_en": "HMB inhibits the ubiquitin-proteasome pathway (UPP), the primary mechanism of intracellular muscle protein degradation. It also activates mTORC1 and inhibits caspase-3-mediated myocyte apoptosis. These dual anti-catabolic and pro-anabolic effects make HMB particularly effective during caloric restriction, illness, or immobilization.",
+      "chain": [
+        {"step": 1, "actor": "Leucine (5-10%)", "action": "metabolized via BCKA dehydrogenase to", "target": "HMB (endogenous: ~0.2-0.4g/day)", "effect": "baseline HMB present in healthy adults"},
+        {"step": 2, "actor": "HMB supplementation (3g/day)", "action": "inhibits", "target": "ubiquitin E3 ligases (MuRF-1, MAFbx/atrogin-1)", "effect": "muscle protein breakdown rate reduced"},
+        {"step": 3, "actor": "HMB", "action": "activates", "target": "mTORC1 pathway", "effect": "MPS slightly enhanced alongside reduced MPB"},
+        {"step": 4, "actor": "Net effect: reduced MPB + modest MPS increase", "action": "preserves", "target": "lean mass during catabolic stress", "effect": "muscle preservation superior to BCAA alone in catabolic states"}
+      ],
+      "analogies_th": [
+        "HMB เหมือนยามรักษาความปลอดภัยของโรงงาน — ไม่ได้สร้างผลผลิตเพิ่ม แต่หยุดโจร (proteasome) ไม่ให้มาขโมยวัตถุดิบ",
+        "ถ้าครีเอทีนคือเชื้อเพลิงเพิ่มพลัง HMB ก็คือเกราะป้องกันไม่ให้กล้ามเนื้อถูกทำลายในช่วงที่ร่างกายเครียด"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/27574006/", "org": "NCBI PubMed", "source_tier": "A", "year": 2016, "title": "Effects of beta-hydroxy-beta-methylbutyrate supplementation on strength and body composition across the spectrum of age (Wilson et al.)", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/11834114/", "org": "NCBI PubMed", "source_tier": "A", "year": 2002, "title": "Effect of leucine metabolite beta-hydroxy-beta-methylbutyrate on muscle metabolism during resistance-exercise training (Nissen & Sharp)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "hmb_catabolism",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_muscle_007",
+      "label_th": "EAA vs BCAA — ทำไม EAA เหนือกว่า",
+      "label_en": "EAA vs BCAA — Why Complete Amino Acids Win",
+      "description_th": "การสังเคราะห์โปรตีนต้องการ essential amino acids (EAA) ทั้ง 9 ชนิด BCAA เพียง 3 ชนิดสามารถกระตุ้น mTORC1 ชั่วคราวผ่าน leucine แต่ร่างกายต้องดึง EAA ที่เหลือจากกล้ามเนื้อตัวเองมาทำ MPS ให้สมบูรณ์ ทำให้ BCAA เพียงอย่างเดียวสามารถกระตุ้น MPS โดยไม่มีผลสุทธิเชิงบวก",
+      "description_en": "Muscle protein synthesis requires all 9 EAAs as building blocks. BCAA alone can transiently activate mTORC1 via leucine, but the body must cannibalize its own muscle to supply the remaining EAAs required to complete synthesis. Net MPS with BCAA alone is therefore minimal or neutral unless background EAA availability is adequate.",
+      "chain": [
+        {"step": 1, "actor": "BCAA (leucine)", "action": "activates mTORC1 → signals", "target": "ribosomes to start protein synthesis", "effect": "MPS initiated (positive signal)"},
+        {"step": 2, "actor": "Ribosomes", "action": "attempt to build", "target": "complete muscle protein (requires all 9 EAA)", "effect": "run out of non-BCAA EAA substrates"},
+        {"step": 3, "actor": "Proteasome", "action": "breaks down existing muscle to supply", "target": "missing EAA (val, his, lys, met, phe, thr, trp)", "effect": "existing muscle cannibalized to fund new synthesis"},
+        {"step": 4, "actor": "Net result (BCAA-only)", "action": "near-neutral or negative net protein balance", "target": "vs EAA which is strongly positive", "effect": "EAA stimulates MPS 2-3x more efficiently than equal-leucine BCAA dose"}
+      ],
+      "analogies_th": [
+        "BCAA เหมือนสั่งของมาครึ่งเดียว — รถสายพานเดิน (mTOR เปิด) แต่ชิ้นส่วนครบแค่ครึ่ง ต้องรื้อเครื่องเก่า (กล้ามเนื้อ) มาหาชิ้นส่วนที่ขาด",
+        "EAA คือชุดบิลดิ้งบล็อคครบกล่อง — ไม่ต้องรื้อส่วนไหนมาเสริม ของครบ สร้างได้เลย"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/28402535/", "org": "NCBI PubMed", "source_tier": "A", "year": 2017, "title": "Branched-chain amino acids and muscle protein synthesis in humans: myth or reality? (Wolfe)", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/26797090/", "org": "NCBI PubMed", "source_tier": "A", "year": 2016, "title": "Essential amino acids and muscle protein recovery from resistance exercise (Børsheim et al.)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "eaa_vs_bcaa",
+      "confidence": "high"
+    },
+    {
+      "mechanism_id": "mech_muscle_008",
+      "label_th": "Mechanical Tension → Hypertrophy Signaling",
+      "label_en": "Mechanical Overload → Muscle Hypertrophy",
+      "description_th": "แรงกลจากการฝึกแรงต้าน (resistance training) กระตุ้น mechanosensors (integrin, titin) ในเยื่อหุ้มเซลล์กล้ามเนื้อ ส่งสัญญาณผ่าน FAK (Focal Adhesion Kinase) ไปกระตุ้น mTORC1 โดยอิสระจาก leucine นี่คือเหตุผลที่ทั้งโปรตีนพอและออกกำลังกายต้องทำร่วมกันจึงจะได้กล้ามเนื้อสูงสุด",
+      "description_en": "Mechanical tension from resistance exercise activates membrane mechanosensors (integrins, titin). This signals via FAK (Focal Adhesion Kinase) to activate mTORC1 independently of leucine/insulin. Both mechanical tension AND adequate protein/leucine are required to maximally stimulate MPS — they are synergistic, not additive.",
+      "chain": [
+        {"step": 1, "actor": "Resistance exercise (progressive overload)", "action": "creates mechanical tension in", "target": "sarcomere and sarcolemma", "effect": "mechanosensors (integrin/titin) activated"},
+        {"step": 2, "actor": "FAK (Focal Adhesion Kinase)", "action": "phosphorylates and activates", "target": "mTORC1 independently of leucine", "effect": "mTOR turned ON via mechanical route"},
+        {"step": 3, "actor": "Muscle fiber micro-damage (Z-disc disruption)", "action": "recruits", "target": "satellite cells to injury site", "effect": "satellite cells fuse, donate nuclei → muscle grows"},
+        {"step": 4, "actor": "Progressive overload over time", "action": "demands ongoing adaptation from", "target": "muscle fibers (type I and II)", "effect": "sustained hypertrophy — without progressively heavier loads, adaptation plateaus"}
+      ],
+      "analogies_th": [
+        "กล้ามเนื้อโตได้ต้องมีทั้งสัญญาณจากแรง (ออกกำลังกาย) และวัตถุดิบ (โปรตีน) — เหมือนสร้างบ้านต้องมีทั้งช่างและอิฐ ขาดอย่างใดอย่างหนึ่งงานหยุด",
+        "progressive overload คือการบังคับโรงงานให้ขยายสายการผลิตอยู่เรื่อยๆ — ถ้าน้ำหนักเท่าเดิมทุกวัน โรงงานก็ไม่มีแรงจูงใจจะขยาย"
+      ],
+      "sources": [
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/19131472/", "org": "NCBI PubMed", "source_tier": "A", "year": 2009, "title": "The mechanosensing and growth regulation of skeletal muscle cells (Kumar et al.)", "access_date": "2026-04-20"},
+        {"url": "https://pubmed.ncbi.nlm.nih.gov/24552784/", "org": "NCBI PubMed", "source_tier": "A", "year": 2014, "title": "Resistance exercise-induced changes in muscle phenotype (Hawley et al.)", "access_date": "2026-04-20"}
+      ],
+      "sub_topic_id": "resistance_training_aging",
+      "confidence": "high"
+    }
+  ]
+}

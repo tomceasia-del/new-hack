@@ -1,0 +1,189 @@
+{
+  "domain_id": "muscle",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00"
+  },
+  "people": [
+    {
+      "id": "person_phillips_sm",
+      "name": "Stuart M. Phillips",
+      "title": "PhD, Professor of Kinesiology",
+      "affiliation": "McMaster University, Hamilton, Canada",
+      "known_for": "Muscle protein synthesis research, protein dose-response, leucine threshold, aging and muscle",
+      "famous_claims": [
+        "The leucine threshold concept: minimum 2-3g leucine per meal for maximal MPS",
+        "Older adults require higher protein per meal due to anabolic resistance",
+        "Post-exercise MPS remains elevated 24-48 hours, not just 30 minutes"
+      ],
+      "citation_allowed": true,
+      "citation_notes": "เหมาะสำหรับอ้างอิงงานวิจัย MPS, protein dose-response, aging/sarcopenia ตรวจสอบ paper ทุกครั้งก่อนอ้าง"
+    },
+    {
+      "id": "person_norton_layne",
+      "name": "Layne Norton",
+      "title": "PhD in Nutritional Sciences, IFBB Pro bodybuilder",
+      "affiliation": "BioLayne LLC / University of Illinois (doctoral)",
+      "known_for": "Leucine and mTOR research, protein synthesis, evidence-based fitness, CARBON diet app",
+      "famous_claims": [
+        "Leucine is the primary driver of mTOR and MPS activation",
+        "Meal frequency matters less than total daily protein and leucine distribution",
+        "Evidence-based approach to nutrition and supplementation"
+      ],
+      "citation_allowed": true,
+      "citation_notes": "ใช้อ้าง leucine/mTOR content ดี แต่ระวัง — เขามีธุรกิจ supplement ด้วย ตรวจสอบ conflict of interest"
+    },
+    {
+      "id": "person_galpin_andy",
+      "name": "Andy Galpin",
+      "title": "PhD, Professor of Kinesiology",
+      "affiliation": "California State University, Fullerton / performance labs",
+      "known_for": "Muscle fiber types, exercise physiology, fatigue, performance optimization, sleep-recovery nexus",
+      "famous_claims": [
+        "Hydration affects performance more than most supplements",
+        "Sleep quality and quantity are the most underrated recovery tools",
+        "Creatine is the most well-researched ergogenic supplement"
+      ],
+      "citation_allowed": true,
+      "citation_notes": "เหมาะสำหรับ content เรื่อง performance, recovery, creatine ใน Huberman Lab podcast context"
+    },
+    {
+      "id": "person_attia_peter",
+      "name": "Peter Attia",
+      "title": "MD, Longevity Medicine Physician",
+      "affiliation": "Early Medical (private practice)",
+      "known_for": "Longevity medicine, muscular strength as predictor of lifespan, VO2max, Zone 2 training, sarcopenia prevention",
+      "famous_claims": [
+        "Muscle mass is one of the strongest predictors of longevity",
+        "Grip strength is a clinically validated proxy for overall muscle health",
+        "Sarcopenia is a silent killer — you lose muscle 30 years before you feel it"
+      ],
+      "citation_allowed": true,
+      "citation_notes": "ดี สำหรับ longevity/aging angle ตรวจสอบว่า claim มาจาก book Outlive หรือ podcast เพื่อ reference ที่ถูกต้อง"
+    }
+  ],
+  "molecules": [
+    {
+      "id": "mol_leucine",
+      "name": "Leucine",
+      "label_th": "ลิวซีน",
+      "family": "Essential Amino Acid / BCAA",
+      "role": "Primary activator of mTORC1 and muscle protein synthesis. Must reach 2-3g threshold per meal for maximal MPS stimulation.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_mtor",
+      "name": "mTORC1 (mechanistic Target of Rapamycin Complex 1)",
+      "label_th": "mTORC1 — สวิตช์สร้างกล้ามเนื้อ",
+      "family": "Protein Kinase Complex / Signaling Pathway",
+      "role": "Master anabolic switch in skeletal muscle. Activated by leucine, insulin, and mechanical tension. Drives muscle protein synthesis by phosphorylating p70S6K and 4E-BP1.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_creatine",
+      "name": "Creatine Monohydrate",
+      "label_th": "ครีเอทีน โมโนไฮเดรต",
+      "family": "Nitrogenous Organic Acid / Ergogenic Supplement",
+      "role": "Precursor to phosphocreatine (PCr). Increases PCr pool in muscle by 20-40%, enabling rapid ATP regeneration during high-intensity exercise. Most studied ergogenic supplement.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_phosphocreatine",
+      "name": "Phosphocreatine (PCr)",
+      "label_th": "ฟอสโฟครีเอทีน",
+      "family": "High-Energy Phosphate Compound",
+      "role": "Rapidly donates phosphate to ADP to regenerate ATP during maximal efforts (0-10 seconds). Acts as immediate energy buffer in skeletal muscle.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_hmb",
+      "name": "Beta-Hydroxy Beta-Methylbutyrate (HMB)",
+      "label_th": "HMB — เบต้า-ไฮดรอกซี เบต้า-เมทิลบิวทีเรต",
+      "family": "Leucine Metabolite / Anti-catabolic Compound",
+      "role": "Metabolite of leucine (~5%). Inhibits ubiquitin-proteasome pathway (muscle protein breakdown), activates mTORC1, inhibits caspase-3 apoptosis. Particularly effective in catabolic states.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_eaa",
+      "name": "Essential Amino Acids (EAA)",
+      "label_th": "กรดอะมิโนจำเป็น (EAA)",
+      "family": "Amino Acid Group",
+      "role": "The 9 amino acids the body cannot synthesize: leucine, isoleucine, valine, histidine, lysine, methionine, phenylalanine, threonine, tryptophan. All required for complete muscle protein synthesis.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_bcaa",
+      "name": "Branched-Chain Amino Acids (BCAA)",
+      "label_th": "กรดอะมิโนโซ่กิ่ง (BCAA)",
+      "family": "Amino Acid Subset (3 of 9 EAA)",
+      "role": "Leucine, isoleucine, valine. BCAA can transiently activate mTORC1 via leucine but cannot independently drive complete MPS without the remaining 6 EAAs.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_growth_hormone",
+      "name": "Growth Hormone (GH / Somatotropin)",
+      "label_th": "ฮอร์โมนการเจริญเติบโต (GH)",
+      "family": "Peptide Hormone / Anabolic Hormone",
+      "role": "70-75% of daily GH secreted during slow-wave sleep. Stimulates IGF-1 production which drives MPS and inhibits proteolysis. Declines with age — key link between sleep quality and muscle health.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_whey",
+      "name": "Whey Protein",
+      "label_th": "เวย์โปรตีน",
+      "family": "Dairy-Derived Complete Protein",
+      "role": "Fast-digesting complete protein with high leucine content (~10-11%). Highest PDCAAS/DIAAS score among common proteins. Optimal for post-exercise MPS stimulation.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_casein",
+      "name": "Casein Protein",
+      "label_th": "เคซีนโปรตีน",
+      "family": "Dairy-Derived Complete Protein (Slow-digesting)",
+      "role": "Slow-digesting protein forming a gel in the stomach. Provides sustained amino acid release over 5-7 hours. Ideal for pre-sleep consumption to fuel overnight MPS.",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_collagen",
+      "name": "Collagen Peptides",
+      "label_th": "คอลลาเจนเปปไทด์",
+      "family": "Structural Protein Hydrolysate",
+      "role": "Hydrolyzed collagen providing proline, hydroxyproline, glycine. Supports collagen synthesis in tendons, ligaments, and cartilage when combined with Vitamin C before exercise. Does NOT directly stimulate muscle protein synthesis.",
+      "uncled_mentions": []
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org_issn",
+      "name": "International Society of Sports Nutrition (ISSN)",
+      "type": "academic",
+      "url": "https://www.issn.net/"
+    },
+    {
+      "id": "org_nsca",
+      "name": "National Strength and Conditioning Association (NSCA)",
+      "type": "academic/professional",
+      "url": "https://www.nsca.com/"
+    },
+    {
+      "id": "org_mcmaster",
+      "name": "McMaster University — Department of Kinesiology",
+      "type": "academic",
+      "url": "https://www.science.mcmaster.ca/kinesiology/"
+    },
+    {
+      "id": "org_who",
+      "name": "World Health Organization (WHO)",
+      "type": "international_health",
+      "url": "https://www.who.int/"
+    }
+  ],
+  "case_studies": [
+    {
+      "id": "case_sarcopenia_elderly_thai",
+      "description": "ผู้สูงอายุไทยอายุ 65 ปีที่เริ่มโปรแกรม resistance training 3 วัน/สัปดาห์ + whey protein 25g/วัน พบว่ามวลกล้ามเนื้อเพิ่มขึ้นและ functional strength ดีขึ้นใน 12 สัปดาห์ (hypothetical case, referenced from general RCT evidence)",
+      "type": "hypothetical_based_on_evidence",
+      "products_used": ["whey_protein", "creatine"],
+      "outcome": "ป้องกัน sarcopenia progression ได้อย่างมีนัยสำคัญ"
+    }
+  ]
+}

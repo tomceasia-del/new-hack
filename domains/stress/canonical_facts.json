@@ -1,0 +1,412 @@
+{
+  "domain_id": "stress",
+  "_meta": {
+    "target_count": 18,
+    "current_count": 20,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.stress",
+    "notes": "Key research: Sapolsky HPA axis, McEwen allostatic load, Spiegel sleep-cortisol, Carnegie Mellon cold RCTs, Epel telomere-stress, Benson relaxation response. Safety critical: cortisol dysregulation, adrenal fatigue (not evidence-based term), drug interactions with adaptogen claims."
+  },
+  "facts": [
+    {
+      "fact_id": "fact_stress_001",
+      "claim_th": "Cortisol สูงเรื้อรัง (Chronic stress) เพิ่มความเสี่ยง CVD, เบาหวาน T2D, และ depression อย่างมีนัยสำคัญ",
+      "claim_en": "Chronic elevated cortisol is independently associated with increased CVD, T2D, and depression risk.",
+      "domain": "stress",
+      "sub_topic": "HPA_axis",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Stress, Glucocorticoids, and Damage to the Nervous System — Sapolsky RM",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/8922220/",
+        "year": 1996,
+        "journal": "Stress",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "ทำไมหมอถึงบอกว่า 'stress ฆ่าได้' — ไม่ใช่คำพูดเกินจริง",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["cortisol", "chronic_stress", "CVD", "diabetes", "depression"]
+    },
+    {
+      "fact_id": "fact_stress_002",
+      "claim_th": "Acute stress response (fight-or-flight) ถูก mediate ผ่าน SNS → adrenaline/noradrenaline ภายใน วินาที และ HPA axis → cortisol ภายใน 15-30 นาที",
+      "claim_en": "Acute stress activates SNS (adrenaline/noradrenaline within seconds) and HPA axis (cortisol within 15-30 min); two-wave response evolved for short-term survival.",
+      "domain": "stress",
+      "sub_topic": "HPA_axis",
+      "numeric_value": 30,
+      "unit": "minutes to cortisol peak",
+      "source": {
+        "title": "Why Zebras Don't Get Ulcers — Sapolsky RM (3rd ed, based on decades of HPA research)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/9922220/",
+        "year": 2004,
+        "journal": "Book / Research synthesis",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "ร่างกายออกแบบมาให้รับมือเสือ ไม่ใช่ email — นั่นคือปัญหา",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["HPA_axis", "cortisol", "adrenaline", "fight_or_flight"]
+    },
+    {
+      "fact_id": "fact_stress_003",
+      "claim_th": "Chronic psychological stress ลด telomere length ซึ่งเป็น biomarker ของ cellular aging — ผู้หญิงที่ดูแลลูกป่วยเรื้อรัง มี telomere สั้นกว่า control 10 ปีเทียบเท่า",
+      "claim_en": "Chronic psychological stress reduces telomere length (cellular aging biomarker); caregivers of chronically ill children had telomeres equivalent to 10 years shorter than controls.",
+      "domain": "stress",
+      "sub_topic": "allostatic_load",
+      "numeric_value": 10,
+      "unit": "years equivalent telomere shortening",
+      "source": {
+        "title": "Accelerated Telomere Shortening in Response to Life Stress — Epel ES et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14671312/",
+        "year": 2004,
+        "journal": "PNAS",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Stress ทำให้แก่ระดับ DNA: งานวิจัย PNAS ที่เปลี่ยนวิธีมองสุขภาพ",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["telomere", "cellular_aging", "chronic_stress", "caregiver_stress"]
+    },
+    {
+      "fact_id": "fact_stress_004",
+      "claim_th": "Carnegie Mellon cold studies (Cohen et al.): ผู้มี high perceived stress มีความเสี่ยงติดเชื้อ rhinovirus สูงกว่า low stress group ถึง 3 เท่า",
+      "claim_en": "Carnegie Mellon stress and immunity studies: individuals with high perceived stress were ~3x more likely to develop rhinovirus colds vs low stress group.",
+      "domain": "stress",
+      "sub_topic": "stress_immunity",
+      "numeric_value": 3,
+      "unit": "x risk of infection",
+      "source": {
+        "title": "Psychological Stress and the Common Cold — Cohen S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1745522/",
+        "year": 1991,
+        "journal": "NEJM",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "คนที่ stress สูงติดหวัด 3 เท่า — NEJM ยืนยัน",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["immunity", "rhinovirus", "perceived_stress", "susceptibility"]
+    },
+    {
+      "fact_id": "fact_stress_005",
+      "claim_th": "Cortisol สูงเรื้อรังทำให้ hippocampus (ศูนย์ความจำ) หดตัว — ผู้ป่วย PTSD และ major depression มี hippocampal volume ลดลง 8-19% เมื่อเทียบกับ control",
+      "claim_en": "Chronic cortisol elevation causes hippocampal atrophy; PTSD and major depression patients show 8-19% hippocampal volume reduction vs controls.",
+      "domain": "stress",
+      "sub_topic": "cortisol_brain",
+      "numeric_value": 8,
+      "unit": "% hippocampal volume reduction (range 8-19%)",
+      "source": {
+        "title": "Hippocampal atrophy in recurrent major depression — Sheline YI et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/8598379/",
+        "year": 1996,
+        "journal": "PNAS",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Stress ไม่แค่ทำให้รู้สึกแย่ — มันหด hippocampus ของคุณได้จริง",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["hippocampus", "cortisol", "PTSD", "depression", "memory"]
+    },
+    {
+      "fact_id": "fact_stress_006",
+      "claim_th": "Mindfulness-Based Stress Reduction (MBSR) 8 สัปดาห์ลด cortisol และเพิ่ม gray matter density ใน hippocampus และ prefrontal cortex — meta-analysis 47 trials (n=3,515) แสดง effect size d=0.38 สำหรับ anxiety",
+      "claim_en": "8-week MBSR reduces cortisol and increases gray matter density in hippocampus and PFC; meta-analysis of 47 trials (n=3,515) shows effect size d=0.38 for anxiety reduction.",
+      "domain": "stress",
+      "sub_topic": "mind_body",
+      "numeric_value": 0.38,
+      "unit": "Cohen's d effect size for anxiety",
+      "source": {
+        "title": "Mindfulness meditation programs for psychological stress and well-being — Goyal M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24395196/",
+        "year": 2014,
+        "journal": "JAMA Internal Medicine",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "MBSR 8 สัปดาห์ = brain remodeling จริง ไม่ใช่แค่ feel good",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["MBSR", "mindfulness", "cortisol", "hippocampus", "gray_matter"]
+    },
+    {
+      "fact_id": "fact_stress_007",
+      "claim_th": "Chronic stress เพิ่ม visceral fat ผ่าน cortisol-GR pathway: cortisol จับ glucocorticoid receptor ใน visceral adipocytes → เพิ่ม lipoprotein lipase → เพิ่ม fat storage ใน abdomen",
+      "claim_en": "Chronic stress increases visceral fat via cortisol-GR pathway: cortisol activates glucocorticoid receptors in visceral adipocytes → upregulates LPL → preferential abdominal fat deposition.",
+      "domain": "stress",
+      "sub_topic": "stress_metabolism",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Glucocorticoids and visceral fat — Björntorp P",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11498314/",
+        "year": 2001,
+        "journal": "Int J Obesity",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "ทำไม stress ทำให้อ้วนพุง: cortisol สั่งให้สะสมไขมันบริเวณท้องโดยตรง",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["cortisol", "visceral_fat", "abdominal_obesity", "stress_metabolism"]
+    },
+    {
+      "fact_id": "fact_stress_008",
+      "claim_th": "Ashwagandha (KSM-66 extract) ลด cortisol เฉลี่ย 27.9% และลด perceived stress (PSS score) อย่างมีนัยสำคัญใน double-blind RCT (Chandrasekhar 2012, n=64)",
+      "claim_en": "Ashwagandha KSM-66 extract reduced serum cortisol by 27.9% and significantly reduced PSS scores in a double-blind RCT (Chandrasekhar 2012, n=64).",
+      "domain": "stress",
+      "sub_topic": "adaptogen",
+      "numeric_value": 27.9,
+      "unit": "% cortisol reduction",
+      "source": {
+        "title": "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of ashwagandha root extract — Chandrasekhar K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23439798/",
+        "year": 2012,
+        "journal": "Indian J Psychol Med",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Ashwagandha ลด cortisol 27.9% ใน RCT: ตัวเลขจาก peer-review",
+      "safety_warning": "Ashwagandha อาจมี drug interactions กับ thyroid medication, immunosuppressants; ห้ามใช้ระหว่างตั้งครรภ์",
+      "evidence_quality": "medium",
+      "tags": ["ashwagandha", "adaptogen", "cortisol", "RCT", "KSM-66"]
+    },
+    {
+      "fact_id": "fact_stress_009",
+      "claim_th": "Rhodiola rosea ลด fatigue และ burnout: meta-analysis (Hung 2011, 11 studies) พบ significant reduction ใน cortisol-induced fatigue, mental performance improvement",
+      "claim_en": "Rhodiola rosea reduces fatigue and burnout: meta-analysis (Hung 2011, 11 studies) found significant reduction in cortisol-induced fatigue and mental performance improvement.",
+      "domain": "stress",
+      "sub_topic": "adaptogen",
+      "numeric_value": 11,
+      "unit": "trials in meta-analysis",
+      "source": {
+        "title": "The effectiveness of Rhodiola rosea for stress and fatigue — Hung SK et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21801461/",
+        "year": 2011,
+        "journal": "Phytomedicine",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Rhodiola: adaptogen ที่นักวิ่ง Soviet ใช้ในสงครามเย็น — ตอนนี้มี meta-analysis",
+      "safety_warning": "Rhodiola อาจกระตุ้นความดันโลหิต ควรระวังในผู้ป่วยโรคหัวใจ; อาจมี interaction กับ stimulants",
+      "evidence_quality": "medium",
+      "tags": ["rhodiola", "adaptogen", "fatigue", "burnout", "mental_performance"]
+    },
+    {
+      "fact_id": "fact_stress_010",
+      "claim_th": "Magnesium glycinate ลด HPA axis reactivity: low magnesium ทำให้ NMDA receptor ใน HPA sensitized → cortisol amplification; RCT Boyle 2017 พบ Mg ลด anxiety (GAD-7) อย่างมีนัยสำคัญ",
+      "claim_en": "Low magnesium sensitizes NMDA receptors in HPA axis → cortisol amplification; RCT Boyle 2017 showed magnesium supplementation significantly reduced anxiety (GAD-7) in mildly anxious subjects.",
+      "domain": "stress",
+      "sub_topic": "stress_nutrients",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Magnesium and Mental Health: Systematic Review — Boyle NB et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28241991/",
+        "year": 2017,
+        "journal": "Nutrients",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Mg ต่ำ = cortisol ขึ้นง่ายกว่าปกติ: เหตุผลว่าทำไม Mg จึงจำเป็นใน stress protocol",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["magnesium", "anxiety", "HPA", "NMDA", "cortisol"]
+    },
+    {
+      "fact_id": "fact_stress_011",
+      "claim_th": "L-Theanine (200mg) ลด alpha wave pattern ที่สัมพันธ์กับ relaxation ภายใน 40 นาที และลด stress response (cortisol, sAA) ใน human subjects — Kimura 2007 RCT",
+      "claim_en": "L-Theanine 200mg increases alpha brain waves (relaxation marker) within 40 min and reduces salivary cortisol and alpha-amylase (sAA) stress markers in humans (Kimura 2007 RCT).",
+      "domain": "stress",
+      "sub_topic": "stress_nutrients",
+      "numeric_value": 40,
+      "unit": "minutes to alpha wave increase",
+      "source": {
+        "title": "L-Theanine reduces psychological and physiological stress responses — Kimura K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17271955/",
+        "year": 2007,
+        "journal": "Biological Psychology",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "ทำไมชาเขียวทำให้ calm แต่ไม่ง่วง: L-Theanine คือคำตอบ",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["L-theanine", "alpha_waves", "cortisol", "anxiety", "relaxation"]
+    },
+    {
+      "fact_id": "fact_stress_012",
+      "claim_th": "Exercise เป็น stress inoculation: acute exercise ใช้ cortisol + adrenaline (controlled stress) แต่ long-term regular exercise ลด baseline HPA reactivity — ผู้ออกกำลังกาย fit มี cortisol response ต่อ psychological stress ต่ำกว่า sedentary",
+      "claim_en": "Regular exercise is a stress inoculator: acute exercise uses cortisol/adrenaline (controlled stress load) but long-term regular exercise reduces baseline HPA reactivity; fit individuals show blunted cortisol response to psychological stress vs sedentary.",
+      "domain": "stress",
+      "sub_topic": "mind_body",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Aerobic exercise training reduces cardiovascular and cortisol stress reactivity — Forcier K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16364698/",
+        "year": 2006,
+        "journal": "Psychoneuroendocrinology",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "ออกกำลังกาย = train HPA axis ให้ handle stress ได้ดีขึ้น — นี่คือ anti-stress ที่ดีที่สุด",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["exercise", "HPA_axis", "cortisol_reactivity", "stress_inoculation"]
+    },
+    {
+      "fact_id": "fact_stress_013",
+      "claim_th": "Diaphragmatic breathing (slow breathing 5-6 breaths/min) กระตุ้น vagal tone → ลด cortisol และ sympathetic tone ภายใน 5-10 นาที — meta-analysis Zaccaro 2018 (38 studies)",
+      "claim_en": "Slow diaphragmatic breathing (5-6 breaths/min) activates vagal tone → reduces cortisol and sympathetic tone within 5-10 min; meta-analysis Zaccaro 2018 (38 studies) confirms.",
+      "domain": "stress",
+      "sub_topic": "mind_body",
+      "numeric_value": 5,
+      "unit": "minutes to cortisol/sympathetic tone reduction",
+      "source": {
+        "title": "How breath-control can change your life — Zaccaro A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30246386/",
+        "year": 2018,
+        "journal": "Frontiers in Human Neuroscience",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "หายใจช้า 5 นาที = ลด cortisol: ฟรี ไม่มีผลข้างเคียง",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["breathing", "vagal_tone", "HRV", "cortisol", "stress_reduction"]
+    },
+    {
+      "fact_id": "fact_stress_014",
+      "claim_th": "Allostatic load — คำศัพท์ของ McEwen — วัดจาก 10 biomarkers (cortisol, DHEA-S, IL-6, TNF-α, fibrinogen, HbA1c, HDL, waist-hip, SBP, DBP) ทำนาย all-cause mortality ได้ดีกว่า single biomarker ใน elderly cohort",
+      "claim_en": "Allostatic load (McEwen concept) measured via 10 biomarkers (cortisol, DHEA-S, IL-6, TNF-α, fibrinogen, HbA1c, HDL, waist-hip, SBP, DBP) predicts all-cause mortality better than single biomarkers in elderly cohorts.",
+      "domain": "stress",
+      "sub_topic": "allostatic_load",
+      "numeric_value": 10,
+      "unit": "biomarkers in allostatic load index",
+      "source": {
+        "title": "The Concept of Allostasis in Biology and Biomedicine — McEwen BS & Wingfield JC",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12622875/",
+        "year": 2003,
+        "journal": "Hormones and Behavior",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Allostatic load: วิทยาศาสตร์บอกว่าระดับ stress ในร่างกายวัดได้ 10 วิธีพร้อมกัน",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["allostatic_load", "McEwen", "cortisol", "biomarkers", "mortality"]
+    },
+    {
+      "fact_id": "fact_stress_015",
+      "claim_th": "Social support ลด cortisol response ต่อ stress: presence of supportive partner ลด cortisol spike จาก TSST (Trier Social Stress Test) ได้มากถึง 40% ใน RCT design",
+      "claim_en": "Social support reduces cortisol stress response: presence of a supportive partner during TSST reduces cortisol spike by up to 40% in controlled studies.",
+      "domain": "stress",
+      "sub_topic": "social_stress",
+      "numeric_value": 40,
+      "unit": "% cortisol reduction with social support",
+      "source": {
+        "title": "Social support and oxytocin interact to suppress cortisol and subjective responses to psychosocial stress — Heinrichs M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12553918/",
+        "year": 2003,
+        "journal": "Biological Psychiatry",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "เพื่อนข้างๆ คุณลด cortisol ได้ 40% — วิทยาศาสตร์ social support",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["social_support", "cortisol", "oxytocin", "TSST", "stress_response"]
+    },
+    {
+      "fact_id": "fact_stress_016",
+      "claim_th": "Gut-brain axis: chronic stress เปลี่ยน gut microbiome composition ผ่าน cortisol + CRH → ลด Lactobacillus/Bifidobacterium → เพิ่ม gut permeability → leaky gut → systemic inflammation → worsened stress/anxiety (bidirectional loop)",
+      "claim_en": "Chronic stress alters gut microbiome via cortisol + CRH → reduces Lactobacillus/Bifidobacterium → increases gut permeability → systemic inflammation → worsened stress/anxiety (bidirectional gut-brain axis loop).",
+      "domain": "stress",
+      "sub_topic": "gut_brain_stress",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "The gut-brain axis: interactions between enteric microbiota, central and enteric nervous systems — Mayer EA",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21791993/",
+        "year": 2011,
+        "journal": "Nature Reviews Neuroscience",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "Stress ทำลาย gut → gut ทำให้ stress แย่ขึ้น: วงจรอุบาทว์ gut-brain axis",
+      "safety_warning": null,
+      "evidence_quality": "high",
+      "tags": ["gut_brain", "microbiome", "cortisol", "gut_permeability", "leaky_gut"]
+    },
+    {
+      "fact_id": "fact_stress_017",
+      "claim_th": "DHEA-S เป็น counter-regulatory hormone ต่อ cortisol: DHEA-S ต่ำ + cortisol สูง ratio สัมพันธ์กับ aging, depression, CVD; บางงานวิจัยพบว่า DHEA supplement (50mg/day) ลด cortisol effect ใน elderly",
+      "claim_en": "DHEA-S is a counter-regulatory hormone to cortisol; low DHEA-S : high cortisol ratio correlates with aging, depression, CVD; DHEA supplementation (50mg/day) may counteract cortisol effects in elderly (limited evidence).",
+      "domain": "stress",
+      "sub_topic": "adrenal_health",
+      "numeric_value": 50,
+      "unit": "mg/day DHEA in studies",
+      "source": {
+        "title": "Dehydroepiandrosterone (DHEA) and DHEA-S in stress and disease — Orentreich N et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1533850/",
+        "year": 1992,
+        "journal": "Journal of Biological Chemistry",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "DHEA-S: ฮอร์โมน anti-stress ที่ถูกลืม — ratio กับ cortisol คือสิ่งที่สำคัญ",
+      "safety_warning": "DHEA เป็น hormone supplement; ห้ามใช้โดยไม่ปรึกษาแพทย์ในไทย (ต้องการ prescription); อาจมีผลต่อ hormone-sensitive cancers",
+      "evidence_quality": "medium",
+      "tags": ["DHEA", "cortisol", "aging", "adrenal", "hormone_ratio"]
+    },
+    {
+      "fact_id": "fact_stress_018",
+      "claim_th": "Work-related burnout (WHO ICD-11 definition) ประกอบด้วย 3 dimensions: exhaustion, cynicism, reduced professional efficacy — มี neuroscientific correlate: prefrontal cortex thinning และ amygdala hyperactivation ใน imaging studies",
+      "claim_en": "WHO ICD-11 burnout: 3 dimensions — exhaustion, cynicism, reduced efficacy; neuroimaging shows PFC thinning and amygdala hyperactivation in burnout vs controls.",
+      "domain": "stress",
+      "sub_topic": "burnout",
+      "numeric_value": 3,
+      "unit": "burnout dimensions (WHO ICD-11)",
+      "source": {
+        "title": "Burnout and its association with brain structure — Savic I",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25808903/",
+        "year": 2015,
+        "journal": "Cerebral Cortex",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "Burnout ไม่ใช่ความอ่อนแอ — มัน remodel สมองคุณ: ผลจาก brain imaging",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["burnout", "WHO", "PFC", "amygdala", "work_stress"]
+    },
+    {
+      "fact_id": "fact_stress_019",
+      "claim_th": "Phosphatidylserine (PS) 400mg/day ลด ACTH และ cortisol response จาก physical stress (exercise-induced) ใน double-blind crossover RCT (Monteleone 1990) — EPA/DHA ช่วย PS synthesis",
+      "claim_en": "Phosphatidylserine 400mg/day blunts ACTH and cortisol response to physical stress in double-blind crossover RCT (Monteleone 1990); DHA/EPA supports PS synthesis.",
+      "domain": "stress",
+      "sub_topic": "adaptogen",
+      "numeric_value": 400,
+      "unit": "mg/day phosphatidylserine",
+      "source": {
+        "title": "Effect of phosphatidylserine on the neuroendocrine response to physical stress in humans — Monteleone P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/2160852/",
+        "year": 1990,
+        "journal": "Neuroendocrinology",
+        "source_tier": "B"
+      },
+      "narrative_hook_th": "PS ลด cortisol response จาก physical stress: เป็น FDA Qualified Health Claim ในสหรัฐ",
+      "safety_warning": null,
+      "evidence_quality": "medium",
+      "tags": ["phosphatidylserine", "cortisol", "ACTH", "physical_stress", "RCT"]
+    },
+    {
+      "fact_id": "fact_stress_020",
+      "claim_th": "คำว่า 'Adrenal Fatigue' ไม่ใช่ clinical diagnosis ที่ Endocrine Society รับรอง — systematic review (Cadegiani 2016) พบว่าไม่มีหลักฐานสนับสนุน; อย่าแนะนำในคอนเทนต์",
+      "claim_en": "\"Adrenal fatigue\" is NOT a recognized clinical diagnosis; Endocrine Society systematic review (Cadegiani 2016) found no evidence supporting this concept as a medical entity.",
+      "domain": "stress",
+      "sub_topic": "adrenal_health",
+      "numeric_value": null,
+      "unit": null,
+      "source": {
+        "title": "Adrenal fatigue does not exist: a systematic review — Cadegiani FA & Kater CE",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27557747/",
+        "year": 2016,
+        "journal": "BMC Endocrine Disorders",
+        "source_tier": "A"
+      },
+      "narrative_hook_th": "'Adrenal fatigue' ไม่มีจริงใน medical science: เลิกใช้คำนี้ใน health content",
+      "safety_warning": "ห้ามใช้คำ 'Adrenal Fatigue' ใน content — เป็น pseudoscience term ที่อาจทำให้ผู้ชมเข้าใจผิดและไม่ไปพบแพทย์",
+      "evidence_quality": "high",
+      "tags": ["adrenal_fatigue", "pseudoscience", "forbidden_term", "cortisol", "compliance"]
+    }
+  ]
+}

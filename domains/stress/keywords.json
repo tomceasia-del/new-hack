@@ -1,0 +1,21 @@
+{
+  "domain_id": "stress",
+  "primary_th": [
+    "เครียด",
+    "ความเครียด",
+    "วิตก",
+    "กังวล"
+  ],
+  "primary_en": [
+    "stress",
+    "anxiety",
+    "cortisol",
+    "HPA axis",
+    "burnout"
+  ],
+  "aliases_th": [],
+  "aliases_en": [],
+  "jargon_th": [],
+  "jargon_en": [],
+  "regex_patterns": []
+}

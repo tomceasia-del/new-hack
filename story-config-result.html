@@ -323,6 +323,36 @@
       word-break: break-word;
     }
 
+    .ref-attach-wrap { margin-bottom: 16px; }
+    .ref-attach-wrap[hidden] { display: none !important; }
+    .ref-attach-card .ref-attach-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0 0 12px;
+      line-height: 1.5;
+    }
+    .ref-attach-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+    .ref-attach-table th,
+    .ref-attach-table td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .ref-attach-table th {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .ref-attach-table code.ref-slot { font-size: 0.75rem; color: #a5b4fc; }
+    .ref-slot-th { color: var(--muted); font-size: 0.75rem; }
+    .ref-attach-table .ref-name { word-break: break-all; }
     .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; align-items: center; }
     .raw-toggle { margin-top: 12px; }
     pre.out-raw {
@@ -352,6 +382,7 @@
     </div>
     <div class="result-body" id="result-body">
       <div class="err" id="err" style="display:none;"></div>
+      <div id="ref-attachment-wrap" class="ref-attach-wrap" hidden></div>
       <div id="structured-root" hidden></div>
       <div class="raw-toggle">
         <button type="button" class="btn btn-ghost" id="btn-toggle-raw" aria-expanded="false">แสดงข้อความดิบ</button>
@@ -409,6 +440,51 @@
         return fenced ? fenced[1].trim() : t;
       }
 
+      /**
+       * ตัด suffix จากเทมเพลตวิดีโอ (AUDIO ONLY, no morphing, …) ที่เดิมติดกับ VOICE/บรรทัดเสียง
+       */
+      function cleanVoiceForHeroField(v) {
+        if (v == null) return "";
+        var s = String(v).trim();
+        var cutIdx = s.search(
+          /\bAUDIO ONLY\b|\bno morphing\b|\bno extra limbs\b|\bstable form\b|\bsoft gentle melody\b|\bNO subtitles\b|\bno on[- ]screen text\b/i
+        );
+        if (cutIdx !== -1) s = s.slice(0, cutIdx).trim();
+        s = s.replace(/[.,;:\s]+$/g, "").trim();
+        return s;
+      }
+
+      function isGenericVoiceTh(v) {
+        if (!v) return true;
+        var s = cleanVoiceForHeroField(String(v).trim());
+        if (!s) return true;
+        if (/^young thai female voice$/i.test(s)) return true;
+        if (/^young thai male voice$/i.test(s)) return true;
+        if (/^young thai (female|male) voice with /i.test(s)) return false;
+        return false;
+      }
+
+      var HERO_DETAIL_PLACEHOLDER =
+        "ดูรายละเอียดตัวละครในช่อง prompt ด้านล่าง (ยัง parse จากโมเดลไม่ได้ครบ — แนะนำเจนใหม่ด้วย HERO BIBLE)";
+
+      /**
+       * เนื้อ image prompt ที่ clean แล้ว — ไม่มีหัว【】ยาว ลด token ซ้ำกับ story_hero_bible
+       */
+      function getInlineImagePromptCore(imageRaw, maxLen) {
+        if (maxLen == null) maxLen = 2000;
+        var t0;
+        if (typeof stripPromptNoise === "function") {
+          t0 = stripPromptNoise(imageRaw || "");
+        } else {
+          t0 = (imageRaw || "").trim();
+        }
+        var t = (t0 || "").trim();
+        t = t.replace(/^(#scene\d+\s*\n+)+/i, "").trim();
+        if (t.length < 15) return "";
+        if (t.length > maxLen) t = t.slice(0, maxLen).trim() + "…";
+        return t;
+      }
+
       function extractCharacterSection(fullText) {
         var i = fullText.search(/CHARACTER CARD/i);
         if (i === -1) return { raw: "", fields: {} };
@@ -449,7 +525,8 @@
           else if (current === "age") o.age = v;
           else if (current === "appearance") o.appearance = v;
           else if (current === "outfit") o.outfit = v;
-          else if (current === "voice") o.voice = v.replace(/\s+RULES:\s*[\s\S]*$/i, "").trim();
+          else if (current === "voice")
+            o.voice = cleanVoiceForHeroField(v.replace(/\s+RULES:\s*[\s\S]*$/i, "").trim());
           buf = [];
         }
         for (var li = 0; li < lines.length; li++) {
@@ -465,7 +542,9 @@
           if (voiceM) {
             flush();
             current = null;
-            o.voice_line = voiceM[1].replace(/\s+RULES:\s*[\s\S]*$/i, "").trim();
+            o.voice_line = cleanVoiceForHeroField(
+              voiceM[1].replace(/\s+RULES:\s*[\s\S]*$/i, "").trim()
+            );
             if (!o.voice) o.voice = o.voice_line;
             continue;
           }
@@ -502,22 +581,258 @@
         }
         if (!f.voice_line && src) {
           var vm = src.match(/VOICE\s*:\s*([^\n]+)/i);
-          if (vm) f.voice_line = vm[1].trim();
+          if (vm) f.voice_line = cleanVoiceForHeroField(vm[1].trim());
         }
+        if (f.voice_line) f.voice_line = cleanVoiceForHeroField(f.voice_line);
+        if (f.voice) f.voice = cleanVoiceForHeroField(f.voice);
         if (!f.voice && f.voice_line) f.voice = f.voice_line;
         return f;
       }
 
-      function characterFieldsToJson(f) {
+      /**
+       * การ์ดมีรายละเอียด "โผล่ตัว/รูปลักษณ์" แยกออกมาหรือไม่ (มีแค่ VOICE/เพศเล็กๆ ไม่นับ — ยังต้องฝัง image prompt ด้วย)
+       */
+      function cardHasVisualFromFields(f) {
+        if (!f) return false;
+        if (f.appearance && String(f.appearance).trim().length > 2) return true;
+        if (f.outfit && String(f.outfit).trim().length > 2) return true;
+        if (f.name && String(f.name).trim().length > 0) return true;
+        return false;
+      }
+
+      /** รวมรายละเอียดฮีโร่ — ถ้า parse การ์ดไม่ได้: ฝัง imageRaw (ดึงมาใส่เอง ไม่ให้ชี้ไป "ดูด้านล่าง") */
+      function buildHeroDescriptionThai(f, imageRawFallback) {
+        if (!f) f = {};
+        if (f.char_line && String(f.char_line).length > 10) {
+          return String(f.char_line).trim();
+        }
+        var parts = [];
+        if (f.name) parts.push("ชื่อ: " + f.name);
+        if (f.gender) parts.push("เพศ: " + f.gender);
+        if (f.age) parts.push("อายุ: " + f.age);
+        if (f.appearance) parts.push("ลักษณะ/หน้า/ผม: " + f.appearance);
+        if (f.outfit) parts.push("ชุด/สไตล์: " + f.outfit);
+        var rawV = f.voice || f.voice_line || "";
+        var v = cleanVoiceForHeroField(rawV);
+        if (v && !isGenericVoiceTh(rawV)) parts.push("เสียงโดยละเอียด: " + v);
+        var core = getInlineImagePromptCore(imageRawFallback, 2000);
+        if (core && !cardHasVisualFromFields(f)) {
+          if (parts.length) return core + " | " + parts.join(" | ");
+          return core;
+        }
+        if (parts.length) return parts.join(" | ");
+        if (core) return core;
+        return HERO_DETAIL_PLACEHOLDER;
+      }
+
+      function extractSpeakerLabelFromVideo(vr) {
+        if (!vr) return "";
+        var m = /Speaker:\s*([^\n.]+)/i.exec(String(vr));
+        return m ? m[1].trim() : "";
+      }
+
+      function extractFirstRoleFromVideo(vr) {
+        if (!vr) return "";
+        var m = String(vr).match(/\bROLE_[A-Z0-9_]+\b/);
+        return m ? m[0] : "";
+      }
+
+      function extractTtsVoiceFromVideo(vr) {
+        if (!vr) return "";
+        var m = /TTS\/voice:\s*([^\n]+)/i.exec(String(vr));
+        var s = m ? m[1] : "";
+        s = s.replace(/\bAUDIO ONLY\b[\s\S]*$/i, "").trim();
+        s = s.replace(/[.,;:\s]+$/g, "");
+        s = cleanVoiceForHeroField(s);
+        if (s.length > 220) s = s.slice(0, 220) + "…";
+        return s;
+      }
+
+      /**
+       * บรรทัดเดียว: ฉลากใคร = พูด / จับคู่ ROLE จาก prompt / น้ำเสียง
+       */
+      function buildVideoWhoSpeaksLineThai(s) {
+        if (!s || !s.videoRaw) return "";
+        var vr = s.videoRaw;
+        var label = extractSpeakerLabelFromVideo(vr);
+        var role = extractFirstRoleFromVideo(vr);
+        var tts = extractTtsVoiceFromVideo(vr);
+        if (!label && !role) return "";
+        var a = "ใครพูด (วิดีโอฉากนี้): ";
+        a += label || "ฉลาก/ชื่อ: ยังไม่ตรงบรรทัด Speaker (ดู field วิดีโอ/แก้ Prompt)";
+        if (role) a += " | บท/ตัว (ACTION, ROLE): " + role;
+        if (tts) a += " | น้ำเสียง/สไตล์: " + tts;
+        return a;
+      }
+
+      /**
+       * รวมฉลาก/ผู้พูดทั้งเรื่อง: ฉลาก+ROLE+ฉาก+บท+TTS ไม่ใช่รายชื่อสั้นๆ
+       */
+      function buildSpeakerRegistryNarrative(parsed) {
+        if (!parsed || !parsed.scenes || !parsed.scenes.length) return "";
+        var by = Object.create(null);
+        for (var i = 0; i < parsed.scenes.length; i++) {
+          var sc = parsed.scenes[i];
+          var label = extractSpeakerLabelFromVideo(sc.videoRaw);
+          var role = extractFirstRoleFromVideo(sc.videoRaw);
+          var tts = extractTtsVoiceFromVideo(sc.videoRaw);
+          if (!label && !role) continue;
+          if (!label) {
+            label = role ? "เอกสารระบุ ROLE: " + role : "ยังหาจับคู่ไม่เจอ";
+          }
+          if (!Object.prototype.hasOwnProperty.call(by, label)) {
+            by[label] = {
+              first: Number(sc.num),
+              roles: Object.create(null),
+              scenes: [],
+              tts: Object.create(null),
+              dlg: {}
+            };
+          }
+          var b = by[label];
+          if (role) b.roles[role] = true;
+          if (b.scenes.indexOf(Number(sc.num)) === -1) b.scenes.push(Number(sc.num));
+          if (tts) b.tts[tts] = true;
+          var dg = (sc.dialogue || "").replace(/\s+/g, " ").trim();
+          if (dg) b.dlg[sc.num] = dg.length > 200 ? dg.slice(0, 200) + "…" : dg;
+        }
+        var keys = Object.keys(by);
+        if (!keys.length) return "";
+        keys.sort(function (a, c) {
+          return by[a].first - by[c].first;
+        });
+        var out = [];
+        out.push(
+          "ฉลาก/ผู้พูด (อธิบายเต็ม: ฉลาก+ROLE+ฉาก+บท+น้ำเสียง — อ่านคู่: ฉลาก/ชื่อ = บทพูดจริง, ROLE/บท = ตัว/แอ็กชั่นในวิดีโอ):"
+        );
+        for (var k = 0; k < keys.length; k++) {
+          var b = by[keys[k]];
+          b.scenes.sort(function (a, c) {
+            return a - c;
+          });
+          var lines = [];
+          var rs = Object.keys(b.roles);
+          var ts = Object.keys(b.tts);
+          lines.push(
+            k + 1 + ") ผู้พูด/ฉลากที่ออกเสียง: " + keys[k]
+          );
+          if (rs.length) {
+            lines.push("   บท/ตัวละคร (ROLE ตาม prompt): " + rs.join(", "));
+          }
+          lines.push("   ฉากใด: ฉลากนี้พูดในวิดีโอ ฉาก " + b.scenes.join(", "));
+          if (ts.length) {
+            lines.push("   น้ำเสียง/ TTS: " + ts.join(" | "));
+          }
+          var sNums = Object.keys(b.dlg)
+            .map(Number)
+            .sort(function (a, c) {
+              return a - c;
+            });
+          for (var d = 0; d < sNums.length; d++) {
+            var sn = sNums[d];
+            lines.push("   บทอ้างอิง ฉาก " + sn + " (ฉลากนี้): " + b.dlg[sn]);
+          }
+          out.push(lines.join("\n"));
+        }
+        return out.join("\n\n");
+      }
+
+      /**
+       * รวบรวม HERO BIBLE + การ์ด + (เฉพาะโหมดวิดีโอ/ภาพรวม) registry ผู้พูดจากวิดีโอ
+       * @param {object} opts - { forImage: true } = JSON/บล็อกรูป — ไม่ใส่บท/ฉลากจากวิดีโอ (ไม่รก image prompt)
+       */
+      function buildStoryHeroBible(parsed, opts) {
+        opts = opts || {};
+        var forImage = opts.forImage === true;
+        var lines = [];
+        /** ย่อ: ฝั่ง image เต็มๆ อยู่ hero_full_detail ของ JSON ฉากนั้น ไม่ซ้ำ block ยาวกับ story_hero_bible ทุกฉาก */
+        lines.push(
+          "HERO BIBLE: ฉลาก ROLE/ลักษณะฮีโร่ล็อคตลอด; รายละเอียดฝั่งรูปต่อฉากดู field hero_full_detail ของ JSON ฉากนั้น (ไม่อ้างไปดึงนอก field)"
+        );
+        if (forImage) {
+          lines.push(
+            "โหมดรูป: ไม่รวมรายการผู้พูด/บทจากวิดีโอ — ล็อคภาพตาม hero_full_detail + prompt ของ JSON ฉากรูปนี้เท่านั้น"
+          );
+        }
+        var f0 = (parsed.character && parsed.character.fields) || {};
+        var img0 = (parsed.scenes[0] && parsed.scenes[0].imageRaw) || "";
+        var vdo0 = (parsed.scenes[0] && parsed.scenes[0].videoRaw) || "";
+        var enr = enrichFieldsFromPrompts(f0, img0, vdo0);
+        var oneLine = characterToThaiLine(enr);
+        if (oneLine) lines.push("การ์ดสรุป (ฉาก1): " + oneLine);
+        if (parsed.character && parsed.character.raw) {
+          var raw = String(parsed.character.raw).trim();
+          if (raw) {
+            /** บล็อกล็อคหน้าตา/รูปร่างยาว (EN/TH) ต้องฝังเต็ม — อย่าตัดแค่ 600 ตัว (โมเดลจะไม่อ้างอิง consistency) */
+            var maxRawBible = 10000;
+            var rawClip = raw.length > maxRawBible ? raw.slice(0, maxRawBible) + "…" : raw;
+            lines.push(
+              "ล็อคตัวละครจาก CHARACTER CARD (ฝังใน HERO BIBLE — ใช้คู่กับ hero_full_detail + prompt ฉาก; ไม่ตัดถ้าไม่เกิน " +
+                maxRawBible +
+                " ตัวอักษร):\n" +
+                rawClip
+            );
+          }
+        }
+        if (!forImage) {
+          var reg = buildSpeakerRegistryNarrative(parsed);
+          if (reg) {
+            lines.push(reg);
+          }
+        }
+        return lines.join("\n\n");
+      }
+
+      /**
+       * ฉาก 1 เท่านั้น: นำ CHARACTER CARD เต็มมาไว้หน้า prompt ฉาก — ผู้รับ JSON ที่อ่านแค่ hero_full_detail ยังอ้างล็อคได้
+       */
+      function mergeCharacterLockScene1(sceneNum, sceneDetail, characterRaw, kind) {
+        if (Number(sceneNum) !== 1) return sceneDetail;
+        var raw = String(characterRaw || "").trim();
+        if (raw.length < 120) return sceneDetail;
+        var maxLock = 5000;
+        var lock = raw.length > maxLock ? raw.slice(0, maxLock) + "…" : raw;
+        var mid =
+          kind === "video"
+            ? "—— เนื้อ prompt ฉากนี้ (วิดีโอ/ภาพอ้างอิง) ——\n\n"
+            : "—— เนื้อ prompt ฉากนี้ (รูป) ——\n\n";
+        return (
+          "ล็อคตัวละคร (CHARACTER CARD; ใช้ทุกฉาก):\n" +
+          lock +
+          "\n\n" +
+          mid +
+          sceneDetail
+        );
+      }
+
+      function buildSceneImageJson(globalBible, s, fieldsImg, imgClean, characterRaw) {
+        var heroBase = buildHeroDescriptionThai(fieldsImg, s.imageRaw || imgClean);
         return {
-          type: "character_card",
-          name: f.name || null,
-          gender: f.gender || null,
-          age: f.age || null,
-          appearance: f.appearance || null,
-          outfit: f.outfit || null,
-          voice: f.voice || f.voice_line || null,
-          compact_char: f.char_line || null
+          type: "storymode_image_prompt",
+          scene: Number(s.num),
+          scene_tag: sceneTag(s.num),
+          scene_title: s.title,
+          story_hero_bible: globalBible,
+          hero_full_detail_thai: mergeCharacterLockScene1(s.num, heroBase, characterRaw, "image"),
+          dialogue_lock_thai: null,
+          note_voice: "ไม่บังคับตั้งชื่อ — ล็อคฉลากบทบาท/รายละเอียด/บทสนทนา; เสียงตามเพศ/อายุของบทดังกล่าว ไม่ล็อค young Thai female ทุกเส้น",
+          prompt: prefixScenePrompt(imgClean, s.num)
+        };
+      }
+
+      function buildSceneVideoJson(globalBible, s, fieldsVdo, vdoClean, characterRaw) {
+        var fallImg = s.imageRaw || vdoClean;
+        var heroBase = buildHeroDescriptionThai(fieldsVdo, fallImg);
+        return {
+          type: "storymode_video_prompt",
+          scene: Number(s.num),
+          scene_tag: sceneTag(s.num),
+          scene_title: s.title,
+          story_hero_bible: globalBible,
+          hero_full_detail_thai: mergeCharacterLockScene1(s.num, heroBase, characterRaw, "video"),
+          dialogue_lock_thai: s.dialogue || "",
+          note_voice: "เสียง TTS ตามเพศ/อายุของฉลากหรือบทบาทผู้พูด (ไม่บังคับชื่อ) — ล็อคบทสนทนาไทยตาม dialogue_lock_thai",
+          prompt: prefixScenePrompt(vdoClean, s.num)
         };
       }
 
@@ -588,10 +903,17 @@
       function extractDialogueFromVideo(videoText) {
         if (!videoText) return "";
         var parts = [];
+        var seen = Object.create(null);
         var re = /"([^"]{6,1200})"/g;
         var x;
         while ((x = re.exec(videoText)) !== null) {
-          if (/[\u0E00-\u0E7F]/.test(x[1])) parts.push(x[1]);
+          if (/[\u0E00-\u0E7F]/.test(x[1])) {
+            var q = x[1].trim();
+            if (q && !seen[q]) {
+              seen[q] = true;
+              parts.push(q);
+            }
+          }
         }
         if (parts.length) return parts.join("\n");
         var d2 = videoText.match(/Dialogue[^:]*:\s*([^\n]+)/i);
@@ -731,8 +1053,14 @@
       }
 
       /** เรนเดอร์บล็อก Thai ของ Image prompt (plain text, ไม่มีปีกกา) */
-      function buildImageThaiBlock(s, fields) {
+      function buildImageThaiBlock(heroBible, s, fields) {
         var lines = [];
+        if (heroBible) {
+          lines.push(heroBible);
+          lines.push("");
+          lines.push("——— ฉาก " + s.num + " (รูป) ———");
+          lines.push("");
+        }
         lines.push(sceneTag(s.num));
         lines.push("");
         lines.push("ฉาก " + s.num + " — " + s.title);
@@ -741,8 +1069,9 @@
           lines.push("");
           lines.push("ตัวละคร: " + charLine);
         }
-        var voice = fields.voice || fields.voice_line || "";
-        if (voice) lines.push("เสียง: " + voice);
+        var rawVoiceImg = fields.voice || fields.voice_line || "";
+        var voiceImg = cleanVoiceForHeroField(rawVoiceImg);
+        if (voiceImg && !isGenericVoiceTh(rawVoiceImg)) lines.push("เสียง: " + voiceImg);
         lines.push("");
         lines.push("ภาพ:");
         var imgClean = stripPromptNoise(s.imageRaw || "");
@@ -751,21 +1080,36 @@
       }
 
       /** เรนเดอร์บล็อก Thai ของ Video prompt (plain text, ไม่มีปีกกา) */
-      function buildVideoThaiBlock(s, fields) {
+      function buildVideoThaiBlock(heroBible, s, fields) {
         var lines = [];
+        if (heroBible) {
+          lines.push(heroBible);
+          lines.push("");
+          lines.push("——— ฉาก " + s.num + " (วิดีโอ) ———");
+          lines.push("");
+        }
         lines.push(sceneTag(s.num));
         lines.push("");
         lines.push("ฉาก " + s.num + " — " + s.title);
         if (s.dialogue) {
           lines.push("บทพูด: " + s.dialogue);
         }
+        var whoLine = buildVideoWhoSpeaksLineThai(s);
+        if (whoLine) {
+          lines.push("");
+          lines.push(whoLine);
+        }
         var charLine = characterToThaiLine(fields);
         if (charLine) {
           lines.push("");
           lines.push("ตัวละคร: " + charLine);
         }
-        var voice = fields.voice || fields.voice_line || "";
-        if (voice) lines.push("เสียง: " + voice);
+        var rawVoiceVdo = fields.voice || fields.voice_line || "";
+        var voiceVdo = cleanVoiceForHeroField(rawVoiceVdo);
+        var ttsFromVideo = extractTtsVoiceFromVideo(s.videoRaw || "");
+        if (voiceVdo && !isGenericVoiceTh(rawVoiceVdo) && (!whoLine || !ttsFromVideo)) {
+          lines.push("เสียง: " + voiceVdo);
+        }
         lines.push("");
         lines.push("วิดีโอ:");
         var vdoClean = stripPromptNoise(s.videoRaw || "");
@@ -789,6 +1133,7 @@
         return {
           type: "story_overview",
           hook_reference: hook || null,
+          hero_bible: buildStoryHeroBible(parsed),
           scenes: scenes
         };
       }
@@ -849,6 +1194,10 @@
             if (scn.dialogue) {
               line1 += "\nบทพูด: " + scn.dialogue;
             }
+            var whoPlain = buildVideoWhoSpeaksLineThai(scn);
+            if (whoPlain) {
+              line1 += "\n" + whoPlain;
+            }
             pScene.textContent = line1;
             plainBlock.appendChild(pScene);
           }
@@ -857,6 +1206,8 @@
         structuredRoot.appendChild(storyCard);
 
         var fields = parsed.character.fields || {};
+        var globalHeroBibleImage = buildStoryHeroBible(parsed, { forImage: true });
+        var globalHeroBibleVideo = buildStoryHeroBible(parsed);
 
         if (parsed.scenes.length) {
           var sec2 = document.createElement("div");
@@ -941,14 +1292,14 @@
           pImg.appendChild(headImg);
           var fieldsImg = enrichFieldsFromPrompts(fields, s.imageRaw, s.videoRaw);
           var imgPromptClean = stripPromptNoise(s.imageRaw || "");
-          var imageJsonObj = {
-            type: "storymode_image_prompt",
-            scene: Number(s.num),
-            scene_tag: sceneTag(s.num),
-            scene_title: s.title,
-            character_card: characterFieldsToJson(fieldsImg),
-            prompt: prefixScenePrompt(imgPromptClean, s.num)
-          };
+          var charRaw = (parsed.character && parsed.character.raw) || "";
+          var imageJsonObj = buildSceneImageJson(
+            globalHeroBibleImage,
+            s,
+            fieldsImg,
+            imgPromptClean,
+            charRaw
+          );
           if (!s.imageRaw) {
             imageJsonObj._note = "ไม่พบบล็อกหลัง IMAGE PROMPT";
           }
@@ -958,7 +1309,7 @@
           pImg.appendChild(preImg);
           var preImgThai = document.createElement("pre");
           preImgThai.className = "thai-pre view-thai";
-          preImgThai.textContent = buildImageThaiBlock(s, fieldsImg);
+          preImgThai.textContent = buildImageThaiBlock(globalHeroBibleImage, s, fieldsImg);
           pImg.appendChild(preImgThai);
           var rowImg = document.createElement("div");
           rowImg.className = "copy-row";
@@ -1002,15 +1353,13 @@
           }
           var fieldsVdo = enrichFieldsFromPrompts(fields, s.imageRaw, s.videoRaw);
           var vdoPromptClean = stripPromptNoise(s.videoRaw || "");
-          var videoJsonObj = {
-            type: "storymode_video_prompt",
-            scene: Number(s.num),
-            scene_tag: sceneTag(s.num),
-            scene_title: s.title,
-            character_card: characterFieldsToJson(fieldsVdo),
-            dialogue_extracted: s.dialogue || null,
-            prompt: prefixScenePrompt(vdoPromptClean, s.num)
-          };
+          var videoJsonObj = buildSceneVideoJson(
+            globalHeroBibleVideo,
+            s,
+            fieldsVdo,
+            vdoPromptClean,
+            charRaw
+          );
           if (!s.videoRaw) {
             videoJsonObj._note = "ไม่พบบล็อกหลัง VIDEO PROMPT";
           }
@@ -1020,7 +1369,7 @@
           pVdo.appendChild(preVdo);
           var preVdoThai = document.createElement("pre");
           preVdoThai.className = "thai-pre view-thai";
-          preVdoThai.textContent = buildVideoThaiBlock(s, fieldsVdo);
+          preVdoThai.textContent = buildVideoThaiBlock(globalHeroBibleVideo, s, fieldsVdo);
           pVdo.appendChild(preVdoThai);
           var rowVdo = document.createElement("div");
           rowVdo.className = "copy-row";
@@ -1086,7 +1435,7 @@
           refCard.appendChild(refTitle);
           var refPre = document.createElement("pre");
           refPre.className = "prompt-pre json-prompt";
-          refPre.style.maxHeight = "240px";
+          refPre.style.maxHeight = "min(70vh, 720px)";
           refPre.textContent = stringifyJson({
             type: "character_card_raw",
             content: parsed.character.raw
@@ -1096,8 +1445,93 @@
         }
       }
 
+      function refRoleLabelTh(role) {
+        if (role === "product") return "รูปสินค้า (product ref)";
+        if (role === "character") return "รูปตัวละคร (character ref)";
+        return role || "—";
+      }
+
+      function refSlotLabelTh(slot) {
+        var s = String(slot || "");
+        if (s === "product") return "สินค้า — รูปหลัก (product)";
+        if (/^product\d+$/.test(s) && s !== "product") return "สินค้า — " + s;
+        if (s === "character1") return "ตัวละคร 1 — รูปหลัก (character1)";
+        if (s === "character2") return "ตัวละคร 2 — รูปหลัก (character2)";
+        if (s === "character3") return "ตัวละคร 3 — รูปหลัก (character3)";
+        var m = s.match(/^character([123])_(\d+)$/);
+        if (m) {
+          return "ตัวละคร " + m[1] + " — รูปเสริม (ลำดับที่ " + m[2] + " ใน slot)";
+        }
+        return s || "—";
+      }
+
+      function renderImageRefBlock(d) {
+        var wrap = document.getElementById("ref-attachment-wrap");
+        if (!wrap) return;
+        wrap.innerHTML = "";
+        var list = d && d.imageRefOrder;
+        if (!list || !list.length) {
+          wrap.hidden = true;
+          return;
+        }
+        wrap.hidden = false;
+        var card = document.createElement("section");
+        card.className = "card ref-attach-card";
+        var t = document.createElement("p");
+        t.className = "card-title";
+        t.textContent = "รูป ref ที่แนบกับคำขอเจน (ลำดับ = ส่งหา Gemini)";
+        card.appendChild(t);
+        var p = document.createElement("p");
+        p.className = "ref-attach-note";
+        p.textContent =
+          "ลำดับนี้ตรงกับ inline image ที่ส่งคู่ prompt — ใช้เช็กว่า tool gen รูป/วิดีโอควรอ้างไฟล์/สล็อตเดียวกัน (สินค้าก่อน แล้วตัวละคร 1→2→3 ตาม mock)";
+        card.appendChild(p);
+        var table = document.createElement("table");
+        table.className = "ref-attach-table";
+        var thead = document.createElement("thead");
+        var hr = document.createElement("tr");
+        ["ลำดับ", "บทบาท ref", "Slot", "ชื่อไฟล์"].forEach(function (h) {
+          var th = document.createElement("th");
+          th.textContent = h;
+          hr.appendChild(th);
+        });
+        thead.appendChild(hr);
+        table.appendChild(thead);
+        var tbody = document.createElement("tbody");
+        for (var i = 0; i < list.length; i++) {
+          var row = list[i];
+          var tr = document.createElement("tr");
+          var td1 = document.createElement("td");
+          td1.textContent = String(row.order != null ? row.order : i + 1);
+          var td2 = document.createElement("td");
+          td2.textContent = refRoleLabelTh(row.role);
+          var td3 = document.createElement("td");
+          var code = document.createElement("code");
+          code.className = "ref-slot";
+          code.textContent = String(row.slot || "—");
+          td3.appendChild(code);
+          td3.appendChild(document.createElement("br"));
+          var span = document.createElement("span");
+          span.className = "ref-slot-th";
+          span.textContent = refSlotLabelTh(row.slot);
+          td3.appendChild(span);
+          var td4 = document.createElement("td");
+          td4.className = "ref-name";
+          td4.textContent = String(row.fileName || "—");
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(td4);
+          tbody.appendChild(tr);
+        }
+        table.appendChild(tbody);
+        card.appendChild(table);
+        wrap.appendChild(card);
+      }
+
       function render(d) {
         if (!d) {
+          renderImageRefBlock(null);
           meta.textContent = "ยังไม่มีผล — กลับไปกดเจนที่ mock ก่อน";
           processing.classList.remove("is-visible");
           resultBody.classList.remove("is-hidden");
@@ -1113,7 +1547,11 @@
           document.title = "กำลังประมวลผล… — Storymode mock";
           pageTitle.textContent = "กำลังประมวลผล";
           processing.classList.add("is-visible");
-          processingMsg.textContent = d.message || "กำลังเรียก Gemini…";
+          processingMsg.textContent =
+            (d.message || "กำลังเรียก Gemini…") +
+            (d.imageRefOrder && d.imageRefOrder.length
+              ? " · ส่ง " + d.imageRefOrder.length + " รูป ref"
+              : "");
           meta.textContent =
             "แท็บนี้จะอัปเดตอัตโนมัติเมื่อเสร็จ · " +
             (d.ts ? "เริ่ม: " + new Date(d.ts).toLocaleString("th-TH") : "");
@@ -1154,6 +1592,7 @@
           structuredRoot.innerHTML = "";
           structuredRoot.hidden = true;
         }
+        renderImageRefBlock(d);
       }
 
       function stopPoll() {

@@ -3,10 +3,61 @@
  * - `getStorymodeSystemPromptForGenerate` → `buildStorymodeSystemPromptFromPayload`
  * - User message shape aligned with `buildUserMessage`
  * - `GEMINI_MODEL_CHAIN` + `generateContent` (no `applyLocalScreenToGeminiRequestBody`)
- * Requires: `storymode-mock-enrich-bundle.js` (getMoodDirective, formatNarrativePromptsForMessage)
+ * Requires: `storymode-mock-enrich-bundle.js` (getMoodDirective, formatNarrativePromptsForMessage) —
+ * ถ้า bundle ไม่มาหรือ global มองไม่เห็น ใช้ fallback ด้านล่าง
  */
 (function () {
   'use strict';
+
+  const g = typeof globalThis !== 'undefined' ? globalThis : (typeof window !== 'undefined' ? window : this);
+
+  if (typeof g.getMoodDirective !== 'function') {
+    g.getMoodDirective = function (moodKeyword) {
+      if (!moodKeyword) return '';
+      var map;
+      try {
+        map = typeof MOOD_LLM_DIRECTIVE_BY_KEYWORD !== 'undefined' ? MOOD_LLM_DIRECTIVE_BY_KEYWORD : void 0;
+      } catch (e) {
+        map = void 0;
+      }
+      if (map && map[moodKeyword]) return map[moodKeyword];
+      return (
+        'Match overall lighting, color grade, and pacing to this mood label: "' +
+        moodKeyword +
+        '". Keep visuals coherent and platform-safe.'
+      );
+    };
+  }
+  if (typeof g.formatNarrativePromptsForMessage !== 'function') {
+    g.formatNarrativePromptsForMessage = function (styleIds) {
+      if (!styleIds || !styleIds.length) return '';
+      var map;
+      try {
+        map = typeof NARRATIVE_PROMPT_BY_STYLE_ID !== 'undefined' ? NARRATIVE_PROMPT_BY_STYLE_ID : void 0;
+      } catch (e) {
+        map = void 0;
+      }
+      if (map) {
+        return styleIds
+          .map(function (id) {
+            var p = map[id];
+            return p ? '[Style ' + id + '] ' + p : '';
+          })
+          .filter(function (l) {
+            return l;
+          })
+          .join('\n\n');
+      }
+      return styleIds
+        .map(function (id) {
+          return '[Style ' + id + '] (narrative bundle not loaded)';
+        })
+        .join('\n\n');
+    };
+  }
+
+  const getMoodDirective = g.getMoodDirective;
+  const formatNarrativePromptsForMessage = g.formatNarrativePromptsForMessage;
 
   const STORY_TYPE_TEMPLATES = [
     { id: 'custom', name: 'กำหนดเอง (Custom)', icon: '✏️', description: 'ใส่หัวข้อเอง AI สร้างเรื่องให้อิสระ' },
@@ -58,6 +109,45 @@
     'thai_commercial_tv',
     'double_exposure'
   ]);
+
+  /**
+   * กฎจำนวนคำต่อฉากเทียบกับ ~8 วินาทีต่อ clip (Flow / short-form) — ใส่ทั้ง system และ user
+   * เพื่อกัน model มองข้ามบล็อก ADAPTIVE_VIDEO_DIRECTOR ที่ยาว/ถูก format override
+   */
+  function buildDialogueWordBudgetThai(isASMR, where) {
+    if (isASMR) {
+      if (where === 'user') {
+        return (
+          '═══ บทพูด / เสียง ═══\n' +
+          'โหมด ASMR: ห้าม dialogue — ใช้เฉพาะเสียงบรรยากาศ/SFX ตามกฎ system\n' +
+          '\n'
+        );
+      }
+      return (
+        '═══ DIALOGUE (ASMR) ═══\n' +
+        'โหมด ASMR: ห้ามบทพูด (Dialogue) — ตาม Adaptive Video Director / STRICT ASMR PROTOCOL\n' +
+        '\n'
+      );
+    }
+    if (where === 'user') {
+      return (
+        '═══ กฎความยาวบทพูด (บังคับ — ทุกฉาก) ═══\n' +
+        '• แต่ละฉาก = วิดีโอสั้น **~8 วินาที/clip (Flow)** — บทพูดหรือพากย์ภาษาไทย **15-20 คำต่อ 1 ฉาก** (นับ **รวม** dialogue ทั้งฉาก; รวมทุก beat ในฉากนั้น)\n' +
+        '• ห้าม **น้อยกว่า 15 คำ** หรือ **เกิน 20 คำ** ใน dialogue ฉากเดียว — นับก่อน finalize; ถ้าเกินให้ **ตัดย่อ**; ถ้าไม่ถึง 15 ให้เติมให้ครบโดยยังสั้น-กระแทก\n' +
+        '• ออกแบบบทให้ TTS/พูด **จบภายใน ~8 วิ** — ห้ามรัวยาว; รายละเอียดเพิ่มใน **ภาพ/แอคชัน** ไม่ใช่ยืดบทพูด\n' +
+        '• หากมี **Sales Blueprint** หลาย beat ใน 1 ฉาก: **รวมนับ 15-20 คำทั้งฉาก** ห้ามถือแต่ละ beat เป็น 15-20 กล่องแยก\n' +
+        '\n'
+      );
+    }
+    return (
+      '═══ DIALOGUE WORD BUDGET (8s clip / ฉาก) — บังคับก่อนกฎ “บทยาว/เล่าเยอะ” อื่น ═══\n' +
+      '1) มาตรฐาน **Google Flow / คลิปสั้น: ~8 วินาทีต่อฉาก** — บทพูด/พากย์ภาษาไทย = **15-20 คำต่อฉาก** ตรงกับบรรทัด "Flow (8วิ): 15-20 คำ" ใน Director prompt\n' +
+      '2) **นับรวมทุก** ก้อน dialogue, lip-sync, narration ไทยในฉากเดียว ถ้า blueprint รวมหลาย beat ในซีนเดียว → ยอด **รวม** ต้องอยู่ 15-20 คำ/ฉาก ไม่ใช่ 15-20 คำต่อ beat\n' +
+      '3) **นับก่อน** ส่ง output: น้อยกว่า 15 หรือ เกิน 20 ถือว่า fail — แก้/ตัด/รวมประโยค แล้วส่งรอบสุดท้ายเท่านั้น\n' +
+      '4) ห้ามใช้กฎ "2-4 ประโยค", "ยืดยาว" ฯลฯ มา **แทน** ข้อนี้ — ข้อ 15-20 คำ/8 วิ/ฉาก มี **ลำดับสูงกว่า** brief ยาวของ user\n' +
+      '\n'
+    );
+  }
 
   function buildStorymodeSystemPromptFromPayload(payload, opts) {
     opts = opts || {};
@@ -112,27 +202,27 @@
     } else if (isASMR) {
       imageTemplate =
         visualDesc +
-        '. FIXED overhead/top-down camera angle (45-60°). [SCENE_DESCRIPTION]. [DETAILED_OBJECTS_AND_PROPS]. The full scene is visible from above, brightly illuminated by natural light.\n\n[Character Reference: [CHARACTER_REFS]]';
+        '. FIXED overhead/top-down camera angle (45-60°). [SCENE_DESCRIPTION]. [DETAILED_OBJECTS_AND_PROPS]. The full scene is visible from above, brightly illuminated by natural light. Describe every visible person/object per HERO BIBLE — full in-scene text, not "see HERO BIBLE" shortcuts.';
       videoTemplate =
         '[ACTION_DESCRIPTION], overhead static camera (45-60°), ASMR sounds of [AMBIENT_SOUNDS], realistic movement, natural motion. NO speech, NO text, stable form, no morphing, no extra limbs';
     } else if (isFairytale) {
       imageTemplate =
         visualDesc +
-        '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK.\n\n[Character Reference: [ALL_CHARACTER_REFS]]';
+        '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Paste full HERO BIBLE look for this character in this frame (not a "reference line" only).';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], with ' + voiceEn + ' voiceover narration, MUST use ' + voiceEn + ' only, do NOT switch to different voice gender, NO lip sync, character does NOT speak, background narration only. Thai voiceover narrated by ' + voiceEn + ' says: "[THAI_NARRATION]" NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, NO titles, NO watermarks, All dialogue is AUDIO ONLY, stable form, no morphing, no extra limbs';
+        'ACTION ONLY: [CHARACTER_ACTION], Thai narration. Voice: match the narrator identity in the HERO BIBLE (age/gender/persona) — not a one-size-fits-all default. NO lip sync if narration-only. Thai voiceover says: "[THAI_NARRATION]" (exact wording lock). NO subtitles or on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs';
     } else if (isAnimated) {
       imageTemplate =
         visualDesc +
-        '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION], [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK.\n\n[Character Reference: [ALL_CHARACTER_REFS]]';
+        '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION], [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Full in-scene appearance text per HERO BIBLE; repeat on every new shot if the same character appears.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], speaking with ' + voiceEn + ', lip movement synced to audio, MUST maintain consistent ' + voiceEn + ' throughout entire clip, do NOT switch voice gender. Only animate the existing characters from the image, do not add new characters or change their appearance. Character says in Thai with ' + voiceEn + ': "[THAI_DIALOGUE]" NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, NO titles, NO watermarks, All dialogue is AUDIO ONLY, stable form, no morphing, no extra limbs';
+        'ACTION ONLY: [CHARACTER_ACTION], lip movement synced to Thai: "[THAI_DIALOGUE]". TTS/voice: match each Speaker in HERO BIBLE (age, gender, persona) — do NOT default every line to a single global voice if characters differ. One speaker per line; lock Thai dialogue text exactly. NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs';
     } else {
       imageTemplate =
         visualDesc +
-        '. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK.\n\n[Character Reference: [CHARACTER_REFS]]';
+        '. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Describe characters at full HERO BIBLE detail when visible; no "[Character Ref]" one-liners only.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], speaking with ' + voiceEn + ', lip movement synced to audio, MUST maintain consistent ' + voiceEn + ' throughout entire clip, do NOT switch voice gender. Character says in Thai with ' + voiceEn + ': "[THAI_DIALOGUE]" NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, NO titles, NO watermarks, All dialogue is AUDIO ONLY, stable form, no morphing, no extra limbs';
+        'ACTION ONLY: [CHARACTER_ACTION], lip-sync Thai: "[THAI_DIALOGUE]". Voice: match the speaking character from HERO BIBLE. Lock hero NAMES and this dialogue string exactly. NO default voice trope; NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs';
     }
 
     const outputTypeNote =
@@ -257,25 +347,30 @@
       '═══ VIDEO PROMPT TEMPLATE ═══\n' +
       videoTemplate +
       '\n\n' +
+      buildDialogueWordBudgetThai(isASMR, 'system') +
       '═══ CRITICAL RULES ═══\n' +
       '1. Image prompt ต้องเป็นภาษาอังกฤษ (ยกเว้นข้อความ Thai bold text บนภาพ ถ้ามี)\n' +
       '2. Video prompt ต้องเป็นภาษาอังกฤษ ยกเว้นบทพูด/narration ที่ต้องเป็นภาษาไทย\n' +
-      '3. บทพูดภาษาไทยต้องเป็นธรรมชาติ สนุก น่าสนใจ เหมือนคนไทยพูดจริง\n' +
+      '3. บทพูดภาษาไทยต้องเป็นธรรมชาติ สนุก น่าสนใจ — และ **ยึด 15-20 คำ/ฉาก (~8 วิ)** ตามบล็อก "DIALOGUE WORD BUDGET" ทันทีก่อน/เหนือรายละเอียด style\n' +
       '4. ทุกฉากต้องใช้สไตล์ภาพเดียวกัน: ' +
       visualDesc +
       '\n' +
       '5. ห้ามใส่ subtitle, text overlay, captions ในวิดีโอ — dialogue เป็น AUDIO ONLY\n' +
       '6. Image ต้องเป็น single image, no collage, no multiple panels\n' +
-      '7. ตัวละครต้อง consistent ทุกฉาก — หน้าตา เสื้อผ้า สไตล์เดียวกัน\n' +
-      '8. ถ้ามี Character Reference ให้ใส่ท้าย image prompt ทุกฉาก\n' +
+      '7. ตัวละครต้อง consistent ทุกฉาก — หน้า เสื้อผ้า สไตล์เดียวกัน; ย้ำรายละเอียดเต็มต่อฉาก ห้ามอ้าง "same as HERO BIBLE" แทนคำบรรยาย\n' +
+      '8. ห้ามแทนร่างตัวละครด้วยบรรทัด [Character Reference] อย่างเดียว — บรรยายตาม HERO BIBLE ในช่อง image prompt ของฉากนั้น\n' +
       '9. ถ้ามีสินค้า ต้องเห็นสินค้าชัดเจนในทุกฉาก\n' +
       '10. Scene header ต้องใช้ === SCENE N: NAME === เท่านั้น (สำคัญสำหรับ parser)\n' +
       '11. Prompt ต้องอยู่ใน code block (```) เสมอ\n' +
       '12. จำนวนฉาก: ' +
       smSceneCount +
       ' ฉาก\n' +
-      '13. VOICE LOCK — เสียงพูดต้องเป็น "' + voiceEn + '" เสมอตลอดทุกซีน ' + voiceGenderBanTh + ' (ยกเว้น ASMR ที่ไม่มีเสียงพูด)\n' +
-      '14. CHARACTER LOCK — ใช้ CHARACTER CARD ด้านล่างตรงตัว ทุกซีนเหมือนกัน (face/hair/outfit/voice)\n' +
+      '13. HERO + DIALOGUE — ล็อค **บทสนทนาไทย (Dialogue)**; **ข้อ: ห้ามบังคับตั้งชื่อมนุษย์** — อนุญาตใช้ฉลากบทบาทคงที่ (ROLE/เพื่อน/ฝ่ายรับสาร) แทนการตั้งชื่อ; ถ้าใช้ชื่อ/ฉลากแล้ว ต้องคงสะกด/ความหมายตัวเดิมทุกฉาก เสียง TTS สอดคล้องบทบาท; ไม่บังคับ "' +
+      voiceEn +
+      '" ทุกบท (hint) ' +
+      voiceGenderBanTh +
+      ' (ยกเว้น ASMR ไม่มีเสียงพูด)\n' +
+      '14. HERO BIBLE — ใช้ฉบับด้านล่าง: รายละเอียดเต็ม ห้าม card ย่อ; ทุกครั้งที่พูด/ออกฉาก ย้ำรายละเอียดเพียงพอเพื่อ consistency (ไม่บังคับ "มีชื่อเล่นเสมอ")\n' +
       '\n' +
       (
         (characterCardResult && typeof buildCompactCardInjectionBlock === 'function')
@@ -373,6 +468,42 @@
 
     var msg = '═══ หัวข้อ / สินค้า ═══\n' + topic + '\n';
 
+    // Domain knowledge: เฉพาะ storymode + เนะเรทีฟ ผักนักเลง (36) หรือ อวัยวะรวมตัว (37) — ห้ามใน product_sell
+    var _dkNarr = payload.narrativeStyleIds || [];
+    var _dkNarrativeOk = false;
+    for (var _dki = 0; _dki < _dkNarr.length; _dki++) {
+      var _dkId = Number(_dkNarr[_dki]);
+      if (_dkId === 36 || _dkId === 37) {
+        _dkNarrativeOk = true;
+        break;
+      }
+    }
+    if (
+      payload.mode === 'storymode' &&
+      _dkNarrativeOk &&
+      payload.domainKnowledgeText &&
+      String(payload.domainKnowledgeText).trim()
+    ) {
+      msg +=
+        '\n══ DOMAIN KNOWLEDGE (local repository — ใช้เป็นขอบข่าย/ข้อเท็จจริงอ้างอิง ไม่แทนกฎ safety/overclaim ใน system) ══\n' +
+        String(payload.domainKnowledgeText).trim() +
+        '\n';
+    }
+
+    if (payload.productFactsText && String(payload.productFactsText).trim()) {
+      msg +=
+        '\n══ PRODUCT FACTS (local repository — numeric anchors for product consistency) ══\n' +
+        String(payload.productFactsText).trim() +
+        '\n';
+    }
+
+    if (payload.heroAnalysisText && String(payload.heroAnalysisText).trim()) {
+      msg +=
+        '\n══ HERO VISUAL CONSISTENCY (JSON จากรูปอ้างอิงตัวละคร — ล็อกหน้า/เสื้อ/สไตล์ ให้ฮีโร่นิ่งทุกฉาก) ══\n' +
+        String(payload.heroAnalysisText).trim() +
+        '\n';
+    }
+
     /* Phase 4 — วาง Sales Formula Blueprint ไว้ "บนสุด" ก่อนกฎอื่นใดใน user message
      * เพื่อให้ Gemini อ่าน structure ก่อน แล้วค่อยนำไปปรับให้เข้ากับ inputs อื่น
      * Guard ด้วย mode + salesFormulaId เสมอ (storymode ข้ามทั้งก้อน) */
@@ -393,6 +524,10 @@
 
     msg += '\n═══ ประเภทเรื่อง ═══\n' + storyTypeLabel + '\n';
     msg += '\n═══ จำนวนฉาก ═══\n' + (Number(payload.sceneCount) || 5) + ' ฉาก\n';
+    {
+      const userIsASMR = smStoryType === 'asmr';
+      msg += buildDialogueWordBudgetThai(userIsASMR, 'user');
+    }
 
     /* Phase A — short CHARACTER CARD reference in user message (token-efficient).
      * Full card is defined ONCE in the system prompt; here we just point back to it
@@ -404,7 +539,7 @@
         ? buildCompactCharacterCard(payload, userCardRv)
         : null;
     if (userCardResult && typeof buildCardUserReference === 'function') {
-      msg += '\n═══ CHARACTER & VOICE (see CHARACTER CARD in system) ═══\n';
+      msg += '\n═══ HERO BIBLE (see system prompt) ═══\n';
       msg += buildCardUserReference(userCardResult) + '\n';
     }
 
@@ -467,16 +602,31 @@
     const charNames = (img.characterNames && img.characterNames.length)
       ? img.characterNames
       : (img.characterName ? [img.characterName] : []);
+    const productNames = (img.productNames && img.productNames.length)
+      ? img.productNames
+      : (img.productName ? [img.productName] : []);
     if (img.productAttached || img.characterAttached) {
       msg += '\n═══ รูปแนบ (ส่งภาพเป็น inlineData ให้ Gemini แล้ว) ═══\n';
-      if (img.productAttached) msg += 'สินค้า: ' + (img.productName || '(attached)') + '\n';
+      if (img.productAttached) {
+        msg += 'สินค้า (' + (img.productAttachedCount || productNames.length || 1) + ' รูป): ' + (productNames.join(', ') || '(attached)') + '\n';
+        if (img.productName) msg += 'รูปสินค้าหลักที่ใช้พิจารณาเอกลักษณ์: ' + img.productName + '\n';
+      }
       if (img.characterAttached) {
-        msg += 'ตัวละคร (' + charNames.length + ' รูป): ' + (charNames.join(', ') || '(attached)') + '\n';
+        var ccounts = img.characterImageCounts;
+        if (ccounts && ccounts.length) {
+          msg += 'ตัวละคร (จำนวนรูป ref ต่อ slot 1/2/3): ' + ccounts.join(' / ') + ' รูป\n';
+        } else {
+          msg += 'ตัวละคร: ' + (charNames.length ? charNames.join(', ') : '(attached)') + '\n';
+        }
+        msg += 'ชื่อไฟล์อ้างอิง (รูปแรกแต่ละ slot): ' + (charNames.join(', ') || '(attached)') + '\n';
       }
       msg += 'ใช้ภาพแนบเป็น reference สำหรับสินค้า/ตัวละครในทุกฉาก ไม่ต้องเปลี่ยนหน้าตา/แพ็กเกจ\n';
     }
 
-    msg += '\nสร้างสคริปต์ ' + (Number(payload.sceneCount) || 5) + ' ฉาก ตาม format ที่กำหนดเลย';
+    msg +=
+      '\nสร้างสคริปต์ ' +
+      (Number(payload.sceneCount) || 5) +
+      ' ฉาก ตาม format ที่กำหนด — บทพูดไทย **15-20 คำ/ฉาก** (~8 วิ) ตามกล่อง "กฎความยาวบทพูด" ด้านบน';
 
     return msg;
   }
@@ -490,7 +640,7 @@
 
   /** Post-process Gemini text (same rules as direct client path). */
   function applyStorymodeSafetyToText(text) {
-    var safetyReport = { sanitized: false, overclaimHits: [] };
+    var safetyReport = { sanitized: false, overclaimHits: [], softReplaces: [] };
     if (typeof sanitizePromptForFlow === 'function') {
       var cleaned = sanitizePromptForFlow(text);
       if (cleaned !== text) {
@@ -503,12 +653,17 @@
     }
     if (typeof stripForbiddenMarketing === 'function') {
       var marketing = stripForbiddenMarketing(text);
+      text = marketing.text;
       safetyReport.overclaimHits = marketing.hits || [];
+      safetyReport.softReplaces = marketing.softReplaces || [];
       if (safetyReport.overclaimHits.length > 0) {
         try {
           console.warn(
-            '[Storymode Safety] Overclaim phrases detected in output:',
-            safetyReport.overclaimHits
+            '[Storymode Safety] Marketing policy applied (remove or soft-replace):',
+            safetyReport.overclaimHits,
+            safetyReport.softReplaces && safetyReport.softReplaces.length
+              ? { softReplaces: safetyReport.softReplaces }
+              : {}
           );
         } catch (e) { /* ignore */ }
       }
@@ -519,15 +674,29 @@
   /**
    * เมื่อ deploy บน Vercel + ตั้ง GEMINI_API_KEY — เรียก /api/gemini (ไม่ส่ง key ไป client)
    */
-  async function mockFetchGeminiViaServer(systemPrompt, userText, images) {
+  async function mockFetchGeminiViaServer(systemPrompt, userText, images, opts) {
+    opts = opts || {};
+    var postBody = {
+      systemPrompt: systemPrompt,
+      userText: userText,
+      images: images || []
+    };
+    if (
+      (typeof opts.temperature === 'number' && !Number.isNaN(opts.temperature)) ||
+      (typeof opts.maxOutputTokens === 'number' && !Number.isNaN(opts.maxOutputTokens))
+    ) {
+      postBody.generationConfig = {};
+      if (typeof opts.temperature === 'number' && !Number.isNaN(opts.temperature)) {
+        postBody.generationConfig.temperature = opts.temperature;
+      }
+      if (typeof opts.maxOutputTokens === 'number' && !Number.isNaN(opts.maxOutputTokens)) {
+        postBody.generationConfig.maxOutputTokens = opts.maxOutputTokens;
+      }
+    }
     var r = await fetch('/api/gemini', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        systemPrompt: systemPrompt,
-        userText: userText,
-        images: images || []
-      })
+      body: JSON.stringify(postBody)
     });
     var data = await r.json().catch(function () {
       return {};
@@ -538,7 +707,15 @@
     var rawText = data.text;
     var model = data.model;
     var truncated = !!data.truncated;
-    var applied = applyStorymodeSafetyToText(rawText);
+    var applied;
+    if (opts.skipStorySafety) {
+      applied = {
+        text: String(rawText || ''),
+        safety: { sanitized: false, overclaimHits: [], softReplaces: [] }
+      };
+    } else {
+      applied = applyStorymodeSafetyToText(rawText);
+    }
     return {
       text: applied.text,
       model: model,
@@ -552,10 +729,12 @@
    * @param {string} systemPrompt
    * @param {string} userText
    * @param {Array<{mimeType:string,data:string}>} [images] raw base64 (no "data:..." prefix); product first, then character refs
+   * @param {{ skipStorySafety?: boolean, temperature?: number, maxOutputTokens?: number }} [opts] skipStorySafety: for JSON-only / analysis responses
    */
-  async function mockFetchGeminiStorymode(apiKey, systemPrompt, userText, images) {
+  async function mockFetchGeminiStorymode(apiKey, systemPrompt, userText, images, opts) {
+    opts = opts || {};
     if (typeof window !== 'undefined' && window.__GEMINI_SERVER_MODE__) {
-      return mockFetchGeminiViaServer(systemPrompt, userText, images);
+      return mockFetchGeminiViaServer(systemPrompt, userText, images, opts);
     }
     const parts = [];
     if (Array.isArray(images) && images.length) {
@@ -579,8 +758,8 @@
       try {
         var body = JSON.parse(JSON.stringify(requestBody));
         if (!body.generationConfig) body.generationConfig = {};
-        body.generationConfig.maxOutputTokens = 16384;
-        body.generationConfig.temperature = 0.55;
+        body.generationConfig.maxOutputTokens = typeof opts.maxOutputTokens === 'number' ? opts.maxOutputTokens : 16384;
+        body.generationConfig.temperature = typeof opts.temperature === 'number' ? opts.temperature : 0.55;
         body.generationConfig.topP = 0.85;
 
         var url =
@@ -642,8 +821,12 @@
           throw new Error('Gemini ไม่ตอบกลับ (' + fr + ')');
         }
 
-        /* Phase 3 — Safety Layer post-processing */
-        var applied = applyStorymodeSafetyToText(text);
+        var applied;
+        if (opts.skipStorySafety) {
+          applied = { text: String(text), safety: { sanitized: false, overclaimHits: [], softReplaces: [] } };
+        } else {
+          applied = applyStorymodeSafetyToText(text);
+        }
         text = applied.text;
         var safetyReport = applied.safety;
 
@@ -662,11 +845,39 @@
     throw lastErr || new Error('Gemini: all models failed');
   }
 
+  function buildHeroAnalysisSystemPrompt() {
+    return (
+      'You are a character design analyst for short-form (TikTok/UGC) video. ' +
+      'The user may attach 1+ reference image(s) for one or more character slots (Character 1 / 2 / 3) in a fixed order. ' +
+      'Read every image, merge observations; where views conflict, prefer well-lit, face-visible shots. ' +
+      'Output a single valid JSON object only — no markdown, no backticks, no commentary. ' +
+      'Schema (top-level keys; use null for unknown; confidence: number 0-1): ' +
+      'schema_version, identity (archetype, face_summary, hair: { color, style }, skin_tone, body: { build } ), ' +
+      'wardrobe_hero (outfit_lock, accessories), rendering (style_read, lighting_guess), ' +
+      'consistency (lock_phrase_en, lock_phrase_th — one short paragraph each, pasteable into image gen prompts to keep the hero identical), ' +
+      'slots: optional object with keys character1, character2, character3 each { notes: string } when that slot has images, ' +
+      'confidence: { overall: number }. ' +
+      'lock_phrase must restate the same visible person/outfit, not a generic template.'
+    );
+  }
+
+  function buildHeroAnalysisUserMessage(orderLegend) {
+    return (
+      'Task: output ONLY the JSON object described in the system instruction. ' +
+      'Use the following mapping from image order to story slots (0-based indices refer to the attached images in the request):\n' +
+      String(orderLegend || '(no legend)') +
+      '\n\nIf a slot has no images, omit or null related slot notes. ' +
+      'If multiple people appear, focus on the most prominent; note ambiguity in notes with lower confidence.'
+    );
+  }
+
   window.MockStorymodeGemini = {
     STORY_TYPE_TEMPLATES: STORY_TYPE_TEMPLATES,
     buildStorymodeSystemPromptFromPayload: buildStorymodeSystemPromptFromPayload,
     buildStorymodeUserMessageFromPayload: buildStorymodeUserMessageFromPayload,
     mockFetchGeminiStorymode: mockFetchGeminiStorymode,
+    buildHeroAnalysisSystemPrompt: buildHeroAnalysisSystemPrompt,
+    buildHeroAnalysisUserMessage: buildHeroAnalysisUserMessage,
     RESULT_STORAGE_KEY: 'storymodeMockGeminiResultV1'
   };
 })();

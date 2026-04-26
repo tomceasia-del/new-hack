@@ -1,0 +1,187 @@
+{
+  "domain_id": "energy",
+  "_meta": {
+    "last_harvested": "2026-04-20T00:00:00",
+    "harvested_by": "domain_harvester.energy"
+  },
+  "people": [
+    {
+      "id": "person_rhonda_patrick",
+      "name": "Rhonda Patrick",
+      "title": "Ph.D. Biomedical Science",
+      "affiliation": "FoundMyFitness",
+      "known_for": "mitochondrial health, NAD+ aging, micronutrient deficiency, sauna/cold research",
+      "famous_claims": [
+        "NAD+ decline is a central driver of aging and mitochondrial dysfunction",
+        "Micronutrient insufficiencies quietly impair cellular energy long before disease appears",
+        "Mitochondrial health is the foundation of longevity"
+      ],
+      "citation_allowed": true,
+      "citation_notes": "Popular science communicator. Always pair with primary literature. Do not attribute specific numbers without checking source."
+    },
+    {
+      "id": "person_andrew_huberman",
+      "name": "Andrew Huberman",
+      "title": "Ph.D. Neuroscience, Professor",
+      "affiliation": "Stanford University School of Medicine / Huberman Lab",
+      "known_for": "circadian biology, cortisol/energy rhythms, dopamine and motivation, sleep and recovery",
+      "famous_claims": [
+        "Adenosine buildup during waking hours is the primary driver of sleepiness/fatigue",
+        "Morning sunlight exposure anchors circadian rhythm and sustained daytime energy",
+        "Cortisol peaks in the morning are healthy and necessary for energy and focus"
+      ],
+      "citation_allowed": true,
+      "citation_notes": "Public educator. Cite his lab publications for hard science; podcast claims need primary-source backup."
+    },
+    {
+      "id": "person_martin_picard",
+      "name": "Martin Picard",
+      "title": "Ph.D., Associate Professor",
+      "affiliation": "Columbia University Irving Medical Center — Division of Behavioral Medicine",
+      "known_for": "mitochondrial psychobiology, how stress signals enter mitochondria, mitochondria-brain axis",
+      "famous_claims": [
+        "Mitochondria are not just energy factories — they are signaling hubs that sense and respond to psychosocial stress",
+        "Psychological stress directly alters mitochondrial morphology and function",
+        "Mitochondrial health predicts resilience to psychological adversity"
+      ],
+      "citation_allowed": true,
+      "citation_notes": "Peer-reviewed researcher. Check picardlab.com for latest publications. Can cite with PMID."
+    },
+    {
+      "id": "person_charles_brenner",
+      "name": "Charles Brenner",
+      "title": "Ph.D., Roy J. Carver Chair in Biochemistry",
+      "affiliation": "University of Iowa / City of Hope",
+      "known_for": "Discovery of Nicotinamide Riboside (NR) as NAD+ precursor vitamin, NAD+ metabolism",
+      "famous_claims": [
+        "Nicotinamide Riboside (NR) is a distinct vitamin B3 that efficiently raises NAD+ in humans",
+        "NAD+ is a universal currency for cellular metabolism and stress resistance"
+      ],
+      "citation_allowed": true,
+      "citation_notes": "Discoverer of NR's role as NAD+ precursor. Has financial disclosures related to ChromaDex/Tru Niagen."
+    }
+  ],
+  "molecules": [
+    {
+      "id": "mol_atp",
+      "name": "Adenosine Triphosphate (ATP)",
+      "label_th": "อะดีโนซีน ไตรฟอสเฟต / พลังงานชีวภาพ",
+      "family": "nucleotide",
+      "role": "สกุลเงินพลังงานของเซลล์ ใช้ขับเคลื่อนกระบวนการชีวเคมีทุกอย่างในร่างกาย",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_coq10",
+      "name": "Coenzyme Q10 (Ubiquinol / Ubiquinone)",
+      "label_th": "โคเอนไซม์ คิวเทน / ยูบิควินอล",
+      "family": "quinone",
+      "role": "ตัวรับ-ส่งอิเล็กตรอนใน ETC (Complex I→III) และสารต้านอนุมูลอิสระใน mitochondrial membrane",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_nad",
+      "name": "Nicotinamide Adenine Dinucleotide (NAD+)",
+      "label_th": "นิโคตินาไมด์ อะดีนีน ไดนิวคลีโอไทด์",
+      "family": "coenzyme",
+      "role": "ตัวพาอิเล็กตรอนหลักใน cellular respiration, ซับสเตรตสำหรับ sirtuin (SIRT1-7), PARP enzymes",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_nmn",
+      "name": "Nicotinamide Mononucleotide (NMN)",
+      "label_th": "นิโคตินาไมด์ โมโนนิวคลีโอไทด์",
+      "family": "NAD+ precursor",
+      "role": "สารตั้งต้น NAD+ ที่สังเคราะห์ได้จาก NR หรือ nicotinamide ผ่านเส้นทาง salvage pathway",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_nr",
+      "name": "Nicotinamide Riboside (NR)",
+      "label_th": "นิโคตินาไมด์ ไรโบไซด์",
+      "family": "NAD+ precursor / vitamin B3 variant",
+      "role": "สารตั้งต้น NAD+ ที่พบในน้ำนม ผ่านการดูดซึมที่ดีในมนุษย์ พิสูจน์แล้วว่าเพิ่ม NAD+ ในเลือด",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_heme_iron",
+      "name": "Heme Iron (Fe²⁺)",
+      "label_th": "เฮมไอรอน / ธาตุเหล็กจากสัตว์",
+      "family": "mineral / porphyrin complex",
+      "role": "ส่วนประกอบของ hemoglobin และ myoglobin สำหรับจับและขนส่ง O2 ไปยัง mitochondria",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_b1",
+      "name": "Thiamine (Vitamin B1)",
+      "label_th": "ไทอามีน / วิตามิน บี1",
+      "family": "B vitamin",
+      "role": "Coenzyme ของ pyruvate dehydrogenase และ alpha-ketoglutarate dehydrogenase ใน Krebs cycle",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_b2",
+      "name": "Riboflavin (Vitamin B2)",
+      "label_th": "ไรโบเฟลวิน / วิตามิน บี2",
+      "family": "B vitamin",
+      "role": "Precursor ของ FAD และ FMN ซึ่งเป็น electron carrier ใน ETC (Complex I และ II)",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_b3",
+      "name": "Niacin (Vitamin B3)",
+      "label_th": "ไนอาซิน / วิตามิน บี3",
+      "family": "B vitamin",
+      "role": "Precursor ของ NAD+ และ NADP+ ผ่าน salvage pathway และ de novo pathway จาก tryptophan",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_pgc1a",
+      "name": "PGC-1α (Peroxisome proliferator-activated receptor gamma coactivator 1-alpha)",
+      "label_th": "PGC-1 แอลฟา",
+      "family": "transcriptional coactivator",
+      "role": "ตัวควบคุมหลักของ mitochondrial biogenesis ถูกกระตุ้นโดย SIRT1, AMPK, และ exercise",
+      "uncled_mentions": []
+    },
+    {
+      "id": "mol_cortisol",
+      "name": "Cortisol",
+      "label_th": "คอร์ติซอล / ฮอร์โมนความเครียด",
+      "family": "glucocorticoid steroid hormone",
+      "role": "ฮอร์โมนความเครียดหลักจาก adrenal cortex — สูงเรื้อรังทำให้ mitochondrial function ลดลงและ fatigue เพิ่มขึ้น",
+      "uncled_mentions": []
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org_ncbi",
+      "name": "National Center for Biotechnology Information (NCBI / PubMed)",
+      "type": "academic",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/"
+    },
+    {
+      "id": "org_nih",
+      "name": "National Institutes of Health (NIH)",
+      "type": "government",
+      "url": "https://www.nih.gov/"
+    },
+    {
+      "id": "org_columbia_picard",
+      "name": "Picard Lab — Columbia University Irving Medical Center",
+      "type": "academic",
+      "url": "https://picardlab.com/"
+    },
+    {
+      "id": "org_foundmyfitness",
+      "name": "FoundMyFitness",
+      "type": "media/research-translation",
+      "url": "https://www.foundmyfitness.com/"
+    },
+    {
+      "id": "org_who",
+      "name": "World Health Organization (WHO)",
+      "type": "international_health",
+      "url": "https://www.who.int/"
+    }
+  ],
+  "case_studies": []
+}

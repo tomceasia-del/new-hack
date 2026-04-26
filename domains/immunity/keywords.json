@@ -1,0 +1,22 @@
+{
+  "domain_id": "immunity",
+  "primary_th": [
+    "ภูมิ",
+    "ภูมิคุ้มกัน",
+    "ไวรัส",
+    "อักเสบ"
+  ],
+  "primary_en": [
+    "immune",
+    "immunity",
+    "inflammation",
+    "cytokine",
+    "T cell",
+    "innate"
+  ],
+  "aliases_th": [],
+  "aliases_en": [],
+  "jargon_th": [],
+  "jargon_en": [],
+  "regex_patterns": []
+}

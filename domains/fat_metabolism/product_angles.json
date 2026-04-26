@@ -1,0 +1,142 @@
+{
+  "domain_id": "fat_metabolism",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "product_categories_from_taxonomy": ["weight_loss_supplement", "fat_burner", "fiber", "keto_support", "detox", "L_carnitine"]
+  },
+  "angles": [
+    {
+      "angle_id": "angle_weight_loss_001",
+      "product_category": "weight_loss_supplement",
+      "problem_th": "ลดน้ำหนักยาก กินน้อยก็ไม่ลง ยิ่งอายุมากยิ่งลงยาก เพราะอินซูลินสูงเรื้อรัง + ฮอร์โมนความหิว (ghrelin/leptin) ผิดเพี้ยน",
+      "mechanism_claim_th": "สารบางชนิด (เช่น chromium picolinate, berberine, soluble fiber) ช่วยลด post-prandial insulin spike และเพิ่ม satiety หลังอาหาร → ทำให้ insulin deficit ระหว่างมื้อยาวขึ้น → lipolysis ทำงานได้ดีขึ้น",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยควบคุมระดับน้ำตาล/อินซูลินหลังอาหาร",
+        "ช่วยให้อิ่มนานขึ้น ลดการจุกจิก",
+        "เป็นตัวช่วยเสริมควบคู่กับอาหาร/ออกกำลังกาย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'ลด X กิโลใน Y วัน' แบบการันตี",
+        "ห้ามอ้างว่ารักษาโรคอ้วน / เบาหวาน",
+        "ห้ามบอกว่าเผาไขมันโดยไม่ต้องคุมอาหาร",
+        "ห้ามบอกว่า 'ละลายไขมันเฉพาะจุด'"
+      ],
+      "supporting_facts": ["fat_004", "fat_011", "fat_016", "fat_019"],
+      "narrative_frames": [
+        "ไม่ใช่ว่าคุณอ่อนแอ ร่างกายคุณติดอยู่ในโหมด 'เก็บ'",
+        "ลดไขมัน = ลดอินซูลินให้ต่ำพอให้ร่างกายเปิดสวิตช์ burn"
+      ]
+    },
+    {
+      "angle_id": "angle_fat_burner_001",
+      "product_category": "fat_burner",
+      "problem_th": "ออกกำลังกายแล้วไขมันไม่ลง เพราะร่างกายหยิบใช้ glucose ก่อนเสมอ ไขมันในคลังไม่ได้ถูก mobilize",
+      "mechanism_claim_th": "สารอย่าง caffeine + EGCG (green tea) เพิ่ม sympathetic tone + HSL activity → ช่วย mobilize FFA จากเซลล์ไขมันได้ดีขึ้นในช่วงออกกำลังกาย (Hursel 2011 meta-analysis: green tea + caffeine เพิ่มการเผาผลาญ ~100 kcal/day)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยให้ร่างกายใช้ไขมันเป็นพลังงานได้ดีขึ้นระหว่างออกกำลังกาย",
+        "เพิ่ม energy expenditure ประมาณ 100-150 kcal/day",
+        "เหมาะเป็นตัวเสริมไม่ใช่ตัวหลัก"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่าละลายไขมันหน้าท้องเฉพาะจุด",
+        "ห้ามบอกว่า 'เผาไขมัน 500 kcal/วัน' แบบเกินจริง",
+        "ห้ามอ้างเป็นยาลดความอ้วน"
+      ],
+      "supporting_facts": ["fat_018", "fat_021"],
+      "narrative_frames": [
+        "คาเฟอีน + green tea = ตัวช่วย 'ปลุก' เซลล์ไขมันให้ปล่อยไขมันออกมาใช้",
+        "ไม่ใช่ยาวิเศษ แค่ช่วยให้ร่างกายใช้ไขมันเร็วขึ้นเมื่อคุณออกแรง"
+      ]
+    },
+    {
+      "angle_id": "angle_fiber_001",
+      "product_category": "fiber",
+      "problem_th": "กินข้าวมื้อใหญ่แล้วน้ำตาลพุ่ง/ตก → หิวเร็ว → จุกจิก → เก็บไขมันหน้าท้อง",
+      "mechanism_claim_th": "ไฟเบอร์ละลายน้ำ (psyllium, glucomannan, oat beta-glucan) ชะลอ gastric emptying → ลด glucose/insulin spike หลังอาหาร, เพิ่ม GLP-1/satiety, และเลี้ยง microbiome ให้ผลิต SCFAs ที่ช่วย insulin sensitivity",
+      "evidence_tier": "T1",
+      "allowed_claim_boundary": [
+        "ช่วยควบคุมน้ำตาลหลังอาหาร",
+        "ช่วยให้อิ่มนานและลดการกินจุกจิก",
+        "ช่วยระบบขับถ่าย"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'ดักจับไขมัน' แล้วไขมันไม่ถูกดูดซึม (overclaim)",
+        "ห้ามอ้างรักษาเบาหวาน",
+        "ห้ามอ้างลดพุงเฉพาะจุด"
+      ],
+      "supporting_facts": ["fat_007", "fat_019"],
+      "narrative_frames": [
+        "ไฟเบอร์ = เบรกให้น้ำตาลไม่พุ่ง = อินซูลินไม่สูง = ไขมันไม่เก็บ",
+        "ไมโครไบโอมในลำไส้คือ 'อวัยวะเผาผลาญ' ที่คนลืมดูแล"
+      ]
+    },
+    {
+      "angle_id": "angle_keto_support_001",
+      "product_category": "keto_support",
+      "problem_th": "เริ่มคีโตแล้วเจอ keto flu, ไมเกรน, ไม่มีแรง เพราะ electrolyte loss + ร่างกายยังปรับตัวไม่ได้",
+      "mechanism_claim_th": "เกลือแร่ (Na, K, Mg) + exogenous ketones (BHB salts) ช่วย bridge ช่วงเปลี่ยนจาก glucose เป็น fat/ketone fueling โดยไม่ต้องรอ 2-4 สัปดาห์ให้ metabolic flexibility ฟื้น",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "ช่วยลดอาการ keto flu (ปวดหัว, เพลีย, ตะคริว)",
+        "ช่วยให้เข้าสู่ ketosis ได้เร็วขึ้น",
+        "เหมาะกับช่วงปรับตัวแรก ๆ ของ keto/IF"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่าดื่มแล้วเผาไขมันได้โดยไม่ต้องคุมอาหาร",
+        "ห้ามอ้างว่ารักษาโรคเบาหวาน/ลมชัก (medical claims)",
+        "ห้ามบอกว่าแทน electrolyte จากอาหารได้ 100%"
+      ],
+      "supporting_facts": ["fat_002", "fat_006", "fat_014"],
+      "narrative_frames": [
+        "Keto flu ไม่ใช่คีโตไม่ได้ผล แต่เป็นร่างกายกำลังเปลี่ยนเครื่องยนต์",
+        "เติมเกลือ + แมกนีเซียม = pass keto flu ได้เร็วขึ้น"
+      ]
+    },
+    {
+      "angle_id": "angle_detox_001",
+      "product_category": "detox",
+      "problem_th": "รู้สึก 'โทษตัวเอง' ว่ากินอะไรเยอะไป ท้องอืด หน้าท้องป่อง อยากรีเซ็ต",
+      "mechanism_claim_th": "สารอย่าง milk thistle (silymarin), cruciferous extracts (DIM, sulforaphane) สนับสนุน phase 2 liver conjugation + bile flow → ช่วยตับจัดการ fatty liver และ estrogen metabolism ได้ดีขึ้น (T3 consensus — direct weight loss claims ไม่ verified)",
+      "evidence_tier": "T3",
+      "allowed_claim_boundary": [
+        "สนับสนุนการทำงานของตับ",
+        "ช่วยร่างกายจัดการของเสียตามธรรมชาติ",
+        "เหมาะควบคู่กับการลดน้ำตาล/แอลกอฮอล์"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่า 'ล้างสารพิษ' เป็นวิทยาศาสตร์ — detox เป็น wellness term ไม่ใช่ medical",
+        "ห้ามอ้างรักษา fatty liver / cirrhosis",
+        "ห้ามอ้างลดน้ำหนัก X กิโลใน Y วัน"
+      ],
+      "supporting_facts": ["fat_008", "fat_015"],
+      "narrative_frames": [
+        "ตับคือ 'อวัยวะเผาผลาญ' ที่ถูกลืม — fatty liver 1 ใน 4 คนไทยมี",
+        "ดีท็อกซ์ = ลดน้ำตาล/แอลกอฮอล์ + สนับสนุน liver pathway ไม่ใช่ล้างสารพิษลึกลับ"
+      ]
+    },
+    {
+      "angle_id": "angle_l_carnitine_001",
+      "product_category": "L_carnitine",
+      "problem_th": "ออกกำลังกายแล้วไม่รู้สึกว่าไขมันถูกใช้ คาร์นิทีนคือกุญแจขนส่ง FFA เข้า mitochondria — ถ้าขาด ไขมันเข้าไปเผาไม่ได้",
+      "mechanism_claim_th": "L-Carnitine เป็น cofactor ของ CPT-1 enzyme ที่ขนส่ง long-chain fatty acid เข้า mitochondria เพื่อ beta-oxidation (Fielding 2018 meta-analysis: supplementation ลดน้ำหนัก ~1.3 kg เมื่อ combined กับ exercise)",
+      "evidence_tier": "T2",
+      "allowed_claim_boundary": [
+        "สนับสนุนการใช้ไขมันเป็นพลังงานระหว่างออกกำลังกาย",
+        "เหมาะกับผู้สูงอายุ/วีแกนที่ intake คาร์นิทีนจากอาหารต่ำ",
+        "เป็นตัวเสริมไม่ใช่ตัวหลัก"
+      ],
+      "forbidden_claim_boundary": [
+        "ห้ามอ้างว่ากินแล้วลดไขมันหน้าท้องเฉพาะจุด",
+        "ห้ามอ้างว่าเผาไขมันได้โดยไม่ต้องออกกำลังกาย",
+        "ห้ามบอกว่าลด X กิโลใน Y วัน (Fielding meta ให้ผลเล็กน้อยเท่านั้น)"
+      ],
+      "supporting_facts": ["fat_014", "fat_018"],
+      "narrative_frames": [
+        "คาร์นิทีน = Uber ที่พาไขมันเข้าเตาเผา",
+        "ถ้าคนขับ (คาร์นิทีน) ไม่มาไขมันก็รออยู่หน้าประตู"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "domain_id": "blood_sugar",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.blood_sugar"
+  },
+  "sub_topics": [
+    {
+      "id": "insulin_resistance",
+      "label_th": "ภาวะดื้ออินซูลิน",
+      "label_en": "Insulin Resistance",
+      "description": "เซลล์กล้ามเนื้อ/ตับ/ไขมันตอบสนองต่ออินซูลินแย่ลง → ตับอ่อนบีบปล่อยอินซูลินมากขึ้น (hyperinsulinemia) เรื้อรังก่อนที่น้ำตาล fasting จะสูง 10-20 ปี — เป็นต้นเหตุจริงของ T2D ก่อน HbA1c จะขึ้น (Bikman; Taylor)",
+      "key_concepts": [
+        "hyperinsulinemia",
+        "HOMA-IR",
+        "hepatic insulin resistance",
+        "fasting insulin",
+        "glucose clamp",
+        "β-cell compensation",
+        "peripheral vs hepatic IR",
+        "portal insulin"
+      ],
+      "related_sub_topics": ["glucose_spike", "hepatic_glucose", "postprandial_glucose", "dawn_phenomenon"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "glucose_spike",
+      "label_th": "น้ำตาลพุ่งหลังอาหาร (glucose spike)",
+      "label_en": "Postprandial Glucose Spike",
+      "description": "น้ำตาลในเลือดพุ่งหลังมื้ออาหาร — ขนาด spike ขึ้นกับ glycemic index ของอาหาร, ปริมาณ, การเรียงลำดับของสารอาหาร (fiber/protein/fat ก่อนคาร์บ) — spike สูงเรื้อรังทำร้ายหลอดเลือดและกระตุ้นอินซูลินเกิน",
+      "key_concepts": [
+        "glycemic index",
+        "glycemic load",
+        "food order / meal sequencing",
+        "1-hour postprandial glucose",
+        "individual variability",
+        "CGM",
+        "area under curve (AUC)"
+      ],
+      "related_sub_topics": ["postprandial_glucose", "insulin_resistance", "GLP_1"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "hepatic_glucose",
+      "label_th": "การปล่อยน้ำตาลจากตับ",
+      "label_en": "Hepatic Glucose Production",
+      "description": "ตับผลิตน้ำตาลเข้ากระแสเลือดผ่าน glycogenolysis + gluconeogenesis — คนปกติตับผลิต ~2 mg/kg/min; คน insulin-resistant ตับไม่ฟังอินซูลิน ทำให้ปล่อยน้ำตาลเกินแม้ fasting (hyperglycemia) — เป็นกลไกหลักของ T2D และ dawn phenomenon",
+      "key_concepts": [
+        "gluconeogenesis",
+        "glycogenolysis",
+        "hepatic insulin resistance",
+        "basal glucose output",
+        "glucagon / insulin ratio",
+        "G6Pase",
+        "PEPCK"
+      ],
+      "related_sub_topics": ["insulin_resistance", "dawn_phenomenon"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "GLP_1",
+      "label_th": "GLP-1 (ฮอร์โมนอิ่มจากลำไส้)",
+      "label_en": "GLP-1 (Glucagon-Like Peptide 1)",
+      "description": "ฮอร์โมนที่ lining ลำไส้เล็กปล่อยหลังอาหารเพื่อ (1) ช่วยกระตุ้น insulin (glucose-dependent), (2) ยับยั้ง glucagon, (3) ชะลอ gastric emptying, (4) ส่งสัญญาณอิ่มถึงสมอง — เป็นเป้าหมายของ Ozempic/Wegovy (semaglutide)",
+      "key_concepts": [
+        "incretin effect",
+        "L-cells",
+        "GLP-1 receptor agonist",
+        "semaglutide / tirzepatide",
+        "DPP-4 enzyme degradation",
+        "glucose-dependent secretion",
+        "gastric emptying"
+      ],
+      "related_sub_topics": ["postprandial_glucose", "glucose_spike"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "postprandial_glucose",
+      "label_th": "น้ำตาลหลังมื้ออาหาร (2h PG)",
+      "label_en": "Postprandial Glucose",
+      "description": "ระดับน้ำตาลในเลือด 1-2 ชั่วโมงหลังอาหาร — ADA ใช้ 2h PG ≥200 mg/dL หลัง OGTT 75g เป็นหนึ่งในเกณฑ์เบาหวาน; spike-and-crash pattern ใน CGM บ่งถึง IR แม้ HbA1c ยังปกติ",
+      "key_concepts": [
+        "OGTT (oral glucose tolerance test)",
+        "2-hour plasma glucose",
+        "glycemic variability",
+        "CGM metrics (TIR, GV)",
+        "PlateGlu AUC",
+        "reactive hypoglycemia",
+        "prediabetes"
+      ],
+      "related_sub_topics": ["glucose_spike", "insulin_resistance", "GLP_1"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "dawn_phenomenon",
+      "label_th": "ปรากฏการณ์รุ่งอรุณ (น้ำตาลเช้าสูง)",
+      "label_en": "Dawn Phenomenon",
+      "description": "น้ำตาลในเลือดสูงขึ้นช่วงตี 4-8 โมงเช้า เกิดจากคอร์ติซอล + GH พุ่งตามจังหวะ circadian → ตับผลิตน้ำตาลเพิ่มขึ้น — เป็นเหตุให้คนเบาหวาน/prediabetes ตื่นมา FBG สูงกว่าก่อนนอน",
+      "key_concepts": [
+        "cortisol awakening response",
+        "growth hormone surge",
+        "hepatic glucose output",
+        "Somogyi effect (vs dawn)",
+        "circadian rhythm",
+        "cortisol-induced gluconeogenesis"
+      ],
+      "related_sub_topics": ["hepatic_glucose", "insulin_resistance"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "hba1c_metrics",
+      "label_th": "น้ำตาลสะสม (HbA1c) และตัวชี้วัด",
+      "label_en": "HbA1c & Glycemic Metrics",
+      "description": "HbA1c เป็นค่าเฉลี่ยน้ำตาล 2-3 เดือน; ADA 2024 เกณฑ์ prediabetes 5.7-6.4%, diabetes ≥6.5%; CGM-derived metrics (TIR, GMI) เสริมข้อมูลที่ HbA1c มองไม่เห็น (glycemic variability)",
+      "key_concepts": [
+        "HbA1c",
+        "estimated Average Glucose (eAG)",
+        "Time in Range (TIR 70-180 mg/dL)",
+        "GMI (Glucose Management Indicator)",
+        "fructosamine",
+        "ADA diagnostic criteria",
+        "HbA1c vs CGM discordance"
+      ],
+      "related_sub_topics": ["insulin_resistance", "postprandial_glucose"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "metabolic_syndrome",
+      "label_th": "เมตาโบลิกซินโดรม",
+      "label_en": "Metabolic Syndrome",
+      "description": "กลุ่มอาการ 5 ข้อ (ATP-III): รอบเอวเกิน, TG สูง, HDL ต่ำ, ความดันสูง, FBG ≥100 mg/dL — มีอย่างน้อย 3/5 = metabolic syndrome; ฐานคือ insulin resistance + visceral adiposity; นำไปสู่ T2D, NAFLD, CVD",
+      "key_concepts": [
+        "NCEP ATP-III criteria",
+        "waist circumference",
+        "visceral adiposity",
+        "hypertriglyceridemia",
+        "low HDL-C",
+        "fasting glucose ≥100",
+        "insulin resistance"
+      ],
+      "related_sub_topics": ["insulin_resistance", "hepatic_glucose", "hba1c_metrics"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    }
+  ]
+}

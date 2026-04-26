@@ -105,4 +105,46 @@ function getBaseUrl(req) {
 const SESSION_COOKIE  = 'gcs_session';
 const SESSION_MAX_AGE = 30 * 24 * 60 * 60; // 30 days
 
-module.exports = { signJWT, verifyJWT, parseCookies, setCookie, getBaseUrl, SESSION_COOKIE, SESSION_MAX_AGE };
+// ── Optional email allowlist (Google login) ──────────────────────────────
+// AUTH_ALLOWED_EMAILS = "a@x.com, b@y.com" (case-insensitive)
+// - ถ้า unset: ไม่กรอง (เหมาะ dev / local)
+// - ถ้า set: อนุญาตเฉพาะอีเมล์ในรายการ; รายการว่าง = บล็อกทุกอีเมล์
+
+/**
+ * @returns {Set<string>|null} null หมายถึงยังไม่ใช้ allowlist; Set อาจว่าง
+ */
+function parseAllowedEmailsSet() {
+  const raw = process.env.AUTH_ALLOWED_EMAILS;
+  if (raw === undefined) return null;
+  return new Set(
+    String(raw)
+      .split(',')
+      .map((s) => s.trim().toLowerCase())
+      .filter(Boolean)
+  );
+}
+
+/**
+ * อีเมล์ได้รับอนุมัติตาม AUTH_ALLOWED_EMAILS หรือไม่
+ * @param {string} [email]
+ * @returns {boolean}
+ */
+function isEmailAllowed(email) {
+  const set = parseAllowedEmailsSet();
+  if (set === null) return true;
+  const e = (email || '').trim().toLowerCase();
+  if (!e) return false;
+  if (set.size === 0) return false;
+  return set.has(e);
+}
+
+module.exports = {
+  signJWT,
+  verifyJWT,
+  parseCookies,
+  setCookie,
+  getBaseUrl,
+  SESSION_COOKIE,
+  SESSION_MAX_AGE,
+  isEmailAllowed,
+};

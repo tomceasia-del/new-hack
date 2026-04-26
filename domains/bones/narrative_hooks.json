@@ -1,0 +1,91 @@
+{
+  "domain_id": "bones",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "notes": "Hook templates tuned for Thai senior (50+) audience + adult-child buyer ('ซื้อให้พ่อแม่'). Pain points: ล้มในห้องน้ำ, สะโพกหัก, ต้องดูแล, กระดูกลั่น (UncleD folk term). Anchored to verified fact_ids."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_bone_001_fall_reality",
+      "style": "shock",
+      "pattern_th": "__X__ ใน __Y__ ผู้สูงอายุที่สะโพกหัก ตายภายในปีแรก — สูงกว่าคนวัยเดียวกัน __Z__ เท่า",
+      "example_th": "ผู้ชายสูงอายุที่สะโพกหัก ตายในปีแรกสูงกว่าคนวัยเดียวกันถึง 5-8 เท่า — เยอะกว่าผู้หญิงด้วยซ้ำ (Haentjens 2010). ล้มครั้งเดียว ชีวิตเปลี่ยน",
+      "facts_used": ["bone_007"],
+      "effectiveness_notes": "Shock hook สำหรับลูกหลานซื้อให้พ่อ — pain point 'ล้มในห้องน้ำ' ที่คนไทยกลัว; ตัวเลข 5-8 เท่า specific + peer-reviewed"
+    },
+    {
+      "template_id": "hook_bone_002_liftmor_awe",
+      "style": "awe",
+      "pattern_th": "คุณรู้มั้ย — คนอายุ __X__ ที่กระดูกพรุน ยกหนัก __Y__ เดือน กระดูกเพิ่มขึ้น __Z__ %",
+      "example_th": "คุณรู้มั้ย — ผู้หญิงวัยทองที่กระดูกพรุนอยู่แล้ว ยกหนัก 2 ครั้งต่อสัปดาห์ 8 เดือน กระดูกสันหลังเพิ่มขึ้น 2.9% — นี่ไม่ใช่ชะลอ แต่เพิ่ม (Beck LIFTMOR 2018)",
+      "facts_used": ["bone_001", "bone_024"],
+      "effectiveness_notes": "Awe + hope frame — สำหรับ audience ที่คิดว่า 'แก่แล้วจบ'; ใช้เปิดทางขายโปรตีน/วิตามินดี + ชวนไปยิม"
+    },
+    {
+      "template_id": "hook_bone_003_milk_myth",
+      "style": "insult_reality",
+      "pattern_th": "คนส่วนใหญ่เชื่อว่า __X__ แต่งานวิจัย __Y__ คนบอกว่า __Z__",
+      "example_th": "คนส่วนใหญ่เชื่อว่าดื่มนมวันละ 3 แก้วแล้วกระดูกแข็ง — แต่ Nurses' Health Study ติดตามผู้หญิง 77,761 คน 12 ปีพบว่าดื่มมากกว่าไม่ได้ลดกระดูกสะโพกหักเลย",
+      "facts_used": ["bone_018"],
+      "effectiveness_notes": "Myth-flip hook — ช่วย reframe จากนมไปสู่ Ca + K2 + D + load; เหมาะสำหรับคนที่ 'ทำทุกอย่างแล้วยังไม่ดีขึ้น'"
+    },
+    {
+      "template_id": "hook_bone_004_dose_gap",
+      "style": "curiosity",
+      "pattern_th": "__X__ ชนะ __Y__ มิลลิกรัม — โดยใช้แค่ __Z__ มิลลิกรัม เหตุผลคือ __W__",
+      "example_th": "คอลลาเจน 40 มิลลิกรัมชนะ 2,700 มิลลิกรัม — โดสน้อยกว่า 67 เท่า แต่ผลดีกว่า 2 เท่า เพราะกลไกต่างกัน: UC-II ไม่ใช่วัตถุดิบ แต่เป็นสัญญาณให้ภูมิคุ้มกัน (Crolla 2016)",
+      "facts_used": ["bone_003", "bone_017"],
+      "effectiveness_notes": "Curiosity gap + counterintuitive hook — สร้างความสนใจเชิง science; ใช้กับ audience ที่ลองสินค้ากลุ่มข้อมาแล้วไม่ได้ผล"
+    },
+    {
+      "template_id": "hook_bone_005_silent_loss",
+      "style": "pain",
+      "pattern_th": "ทุกปีหลัง __X__ คุณเสียกระดูก __Y__ % โดยไม่รู้ตัว — จนวันที่ __Z__",
+      "example_th": "ทุกปีหลังวัยหมดประจำเดือน ผู้หญิงเสียกระดูก 1-2% โดยไม่รู้ตัว — จนวันที่ล้มแค่เบา ๆ ก็หัก; 10 ปีหลังวัยทองเสียไปแล้วเกือบ 15%",
+      "facts_used": ["bone_009"],
+      "effectiveness_notes": "Pain + urgency hook — target หลักคือผู้หญิงอายุ 45-55 ที่ยังไม่เริ่มทำอะไร"
+    },
+    {
+      "template_id": "hook_bone_006_calcium_wrong_place",
+      "style": "curiosity",
+      "pattern_th": "คุณกินแคลเซียมทุกวัน — แต่รู้มั้ยว่ามันอาจ __X__ แทนที่จะ __Y__",
+      "example_th": "คุณกินแคลเซียมทุกวัน — แต่รู้มั้ยว่ามันอาจไปเกาะหลอดเลือดแทนที่จะเข้ากระดูก? กุญแจที่ขาดคือวิตามิน K2 ซึ่งเปิด osteocalcin ให้ 'จับ' แคลเซียมเข้ากระดูก",
+      "facts_used": ["bone_002", "bone_022"],
+      "effectiveness_notes": "Curiosity + 'calcium paradox' — เปิด angle K2 ใหม่ต่อ audience ที่กินแต่ Ca+D"
+    },
+    {
+      "template_id": "hook_bone_007_teflon_awe",
+      "style": "awe",
+      "pattern_th": "ร่างกายคุณมี __X__ ที่ลื่นกว่า __Y__ ถึง __Z__ เท่า — และมีแค่ __W__",
+      "example_th": "ข้อเข่าคุณลื่นกว่า Teflon ถึง 40 เท่า — โดยมีน้ำไขข้อแค่ 1-4 มิลลิลิตร นั่นแหละที่ทำให้คุณเดินได้ตลอดชีวิต",
+      "facts_used": ["bone_023"],
+      "effectiveness_notes": "Awe hook — ใช้เปิด educational content; ไม่ขายตรงแต่สร้าง authority + engagement"
+    },
+    {
+      "template_id": "hook_bone_008_men_forgotten",
+      "style": "shock",
+      "pattern_th": "__X__ ใน __Y__ ผู้ชาย ≥50 ปี จะกระดูกหัก — สถิติที่คุณแทบไม่เคยได้ยิน",
+      "example_th": "1 ใน 5 ผู้ชายอายุ 50 ขึ้นไปจะมีกระดูกหักจากภาวะกระดูกเปราะในชีวิต (IOF) — และผู้ชายตายหลังหักสะโพกสูงกว่าผู้หญิง เรื่องนี้ไม่มีใครพูด",
+      "facts_used": ["bone_020", "bone_007"],
+      "effectiveness_notes": "Shock hook สำหรับ male audience — เปิดตลาดที่ supplement กระดูกมักเจาะแต่ผู้หญิง"
+    },
+    {
+      "template_id": "hook_bone_009_uncled_crackle",
+      "style": "correction",
+      "pattern_th": "__X__ ที่ __Y__ บอกเรา ไม่ใช่ __Z__ เสมอไป",
+      "example_th": "เสียง 'กระดูกลั่น' ที่เราได้ยินตอนลุก — ส่วนใหญ่เป็นฟองแก๊สในน้ำไขข้อ ไม่ใช่กระดูกพรุน; กระดูกพรุนจริง ๆ ไม่มีเสียง จนกว่าจะหัก — ต้อง DEXA scan",
+      "facts_used": ["bone_008", "bone_023"],
+      "effectiveness_notes": "Folk term 'กระดูกลั่น' มาจาก UncleD (clip 7599933960348519701 'แก่แล้วกระดูกลั่น'); hook นี้ใช้ folk trigger + clarify ด้วย DEXA"
+    },
+    {
+      "template_id": "hook_bone_010_child_bone_legacy",
+      "style": "pain",
+      "pattern_th": "ทุก __X__ % ของ peak bone mass ที่ลูกสร้างก่อนอายุ __Y__ = __Z__ % ลดความเสี่ยงกระดูกพรุนตอนแก่",
+      "example_th": "ทุก 10% ของ peak bone mass ที่ลูกหลานสร้างก่อนอายุ 30 = ลดความเสี่ยงกระดูกพรุนตอนแก่ประมาณ 50% — ให้ลูกวิ่งเล่น กระโดดเชือกวันนี้ ช่วยกระดูกลูกอีก 50 ปี",
+      "facts_used": ["bone_021"],
+      "effectiveness_notes": "Legacy/grandparent hook — เปิด cross-generational product pitch (เช่น อาหารเสริมสำหรับเด็ก + อาหารเสริมสำหรับผู้สูงอายุ)"
+    }
+  ]
+}

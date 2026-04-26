@@ -1,0 +1,189 @@
+{
+  "domain_id": "supplements",
+  "_meta": {
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.supplements"
+  },
+  "sub_topics": [
+    {
+      "id": "vitamin_D3",
+      "label_th": "วิตามิน D3 / 25(OH)D ในเลือด",
+      "label_en": "Vitamin D3 / 25(OH)D",
+      "description": "Cholecalciferol (D3) จากผิว/สัตว์ → 25-ไฮดรอกซีเลชันในตับ → 1α-ไฮดรอกซีเลชันที่ไต เป็น calcitriol; ~1 พันล้านคนทั่วโลกมีระดับไม่พอ (Holick 2007); ในไทย 45.2% มี 25(OH)D <30 ng/mL (Chailurkit 2011)",
+      "key_concepts": [
+        "25(OH)D blood level",
+        "sufficiency threshold (Endocrine Society ≥30 ng/mL, IOM ≥20 ng/mL)",
+        "D3 > D2 (Tripkovic 2012)",
+        "UVB synthesis / 7-dehydrocholesterol",
+        "CYP27B1 / calcitriol",
+        "VDR gene regulation",
+        "D-K2-A interplay (Masterjohn)"
+      ],
+      "related_sub_topics": ["vitamin_K2", "deficiency_prevalence_thailand", "multivitamin_basic"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "vitamin_K2",
+      "label_th": "วิตามิน K2 (MK-7 vs MK-4)",
+      "label_en": "Vitamin K2 — MK-7 vs MK-4",
+      "description": "Menaquinones เป็น K2 ที่กระตุ้น vitamin K-dependent proteins (osteocalcin, Matrix Gla Protein) ผ่าน γ-carboxylation — 'routing' แคลเซียมเข้ากระดูก/ออกจากหลอดเลือด; MK-7 ครึ่งชีวิต ~72 ชม. vs MK-4 ~1-2 ชม. (Schurgers 2007)",
+      "key_concepts": [
+        "menaquinone-7 (MK-7) from natto",
+        "menaquinone-4 (MK-4) from animal tissues",
+        "γ-glutamyl carboxylase",
+        "Matrix Gla Protein (MGP)",
+        "osteocalcin",
+        "calcium paradox",
+        "warfarin contraindication"
+      ],
+      "related_sub_topics": ["vitamin_D3", "magnesium_forms"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "magnesium_forms",
+      "label_th": "รูปแบบแมกนีเซียม (glycinate / threonate / citrate / oxide)",
+      "label_en": "Magnesium forms",
+      "description": "แมกนีเซียมเป็น cofactor ของเอนไซม์ >300 ตัวรวมถึง ATP; ~50% ของผู้ใหญ่ไม่ได้รับถึง EAR (Rosanoff 2012); รูปแบบต่างกัน 4-10 เท่าในการดูดซึม — oxide ~4% vs citrate/chloride/glycinate สูงกว่า; glycinate ไม่ทำให้ท้องเสีย",
+      "key_concepts": [
+        "magnesium oxide (low bioavailability)",
+        "magnesium citrate (osmotic)",
+        "magnesium glycinate / bisglycinate (calming)",
+        "magnesium L-threonate (CNS claim)",
+        "NMDA receptor modulation",
+        "ATP-Mg2+ complex",
+        "RDA 310-420 mg"
+      ],
+      "related_sub_topics": ["zinc_copper_ratio", "multivitamin_basic"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "zinc_copper_ratio",
+      "label_th": "สมดุลสังกะสี-ทองแดง (Zn:Cu)",
+      "label_en": "Zinc–copper balance",
+      "description": "ซิงค์ขนาดสูง (>50 mg/วันนาน) กระตุ้น metallothionein ในลำไส้ → ดักทองแดง → ทองแดงพร่อง → โลหิตจาง sideroblastic + myeloneuropathy; สูตรซิงค์ที่ดีมักผสม Cu 1-2 mg เพื่อคุมอัตราส่วน",
+      "key_concepts": [
+        "zinc RDA 8 mg (F) / 11 mg (M)",
+        "UL 40 mg/day (IOM)",
+        "metallothionein sequestration",
+        "copper-dependent ceruloplasmin",
+        "sideroblastic anemia",
+        "Zn:Cu ratio 8-15:1 (food); supplement adds ~8:1",
+        "Fosmire 1990 review"
+      ],
+      "related_sub_topics": ["multivitamin_basic", "supplement_drug_interactions"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "B12_methyl",
+      "label_th": "B12 แบบเมทิล (methylcobalamin vs cyanocobalamin)",
+      "label_en": "B12 methyl forms",
+      "description": "B12 มี 4 รูปแบบ (CN-, OH-, Me-, Ado-); cyanocobalamin ต้องเปลี่ยนเป็น MeCbl/AdoCbl ก่อนใช้งาน; methylmalonic acid (MMA) เป็น marker ไวต่อการขาด; MTHFR polymorphism ทำให้บางคนใช้ folate/B12 ปกติไม่เต็มประสิทธิภาพ",
+      "key_concepts": [
+        "methylcobalamin",
+        "adenosylcobalamin",
+        "cyanocobalamin conversion",
+        "methylmalonic acid (MMA) biomarker",
+        "homocysteine",
+        "MTHFR C677T polymorphism",
+        "intrinsic factor + ileum absorption",
+        "vegan/PPI/metformin risk"
+      ],
+      "related_sub_topics": ["supplement_drug_interactions"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "omega_3_EPA_DHA",
+      "label_th": "โอเมก้า-3 (EPA/DHA) — รูปแบบและปริมาณ",
+      "label_en": "Omega-3 EPA/DHA — form & dose",
+      "description": "EPA/DHA long-chain PUFA จากปลา/สาหร่าย; rTG/TG form ดูดซึมดีกว่า EE ~2.5 เท่า (Dyerberg 2010); Omega-3 Index (RBC EPA+DHA %) เป้าหมาย ≥8% สำหรับลดความเสี่ยงหัวใจ (Harris 2004)",
+      "key_concepts": [
+        "triglyceride form (rTG/TG) vs ethyl ester (EE)",
+        "EPA vs DHA ratio",
+        "Omega-3 Index (Harris)",
+        "SPMs (resolvins)",
+        "fish oil rancidity (TOTOX)",
+        "1-2 g EPA+DHA/day",
+        "take with fat meal"
+      ],
+      "related_sub_topics": ["supplement_drug_interactions"],
+      "difficulty": "intermediate",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "vitamin_absorption_timing",
+      "label_th": "เวลา/วิธีกินวิตามิน (fat-soluble vs water-soluble)",
+      "label_en": "Vitamin absorption timing",
+      "description": "วิตามิน A, D, E, K (ADEK) ต้องกินคู่ไขมันเพื่อดูดซึม; วิตามินกลุ่ม B, C ละลายน้ำกินตอนไหนก็ได้; Mg/melatonin กินก่อนนอน; iron ห่างจากกาแฟ/แคลเซียม",
+      "key_concepts": [
+        "fat-soluble vitamins ADEK",
+        "bile emulsification",
+        "chylomicron incorporation",
+        "water-soluble B+C",
+        "iron-calcium/tannin interaction",
+        "magnesium before bed",
+        "vitamin C + iron synergy"
+      ],
+      "related_sub_topics": ["supplement_drug_interactions", "multivitamin_basic"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "deficiency_prevalence_thailand",
+      "label_th": "ความขาดแคลนวิตามินในคนไทย",
+      "label_en": "Thai vitamin deficiency prevalence",
+      "description": "แม้ไทยมีแดดตลอดปี ~45% ของผู้ใหญ่ไทยมี 25(OH)D <30 ng/mL (Chailurkit 2011); ข้อมูล Mg/Zn/B12 specific ต่อไทยจำกัด — ใช้ค่าสากลเป็น reference; หญิงในเมืองใช้ครีมกันแดด + อยู่ในร่ม = latitude paradox",
+      "key_concepts": [
+        "latitude paradox (Thailand sun but deficient)",
+        "SPF blocking UVB",
+        "indoor lifestyle",
+        "urban vs rural gap",
+        "Muslim women higher risk (clothing)",
+        "thai elderly B12/D double risk",
+        "vegan B12 gap"
+      ],
+      "related_sub_topics": ["vitamin_D3", "B12_methyl", "multivitamin_basic"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    },
+    {
+      "id": "supplement_drug_interactions",
+      "label_th": "ปฏิกิริยาอาหารเสริม-ยา",
+      "label_en": "Supplement–drug interactions",
+      "description": "สำคัญสำหรับ ad safety: K2 กับ warfarin, St. John's wort กับยาซึมเศร้า/ยาคุม, แคลเซียม/เหล็กกับยาปฏิชีวนะ tetracycline/quinolone, แมกนีเซียมกับ bisphosphonate, PPI/metformin ลดการดูดซึม B12",
+      "key_concepts": [
+        "warfarin + vitamin K",
+        "St. John's wort + CYP3A4 induction",
+        "calcium/iron + antibiotic chelation",
+        "PPI-induced B12 malabsorption",
+        "metformin-induced B12 depletion",
+        "grapefruit + CYP3A4 inhibition",
+        "fish oil + anticoagulants"
+      ],
+      "related_sub_topics": ["B12_methyl", "vitamin_K2", "omega_3_EPA_DHA"],
+      "difficulty": "advanced",
+      "uncleped_mentioned": false
+    },
+    {
+      "id": "multivitamin_basic",
+      "label_th": "มัลติวิตามินพื้นฐาน",
+      "label_en": "Basic multivitamin",
+      "description": "มัลติวิตามินเป็น 'insurance policy' ต่อการขาดหลายตัวพร้อมกัน; RCT ใหญ่ (PHS II 2012) พบว่าลดมะเร็งรวม 8%; ส่วนผลรวมต่อโรคหัวใจยังไม่ชัดเจน — แต่ safety profile ดีถ้าไม่เกิน UL",
+      "key_concepts": [
+        "RDA vs UL",
+        "bioavailable forms (D3/methyl-B12/MK-7)",
+        "iron in multi (men/post-menopause caution)",
+        "Physicians' Health Study II",
+        "food-first philosophy",
+        "triage theory (Ames)"
+      ],
+      "related_sub_topics": ["vitamin_D3", "B12_methyl", "zinc_copper_ratio"],
+      "difficulty": "basic",
+      "uncleped_mentioned": true
+    }
+  ]
+}

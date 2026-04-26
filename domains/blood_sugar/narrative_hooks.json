@@ -1,0 +1,91 @@
+{
+  "domain_id": "blood_sugar",
+  "_meta": {
+    "target_count": 8,
+    "current_count": 10,
+    "last_harvested": "2026-04-22",
+    "notes": "Hook templates anchored to tier-A blood_sugar facts. Mixed styles (shock/awe/curiosity/pain/insult_reality) matching UncleD's dominant hook patterns. Each template deployable with a fact_id substitution."
+  },
+  "hook_templates": [
+    {
+      "template_id": "hook_bs_001_remission_shock",
+      "style": "shock",
+      "pattern_th": "เบาหวานชนิดที่ 2 'หาย' ได้ — __X__% ของคนไข้ __Y__",
+      "example_th": "เบาหวานชนิดที่ 2 ถอยหลังได้! DiRECT Trial ในอังกฤษ (Lancet 2018) พบว่า 46% ของคนไข้ที่ลดน้ำหนักในโปรแกรม 800 แคลต่อวัน กลับมา HbA1c <6.5% โดยไม่ต้องกินยา — ใน 12 เดือน",
+      "facts_used": ["bs_001"],
+      "effectiveness_notes": "Shock hook ที่ท้าทายความเชื่อ 'เบาหวานหายไม่ได้' — ตัวเลข 46% และ '12 เดือน' specific พอให้น่าเชื่อ ใช้เปิดคลิปแรกของ thread ได้ดี"
+    },
+    {
+      "template_id": "hook_bs_002_twin_cycle_awe",
+      "style": "awe",
+      "pattern_th": "เบาหวานไม่ได้เริ่มที่ตับอ่อน — มันเริ่มที่ __X__",
+      "example_th": "เบาหวานไม่ได้เริ่มที่ตับอ่อน — มันเริ่มที่ตับ! Roy Taylor จาก Newcastle พบว่าการลดไขมันในตับลง 30% ใน 8 สัปดาห์ ทำให้ fasting glucose กลับเป็นปกติได้ แม้เป็นมา 10 ปีแล้ว",
+      "facts_used": ["bs_002", "bs_019"],
+      "effectiveness_notes": "Awe hook ที่ reframe โรคเบาหวาน (liver-centric แทน pancreas-centric) — เปิดประตูให้ 'hope narrative' ตรงกับ niche ของ UncleD"
+    },
+    {
+      "template_id": "hook_bs_003_berberine_curiosity",
+      "style": "curiosity",
+      "pattern_th": "มีสมุนไพรหนึ่งตัวที่ __X__ สู้กับเมทฟอร์มิน — และมันทำงานที่ __Y__",
+      "example_th": "มีสารสกัดจากพืชหนึ่งตัว — RCT ที่ลงใน Metabolism 2008 head-to-head สู้กับเมทฟอร์มินในคนไข้เบาหวาน 3 เดือน — HbA1c ลดเท่ากัน 0.89%! มันคือ berberine และมันเปิดสวิตช์ตัวเดียวกับยาเบาหวานคือ AMPK",
+      "facts_used": ["bs_003", "bs_004"],
+      "effectiveness_notes": "Curiosity gap + reveal — 'สมุนไพรสู้ยาหมอ' แรงมากใน Thai audience, แต่ต้อง frame ว่า 'มี mechanism คล้าย' ไม่ใช่ 'เท่ากัน' + ต้องใส่ disclaimer"
+    },
+    {
+      "template_id": "hook_bs_004_hba1c_myth_flip",
+      "style": "insult_reality",
+      "pattern_th": "หมอบอก HbA1c ปกติ = คุณปลอดภัย — ความจริงคือ __X__",
+      "example_th": "หมอบอก HbA1c 5.5% คือปกติ — แต่ความจริงคือ fasting insulin ของคุณอาจสูงมา 10 ปีแล้ว! Ben Bikman ชี้ว่า insulin resistance มาก่อน HbA1c ขึ้นเป็นสิบปี เราแค่ไม่ได้วัดมัน",
+      "facts_used": ["bs_014", "bs_016"],
+      "effectiveness_notes": "Myth-flip hook โจมตี 'การตรวจสุขภาพประจำปี' ที่ไม่ครอบคลุม — viewer รู้สึกว่าได้ insider info, trigger ให้ไปตรวจ fasting insulin"
+    },
+    {
+      "template_id": "hook_bs_005_vinegar_hack",
+      "style": "curiosity",
+      "pattern_th": "1-2 ช้อนก่อนมื้ออาหาร ลดน้ำตาลหลังกินได้ __X__%",
+      "example_th": "1-2 ช้อนของสิ่งที่อยู่ในครัวทุกบ้าน — ก่อนมื้อข้าว ลดน้ำตาลหลังอาหารได้ 34%! งานของ Carol Johnston ใน Arizona State (Diabetes Care 2004) ทดสอบกรดอะซีติกจากน้ำส้มสายชูในคน insulin-resistant",
+      "facts_used": ["bs_007"],
+      "effectiveness_notes": "Curiosity + practical hack hook — viewer อยากรู้ 'มันคืออะไร' → retention สูง. เปิดโอกาสให้ pitch apple cider vinegar angle"
+    },
+    {
+      "template_id": "hook_bs_006_semaglutide_awe",
+      "style": "awe",
+      "pattern_th": "ยาฉีดตัวนี้ทำให้คน __X__ โดย __Y__ — และมันคือฮอร์โมนที่ร่างกายคุณมีอยู่แล้ว",
+      "example_th": "ยาฉีด Ozempic ทำให้คนลดน้ำหนักเฉลี่ย 14.9% ใน 68 สัปดาห์ — แต่มันไม่ใช่ยาเคมี! มันคือ GLP-1 ซึ่งเป็นฮอร์โมนที่ลำไส้คุณหลั่งทุกครั้งที่กิน เพียงแค่ร่างกายคุณผลิตไม่พอ",
+      "facts_used": ["bs_006"],
+      "effectiveness_notes": "Awe hook ที่ demystify Ozempic — เชื่อม 'ยาดัง' กับ 'สรีรวิทยาธรรมชาติ' เปิดทางสู่ angle fiber/acetic acid ที่ boost GLP-1 ธรรมชาติ"
+    },
+    {
+      "template_id": "hook_bs_007_pain_craving",
+      "style": "pain",
+      "pattern_th": "ถ้าคุณ __X__ ทั้งที่ __Y__ นั่นไม่ใช่ความอ่อนแอ — มันคือ __Z__",
+      "example_th": "ถ้าคุณอยากของหวานตอนบ่าย 3 ทั้งที่เพิ่งกินข้าวเที่ยงไปเอง — นั่นไม่ใช่ความอ่อนแอของคุณ มันคือน้ำตาลตก (reactive hypoglycemia) จาก insulin spike หลังข้าวขาว! ไม่ใช่คุณผิด — มันคือฮอร์โมน",
+      "facts_used": ["bs_014", "bs_017"],
+      "effectiveness_notes": "Pain-recognition hook คล้าย fat_005 ของ fat_metabolism — สร้างความรู้สึก 'มีคนเข้าใจ' ก่อน reframe ปัญหาเป็นเรื่องฮอร์โมน"
+    },
+    {
+      "template_id": "hook_bs_008_individual_variability",
+      "style": "curiosity",
+      "pattern_th": "คนสองคนกินอาหารเดียวกัน — น้ำตาลคนหนึ่ง __X__ อีกคน __Y__",
+      "example_th": "สองคนกินขนมปังขาวเหมือนกัน — คนหนึ่งน้ำตาลพุ่งถึง 180 mg/dL อีกคนแค่ 110 เท่านั้น! Hall 2018 (PLOS Biology) ติด CGM ให้ 57 คน พบว่า glycemic index คือตัวเลขเฉลี่ย ไม่มีทางแม่นยำกับตัวเราเลย",
+      "facts_used": ["bs_017"],
+      "effectiveness_notes": "Curiosity hook ที่ทำลาย 'universal diet advice' — เปิดทางสู่ pitch CGM, personalization. Effective ใน audience ที่เคย 'ทำตามคำแนะนำแต่ไม่เห็นผล'"
+    },
+    {
+      "template_id": "hook_bs_009_meal_sequence",
+      "style": "insult_reality",
+      "pattern_th": "__X__ เดียวกัน แต่กินสลับลำดับ — น้ำตาลต่างกัน __Y__%",
+      "example_th": "อาหารชุดเดียวกัน — แต่ถ้ากินผักก่อน โปรตีนที่สอง คาร์บสุดท้าย น้ำตาลหลังอาหารลดลงถึง 73% เทียบกับกินข้าวก่อน! Shukla 2015 ที่ Weill Cornell พิสูจน์แล้ว — แค่เปลี่ยนลำดับ ไม่เปลี่ยนอาหาร",
+      "facts_used": ["bs_018"],
+      "effectiveness_notes": "Insult-reality hook ที่ reframe 'diet' เป็น 'sequence' — practical + counter-intuitive, viral-worthy"
+    },
+    {
+      "template_id": "hook_bs_010_dawn_phenomenon_awe",
+      "style": "awe",
+      "pattern_th": "น้ำตาลตอนเช้าคุณสูง ทั้งที่คุณ __X__ — เพราะ __Y__",
+      "example_th": "น้ำตาลตอนตื่นคุณสูง ทั้งที่คุณงดอาหารมา 10 ชั่วโมง! — มันคือ dawn phenomenon คอร์ติซอลปลุกตัวระหว่าง 3-8 โมงเช้า สั่งตับปล่อยน้ำตาลมาให้พร้อมตื่น ในคนปกติอินซูลินจัดการได้ ในคนเบาหวานมันจัดการไม่ได้",
+      "facts_used": ["bs_015"],
+      "effectiveness_notes": "Awe hook + scientific explanation — แก้ความเชื่อ 'งดข้าวเย็น = น้ำตาลเช้าต้องต่ำ' ปลดล็อก angle 'bedtime protein/fat' สำหรับ dawn phenomenon"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "domain_id": "life_coaching",
+  "_meta": {
+    "current_count": 9,
+    "last_harvested": "2026-04-22",
+    "harvested_by": "domain_harvester.life_coaching"
+  },
+  "myths": [
+    {
+      "myth_id": "myth_lc_001",
+      "popular_belief_th": "นิสัยใหม่สร้างได้ใน 21 วัน",
+      "truth_th": "งานวิจัย UCL (Lally 2010) พิสูจน์ว่าเฉลี่ย 66 วัน ช่วง 18-254 วัน — ตัวเลข 21 วันมาจาก Dr. Maxwell Maltz ที่สังเกตผู้ป่วยศัลยกรรมปรับตัวกับภาพลักษณ์ใหม่ ไม่ใช่งานวิจัย habit formation",
+      "why_popular": "หนังสือ self-help หลายเล่มอ้างตัวเลข 21 วัน ทำให้แพร่กระจายในวัฒนธรรม pop psychology",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {
+          "url": "https://onlinelibrary.wiley.com/doi/10.1002/ejsp.674",
+          "org": "European Journal of Social Psychology",
+          "source_tier": "A",
+          "year": 2010,
+          "title": "How are habits formed: Modelling habit formation in the real world (Lally et al.)"
+        }
+      ],
+      "sub_topic_id": "habit_formation"
+    },
+    {
+      "myth_id": "myth_lc_002",
+      "popular_belief_th": "คนมีวินัยเพราะมี Willpower มากกว่า",
+      "truth_th": "งานวิจัยพบว่าคนที่ดูเหมือน 'มีวินัยสูง' มักตั้งใจใช้ Willpower น้อยกว่า — พวกเขา design environment เพื่อให้ต้องตัดสินใจน้อยลง และใช้ habit แทน willpower (Galla & Duckworth 2015, JPSP)",
+      "why_popular": "วัฒนธรรมเชื่อว่าคนสำเร็จต้อง 'อดทนกว่า' — แต่ความจริงคือ system ดีกว่า",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25402680/",
+          "org": "Journal of Personality and Social Psychology",
+          "source_tier": "A",
+          "year": 2015,
+          "title": "More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes (Galla & Duckworth)"
+        }
+      ],
+      "sub_topic_id": "self_control"
+    },
+    {
+      "myth_id": "myth_lc_003",
+      "popular_belief_th": "Motivation ต้องมีก่อน ถึงจะลงมือทำได้",
+      "truth_th": "Pychyl และงานวิจัย action-motivation loop พิสูจน์ว่า Motivation มักตามหลัง Action ไม่ใช่นำหน้า — 'รอ motivation' คือกับดักเพราะ motivation เกิดระหว่างทำ ไม่ใช่ก่อนทำ",
+      "why_popular": "ความรู้สึก 'ฉันไม่อยากทำ' ถูกตีความว่า 'ยังไม่พร้อม' ทั้งที่จริงคือ emotion avoidance",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {
+          "url": "https://doi.org/10.1080/15298868.2016.1160794",
+          "org": "Self and Identity",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Procrastination, Emotion Regulation and Well-Being (Sirois & Pychyl)"
+        }
+      ],
+      "sub_topic_id": "procrastination"
+    },
+    {
+      "myth_id": "myth_lc_004",
+      "popular_belief_th": "คนล้มเหลวเพราะไม่พยายามพอ / ขี้เกียจ",
+      "truth_th": "ส่วนใหญ่ล้มเหลวเพราะ system ไม่ดี ไม่ใช่ character ไม่ดี — Fogg Behavior Model แสดงว่าถ้า Ability (friction) สูงเกินไป แม้ Motivation พอก็ไม่เกิดพฤติกรรม; คนส่วนใหญ่ขาด effective system ไม่ใช่ขาด effort",
+      "why_popular": "วัฒนธรรม self-blame และ bootstrap mentality ทำให้คนโทษตัวเองก่อนโทษ system",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {
+          "url": "https://behaviormodel.org/",
+          "org": "Stanford Persuasive Tech Lab",
+          "source_tier": "B",
+          "year": 2009,
+          "title": "Fogg Behavior Model"
+        }
+      ],
+      "sub_topic_id": "behavior_design"
+    },
+    {
+      "myth_id": "myth_lc_005",
+      "popular_belief_th": "ผัดวันประกันพรุ่งเป็นปัญหาของการบริหารเวลา",
+      "truth_th": "งานวิจัย Pychyl & Sirois ชี้ชัดว่า procrastination เป็น Emotion Regulation problem ไม่ใช่ Time Management — คนผัดวันเพราะ avoid ความรู้สึกไม่สบายใจ ดังนั้นการทำ schedule ให้แน่นขึ้นจึงไม่แก้ปัญหาได้",
+      "why_popular": "productivity culture เน้น time blocking และ calendar management เป็นคำตอบสำหรับทุกอย่าง",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {
+          "url": "https://doi.org/10.1080/15298868.2016.1160794",
+          "org": "Self and Identity",
+          "source_tier": "A",
+          "year": 2016,
+          "title": "Procrastination, Emotion Regulation and Well-Being"
+        }
+      ],
+      "sub_topic_id": "procrastination"
+    },
+    {
+      "myth_id": "myth_lc_006",
+      "popular_belief_th": "Growth Mindset แค่ 'คิดบวก' หรือ 'เชื่อมั่นตัวเอง'",
+      "truth_th": "Growth Mindset ของ Dweck คือความเชื่อว่า 'ความสามารถพัฒนาได้ด้วย effort และ strategy' — ต่างจากการแค่บอกว่า 'ฉันทำได้'; การสอน Growth Mindset ผิดวิธี (แค่บอกให้คิดบวก) ไม่ได้ผลและอาจเป็นอันตราย",
+      "why_popular": "หนังสือ self-help ทำให้ Growth Mindset กลายเป็น buzzword ที่ oversimplified",
+      "reveal_style": "curiosity",
+      "sources_debunking": [
+        {
+          "url": "https://www.mindsetworks.com/science/",
+          "org": "Mindset Works / Stanford",
+          "source_tier": "B",
+          "year": 2006,
+          "title": "Mindset: The New Psychology of Success (Dweck)"
+        }
+      ],
+      "sub_topic_id": "mindset"
+    },
+    {
+      "myth_id": "myth_lc_007",
+      "popular_belief_th": "ดุตัวเองหลังล้มเหลวจะทำให้พยายามมากขึ้น",
+      "truth_th": "Self-criticism หลังล้มเหลวเพิ่ม cortisol และ threat response → ลด motivation และ resilience; งานวิจัย Neff พิสูจน์ว่า Self-Compassion ให้ผลดีกว่า — คนที่มี Self-Compassion สูง มี intrinsic motivation มากกว่าและ give up น้อยกว่า",
+      "why_popular": "'No pain, no gain' mentality และความเชื่อว่าความเมตตาต่อตัวเองคือ 'ออมชอม'",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {
+          "url": "https://self-compassion.org/the-research/",
+          "org": "University of Texas at Austin",
+          "source_tier": "B",
+          "year": 2003,
+          "title": "Self-Compassion research (Neff)"
+        }
+      ],
+      "sub_topic_id": "resilience"
+    },
+    {
+      "myth_id": "myth_lc_008",
+      "popular_belief_th": "ถ้าตั้งใจแน่วแน่พอ คุณทำสิ่งที่ยากได้เสมอ",
+      "truth_th": "Intention-Action Gap (Sheeran 2002 meta-analysis) พบว่าเพียง 47% ของ intentions กลายเป็น actions — strong intention จำเป็น แต่ไม่เพียงพอ; ต้องมี specific plan (implementation intention), low friction, และ reliable prompt ด้วย",
+      "why_popular": "วาทกรรม 'where there's a will, there's a way' ฝังลึกในวัฒนธรรม",
+      "reveal_style": "shock",
+      "sources_debunking": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12093019/",
+          "org": "Personality and Social Psychology Review",
+          "source_tier": "A",
+          "year": 2002,
+          "title": "Intention-behavior relations: A conceptual and empirical review (Sheeran)"
+        }
+      ],
+      "sub_topic_id": "behavior_design"
+    },
+    {
+      "myth_id": "myth_lc_009",
+      "popular_belief_th": "Life Coaching แก้ปัญหาสุขภาพจิตและซึมเศร้าได้",
+      "truth_th": "Life Coaching เป็น goal-focused, non-clinical service สำหรับคนที่ 'functioning well' — ไม่ได้รับการออกแบบสำหรับ clinical depression, anxiety disorder, PTSD, หรือ ADHD; ผู้ที่มีอาการเหล่านี้ต้องการ licensed therapist หรือจิตแพทย์",
+      "why_popular": "ตลาด life coaching เติบโตเร็ว และ boundary ระหว่าง coaching กับ therapy ถูก blur โดยเจตนาในบางกรณี",
+      "reveal_style": "correction",
+      "sources_debunking": [
+        {
+          "url": "https://www.icf.org/about/about-icf/ethics/code-of-ethics",
+          "org": "International Coaching Federation (ICF)",
+          "source_tier": "B",
+          "year": 2020,
+          "title": "ICF Code of Ethics — Scope of Practice"
+        }
+      ],
+      "sub_topic_id": "resilience"
+    }
+  ]
+}
