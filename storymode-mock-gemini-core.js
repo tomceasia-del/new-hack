@@ -657,6 +657,7 @@
       safetyReport.overclaimHits = marketing.hits || [];
       safetyReport.softReplaces = marketing.softReplaces || [];
       if (safetyReport.overclaimHits.length > 0) {
+        safetyReport.sanitized = true;
         try {
           console.warn(
             '[Storymode Safety] Marketing policy applied (remove or soft-replace):',

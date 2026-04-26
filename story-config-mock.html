@@ -3783,6 +3783,7 @@
           truncated: !!out.truncated,
           error: null,
           imageRefOrder: imageRefOrder,
+          safety: out.safety || null,
           ts: Date.now()
         });
         status.textContent = "สำเร็จ — ดูผลในแท็บผลเจน";
@@ -3803,6 +3804,7 @@
           truncated: false,
           error: msg,
           imageRefOrder: errRef,
+          safety: null,
           ts: Date.now()
         });
         status.textContent = msg + " (ดูรายละเอียดด้านล่าง)";

@@ -30,6 +30,28 @@
     .wrap { max-width: 920px; margin: 0 auto; padding: 28px 18px 48px; }
     h1 { font-size: 1.25rem; margin: 0 0 8px; }
     .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 16px; }
+    .safety-banner {
+      display: block;
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      background: rgba(251, 191, 36, 0.08);
+      font-size: 0.8rem;
+      line-height: 1.45;
+    }
+    .safety-banner[hidden] { display: none !important; }
+    .safety-banner-title {
+      font-weight: 800;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fcd34d;
+      margin: 0 0 6px;
+    }
+    .safety-banner p { margin: 0 0 6px; color: var(--text); }
+    .safety-banner p:last-child { margin-bottom: 0; }
+    .safety-banner .safety-sub { color: var(--muted); font-size: 0.78rem; word-break: break-word; }
     .err { color: var(--err); white-space: pre-wrap; margin-bottom: 16px; }
 
     .processing-panel {
@@ -373,6 +395,7 @@
   <div class="wrap">
     <h1 id="page-title">ผลเจนสคริปต์ฉาก (Gemini)</h1>
     <p class="meta" id="meta"></p>
+    <div id="safety-banner" class="safety-banner" role="status" hidden aria-live="polite"></div>
     <div class="processing-panel" id="processing" aria-live="polite">
       <div class="spinner" role="status" aria-label="กำลังโหลด"></div>
       <div class="processing-text">
@@ -416,6 +439,7 @@
       var processingMsg = document.getElementById("processing-msg");
       var resultBody = document.getElementById("result-body");
       var pageTitle = document.getElementById("page-title");
+      var safetyBanner = document.getElementById("safety-banner");
       var pollTimer = null;
       var lastRawText = "";
 
@@ -1529,6 +1553,62 @@
         wrap.appendChild(card);
       }
 
+      function renderSafetyBanner(d) {
+        if (!safetyBanner) return;
+        if (!d || d.error || isProcessing(d)) {
+          safetyBanner.hidden = true;
+          safetyBanner.textContent = "";
+          return;
+        }
+        var s = d.safety;
+        if (!s) {
+          safetyBanner.hidden = true;
+          safetyBanner.textContent = "";
+          return;
+        }
+        var nHit = s.overclaimHits && s.overclaimHits.length;
+        var nSoft = s.softReplaces && s.softReplaces.length;
+        if (!nHit && !nSoft) {
+          safetyBanner.hidden = true;
+          safetyBanner.textContent = "";
+          return;
+        }
+        safetyBanner.hidden = false;
+        safetyBanner.textContent = "";
+        var title = document.createElement("div");
+        title.className = "safety-banner-title";
+        title.textContent = "กรอง/ปรับตามนโยบายโฆษณา";
+        safetyBanner.appendChild(title);
+        if (nSoft) {
+          var p1 = document.createElement("p");
+          var a = document.createElement("span");
+          a.textContent = "แทนที่วลีด้วยคำอ่อน: ";
+          var b = document.createElement("span");
+          b.className = "safety-sub";
+          b.textContent = s.softReplaces
+            .map(function (r) {
+              return r.from + " → " + r.to;
+            })
+            .join(" · ");
+          p1.appendChild(a);
+          p1.appendChild(b);
+          safetyBanner.appendChild(p1);
+        }
+        if (nHit) {
+          var p2 = document.createElement("p");
+          var c = document.createElement("span");
+          c.textContent = "วลีที่จับ/จัดการ: ";
+          var dspan = document.createElement("span");
+          dspan.className = "safety-sub";
+          var list = s.overclaimHits.join(", ");
+          if (list.length > 480) list = list.slice(0, 480) + "…";
+          dspan.textContent = list;
+          p2.appendChild(c);
+          p2.appendChild(dspan);
+          safetyBanner.appendChild(p2);
+        }
+      }
+
       function render(d) {
         if (!d) {
           renderImageRefBlock(null);
@@ -1540,6 +1620,7 @@
           outRaw.textContent = "";
           errEl.style.display = "none";
           document.title = "ผลเจน — Storymode mock";
+          renderSafetyBanner(null);
           return;
         }
 
@@ -1560,6 +1641,7 @@
           structuredRoot.innerHTML = "";
           structuredRoot.hidden = true;
           outRaw.textContent = "";
+          renderSafetyBanner(null);
           return;
         }
 
@@ -1569,10 +1651,15 @@
         resultBody.classList.remove("is-hidden");
 
         var ts = d.ts ? new Date(d.ts).toLocaleString("th-TH") : "";
+        var extraMeta = "";
+        if (!d.error && d.safety && d.safety.overclaimHits && d.safety.overclaimHits.length) {
+          extraMeta += " · ปรับข้อความตามนโยบายโฆษณา";
+        }
         meta.textContent =
           (d.model ? "โมเดล: " + d.model + " · " : "") +
           (ts ? "เวลา: " + ts : "") +
-          (d.truncated ? " · (อาจถูกตัด MAX_TOKENS)" : "");
+          (d.truncated ? " · (อาจถูกตัด MAX_TOKENS)" : "") +
+          extraMeta;
 
         if (d.error) {
           errEl.style.display = "block";
@@ -1593,6 +1680,7 @@
           structuredRoot.hidden = true;
         }
         renderImageRefBlock(d);
+        renderSafetyBanner(d);
       }
 
       function stopPoll() {
