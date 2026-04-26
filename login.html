@@ -151,7 +151,8 @@
     fetch('/api/auth/session')
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        if (data.authenticated) location.replace('/cs');
+        // ต้องชี้ path ไฟล์ตรง ๆ — /cs อาศัย vercel rewrites; บาง deploy ทำให้ 404
+        if (data.authenticated) location.replace('/story-config-mock.html');
       })
       .catch(function() {});
 

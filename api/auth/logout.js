@@ -3,7 +3,7 @@
  * Clears the session cookie and redirects to the login page.
  */
 'use strict';
-const { setCookie, SESSION_COOKIE } = require('./_helpers');
+const { setCookie, SESSION_COOKIE, getBaseUrl } = require('./_helpers');
 
 module.exports = function handler(req, res) {
   res.setHeader('Set-Cookie',
@@ -12,5 +12,6 @@ module.exports = function handler(req, res) {
       path: '/', maxAge: 0,
     })
   );
-  return res.redirect(302, '/');
+  // หลีกเลี่ยง redirect ไป / บาง deploy ไม่ map → Vercel 404
+  return res.redirect(302, `${getBaseUrl(req)}/login.html`);
 };

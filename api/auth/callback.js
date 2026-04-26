@@ -12,17 +12,17 @@ module.exports = async function handler(req, res) {
 
   // ── Error from Google ──────────────────────────────────────────────────────
   if (error) {
-    return res.redirect(302, `/?error=${encodeURIComponent(error)}`);
+    return res.redirect(302, `${getBaseUrl(req)}/login.html?error=${encodeURIComponent(error)}`);
   }
   if (!code) {
-    return res.redirect(302, '/?error=missing_code');
+    return res.redirect(302, `${getBaseUrl(req)}/login.html?error=missing_code`);
   }
 
   // ── CSRF state check ────────────────────────────────────────────────────────
   const cookies    = parseCookies(req.headers.cookie);
   const savedState = cookies['oauth_state'];
   if (!state || !savedState || state !== savedState) {
-    return res.redirect(302, '/?error=state_mismatch');
+    return res.redirect(302, `${getBaseUrl(req)}/login.html?error=state_mismatch`);
   }
 
   // ── Exchange code for tokens ────────────────────────────────────────────────
@@ -51,12 +51,12 @@ module.exports = async function handler(req, res) {
     tokens = await tokenRes.json();
   } catch (e) {
     console.error('[auth/callback] token exchange failed', e);
-    return res.redirect(302, '/?error=token_exchange_failed');
+    return res.redirect(302, `${getBaseUrl(req)}/login.html?error=token_exchange_failed`);
   }
 
   if (tokens.error || !tokens.id_token) {
     console.error('[auth/callback] token error', tokens);
-    return res.redirect(302, `/?error=${encodeURIComponent(tokens.error || 'no_id_token')}`);
+    return res.redirect(302, `${getBaseUrl(req)}/login.html?error=${encodeURIComponent(tokens.error || 'no_id_token')}`);
   }
 
   // ── Decode Google ID token payload (no need to verify signature here) ───────
@@ -67,17 +67,17 @@ module.exports = async function handler(req, res) {
       parts[1].replace(/-/g, '+').replace(/_/g, '/'), 'base64'
     ).toString('utf8'));
   } catch (e) {
-    return res.redirect(302, '/?error=id_token_decode_failed');
+    return res.redirect(302, `${getBaseUrl(req)}/login.html?error=id_token_decode_failed`);
   }
 
   const accountEmail = (profile.email && String(profile.email).trim()) || '';
   if (!accountEmail) {
     console.warn('[auth/callback] Google account has no email in id_token');
-    return res.redirect(302, '/?error=no_email');
+    return res.redirect(302, `${getBaseUrl(req)}/login.html?error=no_email`);
   }
   if (!isEmailAllowed(accountEmail)) {
     console.warn('[auth/callback] email not in AUTH_ALLOWED_EMAILS:', accountEmail);
-    return res.redirect(302, '/?error=email_not_approved');
+    return res.redirect(302, `${getBaseUrl(req)}/login.html?error=email_not_approved`);
   }
 
   // ── Build + sign session JWT (ย่อ payload มากที่สุด) ───────────────────────
