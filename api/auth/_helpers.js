@@ -50,7 +50,8 @@ function verifyJWT(token, secret) {
   }
 
   const payload = JSON.parse(fromb64url(body).toString('utf8'));
-  if (payload.exp && payload.exp < Math.floor(Date.now() / 1000)) {
+  const expT = payload.exp != null ? payload.exp : payload.x;
+  if (expT && expT < Math.floor(Date.now() / 1000)) {
     throw new Error('Token expired');
   }
   return payload;
@@ -92,11 +93,53 @@ function setCookie(name, value, options = {}) {
 // ── Request helpers ─────────────────────────────────────────────────────────
 
 /**
- * Detect the public base URL from Vercel request headers.
+ * โยง redirect_uri กับ Google — ต้องตรงกับ "Authorized redirect URIs" ทุกตัวอักษร
+ * ตัวอย่าง: https://www.example.com/api/auth/callback
+ * แนะนำตั้งบน Vercel: AUTH_BASE_URL=https://www.example.com (รวม https และโดเมนจริงคู่กับ Google)
+ * รองรับ NEXTAUTH_URL / PUBLIC_BASE_URL เป็นทางเลือก (เอาเฉพาะ origin)
+ */
+function isLocalhostHost(hostname) {
+  return /^(localhost|127\.0\.0\.1)$/i.test(hostname || '');
+}
+
+function authBaseFromEnv() {
+  const raw = process.env.AUTH_BASE_URL || process.env.NEXTAUTH_URL || process.env.PUBLIC_BASE_URL;
+  if (!raw || !String(raw).trim()) return null;
+  try {
+    const u = new URL(String(raw).trim());
+    if (!u.host) return null;
+    let origin = `${u.protocol}//${u.host}`.replace(/\/$/, '');
+    // โดเมนจริงใช้ https กับ Google เสมอ (กันพิมพ์ http: แล้วไม่ match redirect URI)
+    if (!isLocalhostHost(u.hostname)) {
+      origin = origin.replace(/^http:\/\//, 'https://');
+    }
+    return origin;
+  } catch {
+    return null;
+  }
+}
+
+function firstHeaderToken(headerVal) {
+  if (headerVal == null) return '';
+  return String(headerVal).split(',')[0].trim();
+}
+
+/**
+ * Public origin สำหรับ OAuth ใช้เดียวกับ token exchange
  */
 function getBaseUrl(req) {
-  const proto = req.headers['x-forwarded-proto'] || 'https';
-  const host  = req.headers['x-forwarded-host'] || req.headers.host || 'localhost:3000';
+  const fromEnv = authBaseFromEnv();
+  if (fromEnv) return fromEnv;
+
+  const host =
+    firstHeaderToken(req.headers['x-forwarded-host']) ||
+    firstHeaderToken(req.headers.host) ||
+    'localhost:3000';
+  const hostOnly = host.split(':')[0];
+  let proto = firstHeaderToken(req.headers['x-forwarded-proto']) || 'https';
+  if (!isLocalhostHost(hostOnly) && process.env.VERCEL) {
+    proto = 'https';
+  }
   return `${proto}://${host}`;
 }
 

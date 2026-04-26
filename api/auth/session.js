@@ -23,14 +23,21 @@ module.exports = function handler(req, res) {
 
   try {
     const payload = verifyJWT(token, secret);
-    if (!isEmailAllowed(payload.email)) {
+    // รองรับ JWT รุ่นเก่า (email/name) กับรุ่นเบา (e/u) เพื่อกัน 494
+    const email = (payload.e != null ? payload.e : payload.email) || '';
+    if (!isEmailAllowed(email)) {
       return res.status(401).json({ authenticated: false, reason: 'email_not_approved' });
     }
+    const name =
+      (payload.n != null && String(payload.n).trim()) ||
+      (payload.name != null && String(payload.name).trim()) ||
+      (email ? String(email).split('@')[0] : '') ||
+      '';
     return res.status(200).json({
       authenticated: true,
       user: {
-        name:    payload.name,
-        email:   payload.email,
+        name:    name,
+        email:   email,
         picture: payload.picture,
       },
     });

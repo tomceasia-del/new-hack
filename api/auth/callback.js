@@ -80,21 +80,17 @@ module.exports = async function handler(req, res) {
     return res.redirect(302, '/?error=email_not_approved');
   }
 
-  // ── Build + sign session JWT ────────────────────────────────────────────────
-  // ไม่ใส่ picture ใน cookie — URL รูป Google ยาวมาก ทำให้ header Cookie รวมเกิน limit ของ
-  // edge (Vercel 494 REQUEST_HEADER_TOO_LARGE) ฝั่ง client ยังแสดง initial จากชื่อได้
+  // ── Build + sign session JWT (ย่อ payload มากที่สุด) ───────────────────────
+  // Vercel edge กันขนาด request header: Cookie รวมแล้วเกิน ~8kB → 494 REQUEST_HEADER_TOO_LARGE
+  // ไม่ใส่ name / picture ใน token — แสดงชื่อฝั่ง /api/auth/session จาก local-part อีเมล
   const now = Math.floor(Date.now() / 1000);
-  const name = String(profile.name || '')
-    .trim()
-    .slice(0, 128);
   const emailNorm = accountEmail.slice(0, 254);
   const sessionJWT = signJWT(
     {
-      sub:   profile.sub,
-      name,
-      email: emailNorm,
-      iat:   now,
-      exp:   now + SESSION_MAX_AGE,
+      u:   String(profile.sub || ''),
+      e:   emailNorm,
+      iat: now,
+      exp: now + SESSION_MAX_AGE,
     },
     secret
   );
