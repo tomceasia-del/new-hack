@@ -1810,27 +1810,6 @@
         });
       }
 
-      function showFallbackBanner(why) {
-        try {
-          var bn = document.createElement("div");
-          bn.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;background:#7f1d1d;color:#fff;padding:10px 14px;font-size:0.85rem;line-height:1.4;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.35)";
-          bn.innerHTML = "โหลดสคริปต์ไม่ครบ (" + (why || "unknown") + ") — เปิดเน็ตใหม่/ลองอีกครั้ง <button id='__mock-reload-btn' style='margin-left:10px;background:#fff;color:#7f1d1d;border:0;border-radius:6px;padding:5px 10px;font-weight:700'>ลองโหลดอีกครั้ง</button>";
-          if (document.body) document.body.appendChild(bn);
-          else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(bn); });
-          var attach = function () {
-            var b = document.getElementById("__mock-reload-btn");
-            if (b) b.addEventListener("click", function () {
-              try { sessionStorage.removeItem(SELF_HEAL_RELOADED_KEY); } catch (_) {}
-              var u = new URL(location.href);
-              u.searchParams.set("_r", String(Date.now()));
-              location.replace(u.toString());
-            });
-          };
-          if (document.body) attach();
-          else document.addEventListener("DOMContentLoaded", attach);
-        } catch (_) {}
-      }
-
       async function selfHealOnce() {
         if (attempted) return;
         attempted = true;
@@ -1854,20 +1833,11 @@
           if (sErr && /โหลดสคริปต์ไม่ครบ/.test(sErr.textContent || "")) {
             sErr.textContent = "";
           }
-          return;
         }
 
-        var alreadyReloaded = false;
-        try { alreadyReloaded = sessionStorage.getItem(SELF_HEAL_RELOADED_KEY) === "1"; } catch (_) {}
-        if (!alreadyReloaded) {
-          try { sessionStorage.setItem(SELF_HEAL_RELOADED_KEY, "1"); } catch (_) {}
-          var u = new URL(location.href);
-          u.searchParams.set("_r", stamp);
-          location.replace(u.toString());
-          return;
-        }
-
-        showFallbackBanner((window.__mock1LoadErr || "sales-formulas-not-exported").trim());
+        /* ไม่บล็อก/ไม่โชว์แบนเนอร์/ไม่ reload — ฝั่ง HTML มี
+         * pickSalesFormulaIdFallback + __FALLBACK_SALES_FORMULA_IDS_BY_SCENE
+         * รองรับการเจนแม้ bundle จะโหลดไม่สำเร็จ */
       }
 
       if (!bundleOk() || window.__mock1LoadErr) {
@@ -3161,6 +3131,18 @@
           : [];
       list.innerHTML = "";
       if (!pool.length) {
+        var fallbackIds = __FALLBACK_SALES_FORMULA_IDS_BY_SCENE[sceneCount] || [];
+        if (fallbackIds.length) {
+          var needFallbackPick =
+            salesFormulaId == null ||
+            fallbackIds.indexOf(salesFormulaId) === -1 ||
+            lastSalesRandomSceneCount !== sceneCount;
+          if (needFallbackPick) {
+            salesFormulaId = fallbackIds[Math.floor(Math.random() * fallbackIds.length)];
+            lastSalesRandomSceneCount = sceneCount;
+          }
+          return;
+        }
         const empty = document.createElement("div");
         empty.className = "sfc-empty";
         empty.textContent = "ไม่มีสูตรสำเร็จสำหรับ " + sceneCount + " ฉาก — ใช้ 1, 2, 3, 4, 5, 6, 7, 8, 9 หรือ 10 ฉาก";
@@ -3267,6 +3249,30 @@
       lbl.textContent = v.labelTh;
       tag.appendChild(lbl);
       box.appendChild(tag);
+    }
+
+    /** Inline fallback — รายการ id สูตรตาม sceneCount
+     *  ใช้เมื่อ enrich bundle โหลดไม่ได้/ไม่ทันบนมือถือบางเครื่อง
+     *  เพื่อให้ payload.salesFormulaId มีค่า ไม่บล็อกการเจน
+     */
+    var __FALLBACK_SALES_FORMULA_IDS_BY_SCENE = {
+      1: ["1A","1B","1C","1D","1E"],
+      2: ["2A","2B","2C","2D","2E"],
+      3: ["3A","3B","3C","3D","3E"],
+      4: ["4A","4B","4C","4D","4E"],
+      5: ["5A","5B","5C","5D","5E"],
+      6: ["6A"], 7: ["7A"], 8: ["8A"], 9: ["9A"], 10: ["10A"]
+    };
+    function pickSalesFormulaIdFallback(sceneCount) {
+      if (typeof listSalesFormulasByScene === "function") {
+        try {
+          var pool = listSalesFormulasByScene(sceneCount) || [];
+          if (pool.length) return pool[Math.floor(Math.random() * pool.length)].id;
+        } catch (_) {}
+      }
+      var ids = __FALLBACK_SALES_FORMULA_IDS_BY_SCENE[Number(sceneCount) || 0] || [];
+      if (!ids.length) return null;
+      return ids[Math.floor(Math.random() * ids.length)];
     }
 
     function setSceneValue(v) {
@@ -3866,10 +3872,21 @@
         payload = getCurrentPayload();
       }
       if (payload.mode === "product_sell" && !payload.salesFormulaId) {
-        status.textContent = "โหมดขายสินค้า — ตั้งจำนวนฉากให้มีสูตร (1–10 ฉาก) เพื่อให้ระบบสุ่มสูตรได้";
-        const sec = document.getElementById("section-sales-formula");
-        if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: "smooth", block: "center" });
-        return;
+        try {
+          var fallbackId = pickSalesFormulaIdFallback(
+            clampSceneValue(document.getElementById("scenes").value)
+          );
+          if (fallbackId) {
+            salesFormulaId = fallbackId;
+            updatePreview();
+            payload = getCurrentPayload();
+          }
+        } catch (_) {}
+      }
+      if (payload.mode === "product_sell" && !payload.salesFormulaId) {
+        try {
+          console.warn("[mock] product_sell: no sales formula available — generating without blueprint");
+        } catch (_) {}
       }
       if (!apiKey && !window.__GEMINI_SERVER_MODE__) {
         status.textContent = "กรอกค่าจาก Google AI Studio ก่อน (ลิงก์ด้านบน)";
