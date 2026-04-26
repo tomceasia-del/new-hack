@@ -1778,33 +1778,104 @@
   <script src="storymode-mock-enrich-bundle.js?v=2026-04-26c" onerror="window.__mock1LoadErr='enrich'"></script>
   <script src="storymode-mock-gemini-core.js?v=2026-04-26c" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
+    /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
+     *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
+     *     ด้วย query cache-buster ใหม่ (ไม่ต้อง reload หน้า)
+     *  2) ถ้า reinject ครบรอบยังพังอยู่ → reload ทั้งหน้าให้อัตโนมัติ ครั้งเดียว/เซสชัน
+     *  3) ถ้า reload แล้วยังพังอยู่ในเซสชันนี้ → ค่อยขึ้นแบนเนอร์แดงเป็น fallback
+     */
     (function () {
-      var bundleMissing = !window.__mock1LoadErr && typeof listSalesFormulasByScene !== "function";
-      if (bundleMissing) {
-        window.__mock1LoadErr = (window.__mock1LoadErr || "") + " sales-formulas-not-exported";
+      var SELF_HEAL_RELOADED_KEY = "storymodeMockSelfHealReloadedV1";
+      var attempted = false;
+
+      function bundleOk() {
+        return (
+          typeof listSalesFormulasByScene === "function" &&
+          typeof findSalesFormula === "function"
+        );
       }
-      if (window.__mock1LoadErr) {
-        var sErr = document.querySelector(".sub");
-        if (sErr) {
-          sErr.textContent =
-            "โหลดสคริปต์ไม่ครบ (" +
-            window.__mock1LoadErr.trim() +
-            ") — กดรีเฟรช (ดึงเวอร์ชันใหม่) หรือเปิดผ่าน https://… ตรง ๆ ไม่ใช่ file://";
-        }
+
+      function reinjectScript(src) {
+        return new Promise(function (resolve, reject) {
+          try {
+            var s = document.createElement("script");
+            s.src = src;
+            s.async = false;
+            s.onload = function () { resolve(true); };
+            s.onerror = function () { reject(new Error("script-load-failed: " + src)); };
+            (document.head || document.documentElement).appendChild(s);
+          } catch (e) {
+            reject(e);
+          }
+        });
+      }
+
+      function showFallbackBanner(why) {
         try {
           var bn = document.createElement("div");
           bn.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;background:#7f1d1d;color:#fff;padding:10px 14px;font-size:0.85rem;line-height:1.4;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.35)";
-          bn.innerHTML = "โหลดสคริปต์ไม่ครบ — สูตรขายสินค้า TikTok ใช้ไม่ได้ <button id='__mock-reload-btn' style='margin-left:10px;background:#fff;color:#7f1d1d;border:0;border-radius:6px;padding:5px 10px;font-weight:700'>โหลดใหม่ (ล้าง cache)</button>";
-          document.addEventListener("DOMContentLoaded", function () {
-            document.body.appendChild(bn);
+          bn.innerHTML = "โหลดสคริปต์ไม่ครบ (" + (why || "unknown") + ") — เปิดเน็ตใหม่/ลองอีกครั้ง <button id='__mock-reload-btn' style='margin-left:10px;background:#fff;color:#7f1d1d;border:0;border-radius:6px;padding:5px 10px;font-weight:700'>ลองโหลดอีกครั้ง</button>";
+          if (document.body) document.body.appendChild(bn);
+          else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(bn); });
+          var attach = function () {
             var b = document.getElementById("__mock-reload-btn");
             if (b) b.addEventListener("click", function () {
+              try { sessionStorage.removeItem(SELF_HEAL_RELOADED_KEY); } catch (_) {}
               var u = new URL(location.href);
               u.searchParams.set("_r", String(Date.now()));
               location.replace(u.toString());
             });
-          });
+          };
+          if (document.body) attach();
+          else document.addEventListener("DOMContentLoaded", attach);
         } catch (_) {}
+      }
+
+      async function selfHealOnce() {
+        if (attempted) return;
+        attempted = true;
+
+        if (bundleOk() && !window.__mock1LoadErr) return;
+
+        var stamp = String(Date.now());
+        var attempts = [
+          "storymode-mock-enrich-bundle.js?heal=" + stamp,
+          "storymode-mock-gemini-core.js?heal=" + stamp
+        ];
+        try {
+          for (var i = 0; i < attempts.length; i++) {
+            try { await reinjectScript(attempts[i]); } catch (_) {}
+          }
+        } catch (_) {}
+
+        if (bundleOk()) {
+          window.__mock1LoadErr = "";
+          var sErr = document.querySelector(".sub");
+          if (sErr && /โหลดสคริปต์ไม่ครบ/.test(sErr.textContent || "")) {
+            sErr.textContent = "";
+          }
+          return;
+        }
+
+        var alreadyReloaded = false;
+        try { alreadyReloaded = sessionStorage.getItem(SELF_HEAL_RELOADED_KEY) === "1"; } catch (_) {}
+        if (!alreadyReloaded) {
+          try { sessionStorage.setItem(SELF_HEAL_RELOADED_KEY, "1"); } catch (_) {}
+          var u = new URL(location.href);
+          u.searchParams.set("_r", stamp);
+          location.replace(u.toString());
+          return;
+        }
+
+        showFallbackBanner((window.__mock1LoadErr || "sales-formulas-not-exported").trim());
+      }
+
+      if (!bundleOk() || window.__mock1LoadErr) {
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", selfHealOnce);
+        } else {
+          selfHealOnce();
+        }
       }
     })();
     /** ดึงชุดเดียวกับ CONTENT_CORE/02-master-prompt-template.js → export const STYLE_OPTIONS */
