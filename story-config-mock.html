@@ -369,11 +369,71 @@
     body.factory-warehouse-pov #drop-char-3 {
       display: none !important;
     }
-    .section-factory-warehouse {
-      padding: 12px 14px;
+    .section-a-c-f-lane {
+      margin-bottom: 20px;
+      padding: 14px 16px;
       border: 1px solid var(--border);
       border-radius: 12px;
       background: var(--surface);
+    }
+    .section-a-c-f-lane .sec-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      color: var(--text);
+    }
+    .a-c-f-lane {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .a-c-f-btn {
+      flex: 1 1 140px;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface-elevated, #14161a);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+    }
+    .a-c-f-btn:hover {
+      border-color: var(--accent);
+    }
+    .a-c-f-btn[aria-pressed="true"] {
+      border-color: var(--ok, #2ecc71);
+      background: color-mix(in srgb, var(--ok) 12%, var(--surface));
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--ok) 35%, transparent);
+    }
+    .a-c-f-btn .a-c-f-emoji {
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .a-c-f-checkbox-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+    }
+    .a-c-f-hint {
+      margin: 10px 0 0 0;
+      font-size: 0.75rem;
+      line-height: 1.5;
     }
     /* ฝังผลเจนสคริปต์ฉาก (story-config-result.html) ใต้ปุ่มเจน — บนหน้าเดียวกับฟอร์ม */
     .gemini-result-section {
@@ -1736,6 +1796,35 @@
       </div>
     </section>
 
+    <!-- บรรยากาศ — คอนเทนต์สินค้า — โรงงาน/โกดัง (แถบไอคอน; โหมดโรงงาน = คลิกไอคอนโรงงาน) -->
+    <section
+      class="section-a-c-f-lane"
+      data-section="atmo-factory-lane"
+      id="section-atmosphere-factory-lane"
+      hidden
+      aria-hidden="true"
+    >
+      <p class="sec-title">บรรยากาศ · คอนเทนต์สินค้า · โรงงาน/โกดัง</p>
+      <div class="a-c-f-lane" role="group" aria-label="บรรยากาศ คอนเทนต์ หรือโรงงาน/โกดัง">
+        <button type="button" class="a-c-f-btn" id="ac-f-btn-atmo" aria-pressed="true">
+          <span class="a-c-f-emoji" aria-hidden="true">🌤️</span>
+          <span>บรรยากาศ</span>
+        </button>
+        <button type="button" class="a-c-f-btn" id="ac-f-btn-content" aria-pressed="false">
+          <span class="a-c-f-emoji" aria-hidden="true">🛍️</span>
+          <span>คอนเทนต์สินค้า</span>
+        </button>
+        <button type="button" class="a-c-f-btn" id="ac-f-btn-factory" aria-pressed="false">
+          <span class="a-c-f-emoji" aria-hidden="true">🏭</span>
+          <span>โรงงาน/โกดัง</span>
+        </button>
+      </div>
+      <input type="checkbox" class="a-c-f-checkbox-hidden" id="factory-pov-mode" tabindex="-1" aria-label="โหมดโรงงานโกดัง" />
+      <p class="hint a-c-f-hint" id="ac-f-lane-hint-factory" style="display: none">
+        โรงงาน/โกดัง: มือ+สินค้า+คลัง — pipeline แยก; กรองคำต้องห้ามหลังเจนเหมือนเดิม
+      </p>
+    </section>
+
     <!-- 5 mood — LED ข้อ 9 -->
     <section data-section="mood" data-factory-toggle-hide>
       <div class="sec-head">
@@ -1750,28 +1839,6 @@
           <button type="button" class="narrative-close-btn" id="mood-icon-back" hidden aria-label="ปิด">×</button>
           <div class="chip-grid narrative-scroll" id="mood-chips"></div>
         </div>
-      </div>
-    </section>
-
-    <!-- คอนเทนต์สินค้า — โรงงาน/โกดัง (เฉพาะ Story) -->
-    <section
-      data-section="factory-warehouse"
-      id="section-factory-warehouse"
-      class="section-factory-warehouse"
-      hidden
-      aria-hidden="true"
-    >
-      <div class="sec-head">
-        <p class="sec-title" style="text-transform:none;letter-spacing:0.02em;">คอนเทนต์สินค้า — โรงงาน/โกดัง</p>
-      </div>
-      <p style="font-size:0.78rem;color:var(--muted);margin:0 0 10px;line-height:1.5;">
-        ยูทูปเบา ๆ มือ+สินค้า ฉากหลังคลัง/โรงงาน; ห้ามฮีโร/ใบหน้า — ใช้ <strong>pipeline แยก</strong> (ไม่ HERO, ไม่กฎ 15–20 คำ/ฉาก แบบ story มาตรฐาน) แต่ยัง<strong>กรองคำต้องห้ามหลังเจน</strong>เหมือนเดิม
-      </p>
-      <div class="toggle-row factory-pov-toggle">
-        <label for="factory-pov-mode" style="cursor:pointer;display:flex;align-items:flex-start;gap:10px;">
-          <input type="checkbox" id="factory-pov-mode" style="width:1.1rem;height:1.1rem;margin-top:2px;flex-shrink:0;" />
-          <span><strong>โหมดโรงงาน/โกดัง</strong> — ส่ง prompt ตาม template นี้เท่านั้น (ปิด UI นอกเหนือจาก บรีฟ, ฉาก, รูปสินค้า, facts, สตูดิโอ, API)</span>
-        </label>
       </div>
     </section>
 
@@ -1919,7 +1986,7 @@
   </div>
 
   <script src="storymode-mock-enrich-bundle.js?v=2026-04-26d" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="storymode-mock-gemini-core.js?v=2026-04-28a" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script src="storymode-mock-gemini-core.js?v=2026-04-28b" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -2103,11 +2170,39 @@
     );
 
     let mode = "story";
+    /** ปุ่ม บรรยากาศ/คอนเทนต์ — เน้นตัวใดเมื่อยังไม่ใช่โหมดโรงงาน (factory ปิด) */
+    var acLaneFocus = "atmo";
     const MODE_STORAGE_KEY = "storymodeMockModeV1";
     const FACTORY_POV_STORAGE_KEY = "storymodeFactoryPovV1";
 
+    function syncAtmosphereFactoryLaneButtons() {
+      const cb = document.getElementById("factory-pov-mode");
+      const a = document.getElementById("ac-f-btn-atmo");
+      const c = document.getElementById("ac-f-btn-content");
+      const f = document.getElementById("ac-f-btn-factory");
+      const hintF = document.getElementById("ac-f-lane-hint-factory");
+      if (!cb || !a || !c || !f) return;
+      if (cb.checked) {
+        a.setAttribute("aria-pressed", "false");
+        c.setAttribute("aria-pressed", "false");
+        f.setAttribute("aria-pressed", "true");
+      } else {
+        f.setAttribute("aria-pressed", "false");
+        if (acLaneFocus === "content") {
+          a.setAttribute("aria-pressed", "false");
+          c.setAttribute("aria-pressed", "true");
+        } else {
+          a.setAttribute("aria-pressed", "true");
+          c.setAttribute("aria-pressed", "false");
+        }
+      }
+      if (hintF) {
+        hintF.style.display = cb.checked ? "block" : "none";
+      }
+    }
+
     function applyFactoryWarehousePovUI() {
-      const sec = document.getElementById("section-factory-warehouse");
+      const sec = document.getElementById("section-atmosphere-factory-lane");
       const isStory = mode === "story";
       if (sec) {
         sec.hidden = !isStory;
@@ -2138,6 +2233,7 @@
       try {
         syncDomainKnowledgeUI();
       } catch (_) {}
+      syncAtmosphereFactoryLaneButtons();
     }
     /** สินค้า + ตัวละครแต่ละ slot: อาร์เรย์สูงสุด 5 รูป (input multiple) */
     const MULTI_IMAGE_MAX = 5;
@@ -3555,6 +3651,64 @@
         applyFactoryWarehousePovUI();
         updatePreview();
       });
+
+    (function initAtmosphereFactoryLane() {
+      var a = document.getElementById("ac-f-btn-atmo");
+      var c = document.getElementById("ac-f-btn-content");
+      var f = document.getElementById("ac-f-btn-factory");
+      var cb = document.getElementById("factory-pov-mode");
+      function scrollToSection(dataSection) {
+        if (!dataSection) return;
+        var sec = document.querySelector("[data-section=\"" + dataSection + "\"]");
+        if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      function savePov() {
+        if (!cb) return;
+        try {
+          localStorage.setItem(
+            FACTORY_POV_STORAGE_KEY,
+            cb.checked ? "1" : "0"
+          );
+        } catch (_) {}
+      }
+      if (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          acLaneFocus = "atmo";
+          if (cb) {
+            if (cb.checked) cb.checked = false;
+            savePov();
+          }
+          applyFactoryWarehousePovUI();
+          updatePreview();
+          scrollToSection("mood");
+        });
+      }
+      if (c) {
+        c.addEventListener("click", function (e) {
+          e.preventDefault();
+          acLaneFocus = "content";
+          if (cb) {
+            if (cb.checked) cb.checked = false;
+            savePov();
+          }
+          applyFactoryWarehousePovUI();
+          updatePreview();
+          scrollToSection("images");
+        });
+      }
+      if (f) {
+        f.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (cb) {
+            if (!cb.checked) cb.checked = true;
+            savePov();
+          }
+          applyFactoryWarehousePovUI();
+          updatePreview();
+        });
+      }
+    })();
 
     document.querySelectorAll("#narrative-chips input, #mood-chips input, #visual-chips input, #hook-chips input").forEach((inp) => {
       inp.addEventListener("change", updatePreview);
