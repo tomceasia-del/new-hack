@@ -150,10 +150,7 @@
   }
 
   /**
-   * Pipeline แยก: โรงงาน/โกดัง — สินค้า+ฉาก industrial, ฮีโอคนเดียวเล่าต่อเนื่อง
-   * เสียง: พูด/นำเรื่องเท่านั้น — ห้าม BGM, ห้าม SFX/เอฟเฟกต์เสียง
-   * กล้อง: เคลื่อนแบบ real/physical ที่เชื่อถือได้
-   * รูปสินค้า: ใช้ productImageDimensions จากฝั่งฝ (ถ้ามี) อ้างอิง aspect
+   * Pipeline: โรงงาน/โกดัง — ยึด productImageAnalysis กำหนดฉาก-ตัวประกอบ, ฮีโอพูดเร็ว, ไม่ใช้ ref ตัวคน
    */
   function buildFactoryWarehouseSystemPromptFromPayload(payload, opts) {
     opts = opts || {};
@@ -168,60 +165,41 @@
       'Photorealistic handheld smartphone look, natural lighting, authentic warehouse or factory context.';
 
     return (
-      'You are a Thai-language short-form (TikTok/Reels) **warehouse / factory clearance** creative director. ' +
-      'Every scene is **~8 seconds per clip**. The product is the **visual star**; the **storytelling** is by **one hero voice only** — a **continuous** mini-arc from scene 1 to scene ' +
-      n +
-      ' (not isolated ads).\n\n' +
-      '═══ HERO (ONE) — DIALOGUE / NARRATION ═══\n' +
-      '- There is **exactly one** speaking / narrating character for the **whole** video: the **warehouse_hero** (Thai). **All scenes** must use the **same** speaker label and the **same in-world persona** (one host, one voice identity).\n' +
-      '- The hero **carries the story forward** from scene to scene (reference previous beats lightly where natural); **do not** hand the narration to a second person; **no** dialogue from crowd or secondary characters. Background extras, if any, are **silent** (no lip-sync).\n' +
-      '- Use: `Speaker: warehouse_hero (Thai)` on **every** scene. Do not vary the Speaker name.\n' +
-      '- **Do NOT** apply the standard storymode "15-20 words per scene" as a hard rule; use **punchy Thai** readable within **~8 seconds** per scene, sell + warehouse energy. Each scene ends with `Speaker:` and `Dialogue: "..."` (Thai).\n' +
-      '- If the user attached a **character1** reference, you may show **one** recurring on-screen host matching that look (outfit/hair/body type); **otherwise** you may use **off-screen** hero voice with **hands + product + warehouse** in frame, still **one** `warehouse_hero`.\n\n' +
+      'You are a Thai-language **warehouse / factory stock-clearance** short-form (TikTok/Reels) creative director. ' +
+      'Each scene is a **~8 second** clip, but the **host speaks faster** than a normal slow UGC: target **~4.5–6.0 second** to read the Dialogue line aloud (high energy, staccato, no slow "landing" on the last word).\n\n' +
+      '═══ PRIMARY SETTING — must follow user message "PRODUCT_IMAGE_ANALYSIS" ═══\n' +
+      '- The user message will include a **JSON block** (from prior vision analysis of the **product** images). That JSON is the **source of truth** for: **size_class**, how the item is **handled** in a real warehouse (hand-packing, shipper, case **stack** / **pallet** / bulk), and **primary environment** (bench line vs bulk aisle vs loading, etc.).\n' +
+      '- **If** that JSON is **absent**, infer from the attached product reference images and **pixel dimensions** with **lower** confidence, but still obey **size logic**: **small/tiny** SKUs → shots that feel like **filling, sealing, or placing into a carton/shipper**; **larger** or **case** goods → **pallet** stacks, **wider** aisles, two-hand **lift** or walk-up to a **tall** stack, **not** a tiny-packet extreme close-up.\n' +
+      '- All **IMAGE PROMPTs** and **action** in **VIDEO** must be **grounded in that analysis** and stay **consistent** with the **industrial** setting.\n\n' +
+      '═══ HERO (ONE) — FASTER SPOKEN DIALOGUE ═══\n' +
+      '- **Exactly one** `warehouse_hero` (Thai) for the **entire** run; `Speaker: warehouse_hero (Thai)` on **every** scene; **continuous** through-line, **no** second narrator, **no** line from extras.\n' +
+      '- **Faster** delivery: short clauses, no filler, no slow emotional **drag**; still punchy and sell+warehouse. Dialogue must fit the **4.5–6.0s** read target (not 8s slow). Each scene: `Dialogue: "..."` in Thai.\n' +
+      '- **Do not** use a **separate** character ref image. Visuals = **off-screen** hero voice, **or** **first-person** / **hands + product + warehouse**, or partial arms — **no** on-screen "hero face" from a reference person.\n\n' +
+      '═══ EXTRAS / background cast ═══\n' +
+      '- You may show **a few** background **extras** (workers, people moving) **in** the deep background or **mid** ground — they must be **plausible** for a **real factory/warehouse** and for this **product’s scale** (PPE, carts, hand pallet truck, case tape station next to a **pack line** for small items; **higher** racks / **pallet** context for **bulk**). **Not** random bystanders or showroom shoppers.\n' +
+      '- Extras are **silent** (no lip-sync dialogue in the story).\n\n' +
       '═══ AUDIO (HARD) ═══\n' +
-      '- **Only** the hero’s **spoken Thai dialogue** (narration / to-camera). **No background music**, **no** diegetic **music** from the environment (no in-scene radio/speaker bed). **No** sound **effects** pack, **no** stingers, **no** whoosh/swoosh, **no** foley SFX, **no** ambient SFX for punch — **no** BGM, **no** SFX, **no** "audio design" bed beyond a dry voice track.\n' +
-      '- The VIDEO PROMPT text must state explicitly: **"Audio: Thai voice-only (warehouse_hero). No music. No SFX."**\n\n' +
+      '- **Only** `warehouse_hero` **spoken** Thai. **No** BGM, **no** in-scene **music** bed, **no** SFX/stinger/foley/whoosh. The VIDEO block must end with: **"Audio: Thai voice-only (warehouse_hero). No music. No SFX."**\n\n' +
       '═══ CAMERA — PHYSICAL ONLY ═══\n' +
-      '- Camera motion = **only** **realistic, physical** mobile/video moves: **handheld**, **slow walk**, **pan/tilt**, **subtle dolly** / parallax that a real person could do on site. **No** VFX **camera** moves, **no** **speed** ramp, **no** **CG** or **impossible** flight, **no** **digital** glitch/warp, **no** **fake** dolly zoom that breaks physics, **no** impossible 360° orbits, **no** "transition effects" that look like VFX, **no** **multi-clip** gimmicks in the same shot — **physical** UGC gimbal/hand is OK.\n\n' +
+      '- Only **plausible, physical** **handheld / walk / pan-tilt** / subtle **dolly** — no VFX camera, no impossible moves (same as before).\n\n' +
       '═══ REFERENCE SIZES (if provided) ═══\n' +
-      '- The user message may list **per-product** image **width/height in pixels** for uploaded references. **Respect** the implied **aspect ratio** and **framing** so generated IMAGE prompts stay **consistent** with the reference; do not invent a conflicting canvas.\n\n' +
-      '═══ WHAT TO SHOW (WAREHOUSE) ═══\n' +
-      '- **Background:** real industrial **warehouse, distribution aisle, or factory storage** — metal racks, box stacks, concrete, harsh/fluorescent or cool industrial lighting, deep perspective when possible.\n' +
-      '- **Product** must match attached product ref(s); **labels** consistent. **Composing** the shot: respect any **stated** pixel **dimensions** / **aspect** from the user for product refs.\n' +
-      '- **Optional:** a small **yellow** paper sign with hand-written **Thai** (e.g. โละล้างสต็อก) **as a physical prop in-scene** — not burned-in UI subtitles in the final output.\n\n' +
+      '- **Pixel** width/height per product file — respect **aspect** and **framing**; align with `PRODUCT_IMAGE_ANALYSIS`.\n\n' +
       '═══ VISUAL STYLE (chips) ═══\n' +
       'Label: ' +
       smVisualStyleDisplay +
       '\nEnglish: ' +
       visualDesc +
-      '\n(Photoreal / UGC. Do not switch to cartoon/3D unless the label clearly allows it.)\n\n' +
+      '\n\n' +
       '═══ OUTPUT FORMAT (exact) ═══\n' +
       '**' +
       n +
-      '** scenes, each:\n\n' +
-      '=== SCENE [N]: [SHORT_SCENE_NAME] ===\n\n' +
-      '🔴 IMAGE PROMPT\n' +
-      '```\n' +
-      '[English: photoreal UGC; warehouse+product+hero or hands+product per rules; single frame, no collage, no multiple panels; respect product ref aspect if given]\n' +
-      '```\n\n' +
-      '🟢 VIDEO PROMPT\n' +
-      '```\n' +
-      '[English: only physical / plausible camera + lighting + action; then:\n' +
-      'Audio: Thai voice-only (warehouse_hero). No music. No SFX.]\n' +
-      'Speaker: warehouse_hero (Thai)\n' +
-      'Dialogue: "..." (punchy Thai, ~8s read)\n' +
-      '```\n\n' +
-      'After the last scene:\n' +
-      '📝 VIRAL CAPTION + hashtags\n\n' +
-      '═══ CRITICAL ═══\n' +
-      '1) **English** for image/video **descriptions** except quoted Thai in Dialogue and on-prop sign text.\n' +
-      '2) **No** burned-in subtitles; dialogue = **narration audio** in delivery, not on-screen type.\n' +
-      '3) **No** HERO BIBLE, **no** second named narrator, **no** **storymode** 15-20 **word** rule — **one** `warehouse_hero` **continuous** through-line only.\n' +
-      '4) One static image per scene, no split screen.\n' +
-      '5) **Audio** rules above are **strict**: voice-only, **no** music, **no** SFX/FX\n' +
-      '6) Scene count = exactly ' +
+      '** scenes. Each `Dialogue` line: **4.5–6.0s** read, **faster** pace.\n\n' +
+      '=== SCENE [N]: [SHORT_SCENE_NAME] ===\n' +
+      '🔴 IMAGE PROMPT — English; match **PRODUCT_IMAGE_ANALYSIS** environment; hands+product+warehouse+coherent extras; no collage; single frame.\n' +
+      '🟢 VIDEO — physical camera + Optional yellow Thai sign as **prop** only. End with `Speaker: warehouse_hero (Thai)` and `Dialogue: "..."`.\n\n' +
+      'CRITICAL: (1) English in prompts except Thai Dialogue. (2) **Primary** = **product analysis** JSON. (3) **No** character ref faces. (4) Voice-only audio. (5) Extras **coherent** with product+warehouse. (6) ' +
       n +
-      '.\n'
+      ' scenes exactly.\n'
     );
   }
 
@@ -239,12 +217,30 @@
             .join(' | ')
         : 'Photoreal (default)';
 
-    var msg =
+    var msg = '';
+
+    if (payload.productImageAnalysis && typeof payload.productImageAnalysis === 'object') {
+      msg +=
+        '═══ PRODUCT_IMAGE_ANALYSIS (PRIMARY — ฉากหลัง มุมจับ กอง-บรรจุ ตัวประกอบ; ออกแบบทุกฉากยึดบล็อกนี้ก่อน) ═══\n' +
+        JSON.stringify(payload.productImageAnalysis, null, 2) +
+        '\n\n';
+    } else if (payload.productImageAnalysisText && String(payload.productImageAnalysisText).trim()) {
+      msg +=
+        '═══ PRODUCT_IMAGE_ANALYSIS (raw text — ใช้เป็นหลักถ้า parse ก่อนหน้าไม่มี) ═══\n' +
+        String(payload.productImageAnalysisText).trim() +
+        '\n\n';
+    } else {
+      msg +=
+        '═══ PRODUCT_IMAGE_ANALYSIS (ยังไม่มี — ให้ infer จากรูปสินค้า+ขนาดpx ด้านล่าง แต่ **ชัด**ว่า: ของ**เล็ก** = เน้น**บรรจุ-แพ็กมือ**; ของกอง/ใหญ่ = เน้น**stack/pallet/ทางเดินกว้าง**) ═══\n' +
+        '(no JSON yet)\n\n';
+    }
+
+    msg +=
       '═══ บรีฟ สินค้า / โรงงาน (UGC) ═══\n' +
       topic +
       '\n\n' +
       '═══ โหมด ═══\n' +
-      'โรงงาน/โกดัง — **ฮีโอคนเดียว** (warehouse_hero) **เล่าเรื่องต่อเนื่อง** ฉากต่อฉาก; ภาพ = มือ+สินค้า+ฉาก industrial หรือ**ฮีโอ 1 คน** ถ้ามี ref; **เสียง = พูด/นำเรื่องฮีโอเท่านั้น ห้าม BGM, ห้าม SFX/เอฟเฟกต์**; กล้อง = ขยับ **แบบ physical** เท่านั้น; **ไม่**ใช้ storymode+กฎ 15–20 คำ/ฉาก แบบเดิม (บทกระชับ ~8 วิ/ฉาก)\n' +
+      'ฮีโอ **หนึ่งเสียง** (warehouse_hero) **พูดเร็ว กระชับ**; **ห้าม** BGM/SFX; กล้อง **phy**; ภาพ = มือ+POV+คลัง — **ห้าม** ref นายแบบ/นางแบบ; ตัวประกอบ = **สอดกล้อง+สินค้า+โรงงาน**\n' +
       '\n═══ จำนวนฉาก ═══\n' +
       n +
       ' ฉาก\n' +
@@ -260,7 +256,7 @@
     }
 
     if (Array.isArray(payload.productImageDimensions) && payload.productImageDimensions.length) {
-      msg += '\n══ ขนาดรูปอ้างอิง (px — จากอัปโหลด) ═\n';
+      msg += '\n══ ขนาดรูปอ้างอิง (px) ═\n';
       payload.productImageDimensions.forEach(function (d, i) {
         if (!d) {
           return;
@@ -279,27 +275,18 @@
       });
     }
 
-    msg += '\n══ รูปอ้างอิง (สินค้า + โหมดนี้: ฮีโอที่ slot ตัวละคร 1 ถ้าแนบ) ═\n';
+    msg += '\n══ รูปอ้างอิง (เฉพาะสินค้า — ไม่ส่ง ref ตัวคน) ═\n';
     const img = payload.images || {};
     const productNames = (img.productNames && img.productNames.length)
       ? img.productNames
       : (img.productName ? [img.productName] : []);
     if (img.productAttached) {
-      msg +=
-        'สินค้า: ' +
-        (productNames.join(', ') || '(แนบแล้ว)') +
-        ' — ยึดแพ็ก/ฉลาก; อ้างอิง **ขนาด/สัดส่วน** ด้านบนถ้ามี\n';
+      msg += 'สินค้า: ' + (productNames.join(', ') || '(แนบแล้ว)') + ' — ฉลาก/แพ็กตรง ref\n';
     } else {
-      msg += 'ยังไม่แนบรูปสินค้า (ถ้ามีข้อมูลในบรีฟ ให้ยึดนั้น)\n';
-    }
-    if (img.character1Attached) {
-      msg +=
-        '**ตัวละคร 1 (ref ฮีโอ): แนบแล้ว** — นำ **ลักษณะหน้า/ร่าง/สไตล์** มาใช้ให้ **ฮีโอคนเดียว** สอดคล้อง; **slot 2–3 ห้ามใช้ ในโหมดนี้**\n';
-    } else {
-      msg += '**ไม่แนบ ref ฮีโอ** — ใช้ off-screen หรือ มือ+POV+คลัง ตาม system (ยัง **หนึ่ง** `warehouse_hero` เสมอ)\n';
+      msg += 'ยังไม่แนบรูปสินค้า (ถ้ามีชื่อ/แบรนด์ในบรีฟ ให้ยึดนั้น)\n';
     }
 
-    msg += '\nสร้างครบ ' + n + ' ฉาก ตาม OUTPUT FORMAT; **หนึ่งฮีโอต่อเนื่อง**; **เสียง: พูดฮีโออย่างเดียว ห้ามดนตรี+SFX**\n';
+    msg += '\nสร้างครบ ' + n + ' ฉาก: **ฉากหลัง+การเคลื่อน+กอง/บรรจุ ยึด PRODUCT_IMAGE_ANALYSIS ก่อน**; Dialogue ต่อฉาก **4.5–6 วินาทีอ่านออก เร็ว ไม่เฉื่อย**.\n';
     return msg;
   }
 
@@ -1037,6 +1024,33 @@
     );
   }
 
+  function buildProductAnalysisSystemPrompt() {
+    return (
+      'You are a warehouse UGC + packshot analyst for Thai factory/clearance short video. ' +
+      'The user attached one or more PRODUCT images in order (product1, product2, …). ' +
+      'Output a single valid JSON object only — no markdown, no backticks, no commentary. ' +
+      'Schema (use null if unknown; all string fields can mix Thai+English where noted): ' +
+      'schema_version, ' +
+      'size_class: "tiny"|"small"|"medium"|"large"|"mixed", ' +
+      'handling_style_th: string (Thai) e.g. บรรจุมือใส่กล่อง, กองลัง, ยกพาเลต, ' +
+      'handling_style_en: string, ' +
+      'primary_environment_en: string — main set (packing bench+sealer+scale, narrow pick aisle, wide bulk stack row, loading dock, etc.) that **matches** the product size, ' +
+      'stacking_palletize_en: string — when case/pallet stack shots are correct vs hand-pack, ' +
+      'background_extras_en: string — 1–3 **coherent** extras (workers in PPE, hand jack, cart) for **this** product + **factory**, not random, ' +
+      'shot_ideas_en: string array of 2–3 concrete shot ideas (close pack vs wide pallet), ' +
+      'narration_pace_note_th: string (e.g. พูดเร็ว กระชับ แบบโกดัง), ' +
+      'confidence: { overall: number 0-1 }.'
+    );
+  }
+
+  function buildProductAnalysisUserMessage() {
+    return (
+      'Task: output ONLY the JSON. Images are product references in order. ' +
+      'Infer size, how it would be moved in a real warehouse, and the **primary** background environment. ' +
+      'Small items → packing / hand-load / shipper; larger or multipack → stacks, pallets, two-hand carry, wide aisle.'
+    );
+  }
+
   window.MockStorymodeGemini = {
     STORY_TYPE_TEMPLATES: STORY_TYPE_TEMPLATES,
     buildStorymodeSystemPromptFromPayload: buildStorymodeSystemPromptFromPayload,
@@ -1044,6 +1058,8 @@
     mockFetchGeminiStorymode: mockFetchGeminiStorymode,
     buildHeroAnalysisSystemPrompt: buildHeroAnalysisSystemPrompt,
     buildHeroAnalysisUserMessage: buildHeroAnalysisUserMessage,
+    buildProductAnalysisSystemPrompt: buildProductAnalysisSystemPrompt,
+    buildProductAnalysisUserMessage: buildProductAnalysisUserMessage,
     RESULT_STORAGE_KEY: 'storymodeMockGeminiResultV1'
   };
 })();
