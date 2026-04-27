@@ -361,6 +361,20 @@
       color: var(--text);
       border-color: var(--accent);
     }
+    body.factory-warehouse-pov [data-factory-toggle-hide] {
+      display: none !important;
+    }
+    body.factory-warehouse-pov #drop-char-1,
+    body.factory-warehouse-pov #drop-char-2,
+    body.factory-warehouse-pov #drop-char-3 {
+      display: none !important;
+    }
+    .section-factory-warehouse {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
     /* ฝังผลเจนสคริปต์ฉาก (story-config-result.html) ใต้ปุ่มเจน — บนหน้าเดียวกับฟอร์ม */
     .gemini-result-section {
       margin-top: 24px;
@@ -1331,6 +1345,55 @@
       background: rgba(255, 69, 58, 0.42);
       box-shadow: none;
     }
+    /* โหมด public: มี API ฝั่งเซิร์ฟเวอร์ — ไม่โชว์ key / ชื่อรุ่น; ต่อท้าย URL: ?dev=1 เพื่อดู UI เดิม */
+    html.gemini-public-calm #gemini-api-key-chrome {
+      display: none !important;
+    }
+    html.gemini-public-calm #api-google-led {
+      display: none !important;
+    }
+    .d-title-pub {
+      display: none;
+    }
+    .d-title-dev {
+      display: inline;
+    }
+    html.gemini-public-calm .d-title-pub {
+      display: inline;
+    }
+    html.gemini-public-calm .d-title-dev {
+      display: none;
+    }
+    body.deployed-gemini-wait .d-title-pub {
+      display: inline;
+    }
+    body.deployed-gemini-wait .d-title-dev {
+      display: none;
+    }
+    /* Deploy (ไม่ใช่ localhost): บังคับ AI ฝั่ง server ที่ทีมจ่าย — ห้ามใส่ key เอง ยกเว้น ?dev=1 */
+    #deployed-gemini-wait-banner {
+      display: none;
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      background: rgba(255, 200, 80, 0.1);
+      border: 1px solid rgba(255, 200, 100, 0.28);
+      color: var(--text, #e8eaef);
+    }
+    body.deployed-gemini-wait #deployed-gemini-wait-banner {
+      display: block;
+    }
+    body.deployed-gemini-wait #gemini-api-key-chrome,
+    body.deployed-gemini-wait #api-google-led {
+      display: none !important;
+    }
+    body.deployed-gemini-wait #btn-generate,
+    body.deployed-gemini-wait #btn-hero-analyze {
+      pointer-events: none;
+      opacity: 0.5;
+    }
 
     /* ── Google OAuth gate (หน้าแรก / /cs บน Vercel) ───────────────────── */
     body.auth-checking .wrap {
@@ -1564,7 +1627,15 @@
         </label>
       </div>
       <div class="hero-analysis-toolbar" style="display:none" aria-hidden="true">
-        <button type="button" class="btn-hero-analyze" id="btn-hero-analyze" title="วิเคราะห์รูปตัวละคร (ทุก slot) ด้วย Gemini ได้ JSON ล็อก Hero" tabindex="-1">
+        <button
+          type="button"
+          class="btn-hero-analyze"
+          id="btn-hero-analyze"
+          data-title-dev="วิเคราะห์รูปตัวละคร (ทุก slot) ด้วย Gemini ได้ JSON ล็อก Hero"
+          data-title-pub="วิเคราะห์รูปตัวละคร (ทุก slot) เพื่อล็อกรายละเอียด Hero อัตโนมัติ"
+          title="วิเคราะห์รูปตัวละคร (ทุก slot) เพื่อล็อกรายละเอียด Hero อัตโนมัติ"
+          tabindex="-1"
+        >
           วิเคราะห์ Hero จากรูป (JSON)
         </button>
         <span id="hero-analyze-status" style="font-size:0.78rem;color:var(--muted);"></span>
@@ -1573,7 +1644,7 @@
     </section>
 
     <!-- Voice Type — CHARACTER & VOICE CONSISTENCY (Phase 5) -->
-    <section data-section="voice">
+    <section data-section="voice" data-factory-toggle-hide>
       <div class="sec-head">
         <p class="sec-title">เสียงตัวละคร</p>
       </div>
@@ -1623,7 +1694,7 @@
     </section>
 
     <!-- Style ตัวละคร — LED ข้อ 7 (หมวด + เลือก 1 เหมือน Mood) -->
-    <section data-section="visual">
+    <section data-section="visual" data-factory-toggle-hide>
       <div class="sec-head">
         <p class="sec-title">Style ตัวละคร</p>
       </div>
@@ -1640,7 +1711,7 @@
     </section>
 
     <!-- Hook Scene 1 (เดียวกับ dropdown ฮุคใน Storymode) -->
-    <section data-section="hook">
+    <section data-section="hook" data-factory-toggle-hide>
       <div class="sec-head">
         <p class="sec-title">HooK</p>
       </div>
@@ -1649,7 +1720,7 @@
     </section>
 
     <!-- 4 + 8 -->
-    <section data-section="narrative">
+    <section data-section="narrative" data-factory-toggle-hide>
       <div class="sec-head">
         <p class="sec-title" style="display:inline-flex;align-items:center;gap:0;flex-wrap:wrap;">กลยุทธ์เล่าเรื่อง<span id="narrative-selected-icon" class="narrative-title-icon" role="button" aria-label="ยกเลิกการเลือก" title="กดเพื่อยกเลิก"></span></p>
       </div>
@@ -1666,7 +1737,7 @@
     </section>
 
     <!-- 5 mood — LED ข้อ 9 -->
-    <section data-section="mood">
+    <section data-section="mood" data-factory-toggle-hide>
       <div class="sec-head">
         <p class="sec-title">บรรยากาศ</p>
       </div>
@@ -1682,8 +1753,30 @@
       </div>
     </section>
 
+    <!-- คอนเทนต์สินค้า — โรงงาน/โกดัง (เฉพาะ Story) -->
+    <section
+      data-section="factory-warehouse"
+      id="section-factory-warehouse"
+      class="section-factory-warehouse"
+      hidden
+      aria-hidden="true"
+    >
+      <div class="sec-head">
+        <p class="sec-title" style="text-transform:none;letter-spacing:0.02em;">คอนเทนต์สินค้า — โรงงาน/โกดัง</p>
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin:0 0 10px;line-height:1.5;">
+        ยูทูปเบา ๆ มือ+สินค้า ฉากหลังคลัง/โรงงาน; ห้ามฮีโร/ใบหน้า — ใช้ <strong>pipeline แยก</strong> (ไม่ HERO, ไม่กฎ 15–20 คำ/ฉาก แบบ story มาตรฐาน) แต่ยัง<strong>กรองคำต้องห้ามหลังเจน</strong>เหมือนเดิม
+      </p>
+      <div class="toggle-row factory-pov-toggle">
+        <label for="factory-pov-mode" style="cursor:pointer;display:flex;align-items:flex-start;gap:10px;">
+          <input type="checkbox" id="factory-pov-mode" style="width:1.1rem;height:1.1rem;margin-top:2px;flex-shrink:0;" />
+          <span><strong>โหมดโรงงาน/โกดัง</strong> — ส่ง prompt ตาม template นี้เท่านั้น (ปิด UI นอกเหนือจาก บรีฟ, ฉาก, รูปสินค้า, facts, สตูดิโอ, API)</span>
+        </label>
+      </div>
+    </section>
+
     <!-- 7 -->
-    <section data-section="overlay">
+    <section data-section="overlay" data-factory-toggle-hide>
       <div class="sec-head">
         <p class="sec-title" style="text-transform:none;letter-spacing:0.02em;">Text Overlay</p>
       </div>
@@ -1696,7 +1789,13 @@
       </div>
     </section>
 
-    <section id="section-domain-knowledge" class="domain-knowledge-section" data-section="domain" aria-label="Domain knowledge ท้องถิ่น">
+    <section
+      id="section-domain-knowledge"
+      class="domain-knowledge-section"
+      data-section="domain"
+      data-factory-toggle-hide
+      aria-label="Domain knowledge ท้องถิ่น"
+    >
       <div class="sec-head">
         <p class="sec-title">Domain knowledge (local)</p>
       </div>
@@ -1724,28 +1823,65 @@
     </section>
 
     <section id="section-generate" data-section="generate">
+      <p id="deployed-gemini-wait-banner" class="deployed-wait-hint" role="alert" aria-live="polite">
+        บริการเจนสคริปต์ใช้ AI ฝั่งเซิร์ฟเวอร์ (ทีมออกค่า API รวม) — ตอนนี้ยังเชื่อมต่อไม่สำเร็จ
+        กรุณาลองรีเฟรช หรือติดต่อผู้ดูแลให้ตรวจสอบ
+        <strong>GEMINI_API_KEY</strong> บน Vercel / เซิร์ฟเวอร์ — นักพัฒนาทดสอบ key เองด้วย
+        <a href="#" class="api-console-link" id="dev-mode-query-link" style="margin-left: 4px">?dev=1</a>
+      </p>
       <div class="sec-head">
-        <p class="sec-title">เจนสคริปต์ฉาก (Gemini · Storymode)</p>
+        <p
+          class="sec-title"
+          id="sec-title-generate"
+          data-t-pub="เจนสคริปต์ฉาก"
+          data-t-dev="เจนสคริปต์ฉาก (Gemini · Storymode)"
+        >
+          เจนสคริปต์ฉาก (Gemini · Storymode)
+        </p>
         <div class="api-google-led" id="api-google-led" data-state="off" role="img" aria-label="สถานะ Google">
           <span class="api-google-led-bulb" aria-hidden="true"></span>
         </div>
       </div>
-      <label class="field-label" for="gemini-api-key">Google AI (Gemini)</label>
-      <p class="api-console-link">
-        <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">เปิด Google AI Studio (จัดการ API)</a>
-      </p>
-      <input type="password" id="gemini-api-key" class="api-key-input" placeholder="" autocomplete="off" spellcheck="false" />
-      <div class="api-key-toolbar">
-        <button type="button" class="btn btn-ghost" id="btn-save-api">บันทึกและตรวจสอบ</button>
-        <p id="api-key-status" class="hint" aria-live="polite"></p>
+      <div id="gemini-api-key-chrome">
+        <label class="field-label" for="gemini-api-key">Google AI (Gemini)</label>
+        <p class="api-console-link">
+          <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">เปิด Google AI Studio (จัดการ API)</a>
+        </p>
+        <input type="password" id="gemini-api-key" class="api-key-input" placeholder="" autocomplete="off" spellcheck="false" />
+        <div class="api-key-toolbar">
+          <button type="button" class="btn btn-ghost" id="btn-save-api">บันทึกและตรวจสอบ</button>
+          <p id="api-key-status" class="hint" aria-live="polite"></p>
+        </div>
       </div>
-      <div class="dialogue-rule-callout" role="note" aria-label="กฎความยาวบทพูด">
-        <strong>กฎบทพูด (ยึดตาม system prompt ที่ส่งไป Gemini)</strong>
+      <div
+        class="dialogue-rule-callout"
+        id="dialogue-rule-default"
+        role="note"
+        aria-label="กฎความยาวบทพูด"
+      >
+        <strong>
+          <span class="d-title-pub">กฎบทพูด (ยึดตามกฎระบบ — อ้างอิง system prompt ของเครื่องมือ)</span>
+          <span class="d-title-dev">กฎบทพูด (ยึดตาม system prompt ที่ส่งไป Gemini)</span>
+        </strong>
         <ul>
           <li>มาตรฐานคลิปสั้น: <strong>~8 วินาที ต่อ 1 ฉาก</strong> (Flow / short-form)</li>
           <li>บทพูดหรือพากย์ <strong>ภาษาไทย 15-20 คำ ต่อ 1 ฉาก</strong> — นับ<strong>รวม</strong> dialogue ทั้งฉาก (รวมหลาย beat ในฉากเดียว = นับรวมเดียว ไม่ใช่ 15-20 ต่อ beat)</li>
           <li>ห้ามน้อยกว่า 15 หรือเกิน 20 คำ/ฉาก; นับ/ตรวจก่อนส่ง; รายละเอียดฉากใส่ใน <strong>ภาพ/แอคชัน</strong> แทนการยืดบทพูด</li>
           <li>โหมด ASMR (ถ้าเลือก): <strong>ไม่มี</strong> dialogue ตามกฎ system</li>
+        </ul>
+      </div>
+      <div
+        class="dialogue-rule-callout"
+        id="dialogue-rule-factory"
+        style="display:none"
+        role="note"
+        aria-label="กฎโหมดโรงงาน"
+      >
+        <strong>กฎบท — โหมดโรงงาน/โกดัง (pipeline แยก)</strong>
+        <ul>
+          <li>บทพูด: <strong>พิธีกร off-screen ภาษาไทย</strong> เน้นขาย+โกดัง — กระชับให้จบได้ใน ~8 วิ/ฉาก; <strong>ไม่</strong>ใช้กฎ 15–20 คำ/ฉาก แบบ story มาตรฐาน (ตาม system โหมดนี้)</li>
+          <li>ภาพ: มือ+สินค้า+คลัง — ห้ามฮีโร/ใบหน้า</li>
+          <li>หลังเจน: ยังรัน <strong>ตรวจคำต้องห้าม / การตลาดเกินจริง</strong> (เช่นเดียวกับโหมด story อื่น)</li>
         </ul>
       </div>
       <div class="generate-row">
@@ -1756,7 +1892,14 @@
 
     <section id="section-gemini-result" class="gemini-result-section" aria-label="ผลเจนสคริปต์ฉาก">
       <div class="sec-head">
-        <p class="sec-title">ผลเจนสคริปต์ฉาก (Gemini)</p>
+        <p
+          class="sec-title"
+          id="sec-title-gemini-result"
+          data-t-pub="ผลเจนสคริปต์ฉาก"
+          data-t-dev="ผลเจนสคริปต์ฉาก (Gemini)"
+        >
+          ผลเจนสคริปต์ฉาก (Gemini)
+        </p>
       </div>
       <iframe id="gemini-result-frame" class="result-embed-iframe" src="story-config-result.html?embed=1" title="ผลเจนสคริปต์ฉาก"></iframe>
     </section>
@@ -1776,7 +1919,7 @@
   </div>
 
   <script src="storymode-mock-enrich-bundle.js?v=2026-04-26d" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="storymode-mock-gemini-core.js?v=2026-04-27a" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script src="storymode-mock-gemini-core.js?v=2026-04-28a" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -1961,6 +2104,41 @@
 
     let mode = "story";
     const MODE_STORAGE_KEY = "storymodeMockModeV1";
+    const FACTORY_POV_STORAGE_KEY = "storymodeFactoryPovV1";
+
+    function applyFactoryWarehousePovUI() {
+      const sec = document.getElementById("section-factory-warehouse");
+      const isStory = mode === "story";
+      if (sec) {
+        sec.hidden = !isStory;
+        sec.setAttribute("aria-hidden", isStory ? "false" : "true");
+      }
+      const on =
+        isStory && (function () {
+          var c = document.getElementById("factory-pov-mode");
+          return !!(c && c.checked);
+        })();
+      if (on) {
+        document.body.classList.add("factory-warehouse-pov");
+      } else {
+        document.body.classList.remove("factory-warehouse-pov");
+      }
+      var dDef = document.getElementById("dialogue-rule-default");
+      var dFac = document.getElementById("dialogue-rule-factory");
+      if (dFac) {
+        dFac.style.display = isStory && on ? "block" : "none";
+      }
+      if (dDef) {
+        if (isStory && on) {
+          dDef.style.display = "none";
+        } else {
+          dDef.style.display = "";
+        }
+      }
+      try {
+        syncDomainKnowledgeUI();
+      } catch (_) {}
+    }
     /** สินค้า + ตัวละครแต่ละ slot: อาร์เรย์สูงสุด 5 รูป (input multiple) */
     const MULTI_IMAGE_MAX = 5;
     const files = {
@@ -2704,6 +2882,7 @@
       if (nextMode === "product") {
         renderSalesFormulas();
       }
+      applyFactoryWarehousePovUI();
       updatePreview();
       if (!o.skipPersist) {
         try {
@@ -2735,8 +2914,15 @@
 
     function getCurrentPayload() {
       const hook = getSelectedHook();
+      const factoryPovMode =
+        mode === "story" &&
+        (function () {
+          var el = document.getElementById("factory-pov-mode");
+          return !!(el && el.checked);
+        })();
       return {
         mode: mode === "story" ? "storymode" : "product_sell",
+        factoryPovMode: factoryPovMode,
         prompt: document.getElementById("prompt").value.trim(),
         images: (function () {
           var productStaged = Array.isArray(files.product) ? files.product.filter(function (f) { return f; }) : [];
@@ -2764,11 +2950,13 @@
           var c1 = Array.isArray(files.character1) ? files.character1.filter(function (f) { return f; }) : [];
           var c2 = Array.isArray(files.character2) ? files.character2.filter(function (f) { return f; }) : [];
           var c3 = Array.isArray(files.character3) ? files.character3.filter(function (f) { return f; }) : [];
-          const slots = productSlots.concat(
-            expandCharacterSlot("character1"),
-            expandCharacterSlot("character2"),
-            expandCharacterSlot("character3")
-          );
+          const slots = factoryPovMode
+            ? productSlots
+            : productSlots.concat(
+                expandCharacterSlot("character1"),
+                expandCharacterSlot("character2"),
+                expandCharacterSlot("character3")
+              );
           const imagesForGemini = slots
             .filter(function (s) { return s.file && s.file.data; })
             .map(function (s) {
@@ -2783,15 +2971,17 @@
           return {
             productAttached: !!primaryProductFile,
             productAttachedCount: productStaged.length,
-            characterAttached: !!(c1.length || c2.length || c3.length),
-            character1Attached: c1.length > 0,
-            character2Attached: c2.length > 0,
-            character3Attached: c3.length > 0,
-            characterImageCounts: [c1.length, c2.length, c3.length],
+            characterAttached: factoryPovMode
+              ? false
+              : !!(c1.length || c2.length || c3.length),
+            character1Attached: factoryPovMode ? false : c1.length > 0,
+            character2Attached: factoryPovMode ? false : c2.length > 0,
+            character3Attached: factoryPovMode ? false : c3.length > 0,
+            characterImageCounts: factoryPovMode ? [0, 0, 0] : [c1.length, c2.length, c3.length],
             productName: primaryProductFile?.name || null,
             productNames: productStaged.map(function (f) { return f && f.name; }).filter(Boolean),
-            characterName: c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
-            characterNames: [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
+            characterName: factoryPovMode ? null : c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
+            characterNames: factoryPovMode ? [] : [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
             imagesForGemini: imagesForGemini
           };
         })(),
@@ -2831,6 +3021,7 @@
             })
           : null,
         characterCard: (function () {
+          if (factoryPovMode) return null;
           if (typeof buildCompactCharacterCard !== "function") return null;
           if (typeof resolveVoiceDirective !== "function") return null;
           const rv = resolveVoiceDirective({
@@ -2892,6 +3083,7 @@
 
     function isDomainKnowledgeInjectionAllowedFromPayload(payload) {
       if (!payload || payload.mode !== "storymode") return false;
+      if (payload.factoryPovMode) return false;
       const ids = payload.narrativeStyleIds || [];
       for (var j = 0; j < ids.length; j++) {
         var n = Number(ids[j]);
@@ -3341,6 +3533,29 @@
       } catch (_) {}
     })();
 
+    (function restoreFactoryPovFromStorage() {
+      try {
+        var v = localStorage.getItem(FACTORY_POV_STORAGE_KEY);
+        var c = document.getElementById("factory-pov-mode");
+        if (c && v === "1") c.checked = true;
+      } catch (_) {}
+      try {
+        applyFactoryWarehousePovUI();
+      } catch (_) {}
+    })();
+
+    document.getElementById("factory-pov-mode") &&
+      document.getElementById("factory-pov-mode").addEventListener("change", function (ev) {
+        try {
+          localStorage.setItem(
+            FACTORY_POV_STORAGE_KEY,
+            (ev && ev.target && ev.target.checked) ? "1" : "0"
+          );
+        } catch (_) {}
+        applyFactoryWarehousePovUI();
+        updatePreview();
+      });
+
     document.querySelectorAll("#narrative-chips input, #mood-chips input, #visual-chips input, #hook-chips input").forEach((inp) => {
       inp.addEventListener("change", updatePreview);
     });
@@ -3536,7 +3751,7 @@
       const outEl = document.getElementById("hero-analysis-out");
       const keyEl = document.getElementById("gemini-api-key");
       if (!G || !G.buildHeroAnalysisSystemPrompt) {
-        if (stEl) stEl.textContent = "โหลด gemini-core ไม่สำเร็จ";
+        if (stEl) stEl.textContent = isGeminiPublicCalm() ? "โหลดเครื่องมือเจนไม่สำเร็จ" : "โหลด gemini-core ไม่สำเร็จ";
         return;
       }
       var imgs = collectCharacterRefImagesForAnalysis();
@@ -3552,7 +3767,7 @@
         if (apiKey && keyEl) keyEl.value = apiKey;
       }
       if (!apiKey && !window.__GEMINI_SERVER_MODE__) {
-        if (stEl) stEl.textContent = "ต้องมี API key หรือเซิร์ฟเวอร์ /api/gemini";
+        if (stEl) stEl.textContent = "ยังไม่พร้อมเจน — กรุณาเพิ่ม API key ในหน้า (นักพัฒนา) หรือใช้งานเวอร์ชันที่ฝั่งเซิร์ฟเวอร์เปิดให้แล้ว";
         return;
       }
       const legend = buildHeroImageOrderLegend();
@@ -3660,6 +3875,95 @@
 
     const GEMINI_API_STORAGE_KEY = "storymodeMockGeminiApiKeyV1";
 
+    (function initGeminiDevUiFlag() {
+      try {
+        var q = new URLSearchParams(window.location.search);
+        window.__GEMINI_DEV_UI__ = q.get("dev") === "1" || q.get("dev") === "true";
+      } catch (e) {
+        window.__GEMINI_DEV_UI__ = false;
+      }
+    })();
+
+    (function initDevQueryLink() {
+      var a = document.getElementById("dev-mode-query-link");
+      if (!a) return;
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        try {
+          var u = new URL(window.location.href);
+          u.searchParams.set("dev", "1");
+          window.location.href = u.toString();
+        } catch (err) {
+          window.location.search = "dev=1";
+        }
+      });
+    })();
+
+    function isGeminiPublicCalm() {
+      return !!window.__GEMINI_SERVER_MODE__ && !window.__GEMINI_DEV_UI__;
+    }
+
+    function userFacingBusyMessage() {
+      if (isGeminiPublicCalm()) return "กำลังสร้างสคริปต์ฉาก…";
+      return "กำลังเรียก Gemini…";
+    }
+
+    function syncGeminiSectionTitles() {
+      var useNeutral = isGeminiPublicCalm() || document.body.classList.contains("deployed-gemini-wait");
+      ["sec-title-generate", "sec-title-gemini-result"].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var d = el.getAttribute("data-t-dev");
+        var p = el.getAttribute("data-t-pub");
+        if (useNeutral && p) {
+          el.textContent = p;
+        } else if (d) {
+          el.textContent = d;
+        }
+      });
+      var bHero = document.getElementById("btn-hero-analyze");
+      if (bHero) {
+        var tDev = bHero.getAttribute("data-title-dev");
+        var tPub = bHero.getAttribute("data-title-pub");
+        if (useNeutral && tPub) bHero.setAttribute("title", tPub);
+        else if (tDev) bHero.setAttribute("title", tDev);
+      }
+    }
+
+    function applyGeminiPublicCalmUi() {
+      document.documentElement.classList.toggle("gemini-public-calm", isGeminiPublicCalm());
+      syncGeminiSectionTitles();
+      var fr = document.getElementById("gemini-result-frame");
+      if (fr) {
+        var want = isGeminiPublicCalm()
+          ? "story-config-result.html?embed=1&ui=public"
+          : "story-config-result.html?embed=1";
+        if (fr.getAttribute("src") !== want) {
+          fr.setAttribute("src", want);
+        }
+      }
+    }
+
+    /** โดเมน deploy จริง (ไม่นับ localhost / ไฟล์ตรง) — บังคับใช้ key ฝั่ง server ที่ทีมจ่าย */
+    function isDeployedProjectHost() {
+      if (location.protocol === "file:") return false;
+      const h = location.hostname;
+      return h !== "localhost" && h !== "127.0.0.1" && h !== "";
+    }
+
+    function applyDeployedOrgKeyPolicy() {
+      if (!isDeployedProjectHost() || window.__GEMINI_DEV_UI__) {
+        document.body.classList.remove("deployed-gemini-wait");
+        return;
+      }
+      if (window.__GEMINI_SERVER_MODE__) {
+        document.body.classList.remove("deployed-gemini-wait");
+      } else {
+        document.body.classList.add("deployed-gemini-wait");
+      }
+      syncGeminiSectionTitles();
+    }
+
     /** Vercel + GEMINI_API_KEY — เรียก Gemini ผ่าน /api/gemini (ไม่เก็บ key ในเบราว์เซอร์) */
     async function tryInitGeminiServerMode() {
       try {
@@ -3674,15 +3978,24 @@
         const btnSave = document.getElementById("btn-save-api");
         if (keyEl) {
           keyEl.disabled = true;
-          keyEl.placeholder = "(ไม่จำเป็น — ใช้ GEMINI_API_KEY บนเซิร์ฟเวอร์)";
+          keyEl.placeholder = window.__GEMINI_DEV_UI__
+            ? "(ไม่จำเป็น — ใช้ GEMINI_API_KEY บนเซิร์ฟเวอร์)"
+            : "(เชื่อมต่อระบบสร้างสคริปต์แล้ว)";
         }
         if (btnSave) btnSave.disabled = true;
-        setApiKeyStatus(
-          "โหมดเซิร์ฟเวอร์: API key อยู่ที่ Vercel เท่านั้น — ไม่ต้องใส่ที่นี่",
-          "ok"
-        );
+        if (window.__GEMINI_DEV_UI__) {
+          setApiKeyStatus(
+            "โหมดเซิร์ฟเวอร์: API key อยู่ที่ Vercel/เซิร์ฟเวอร์ — ไม่ต้องใส่ที่นี่",
+            "ok"
+          );
+        } else {
+          setApiKeyStatus("", "ok");
+        }
       } catch (_) {
         /* ไม่มี Serverless / ยัง dev แบบ static — ใช้ client key ตามเดิม */
+      } finally {
+        applyGeminiPublicCalmUi();
+        applyDeployedOrgKeyPolicy();
       }
     }
 
@@ -3729,7 +4042,11 @@
 
     document.getElementById("btn-save-api").addEventListener("click", async () => {
       if (window.__GEMINI_SERVER_MODE__) {
-        setApiKeyStatus("โหมดเซิร์ฟเวอร์ — ไม่ต้องบันทึก API key ที่นี่ (ตั้งใน Vercel)");
+        if (isGeminiPublicCalm()) {
+          setApiKeyStatus("", "ok");
+        } else {
+          setApiKeyStatus("โหมดเซิร์ฟเวอร์ — ไม่ต้องบันทึก API key ที่นี่ (ตั้งบน Vercel หรือ environment เซิร์ฟเวอร์)", "ok");
+        }
         return;
       }
       const keyEl = document.getElementById("gemini-api-key");
@@ -3772,6 +4089,9 @@
     (async function restoreGeminiApiKeyFromStorage() {
       await tryInitGeminiServerMode();
       if (window.__GEMINI_SERVER_MODE__) {
+        return;
+      }
+      if (isDeployedProjectHost() && !window.__GEMINI_DEV_UI__) {
         return;
       }
       try {
@@ -3845,6 +4165,13 @@
 
     document.getElementById("btn-generate").addEventListener("click", async () => {
       const status = document.getElementById("generate-status");
+      if (document.body.classList.contains("deployed-gemini-wait")) {
+        if (status) {
+          status.textContent =
+            "ยังเชื่อมต่อ AI ฝั่งเซิร์ฟเวอร์ไม่สำเร็จ — ติดต่อผู้ดูแล หรือรีเฟรช; นักพัฒนา: ต่อ ?dev=1 ในที่อยู่";
+        }
+        return;
+      }
       const keyEl = document.getElementById("gemini-api-key");
       let apiKey = keyEl && keyEl.value ? keyEl.value.trim() : "";
       if (!apiKey) {
@@ -3956,6 +4283,7 @@
 
         try {
           var heroNeeded =
+            !payload.factoryPovMode &&
             !heroAnalysisCache.parsed &&
             collectCharacterRefImagesForAnalysis().length > 0;
           if (heroNeeded) {
@@ -3977,7 +4305,7 @@
         const imageRefOrder = buildImageRefOrderList(imagesForGemini);
         save({
           status: "processing",
-          message: "กำลังเรียก Gemini…",
+          message: userFacingBusyMessage(),
           imageRefOrder: imageRefOrder,
           ts: Date.now()
         });

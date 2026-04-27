@@ -149,8 +149,130 @@
     );
   }
 
+  /**
+   * Pipeline แยก: UGC โรงงาน/โกดัง — มือ+สินค้า, ฉากหลัง industrial, ไม่มีฮีโร/ใบหน้า
+   * ไม่ดึง ADAPTIVE/HERO/15-20 คำแบบ storymode มาตรฐาน; หลัง generate ยัง applyStorymodeSafety ได้
+   */
+  function buildFactoryWarehouseSystemPromptFromPayload(payload, opts) {
+    opts = opts || {};
+    const n = Math.min(50, Math.max(1, Number(payload.sceneCount) || 2));
+    const vObj = (payload.visualStyles && payload.visualStyles[0]) || null;
+    const visualId =
+      (payload.visualStyleIds && payload.visualStyleIds[0]) || (vObj && vObj.id) || 'cinematic';
+    const smVisualStyleDisplay = (vObj && vObj.name) || String(visualId);
+    const visualDesc =
+      visualStyleEngMap[visualId] ||
+      visualStyleEngMap.cinematic ||
+      'Photorealistic handheld smartphone look, natural lighting, authentic warehouse or factory context.';
+
+    return (
+      'You are a Thai-language short-form (TikTok/Reels) **warehouse / factory clearance** creative director. ' +
+      'Every scene is **~8 seconds per clip**. The product is the star; the vibe is **direct, raw, in-house stock** — not a studio polish, not a narrative drama.\n\n' +
+      '═══ WHAT TO SHOW (HARD) ═══\n' +
+      '- **No main character / no hero** — no face, no identifiable full-body person.\n' +
+      '- **Allowed only:** one or two **hands/forearms** (optional work glove) **holding, lifting, or presenting the product** close to the camera, OR first-person POV of hands + product. Background workers, if any, are **distant, blurred, non-identifying** (no clear faces).\n' +
+      '- **Background:** real industrial **warehouse, distribution aisle, or factory storage** — tall metal pallet racks, cardboard box stacks, concrete floor, harsh overhead fluorescent or cool industrial lighting, deep aisle perspective when possible.\n' +
+      '- **Optional (match reference UGC):** a small **yellow** paper/card sign with hand-written-style **Thai** text (e.g. โละล้างสต็อก / ราคาโรงงาน) placed near the product — as **scene-physics props**, not as burned-in UI subtitles in the final video (see rules below).\n' +
+      '- **Product** must match any attached product reference; keep packaging/labels consistent.\n\n' +
+      '═══ VOICE / DIALOGUE (separate from storymode multi-hero rules) ═══\n' +
+      '- One **off-screen** Thai **host/announcer** voice (warehouse seller energy — fast, real, a bit urgent). **No on-screen speaking character.** Other people in the frame, if any, are **silent** and not lip-syncing.\n' +
+      '- **Do NOT** apply the standard storymode "15-20 words per scene" block as a hard constraint; use **punchy Thai** that can be read aloud comfortably within **~8 seconds** per scene — short, sell-direct, not a monologue. Each scene still ends with the two lines: `Speaker:` and `Dialogue:"..."` (Thai) as in the output format below.\n' +
+      '- Use: `Speaker: off_screen_warehouse_host (Thai)`\n\n' +
+      '═══ VISUAL STYLE (from user chips — lock per scene) ═══\n' +
+      'Label: ' +
+      smVisualStyleDisplay +
+      '\nEnglish: ' +
+      visualDesc +
+      '\n(Photoreal / UGC look is expected. Do not switch to cartoon/3D unless the user label clearly implies it.)\n\n' +
+      '═══ OUTPUT FORMAT (use exactly — for downstream parser) ═══\n' +
+      'For each of **' +
+      n +
+      '** scenes, use this structure:\n\n' +
+      '=== SCENE [N]: [SHORT_SCENE_NAME] ===\n\n' +
+      '🔴 IMAGE PROMPT\n' +
+      '```\n' +
+      '[English; photoreal UGC, hands + product + industrial warehouse, no face; single frame, no collage, no multiple panels]\n' +
+      '```\n\n' +
+      '🟢 VIDEO PROMPT\n' +
+      '```\n' +
+      '[English: camera, lighting, hand action, product focus; off-screen only audio]\n' +
+      'Thai line to speak: "..."\n' +
+      'Speaker: off_screen_warehouse_host (Thai)\n' +
+      'Dialogue: "..." (punchy Thai, ~8s read)\n' +
+      '```\n\n' +
+      'After the last scene:\n' +
+      '📝 VIRAL CAPTION\n' +
+      '"[Thai line for TikTok — hook + clearance vibe]"\n' +
+      '#hashtag1 #hashtag2 #hashtag3 #hashtag4\n\n' +
+      '═══ CRITICAL ═══\n' +
+      '1) Image and video description prompts: **English** except quoted Thai dialogue and on-prop Thai text (sign on physical card in scene).\n' +
+      '2) **No** subtitles / burned-in dialogue text on the video; dialogue is **audio-only** in real delivery.\n' +
+      '3) **No** main character, **no** named hero, **no** HERO BIBLE, **no** story drama beats — this is a **selling-warehouse** tone only.\n' +
+      '4) One static image per scene, no split screen.\n' +
+      '5) Stay platform-safe: no unsafe claims; avoid medical/financial guarantees. Follow user product facts when provided in the user message.\n' +
+      '6) Scene count must be exactly ' +
+      n +
+      '.\n'
+    );
+  }
+
+  function buildFactoryWarehouseUserMessageFromPayload(payload) {
+    const topic = (payload.prompt || '').trim();
+    if (!topic) return '';
+    const n = Math.min(50, Math.max(1, Number(payload.sceneCount) || 2));
+    const vObj = (payload.visualStyles && payload.visualStyles[0]) || null;
+    const visualLabel =
+      payload.visualStyles && payload.visualStyles.length
+        ? payload.visualStyles
+            .map(function (v) {
+              return (v.icon || '') + ' ' + (v.en || v.name || v.id);
+            })
+            .join(' | ')
+        : 'Photoreal (default)';
+
+    var msg =
+      '═══ บรีฟ สินค้า / โรงงาน (UGC) ═══\n' +
+      topic +
+      '\n\n' +
+      '═══ โหมด ═══\n' +
+      'โรงงาน/โกดัง — มือ+สินค้า+ฉาก industrial เท่านั้น; **ห้ามฮีโร/ใบหน้า/ลิปซิงค์ตัวละคร** — บทพูดเป็น**พิธีกร off-screen ภาษาไทย**; **ไม่**ใช้ pipeline storymode+HERO+กฎ 15–20 คำ/ฉาก แบบเดิม (บทกระชับ ~8 วิ ต่อฉาก)\n' +
+      '\n═══ จำนวนฉาก ═══\n' +
+      n +
+      ' ฉาก\n' +
+      '\n═══ สไตล์ภาพ (chip) ═══\n' +
+      visualLabel +
+      '\n';
+
+    if (payload.productFactsText && String(payload.productFactsText).trim()) {
+      msg +=
+        '\n══ PRODUCT FACTS (local — ใช้กับสินค้า) ═\n' +
+        String(payload.productFactsText).trim() +
+        '\n';
+    }
+
+    msg += '\n══ รูปอ้างอิง (เฉพาะสินค้า — ไม่มี ref ตัวละคร) ═\n';
+    const img = payload.images || {};
+    const productNames = (img.productNames && img.productNames.length)
+      ? img.productNames
+      : (img.productName ? [img.productName] : []);
+    if (img.productAttached) {
+      msg +=
+        'สินค้า: ' +
+        (productNames.join(', ') || '(แนบแล้ว)') +
+        ' — ใช้แพ็ก/หน้าตาสอดคล้องรูป; ไม่อิงฮีโร/คน\n';
+    } else {
+      msg += 'ยังไม่แนบรูปสินค้า (ถ้ามีชื่อ/แบรนด์ในบรีฟ ให้ยึดนั้น)\n';
+    }
+
+    msg += '\nสร้างครบ ' + n + ' ฉาก ตาม OUTPUT FORMAT ของ system; เน้นขาย+โกดัง ไม่เสนอเรื่องละคร\n';
+    return msg;
+  }
+
   function buildStorymodeSystemPromptFromPayload(payload, opts) {
     opts = opts || {};
+    if (payload && payload.mode === 'storymode' && payload.factoryPovMode) {
+      return buildFactoryWarehouseSystemPromptFromPayload(payload, opts);
+    }
     const smStoryType =
       opts.storyType || (payload.mode === 'product_sell' ? 'product_review' : 'custom');
     const smOutputType = opts.outputType || 'both';
@@ -198,7 +320,7 @@
       imageTemplate =
         'สร้างภาพโฆษณาสินค้ามืออาชีพ สินค้า[PRODUCT_NAME] [PRODUCT_DESCRIPTION] ตามภาพที่แนบไป สไตล์[CREATIVE_SCENARIO] [SCENE_DESCRIPTION] REAL HUMAN PHOTO มีสาววัยรุ่นคนไทย อายุ 20-25 ปีใช้งานสินค้า ใส่ข้อความภาษาไทยบนภาพว่า"[THAI_BOLD_TEXT]" [SCENE_SETTING] [CAMERA_DISTANCE] single image, no collage, no multiple panels, no split screen Use the exact product appearance from the attached reference image (pd-product.png). The bold text overlay MUST be in Thai language (ภาษาไทย).';
       videoTemplate =
-        'สาวไทยพูดขายสินค้า ([SCENE_NUM]) [PRODUCT_NAME] [PRODUCT_DESCRIPTION] [ACTION_IN_SCENE] ถือสินค้าโชว์ บทพูดไทย "[THAI_DIALOGUE]" มุมกล้องตั้งนิ่งจนจบคลิป ใช้ฉากและการจัดวางตามภาพที่แนบ NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, All dialogue is AUDIO ONLY reduce contrast, natural skintone, soft highlights, no oversharpen, low contrast, soft colors, natural tone, film look, soft light';
+        'สาวไทยพูดขายสินค้า ([SCENE_NUM]) [PRODUCT_NAME] [PRODUCT_DESCRIPTION] [ACTION_IN_SCENE] ถือสินค้าโชว์ บทพูดไทย "[THAI_DIALOGUE]" มุมกล้องตั้งนิ่งจนจบคลิป ใช้ฉากและการจัดวางตามภาพที่แนบ NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, All dialogue is AUDIO ONLY reduce contrast, natural skintone, soft highlights, no oversharpen, low contrast, soft colors, natural tone, film look, soft light. End with Speaker: (one voice) and Dialogue: line. If another person is visible, they are silent (no second voice) for this line.';
     } else if (isASMR) {
       imageTemplate =
         visualDesc +
@@ -210,19 +332,19 @@
         visualDesc +
         '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Paste full HERO BIBLE look for this character in this frame (not a "reference line" only).';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], Thai narration. Voice: match the narrator identity in the HERO BIBLE (age/gender/persona) — not a one-size-fits-all default. NO lip sync if narration-only. Thai voiceover says: "[THAI_NARRATION]" (exact wording lock). NO subtitles or on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs';
+        'ACTION ONLY: [CHARACTER_ACTION], Thai narration. Voice: match the narrator identity in the HERO BIBLE (age/gender/persona) — not a one-size-fits-all default. NO lip sync if narration-only. Thai voiceover says: "[THAI_NARRATION]" (exact wording lock). NO subtitles or on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with Speaker: (Narrator or role) and Dialogue: — only that voice; other visible characters silent for this line.';
     } else if (isAnimated) {
       imageTemplate =
         visualDesc +
         '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION], [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Full in-scene appearance text per HERO BIBLE; repeat on every new shot if the same character appears.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], lip movement synced to Thai: "[THAI_DIALOGUE]". TTS/voice: match each Speaker in HERO BIBLE (age, gender, persona) — do NOT default every line to a single global voice if characters differ. One speaker per line; lock Thai dialogue text exactly. NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs';
+        'ACTION ONLY: [CHARACTER_ACTION], lip movement synced to Thai: "[THAI_DIALOGUE]". TTS/voice: match each Speaker in HERO BIBLE (age, gender, persona) — do NOT default every line to a single global voice if characters differ. One speaker per 8s clip/line; lock Thai dialogue text exactly. If other ROLE_ appear in action text, they are visual only for this line — no second voice, no lip-sync to this dialogue except the Speaker. NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with Speaker: and Dialogue: lines.';
     } else {
       imageTemplate =
         visualDesc +
         '. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Describe characters at full HERO BIBLE detail when visible; no "[Character Ref]" one-liners only.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], lip-sync Thai: "[THAI_DIALOGUE]". Voice: match the speaking character from HERO BIBLE. Lock hero NAMES and this dialogue string exactly. NO default voice trope; NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs';
+        'ACTION ONLY: [CHARACTER_ACTION], lip-sync Thai: "[THAI_DIALOGUE]". Voice: match the speaking character from HERO BIBLE (Speaker line). Lock hero NAMES and this dialogue string exactly. Any other person on screen: silent, no lip-sync to this line. NO default voice trope; NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with Speaker: and Dialogue: — do not infer speaker from first ROLE_ in the action if it conflicts with Speaker.';
     }
 
     const outputTypeNote =
@@ -336,6 +458,10 @@
       '🟢 VIDEO PROMPT\n' +
       '```\n' +
       '[video prompt ภาษาอังกฤษ ตามเทมเพลตด้านล่าง — บทพูด/narration เป็นภาษาไทย]\n' +
+      'ท้าย block นี้ทุกฉาก (parser + TTS) บังคับ 2 บรรทัด — อันดับเสียง: Speaker นี้ก่อน ROLE_ อื่นในส่วน ACTION/ภาพ)\n' +
+      'Speaker: (ROLE_... หรือ ฉลากผู้พูด หนึ่งคน/ฉาก — คือ "ใครออกเสียง" หลัก)\n' +
+      'Dialogue: "..." (บทไทยเดียวต่อฉาก 15-20 คำ)\n' +
+      'ถ้า ACTION/ภาพอธิบายหลาย ROLE_ ให้ถือ Speaker/Dialogue นี้เป็นหลักเสียง; อีกคน/ตัว = เงียบ/ไม่ lip-sync กับบทนี้\n' +
       '```\n\n' +
       'ท้ายสุดหลังฉากสุดท้าย:\n\n' +
       '📝 VIRAL CAPTION\n' +
@@ -371,6 +497,7 @@
       voiceGenderBanTh +
       ' (ยกเว้น ASMR ไม่มีเสียงพูด)\n' +
       '14. HERO BIBLE — ใช้ฉบับด้านล่าง: รายละเอียดเต็ม ห้าม card ย่อ; ทุกครั้งที่พูด/ออกฉาก ย้ำรายละเอียดเพียงพอเพื่อ consistency (ไม่บังคับ "มีชื่อเล่นเสมอ")\n' +
+      '15. SPEAKER + AUDIO (ยกเว้น ASMR ไม่มี speech): ท้าย block 🟢 VIDEO ทุกฉากต้องมี `Speaker:` (ROLE_ หรือ ฉลาก) กับ `Dialogue:` — บรรทัด Speaker คือ **master สำหรับเสียง**; แม้จะอธิบายหลาย ROLE_ ในส่วน ACTION/ภาพ ให้ **ตัวที่ไม่ใช่ Speaker เงียบ/ไม่ lip-sync กับบทนี้** — ห้ามให้ TTS/วีดีโอใช้ "ROLE_ ตัวแรก" แทน Speaker ถ้าขัดกัน\n' +
       '\n' +
       (
         (characterCardResult && typeof buildCompactCardInjectionBlock === 'function')
@@ -423,6 +550,9 @@
 
   function buildStorymodeUserMessageFromPayload(payload, opts) {
     opts = opts || {};
+    if (payload && payload.mode === 'storymode' && payload.factoryPovMode) {
+      return buildFactoryWarehouseUserMessageFromPayload(payload);
+    }
     const topic = (payload.prompt || '').trim();
     if (!topic) return '';
 

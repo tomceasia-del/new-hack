@@ -7,11 +7,13 @@
   → ผู้ใช้ mock รันจาก URL นี้จะใช้ API ของคุณเป็น backend ไม่ฝัง key ใน browser
 - ฆ่า server เก่าในช่วง 8777-8799 ก่อนทุกครั้ง
 - เลือกพอร์ตแรกที่ว่างได้, อัพเดต story-mock-server.url
-- เปิดเบราว์เซอร์อัตโนมัติไปหน้า login — `GET /` จะ 302 ไป `login.html` (mock หลักยังใช้ที่ `story-config-mock.html` หรือ `/cs` บน Vercel)
+- เปิดเบราว์เซอร์ (default) ไปหน้าแรก — ปิดได้ด้วย `--no-browser` หรือ `STORY_MOCK_NO_BROWSER=1`
+- `GET /` จะ 302 ไป `index.html` ถ้ามี ไม่งั้น `login.html` แล้วตาม `story-config-mock.html` (mock หลัก: `/cs` บน Vercel)
 - Ctrl+C ปิดสะอาด
 """
 from __future__ import annotations
 
+import argparse
 import http.server
 import json
 import os
@@ -32,6 +34,7 @@ ROOT = os.path.dirname(os.path.realpath(__file__))
 PORT_LO, PORT_HI = 8777, 8799
 MOCK_HTML = "story-config-mock.html"
 LOGIN_HTML = "login.html"
+INDEX_HTML = "index.html"
 URL_FILE = os.path.join(ROOT, "story-mock-server.url")
 
 # สอดคล้องกับ api/gemini.js + storymode-mock-gemini-core.js
@@ -131,6 +134,39 @@ def pick_port() -> int | None:
             except OSError:
                 continue
     return None
+
+
+def resolve_entry_page(root: str = ROOT) -> str:
+    """ลำดับ: index.html → login.html → story-config-mock.html (ใช้ทั้งใน redirect `/` และเปิดเบราว์เซอร์ default)"""
+    index_abs = os.path.join(root, INDEX_HTML)
+    login_abs = os.path.join(root, LOGIN_HTML)
+    if os.path.isfile(index_abs):
+        return INDEX_HTML
+    if os.path.isfile(login_abs):
+        return LOGIN_HTML
+    return MOCK_HTML
+
+
+def entry_url_for_port(port: int, root: str = ROOT) -> str:
+    return f"http://127.0.0.1:{port}/{resolve_entry_page(root)}"
+
+
+def should_open_browser_by_default() -> bool:
+    """default = เปิด — กันด้วย STORY_MOCK_NO_BROWSER=1|true|yes"""
+    v = os.environ.get("STORY_MOCK_NO_BROWSER", "").strip().lower()
+    return v not in ("1", "true", "yes")
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    p = argparse.ArgumentParser(
+        description="เซิร์ฟ Story config mock ที่ 127.0.0.1 (มี /api/gemini) — เปิดเบราว์เซอร์ default อัตโนมัติ",
+    )
+    p.add_argument(
+        "--no-browser",
+        action="store_true",
+        help="ไม่เปิดเบราว์เซอร์ (ยังเขียน story-mock-server.url ตามเดิม)",
+    )
+    return p.parse_args(argv)
 
 
 class MockHandler(http.server.SimpleHTTPRequestHandler):
@@ -304,15 +340,15 @@ class MockHandler(http.server.SimpleHTTPRequestHandler):
             self._handle_gemini_verify()
             return
         if p in ("", "/"):
-            target = LOGIN_HTML if os.path.isfile(os.path.join(ROOT, LOGIN_HTML)) else MOCK_HTML
             self.send_response(302)
-            self.send_header("Location", f"/{target}")
+            self.send_header("Location", f"/{resolve_entry_page()}")
             self.end_headers()
             return
         super().do_GET()
 
 
-def open_browser(url: str) -> None:
+def open_default_browser(url: str) -> None:
+    """เปิด URL ด้วยแอป default บน macOS ใช้ `open`; อื่น ๆ ใช้ webbrowser (default browser)"""
     try:
         if platform.system() == "Darwin":
             subprocess.Popen(
@@ -338,12 +374,12 @@ def write_url_file(url: str) -> None:
         pass
 
 
-def banner(url: str, mock_abs: str) -> None:
+def banner(url: str, mock_abs: str, open_page: str) -> None:
     log("")
     log("  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     log("   Story Config Mock — เซิร์ฟเวอร์พร้อม (มี /api/gemini เป็น backend)")
     log("")
-    log(f"   {url}  (หน้า login — mock หลัก: /{MOCK_HTML} หรือ /cs)")
+    log(f"   {url}  (หน้าเอนทรี: /{open_page} — mock: /{MOCK_HTML} หรือ /cs บน Vercel)")
     log(f"   ไฟล์ mock: {mock_abs}")
     log("")
     if _gemini_key():
@@ -356,7 +392,8 @@ def banner(url: str, mock_abs: str) -> None:
     log("")
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
     mock_abs = os.path.join(ROOT, MOCK_HTML)
     login_abs = os.path.join(ROOT, LOGIN_HTML)
     if not os.path.isfile(mock_abs):
@@ -381,12 +418,13 @@ def main() -> int:
         return 1
     httpd.daemon_threads = True
 
-    open_page = LOGIN_HTML if os.path.isfile(os.path.join(ROOT, LOGIN_HTML)) else MOCK_HTML
-    url = f"http://127.0.0.1:{port}/{open_page}"
+    open_page = resolve_entry_page()
+    url = entry_url_for_port(port)
     write_url_file(url)
-    banner(url, mock_abs)
+    banner(url, mock_abs, open_page)
 
-    threading.Timer(0.35, lambda: open_browser(url)).start()
+    if (not args.no_browser) and should_open_browser_by_default():
+        threading.Timer(0.35, lambda: open_default_browser(url)).start()
 
     try:
         httpd.serve_forever()
@@ -402,7 +440,7 @@ def main() -> int:
 
 if __name__ == "__main__":
     try:
-        sys.exit(main())
+        sys.exit(main(sys.argv[1:]))
     except Exception as e:
         import traceback
         print(f"ERROR: {e}", file=sys.stderr)

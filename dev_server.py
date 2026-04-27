@@ -91,7 +91,7 @@ def _norm(pure_path: str) -> str:
 def _rewrite(pure_path: str) -> str:
     p = _norm(pure_path)
     m = {
-        "/": f"/{serve_story_mock.LOGIN_HTML}",
+        "/": f"/{serve_story_mock.resolve_entry_page()}",
         "/login": f"/{serve_story_mock.LOGIN_HTML}",
         "/admin": "/admin.html",
         "/admin/approvals": "/admin-approvals.html",

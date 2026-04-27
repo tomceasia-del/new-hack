@@ -423,6 +423,9 @@
       var EMBED =
         typeof location !== "undefined" &&
         /(?:^|[?&])embed=1(?:&|$)/.test(location.search || "");
+      var UI_PUBLIC =
+        typeof location !== "undefined" &&
+        /(?:^|[?&])ui=public(?:&|$)/.test(location.search || "");
       if (EMBED) {
         var pt0 = document.getElementById("page-title");
         if (pt0) pt0.style.display = "none";
@@ -655,10 +658,25 @@
         return m ? m[1].trim() : "";
       }
 
+      /**
+       * ROLE ที่ "พูดจริง" สำหรับฉาก: ยึดบรรทัด Speaker ก่อน — ไม่เอา ROLE_ ตัวแรกทั้งก้อน
+       * (ป้องกันสับสนเมื่อ ACTION/ภาพอธิบายอีก ROLE ก่อนในข้อความ)
+       */
       function extractFirstRoleFromVideo(vr) {
         if (!vr) return "";
-        var m = String(vr).match(/\bROLE_[A-Z0-9_]+\b/);
-        return m ? m[0] : "";
+        var s = String(vr);
+        var mLine = /Speaker:\s*([^\n]+)/i.exec(s);
+        if (mLine) {
+          var onSpeaker = mLine[1].match(/\b(ROLE_[A-Z0-9_]+)\b/);
+          if (onSpeaker) return onSpeaker[1];
+        }
+        var mDlg = /Dialogue:\s*([^\n]+)/i.exec(s);
+        if (mDlg) {
+          var onDlg = mDlg[1].match(/\b(ROLE_[A-Z0-9_]+)\b/);
+          if (onDlg) return onDlg[1];
+        }
+        var mGlobal = s.match(/\b(ROLE_[A-Z0-9_]+)\b/);
+        return mGlobal ? mGlobal[1] : "";
       }
 
       function extractTtsVoiceFromVideo(vr) {
@@ -670,6 +688,30 @@
         s = cleanVoiceForHeroField(s);
         if (s.length > 220) s = s.slice(0, 220) + "…";
         return s;
+      }
+
+      /**
+       * ต่อท้าย prompt วิดีโอสำหรับ consumer — บังคับ "เสียงเดียว/หนึ่ง track" และลำดับ priority
+       */
+      function appendVideoAudioSingleSpeakerGuard(cleanText, videoRaw) {
+        var base = (cleanText || "").trim();
+        if (!base) return base;
+        if (/SINGLE-SPEAKER AUDIO|AUDIO \(single track\):/i.test(base)) {
+          return base;
+        }
+        var sp = extractSpeakerLabelFromVideo(videoRaw);
+        var ro = extractFirstRoleFromVideo(videoRaw);
+        if (!sp && !ro) return base;
+        var part =
+          "\n\n---\n" +
+          "SINGLE-SPEAKER AUDIO (this clip): one speaking voice for dialogue_lock. | หนึ่ง track เสียงพูด/พากย์ ต่อคลิป (สอดคล้อง dialogue_lock ของฉาก)\n" +
+          (sp ? "Locked Speaker line: " + sp + "\n" : "") +
+          (ro
+            ? "Canonical ROLE (prefer over any other ROLE_ in action/shot text): " + ro + "\n"
+            : "") +
+          "Other people visible: silent, no lip-sync to this line. | ตัวอื่นในภาพ: เงียบ ไม่ลิปซิงค์กับบทนี้\n" +
+          "TTS/consumer: dialogue_lock_thai + Speaker first; do not use first ROLE_ in action as the voice if it disagrees with Speaker.";
+        return base + part;
       }
 
       /**
@@ -777,6 +819,10 @@
           lines.push(
             "โหมดรูป: ไม่รวมรายการผู้พูด/บทจากวิดีโอ — ล็อคภาพตาม hero_full_detail + prompt ของ JSON ฉากรูปนี้เท่านั้น"
           );
+        } else {
+          lines.push(
+            "ฝั่งวิดีโอ/เสียง: ยึด Speaker: + dialogue ฉากนั้น; รายละเอียด multi-character ใน hero_full_detail อธิบายภาพ — อีก ROLE ในภาพ: เงียบ/ไม่ลิปซิงค์ กับบทนี้ ห้ามใช้ 'ROLE_ ตัวแรก' แทน Speaker ในการ map เสียง"
+          );
         }
         var f0 = (parsed.character && parsed.character.fields) || {};
         var img0 = (parsed.scenes[0] && parsed.scenes[0].imageRaw) || "";
@@ -855,8 +901,9 @@
           story_hero_bible: globalBible,
           hero_full_detail_thai: mergeCharacterLockScene1(s.num, heroBase, characterRaw, "video"),
           dialogue_lock_thai: s.dialogue || "",
-          note_voice: "เสียง TTS ตามเพศ/อายุของฉลากหรือบทบาทผู้พูด (ไม่บังคับชื่อ) — ล็อคบทสนทนาไทยตาม dialogue_lock_thai",
-          prompt: prefixScenePrompt(vdoClean, s.num)
+          note_voice:
+            "TTS/วิดีโอ: ลำดับแรก = dialogue_lock_thai + บรรทัด Speaker; ROLE ฝั่ง audio ยึด Speaker/การ์ดนี้ ไม่ใช้ 'ROLE_ ตัวแรก' ในข้อความ ACTION แทน — เสียงสอดคล้องเพศ/อายุฉลาก",
+          prompt: prefixScenePrompt(appendVideoAudioSingleSpeakerGuard(vdoClean, s.videoRaw), s.num)
         };
       }
 
@@ -1503,7 +1550,9 @@
         card.className = "card ref-attach-card";
         var t = document.createElement("p");
         t.className = "card-title";
-        t.textContent = "รูป ref ที่แนบกับคำขอเจน (ลำดับ = ส่งหา Gemini)";
+        t.textContent = UI_PUBLIC
+          ? "รูป ref ที่แนบกับคำขอเจน (ลำดับ = ลำดับรูปที่ส่ง)"
+          : "รูป ref ที่แนบกับคำขอเจน (ลำดับ = ส่งหา Gemini)";
         card.appendChild(t);
         var p = document.createElement("p");
         p.className = "ref-attach-note";
@@ -1629,7 +1678,7 @@
           pageTitle.textContent = "กำลังประมวลผล";
           processing.classList.add("is-visible");
           processingMsg.textContent =
-            (d.message || "กำลังเรียก Gemini…") +
+            (d.message || (UI_PUBLIC ? "กำลังสร้างสคริปต์ฉาก…" : "กำลังเรียก Gemini…")) +
             (d.imageRefOrder && d.imageRefOrder.length
               ? " · ส่ง " + d.imageRefOrder.length + " รูป ref"
               : "");
@@ -1646,7 +1695,7 @@
         }
 
         document.title = "ผลเจน — Storymode mock";
-        pageTitle.textContent = "ผลเจนสคริปต์ฉาก (Gemini)";
+        pageTitle.textContent = UI_PUBLIC ? "ผลเจนสคริปต์ฉาก" : "ผลเจนสคริปต์ฉาก (Gemini)";
         processing.classList.remove("is-visible");
         resultBody.classList.remove("is-hidden");
 
@@ -1656,7 +1705,7 @@
           extraMeta += " · ปรับข้อความตามนโยบายโฆษณา";
         }
         meta.textContent =
-          (d.model ? "โมเดล: " + d.model + " · " : "") +
+          (!UI_PUBLIC && d.model ? "โมเดล: " + d.model + " · " : "") +
           (ts ? "เวลา: " + ts : "") +
           (d.truncated ? " · (อาจถูกตัด MAX_TOKENS)" : "") +
           extraMeta;

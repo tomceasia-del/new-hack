@@ -2,10 +2,161 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=login.html" />
-  <title>Project CS — เข้าสู่ระบบ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Project CS — สร้างสคริปต์วิดีโอ TikTok; ค่า API AI ฝั่งเซิร์ฟเวอร์ออกโดยทีม ผู้ใช้ทั่วไปไม่ต้องมี API key ส่วนตัว"
+  />
+  <title>Project CS — หน้าแรก</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0d10;
+      --card: #181c26;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f0f2f7;
+      --muted: rgba(240, 242, 247, 0.55);
+      --accent: #fe2c55;
+      --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100dvh;
+      background:
+        radial-gradient(1000px 600px at 20% -10%, rgba(254, 44, 85, 0.12), transparent),
+        radial-gradient(800px 400px at 90% 20%, rgba(100, 180, 255, 0.06), transparent),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.5;
+    }
+    a { color: #7dd3fc; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    header { margin-bottom: 40px; text-align: center; }
+    .mark {
+      width: 64px; height: 64px; margin: 0 auto 16px;
+      background: var(--accent);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.85rem;
+      box-shadow: 0 20px 50px rgba(254, 44, 85, 0.25);
+    }
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 1.9rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .lede {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 28em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+    @media (min-width: 520px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .card {
+      display: block;
+      padding: 22px 20px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+    }
+    .card:hover {
+      border-color: rgba(254, 44, 85, 0.35);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      transform: translateY(-1px);
+    }
+    .card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .card h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .card.full { grid-column: 1 / -1; }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
-<body style="font-family: system-ui; padding: 24px; background: #0b0d10; color: #eee;">
-  <p>กำลังไป <a href="login.html" style="color: #7dd3fc">login.html</a> …</p>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="mark" aria-hidden="true">🎬</div>
+      <h1>Project CS</h1>
+      <p class="lede">
+        ระบบสร้างสคริปต์วิดีโอ TikTok สำหรับทีมงาน — <strong>ค่า API ของ AI ใช้ key ฝั่งเซิร์ฟเวอร์ที่ทีมจัดการ (ออกเงินเอง)</strong> สมาชิกทีมกดใช้งานได้
+        โดยไม่ต้องรู้หรือมี API key ส่วนตัว
+      </p>
+    </header>
+
+    <nav class="grid" aria-label="ลิงก์หลัก">
+      <a class="card" href="login.html">
+        <span class="tag">ล็อกอิน</span>
+        <h2>เข้าสู่ระบบ</h2>
+        <p>Google account ที่อนุมัติแล้ว จากนั้นเปิด /cs หรือ story config บน Vercel</p>
+      </a>
+      <a class="card" href="story-config-mock.html">
+        <span class="tag">Local</span>
+        <h2>Story config (เครื่องคุณ)</h2>
+        <p>รัน <code style="color: #8fe3c0; font-size: 0.8em">serve_story_mock.py</code> แล้วใช้ key เดียวกับทีมผ่าน <code style="color: #8fe3c0; font-size: 0.8em">/api/gemini</code> บนเครื่องคุณ (ยังไม่ต้องใส่ key ในหน้า)</p>
+      </a>
+      <a class="card" href="/cs">
+        <span class="tag">Vercel</span>
+        <h2>Story config (เว็บ /cs)</h2>
+        <p>เวอร์ชัน deploy: ล็อกอินแล้วใช้ AI ผ่านฝั่ง server — สมาชิกทีมไม่ต้องนำ key มาเอง (นักพัฒนาใช้ <code style="color: #8fe3c0; font-size: 0.8em">?dev=1</code> สำหรับจอเทคนิค)</p>
+      </a>
+      <a class="card" href="story-config-result.html">
+        <span class="tag">ดูตัวอย่าง</span>
+        <h2>หน้าตัวอย่างผลลัพธ์</h2>
+        <p>เปิดดู layout หรือ state ตัวอย่างของ story-config หลัง generate</p>
+      </a>
+    </nav>
+
+    <footer>
+      ค่า token AI ฝั่ง Google ออกโดยทีม (GEMINI API บน Vercel / ตั้ง key ฝั่ง process กับ <code>serve_story_mock</code> ก็ได้) — สมาชิกไม่ต้องรู้ key
+    </footer>
+  </div>
 </body>
 </html>

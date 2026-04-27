@@ -13,6 +13,7 @@
     "api/admin/access-requests.js": { "maxDuration": 10 }
   },
   "rewrites": [
+    { "source": "/start",  "destination": "/index.html" },
     { "source": "/",        "destination": "/login.html" },
     { "source": "/login",   "destination": "/login.html" },
     { "source": "/admin",   "destination": "/admin.html" },
