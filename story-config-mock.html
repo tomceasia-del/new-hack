@@ -364,7 +364,7 @@
     body.factory-warehouse-pov [data-factory-toggle-hide] {
       display: none !important;
     }
-    body.factory-warehouse-pov #drop-char-1,
+    /* โรงงาน/โกดัง: ใช้ ref ฮีโอได้ที่ slot 1 เท่านั้น; 2–3 ซ่อน */
     body.factory-warehouse-pov #drop-char-2,
     body.factory-warehouse-pov #drop-char-3 {
       display: none !important;
@@ -1600,7 +1600,7 @@
         </label>
         <label class="drop" id="drop-char-1" data-key="character1">
           <input type="file" accept="image/*" data-key="character1" multiple />
-          <strong>ตัวละคร 1 (Hero หลัก)</strong>
+          <strong id="char1-title">ตัวละคร 1 (Hero หลัก)</strong>
           <span class="drop-multi-hint">สูงสุด 5 รูป / slot — consistency</span>
           <div class="multi-thumb-stack" aria-hidden="true"></div>
           <span class="drop-hint" aria-hidden="true"></span>
@@ -1851,9 +1851,11 @@
       >
         <strong>กฎบท — โหมดโรงงาน/โกดัง (pipeline แยก)</strong>
         <ul>
-          <li>บทพูด: <strong>พิธีกร off-screen ภาษาไทย</strong> เน้นขาย+โกดัง — กระชับให้จบได้ใน ~8 วิ/ฉาก; <strong>ไม่</strong>ใช้กฎ 15–20 คำ/ฉาก แบบ story มาตรฐาน (ตาม system โหมดนี้)</li>
-          <li>ภาพ: มือ+สินค้า+คลัง — ห้ามฮีโร/ใบหน้า</li>
-          <li>หลังเจน: ยังรัน <strong>ตรวจคำต้องห้าม / การตลาดเกินจริง</strong> (เช่นเดียวกับโหมด story อื่น)</li>
+          <li>เรื่อง/บท: <strong>ฮีโอคนเดียว</strong> (นักเล่า/โฮสต์) <strong>ภาษาไทย ต่อเนื่อง</strong> ฉากต่อฉาก; <strong>ห้ามสลับเสียง/ตัวละครพูดหลายคน</strong>; <strong>ไม่</strong>ใช้กฎ 15–20 คำ/ฉาก แบบ story มาตรฐาน</li>
+          <li>รูปสินค้า: ระบบ <strong>อ่านขนาด (px) อัตโนมัติ</strong> แนบในข้อมูล — อ้างอิง aspect / องค์ประกอบให้นิ่ง</li>
+          <li>เสียงในคลิป: <strong>พูด/มุมฮีโอเท่านั้น</strong> — <strong>ห้ามดนตรี ห้าม SFX/เอฟเฟกต์เสียง</strong> (กล้องเคลื่อนตาม physics จริง ไม่ใส่ VFX กล้อง)</li>
+          <li>ฮีโอ: อัป <strong>รูป ref ตัวละคร 1</strong> ถ้าต้องการให้หน้า/ร่างสอดคล้อง; มิฉะนั้นอาจเป็น off-screen + มือ+สินค้า</li>
+          <li>หลังเจน: ยังรัน <strong>ตรวจคำต้องห้าม / การตลาดเกินจริง</strong></li>
         </ul>
       </div>
       <div class="generate-row">
@@ -1891,7 +1893,7 @@
   </div>
 
   <script src="storymode-mock-enrich-bundle.js?v=2026-04-26d" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="storymode-mock-gemini-core.js?v=2026-04-28c" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script src="storymode-mock-gemini-core.js?v=2026-04-28d" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -2093,6 +2095,10 @@
         document.body.classList.add("factory-warehouse-pov");
       } else {
         document.body.classList.remove("factory-warehouse-pov");
+      }
+      var t1 = document.getElementById("char1-title");
+      if (t1) {
+        t1.textContent = on ? "ฮีโอโรงงาน/โกดัง (ref — คนเดียว)" : "ตัวละคร 1 (Hero หลัก)";
       }
       var dDef = document.getElementById("dialogue-rule-default");
       var dFac = document.getElementById("dialogue-rule-factory");
@@ -2908,12 +2914,24 @@
       const moodKeysForModel = moodKeysRaw.filter(function (k) {
         return k !== MOOD_KEY_FACTORY_WAREHOUSE;
       });
+      const productStagedTop = Array.isArray(files.product) ? files.product.filter(function (f) { return f; }) : [];
+      const productImageDimensions = productStagedTop.map(function (f) {
+        if (!f) {
+          return { fileName: null, width: null, height: null };
+        }
+        return {
+          fileName: f.name || null,
+          width: f.width != null && f.width > 0 ? f.width : null,
+          height: f.height != null && f.height > 0 ? f.height : null
+        };
+      });
       return {
         mode: mode === "story" ? "storymode" : "product_sell",
         factoryPovMode: factoryPovMode,
+        productImageDimensions: productImageDimensions,
         prompt: document.getElementById("prompt").value.trim(),
         images: (function () {
-          var productStaged = Array.isArray(files.product) ? files.product.filter(function (f) { return f; }) : [];
+          var productStaged = productStagedTop;
           var primaryProductFile = productStaged[0] || null;
           var productSlots = [];
           for (var pi = 0; pi < productStaged.length; pi++) {
@@ -2939,7 +2957,7 @@
           var c2 = Array.isArray(files.character2) ? files.character2.filter(function (f) { return f; }) : [];
           var c3 = Array.isArray(files.character3) ? files.character3.filter(function (f) { return f; }) : [];
           const slots = factoryPovMode
-            ? productSlots
+            ? productSlots.concat(expandCharacterSlot("character1"))
             : productSlots.concat(
                 expandCharacterSlot("character1"),
                 expandCharacterSlot("character2"),
@@ -2960,16 +2978,20 @@
             productAttached: !!primaryProductFile,
             productAttachedCount: productStaged.length,
             characterAttached: factoryPovMode
-              ? false
+              ? c1.length > 0
               : !!(c1.length || c2.length || c3.length),
-            character1Attached: factoryPovMode ? false : c1.length > 0,
+            character1Attached: c1.length > 0,
             character2Attached: factoryPovMode ? false : c2.length > 0,
             character3Attached: factoryPovMode ? false : c3.length > 0,
-            characterImageCounts: factoryPovMode ? [0, 0, 0] : [c1.length, c2.length, c3.length],
+            characterImageCounts: factoryPovMode ? [c1.length, 0, 0] : [c1.length, c2.length, c3.length],
             productName: primaryProductFile?.name || null,
             productNames: productStaged.map(function (f) { return f && f.name; }).filter(Boolean),
-            characterName: factoryPovMode ? null : c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
-            characterNames: factoryPovMode ? [] : [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
+            characterName: factoryPovMode
+              ? c1[0]?.name || null
+              : c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
+            characterNames: factoryPovMode
+              ? [c1[0]?.name].filter(Boolean)
+              : [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
             imagesForGemini: imagesForGemini
           };
         })(),
@@ -3602,6 +3624,25 @@
       });
     }
 
+    /** อ่าน width/height รูปจาก base64 — ใช้กับ product & character หลังโหลด */
+    function attachImagePixelDimensions(fileRec) {
+      if (!fileRec || !fileRec.data || !fileRec.mimeType) {
+        return Promise.resolve();
+      }
+      return new Promise(function (resolve) {
+        const im = new Image();
+        im.onload = function () {
+          fileRec.width = im.naturalWidth;
+          fileRec.height = im.naturalHeight;
+          resolve();
+        };
+        im.onerror = function () {
+          resolve();
+        };
+        im.src = "data:" + fileRec.mimeType + ";base64," + fileRec.data;
+      });
+    }
+
     function attachSingleDropClear(inp, key, lab) {
       const clearBtn = document.createElement("button");
       clearBtn.type = "button";
@@ -3703,17 +3744,26 @@
         revokeDropThumb(lab);
         var stack = lab.querySelector(".multi-thumb-stack");
         if (list.length && stack) {
-          Promise.all(list.map(readFileAsBase64)).then(function (results) {
-            list.forEach(function (f, i) {
-              if (files[key][i] && files[key][i].name === f.name) {
-                files[key][i].mimeType = results[i].mimeType;
-                files[key][i].data = results[i].data;
-              }
+          Promise.all(list.map(readFileAsBase64))
+            .then(function (results) {
+              list.forEach(function (f, i) {
+                if (files[key][i] && files[key][i].name === f.name) {
+                  files[key][i].mimeType = results[i].mimeType;
+                  files[key][i].data = results[i].data;
+                }
+              });
+              return Promise.all(
+                (files[key] || []).map(function (rec) {
+                  return attachImagePixelDimensions(rec);
+                })
+              );
+            })
+            .then(function () {
+              updatePreview();
+            })
+            .catch(function (err) {
+              console.warn("[mock] readFileAsBase64 failed:", err);
             });
-            updatePreview();
-          }).catch(function (err) {
-            console.warn("[mock] readFileAsBase64 failed:", err);
-          });
           list.forEach(function (f) {
             var url = URL.createObjectURL(f);
             var img = document.createElement("img");

@@ -150,8 +150,10 @@
   }
 
   /**
-   * Pipeline แยก: UGC โรงงาน/โกดัง — มือ+สินค้า, ฉากหลัง industrial, ไม่มีฮีโร/ใบหน้า
-   * ไม่ดึง ADAPTIVE/HERO/15-20 คำแบบ storymode มาตรฐาน; หลัง generate ยัง applyStorymodeSafety ได้
+   * Pipeline แยก: โรงงาน/โกดัง — สินค้า+ฉาก industrial, ฮีโอคนเดียวเล่าต่อเนื่อง
+   * เสียง: พูด/นำเรื่องเท่านั้น — ห้าม BGM, ห้าม SFX/เอฟเฟกต์เสียง
+   * กล้อง: เคลื่อนแบบ real/physical ที่เชื่อถือได้
+   * รูปสินค้า: ใช้ productImageDimensions จากฝั่งฝ (ถ้ามี) อ้างอิง aspect
    */
   function buildFactoryWarehouseSystemPromptFromPayload(payload, opts) {
     opts = opts || {};
@@ -167,50 +169,57 @@
 
     return (
       'You are a Thai-language short-form (TikTok/Reels) **warehouse / factory clearance** creative director. ' +
-      'Every scene is **~8 seconds per clip**. The product is the star; the vibe is **direct, raw, in-house stock** — not a studio polish, not a narrative drama.\n\n' +
-      '═══ WHAT TO SHOW (HARD) ═══\n' +
-      '- **No main character / no hero** — no face, no identifiable full-body person.\n' +
-      '- **Allowed only:** one or two **hands/forearms** (optional work glove) **holding, lifting, or presenting the product** close to the camera, OR first-person POV of hands + product. Background workers, if any, are **distant, blurred, non-identifying** (no clear faces).\n' +
-      '- **Background:** real industrial **warehouse, distribution aisle, or factory storage** — tall metal pallet racks, cardboard box stacks, concrete floor, harsh overhead fluorescent or cool industrial lighting, deep aisle perspective when possible.\n' +
-      '- **Optional (match reference UGC):** a small **yellow** paper/card sign with hand-written-style **Thai** text (e.g. โละล้างสต็อก / ราคาโรงงาน) placed near the product — as **scene-physics props**, not as burned-in UI subtitles in the final video (see rules below).\n' +
-      '- **Product** must match any attached product reference; keep packaging/labels consistent.\n\n' +
-      '═══ VOICE / DIALOGUE (separate from storymode multi-hero rules) ═══\n' +
-      '- One **off-screen** Thai **host/announcer** voice (warehouse seller energy — fast, real, a bit urgent). **No on-screen speaking character.** Other people in the frame, if any, are **silent** and not lip-syncing.\n' +
-      '- **Do NOT** apply the standard storymode "15-20 words per scene" block as a hard constraint; use **punchy Thai** that can be read aloud comfortably within **~8 seconds** per scene — short, sell-direct, not a monologue. Each scene still ends with the two lines: `Speaker:` and `Dialogue:"..."` (Thai) as in the output format below.\n' +
-      '- Use: `Speaker: off_screen_warehouse_host (Thai)`\n\n' +
-      '═══ VISUAL STYLE (from user chips — lock per scene) ═══\n' +
+      'Every scene is **~8 seconds per clip**. The product is the **visual star**; the **storytelling** is by **one hero voice only** — a **continuous** mini-arc from scene 1 to scene ' +
+      n +
+      ' (not isolated ads).\n\n' +
+      '═══ HERO (ONE) — DIALOGUE / NARRATION ═══\n' +
+      '- There is **exactly one** speaking / narrating character for the **whole** video: the **warehouse_hero** (Thai). **All scenes** must use the **same** speaker label and the **same in-world persona** (one host, one voice identity).\n' +
+      '- The hero **carries the story forward** from scene to scene (reference previous beats lightly where natural); **do not** hand the narration to a second person; **no** dialogue from crowd or secondary characters. Background extras, if any, are **silent** (no lip-sync).\n' +
+      '- Use: `Speaker: warehouse_hero (Thai)` on **every** scene. Do not vary the Speaker name.\n' +
+      '- **Do NOT** apply the standard storymode "15-20 words per scene" as a hard rule; use **punchy Thai** readable within **~8 seconds** per scene, sell + warehouse energy. Each scene ends with `Speaker:` and `Dialogue: "..."` (Thai).\n' +
+      '- If the user attached a **character1** reference, you may show **one** recurring on-screen host matching that look (outfit/hair/body type); **otherwise** you may use **off-screen** hero voice with **hands + product + warehouse** in frame, still **one** `warehouse_hero`.\n\n' +
+      '═══ AUDIO (HARD) ═══\n' +
+      '- **Only** the hero’s **spoken Thai dialogue** (narration / to-camera). **No background music**, **no** diegetic **music** from the environment (no in-scene radio/speaker bed). **No** sound **effects** pack, **no** stingers, **no** whoosh/swoosh, **no** foley SFX, **no** ambient SFX for punch — **no** BGM, **no** SFX, **no** "audio design" bed beyond a dry voice track.\n' +
+      '- The VIDEO PROMPT text must state explicitly: **"Audio: Thai voice-only (warehouse_hero). No music. No SFX."**\n\n' +
+      '═══ CAMERA — PHYSICAL ONLY ═══\n' +
+      '- Camera motion = **only** **realistic, physical** mobile/video moves: **handheld**, **slow walk**, **pan/tilt**, **subtle dolly** / parallax that a real person could do on site. **No** VFX **camera** moves, **no** **speed** ramp, **no** **CG** or **impossible** flight, **no** **digital** glitch/warp, **no** **fake** dolly zoom that breaks physics, **no** impossible 360° orbits, **no** "transition effects" that look like VFX, **no** **multi-clip** gimmicks in the same shot — **physical** UGC gimbal/hand is OK.\n\n' +
+      '═══ REFERENCE SIZES (if provided) ═══\n' +
+      '- The user message may list **per-product** image **width/height in pixels** for uploaded references. **Respect** the implied **aspect ratio** and **framing** so generated IMAGE prompts stay **consistent** with the reference; do not invent a conflicting canvas.\n\n' +
+      '═══ WHAT TO SHOW (WAREHOUSE) ═══\n' +
+      '- **Background:** real industrial **warehouse, distribution aisle, or factory storage** — metal racks, box stacks, concrete, harsh/fluorescent or cool industrial lighting, deep perspective when possible.\n' +
+      '- **Product** must match attached product ref(s); **labels** consistent. **Composing** the shot: respect any **stated** pixel **dimensions** / **aspect** from the user for product refs.\n' +
+      '- **Optional:** a small **yellow** paper sign with hand-written **Thai** (e.g. โละล้างสต็อก) **as a physical prop in-scene** — not burned-in UI subtitles in the final output.\n\n' +
+      '═══ VISUAL STYLE (chips) ═══\n' +
       'Label: ' +
       smVisualStyleDisplay +
       '\nEnglish: ' +
       visualDesc +
-      '\n(Photoreal / UGC look is expected. Do not switch to cartoon/3D unless the user label clearly implies it.)\n\n' +
-      '═══ OUTPUT FORMAT (use exactly — for downstream parser) ═══\n' +
-      'For each of **' +
+      '\n(Photoreal / UGC. Do not switch to cartoon/3D unless the label clearly allows it.)\n\n' +
+      '═══ OUTPUT FORMAT (exact) ═══\n' +
+      '**' +
       n +
-      '** scenes, use this structure:\n\n' +
+      '** scenes, each:\n\n' +
       '=== SCENE [N]: [SHORT_SCENE_NAME] ===\n\n' +
       '🔴 IMAGE PROMPT\n' +
       '```\n' +
-      '[English; photoreal UGC, hands + product + industrial warehouse, no face; single frame, no collage, no multiple panels]\n' +
+      '[English: photoreal UGC; warehouse+product+hero or hands+product per rules; single frame, no collage, no multiple panels; respect product ref aspect if given]\n' +
       '```\n\n' +
       '🟢 VIDEO PROMPT\n' +
       '```\n' +
-      '[English: camera, lighting, hand action, product focus; off-screen only audio]\n' +
-      'Thai line to speak: "..."\n' +
-      'Speaker: off_screen_warehouse_host (Thai)\n' +
+      '[English: only physical / plausible camera + lighting + action; then:\n' +
+      'Audio: Thai voice-only (warehouse_hero). No music. No SFX.]\n' +
+      'Speaker: warehouse_hero (Thai)\n' +
       'Dialogue: "..." (punchy Thai, ~8s read)\n' +
       '```\n\n' +
       'After the last scene:\n' +
-      '📝 VIRAL CAPTION\n' +
-      '"[Thai line for TikTok — hook + clearance vibe]"\n' +
-      '#hashtag1 #hashtag2 #hashtag3 #hashtag4\n\n' +
+      '📝 VIRAL CAPTION + hashtags\n\n' +
       '═══ CRITICAL ═══\n' +
-      '1) Image and video description prompts: **English** except quoted Thai dialogue and on-prop Thai text (sign on physical card in scene).\n' +
-      '2) **No** subtitles / burned-in dialogue text on the video; dialogue is **audio-only** in real delivery.\n' +
-      '3) **No** main character, **no** named hero, **no** HERO BIBLE, **no** story drama beats — this is a **selling-warehouse** tone only.\n' +
+      '1) **English** for image/video **descriptions** except quoted Thai in Dialogue and on-prop sign text.\n' +
+      '2) **No** burned-in subtitles; dialogue = **narration audio** in delivery, not on-screen type.\n' +
+      '3) **No** HERO BIBLE, **no** second named narrator, **no** **storymode** 15-20 **word** rule — **one** `warehouse_hero` **continuous** through-line only.\n' +
       '4) One static image per scene, no split screen.\n' +
-      '5) Stay platform-safe: no unsafe claims; avoid medical/financial guarantees. Follow user product facts when provided in the user message.\n' +
-      '6) Scene count must be exactly ' +
+      '5) **Audio** rules above are **strict**: voice-only, **no** music, **no** SFX/FX\n' +
+      '6) Scene count = exactly ' +
       n +
       '.\n'
     );
@@ -235,7 +244,7 @@
       topic +
       '\n\n' +
       '═══ โหมด ═══\n' +
-      'โรงงาน/โกดัง — มือ+สินค้า+ฉาก industrial เท่านั้น; **ห้ามฮีโร/ใบหน้า/ลิปซิงค์ตัวละคร** — บทพูดเป็น**พิธีกร off-screen ภาษาไทย**; **ไม่**ใช้ pipeline storymode+HERO+กฎ 15–20 คำ/ฉาก แบบเดิม (บทกระชับ ~8 วิ ต่อฉาก)\n' +
+      'โรงงาน/โกดัง — **ฮีโอคนเดียว** (warehouse_hero) **เล่าเรื่องต่อเนื่อง** ฉากต่อฉาก; ภาพ = มือ+สินค้า+ฉาก industrial หรือ**ฮีโอ 1 คน** ถ้ามี ref; **เสียง = พูด/นำเรื่องฮีโอเท่านั้น ห้าม BGM, ห้าม SFX/เอฟเฟกต์**; กล้อง = ขยับ **แบบ physical** เท่านั้น; **ไม่**ใช้ storymode+กฎ 15–20 คำ/ฉาก แบบเดิม (บทกระชับ ~8 วิ/ฉาก)\n' +
       '\n═══ จำนวนฉาก ═══\n' +
       n +
       ' ฉาก\n' +
@@ -250,7 +259,27 @@
         '\n';
     }
 
-    msg += '\n══ รูปอ้างอิง (เฉพาะสินค้า — ไม่มี ref ตัวละคร) ═\n';
+    if (Array.isArray(payload.productImageDimensions) && payload.productImageDimensions.length) {
+      msg += '\n══ ขนาดรูปอ้างอิง (px — จากอัปโหลด) ═\n';
+      payload.productImageDimensions.forEach(function (d, i) {
+        if (!d) {
+          return;
+        }
+        msg +=
+          (i + 1) +
+          '. ' +
+          (d.fileName || '(unnamed)') +
+          ' — width: ' +
+          (d.width != null ? d.width : '?') +
+          ' height: ' +
+          (d.height != null ? d.height : '?') +
+          (d.width && d.height
+            ? ' (aspect ' + (d.width / d.height).toFixed(4) + ' : 1)\n'
+            : '\n');
+      });
+    }
+
+    msg += '\n══ รูปอ้างอิง (สินค้า + โหมดนี้: ฮีโอที่ slot ตัวละคร 1 ถ้าแนบ) ═\n';
     const img = payload.images || {};
     const productNames = (img.productNames && img.productNames.length)
       ? img.productNames
@@ -259,12 +288,18 @@
       msg +=
         'สินค้า: ' +
         (productNames.join(', ') || '(แนบแล้ว)') +
-        ' — ใช้แพ็ก/หน้าตาสอดคล้องรูป; ไม่อิงฮีโร/คน\n';
+        ' — ยึดแพ็ก/ฉลาก; อ้างอิง **ขนาด/สัดส่วน** ด้านบนถ้ามี\n';
     } else {
-      msg += 'ยังไม่แนบรูปสินค้า (ถ้ามีชื่อ/แบรนด์ในบรีฟ ให้ยึดนั้น)\n';
+      msg += 'ยังไม่แนบรูปสินค้า (ถ้ามีข้อมูลในบรีฟ ให้ยึดนั้น)\n';
+    }
+    if (img.character1Attached) {
+      msg +=
+        '**ตัวละคร 1 (ref ฮีโอ): แนบแล้ว** — นำ **ลักษณะหน้า/ร่าง/สไตล์** มาใช้ให้ **ฮีโอคนเดียว** สอดคล้อง; **slot 2–3 ห้ามใช้ ในโหมดนี้**\n';
+    } else {
+      msg += '**ไม่แนบ ref ฮีโอ** — ใช้ off-screen หรือ มือ+POV+คลัง ตาม system (ยัง **หนึ่ง** `warehouse_hero` เสมอ)\n';
     }
 
-    msg += '\nสร้างครบ ' + n + ' ฉาก ตาม OUTPUT FORMAT ของ system; เน้นขาย+โกดัง ไม่เสนอเรื่องละคร\n';
+    msg += '\nสร้างครบ ' + n + ' ฉาก ตาม OUTPUT FORMAT; **หนึ่งฮีโอต่อเนื่อง**; **เสียง: พูดฮีโออย่างเดียว ห้ามดนตรี+SFX**\n';
     return msg;
   }
 
