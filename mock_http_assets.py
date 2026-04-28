@@ -18,6 +18,7 @@ ALLOWED_ROOT_FILES = frozenset(
         "storymode-mock-enrich-bundle.js",
         "storymode-mock-gemini-core.js",
         "factory-dna-v1.example.json",
+        "factory-dna-v2.example.json",
     )
 )
 
