@@ -417,6 +417,8 @@
       </div>
     </div>
   </div>
+  <!-- เวอร์ชันพรอมต์เดียวกับ mock — revalidate จากเซิร์ฟเวอร์ (ไม่ใช้คุกกี้) -->
+  <script src="storymode-mock-gemini-core.js?v=2026-04-30c"></script>
   <script>
     (function () {
       var KEY = "storymodeMockGeminiResultV1";
@@ -1703,6 +1705,19 @@
         var extraMeta = "";
         if (!d.error && d.safety && d.safety.overclaimHits && d.safety.overclaimHits.length) {
           extraMeta += " · ปรับข้อความตามนโยบายโฆษณา";
+        }
+        var curV =
+          typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
+            ? STORYMODE_PROMPT_ASSET_VERSION
+            : null;
+        var savedV = d.promptAssetVersion != null ? d.promptAssetVersion : null;
+        if (
+          curV != null &&
+          savedV != null &&
+          String(savedV) !== String(curV) &&
+          !d.error
+        ) {
+          extraMeta += " · ผลนี้จากพรอมต์เวอร์ชันเก่า — เจนใหม่ที่ mock เพื่อให้ตรงชุดล่าสุด";
         }
         meta.textContent =
           (!UI_PUBLIC && d.model ? "โมเดล: " + d.model + " · " : "") +

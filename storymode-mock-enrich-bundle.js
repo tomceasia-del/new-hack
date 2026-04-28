@@ -953,6 +953,12 @@ function stripForbiddenMarketing(text) {
   return { text: out, hits: hits, softReplaces: softReplaces };
 }
 
+if (typeof globalThis !== 'undefined') {
+  try {
+    globalThis.stripForbiddenMarketing = stripForbiddenMarketing;
+  } catch (_) {}
+}
+
 /* ════════════════════════════════════════════════════════════════════════════
  * PHASE 4 — SALES FORMULA BLUEPRINT (Product Sell mode only)
  *

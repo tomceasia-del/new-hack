@@ -361,21 +361,6 @@
       color: var(--text);
       border-color: var(--accent);
     }
-    body.factory-warehouse-pov [data-factory-toggle-hide] {
-      display: none !important;
-    }
-    /* โรงงาน/โกดัง: ไม่ใช้รูป ref ตัวละcharacter — ซ่อน slot 1–3 */
-    body.factory-warehouse-pov #drop-char-1,
-    body.factory-warehouse-pov #drop-char-2,
-    body.factory-warehouse-pov #drop-char-3 {
-      display: none !important;
-    }
-    body.factory-warehouse-pov .hero-analysis-toolbar {
-      display: none !important;
-    }
-    body.factory-warehouse-pov #product-analysis-toolbar.product-analysis-toolbar {
-      display: flex !important;
-    }
     /* ฝังผลเจนสคริปต์ฉาก (story-config-result.html) ใต้ปุ่มเจน — บนหน้าเดียวกับฟอร์ม */
     .gemini-result-section {
       margin-top: 24px;
@@ -500,13 +485,6 @@
     .multi-thumb-stack .thumb {
       max-height: 48px;
       max-width: 25%;
-    }
-    .product-analysis-toolbar {
-      margin-top: 12px;
-      display: none;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
     }
     .hero-analysis-toolbar {
       margin-top: 12px;
@@ -1252,6 +1230,104 @@
     .domain-knowledge-gate[hidden] {
       display: none !important;
     }
+    /* หมวดโรงงาน — Factory DNA (โคลนสไตล์โกดัง) */
+    .factory-category-section {
+      position: relative;
+      border-color: rgba(234, 88, 12, 0.35);
+      background: linear-gradient(
+        135deg,
+        rgba(234, 88, 12, 0.07) 0%,
+        var(--card) 48%,
+        var(--card) 100%
+      );
+      box-shadow: inset 4px 0 0 0 rgba(234, 88, 12, 0.85);
+    }
+    .factory-category-section[hidden] {
+      display: none !important;
+    }
+    .factory-category-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .factory-category-badge {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      border-radius: 12px;
+      background: rgba(234, 88, 12, 0.15);
+      border: 1px solid rgba(234, 88, 12, 0.35);
+      line-height: 1;
+    }
+    .factory-category-head .factory-category-titles {
+      flex: 1;
+      min-width: 0;
+    }
+    .factory-category-kicker {
+      font-size: calc(0.68rem * var(--btn-scale));
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(234, 88, 12, 0.95);
+      margin: 0 0 4px;
+    }
+    .factory-category-title-main {
+      font-size: calc(1rem * var(--btn-scale));
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+    .factory-category-sub {
+      margin: 0;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .factory-category-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+    .factory-category-actions .btn-ghost {
+      border-color: rgba(234, 88, 12, 0.35);
+    }
+    .factory-category-actions .btn-ghost:hover {
+      border-color: rgba(234, 88, 12, 0.65);
+      color: var(--text);
+    }
+    .factory-dna-textarea {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.8rem;
+      min-height: 11rem;
+    }
+    .factory-prompt-hint {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px dashed rgba(234, 88, 12, 0.35);
+      background: rgba(234, 88, 12, 0.04);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .factory-prompt-hint[hidden] {
+      display: none !important;
+    }
+    .factory-category-contract {
+      margin: 10px 0 0;
+      font-size: 0.76rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
     .dialogue-rule-callout {
       margin: 0 0 14px;
       padding: 10px 12px 10px 14px;
@@ -1597,6 +1673,50 @@
         <button type="button" class="btn-clear-prompt" id="btn-clear-prompt-images">ล้างข้อความและรูป</button>
       </div>
       <textarea id="prompt" class="prompt" placeholder=""></textarea>
+      <p id="prompt-story-brief-hint" class="hint factory-prompt-hint" hidden>
+        <strong>โหมด Story:</strong> ใส่บรีฟสั้นในกล่องด้านบนได้อิสระ — สินค้า · จุดขาย · มุมหรือโทนรอบนี้ (บูลเล็ตได้)
+        · <strong>ไม่ต้อง</strong> พิมพ์ JSON รายฉากหรือ schema แบบ <code>storymode_image_prompt</code>
+        · ผลจาก AI เป็นรูปแบบมาตรฐานของระบบ: <code>=== SCENE N: … ===</code> พร้อมบล็อก IMAGE / VIDEO
+        · ถ้าใช้โทนโกดัง ให้เติมแม่แบบใน <strong>Factory DNA</strong> ด้านล่าง แยกจากบรีฟหลัก
+      </p>
+    </section>
+
+    <!-- หมวดโรงงาน — Factory DNA (โหมด Story เท่านั้น) -->
+    <section
+      data-section="factory-dna"
+      id="section-factory-dna"
+      class="factory-category-section"
+      aria-labelledby="factory-category-title-main"
+    >
+      <div class="factory-category-head">
+        <span class="factory-category-badge" aria-hidden="true">🏭</span>
+        <div class="factory-category-titles">
+          <p class="factory-category-kicker">หมวดโรงงาน</p>
+          <h2 class="factory-category-title-main" id="factory-category-title-main">โคลนสไตล์โกดัง · Factory DNA</h2>
+          <p class="factory-category-sub">
+            แม่แบบ <code>factory_dna_v1</code> — รวม <strong>post</strong> + <strong>cover_analysis</strong> + <strong>sales_voice</strong>
+            จากโฟลเดอร์ <code>โรงงาน/</code> · กฎ ~8 วิ/ฉาก และคำต้องห้ามยังจากระบบเดิม
+          </p>
+          <p class="factory-category-contract">
+            <strong>สัญญาใช้งาน:</strong> JSON นี้เป็น <strong>อินพุตโทน/จังหวะขาย</strong> เท่านั้น — ไม่ต้องใส่ prompt ต่อฉากหรือซ้ำ schema ภาพยาวๆ
+            · ผลเจนเป็นเท็กซ์สคริปต์มาตรฐาน (<code>=== SCENE N ===</code> + IMAGE/VIDEO + Dialogue) โดยโมเดล · ถ้าต้องการสตริงภาพไปเครื่องมืออื่น ให้คัดจากบล็อก IMAGE หลังได้ผล
+          </p>
+        </div>
+      </div>
+      <div class="factory-category-actions">
+        <button type="button" class="btn btn-ghost" id="btn-factory-dna-example">โหลดตัวอย่าง</button>
+        <button type="button" class="btn btn-ghost" id="btn-factory-dna-clear">ล้าง DNA</button>
+        <span style="font-size:0.76rem;color:var(--muted);">ไฟล์: <code>factory-dna-v1.example.json</code></span>
+      </div>
+      <label class="field-label" for="factory-dna-json" style="display:block;margin-bottom:6px;">JSON</label>
+      <textarea
+        id="factory-dna-json"
+        class="prompt factory-dna-textarea"
+        rows="11"
+        spellcheck="false"
+        placeholder="วาง JSON หรือกด «โหลดตัวอย่าง»"
+      ></textarea>
+      <p id="factory-dna-parse-status" class="hint" aria-live="polite"></p>
     </section>
 
     <!-- 2 -->
@@ -1648,28 +1768,11 @@
         </button>
         <span id="hero-analyze-status" style="font-size:0.78rem;color:var(--muted);"></span>
       </div>
-      <div
-        class="product-analysis-toolbar"
-        id="product-analysis-toolbar"
-        style="display: none"
-        aria-hidden="true"
-      >
-        <button
-          type="button"
-          class="btn-hero-analyze"
-          id="btn-product-analyze"
-          title="วิเคราะห์รูปสินค้า (โรงงาน/โกดัง) — กำหนดฉากหลัง-การจับเคลื่อนให้สอดกับขนาด/ประเภท"
-        >
-          วิเคราะห์รูปสินค้า (JSON)
-        </button>
-        <span id="product-analyze-status" style="font-size:0.78rem;color:var(--muted);"></span>
-      </div>
       <pre class="preview hero-analysis-out" id="hero-analysis-out" aria-live="polite" style="display:none"></pre>
-      <pre class="preview hero-analysis-out" id="product-analysis-out" aria-live="polite" style="display:none"></pre>
     </section>
 
     <!-- Voice Type — CHARACTER & VOICE CONSISTENCY (Phase 5) -->
-    <section data-section="voice" data-factory-toggle-hide>
+    <section data-section="voice">
       <div class="sec-head">
         <p class="sec-title">เสียงตัวละคร</p>
       </div>
@@ -1719,7 +1822,7 @@
     </section>
 
     <!-- Style ตัวละคร — LED ข้อ 7 (หมวด + เลือก 1 เหมือน Mood) -->
-    <section data-section="visual" data-factory-toggle-hide>
+    <section data-section="visual">
       <div class="sec-head">
         <p class="sec-title">Style ตัวละคร</p>
       </div>
@@ -1736,7 +1839,7 @@
     </section>
 
     <!-- Hook Scene 1 (เดียวกับ dropdown ฮุคใน Storymode) -->
-    <section data-section="hook" data-factory-toggle-hide>
+    <section data-section="hook">
       <div class="sec-head">
         <p class="sec-title">HooK</p>
       </div>
@@ -1745,7 +1848,7 @@
     </section>
 
     <!-- 4 + 8 -->
-    <section data-section="narrative" data-factory-toggle-hide>
+    <section data-section="narrative">
       <div class="sec-head">
         <p class="sec-title" style="display:inline-flex;align-items:center;gap:0;flex-wrap:wrap;">กลยุทธ์เล่าเรื่อง<span id="narrative-selected-icon" class="narrative-title-icon" role="button" aria-label="ยกเลิกการเลือก" title="กดเพื่อยกเลิก"></span></p>
       </div>
@@ -1779,7 +1882,7 @@
     </section>
 
     <!-- 7 -->
-    <section data-section="overlay" data-factory-toggle-hide>
+    <section data-section="overlay">
       <div class="sec-head">
         <p class="sec-title" style="text-transform:none;letter-spacing:0.02em;">Text Overlay</p>
       </div>
@@ -1796,7 +1899,6 @@
       id="section-domain-knowledge"
       class="domain-knowledge-section"
       data-section="domain"
-      data-factory-toggle-hide
       aria-label="Domain knowledge ท้องถิ่น"
     >
       <div class="sec-head">
@@ -1873,22 +1975,6 @@
           <li>โหมด ASMR (ถ้าเลือก): <strong>ไม่มี</strong> dialogue ตามกฎ system</li>
         </ul>
       </div>
-      <div
-        class="dialogue-rule-callout"
-        id="dialogue-rule-factory"
-        style="display:none"
-        role="note"
-        aria-label="กฎโหมดโรงงาน"
-      >
-        <strong>กฎบท — โหมดโรงงาน/โกดัง (pipeline แยก)</strong>
-        <ul>
-          <li>เรื่อง/บท: <strong>ฮีโอคนเดียว</strong> (นักเล่า) <strong>พูดเร็ว กระชับ</strong> ต่อเนื่อง; <strong>ห้ามสลับนักพูด</strong>; ไม่ใช้กฎ 15–20 คำ/ฉาก แบบ story มาตรฐาน</li>
-          <li><strong>ฉากหลัง-ตัวประกอบ</strong> ยึด<strong>วิเคราะห์รูปสินค้า (JSON)</strong> เป็นหลัก; รูป <strong>อ่านขนาด px อัตโนมัติ</strong> — ของ<strong>เล็ก</strong> เน้นมุม <strong>บรรจุ/จับมือ/สาย pack</strong> ของที่<strong>กอง/พาเลต</strong> ได้ ให้เหมือน <strong>stack / bulk ในคลัง</strong> สอดคล้องโรงงาน+สินค้า</li>
-          <li>เสียง: <strong>เสียงฮีโอพูดเท่านั้น</strong> — <strong>ห้ามดนตรี, ห้าม SFX</strong> — กล้อง <strong>physical</strong> เท่าที่เชื่อถือได้; <strong>ไม่ใช้</strong>รูป ref ตัวละคน</li>
-          <li>กด <strong>วิเคราะห์รูปสินค้า</strong> ก่อน หรือ ระบบเจนแล้วจะเติมเบื้องหลัง ถ้ามีรูป</li>
-          <li>หลังเจน: ยังรัน <strong>ตรวจคำต้องห้าม / การตลาดเกินจริง</strong></li>
-        </ul>
-      </div>
       <div class="generate-row">
         <button type="button" class="btn btn-primary" id="btn-generate">เจนสคริปต์ฉาก</button>
         <span id="generate-status" class="hint"></span>
@@ -1923,8 +2009,8 @@
     </section>
   </div>
 
-  <script src="storymode-mock-enrich-bundle.js?v=2026-04-26d" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="storymode-mock-gemini-core.js?v=2026-04-28e" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script src="storymode-mock-enrich-bundle.js?v=2026-04-30c" onerror="window.__mock1LoadErr='enrich'"></script>
+  <script src="storymode-mock-gemini-core.js?v=2026-04-30c" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -1998,8 +2084,6 @@
     })();
     /** ดึงชุดเดียวกับ CONTENT_CORE/02-master-prompt-template.js → export const STYLE_OPTIONS */
     const STYLE_OPTIONS = JSON.parse(`[{"id":1,"icon":"🚀","name":"ตัวตึงปิดยอด","description":"เร่งด่วน มั่นใจ บอกสิทธิประโยชน์รัวๆ ปิดท้ายด้วยการสั่งให้ซื้อ"},{"id":2,"icon":"🤝","name":"เพื่อนคู่คิด","description":"อบอุ่น จริงใจ เหมือนเพื่อนมาป้ายยาของดีที่ใช้แล้วชีวิตดีขึ้นจริง"},{"id":3,"icon":"📦","name":"สายแกะกล่อง","description":"ตื่นเต้นกับสัมผัสแรก โชว์ความเรียลของแพ็กเกจและสินค้าที่เห็นตรงหน้า"},{"id":4,"icon":"🤨","name":"นักจับผิดกลับใจ","description":"เริ่มจากไม่เชื่อ ตั้งคำถามยากๆ จนสุดท้ายโดนสินค้าตกเพราะหลักฐาน"},{"id":5,"icon":"⚠️","name":"สายกดดัน (FOMO)","description":"พลังแห่งการกลัวตกกระแส คนอื่นมีหมดแล้ว ถ้าพลาดรอบนี้คือจบ"},{"id":6,"icon":"🛡️","name":"นักสยบข่าวลือ","description":"เอาความเชื่อผิดๆ มาตีแผ่ แล้วโชว์ให้ดูว่าสินค้าแก้ปัญหาได้ยังไง"},{"id":7,"icon":"⚡","name":"ถามไวตอบเร็ว","description":"ตอบคำถามคอมเมนต์แบบคมๆ ตอกกลับด้วยฟีเจอร์สินค้าแบบทันควัน"},{"id":8,"icon":"🤓","name":"เซียนไอที","description":"อธิบายสเปกยากๆ ให้กลายเป็นเรื่องง่ายและดูน่าสนุกสำหรับคนทั่วไป"},{"id":9,"icon":"🎙️","name":"ผู้ประกาศข่าวสายปั่น","description":"มาในลุคจริงจัง รายงานข่าวสินค้าเป็นประเด็นฮอตประจำวัน"},{"id":10,"icon":"🔥","name":"นักล่าเทรนด์","description":"จับสินค้าไปผูกกับมีมหรือกระแสไวรัลล่าสุด ให้ดูเป็นของที่ต้องมีตอนนี้"},{"id":11,"icon":"🥊","name":"โค้ชสายโหด","description":"พูดตรงแต่หวังดี ตบเรียกสติให้เลิกนิสัยเดิมๆ แล้วใช้สินค้าเป็นตัวช่วย"},{"id":12,"icon":"😳","name":"ปากไม่ตรงกับใจ (ซึนเดเระ)","description":"ช่วงแรกทำเป็นบ่น แต่สุดท้ายก็ยอมรับว่ามันก็ดีจริงๆ นั่นแหละ"},{"id":13,"icon":"🎭","name":"ตัวมารดาเล่นใหญ่","description":"รีวิวแบบละครหลังข่าว ทุกฟีเจอร์คือจุดพีค พลังทำลายล้างสูง"},{"id":14,"icon":"😤","name":"จอมขี้บ่น","description":"บ่นปัญหาเดิมๆ ซ้ำๆ จนกระทั่งมาเจอสินค้าตัวนี้ที่ทำให้หยุดบ่นได้สักที"},{"id":15,"icon":"⚔️","name":"ฮีโร่กู้โลก","description":"ปูเรื่องให้ปัญหาเป็นวายร้าย และสินค้าคืออัศวินขี่ม้าขาวมาช่วยคุณ"},{"id":16,"icon":"👼","name":"นางฟ้ากับมาเฟีย","description":"เสียงในหัวเถียงกันว่าจะซื้อดีไหม จบที่เหตุผลหรือกิเลสที่ดูดี"},{"id":17,"icon":"🛸","name":"ผู้มาจากอนาคต","description":"เปรียบเทียบความลำบากในยุคเก่า กับความสบายในยุคที่มีสินค้านี้"},{"id":18,"icon":"🔮","name":"แม่หมอพยากรณ์","description":"ผูกเรื่องดวงชะตากับสินค้า จักรวาลจัดสรรให้คุณต้องกดตะกร้าชิ้นนี้"},{"id":19,"icon":"🗣️","name":"สายแชร์เกินเรื่อง","description":"เล่าเรื่องส่วนตัวแบบลึกซึ้ง Trauma Dump แล้ววาร์ปกลับมาขายของเฉย"},{"id":20,"icon":"✨","name":"ตัวเอกในนิยาย","description":"พรีเซนต์ชีวิตดีๆ เหมือนอยู่ในหนัง ทุกการช้อปคือพล็อตเรื่องสำคัญ"},{"id":21,"icon":"🕵️","name":"นักสืบโซเชียล","description":"พลิกหลังกล่อง ส่องส่วนประกอบ เจาะลึกเหมือนทำคดีระดับชาติ"},{"id":22,"icon":"🧘","name":"ไลฟ์โค้ชสายลึก","description":"ขายที่ทัศนคติ การซื้อชิ้นนี้คือการเลือกรักตัวเองในเวอร์ชันใหม่"},{"id":23,"icon":"🤡","name":"ตลกร้ายสายเสียดสี","description":"จิกกัดค่านิยมการช้อปปิ้งไปพร้อมกับการขายของแบบมีชั้นเชิง"},{"id":24,"icon":"🚫","name":"แอนตี้อินฟลู","description":"รีวิวแบบขวานผ่าซาก ไม่รับอวย ไม่อ้อมค้อม เน้นความจริงใจ 100%"},{"id":25,"icon":"💖","name":"ติ่งตัวยง","description":"พลังแฟนคลับล้นหลาม รีวิวสินค้าให้ดูเหมือนการซัพพอร์ตไอดอลที่รัก"},{"id":26,"icon":"🌾","name":"ม่วนซื่นโฮแซว (อีสาน)","description":"สำเนียงอีสาน จริงใจ สนุกสนาน พลังงานบ้านๆ ที่น่าเชื่อถือ"},{"id":27,"icon":"🌶️","name":"แหลงใต้สายลุย (ใต้)","description":"พูดตรงไปตรงมา หนักแน่น มั่นใจในคุณภาพแบบไม่ต้องสืบ"},{"id":28,"icon":"🌸","name":"อู้กำเมืองนุ่มนวล (เหนือ)","description":"อ่อนหวาน ใจเย็น ฟังแล้วเคลิ้มเหมือนถูกต้อนรับด้วยไมตรี"},{"id":29,"icon":"💅","name":"ตัวแม่แคร์เพื่อ","description":"มั่นตัวแม่ จิกกัดความพัง โชว์ความปังด้วยสินค้าคุณภาพระดับควีน"},{"id":30,"icon":"👵","name":"ป้าข้างบ้านขี้เม้าท์","description":"อย่าไปบอกใครนะ เล่าเรื่องสินค้าเหมือนเป็นข่าวแซ่บประจำซอย"},{"id":31,"icon":"🛠️","name":"วัยรุ่นสร้างตัว","description":"สู้ชีวิต กัดก้อนเกลือกิน ใช้สินค้าเป็นเครื่องมือไต่เต้าสู่ความสำเร็จ"},{"id":32,"icon":"👴","name":"ปราชญ์ชาวบ้าน","description":"ใช้ภูมิปัญญาผู้ใหญ่มาการันตี ย่าสอนไว้ สร้างความเชื่อถือข้ามรุ่น"},{"id":33,"icon":"📈","name":"มวยรองข้ามรุ่น","description":"เล่าสตอรี่จากจุดต่ำสุดสู่ความสำเร็จ โดยมีสินค้าเป็นจุดเปลี่ยนชีวิต"},{"id":34,"icon":"👩‍❤️‍👨","name":"คู่รักคู่กัด","description":"แกล้งกันไปขายของกันไป เคมีฟุ้งกระจายผ่านความวุ่นวายในบ้าน"},{"id":35,"icon":"🎙️","name":"นักพากย์นรก","description":"พากย์เสียงทับภาพรีวิวแบบเพี้ยนๆ ตลกๆ เปลี่ยนเรื่องน่าเบื่อให้ขำกลิ้ง"},{"id":36,"icon":"🥦","name":"ผักนักเลง","description":"พืชผักสายโหด บ่นคนไม่กินผักแต่ภูมิใจในสารอาหาร สำเนียงนักเลงไทย"},{"id":37,"icon":"🫁","name":"อวัยวะรวมตัว","description":"ตับ ไต ไส้ พุง รวมตัวประท้วงเจ้าของร่างให้ดูแลตัวเองด้วยสินค้าสุขภาพ"},{"id":38,"icon":"🍚","name":"เครื่องใช้ไฟฟ้าขี้บ่น","description":"หม้อหุงข้าวหรือเครื่องซักผ้า บ่นเรื่องการถูกใช้งานหนักหรือโดนทิ้งขว้าง"},{"id":39,"icon":"💸","name":"กระเป๋าตังค์สั่น","description":"มุมมองจากเงินในบัญชี ดีใจตอนเงินเข้า สลดตอนเงินออก"},{"id":40,"icon":"📦","name":"พัสดุขี้น้อยใจ","description":"กล่องพัสดุที่ลุ้นว่าเจ้านายจะเปิดแรงไหม หรือจะชอบของข้างในหรือเปล่า"},{"id":41,"icon":"⛩️","name":"เจ้าที่สายป่วน","description":"วิญญาณผู้พิทักษ์บ้านที่มองดูพฤติกรรมคนยุคใหม่ด้วยความเอ็นดูและจิกกัด"},{"id":42,"icon":"🧪","name":"สกินแคร์พูดได้","description":"เล่าการเดินทางจากโรงงานสู่ผิวหน้า ความภูมิใจเมื่อเห็นหน้าเจ้าของใสขึ้น"},{"id":43,"icon":"⏰","name":"นาฬิกาปลุกจอมโหด","description":"ความสัมพันธ์แบบทั้งรักทั้งเกลียด บ่นเรื่องคนกด Snooze ซ้ำๆ"},{"id":44,"icon":"💻","name":"โน้ตบุ๊กสู้ชีวิต","description":"บ่นเรื่องเปิดแท็บเยอะจนร้อนจี๋ และความเหนื่อยล้าของคนทำงาน WFH"},{"id":45,"icon":"🧋","name":"ชานมที่รัก","description":"ความสัมพันธ์สุดโรแมนติกและเสพติดระหว่างคนกับเครื่องดื่มแก้วโปรด"},{"id":46,"icon":"🌵","name":"ต้นไม้ที่ถูกลืม","description":"มุมมองจากต้นไม้ในมุมมืดที่รอเจ้าของมาสนใจ แทนการไถมือถือ"},{"id":47,"icon":"🛂","name":"พาสปอร์ตสายเที่ยว","description":"เล่าความภูมิใจของตราปั๊ม และความเหงาเวลาถูกทิ้งไว้ในลิ้นชัก"},{"id":48,"icon":"👗","name":"เสื้อผ้าหลังตู้","description":"ชุดที่ซื้อมาไม่เคยใส่ประท้วงความลำเอียงของเจ้าของบ้าน"},{"id":49,"icon":"📿","name":"กุมารทองดิจิทัล","description":"ให้โชคลาภแบบมีเงื่อนไข เน้นสายมูยุคใหม่ คล้ายเจ้าที่แต่โทนแอปและของขลังดิจิทัล"},{"id":50,"icon":"🪑","name":"เก้าอี้ว่างการเมือง","description":"สันนิษฐานและจิกกัดสังคมผ่านสัญลักษณ์เปรียบเทียบ สายแซะแบบปลอดภัย"},{"id":51,"icon":"🍼","name":"คุณแม่มือใหม่","description":"สภาพร่างพังแต่พลังรักเต็มร้อน มองหาของใช้ที่ช่วยให้ชีวิตง่ายขึ้น"},{"id":52,"icon":"🥪","name":"คนแบกบ้าน (Sandwich Gen)","description":"ดูแลทั้งลูกและพ่อแม่ มองหาของที่ตอบโจทย์ทุกคนในบ้าน"},{"id":53,"icon":"🏬","name":"เจ้าของธุรกิจ SME","description":"คิดทุกบาทเป็นต้นทุน สินค้าต้องคุ้มค่าและช่วยทำเงินได้จริง"},{"id":54,"icon":"🎒","name":"นักเรียนงบน้อย","description":"เน้นของถูกและดี ของแท้เท่านั้น สเปกต้องคุ้มค่าตัว"},{"id":55,"icon":"🏠","name":"ฟรีแลนซ์หน้าคอม","description":"ชีวิตที่แยกงานกับบ้านไม่ออก มองหาความสะดวกสบายขั้นสุด"},{"id":56,"icon":"🏋️","name":"สายเพาะกายเน้นผล","description":"ไม่เน้นสวยงาม เน้นดาต้า ผลลัพธ์ และประสิทธิภาพการกู้ร่าง"},{"id":57,"icon":"📱","name":"เด็กเจน Z ช่างเลือก","description":"เช็กข้อมูลเก่ง จับโป๊ะโฆษณาไว ชอบแบรนด์ที่มีจุดยืนชัดเจน"},{"id":58,"icon":"🍃","name":"สายคลีนเรียบง่าย","description":"ซื้อน้อยแต่ซื้อนะ เน้นคุณภาพที่ยั่งยืนและเข้ากับบ้านที่จัดระเบียบ"},{"id":59,"icon":"🌙","name":"นักช้อปตีสอง","description":"ไถฟีดตอนเหงา กดสั่งเพราะอารมณ์นำทาง รีวิวแบบมึนๆ แต่จริงใจ"},{"id":60,"icon":"🛐","name":"ผู้ศรัทธาหน้าใหม่","description":"อดีตคนเคยไม่เชื่อในสินค้ากลุ่มนี้ แต่ตอนนี้กลายเป็นสาวกตัวยง"}]`);
-    /** บรรยากาศ: คีย์นี้เปิด factory pipeline ไม่ส่งเป็นคีย์อารมณ์ใน prompt */
-    const MOOD_KEY_FACTORY_WAREHOUSE = "Factory / Warehouse UGC";
     /** MOOD_KEYWORDS_DATA — mood + group (ดึงจาก CONTENT_CORE/02-master-prompt-template.js) */
     const MOOD_KEYWORDS_DATA = [
       // 🎬 ภาพยนตร์ & ดราม่า
@@ -2045,7 +2129,6 @@
       { key: "Duet / Stitch Ready",    thai: "พร้อม Duet และ Stitch",  icon: "🤝", group: "tiktok" },
       { key: "Glitch & Retro Digital", thai: "กลิทช์วินเทจดิจิทัล",  icon: "📺", group: "tiktok" },
       { key: "Viral Hook Opener",      thai: "เปิดตัวดึงคนดู 3 วิ",   icon: "🪝", group: "tiktok" },
-      { key: MOOD_KEY_FACTORY_WAREHOUSE, thai: "โรงงาน/โกดัง",   icon: "🏭", group: "factory" },
     ];
     const MOOD_GROUPS = [
       { key: "cinematic", icon: "🎬", title: "ภาพยนตร์ & ดราม่า"   },
@@ -2053,7 +2136,6 @@
       { key: "thai",      icon: "🇹🇭", title: "สไตล์ไทย"             },
       { key: "content",   icon: "🛍️", title: "คอนเทนต์สินค้า"       },
       { key: "tiktok",    icon: "📱", title: "ฟอร์แมต TikTok"        },
-      { key: "factory",   icon: "🏭", title: "โรงงาน/โกดัง"         },
     ];
     /** backward-compat: derive flat array + map จาก DATA */
     const MOOD_KEYWORDS = MOOD_KEYWORDS_DATA.map(function(m) { return m.key; });
@@ -2113,47 +2195,58 @@
 
     let mode = "story";
     const MODE_STORAGE_KEY = "storymodeMockModeV1";
-    const FACTORY_POV_STORAGE_KEY = "storymodeFactoryPovV1";
+    const FACTORY_DNA_STORAGE_KEY = "storymodeFactoryDnaJsonV1";
+    /** parse จาก #factory-dna-json — ส่งเป็น payload.factoryDna */
+    let factoryDnaParsed = null;
 
-    function applyFactoryWarehousePovUI() {
-      const isStory = mode === "story";
-      const on =
-        isStory && (function () {
-          var inp = findChipInput("mood-chips", MOOD_KEY_FACTORY_WAREHOUSE);
-          return !!(inp && inp.checked);
-        })();
-      if (on) {
-        document.body.classList.add("factory-warehouse-pov");
-      } else {
-        document.body.classList.remove("factory-warehouse-pov");
+    function refreshFactoryDnaParsed() {
+      factoryDnaParsed = null;
+      var el = document.getElementById("factory-dna-json");
+      var st = document.getElementById("factory-dna-parse-status");
+      if (!el) return;
+      var raw = String(el.value || "").trim();
+      if (!raw) {
+        if (st) st.textContent = "";
+        return;
       }
+      try {
+        factoryDnaParsed = JSON.parse(raw);
+        if (st) {
+          st.textContent =
+            "JSON ถูกต้อง — แนบ factoryDna ตอนเจน (โหมด Story ใช้ใน system/user prompt)";
+        }
+      } catch (err) {
+        var msg = err && err.message ? err.message : String(err);
+        if (st) st.textContent = "JSON ไม่ถูกต้อง: " + msg;
+      }
+    }
+
+    function syncStoryModeToolbars() {
+      const isStory = mode === "story";
       var hBar = document.querySelector(".hero-analysis-toolbar");
-      var pBar = document.getElementById("product-analysis-toolbar");
       if (hBar) {
-        var showHeroTools = isStory && !on;
+        var showHeroTools = isStory;
         hBar.style.display = showHeroTools ? "flex" : "none";
         hBar.setAttribute("aria-hidden", showHeroTools ? "false" : "true");
       }
-      if (pBar) {
-        var showProductTools = isStory && on;
-        pBar.style.display = showProductTools ? "flex" : "none";
-        pBar.setAttribute("aria-hidden", showProductTools ? "false" : "true");
-      }
-      var dDef = document.getElementById("dialogue-rule-default");
-      var dFac = document.getElementById("dialogue-rule-factory");
-      if (dFac) {
-        dFac.style.display = isStory && on ? "block" : "none";
-      }
-      if (dDef) {
-        if (isStory && on) {
-          dDef.style.display = "none";
-        } else {
-          dDef.style.display = "";
-        }
-      }
-      try {
-        syncDomainKnowledgeUI();
-      } catch (_) {}
+    }
+
+    /** หมวดโรงงาน (Factory DNA) — แสดงเฉพาะโหมด Story */
+    function syncFactoryCategoryVisibility() {
+      var sec = document.getElementById("section-factory-dna");
+      if (!sec) return;
+      var show = mode === "story";
+      sec.hidden = !show;
+      sec.setAttribute("aria-hidden", show ? "false" : "true");
+    }
+
+    /** คำแนะนำบรีฟสั้น vs DNA — แสดงเฉพาะโหมด Story */
+    function syncStoryBriefPromptHint() {
+      var el = document.getElementById("prompt-story-brief-hint");
+      if (!el) return;
+      var show = mode === "story";
+      el.hidden = !show;
+      el.setAttribute("aria-hidden", show ? "false" : "true");
     }
     /** สินค้า + ตัวละครแต่ละ slot: อาร์เรย์สูงสุด 5 รูป (input multiple) */
     const MULTI_IMAGE_MAX = 5;
@@ -2165,8 +2258,30 @@
     };
     /** ผลวิเคราะห์ Hero (JSON) — แนบใน payload ตอนเจนสคริปต์ */
     let heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
-    /** วิเคราะห์รูปสินค้า (ใช้โหมดโรงงาน/โกดัง) — กำหนดฉากหลัง-ขนาด-การเคลื่อน */
-    let productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+    /** จับคู่กับ STORYMODE_PROMPT_ASSET_VERSION ใน storymode-mock-gemini-core.js — ใช้ localStorage ไม่ใช้คุกกี้ */
+    var PROMPT_ASSET_VERSION_STORAGE_KEY = "storymodePromptAssetVersionV1";
+    function syncPromptAssetVersionInvalidateCaches() {
+      var V =
+        typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
+          ? STORYMODE_PROMPT_ASSET_VERSION
+          : null;
+      if (V == null) return;
+      try {
+        var prev = localStorage.getItem(PROMPT_ASSET_VERSION_STORAGE_KEY);
+        if (prev === String(V)) return;
+        localStorage.setItem(PROMPT_ASSET_VERSION_STORAGE_KEY, String(V));
+      } catch (_) {
+        return;
+      }
+      heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      var ho = document.getElementById("hero-analysis-out");
+      var hs = document.getElementById("hero-analyze-status");
+      if (ho) {
+        ho.textContent = "";
+        ho.style.display = "none";
+      }
+      if (hs) hs.textContent = "";
+    }
     let salesFormulaId = null;
     /** จำนวนฉากล่าสุดที่ใช้สุ่มสูตรขาย — สุ่มใหม่เมื่อจำนวนฉากเปลี่ยน หรือกดสุ่มใหม่ */
     let lastSalesRandomSceneCount = null;
@@ -2477,27 +2592,7 @@
         cardsEl.appendChild(btn);
       });
 
-      /* register change listeners for mood chips — โรงงาน/โกดัง กับ mood อื่น ไม่เอาไปพร้อมกัน */
-      chipsRoot.addEventListener("change", function (e) {
-        const t = e.target;
-        if (!t || !t.matches('input[type="checkbox"]')) return;
-        if (t.checked) {
-          if (t.value === MOOD_KEY_FACTORY_WAREHOUSE) {
-            chipsRoot.querySelectorAll('input[type="checkbox"]').forEach(function (inp) {
-              if (inp !== t) inp.checked = false;
-            });
-          } else {
-            const fac = findChipInput("mood-chips", MOOD_KEY_FACTORY_WAREHOUSE);
-            if (fac) fac.checked = false;
-          }
-        }
-        try {
-          const fac2 = findChipInput("mood-chips", MOOD_KEY_FACTORY_WAREHOUSE);
-          localStorage.setItem(
-            FACTORY_POV_STORAGE_KEY,
-            fac2 && fac2.checked ? "1" : "0"
-          );
-        } catch (_) {}
+      chipsRoot.addEventListener("change", function () {
         updatePreview();
       });
 
@@ -2917,7 +3012,7 @@
       if (nextMode === "product") {
         renderSalesFormulas();
       }
-      applyFactoryWarehousePovUI();
+      syncStoryModeToolbars();
       updatePreview();
       if (!o.skipPersist) {
         try {
@@ -2948,13 +3043,9 @@
     }
 
     function getCurrentPayload() {
+      refreshFactoryDnaParsed();
       const hook = getSelectedHook();
       const moodKeysRaw = selectedValues("mood-chips");
-      const factoryPovMode =
-        mode === "story" && moodKeysRaw.indexOf(MOOD_KEY_FACTORY_WAREHOUSE) !== -1;
-      const moodKeysForModel = moodKeysRaw.filter(function (k) {
-        return k !== MOOD_KEY_FACTORY_WAREHOUSE;
-      });
       const productStagedTop = Array.isArray(files.product) ? files.product.filter(function (f) { return f; }) : [];
       const productImageDimensions = productStagedTop.map(function (f) {
         if (!f) {
@@ -2968,11 +3059,8 @@
       });
       return {
         mode: mode === "story" ? "storymode" : "product_sell",
-        factoryPovMode: factoryPovMode,
+        factoryDna: factoryDnaParsed,
         productImageDimensions: productImageDimensions,
-        productImageAnalysis: productAnalysisCache.parsed,
-        productImageAnalysisText:
-          (productAnalysisCache.rawText && String(productAnalysisCache.rawText).trim()) || null,
         prompt: document.getElementById("prompt").value.trim(),
         images: (function () {
           var productStaged = productStagedTop;
@@ -3000,13 +3088,11 @@
           var c1 = Array.isArray(files.character1) ? files.character1.filter(function (f) { return f; }) : [];
           var c2 = Array.isArray(files.character2) ? files.character2.filter(function (f) { return f; }) : [];
           var c3 = Array.isArray(files.character3) ? files.character3.filter(function (f) { return f; }) : [];
-          const slots = factoryPovMode
-            ? productSlots
-            : productSlots.concat(
-                expandCharacterSlot("character1"),
-                expandCharacterSlot("character2"),
-                expandCharacterSlot("character3")
-              );
+          const slots = productSlots.concat(
+            expandCharacterSlot("character1"),
+            expandCharacterSlot("character2"),
+            expandCharacterSlot("character3")
+          );
           const imagesForGemini = slots
             .filter(function (s) { return s.file && s.file.data; })
             .map(function (s) {
@@ -3021,17 +3107,15 @@
           return {
             productAttached: !!primaryProductFile,
             productAttachedCount: productStaged.length,
-            characterAttached: factoryPovMode
-              ? false
-              : !!(c1.length || c2.length || c3.length),
-            character1Attached: factoryPovMode ? false : c1.length > 0,
-            character2Attached: factoryPovMode ? false : c2.length > 0,
-            character3Attached: factoryPovMode ? false : c3.length > 0,
-            characterImageCounts: factoryPovMode ? [0, 0, 0] : [c1.length, c2.length, c3.length],
+            characterAttached: !!(c1.length || c2.length || c3.length),
+            character1Attached: c1.length > 0,
+            character2Attached: c2.length > 0,
+            character3Attached: c3.length > 0,
+            characterImageCounts: [c1.length, c2.length, c3.length],
             productName: primaryProductFile?.name || null,
             productNames: productStaged.map(function (f) { return f && f.name; }).filter(Boolean),
-            characterName: factoryPovMode ? null : c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
-            characterNames: factoryPovMode ? [] : [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
+            characterName: c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
+            characterNames: [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
             imagesForGemini: imagesForGemini
           };
         })(),
@@ -3042,8 +3126,8 @@
         narrativeStyles: selectedValues("narrative-chips")
           .map((id) => STYLE_OPTIONS.find((o) => String(o.id) === id))
           .filter(Boolean),
-        moodKeywords: moodKeysForModel,
-        moodKeywordsDetail: moodKeysForModel.map(function(m) {
+        moodKeywords: moodKeysRaw,
+        moodKeywordsDetail: moodKeysRaw.map(function(m) {
           const mObj = MOOD_KEYWORDS_DATA.find(function(x) { return x.key === m; });
           return {
             value: m,
@@ -3071,7 +3155,6 @@
             })
           : null,
         characterCard: (function () {
-          if (factoryPovMode) return null;
           if (typeof buildCompactCharacterCard !== "function") return null;
           if (typeof resolveVoiceDirective !== "function") return null;
           const rv = resolveVoiceDirective({
@@ -3133,7 +3216,6 @@
 
     function isDomainKnowledgeInjectionAllowedFromPayload(payload) {
       if (!payload || payload.mode !== "storymode") return false;
-      if (payload.factoryPovMode) return false;
       const ids = payload.narrativeStyleIds || [];
       for (var j = 0; j < ids.length; j++) {
         var n = Number(ids[j]);
@@ -3338,7 +3420,9 @@
 
     function updatePreview() {
       syncDomainKnowledgeUI();
-      applyFactoryWarehousePovUI();
+      syncStoryModeToolbars();
+      syncFactoryCategoryVisibility();
+      syncStoryBriefPromptHint();
       const payload = getCurrentPayload();
       document.getElementById("json-out").textContent = JSON.stringify(payload, null, 2);
       syncVisualSelectedBox();
@@ -3584,23 +3668,14 @@
       } catch (_) {}
     })();
 
-    (function restoreFactoryPovFromStorage() {
+    (function restoreFactoryDnaFromStorage() {
       try {
-        var v = localStorage.getItem(FACTORY_POV_STORAGE_KEY);
-        if (v !== "1") {
-          return;
+        var s = localStorage.getItem(FACTORY_DNA_STORAGE_KEY);
+        var fd = document.getElementById("factory-dna-json");
+        if (s && fd) {
+          fd.value = s;
+          refreshFactoryDnaParsed();
         }
-        var root = document.getElementById("mood-chips");
-        if (!root) {
-          return;
-        }
-        root.querySelectorAll('input[type="checkbox"]').forEach(function (inp) {
-          inp.checked = inp.value === MOOD_KEY_FACTORY_WAREHOUSE;
-        });
-      } catch (_) {}
-      try {
-        applyFactoryWarehousePovUI();
-        updatePreview();
       } catch (_) {}
     })();
 
@@ -3610,6 +3685,56 @@
     document.getElementById("prompt").addEventListener("input", updatePreview);
     document.getElementById("btn-clear-prompt-images").addEventListener("click", clearPromptAndImages);
     document.getElementById("h1h2").addEventListener("change", updatePreview);
+
+    (function initFactoryDnaUI() {
+      var fd = document.getElementById("factory-dna-json");
+      var btnEx = document.getElementById("btn-factory-dna-example");
+      var btnClr = document.getElementById("btn-factory-dna-clear");
+      if (fd) {
+        fd.addEventListener("input", function () {
+          try {
+            localStorage.setItem(FACTORY_DNA_STORAGE_KEY, fd.value);
+          } catch (_) {}
+          refreshFactoryDnaParsed();
+          updatePreview();
+        });
+      }
+      if (btnEx) {
+        btnEx.addEventListener("click", function () {
+          fetch("factory-dna-v1.example.json", { cache: "no-store" })
+            .then(function (r) {
+              if (!r.ok) throw new Error("HTTP " + r.status);
+              return r.json();
+            })
+            .then(function (data) {
+              if (fd) fd.value = JSON.stringify(data, null, 2);
+              try {
+                if (fd) localStorage.setItem(FACTORY_DNA_STORAGE_KEY, fd.value);
+              } catch (_) {}
+              refreshFactoryDnaParsed();
+              updatePreview();
+            })
+            .catch(function (e) {
+              var st = document.getElementById("factory-dna-parse-status");
+              if (st) {
+                st.textContent =
+                  "โหลดตัวอย่างไม่ได้ — เปิดผ่าน http (เช่น python3 serve_story_mock.py): " +
+                  (e && e.message ? e.message : String(e));
+              }
+            });
+        });
+      }
+      if (btnClr) {
+        btnClr.addEventListener("click", function () {
+          if (fd) fd.value = "";
+          try {
+            localStorage.removeItem(FACTORY_DNA_STORAGE_KEY);
+          } catch (_) {}
+          refreshFactoryDnaParsed();
+          updatePreview();
+        });
+      }
+    })();
 
     function revokeDropThumb(lab) {
       lab.querySelectorAll("img.thumb").forEach(function (old) {
@@ -3640,7 +3765,6 @@
         }
       });
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
-      productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       var ho = document.getElementById("hero-analysis-out");
       var hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -3648,13 +3772,12 @@
         ho.style.display = "none";
       }
       if (hs) hs.textContent = "";
-      var pao = document.getElementById("product-analysis-out");
-      var pas = document.getElementById("product-analyze-status");
-      if (pao) {
-        pao.textContent = "";
-        pao.style.display = "none";
-      }
-      if (pas) pas.textContent = "";
+      var fd = document.getElementById("factory-dna-json");
+      if (fd) fd.value = "";
+      try {
+        localStorage.removeItem(FACTORY_DNA_STORAGE_KEY);
+      } catch (_) {}
+      refreshFactoryDnaParsed();
       updatePreview();
     }
 
@@ -3736,16 +3859,6 @@
       return out;
     }
 
-    function collectProductRefImagesForAnalysis() {
-      var out = [];
-      (files.product || []).forEach(function (f) {
-        if (f && f.data && f.mimeType) {
-          out.push({ mimeType: f.mimeType, data: f.data });
-        }
-      });
-      return out;
-    }
-
     function buildHeroImageOrderLegend() {
       var lines = [];
       var idx = 0;
@@ -3780,16 +3893,6 @@
         var key = e.target.dataset.key;
         var lab = e.target.closest(".drop");
         if (!lab) return;
-        if (key === "product") {
-          productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
-          var pax = document.getElementById("product-analysis-out");
-          var pasy = document.getElementById("product-analyze-status");
-          if (pax) {
-            pax.textContent = "";
-            pax.style.display = "none";
-          }
-          if (pasy) pasy.textContent = "";
-        }
         if (isMultiFileKey(key) && (key === "character1" || key === "character2" || key === "character3")) {
           heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
           var hox = document.getElementById("hero-analysis-out");
@@ -3845,84 +3948,6 @@
         updatePreview();
       });
     });
-
-    (function () {
-    var bPr = document.getElementById("btn-product-analyze");
-    if (bPr) {
-      bPr.addEventListener("click", async function () {
-        const G = window.MockStorymodeGemini;
-        const stEl = document.getElementById("product-analyze-status");
-        const outEl = document.getElementById("product-analysis-out");
-        const keyEl = document.getElementById("gemini-api-key");
-        if (!G || !G.buildProductAnalysisSystemPrompt) {
-          if (stEl) stEl.textContent = isGeminiPublicCalm() ? "โหลดเครื่องมือเจนไม่สำเร็จ" : "โหลด gemini-core ไม่สำเร็จ";
-          return;
-        }
-        var imgs = collectProductRefImagesForAnalysis();
-        if (!imgs.length) {
-          if (stEl) stEl.textContent = "อัปโหลดรูปสินค้าอย่างน้อย 1 รูปที่อ่านข้อมูลเสร็จแล้วก่อน";
-          return;
-        }
-        var apiKey = keyEl && keyEl.value ? keyEl.value.trim() : "";
-        if (!apiKey) {
-          try {
-            apiKey = (localStorage.getItem(GEMINI_API_STORAGE_KEY) || "").trim();
-          } catch (_) {}
-          if (apiKey && keyEl) keyEl.value = apiKey;
-        }
-        if (!apiKey && !window.__GEMINI_SERVER_MODE__) {
-          if (stEl) stEl.textContent = "ยังไม่พร้อมเจน — กรุณาเพิ่ม API key ในหน้า (นักพัฒนา) หรือใช้งานเวอร์ชันที่ฝั่งเซิร์ฟเวอร์เปิดให้แล้ว";
-          return;
-        }
-        const sys = G.buildProductAnalysisSystemPrompt();
-        const usr = G.buildProductAnalysisUserMessage();
-        if (stEl) stEl.textContent = "กำลังวิเคราะห์…";
-        if (bPr) bPr.disabled = true;
-        try {
-          var res = await G.mockFetchGeminiStorymode(
-            apiKey,
-            sys,
-            usr,
-            imgs,
-            { skipStorySafety: true, temperature: 0.25, maxOutputTokens: 4096 }
-          );
-          var raw = res && res.text ? String(res.text) : "";
-          var parsed = null;
-          try {
-            parsed = parseJsonFromGeminiText(raw);
-          } catch (pe) {
-            if (stEl) stEl.textContent = "ได้ข้อความแล้ว แต่ parse JSON ไม่ผ่าน — ดู raw ด้านล่าง";
-          }
-          productAnalysisCache = {
-            rawText: raw,
-            parsed: parsed,
-            at: Date.now(),
-            error: parsed ? null : "parse"
-          };
-          if (stEl) {
-            stEl.textContent = parsed
-              ? "เสร็จ — แนบอัตโนมัติตอนกด «เจนสคริปต์ฉาก» (โรงงาน/โกดัง)"
-              : (stEl.textContent || "ดู raw ด้านล่าง");
-          }
-          if (outEl) {
-            outEl.textContent = parsed ? JSON.stringify(parsed, null, 2) : raw;
-            outEl.style.display = "block";
-          }
-          updatePreview();
-        } catch (err) {
-          var msg = err && err.message ? err.message : String(err);
-          productAnalysisCache = { rawText: null, parsed: null, at: null, error: msg };
-          if (stEl) stEl.textContent = "ผิดพลาด: " + msg;
-          if (outEl) {
-            outEl.textContent = msg;
-            outEl.style.display = "block";
-          }
-        } finally {
-          bPr.disabled = false;
-        }
-      });
-    }
-    })();
 
     (function () {
     var bHero = document.getElementById("btn-hero-analyze");
@@ -4345,48 +4370,6 @@
       }
     }
 
-    async function runProductAnalysisInBackground(apiKey) {
-      const G = window.MockStorymodeGemini;
-      if (!G || typeof G.buildProductAnalysisSystemPrompt !== "function") return false;
-      if (productAnalysisCache && productAnalysisCache.parsed) return false;
-      var imgs;
-      try {
-        imgs = collectProductRefImagesForAnalysis();
-      } catch (_) {
-        imgs = [];
-      }
-      if (!imgs.length) return false;
-      if (!apiKey && !window.__GEMINI_SERVER_MODE__) return false;
-      try {
-        var sys = G.buildProductAnalysisSystemPrompt();
-        var usr = G.buildProductAnalysisUserMessage();
-        var res = await G.mockFetchGeminiStorymode(apiKey, sys, usr, imgs, {
-          skipStorySafety: true,
-          temperature: 0.25,
-          maxOutputTokens: 4096
-        });
-        var raw = res && res.text ? String(res.text) : "";
-        var parsed = null;
-        try {
-          parsed = parseJsonFromGeminiText(raw);
-        } catch (_) {
-          parsed = null;
-        }
-        productAnalysisCache = {
-          rawText: raw,
-          parsed: parsed,
-          at: Date.now(),
-          error: parsed ? null : "parse"
-        };
-        return !!parsed;
-      } catch (e) {
-        try {
-          console.warn("[product] background analysis failed:", e && e.message ? e.message : e);
-        } catch (_) {}
-        return false;
-      }
-    }
-
     document.getElementById("btn-generate").addEventListener("click", async () => {
       const status = document.getElementById("generate-status");
       if (document.body.classList.contains("deployed-gemini-wait")) {
@@ -4476,7 +4459,11 @@
       save({
         status: "processing",
         message: "กำลังเตรียมคำขอ…",
-        ts: Date.now()
+        ts: Date.now(),
+        promptAssetVersion:
+          typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
+            ? STORYMODE_PROMPT_ASSET_VERSION
+            : null
       });
       status.textContent = "กำลังเจน — ดูผลด้านล่าง…";
       var resSec = document.getElementById("section-gemini-result");
@@ -4507,7 +4494,6 @@
 
         try {
           var heroNeeded =
-            !payload.factoryPovMode &&
             !heroAnalysisCache.parsed &&
             collectCharacterRefImagesForAnalysis().length > 0;
           if (heroNeeded) {
@@ -4522,23 +4508,6 @@
           /* hero analysis เบื้องหลัง — ผิดพลาดก็ไม่บล็อกการเจน */
         }
 
-        try {
-          var productAnalysisNeeded =
-            payload.factoryPovMode &&
-            !productAnalysisCache.parsed &&
-            collectProductRefImagesForAnalysis().length > 0;
-          if (productAnalysisNeeded) {
-            status.textContent = "กำลังวิเคราะห์รูปสินค้า (เบื้องหลัง)…";
-            await runProductAnalysisInBackground(apiKey);
-            payload = getCurrentPayload();
-            await injectDomainKnowledgePayload(payload);
-            await injectProductFactsPayload(payload);
-            status.textContent = "กำลังเจน — ดูผลด้านล่าง…";
-          }
-        } catch (_) {
-          /* product image analysis */
-        }
-
         const system = G.buildStorymodeSystemPromptFromPayload(payload);
         const user = G.buildStorymodeUserMessageFromPayload(payload);
         if (!user) throw new Error("User message ว่าง");
@@ -4548,9 +4517,13 @@
           status: "processing",
           message: userFacingBusyMessage(),
           imageRefOrder: imageRefOrder,
-          ts: Date.now()
+          ts: Date.now(),
+          promptAssetVersion:
+            typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
+              ? STORYMODE_PROMPT_ASSET_VERSION
+              : null
         });
-        const out = await G.mockFetchGeminiStorymode(apiKey, system, user, imagesForGemini);
+        const out = await G.mockFetchGeminiStorymode(apiKey, system, user, imagesForGemini, {});
         save({
           status: "done",
           text: out.text,
@@ -4559,7 +4532,11 @@
           error: null,
           imageRefOrder: imageRefOrder,
           safety: out.safety || null,
-          ts: Date.now()
+          ts: Date.now(),
+          promptAssetVersion:
+            typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
+              ? STORYMODE_PROMPT_ASSET_VERSION
+              : null
         });
         status.textContent = "สำเร็จ — ดูผลด้านล่าง";
         var resOk = document.getElementById("section-gemini-result");
@@ -4583,7 +4560,11 @@
           error: msg,
           imageRefOrder: errRef,
           safety: null,
-          ts: Date.now()
+          ts: Date.now(),
+          promptAssetVersion:
+            typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
+              ? STORYMODE_PROMPT_ASSET_VERSION
+              : null
         });
         status.textContent = msg + " (ดูรายละเอียดด้านล่าง)";
       } finally {
@@ -4613,6 +4594,7 @@
     renderSalesFormulas();
     renderVoiceTypes();
     syncVoiceSelectedBox();
+    syncPromptAssetVersionInvalidateCaches();
     updatePreview();
     requestAnimationFrame(function() {
       syncNarrativeSelectedUI();

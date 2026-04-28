@@ -11,6 +11,12 @@
 
   const g = typeof globalThis !== 'undefined' ? globalThis : (typeof window !== 'undefined' ? window : this);
 
+  /**
+   * Bump when story prompt schema or pipeline rules change.
+   * story-config-mock.html compares this to localStorage (not cookies) to drop stale hero analysis cache.
+   */
+  g.STORYMODE_PROMPT_ASSET_VERSION = 202604302;
+
   if (typeof g.getMoodDirective !== 'function') {
     g.getMoodDirective = function (moodKeyword) {
       if (!moodKeyword) return '';
@@ -58,6 +64,29 @@
 
   const getMoodDirective = g.getMoodDirective;
   const formatNarrativePromptsForMessage = g.formatNarrativePromptsForMessage;
+
+  /**
+   * คำโฆษณาต้องห้าม — ชุดเดียวกับ applyStorymodeSafetyToText หลังเจน (`stripForbiddenMarketing` จาก enrich-bundle)
+   */
+  function sanitizeStorymodeUserPlainText(text) {
+    if (!text || typeof text !== 'string') return text || '';
+    var fn =
+      typeof g.stripForbiddenMarketing === 'function'
+        ? g.stripForbiddenMarketing
+        : typeof globalThis !== 'undefined' && typeof globalThis.stripForbiddenMarketing === 'function'
+          ? globalThis.stripForbiddenMarketing
+          : null;
+    if (!fn) return text;
+    try {
+      return fn(text).text;
+    } catch (err) {
+      return text;
+    }
+  }
+
+  if (typeof globalThis !== 'undefined' && typeof globalThis.stripForbiddenMarketing === 'function') {
+    g.stripForbiddenMarketing = globalThis.stripForbiddenMarketing;
+  }
 
   const STORY_TYPE_TEMPLATES = [
     { id: 'custom', name: 'กำหนดเอง (Custom)', icon: '✏️', description: 'ใส่หัวข้อเอง AI สร้างเรื่องให้อิสระ' },
@@ -149,152 +178,8 @@
     );
   }
 
-  /**
-   * Pipeline: โรงงาน/โกดัง — ยึด productImageAnalysis กำหนดฉาก-ตัวประกอบ, ฮีโอพูดเร็ว, ไม่ใช้ ref ตัวคน
-   */
-  function buildFactoryWarehouseSystemPromptFromPayload(payload, opts) {
-    opts = opts || {};
-    const n = Math.min(50, Math.max(1, Number(payload.sceneCount) || 2));
-    const vObj = (payload.visualStyles && payload.visualStyles[0]) || null;
-    const visualId =
-      (payload.visualStyleIds && payload.visualStyleIds[0]) || (vObj && vObj.id) || 'cinematic';
-    const smVisualStyleDisplay = (vObj && vObj.name) || String(visualId);
-    const visualDesc =
-      visualStyleEngMap[visualId] ||
-      visualStyleEngMap.cinematic ||
-      'Photorealistic handheld smartphone look, natural lighting, authentic warehouse or factory context.';
-
-    return (
-      'You are a Thai-language **warehouse / factory stock-clearance** short-form (TikTok/Reels) creative director. ' +
-      'Each scene is a **~8 second** clip, but the **host speaks faster** than a normal slow UGC: target **~4.5–6.0 second** to read the Dialogue line aloud (high energy, staccato, no slow "landing" on the last word).\n\n' +
-      '═══ PRIMARY SETTING — must follow user message "PRODUCT_IMAGE_ANALYSIS" ═══\n' +
-      '- The user message will include a **JSON block** (from prior vision analysis of the **product** images). That JSON is the **source of truth** for: **size_class**, how the item is **handled** in a real warehouse (hand-packing, shipper, case **stack** / **pallet** / bulk), and **primary environment** (bench line vs bulk aisle vs loading, etc.).\n' +
-      '- **If** that JSON is **absent**, infer from the attached product reference images and **pixel dimensions** with **lower** confidence, but still obey **size logic**: **small/tiny** SKUs → shots that feel like **filling, sealing, or placing into a carton/shipper**; **larger** or **case** goods → **pallet** stacks, **wider** aisles, two-hand **lift** or walk-up to a **tall** stack, **not** a tiny-packet extreme close-up.\n' +
-      '- All **IMAGE PROMPTs** and **action** in **VIDEO** must be **grounded in that analysis** and stay **consistent** with the **industrial** setting.\n\n' +
-      '═══ HERO (ONE) — FASTER SPOKEN DIALOGUE ═══\n' +
-      '- **Exactly one** `warehouse_hero` (Thai) for the **entire** run; `Speaker: warehouse_hero (Thai)` on **every** scene; **continuous** through-line, **no** second narrator, **no** line from extras.\n' +
-      '- **Faster** delivery: short clauses, no filler, no slow emotional **drag**; still punchy and sell+warehouse. Dialogue must fit the **4.5–6.0s** read target (not 8s slow). Each scene: `Dialogue: "..."` in Thai.\n' +
-      '- **Do not** use a **separate** character ref image. Visuals = **off-screen** hero voice, **or** **first-person** / **hands + product + warehouse**, or partial arms — **no** on-screen "hero face" from a reference person.\n\n' +
-      '═══ EXTRAS / background cast ═══\n' +
-      '- You may show **a few** background **extras** (workers, people moving) **in** the deep background or **mid** ground — they must be **plausible** for a **real factory/warehouse** and for this **product’s scale** (PPE, carts, hand pallet truck, case tape station next to a **pack line** for small items; **higher** racks / **pallet** context for **bulk**). **Not** random bystanders or showroom shoppers.\n' +
-      '- Extras are **silent** (no lip-sync dialogue in the story).\n\n' +
-      '═══ AUDIO (HARD) ═══\n' +
-      '- **Only** `warehouse_hero` **spoken** Thai. **No** BGM, **no** in-scene **music** bed, **no** SFX/stinger/foley/whoosh. The VIDEO block must end with: **"Audio: Thai voice-only (warehouse_hero). No music. No SFX."**\n\n' +
-      '═══ CAMERA — PHYSICAL ONLY ═══\n' +
-      '- Only **plausible, physical** **handheld / walk / pan-tilt** / subtle **dolly** — no VFX camera, no impossible moves (same as before).\n\n' +
-      '═══ REFERENCE SIZES (if provided) ═══\n' +
-      '- **Pixel** width/height per product file — respect **aspect** and **framing**; align with `PRODUCT_IMAGE_ANALYSIS`.\n\n' +
-      '═══ VISUAL STYLE (chips) ═══\n' +
-      'Label: ' +
-      smVisualStyleDisplay +
-      '\nEnglish: ' +
-      visualDesc +
-      '\n\n' +
-      '═══ OUTPUT FORMAT (exact) ═══\n' +
-      '**' +
-      n +
-      '** scenes. Each `Dialogue` line: **4.5–6.0s** read, **faster** pace.\n\n' +
-      '=== SCENE [N]: [SHORT_SCENE_NAME] ===\n' +
-      '🔴 IMAGE PROMPT — English; match **PRODUCT_IMAGE_ANALYSIS** environment; hands+product+warehouse+coherent extras; no collage; single frame.\n' +
-      '🟢 VIDEO — physical camera + Optional yellow Thai sign as **prop** only. End with `Speaker: warehouse_hero (Thai)` and `Dialogue: "..."`.\n\n' +
-      'CRITICAL: (1) English in prompts except Thai Dialogue. (2) **Primary** = **product analysis** JSON. (3) **No** character ref faces. (4) Voice-only audio. (5) Extras **coherent** with product+warehouse. (6) ' +
-      n +
-      ' scenes exactly.\n'
-    );
-  }
-
-  function buildFactoryWarehouseUserMessageFromPayload(payload) {
-    const topic = (payload.prompt || '').trim();
-    if (!topic) return '';
-    const n = Math.min(50, Math.max(1, Number(payload.sceneCount) || 2));
-    const vObj = (payload.visualStyles && payload.visualStyles[0]) || null;
-    const visualLabel =
-      payload.visualStyles && payload.visualStyles.length
-        ? payload.visualStyles
-            .map(function (v) {
-              return (v.icon || '') + ' ' + (v.en || v.name || v.id);
-            })
-            .join(' | ')
-        : 'Photoreal (default)';
-
-    var msg = '';
-
-    if (payload.productImageAnalysis && typeof payload.productImageAnalysis === 'object') {
-      msg +=
-        '═══ PRODUCT_IMAGE_ANALYSIS (PRIMARY — ฉากหลัง มุมจับ กอง-บรรจุ ตัวประกอบ; ออกแบบทุกฉากยึดบล็อกนี้ก่อน) ═══\n' +
-        JSON.stringify(payload.productImageAnalysis, null, 2) +
-        '\n\n';
-    } else if (payload.productImageAnalysisText && String(payload.productImageAnalysisText).trim()) {
-      msg +=
-        '═══ PRODUCT_IMAGE_ANALYSIS (raw text — ใช้เป็นหลักถ้า parse ก่อนหน้าไม่มี) ═══\n' +
-        String(payload.productImageAnalysisText).trim() +
-        '\n\n';
-    } else {
-      msg +=
-        '═══ PRODUCT_IMAGE_ANALYSIS (ยังไม่มี — ให้ infer จากรูปสินค้า+ขนาดpx ด้านล่าง แต่ **ชัด**ว่า: ของ**เล็ก** = เน้น**บรรจุ-แพ็กมือ**; ของกอง/ใหญ่ = เน้น**stack/pallet/ทางเดินกว้าง**) ═══\n' +
-        '(no JSON yet)\n\n';
-    }
-
-    msg +=
-      '═══ บรีฟ สินค้า / โรงงาน (UGC) ═══\n' +
-      topic +
-      '\n\n' +
-      '═══ โหมด ═══\n' +
-      'ฮีโอ **หนึ่งเสียง** (warehouse_hero) **พูดเร็ว กระชับ**; **ห้าม** BGM/SFX; กล้อง **phy**; ภาพ = มือ+POV+คลัง — **ห้าม** ref นายแบบ/นางแบบ; ตัวประกอบ = **สอดกล้อง+สินค้า+โรงงาน**\n' +
-      '\n═══ จำนวนฉาก ═══\n' +
-      n +
-      ' ฉาก\n' +
-      '\n═══ สไตล์ภาพ (chip) ═══\n' +
-      visualLabel +
-      '\n';
-
-    if (payload.productFactsText && String(payload.productFactsText).trim()) {
-      msg +=
-        '\n══ PRODUCT FACTS (local — ใช้กับสินค้า) ═\n' +
-        String(payload.productFactsText).trim() +
-        '\n';
-    }
-
-    if (Array.isArray(payload.productImageDimensions) && payload.productImageDimensions.length) {
-      msg += '\n══ ขนาดรูปอ้างอิง (px) ═\n';
-      payload.productImageDimensions.forEach(function (d, i) {
-        if (!d) {
-          return;
-        }
-        msg +=
-          (i + 1) +
-          '. ' +
-          (d.fileName || '(unnamed)') +
-          ' — width: ' +
-          (d.width != null ? d.width : '?') +
-          ' height: ' +
-          (d.height != null ? d.height : '?') +
-          (d.width && d.height
-            ? ' (aspect ' + (d.width / d.height).toFixed(4) + ' : 1)\n'
-            : '\n');
-      });
-    }
-
-    msg += '\n══ รูปอ้างอิง (เฉพาะสินค้า — ไม่ส่ง ref ตัวคน) ═\n';
-    const img = payload.images || {};
-    const productNames = (img.productNames && img.productNames.length)
-      ? img.productNames
-      : (img.productName ? [img.productName] : []);
-    if (img.productAttached) {
-      msg += 'สินค้า: ' + (productNames.join(', ') || '(แนบแล้ว)') + ' — ฉลาก/แพ็กตรง ref\n';
-    } else {
-      msg += 'ยังไม่แนบรูปสินค้า (ถ้ามีชื่อ/แบรนด์ในบรีฟ ให้ยึดนั้น)\n';
-    }
-
-    msg += '\nสร้างครบ ' + n + ' ฉาก: **ฉากหลัง+การเคลื่อน+กอง/บรรจุ ยึด PRODUCT_IMAGE_ANALYSIS ก่อน**; Dialogue ต่อฉาก **4.5–6 วินาทีอ่านออก เร็ว ไม่เฉื่อย**.\n';
-    return msg;
-  }
-
   function buildStorymodeSystemPromptFromPayload(payload, opts) {
     opts = opts || {};
-    if (payload && payload.mode === 'storymode' && payload.factoryPovMode) {
-      return buildFactoryWarehouseSystemPromptFromPayload(payload, opts);
-    }
     const smStoryType =
       opts.storyType || (payload.mode === 'product_sell' ? 'product_review' : 'custom');
     const smOutputType = opts.outputType || 'both';
@@ -455,8 +340,37 @@
           )
         : '';
 
+    const voiceOnlyNoMusicSfxBlock = isASMR
+      ? (
+          '═══ AUDIO (โหมด ASMR) ═══\n' +
+          'ใช้ ambient / ASMR ตาม VIDEO TEMPLATE ด้านบนเท่านั้น — **ห้าม** Thai dialogue / narration\n\n'
+        )
+      : (
+          '═══ AUDIO — Thai voice-only (บังคับทุกโหมดที่มี Dialogue; ยกเว้น ASMR) ═══\n' +
+          'ห้าม **background music**, เพลงประกอบ, jingle, beat, soundtrack, muzak ใน IMAGE หรือ VIDEO prompt\n' +
+          'ห้าม **sound effects** (SFX, stinger, foley, whoosh, transition hit, ambience bed) แยกจากเสียงพูด — ให้เหลือ **เสียงพูด/เล่าไทยเป็นหลักเท่านั้น**\n' +
+          'ทุกฉากที่มี `Speaker` + `Dialogue` ให้จบท้าย 🟢 VIDEO ด้วยบรรทัดสรุป: **Audio: Thai voice-only. No music. No SFX.**\n\n'
+        );
+
+    var factoryDnaAugmentation = '';
+    if (
+      payload.mode === 'storymode' &&
+      payload.factoryDna &&
+      typeof payload.factoryDna === 'object' &&
+      Object.keys(payload.factoryDna).length > 0
+    ) {
+      factoryDnaAugmentation =
+        '\n\n═══ FACTORY / WAREHOUSE STYLE DNA (user-provided clone reference) ═══\n' +
+        'The user message includes JSON **FACTORY DNA (v1)** — distilled from TikTok warehouse-style posts (post text + cover/thumbnail style cues + sales-voice analysis).\n' +
+        'Use it as the **primary creative reference** for tone, pacing, hook/close rhythm, visual vibe, and product-talk patterns.\n' +
+        'The brief under "หัวข้อ / สินค้า" may be short bullets (product, angles for this run). DNA carries clone signals only — **do not** expect or require per-scene JSON objects from the user.\n' +
+        'It must **not** override: (1) Dialogue word budget per scene (~8s clip / 15–20 Thai words), (2) OUTPUT FORMAT below, (3) Thai voice-only audio rule (no BGM/SFX in prompts), (4) forbidden marketing / overclaim policies.\n' +
+        'Do **not** paste DNA JSON into the final script output — translate into concrete IMAGE/VIDEO prompts and Thai `Dialogue` lines only.\n\n';
+    }
+
     return (
       directorBlock +
+      factoryDnaAugmentation +
       'คุณคือ Creative Director มืออาชีพสำหรับ TikTok / Google Veo สร้างสคริปต์วิดีโอสั้นที่มี prompt สำหรับสร้างภาพและวิดีโอ AI\n\n' +
       '═══ VISUAL STYLE ═══\n' +
       'สไตล์ที่ผู้ใช้เลือก: ' +
@@ -496,6 +410,7 @@
       videoTemplate +
       '\n\n' +
       buildDialogueWordBudgetThai(isASMR, 'system') +
+      voiceOnlyNoMusicSfxBlock +
       '═══ CRITICAL RULES ═══\n' +
       '1. Image prompt ต้องเป็นภาษาอังกฤษ (ยกเว้นข้อความ Thai bold text บนภาพ ถ้ามี)\n' +
       '2. Video prompt ต้องเป็นภาษาอังกฤษ ยกเว้นบทพูด/narration ที่ต้องเป็นภาษาไทย\n' +
@@ -572,10 +487,7 @@
 
   function buildStorymodeUserMessageFromPayload(payload, opts) {
     opts = opts || {};
-    if (payload && payload.mode === 'storymode' && payload.factoryPovMode) {
-      return buildFactoryWarehouseUserMessageFromPayload(payload);
-    }
-    const topic = (payload.prompt || '').trim();
+    const topic = sanitizeStorymodeUserPlainText((payload.prompt || '').trim());
     if (!topic) return '';
 
     const smStoryType =
@@ -620,6 +532,18 @@
 
     var msg = '═══ หัวข้อ / สินค้า ═══\n' + topic + '\n';
 
+    if (
+      payload.mode === 'storymode' &&
+      payload.factoryDna &&
+      typeof payload.factoryDna === 'object' &&
+      Object.keys(payload.factoryDna).length > 0
+    ) {
+      msg +=
+        '\n═══ FACTORY DNA (v1 — โคลนสไตล์จากแพ็กโรงงาน: post + cover + sales voice) ═══\n' +
+        JSON.stringify(payload.factoryDna, null, 2) +
+        '\n';
+    }
+
     // Domain knowledge: เฉพาะ storymode + เนะเรทีฟ ผักนักเลง (36) หรือ อวัยวะรวมตัว (37) — ห้ามใน product_sell
     var _dkNarr = payload.narrativeStyleIds || [];
     var _dkNarrativeOk = false;
@@ -638,14 +562,14 @@
     ) {
       msg +=
         '\n══ DOMAIN KNOWLEDGE (local repository — ใช้เป็นขอบข่าย/ข้อเท็จจริงอ้างอิง ไม่แทนกฎ safety/overclaim ใน system) ══\n' +
-        String(payload.domainKnowledgeText).trim() +
+        sanitizeStorymodeUserPlainText(String(payload.domainKnowledgeText).trim()) +
         '\n';
     }
 
     if (payload.productFactsText && String(payload.productFactsText).trim()) {
       msg +=
         '\n══ PRODUCT FACTS (local repository — numeric anchors for product consistency) ══\n' +
-        String(payload.productFactsText).trim() +
+        sanitizeStorymodeUserPlainText(String(payload.productFactsText).trim()) +
         '\n';
     }
 
@@ -772,7 +696,7 @@
         }
         msg += 'ชื่อไฟล์อ้างอิง (รูปแรกแต่ละ slot): ' + (charNames.join(', ') || '(attached)') + '\n';
       }
-      msg += 'ใช้ภาพแนบเป็น reference สำหรับสินค้า/ตัวละครในทุกฉาก ไม่ต้องเปลี่ยนหน้าตา/แพ็กเกจ\n';
+      msg += 'ใช้ภาพแนบเป็น reference สำหรับสินค้า/ตัวละครในทุกฉาก ไม่ต้องเปลี่ยนหน้าตา/ฉลากสินค้า\n';
     }
 
     msg +=
@@ -1024,42 +948,15 @@
     );
   }
 
-  function buildProductAnalysisSystemPrompt() {
-    return (
-      'You are a warehouse UGC + packshot analyst for Thai factory/clearance short video. ' +
-      'The user attached one or more PRODUCT images in order (product1, product2, …). ' +
-      'Output a single valid JSON object only — no markdown, no backticks, no commentary. ' +
-      'Schema (use null if unknown; all string fields can mix Thai+English where noted): ' +
-      'schema_version, ' +
-      'size_class: "tiny"|"small"|"medium"|"large"|"mixed", ' +
-      'handling_style_th: string (Thai) e.g. บรรจุมือใส่กล่อง, กองลัง, ยกพาเลต, ' +
-      'handling_style_en: string, ' +
-      'primary_environment_en: string — main set (packing bench+sealer+scale, narrow pick aisle, wide bulk stack row, loading dock, etc.) that **matches** the product size, ' +
-      'stacking_palletize_en: string — when case/pallet stack shots are correct vs hand-pack, ' +
-      'background_extras_en: string — 1–3 **coherent** extras (workers in PPE, hand jack, cart) for **this** product + **factory**, not random, ' +
-      'shot_ideas_en: string array of 2–3 concrete shot ideas (close pack vs wide pallet), ' +
-      'narration_pace_note_th: string (e.g. พูดเร็ว กระชับ แบบโกดัง), ' +
-      'confidence: { overall: number 0-1 }.'
-    );
-  }
-
-  function buildProductAnalysisUserMessage() {
-    return (
-      'Task: output ONLY the JSON. Images are product references in order. ' +
-      'Infer size, how it would be moved in a real warehouse, and the **primary** background environment. ' +
-      'Small items → packing / hand-load / shipper; larger or multipack → stacks, pallets, two-hand carry, wide aisle.'
-    );
-  }
-
   window.MockStorymodeGemini = {
+    FACTORY_DNA_SCHEMA_VERSION: 'factory_dna_v1',
+    STORYMODE_PROMPT_ASSET_VERSION: g.STORYMODE_PROMPT_ASSET_VERSION,
     STORY_TYPE_TEMPLATES: STORY_TYPE_TEMPLATES,
     buildStorymodeSystemPromptFromPayload: buildStorymodeSystemPromptFromPayload,
     buildStorymodeUserMessageFromPayload: buildStorymodeUserMessageFromPayload,
     mockFetchGeminiStorymode: mockFetchGeminiStorymode,
     buildHeroAnalysisSystemPrompt: buildHeroAnalysisSystemPrompt,
     buildHeroAnalysisUserMessage: buildHeroAnalysisUserMessage,
-    buildProductAnalysisSystemPrompt: buildProductAnalysisSystemPrompt,
-    buildProductAnalysisUserMessage: buildProductAnalysisUserMessage,
     RESULT_STORAGE_KEY: 'storymodeMockGeminiResultV1'
   };
 })();
