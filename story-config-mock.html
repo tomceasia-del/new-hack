@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-mock-ui="story-product-only">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
   <title>Project CS</title>
   <style>
     :root {
@@ -327,31 +329,6 @@
       color: var(--muted);
       font-size: 0.78rem;
       margin-top: 4px;
-    }
-    .mode-btn-factory {
-      flex: 0 0 auto;
-      min-width: 76px;
-      max-width: 110px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      border-color: rgba(234, 88, 12, 0.35);
-    }
-    .mode-btn-factory[aria-pressed="true"] {
-      border-color: rgba(234, 88, 12, 0.95);
-      box-shadow: 0 0 0 1px rgba(234, 88, 12, 0.55);
-      background: rgba(234, 88, 12, 0.12);
-    }
-    .mode-btn-factory-icon {
-      font-size: 1.55rem;
-      line-height: 1;
-    }
-    .mode-btn-factory small {
-      margin-top: 2px;
-      font-size: 0.72rem;
-      text-align: center;
     }
     label.field-label {
       display: block;
@@ -1255,104 +1232,6 @@
     .domain-knowledge-gate[hidden] {
       display: none !important;
     }
-    /* หมวดโรงงาน — Factory DNA (โคลนสไตล์โกดัง) */
-    .factory-category-section {
-      position: relative;
-      border-color: rgba(234, 88, 12, 0.35);
-      background: linear-gradient(
-        135deg,
-        rgba(234, 88, 12, 0.07) 0%,
-        var(--card) 48%,
-        var(--card) 100%
-      );
-      box-shadow: inset 4px 0 0 0 rgba(234, 88, 12, 0.85);
-    }
-    .factory-category-section[hidden] {
-      display: none !important;
-    }
-    .factory-category-head {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .factory-category-badge {
-      flex-shrink: 0;
-      width: 2.5rem;
-      height: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      border-radius: 12px;
-      background: rgba(234, 88, 12, 0.15);
-      border: 1px solid rgba(234, 88, 12, 0.35);
-      line-height: 1;
-    }
-    .factory-category-head .factory-category-titles {
-      flex: 1;
-      min-width: 0;
-    }
-    .factory-category-kicker {
-      font-size: calc(0.68rem * var(--btn-scale));
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(234, 88, 12, 0.95);
-      margin: 0 0 4px;
-    }
-    .factory-category-title-main {
-      font-size: calc(1rem * var(--btn-scale));
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin: 0 0 4px;
-      line-height: 1.25;
-    }
-    .factory-category-sub {
-      margin: 0;
-      font-size: 0.78rem;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-    .factory-category-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
-      align-items: center;
-    }
-    .factory-category-actions .btn-ghost {
-      border-color: rgba(234, 88, 12, 0.35);
-    }
-    .factory-category-actions .btn-ghost:hover {
-      border-color: rgba(234, 88, 12, 0.65);
-      color: var(--text);
-    }
-    .factory-dna-textarea {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.8rem;
-      min-height: 11rem;
-    }
-    .factory-prompt-hint {
-      margin-top: 10px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px dashed rgba(234, 88, 12, 0.35);
-      background: rgba(234, 88, 12, 0.04);
-      font-size: 0.82rem;
-      line-height: 1.55;
-      color: var(--text);
-    }
-    .factory-prompt-hint[hidden] {
-      display: none !important;
-    }
-    .factory-category-contract {
-      margin: 10px 0 0;
-      font-size: 0.76rem;
-      line-height: 1.55;
-      color: var(--muted);
-    }
     .dialogue-rule-callout {
       margin: 0 0 14px;
       padding: 10px 12px 10px 14px;
@@ -1685,10 +1564,6 @@
           Story mode
           <small>สคริปต์หลายฉาก + pipeline</small>
         </button>
-        <button type="button" class="mode-btn mode-btn-factory" id="mode-factory" aria-pressed="false" aria-label="โหมดโรงงาน Factory DNA v2" title="โหมดโรงงาน — ผลลัพธ์ factory_output_v2">
-          <span class="mode-btn-factory-icon" aria-hidden="true">🏭</span>
-          <small>โรงงาน · DNA v2</small>
-        </button>
       </div>
     </section>
 
@@ -1702,54 +1577,6 @@
         <button type="button" class="btn-clear-prompt" id="btn-clear-prompt-images">ล้างข้อความและรูป</button>
       </div>
       <textarea id="prompt" class="prompt" placeholder=""></textarea>
-      <p id="prompt-story-brief-hint" class="hint factory-prompt-hint" hidden>
-        <strong>โหมด Story:</strong> ใส่บรีฟสั้นในกล่องด้านบนได้อิสระ — สินค้า · จุดขาย · มุมหรือโทนรอบนี้ (บูลเล็ตได้)
-        · <strong>ไม่ต้อง</strong> พิมพ์ JSON รายฉากหรือ schema แบบ <code>storymode_image_prompt</code>
-        · ผลจาก AI เป็นรูปแบบมาตรฐานของระบบ: <code>=== SCENE N: … ===</code> พร้อมบล็อก IMAGE / VIDEO
-        · โทนโกดังแยกเฉพาะ <strong>ไอคอนโรงงาน</strong> (โหมดโรงงาน) — ไม่ปนกับ Story
-      </p>
-      <p id="prompt-factory-brief-hint" class="hint factory-prompt-hint" hidden>
-        <strong>โหมดโรงงาน:</strong> ใส่บรีฟในกล่องด้านบน · วาง JSON <strong>Factory DNA v2</strong> ในหมวดด้านล่าง · กดปุ่มเจนเหมือนเดิม
-        · ผลเป็น <code>factory_output_v2</code> (<code>BEGIN_FACTORY_OUTPUT_V2</code> … <code>FACTORY_SCENE</code> …) — ไม่ใช่สคริปต์ Story
-      </p>
-    </section>
-
-    <!-- หมวดโรงงาน — Factory DNA v2 (โหมดโรงงานเท่านั้น) -->
-    <section
-      data-section="factory-dna"
-      id="section-factory-dna"
-      class="factory-category-section"
-      aria-labelledby="factory-category-title-main"
-    >
-      <div class="factory-category-head">
-        <span class="factory-category-badge" aria-hidden="true">🏭</span>
-        <div class="factory-category-titles">
-          <p class="factory-category-kicker">หมวดโรงงาน</p>
-          <h2 class="factory-category-title-main" id="factory-category-title-main">โคลนสไตล์โกดัง · Factory DNA v2</h2>
-          <p class="factory-category-sub">
-            แม่แบบ <code>factory_dna_v2</code> — <strong>post</strong> + <strong>cover_analysis</strong> + <strong>sales_voice</strong>
-            (โหมดนี้ไม่ใช้ Adaptive Director / Sales blueprint ของ Story)
-          </p>
-          <p class="factory-category-contract">
-            <strong>สัญญาใช้งาน:</strong> JSON นี้เป็นแม่แบบโคลนโกดังเท่านั้น · ผลเจนเป็นกรอบ <code>factory_output_v2</code>
-            (<code>BEGIN_FACTORY_OUTPUT_V2</code> / <code>FACTORY_SCENE</code>) — แยก state จาก Story/Product
-          </p>
-        </div>
-      </div>
-      <div class="factory-category-actions">
-        <button type="button" class="btn btn-ghost" id="btn-factory-dna-example">โหลดตัวอย่าง</button>
-        <button type="button" class="btn btn-ghost" id="btn-factory-dna-clear">ล้าง DNA</button>
-        <span style="font-size:0.76rem;color:var(--muted);">ไฟล์: <code>factory-dna-v2.example.json</code></span>
-      </div>
-      <label class="field-label" for="factory-dna-json" style="display:block;margin-bottom:6px;">JSON</label>
-      <textarea
-        id="factory-dna-json"
-        class="prompt factory-dna-textarea"
-        rows="11"
-        spellcheck="false"
-        placeholder="วาง JSON หรือกด «โหลดตัวอย่าง»"
-      ></textarea>
-      <p id="factory-dna-parse-status" class="hint" aria-live="polite"></p>
     </section>
 
     <!-- 2 -->
@@ -1854,7 +1681,7 @@
       <div class="chip-grid" id="sales-formula-chips" style="display:grid;grid-template-columns:1fr;gap:8px;" hidden aria-hidden="true"></div>
     </section>
 
-    <!-- Style ตัวละคร — LED ข้อ 7 (หมวด + เลือก 1 เหมือน Mood) -->
+    <!-- Style ตัวละคร (หมวด + เลือก 1 เหมือน Mood) -->
     <section data-section="visual">
       <div class="sec-head">
         <p class="sec-title">Style ตัวละคร</p>
@@ -1897,7 +1724,7 @@
       </div>
     </section>
 
-    <!-- 5 mood — LED ข้อ 9 (ชิป โรงงาน/โกดัง ในกริดบรรยากาศ; ยกเลิกเฉพาะกดชิปอื่น / เลิกติ๊กโรงงาน) -->
+    <!-- 5 mood -->
     <section data-section="mood">
       <div class="sec-head">
         <p class="sec-title">บรรยากาศ</p>
@@ -2029,21 +1856,10 @@
     </section>
 
     </div><!-- /main-panel-project -->
-
-    <section hidden aria-hidden="true" id="section-payload-preview">
-      <div class="sec-head">
-        <p class="sec-title">Payload ที่จะส่ง (mock)</p>
-      </div>
-      <pre class="preview" id="json-out"></pre>
-      <div class="actions">
-        <button type="button" class="btn btn-primary" id="btn-refresh">อัปเดต JSON</button>
-        <button type="button" class="btn btn-ghost" id="btn-copy">คัดลอก</button>
-      </div>
-    </section>
   </div>
 
-  <script src="storymode-mock-enrich-bundle.js?v=2026-04-30d" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="storymode-mock-gemini-core.js?v=2026-04-30d" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script src="storymode-mock-enrich-bundle.js?v=2026-04-30h" onerror="window.__mock1LoadErr='enrich'"></script>
+  <script src="storymode-mock-gemini-core.js?v=2026-04-30g" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -2116,7 +1932,7 @@
       }
     })();
     /** ดึงชุดเดียวกับ CONTENT_CORE/02-master-prompt-template.js → export const STYLE_OPTIONS */
-    const STYLE_OPTIONS = JSON.parse(`[{"id":1,"icon":"🚀","name":"ตัวตึงปิดยอด","description":"เร่งด่วน มั่นใจ บอกสิทธิประโยชน์รัวๆ ปิดท้ายด้วยการสั่งให้ซื้อ"},{"id":2,"icon":"🤝","name":"เพื่อนคู่คิด","description":"อบอุ่น จริงใจ เหมือนเพื่อนมาป้ายยาของดีที่ใช้แล้วชีวิตดีขึ้นจริง"},{"id":3,"icon":"📦","name":"สายแกะกล่อง","description":"ตื่นเต้นกับสัมผัสแรก โชว์ความเรียลของแพ็กเกจและสินค้าที่เห็นตรงหน้า"},{"id":4,"icon":"🤨","name":"นักจับผิดกลับใจ","description":"เริ่มจากไม่เชื่อ ตั้งคำถามยากๆ จนสุดท้ายโดนสินค้าตกเพราะหลักฐาน"},{"id":5,"icon":"⚠️","name":"สายกดดัน (FOMO)","description":"พลังแห่งการกลัวตกกระแส คนอื่นมีหมดแล้ว ถ้าพลาดรอบนี้คือจบ"},{"id":6,"icon":"🛡️","name":"นักสยบข่าวลือ","description":"เอาความเชื่อผิดๆ มาตีแผ่ แล้วโชว์ให้ดูว่าสินค้าแก้ปัญหาได้ยังไง"},{"id":7,"icon":"⚡","name":"ถามไวตอบเร็ว","description":"ตอบคำถามคอมเมนต์แบบคมๆ ตอกกลับด้วยฟีเจอร์สินค้าแบบทันควัน"},{"id":8,"icon":"🤓","name":"เซียนไอที","description":"อธิบายสเปกยากๆ ให้กลายเป็นเรื่องง่ายและดูน่าสนุกสำหรับคนทั่วไป"},{"id":9,"icon":"🎙️","name":"ผู้ประกาศข่าวสายปั่น","description":"มาในลุคจริงจัง รายงานข่าวสินค้าเป็นประเด็นฮอตประจำวัน"},{"id":10,"icon":"🔥","name":"นักล่าเทรนด์","description":"จับสินค้าไปผูกกับมีมหรือกระแสไวรัลล่าสุด ให้ดูเป็นของที่ต้องมีตอนนี้"},{"id":11,"icon":"🥊","name":"โค้ชสายโหด","description":"พูดตรงแต่หวังดี ตบเรียกสติให้เลิกนิสัยเดิมๆ แล้วใช้สินค้าเป็นตัวช่วย"},{"id":12,"icon":"😳","name":"ปากไม่ตรงกับใจ (ซึนเดเระ)","description":"ช่วงแรกทำเป็นบ่น แต่สุดท้ายก็ยอมรับว่ามันก็ดีจริงๆ นั่นแหละ"},{"id":13,"icon":"🎭","name":"ตัวมารดาเล่นใหญ่","description":"รีวิวแบบละครหลังข่าว ทุกฟีเจอร์คือจุดพีค พลังทำลายล้างสูง"},{"id":14,"icon":"😤","name":"จอมขี้บ่น","description":"บ่นปัญหาเดิมๆ ซ้ำๆ จนกระทั่งมาเจอสินค้าตัวนี้ที่ทำให้หยุดบ่นได้สักที"},{"id":15,"icon":"⚔️","name":"ฮีโร่กู้โลก","description":"ปูเรื่องให้ปัญหาเป็นวายร้าย และสินค้าคืออัศวินขี่ม้าขาวมาช่วยคุณ"},{"id":16,"icon":"👼","name":"นางฟ้ากับมาเฟีย","description":"เสียงในหัวเถียงกันว่าจะซื้อดีไหม จบที่เหตุผลหรือกิเลสที่ดูดี"},{"id":17,"icon":"🛸","name":"ผู้มาจากอนาคต","description":"เปรียบเทียบความลำบากในยุคเก่า กับความสบายในยุคที่มีสินค้านี้"},{"id":18,"icon":"🔮","name":"แม่หมอพยากรณ์","description":"ผูกเรื่องดวงชะตากับสินค้า จักรวาลจัดสรรให้คุณต้องกดตะกร้าชิ้นนี้"},{"id":19,"icon":"🗣️","name":"สายแชร์เกินเรื่อง","description":"เล่าเรื่องส่วนตัวแบบลึกซึ้ง Trauma Dump แล้ววาร์ปกลับมาขายของเฉย"},{"id":20,"icon":"✨","name":"ตัวเอกในนิยาย","description":"พรีเซนต์ชีวิตดีๆ เหมือนอยู่ในหนัง ทุกการช้อปคือพล็อตเรื่องสำคัญ"},{"id":21,"icon":"🕵️","name":"นักสืบโซเชียล","description":"พลิกหลังกล่อง ส่องส่วนประกอบ เจาะลึกเหมือนทำคดีระดับชาติ"},{"id":22,"icon":"🧘","name":"ไลฟ์โค้ชสายลึก","description":"ขายที่ทัศนคติ การซื้อชิ้นนี้คือการเลือกรักตัวเองในเวอร์ชันใหม่"},{"id":23,"icon":"🤡","name":"ตลกร้ายสายเสียดสี","description":"จิกกัดค่านิยมการช้อปปิ้งไปพร้อมกับการขายของแบบมีชั้นเชิง"},{"id":24,"icon":"🚫","name":"แอนตี้อินฟลู","description":"รีวิวแบบขวานผ่าซาก ไม่รับอวย ไม่อ้อมค้อม เน้นความจริงใจ 100%"},{"id":25,"icon":"💖","name":"ติ่งตัวยง","description":"พลังแฟนคลับล้นหลาม รีวิวสินค้าให้ดูเหมือนการซัพพอร์ตไอดอลที่รัก"},{"id":26,"icon":"🌾","name":"ม่วนซื่นโฮแซว (อีสาน)","description":"สำเนียงอีสาน จริงใจ สนุกสนาน พลังงานบ้านๆ ที่น่าเชื่อถือ"},{"id":27,"icon":"🌶️","name":"แหลงใต้สายลุย (ใต้)","description":"พูดตรงไปตรงมา หนักแน่น มั่นใจในคุณภาพแบบไม่ต้องสืบ"},{"id":28,"icon":"🌸","name":"อู้กำเมืองนุ่มนวล (เหนือ)","description":"อ่อนหวาน ใจเย็น ฟังแล้วเคลิ้มเหมือนถูกต้อนรับด้วยไมตรี"},{"id":29,"icon":"💅","name":"ตัวแม่แคร์เพื่อ","description":"มั่นตัวแม่ จิกกัดความพัง โชว์ความปังด้วยสินค้าคุณภาพระดับควีน"},{"id":30,"icon":"👵","name":"ป้าข้างบ้านขี้เม้าท์","description":"อย่าไปบอกใครนะ เล่าเรื่องสินค้าเหมือนเป็นข่าวแซ่บประจำซอย"},{"id":31,"icon":"🛠️","name":"วัยรุ่นสร้างตัว","description":"สู้ชีวิต กัดก้อนเกลือกิน ใช้สินค้าเป็นเครื่องมือไต่เต้าสู่ความสำเร็จ"},{"id":32,"icon":"👴","name":"ปราชญ์ชาวบ้าน","description":"ใช้ภูมิปัญญาผู้ใหญ่มาการันตี ย่าสอนไว้ สร้างความเชื่อถือข้ามรุ่น"},{"id":33,"icon":"📈","name":"มวยรองข้ามรุ่น","description":"เล่าสตอรี่จากจุดต่ำสุดสู่ความสำเร็จ โดยมีสินค้าเป็นจุดเปลี่ยนชีวิต"},{"id":34,"icon":"👩‍❤️‍👨","name":"คู่รักคู่กัด","description":"แกล้งกันไปขายของกันไป เคมีฟุ้งกระจายผ่านความวุ่นวายในบ้าน"},{"id":35,"icon":"🎙️","name":"นักพากย์นรก","description":"พากย์เสียงทับภาพรีวิวแบบเพี้ยนๆ ตลกๆ เปลี่ยนเรื่องน่าเบื่อให้ขำกลิ้ง"},{"id":36,"icon":"🥦","name":"ผักนักเลง","description":"พืชผักสายโหด บ่นคนไม่กินผักแต่ภูมิใจในสารอาหาร สำเนียงนักเลงไทย"},{"id":37,"icon":"🫁","name":"อวัยวะรวมตัว","description":"ตับ ไต ไส้ พุง รวมตัวประท้วงเจ้าของร่างให้ดูแลตัวเองด้วยสินค้าสุขภาพ"},{"id":38,"icon":"🍚","name":"เครื่องใช้ไฟฟ้าขี้บ่น","description":"หม้อหุงข้าวหรือเครื่องซักผ้า บ่นเรื่องการถูกใช้งานหนักหรือโดนทิ้งขว้าง"},{"id":39,"icon":"💸","name":"กระเป๋าตังค์สั่น","description":"มุมมองจากเงินในบัญชี ดีใจตอนเงินเข้า สลดตอนเงินออก"},{"id":40,"icon":"📦","name":"พัสดุขี้น้อยใจ","description":"กล่องพัสดุที่ลุ้นว่าเจ้านายจะเปิดแรงไหม หรือจะชอบของข้างในหรือเปล่า"},{"id":41,"icon":"⛩️","name":"เจ้าที่สายป่วน","description":"วิญญาณผู้พิทักษ์บ้านที่มองดูพฤติกรรมคนยุคใหม่ด้วยความเอ็นดูและจิกกัด"},{"id":42,"icon":"🧪","name":"สกินแคร์พูดได้","description":"เล่าการเดินทางจากโรงงานสู่ผิวหน้า ความภูมิใจเมื่อเห็นหน้าเจ้าของใสขึ้น"},{"id":43,"icon":"⏰","name":"นาฬิกาปลุกจอมโหด","description":"ความสัมพันธ์แบบทั้งรักทั้งเกลียด บ่นเรื่องคนกด Snooze ซ้ำๆ"},{"id":44,"icon":"💻","name":"โน้ตบุ๊กสู้ชีวิต","description":"บ่นเรื่องเปิดแท็บเยอะจนร้อนจี๋ และความเหนื่อยล้าของคนทำงาน WFH"},{"id":45,"icon":"🧋","name":"ชานมที่รัก","description":"ความสัมพันธ์สุดโรแมนติกและเสพติดระหว่างคนกับเครื่องดื่มแก้วโปรด"},{"id":46,"icon":"🌵","name":"ต้นไม้ที่ถูกลืม","description":"มุมมองจากต้นไม้ในมุมมืดที่รอเจ้าของมาสนใจ แทนการไถมือถือ"},{"id":47,"icon":"🛂","name":"พาสปอร์ตสายเที่ยว","description":"เล่าความภูมิใจของตราปั๊ม และความเหงาเวลาถูกทิ้งไว้ในลิ้นชัก"},{"id":48,"icon":"👗","name":"เสื้อผ้าหลังตู้","description":"ชุดที่ซื้อมาไม่เคยใส่ประท้วงความลำเอียงของเจ้าของบ้าน"},{"id":49,"icon":"📿","name":"กุมารทองดิจิทัล","description":"ให้โชคลาภแบบมีเงื่อนไข เน้นสายมูยุคใหม่ คล้ายเจ้าที่แต่โทนแอปและของขลังดิจิทัล"},{"id":50,"icon":"🪑","name":"เก้าอี้ว่างการเมือง","description":"สันนิษฐานและจิกกัดสังคมผ่านสัญลักษณ์เปรียบเทียบ สายแซะแบบปลอดภัย"},{"id":51,"icon":"🍼","name":"คุณแม่มือใหม่","description":"สภาพร่างพังแต่พลังรักเต็มร้อน มองหาของใช้ที่ช่วยให้ชีวิตง่ายขึ้น"},{"id":52,"icon":"🥪","name":"คนแบกบ้าน (Sandwich Gen)","description":"ดูแลทั้งลูกและพ่อแม่ มองหาของที่ตอบโจทย์ทุกคนในบ้าน"},{"id":53,"icon":"🏬","name":"เจ้าของธุรกิจ SME","description":"คิดทุกบาทเป็นต้นทุน สินค้าต้องคุ้มค่าและช่วยทำเงินได้จริง"},{"id":54,"icon":"🎒","name":"นักเรียนงบน้อย","description":"เน้นของถูกและดี ของแท้เท่านั้น สเปกต้องคุ้มค่าตัว"},{"id":55,"icon":"🏠","name":"ฟรีแลนซ์หน้าคอม","description":"ชีวิตที่แยกงานกับบ้านไม่ออก มองหาความสะดวกสบายขั้นสุด"},{"id":56,"icon":"🏋️","name":"สายเพาะกายเน้นผล","description":"ไม่เน้นสวยงาม เน้นดาต้า ผลลัพธ์ และประสิทธิภาพการกู้ร่าง"},{"id":57,"icon":"📱","name":"เด็กเจน Z ช่างเลือก","description":"เช็กข้อมูลเก่ง จับโป๊ะโฆษณาไว ชอบแบรนด์ที่มีจุดยืนชัดเจน"},{"id":58,"icon":"🍃","name":"สายคลีนเรียบง่าย","description":"ซื้อน้อยแต่ซื้อนะ เน้นคุณภาพที่ยั่งยืนและเข้ากับบ้านที่จัดระเบียบ"},{"id":59,"icon":"🌙","name":"นักช้อปตีสอง","description":"ไถฟีดตอนเหงา กดสั่งเพราะอารมณ์นำทาง รีวิวแบบมึนๆ แต่จริงใจ"},{"id":60,"icon":"🛐","name":"ผู้ศรัทธาหน้าใหม่","description":"อดีตคนเคยไม่เชื่อในสินค้ากลุ่มนี้ แต่ตอนนี้กลายเป็นสาวกตัวยง"}]`);
+    const STYLE_OPTIONS = JSON.parse(`[{"id":1,"icon":"🚀","name":"ตัวตึงปิดยอด","description":"เร่งด่วน มั่นใจ บอกสิทธิประโยชน์รัวๆ ปิดท้ายด้วยการสั่งให้ซื้อ"},{"id":2,"icon":"🤝","name":"เพื่อนคู่คิด","description":"อบอุ่น จริงใจ เหมือนเพื่อนมาป้ายยาของดีที่ใช้แล้วชีวิตดีขึ้นจริง"},{"id":3,"icon":"📦","name":"สายแกะกล่อง","description":"ตื่นเต้นกับสัมผัสแรก โชว์ความเรียลของแพ็กเกจและสินค้าที่เห็นตรงหน้า"},{"id":4,"icon":"🤨","name":"นักจับผิดกลับใจ","description":"เริ่มจากไม่เชื่อ ตั้งคำถามยากๆ จนสุดท้ายโดนสินค้าตกเพราะหลักฐาน"},{"id":5,"icon":"⚠️","name":"สายกดดัน (FOMO)","description":"พลังแห่งการกลัวตกกระแส คนอื่นมีหมดแล้ว ถ้าพลาดรอบนี้คือจบ"},{"id":6,"icon":"🛡️","name":"นักสยบข่าวลือ","description":"เอาความเชื่อผิดๆ มาตีแผ่ แล้วโชว์ให้ดูว่าสินค้าแก้ปัญหาได้ยังไง"},{"id":7,"icon":"⚡","name":"ถามไวตอบเร็ว","description":"ตอบคำถามคอมเมนต์แบบคมๆ ตอกกลับด้วยฟีเจอร์สินค้าแบบทันควัน"},{"id":8,"icon":"🤓","name":"เซียนไอที","description":"อธิบายสเปกยากๆ ให้กลายเป็นเรื่องง่ายและดูน่าสนุกสำหรับคนทั่วไป"},{"id":9,"icon":"🎙️","name":"ผู้ประกาศข่าวสายปั่น","description":"มาในลุคจริงจัง รายงานข่าวสินค้าเป็นประเด็นฮอตประจำวัน"},{"id":10,"icon":"🔥","name":"นักล่าเทรนด์","description":"จับสินค้าไปผูกกับมีมหรือกระแสไวรัลล่าสุด ให้ดูเป็นของที่ต้องมีตอนนี้"},{"id":11,"icon":"🥊","name":"โค้ชสายโหด","description":"พูดตรงแต่หวังดี ตบเรียกสติให้เลิกนิสัยเดิมๆ แล้วใช้สินค้าเป็นตัวช่วย"},{"id":12,"icon":"😳","name":"ปากไม่ตรงกับใจ (ซึนเดเระ)","description":"ช่วงแรกทำเป็นบ่น แต่สุดท้ายก็ยอมรับว่ามันก็ดีจริงๆ นั่นแหละ"},{"id":13,"icon":"🎭","name":"ตัวมารดาเล่นใหญ่","description":"รีวิวแบบละครหลังข่าว ทุกฟีเจอร์คือจุดพีค พลังทำลายล้างสูง"},{"id":14,"icon":"😤","name":"จอมขี้บ่น","description":"บ่นปัญหาเดิมๆ ซ้ำๆ จนกระทั่งมาเจอสินค้าตัวนี้ที่ทำให้หยุดบ่นได้สักที"},{"id":15,"icon":"⚔️","name":"ฮีโร่กู้โลก","description":"ปูเรื่องให้ปัญหาเป็นวายร้าย และสินค้าคืออัศวินขี่ม้าขาวมาช่วยคุณ"},{"id":16,"icon":"👼","name":"นางฟ้ากับมาเฟีย","description":"เสียงในหัวเถียงกันว่าจะซื้อดีไหม จบที่เหตุผลหรือกิเลสที่ดูดี"},{"id":17,"icon":"🛸","name":"ผู้มาจากอนาคต","description":"เปรียบเทียบความลำบากในยุคเก่า กับความสบายในยุคที่มีสินค้านี้"},{"id":18,"icon":"🔮","name":"แม่หมอพยากรณ์","description":"ผูกเรื่องดวงชะตากับสินค้า จักรวาลจัดสรรให้คุณต้องกดตะกร้าชิ้นนี้"},{"id":19,"icon":"🗣️","name":"สายแชร์เกินเรื่อง","description":"เล่าเรื่องส่วนตัวแบบลึกซึ้ง Trauma Dump แล้ววาร์ปกลับมาขายของเฉย"},{"id":20,"icon":"✨","name":"ตัวเอกในนิยาย","description":"พรีเซนต์ชีวิตดีๆ เหมือนอยู่ในหนัง ทุกการช้อปคือพล็อตเรื่องสำคัญ"},{"id":21,"icon":"🕵️","name":"นักสืบโซเชียล","description":"พลิกหลังกล่อง ส่องส่วนประกอบ เจาะลึกเหมือนทำคดีระดับชาติ"},{"id":22,"icon":"🧘","name":"ไลฟ์โค้ชสายลึก","description":"ขายที่ทัศนคติ การซื้อชิ้นนี้คือการเลือกรักตัวเองในเวอร์ชันใหม่"},{"id":23,"icon":"🤡","name":"ตลกร้ายสายเสียดสี","description":"จิกกัดค่านิยมการช้อปปิ้งไปพร้อมกับการขายของแบบมีชั้นเชิง"},{"id":24,"icon":"🚫","name":"แอนตี้อินฟลู","description":"รีวิวแบบขวานผ่าซาก ไม่รับอวย ไม่อ้อมค้อม เน้นความจริงใจ 100%"},{"id":25,"icon":"💖","name":"ติ่งตัวยง","description":"พลังแฟนคลับล้นหลาม รีวิวสินค้าให้ดูเหมือนการซัพพอร์ตไอดอลที่รัก"},{"id":26,"icon":"🌾","name":"ม่วนซื่นโฮแซว (อีสาน)","description":"สำเนียงอีสาน จริงใจ สนุกสนาน พลังงานบ้านๆ ที่น่าเชื่อถือ"},{"id":27,"icon":"🌶️","name":"แหลงใต้สายลุย (ใต้)","description":"พูดตรงไปตรงมา หนักแน่น มั่นใจในคุณภาพแบบไม่ต้องสืบ"},{"id":28,"icon":"🌸","name":"อู้กำเมืองนุ่มนวล (เหนือ)","description":"อ่อนหวาน ใจเย็น ฟังแล้วเคลิ้มเหมือนถูกต้อนรับด้วยไมตรี"},{"id":29,"icon":"💅","name":"ตัวแม่แคร์เพื่อ","description":"มั่นตัวแม่ จิกกัดความพัง โชว์ความปังด้วยสินค้าคุณภาพระดับควีน"},{"id":30,"icon":"👵","name":"ป้าข้างบ้านขี้เม้าท์","description":"อย่าไปบอกใครนะ เล่าเรื่องสินค้าเหมือนเป็นข่าวแซ่บประจำซอย"},{"id":31,"icon":"🛠️","name":"วัยรุ่นสร้างตัว","description":"สู้ชีวิต กัดก้อนเกลือกิน ใช้สินค้าเป็นเครื่องมือไต่เต้าสู่ความสำเร็จ"},{"id":32,"icon":"👴","name":"ปราชญ์ชาวบ้าน","description":"ใช้ภูมิปัญญาผู้ใหญ่มาการันตี ย่าสอนไว้ สร้างความเชื่อถือข้ามรุ่น"},{"id":33,"icon":"📈","name":"มวยรองข้ามรุ่น","description":"เล่าสตอรี่จากจุดต่ำสุดสู่ความสำเร็จ โดยมีสินค้าเป็นจุดเปลี่ยนชีวิต"},{"id":34,"icon":"👩‍❤️‍👨","name":"คู่รักคู่กัด","description":"แกล้งกันไปขายของกันไป เคมีฟุ้งกระจายผ่านความวุ่นวายในบ้าน"},{"id":35,"icon":"🎙️","name":"นักพากย์นรก","description":"พากย์เสียงทับภาพรีวิวแบบเพี้ยนๆ ตลกๆ เปลี่ยนเรื่องน่าเบื่อให้ขำกลิ้ง"},{"id":36,"icon":"🥦","name":"ผักนักเลง","description":"พืชผักสายโหด บ่นคนไม่กินผักแต่ภูมิใจในสารอาหาร สำเนียงนักเลงไทย"},{"id":37,"icon":"🫁","name":"อวัยวะรวมตัว","description":"ตับ ไต ไส้ พุง รวมตัวประท้วงเจ้าของร่างให้ดูแลตัวเองด้วยสินค้าสุขภาพ"},{"id":38,"icon":"🍚","name":"เครื่องใช้ไฟฟ้าขี้บ่น","description":"หม้อหุงข้าวหรือเครื่องซักผ้า บ่นเรื่องการถูกใช้งานหนักหรือโดนทิ้งขว้าง"},{"id":39,"icon":"💸","name":"กระเป๋าตังค์สั่น","description":"มุมมองจากเงินในบัญชี ดีใจตอนเงินเข้า สลดตอนเงินออก"},{"id":40,"icon":"📦","name":"พัสดุขี้น้อยใจ","description":"กล่องพัสดุที่ลุ้นว่าเจ้านายจะเปิดแรงไหม หรือจะชอบของข้างในหรือเปล่า"},{"id":41,"icon":"⛩️","name":"เจ้าที่สายป่วน","description":"วิญญาณผู้พิทักษ์บ้านที่มองดูพฤติกรรมคนยุคใหม่ด้วยความเอ็นดูและจิกกัด"},{"id":42,"icon":"🧪","name":"สกินแคร์พูดได้","description":"เล่าเรื่องดูแลผิวและความภูมิใจเมื่อเห็นหน้าเจ้าของใสขึ้น"},{"id":43,"icon":"⏰","name":"นาฬิกาปลุกจอมโหด","description":"ความสัมพันธ์แบบทั้งรักทั้งเกลียด บ่นเรื่องคนกด Snooze ซ้ำๆ"},{"id":44,"icon":"💻","name":"โน้ตบุ๊กสู้ชีวิต","description":"บ่นเรื่องเปิดแท็บเยอะจนร้อนจี๋ และความเหนื่อยล้าของคนทำงาน WFH"},{"id":45,"icon":"🧋","name":"ชานมที่รัก","description":"ความสัมพันธ์สุดโรแมนติกและเสพติดระหว่างคนกับเครื่องดื่มแก้วโปรด"},{"id":46,"icon":"🌵","name":"ต้นไม้ที่ถูกลืม","description":"มุมมองจากต้นไม้ในมุมมืดที่รอเจ้าของมาสนใจ แทนการไถมือถือ"},{"id":47,"icon":"🛂","name":"พาสปอร์ตสายเที่ยว","description":"เล่าความภูมิใจของตราปั๊ม และความเหงาเวลาถูกทิ้งไว้ในลิ้นชัก"},{"id":48,"icon":"👗","name":"เสื้อผ้าหลังตู้","description":"ชุดที่ซื้อมาไม่เคยใส่ประท้วงความลำเอียงของเจ้าของบ้าน"},{"id":49,"icon":"📿","name":"กุมารทองดิจิทัล","description":"ให้โชคลาภแบบมีเงื่อนไข เน้นสายมูยุคใหม่ คล้ายเจ้าที่แต่โทนแอปและของขลังดิจิทัล"},{"id":50,"icon":"🪑","name":"เก้าอี้ว่างการเมือง","description":"สันนิษฐานและจิกกัดสังคมผ่านสัญลักษณ์เปรียบเทียบ สายแซะแบบปลอดภัย"},{"id":51,"icon":"🍼","name":"คุณแม่มือใหม่","description":"สภาพร่างพังแต่พลังรักเต็มร้อน มองหาของใช้ที่ช่วยให้ชีวิตง่ายขึ้น"},{"id":52,"icon":"🥪","name":"คนแบกบ้าน (Sandwich Gen)","description":"ดูแลทั้งลูกและพ่อแม่ มองหาของที่ตอบโจทย์ทุกคนในบ้าน"},{"id":53,"icon":"🏬","name":"เจ้าของธุรกิจ SME","description":"คิดทุกบาทเป็นต้นทุน สินค้าต้องคุ้มค่าและช่วยทำเงินได้จริง"},{"id":54,"icon":"🎒","name":"นักเรียนงบน้อย","description":"เน้นของถูกและดี ของแท้เท่านั้น สเปกต้องคุ้มค่าตัว"},{"id":55,"icon":"🏠","name":"ฟรีแลนซ์หน้าคอม","description":"ชีวิตที่แยกงานกับบ้านไม่ออก มองหาความสะดวกสบายขั้นสุด"},{"id":56,"icon":"🏋️","name":"สายเพาะกายเน้นผล","description":"ไม่เน้นสวยงาม เน้นดาต้า ผลลัพธ์ และประสิทธิภาพการกู้ร่าง"},{"id":57,"icon":"📱","name":"เด็กเจน Z ช่างเลือก","description":"เช็กข้อมูลเก่ง จับโป๊ะโฆษณาไว ชอบแบรนด์ที่มีจุดยืนชัดเจน"},{"id":58,"icon":"🍃","name":"สายคลีนเรียบง่าย","description":"ซื้อน้อยแต่ซื้อนะ เน้นคุณภาพที่ยั่งยืนและเข้ากับบ้านที่จัดระเบียบ"},{"id":59,"icon":"🌙","name":"นักช้อปตีสอง","description":"ไถฟีดตอนเหงา กดสั่งเพราะอารมณ์นำทาง รีวิวแบบมึนๆ แต่จริงใจ"},{"id":60,"icon":"🛐","name":"ผู้ศรัทธาหน้าใหม่","description":"อดีตคนเคยไม่เชื่อในสินค้ากลุ่มนี้ แต่ตอนนี้กลายเป็นสาวกตัวยง"}]`);
     /** MOOD_KEYWORDS_DATA — mood + group (ดึงจาก CONTENT_CORE/02-master-prompt-template.js) */
     const MOOD_KEYWORDS_DATA = [
       // 🎬 ภาพยนตร์ & ดราม่า
@@ -2228,34 +2044,9 @@
 
     let mode = "story";
     const MODE_STORAGE_KEY = "storymodeMockModeV1";
-    const FACTORY_DNA_STORAGE_KEY = "storymodeFactoryDnaJsonV1";
-    /** parse จาก #factory-dna-json — ส่งเป็น payload.factoryDna */
-    let factoryDnaParsed = null;
-
-    function refreshFactoryDnaParsed() {
-      factoryDnaParsed = null;
-      var el = document.getElementById("factory-dna-json");
-      var st = document.getElementById("factory-dna-parse-status");
-      if (!el) return;
-      var raw = String(el.value || "").trim();
-      if (!raw) {
-        if (st) st.textContent = "";
-        return;
-      }
-      try {
-        factoryDnaParsed = JSON.parse(raw);
-        if (st) {
-          st.textContent =
-            "JSON ถูกต้อง — แนบ factoryDna ตอนเจน (โหมด Story ใช้ใน system/user prompt)";
-        }
-      } catch (err) {
-        var msg = err && err.message ? err.message : String(err);
-        if (st) st.textContent = "JSON ไม่ถูกต้อง: " + msg;
-      }
-    }
 
     function syncStoryModeToolbars() {
-      const isStory = mode === "story" || mode === "factory";
+      const isStory = mode === "story";
       var hBar = document.querySelector(".hero-analysis-toolbar");
       if (hBar) {
         var showHeroTools = isStory;
@@ -2264,30 +2055,6 @@
       }
     }
 
-    /** หมวดโรงงาน (Factory DNA v2) — แสดงเฉพาะโหมดโรงงาน */
-    function syncFactoryCategoryVisibility() {
-      var sec = document.getElementById("section-factory-dna");
-      if (!sec) return;
-      var show = mode === "factory";
-      sec.hidden = !show;
-      sec.setAttribute("aria-hidden", show ? "false" : "true");
-    }
-
-    /** คำแนะนำบรีฟ — Story vs โรงงาน */
-    function syncStoryFactoryBriefHints() {
-      var elS = document.getElementById("prompt-story-brief-hint");
-      if (elS) {
-        var showS = mode === "story";
-        elS.hidden = !showS;
-        elS.setAttribute("aria-hidden", showS ? "false" : "true");
-      }
-      var elF = document.getElementById("prompt-factory-brief-hint");
-      if (elF) {
-        var showF = mode === "factory";
-        elF.hidden = !showF;
-        elF.setAttribute("aria-hidden", showF ? "false" : "true");
-      }
-    }
     /** สินค้า + ตัวละครแต่ละ slot: อาร์เรย์สูงสุด 5 รูป (input multiple) */
     const MULTI_IMAGE_MAX = 5;
     const files = {
@@ -2983,7 +2750,7 @@
     }
 
     function getSelectedHook() {
-      if (mode === "story" || mode === "factory") {
+      if (mode === "story") {
         return { id: "auto", option: HOOK_OPTIONS.find((o) => o.id === "auto") || HOOK_OPTIONS[0] };
       }
       const el = document.querySelector('#hook-chips input[name="hook-category"]:checked');
@@ -2998,7 +2765,7 @@
       const autoInp = document.getElementById("hook-chips-0");
       const note = document.getElementById("hook-mode-note");
       const sec = document.querySelector('[data-section="hook"]');
-      const isStory = mode === "story" || mode === "factory";
+      const isStory = mode === "story";
 
       if (isStory) {
         if (autoInp) autoInp.checked = true;
@@ -3021,9 +2788,7 @@
         if (sec) sec.style.opacity = "0.72";
         if (note) {
           note.textContent =
-            mode === "factory"
-              ? "โหมดโรงงาน: ไม่ส่ง Hook Library / Sales blueprint — ใช้แม่แบบ Factory DNA + pipeline factory_output_v2"
-              : "Story mode: ปลดล็อค hook แล้ว — ระบบจะไม่ส่ง Hook Library / Hook Selection ไปบังคับ opening line";
+            "Story mode: ปลดล็อค hook แล้ว — ระบบจะไม่ส่ง Hook Library / Hook Selection ไปบังคับ opening line";
         }
       } else {
         if (btnAi) {
@@ -3044,14 +2809,12 @@
     /** สลับ Story / ขายสินค้า — เดิม path เดียวกันทุก device; บันทึก localStorage ให้มือถือ-PC สอดคล้อง */
     function setModeAndSync(nextMode, opts) {
       const o = opts || {};
-      if (nextMode !== "product" && nextMode !== "story" && nextMode !== "factory") return;
+      if (nextMode !== "product" && nextMode !== "story") return;
       mode = nextMode;
       const mp = document.getElementById("mode-product");
       const ms = document.getElementById("mode-story");
-      const mf = document.getElementById("mode-factory");
       if (mp) mp.setAttribute("aria-pressed", nextMode === "product" ? "true" : "false");
       if (ms) ms.setAttribute("aria-pressed", nextMode === "story" ? "true" : "false");
-      if (mf) mf.setAttribute("aria-pressed", nextMode === "factory" ? "true" : "false");
       applySalesFormulaVisibility();
       applyHookSectionBehavior();
       if (nextMode === "product") {
@@ -3088,7 +2851,6 @@
     }
 
     function getCurrentPayload() {
-      refreshFactoryDnaParsed();
       const hook = getSelectedHook();
       const moodKeysRaw = selectedValues("mood-chips");
       const productStagedTop = Array.isArray(files.product) ? files.product.filter(function (f) { return f; }) : [];
@@ -3103,9 +2865,7 @@
         };
       });
       return {
-        mode:
-          mode === "factory" ? "factorymode" : mode === "story" ? "storymode" : "product_sell",
-        factoryDna: mode === "factory" ? factoryDnaParsed : null,
+        mode: mode === "story" ? "storymode" : "product_sell",
         productImageDimensions: productImageDimensions,
         prompt: document.getElementById("prompt").value.trim(),
         images: (function () {
@@ -3250,7 +3010,7 @@
     const NARRATIVE_IDS_DOMAIN_KNOWLEDGE = [36, 37];
 
     function hasNarrativeForDomainKnowledge() {
-      if (mode !== "story" && mode !== "factory") return false;
+      if (mode !== "story") return false;
       const ns = selectedValues("narrative-chips").map((v) => Number(v));
       for (var i = 0; i < ns.length; i++) {
         if (NARRATIVE_IDS_DOMAIN_KNOWLEDGE.indexOf(ns[i]) !== -1) {
@@ -3261,7 +3021,7 @@
     }
 
     function isDomainKnowledgeInjectionAllowedFromPayload(payload) {
-      if (!payload || (payload.mode !== "storymode" && payload.mode !== "factorymode")) return false;
+      if (!payload || payload.mode !== "storymode") return false;
       const ids = payload.narrativeStyleIds || [];
       for (var j = 0; j < ids.length; j++) {
         var n = Number(ids[j]);
@@ -3276,7 +3036,7 @@
       const nEl = document.getElementById("domain-facts-count");
       const gate = document.getElementById("domain-knowledge-gate");
       const inProduct = mode === "product";
-      const inStory = mode === "story" || mode === "factory";
+      const inStory = mode === "story";
       const allow = inStory && hasNarrativeForDomainKnowledge();
 
       if (inProduct) {
@@ -3467,10 +3227,7 @@
     function updatePreview() {
       syncDomainKnowledgeUI();
       syncStoryModeToolbars();
-      syncFactoryCategoryVisibility();
-      syncStoryFactoryBriefHints();
-      const payload = getCurrentPayload();
-      document.getElementById("json-out").textContent = JSON.stringify(payload, null, 2);
+      void getCurrentPayload();
       syncVisualSelectedBox();
       syncMoodSelectedBox();
       syncSalesFormulaSelectedBox();
@@ -3669,9 +3426,6 @@
     document.getElementById("mode-story").addEventListener("click", function () {
       setModeAndSync("story", {});
     });
-    document.getElementById("mode-factory").addEventListener("click", function () {
-      setModeAndSync("factory", {});
-    });
 
     (function bindSceneControls() {
       const range = document.getElementById("scenes");
@@ -3711,19 +3465,9 @@
     (function restoreModeFromStorage() {
       try {
         var s = localStorage.getItem(MODE_STORAGE_KEY);
-        if (s === "product" || s === "story" || s === "factory") {
+        if (s === "factory") s = "story";
+        if (s === "product" || s === "story") {
           setModeAndSync(s, { skipPersist: true });
-        }
-      } catch (_) {}
-    })();
-
-    (function restoreFactoryDnaFromStorage() {
-      try {
-        var s = localStorage.getItem(FACTORY_DNA_STORAGE_KEY);
-        var fd = document.getElementById("factory-dna-json");
-        if (s && fd) {
-          fd.value = s;
-          refreshFactoryDnaParsed();
         }
       } catch (_) {}
     })();
@@ -3734,56 +3478,6 @@
     document.getElementById("prompt").addEventListener("input", updatePreview);
     document.getElementById("btn-clear-prompt-images").addEventListener("click", clearPromptAndImages);
     document.getElementById("h1h2").addEventListener("change", updatePreview);
-
-    (function initFactoryDnaUI() {
-      var fd = document.getElementById("factory-dna-json");
-      var btnEx = document.getElementById("btn-factory-dna-example");
-      var btnClr = document.getElementById("btn-factory-dna-clear");
-      if (fd) {
-        fd.addEventListener("input", function () {
-          try {
-            localStorage.setItem(FACTORY_DNA_STORAGE_KEY, fd.value);
-          } catch (_) {}
-          refreshFactoryDnaParsed();
-          updatePreview();
-        });
-      }
-      if (btnEx) {
-        btnEx.addEventListener("click", function () {
-          fetch("factory-dna-v2.example.json", { cache: "no-store" })
-            .then(function (r) {
-              if (!r.ok) throw new Error("HTTP " + r.status);
-              return r.json();
-            })
-            .then(function (data) {
-              if (fd) fd.value = JSON.stringify(data, null, 2);
-              try {
-                if (fd) localStorage.setItem(FACTORY_DNA_STORAGE_KEY, fd.value);
-              } catch (_) {}
-              refreshFactoryDnaParsed();
-              updatePreview();
-            })
-            .catch(function (e) {
-              var st = document.getElementById("factory-dna-parse-status");
-              if (st) {
-                st.textContent =
-                  "โหลดตัวอย่างไม่ได้ — เปิดผ่าน http (เช่น python3 serve_story_mock.py): " +
-                  (e && e.message ? e.message : String(e));
-              }
-            });
-        });
-      }
-      if (btnClr) {
-        btnClr.addEventListener("click", function () {
-          if (fd) fd.value = "";
-          try {
-            localStorage.removeItem(FACTORY_DNA_STORAGE_KEY);
-          } catch (_) {}
-          refreshFactoryDnaParsed();
-          updatePreview();
-        });
-      }
-    })();
 
     function revokeDropThumb(lab) {
       lab.querySelectorAll("img.thumb").forEach(function (old) {
@@ -3821,12 +3515,6 @@
         ho.style.display = "none";
       }
       if (hs) hs.textContent = "";
-      var fd = document.getElementById("factory-dna-json");
-      if (fd) fd.value = "";
-      try {
-        localStorage.removeItem(FACTORY_DNA_STORAGE_KEY);
-      } catch (_) {}
-      refreshFactoryDnaParsed();
       updatePreview();
     }
 
@@ -4078,56 +3766,6 @@
       }
     });
     })();
-
-    function copyTextWithFallback(text) {
-      if (text == null) text = "";
-      return (async function () {
-        try {
-          if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
-            await navigator.clipboard.writeText(String(text));
-            return true;
-          }
-        } catch (_) {}
-        try {
-          var ta = document.createElement("textarea");
-          ta.value = String(text);
-          ta.setAttribute("readonly", "readonly");
-          ta.style.cssText = "position:fixed;left:0;top:0;width:2em;height:2em;padding:0;border:0;opacity:0.01;";
-          document.body.appendChild(ta);
-          ta.focus();
-          ta.select();
-          var ok = document.execCommand("copy");
-          document.body.removeChild(ta);
-          return ok;
-        } catch (_) {
-          return false;
-        }
-      })();
-    }
-
-    document.getElementById("btn-refresh").addEventListener("click", updatePreview);
-    document.getElementById("btn-copy").addEventListener("click", function () {
-      const btn = document.getElementById("btn-copy");
-      const raw = document.getElementById("json-out");
-      const text = raw ? raw.textContent : "";
-      void copyTextWithFallback(text).then(function (ok) {
-        if (ok) {
-          btn.textContent = "คัดลอกแล้ว ✓";
-          setTimeout(function () { btn.textContent = "คัดลอก"; }, 1600);
-        } else if (raw) {
-          try {
-            raw.focus();
-            var range = document.createRange();
-            range.selectNodeContents(raw);
-            var sel = window.getSelection();
-            if (sel) {
-              sel.removeAllRanges();
-              sel.addRange(range);
-            }
-          } catch (_) {}
-        }
-      });
-    });
 
     const GEMINI_API_STORAGE_KEY = "storymodeMockGeminiApiKeyV1";
 
@@ -4448,17 +4086,6 @@
         status.textContent = "ใส่ Prompt (ส่วน 1) ก่อน";
         return;
       }
-      if (payload.mode === "factorymode") {
-        if (
-          !payload.factoryDna ||
-          typeof payload.factoryDna !== "object" ||
-          !Object.keys(payload.factoryDna).length
-        ) {
-          status.textContent =
-            "โหมดโรงงาน: วาง Factory DNA (JSON) ในหมวดโรงงานก่อน — หรือกด «โหลดตัวอย่าง»";
-          return;
-        }
-      }
       if (payload.mode === "product_sell" && !payload.salesFormulaId) {
         if (typeof renderSalesFormulas === "function") {
           try { renderSalesFormulas(); } catch (_) {}
@@ -4568,14 +4195,8 @@
           /* hero analysis เบื้องหลัง — ผิดพลาดก็ไม่บล็อกการเจน */
         }
 
-        const system =
-          payload.mode === "factorymode"
-            ? G.buildFactoryWarehouseSystemPromptFromPayload(payload)
-            : G.buildStorymodeSystemPromptFromPayload(payload);
-        const user =
-          payload.mode === "factorymode"
-            ? G.buildFactoryWarehouseUserMessageFromPayload(payload)
-            : G.buildStorymodeUserMessageFromPayload(payload);
+        const system = G.buildStorymodeSystemPromptFromPayload(payload);
+        const user = G.buildStorymodeUserMessageFromPayload(payload);
         if (!user) throw new Error("User message ว่าง");
         const imagesForGemini = (payload.images && payload.images.imagesForGemini) || [];
         const imageRefOrder = buildImageRefOrderList(imagesForGemini);

@@ -413,12 +413,12 @@
       <pre class="out-raw" id="out-raw" hidden></pre>
       <div class="actions">
         <button type="button" class="btn btn-primary" id="btn-copy">คัดลอกผลลัพธ์ทั้งหมด</button>
-        <a class="btn btn-ghost" href="story-config-mock.html">← กลับ mock</a>
+        <a class="btn btn-ghost" href="story-config-mock.html?mock=20260428">← กลับ mock</a>
       </div>
     </div>
   </div>
   <!-- เวอร์ชันพรอมต์เดียวกับ mock — revalidate จากเซิร์ฟเวอร์ (ไม่ใช้คุกกี้) -->
-  <script src="storymode-mock-gemini-core.js?v=2026-04-30d"></script>
+  <script src="storymode-mock-gemini-core.js?v=2026-04-30g"></script>
   <script>
     (function () {
       var KEY = "storymodeMockGeminiResultV1";
@@ -431,7 +431,7 @@
       if (EMBED) {
         var pt0 = document.getElementById("page-title");
         if (pt0) pt0.style.display = "none";
-        var back0 = document.querySelector('.actions a[href="story-config-mock.html"]');
+        var back0 = document.querySelector('.actions a[href*="story-config-mock.html"]');
         if (back0) back0.style.display = "none";
         var w0 = document.querySelector(".wrap");
         if (w0) w0.style.paddingTop = "8px";
@@ -1292,28 +1292,8 @@
           sec2.appendChild(sec2t);
           structuredRoot.appendChild(sec2);
 
-          var modeTabs = document.createElement("div");
-          modeTabs.className = "mode-tabs";
-          modeTabs.setAttribute("role", "tablist");
-          modeTabs.setAttribute("aria-label", "โหมดแสดงผล");
-          modeTabs.innerHTML =
-            '<button type="button" class="mode-tab" role="tab" aria-selected="true" id="mode-tab-json">JSON</button>' +
-            '<button type="button" class="mode-tab" role="tab" aria-selected="false" id="mode-tab-thai">Thai</button>';
-          structuredRoot.appendChild(modeTabs);
-          if (!structuredRoot.classList.contains("is-mode-thai")) {
-            structuredRoot.classList.add("is-mode-json");
-          }
-          var btnModeJson = modeTabs.querySelector("#mode-tab-json");
-          var btnModeThai = modeTabs.querySelector("#mode-tab-thai");
-          function setMode(which) {
-            var thai = which === "thai";
-            structuredRoot.classList.toggle("is-mode-thai", thai);
-            structuredRoot.classList.toggle("is-mode-json", !thai);
-            btnModeJson.setAttribute("aria-selected", thai ? "false" : "true");
-            btnModeThai.setAttribute("aria-selected", thai ? "true" : "false");
-          }
-          btnModeJson.addEventListener("click", function () { setMode("json"); });
-          btnModeThai.addEventListener("click", function () { setMode("thai"); });
+          structuredRoot.classList.add("is-mode-thai");
+          structuredRoot.classList.remove("is-mode-json");
         }
 
         for (var j = 0; j < parsed.scenes.length; j++) {

@@ -165,7 +165,7 @@
       .then(function(r) { return r.json(); })
       .then(function(data) {
         // ต้องชี้ path ไฟล์ตรง ๆ — /cs อาศัย vercel rewrites; บาง deploy ทำให้ 404
-        if (data.authenticated) location.replace('/story-config-mock.html');
+        if (data.authenticated) location.replace('/story-config-mock.html?mock=20260428');
       })
       .catch(function() {});
 

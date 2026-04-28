@@ -108,5 +108,5 @@ module.exports = async function handler(req, res) {
 
   // ไป mock หลัก: ใช้ path ไฟล์ตรง ๆ + base จาก AUTH_BASE_URL/getBaseUrl
   // (กันบาง deploy ที่ /cs rewrite ยังไม่ match → Vercel 404)
-  return res.redirect(302, `${getBaseUrl(req)}/story-config-mock.html`);
+  return res.redirect(302, `${getBaseUrl(req)}/story-config-mock.html?mock=20260428`);
 };
