@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
   <meta http-equiv="Pragma" content="no-cache" />
+  <!-- ใช้ตรวจว่าเว็บ deploy เป็น bundle ล่าสุดหรือไม่: View Source ต้องเห็น mood-groups=6 -->
+  <meta name="story-config-revision" content="root-assets-git-gempack-20260428c" />
   <title>Project CS</title>
   <style>
     :root {
@@ -296,6 +298,87 @@
     }
     .voice-chip:has(input:checked) .voice-chip-dot {
       background: var(--accent);
+    }
+    /* โหมดโรงงาน — การ์ดใหญ่หลังรูปสินค้า (เห็นชัด) */
+    #section-factory-dna {
+      scroll-margin-top: 12px;
+    }
+    #section-mood {
+      scroll-margin-top: 64px;
+    }
+    .factory-dna-panel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 2px solid rgba(245, 158, 11, 0.55);
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.04));
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    .factory-dna-panel.is-active {
+      border-color: #f59e0b;
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.22), rgba(245, 158, 11, 0.08));
+    }
+    .factory-dna-panel .factory-dna-ico {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .factory-dna-panel .factory-dna-copy {
+      flex: 1;
+      min-width: 200px;
+    }
+    .factory-dna-panel .factory-dna-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      margin: 0 0 6px;
+    }
+    .factory-dna-panel .factory-dna-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .factory-dna-panel .factory-dna-toggle-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .factory-dna-panel .factory-dna-badge {
+      display: none;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f59e0b;
+      color: #111;
+      letter-spacing: 0.04em;
+    }
+    .factory-dna-panel.is-active .factory-dna-badge {
+      display: inline-block;
+    }
+    .factory-dna-panel #factory-mode-toggle {
+      width: 1.35rem;
+      height: 1.35rem;
+      cursor: pointer;
+      accent-color: #f59e0b;
+    }
+    .factory-dna-warn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      color: var(--text);
+      display: none;
+    }
+    .factory-dna-warn.is-visible {
+      display: block;
     }
     /* 0 mode */
     .mode-row {
@@ -1000,6 +1083,22 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 6px;
     }
+    /* โรงงาน/โกดัง — การ์ดในกริดบรรยากาศ (แถวล่างขวา = ใต้คอนเทนต์สินค้า) */
+    .narrative-group-card[data-factory-group="true"] {
+      border-color: rgba(245, 158, 11, 0.5);
+      background: rgba(245, 158, 11, 0.1);
+    }
+    .narrative-group-card[data-factory-group="true"]:hover,
+    .narrative-group-card[data-factory-group="true"].is-active {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.18);
+    }
+    .narrative-group-card[data-factory-group="true"] .ng-icon {
+      filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.65));
+    }
+    #mood-group-factory-card {
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.45), inset 0 0 12px rgba(245, 158, 11, 0.08);
+    }
     .narrative-group-card {
       display: flex;
       flex-direction: column;
@@ -1631,6 +1730,34 @@
       <pre class="preview hero-analysis-out" id="hero-analysis-out" aria-live="polite" style="display:none"></pre>
     </section>
 
+    <!-- โหมดโรงงาน/โกดัง — อยู่หลังรูปสินค้าให้เห็นชัด (ไม่มีมู้ดย่อย — ให้ AI วิเคราะห์จากรูป) -->
+    <section id="section-factory-dna" data-section="factory-dna" aria-label="โหมดโรงงานโกดัง">
+      <div class="sec-head">
+        <p class="sec-title">🏭 โรงงาน / โกดัง</p>
+      </div>
+      <div class="factory-dna-panel" id="factory-dna-panel">
+        <span class="factory-dna-ico" aria-hidden="true">🏭</span>
+        <div class="factory-dna-copy">
+          <p class="factory-dna-title">เปิดโหมดนี้เมื่อต้องการสไตล์ขายแบบโกดัง</p>
+          <p class="factory-dna-desc">
+            การพูด น้ำเสียง เทคนิคขาย ฉาก — มาจาก DNA โรงงานเท่านั้น (ไม่มีปุ่มมู้ดย่อยให้เลือก)<br />
+            <strong>ให้ Gemini วิเคราะห์จากรูปสินค้าที่แนบ</strong> + Prompt ของคุณ — จากนั้นสร้างสคริปต์ตาม DNA
+          </p>
+          <p id="factory-dna-snippet-warn" class="factory-dna-warn" role="alert">
+            โหลดไฟล์ DNA ไม่สำเร็จ — เปิดหน้านี้ผ่านเซิร์ฟเวอร์ (เช่น <code>python3 serve_story_mock.py</code>)
+            ไม่ใช่เปิดไฟล์ <code>file://</code> โดยตรง
+          </p>
+        </div>
+        <div class="factory-dna-toggle-wrap">
+          <span class="factory-dna-badge" id="factory-dna-badge">DNA ON</span>
+          <label class="factory-dna-switch" style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;font-size:0.95rem;">
+            <input type="checkbox" id="factory-mode-toggle" />
+            เปิดใช้
+          </label>
+        </div>
+      </div>
+    </section>
+
     <!-- Voice Type — CHARACTER & VOICE CONSISTENCY (Phase 5) -->
     <section data-section="voice">
       <div class="sec-head">
@@ -1725,10 +1852,17 @@
     </section>
 
     <!-- 5 mood -->
-    <section data-section="mood">
+    <section data-section="mood" id="section-mood">
       <div class="sec-head">
         <p class="sec-title">บรรยากาศ</p>
       </div>
+      <p class="hint factory-mood-locator" role="note" style="margin:0 0 12px;line-height:1.55;font-size:0.82rem;">
+        <strong style="color:#fbbf24;">🏭 โรงงาน/โกดัง</strong> — การ์ดสีเหลืองอยู่
+        <strong>มุมขวาล่าง</strong>ของกริดด้านล่าง (แถวเดียวกับฟอร์แมต TikTok · คอลัมน์เดียวกับคอนเทนต์สินค้า)
+        · หรือตั้งโหมดได้ที่
+        <a href="#section-factory-dna" style="color:#fbbf24;font-weight:700;">ส่วนโรงงานใต้รูปสินค้า ↑</a>
+        <span style="opacity:0.72;display:block;margin-top:6px;font-size:0.78rem;">ถ้าเห็นแค่ 5 การ์ดบนเว็บ — หน้านั้นยังเป็นเวอร์ชันเก่าหรือแคช: <strong>Deploy commit ล่าสุด</strong> แล้วลอง Hard refresh (⌘⇧R)</span>
+      </p>
       <div id="mood-selected-box" class="sel-summary-box"></div>
       <div class="narrative-picker" id="mood-picker">
         <div class="narrative-step" id="mood-step-groups" role="navigation" aria-label="หมวด Mood">
@@ -1749,7 +1883,7 @@
       <div class="toggle-row">
         <span>H1 / H2</span>
         <label class="switch">
-          <input type="checkbox" id="h1h2" checked />
+          <input type="checkbox" id="h1h2" />
           เปิดใช้
         </label>
       </div>
@@ -1852,14 +1986,16 @@
           ผลเจนสคริปต์ฉาก (Gemini)
         </p>
       </div>
-      <iframe id="gemini-result-frame" class="result-embed-iframe" src="story-config-result.html?embed=1" title="ผลเจนสคริปต์ฉาก"></iframe>
+      <iframe id="gemini-result-frame" class="result-embed-iframe" src="/story-config-result.html?embed=1" title="ผลเจนสคริปต์ฉาก"></iframe>
     </section>
 
     </div><!-- /main-panel-project -->
   </div>
 
-  <script src="storymode-mock-enrich-bundle.js?v=2026-04-30h" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="storymode-mock-gemini-core.js?v=2026-04-30g" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <!-- path ขึ้นต้นด้วย / เพื่อให้โหลดถูกจาก root เสมอ (หน้า /cs หรือ /cs/ ไม่พัง) -->
+  <script src="/storymode-mock-enrich-bundle.js?v=2026-04-30h" onerror="window.__mock1LoadErr='enrich'"></script>
+  <script src="/GEM_PACK_TIKTOK/factory-dna-prompt.snippet.js?v=20260428" onerror="console.warn('[FactoryDNA] snippet load failed — factory mode disabled')"></script>
+  <script src="/storymode-mock-gemini-core.js?v=2026-04-30g" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -1901,8 +2037,8 @@
 
         var stamp = String(Date.now());
         var attempts = [
-          "storymode-mock-enrich-bundle.js?heal=" + stamp,
-          "storymode-mock-gemini-core.js?heal=" + stamp
+          "/storymode-mock-enrich-bundle.js?heal=" + stamp,
+          "/storymode-mock-gemini-core.js?heal=" + stamp
         ];
         try {
           for (var i = 0; i < attempts.length; i++) {
@@ -1978,6 +2114,8 @@
       { key: "Duet / Stitch Ready",    thai: "พร้อม Duet และ Stitch",  icon: "🤝", group: "tiktok" },
       { key: "Glitch & Retro Digital", thai: "กลิทช์วินเทจดิจิทัล",  icon: "📺", group: "tiktok" },
       { key: "Viral Hook Opener",      thai: "เปิดตัวดึงคนดู 3 วิ",   icon: "🪝", group: "tiktok" },
+      // 🏭 โรงงาน/โกดัง — มู้ดเดียว (ไม่แยกย่อย) ให้ AI วิเคราะห์จากรูปสินค้า + DNA
+      { key: "Factory Warehouse DNA", thai: "วิเคราะห์จากรูปสินค้า", icon: "🏭", group: "factory" },
     ];
     const MOOD_GROUPS = [
       { key: "cinematic", icon: "🎬", title: "ภาพยนตร์ & ดราม่า"   },
@@ -1985,6 +2123,8 @@
       { key: "thai",      icon: "🇹🇭", title: "สไตล์ไทย"             },
       { key: "content",   icon: "🛍️", title: "คอนเทนต์สินค้า"       },
       { key: "tiktok",    icon: "📱", title: "ฟอร์แมต TikTok"        },
+      /* ลำดับที่ 6 = คอลัมน์ขวาแถวล่าง = ใต้การ์ดคอนเทนต์สินค้า (กริด 2 คอลัมน์) */
+      { key: "factory",   icon: "🏭", title: "โรงงาน/โกดัง"          },
     ];
     /** backward-compat: derive flat array + map จาก DATA */
     const MOOD_KEYWORDS = MOOD_KEYWORDS_DATA.map(function(m) { return m.key; });
@@ -2335,10 +2475,14 @@
           cardsEl.querySelector(".narrative-group-card"))?.focus();
       });
 
-      MOOD_GROUPS.forEach(function(g, idx) {
-        const items = MOOD_KEYWORDS_DATA.filter(function(m) { return m.group === g.key; });
+      function appendOneMoodGroup(g, idx) {
+        let items = MOOD_KEYWORDS_DATA.filter(function(m) { return m.group === g.key; });
+        if (g.key === "factory" && !items.length) {
+          items = [
+            { key: "Factory Warehouse DNA", thai: "วิเคราะห์จากรูปสินค้า", icon: "🏭", group: "factory" },
+          ];
+        }
 
-        /* chip group wrapper */
         const wrap = document.createElement("div");
         wrap.className = "narrative-group-chips mood-group-chips";
         wrap.dataset.groupIndex = String(idx);
@@ -2368,13 +2512,15 @@
         });
         chipsRoot.appendChild(wrap);
 
-        /* group card button */
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "narrative-group-card";
         btn.dataset.groupIndex = String(idx);
         btn.setAttribute("aria-expanded", "false");
         btn.title = g.title + " (" + items.length + " mood)";
+        if (g.key === "factory") {
+          btn.dataset.factoryGroup = "true";
+        }
         btn.innerHTML =
           '<span class="ng-icon" aria-hidden="true">' +
           g.icon +
@@ -2382,6 +2528,10 @@
           '<span class="ng-title">' +
           g.title +
           "</span>";
+        if (g.key === "factory") {
+          btn.id = "mood-group-factory-card";
+          btn.setAttribute("aria-label", "โรงงานหรือโกดัง — การ์ดสีเหลืองมุมขวาล่างของกริดบรรยากาศ");
+        }
         btn.addEventListener("click", function() {
           chipsRoot.querySelectorAll(".mood-group-chips").forEach(function(el) { el.classList.remove("is-active"); });
           cardsEl.querySelectorAll(".narrative-group-card").forEach(function(c) {
@@ -2397,10 +2547,38 @@
           iconBack.focus();
         });
         cardsEl.appendChild(btn);
+      }
+
+      MOOD_GROUPS.forEach(function(g, idx) {
+        appendOneMoodGroup(g, idx);
       });
+
+      /* เว็บ deploy ที่ยังเป็น bundle เก่า (ไม่มี factory ใน MOOD_GROUPS) จะได้การ์ด + chip โรงงานตามเดิม */
+      if (!document.getElementById("mood-group-factory-card")) {
+        appendOneMoodGroup(
+          { key: "factory", icon: "🏭", title: "โรงงาน/โกดัง" },
+          cardsEl.querySelectorAll(".narrative-group-card").length
+        );
+      }
 
       chipsRoot.addEventListener("change", function () {
         updatePreview();
+        /* เลือกมู้ดโรงงาน → เปิดโหมด DNA อัตโนมัติ */
+        var factoryKeys = ["Factory Warehouse DNA"];
+        var selected = selectedValues("mood-chips");
+        var hasFactory = selected.some(function (v) {
+          return factoryKeys.indexOf(v) !== -1;
+        });
+        var toggle = document.getElementById("factory-mode-toggle");
+        var panel = document.getElementById("factory-dna-panel");
+        if (toggle && hasFactory && !toggle.checked) {
+          toggle.checked = true;
+          if (panel) panel.classList.add("is-active");
+          window.__FACTORY_MODE_ACTIVE__ = true;
+          try {
+            localStorage.setItem("factoryModeV1", "1");
+          } catch (_) {}
+        }
       });
 
       stepGroups.hidden = false;
@@ -4195,8 +4373,14 @@
           /* hero analysis เบื้องหลัง — ผิดพลาดก็ไม่บล็อกการเจน */
         }
 
-        const system = G.buildStorymodeSystemPromptFromPayload(payload);
-        const user = G.buildStorymodeUserMessageFromPayload(payload);
+        let system = G.buildStorymodeSystemPromptFromPayload(payload);
+        let user = G.buildStorymodeUserMessageFromPayload(payload);
+        // Factory DNA injection — เมื่อโหมดโรงงานเปิด ให้แทรก DNA block เข้า systemInstruction
+        if (window.__FACTORY_MODE_ACTIVE__ && window.FACTORY_DNA_SYSTEM_BLOCK) {
+          system = window.FACTORY_DNA_SYSTEM_BLOCK + "\n\n" + system;
+          const prefix = window.FACTORY_DNA_USER_PREFIX || "【โหมดโรงงาน/โกดัง】 ";
+          if (!user.startsWith(prefix)) user = prefix + user;
+        }
         if (!user) throw new Error("User message ว่าง");
         const imagesForGemini = (payload.images && payload.images.imagesForGemini) || [];
         const imageRefOrder = buildImageRefOrderList(imagesForGemini);
@@ -4211,6 +4395,8 @@
               : null
         });
         const out = await G.mockFetchGeminiStorymode(apiKey, system, user, imagesForGemini, {});
+        // Forbidden-word report สำหรับโหมดโรงงาน
+        const forbiddenHits = (out.safety && out.safety.overclaimHits) || [];
         save({
           status: "done",
           text: out.text,
@@ -4219,13 +4405,21 @@
           error: null,
           imageRefOrder: imageRefOrder,
           safety: out.safety || null,
+          factoryMode: !!window.__FACTORY_MODE_ACTIVE__,
           ts: Date.now(),
           promptAssetVersion:
             typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
               ? STORYMODE_PROMPT_ASSET_VERSION
               : null
         });
-        status.textContent = "สำเร็จ — ดูผลด้านล่าง";
+        if (window.__FACTORY_MODE_ACTIVE__ && forbiddenHits.length > 0) {
+          status.textContent =
+            "สำเร็จ (โหมดโรงงาน) ⚠️ พบคำต้องห้าม " + forbiddenHits.length + " จุด — ถูกลบ/แทนที่อัตโนมัติ → ดูผลด้านล่าง";
+        } else if (window.__FACTORY_MODE_ACTIVE__) {
+          status.textContent = "สำเร็จ (โหมดโรงงาน) — ดูผลด้านล่าง";
+        } else {
+          status.textContent = "สำเร็จ — ดูผลด้านล่าง";
+        }
         var resOk = document.getElementById("section-gemini-result");
         if (resOk && resOk.scrollIntoView) {
           resOk.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -4399,6 +4593,50 @@
         .catch(function () {
           finishBypass();
         });
+    })();
+  </script>
+
+  <script>
+    /* ── Factory Mode Toggle ── */
+    (function () {
+      var toggle = document.getElementById("factory-mode-toggle");
+      var panel = document.getElementById("factory-dna-panel");
+      var warnEl = document.getElementById("factory-dna-snippet-warn");
+      if (!toggle || !panel) return;
+
+      function applyFactoryMode(active) {
+        window.__FACTORY_MODE_ACTIVE__ = active;
+        panel.classList.toggle("is-active", active);
+        var dnaOk = !!window.FACTORY_DNA_SYSTEM_BLOCK;
+        if (warnEl) {
+          warnEl.classList.toggle("is-visible", active && !dnaOk);
+        }
+        if (active && !dnaOk) {
+          console.warn(
+            "[FactoryDNA] factory-dna-prompt.snippet.js ไม่ได้โหลด — ใช้ http จาก root โปรเจกต์ (ไม่ใช่ file://)"
+          );
+        }
+        try {
+          localStorage.setItem("factoryModeV1", active ? "1" : "0");
+        } catch (_) {}
+      }
+
+      /* แสดงคำเตือนถ้า snippet โหลดไม่ได้ */
+      if (warnEl) {
+        warnEl.classList.toggle("is-visible", !window.FACTORY_DNA_SYSTEM_BLOCK);
+      }
+
+      try {
+        var saved = localStorage.getItem("factoryModeV1");
+        if (saved === "1") {
+          toggle.checked = true;
+          applyFactoryMode(true);
+        }
+      } catch (_) {}
+
+      toggle.addEventListener("change", function () {
+        applyFactoryMode(toggle.checked);
+      });
     })();
   </script>
 </body>
