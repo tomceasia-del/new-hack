@@ -9,16 +9,22 @@
     "api/auth/callback.js":      { "maxDuration": 15 },
     "api/auth/session.js":       { "maxDuration": 10 },
     "api/auth/logout.js":        { "maxDuration": 10 },
+    "api/auth/clear.js":         { "maxDuration": 5 },
     "api/admin/admins.js":         { "maxDuration": 10 },
-    "api/admin/access-requests.js": { "maxDuration": 10 }
+    "api/admin/access-requests.js": { "maxDuration": 10 },
+    "api/tiktok-share-fetch.js":  { "maxDuration": 30 },
+    "api/mall-mode.js":             { "maxDuration": 60 }
   },
   "rewrites": [
     { "source": "/start",  "destination": "/index.html" },
     { "source": "/",        "destination": "/login.html" },
     { "source": "/login",   "destination": "/login.html" },
+    { "source": "/reset",   "destination": "/reset.html" },
     { "source": "/admin",   "destination": "/admin.html" },
     { "source": "/admin/approvals", "destination": "/admin-approvals.html" },
     { "source": "/cs",              "destination": "/story-config-mock.html" },
+    { "source": "/mall",            "destination": "/story-config-mock.html" },
+    { "source": "/mall/",           "destination": "/story-config-mock.html" },
     { "source": "/story-config-mock", "destination": "/story-config-mock.html" },
     { "source": "/result",  "destination": "/story-config-result.html" },
     { "source": "/editor",  "destination": "/editor/index.html" },
@@ -58,7 +64,37 @@
       ]
     },
     {
+      "source": "/GEM_PACK_TIKTOK/factory-dna-prompt.snippet.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/build-info.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/reset.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/reset",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
       "source": "/story-config-mock.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/story-config-mock",
       "headers": [
         { "key": "Cache-Control", "value": "no-store" }
       ]
@@ -71,6 +107,18 @@
     },
     {
       "source": "/cs",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/mall",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/mall/",
       "headers": [
         { "key": "Cache-Control", "value": "no-store" }
       ]

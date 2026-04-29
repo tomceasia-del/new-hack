@@ -3939,7 +3939,7 @@ function renderProductQueue() {
               ✨ AI
             </button>
           </div>
-          <input type="text" class="cta-input" data-id="${item.id}" data-field="cta" value="${item.cta || ''}" placeholder="เช่น: กดซื้อเลย!, ลิงก์ในไบโอ">
+          <input type="text" class="cta-input" data-id="${item.id}" data-field="cta" value="${item.cta || ''}" placeholder="เช่น: กดซื้อเลย!, กดตะกร้าได้เลย">
         </div>
       </div>
       

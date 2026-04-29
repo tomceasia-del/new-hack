@@ -92,7 +92,7 @@ export const UI_SCAN_E2 = {
   placeholder_custom_speech: 'เช่น สวยปังมากแม่, ผิวเด้งมาก, ต้องลอง!',  // line 3909
   placeholder_caption: 'ใส่แคปชั่นสำหรับโพสต์...',  // line 3931
   label_cta: 'CTA (Call to Action)',  // line 3935
-  placeholder_cta: 'เช่น: กดซื้อเลย!, ลิงก์ในไบโอ',  // line 3940
+  placeholder_cta: 'เช่น: กดซื้อเลย!, กดตะกร้าได้เลย',  // line 3940
   btn_ai_generate: '✨ AI',  // line 3927 / 3937
   btn_ai_analyze: 'AI Analyze',  // line 3946
   btn_generate_media: 'Generate Media',  // line 3949

@@ -379,7 +379,7 @@ export const UI_COPY_EXTENDED = {
   placeholder_video16_prompt:       'Prompt สำหรับวิดีโอ 16 วินาที...',
   placeholder_custom_speech:        'เช่น สวยปังมากแม่, ผิวเด้งมาก, ต้องลอง!',
   placeholder_caption:              'ใส่แคปชั่นสำหรับโพสต์...',
-  placeholder_cta:                  'เช่น: กดซื้อเลย!, ลิงก์ในไบโอ',
+  placeholder_cta:                  'เช่น: กดซื้อเลย!, กดตะกร้าได้เลย',
   placeholder_manual_scene:         'พิมพ์บทพูดฉากที่ {n}...',
   placeholder_dialogue_edit:        'บทพูดของตัวละคร (แก้ไขได้)',
   placeholder_studio_dialogue:      'บทพูดของตัวละครในฉากนี้ (แก้ไขได้ตามใจ)',

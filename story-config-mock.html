@@ -6,7 +6,7 @@
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
   <meta http-equiv="Pragma" content="no-cache" />
   <!-- ใช้ตรวจว่าเว็บ deploy เป็น bundle ล่าสุดหรือไม่: View Source ต้องเห็น mood-groups=6 -->
-  <meta name="story-config-revision" content="root-assets-git-gempack-20260428c" />
+  <meta name="story-config-revision" content="root-assets-git-gempack-20260428d-mall-text-optional" />
   <title>Project CS</title>
   <style>
     :root {
@@ -299,86 +299,8 @@
     .voice-chip:has(input:checked) .voice-chip-dot {
       background: var(--accent);
     }
-    /* โหมดโรงงาน — การ์ดใหญ่หลังรูปสินค้า (เห็นชัด) */
-    #section-factory-dna {
-      scroll-margin-top: 12px;
-    }
     #section-mood {
       scroll-margin-top: 64px;
-    }
-    .factory-dna-panel {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 18px;
-      border-radius: 14px;
-      border: 2px solid rgba(245, 158, 11, 0.55);
-      background: linear-gradient(145deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.04));
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.25);
-    }
-    .factory-dna-panel.is-active {
-      border-color: #f59e0b;
-      background: linear-gradient(145deg, rgba(245, 158, 11, 0.22), rgba(245, 158, 11, 0.08));
-    }
-    .factory-dna-panel .factory-dna-ico {
-      font-size: 2rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-    .factory-dna-panel .factory-dna-copy {
-      flex: 1;
-      min-width: 200px;
-    }
-    .factory-dna-panel .factory-dna-title {
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.02em;
-      margin: 0 0 6px;
-    }
-    .factory-dna-panel .factory-dna-desc {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.55;
-      margin: 0;
-    }
-    .factory-dna-panel .factory-dna-toggle-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    .factory-dna-panel .factory-dna-badge {
-      display: none;
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #f59e0b;
-      color: #111;
-      letter-spacing: 0.04em;
-    }
-    .factory-dna-panel.is-active .factory-dna-badge {
-      display: inline-block;
-    }
-    .factory-dna-panel #factory-mode-toggle {
-      width: 1.35rem;
-      height: 1.35rem;
-      cursor: pointer;
-      accent-color: #f59e0b;
-    }
-    .factory-dna-warn {
-      margin-top: 10px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 0.78rem;
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(239, 68, 68, 0.45);
-      color: var(--text);
-      display: none;
-    }
-    .factory-dna-warn.is-visible {
-      display: block;
     }
     /* 0 mode */
     .mode-row {
@@ -446,6 +368,54 @@
       color: var(--text);
       border-color: var(--accent);
     }
+    /* TikTok share link fetch row */
+    .tiktok-fetch-row {
+      display: flex;
+      gap: 8px;
+      align-items: stretch;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .tiktok-fetch-row input[type="url"] {
+      flex: 1;
+      min-width: 0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.88rem;
+    }
+    .tiktok-fetch-row input[type="url"]::placeholder { color: var(--muted); }
+    .tiktok-fetch-row input[type="url"]:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .btn-tiktok-fetch {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: var(--accent-dim);
+      color: var(--accent);
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-tiktok-fetch:hover { opacity: 0.85; }
+    .btn-tiktok-fetch:disabled { opacity: 0.45; cursor: wait; }
+    .tiktok-fetch-status {
+      display: block;
+      font-size: 0.78rem;
+      min-height: 1.2em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .tiktok-fetch-status.ok  { color: var(--ok); }
+    .tiktok-fetch-status.err { color: #f26c6c; }
     /* ฝังผลเจนสคริปต์ฉาก (story-config-result.html) ใต้ปุ่มเจน — บนหน้าเดียวกับฟอร์ม */
     .gemini-result-section {
       margin-top: 24px;
@@ -480,6 +450,45 @@
       font-size: 1rem;
     }
     textarea.prompt::placeholder { color: var(--muted); }
+    /* โหมดโรงงาน: รับเฉพาะ prompt + รูป + จำนวนซีน (+ การ์ดโรงงาน) — ที่เหลือซ่อน ให้ DNA จัดการใน system */
+    body.factory-warehouse-active section[data-section="voice"],
+    body.factory-warehouse-active section[data-section="visual"],
+    body.factory-warehouse-active section[data-section="hook"],
+    body.factory-warehouse-active section[data-section="narrative"],
+    body.factory-warehouse-active section[data-section="overlay"],
+    body.factory-warehouse-active section[data-section="domain"],
+    body.factory-warehouse-active section[data-section="product-facts"],
+    body.factory-warehouse-active #section-mood .sel-summary-box,
+    body.factory-warehouse-active .hero-analysis-toolbar,
+    body.factory-warehouse-active #hero-analysis-out {
+      display: none !important;
+    }
+    body.factory-warehouse-active #mood-group-cards .narrative-group-card:not([data-factory-group="true"]) {
+      display: none !important;
+    }
+    /* โรงงาน = pipeline storymode เท่านั้น — ไม่ปน product / hook manual / สูตรขาย */
+    body.factory-warehouse-active #section-mode {
+      display: none !important;
+    }
+    /* โหมดห้าง: prompt (ส่วน 1) + จำนวนซีน + รูปสินค้า (ถ้ามี) — ไปสาย /api/mall-mode แยก */
+    body.mall-mode-active section[data-section="voice"],
+    body.mall-mode-active section[data-section="visual"],
+    body.mall-mode-active section[data-section="hook"],
+    body.mall-mode-active section[data-section="narrative"],
+    body.mall-mode-active section[data-section="overlay"],
+    body.mall-mode-active section[data-section="domain"],
+    body.mall-mode-active section[data-section="product-facts"],
+    body.mall-mode-active #section-mood .sel-summary-box,
+    body.mall-mode-active .hero-analysis-toolbar,
+    body.mall-mode-active #hero-analysis-out {
+      display: none !important;
+    }
+    body.mall-mode-active #mood-group-cards .narrative-group-card:not([data-mall-group="true"]) {
+      display: none !important;
+    }
+    body.mall-mode-active #section-mode {
+      display: none !important;
+    }
     /* รูปสินค้า (input เดียว สูงสุด 5) + ตัวละคร 3 ช่อง */
     .drop-grid-images {
       display: grid;
@@ -1099,6 +1108,53 @@
     #mood-group-factory-card {
       box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.45), inset 0 0 12px rgba(245, 158, 11, 0.08);
     }
+    /* ห้าง (Mall Mode) — การ์ดในกริดบรรยากาศ */
+    .narrative-group-card[data-mall-group="true"] {
+      border-color: rgba(59, 130, 246, 0.5);
+      background: rgba(59, 130, 246, 0.08);
+    }
+    .narrative-group-card[data-mall-group="true"]:hover,
+    .narrative-group-card[data-mall-group="true"].is-active {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.16);
+    }
+    .narrative-group-card[data-mall-group="true"] .ng-icon {
+      filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.65));
+    }
+    #mood-group-mall-card {
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.45), inset 0 0 12px rgba(59, 130, 246, 0.08);
+    }
+    /* Mall inputs panel */
+    .mall-mode-hint {
+      display: none;
+      margin-top: 10px;
+    }
+    body.mall-mode-active .mall-mode-hint {
+      display: block;
+    }
+    .mall-save-actions {
+      display: none;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    body.mall-mode-active .mall-save-actions {
+      display: flex;
+    }
+    .mall-save-actions .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .mall-product-slot-note {
+      display: none;
+      font-weight: 500;
+      font-size: 0.82em;
+      color: var(--muted);
+    }
+    body.mall-mode-active .mall-product-slot-note {
+      display: inline;
+    }
     .narrative-group-card {
       display: flex;
       flex-direction: column;
@@ -1352,6 +1408,26 @@
     .dialogue-rule-callout li {
       margin: 4px 0;
     }
+    .dialogue-rule-callout .dialogue-rule-scope-note {
+      margin: 8px 0 0;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--surface) 92%, var(--border));
+      font-size: 0.84rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    /* โหมดโรงงาน/โกดัง: แสดงกฎจังหวะพูดเร็ว แทนล็อก 15–20 คำ */
+    #dialogue-rule-factory {
+      display: none;
+      box-shadow: inset 3px 0 0 0 #ea580c;
+    }
+    body.factory-warehouse-active #dialogue-rule-default {
+      display: none !important;
+    }
+    body.factory-warehouse-active #dialogue-rule-factory {
+      display: block !important;
+    }
     .api-key-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -1451,13 +1527,7 @@
     html.gemini-public-calm .d-title-dev {
       display: none;
     }
-    body.deployed-gemini-wait .d-title-pub {
-      display: inline;
-    }
-    body.deployed-gemini-wait .d-title-dev {
-      display: none;
-    }
-    /* Deploy (ไม่ใช่ localhost): บังคับ AI ฝั่ง server ที่ทีมจ่าย — ห้ามใส่ key เอง ยกเว้น ?dev=1 */
+    /* Deploy: แจ้งเมื่อยังไม่มี GEMINI_API_KEY บนเซิร์ฟเวอร์ — ไม่บล็อกปุ่ม (เหมือน local: ใส่ key ในเบราว์เซอร์ได้) */
     #deployed-gemini-wait-banner {
       display: none;
       margin: 0 0 16px;
@@ -1469,17 +1539,8 @@
       border: 1px solid rgba(255, 200, 100, 0.28);
       color: var(--text, #e8eaef);
     }
-    body.deployed-gemini-wait #deployed-gemini-wait-banner {
+    body.deployed-gemini-backend-missing #deployed-gemini-wait-banner {
       display: block;
-    }
-    body.deployed-gemini-wait #gemini-api-key-chrome,
-    body.deployed-gemini-wait #api-google-led {
-      display: none !important;
-    }
-    body.deployed-gemini-wait #btn-generate,
-    body.deployed-gemini-wait #btn-hero-analyze {
-      pointer-events: none;
-      opacity: 0.5;
     }
 
     /* ── Google OAuth gate (หน้าแรก / /cs บน Vercel) ───────────────────── */
@@ -1614,6 +1675,27 @@
       if (el) el.style.display = "block";
     }
   </script>
+  <script>
+    (function () {
+      try {
+        var path = (location.pathname || "").replace(/\/+$/, "") || "/";
+        var q = new URLSearchParams(location.search || "");
+        window.__CS_MALL_ONLY__ = path === "/mall" || q.get("mall_only") === "1";
+      } catch (e) {
+        window.__CS_MALL_ONLY__ = false;
+      }
+      if (!window.__CS_MALL_ONLY__) return;
+      try {
+        var q = new URLSearchParams(location.search || "");
+        if (q.get("force_auth") === "1") return;
+      } catch (e2) {}
+      try {
+        if (localStorage.getItem("STORY_MOCK_FORCE_AUTH") === "1") return;
+      } catch (e3) {}
+      document.body.classList.remove("auth-checking");
+      document.body.classList.add("auth-bypass");
+    })();
+  </script>
 
   <div id="auth-gate" class="auth-gate" aria-modal="true" role="dialog" aria-labelledby="auth-gate-title">
     <div class="auth-gate-card">
@@ -1631,7 +1713,10 @@
         </svg>
         เข้าสู่ระบบด้วย Google
       </a>
-      <p class="auth-gate-hint">หรือ <a href="login.html" class="api-console-link" style="margin: 0 2px; font-size: inherit">หน้า login แยก</a> — รัน <code>python3 serve_story_mock.py</code> จะยังใช้ mock ได้โดยไม่บังคับ OAuth</p>
+      <p class="auth-gate-hint">
+        หน้า mock จะข้ามล็อกอิน Google เหมือนตอนรัน local ให้อัตโนมัติ
+        — ถ้าต้องการบังคับล็อกอิน ใช้ <code>?force_auth=1</code> หรือ <code>localStorage.setItem(&quot;STORY_MOCK_FORCE_AUTH&quot;,&quot;1&quot;)</code> แล้วรีเฟรช
+      </p>
     </div>
   </div>
 
@@ -1669,8 +1754,25 @@
     <!-- 1 -->
     <section data-section="prompt">
       <div class="sec-head">
-        <p class="sec-title">1 · Prompt ให้ AI วิเคราะห์</p>
+        <p
+          class="sec-title"
+          id="prompt-sec-title"
+          data-default-title="1 · Prompt ให้ AI วิเคราะห์"
+        >
+          1 · Prompt ให้ AI วิเคราะห์
+        </p>
       </div>
+      <div class="tiktok-fetch-row">
+        <input
+          type="url"
+          id="tiktok-share-url"
+          placeholder="https://vt.tiktok.com/...  หรือ tiktok.com/view/product/..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button type="button" class="btn-tiktok-fetch" id="btn-tiktok-share-fetch">ดึงข้อมูล</button>
+      </div>
+      <span class="tiktok-fetch-status" id="tiktok-fetch-status" aria-live="polite"></span>
       <div class="prompt-field-head">
         <label class="field-label" for="prompt">ข้อความ</label>
         <button type="button" class="btn-clear-prompt" id="btn-clear-prompt-images">ล้างข้อความและรูป</button>
@@ -1681,12 +1783,18 @@
     <!-- 2 -->
     <section data-section="images">
       <div class="sec-head">
-        <p class="sec-title">2 · รูปสำหรับ AI (mock)</p>
+        <p
+          class="sec-title"
+          id="images-sec-title"
+          data-default-title="2 · รูปสำหรับ AI (mock)"
+        >
+          2 · รูปสำหรับ AI (mock)
+        </p>
       </div>
       <div class="drop-grid-images">
         <label class="drop" id="drop-product" data-key="product">
           <input type="file" accept="image/*" data-key="product" multiple />
-          <strong>รูปสินค้า</strong>
+          <strong>รูปสินค้า<span class="mall-product-slot-note"> · โหมดห้างไม่บังคับ</span></strong>
           <span class="drop-multi-hint">สูงสุด 5 รูป — เลือกหลายไฟล์ได้ในครั้งเดียว</span>
           <div class="multi-thumb-stack" aria-hidden="true"></div>
           <span class="drop-hint" aria-hidden="true"></span>
@@ -1728,34 +1836,6 @@
         <span id="hero-analyze-status" style="font-size:0.78rem;color:var(--muted);"></span>
       </div>
       <pre class="preview hero-analysis-out" id="hero-analysis-out" aria-live="polite" style="display:none"></pre>
-    </section>
-
-    <!-- โหมดโรงงาน/โกดัง — อยู่หลังรูปสินค้าให้เห็นชัด (ไม่มีมู้ดย่อย — ให้ AI วิเคราะห์จากรูป) -->
-    <section id="section-factory-dna" data-section="factory-dna" aria-label="โหมดโรงงานโกดัง">
-      <div class="sec-head">
-        <p class="sec-title">🏭 โรงงาน / โกดัง</p>
-      </div>
-      <div class="factory-dna-panel" id="factory-dna-panel">
-        <span class="factory-dna-ico" aria-hidden="true">🏭</span>
-        <div class="factory-dna-copy">
-          <p class="factory-dna-title">เปิดโหมดนี้เมื่อต้องการสไตล์ขายแบบโกดัง</p>
-          <p class="factory-dna-desc">
-            การพูด น้ำเสียง เทคนิคขาย ฉาก — มาจาก DNA โรงงานเท่านั้น (ไม่มีปุ่มมู้ดย่อยให้เลือก)<br />
-            <strong>ให้ Gemini วิเคราะห์จากรูปสินค้าที่แนบ</strong> + Prompt ของคุณ — จากนั้นสร้างสคริปต์ตาม DNA
-          </p>
-          <p id="factory-dna-snippet-warn" class="factory-dna-warn" role="alert">
-            โหลดไฟล์ DNA ไม่สำเร็จ — เปิดหน้านี้ผ่านเซิร์ฟเวอร์ (เช่น <code>python3 serve_story_mock.py</code>)
-            ไม่ใช่เปิดไฟล์ <code>file://</code> โดยตรง
-          </p>
-        </div>
-        <div class="factory-dna-toggle-wrap">
-          <span class="factory-dna-badge" id="factory-dna-badge">DNA ON</span>
-          <label class="factory-dna-switch" style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;font-size:0.95rem;">
-            <input type="checkbox" id="factory-mode-toggle" />
-            เปิดใช้
-          </label>
-        </div>
-      </div>
     </section>
 
     <!-- Voice Type — CHARACTER & VOICE CONSISTENCY (Phase 5) -->
@@ -1856,13 +1936,6 @@
       <div class="sec-head">
         <p class="sec-title">บรรยากาศ</p>
       </div>
-      <p class="hint factory-mood-locator" role="note" style="margin:0 0 12px;line-height:1.55;font-size:0.82rem;">
-        <strong style="color:#fbbf24;">🏭 โรงงาน/โกดัง</strong> — การ์ดสีเหลืองอยู่
-        <strong>มุมขวาล่าง</strong>ของกริดด้านล่าง (แถวเดียวกับฟอร์แมต TikTok · คอลัมน์เดียวกับคอนเทนต์สินค้า)
-        · หรือตั้งโหมดได้ที่
-        <a href="#section-factory-dna" style="color:#fbbf24;font-weight:700;">ส่วนโรงงานใต้รูปสินค้า ↑</a>
-        <span style="opacity:0.72;display:block;margin-top:6px;font-size:0.78rem;">ถ้าเห็นแค่ 5 การ์ดบนเว็บ — หน้านั้นยังเป็นเวอร์ชันเก่าหรือแคช: <strong>Deploy commit ล่าสุด</strong> แล้วลอง Hard refresh (⌘⇧R)</span>
-      </p>
       <div id="mood-selected-box" class="sel-summary-box"></div>
       <div class="narrative-picker" id="mood-picker">
         <div class="narrative-step" id="mood-step-groups" role="navigation" aria-label="หมวด Mood">
@@ -1873,6 +1946,9 @@
           <div class="chip-grid narrative-scroll" id="mood-chips"></div>
         </div>
       </div>
+      <p id="mall-mode-hint" class="hint mall-mode-hint">
+        🏬 โหมดห้าง: <strong>ข้อความด้านบน</strong> (ส่วน 1) เป็นคำสั่งหลัก · <strong>จำนวนซีน</strong> · <strong>รูปสินค้า</strong> ช่วยล็อก SKU/แพ็กจากภาพ — <strong>ไม่บังคับ</strong> (ไม่แนบก็เจนจากข้อความอย่างเดียวได้)
+      </p>
     </section>
 
     <!-- 7 -->
@@ -1923,9 +1999,8 @@
 
     <section id="section-generate" data-section="generate">
       <p id="deployed-gemini-wait-banner" class="deployed-wait-hint" role="alert" aria-live="polite">
-        บริการเจนสคริปต์ใช้ AI ฝั่งเซิร์ฟเวอร์ (ทีมออกค่า API รวม) — ตอนนี้ยังเชื่อมต่อไม่สำเร็จ
-        กรุณาลองรีเฟรช หรือติดต่อผู้ดูแลให้ตรวจสอบ
-        <strong>GEMINI_API_KEY</strong> บน Vercel / เซิร์ฟเวอร์ — นักพัฒนาทดสอบ key เองด้วย
+        ยังไม่มี <strong>GEMINI_API_KEY</strong> บนเซิร์ฟเวอร์ — ใช้งานได้เหมือนตอนรัน local:
+        ใส่/บันทึก API key ในช่างด้านล่าง หรือให้ผู้ดูแลตั้งค่าบน Vercel แล้วรีเฟรช
         <a href="#" class="api-console-link" id="dev-mode-query-link" style="margin-left: 4px">?dev=1</a>
       </p>
       <div class="sec-head">
@@ -1962,6 +2037,9 @@
           <span class="d-title-pub">กฎบทพูด (ยึดตามกฎระบบ — อ้างอิง system prompt ของเครื่องมือ)</span>
           <span class="d-title-dev">กฎบทพูด (ยึดตาม system prompt ที่ส่งไป Gemini)</span>
         </strong>
+        <p class="dialogue-rule-scope-note">
+          ใช้เมื่อ<strong>ไม่</strong>ได้เปิดโหมดโรงงาน/โกดัง — ถ้าเลือกมู้ด <strong>Factory Warehouse DNA</strong> (โปรไฟล์โกดัง) ระบบจะ<strong>ยกเว้น</strong>ล็อก 15–20 คำด้านล่าง และใช้กฎโกดังแทน: <strong>พูดเร็วมาก / สปีดสูง</strong> — บทไทยใน Dialogue <strong>ไม่เกิน 38 คำต่อฉาก</strong> ตาม FACTORY DNA
+        </p>
         <ul>
           <li>มาตรฐานคลิปสั้น: <strong>~8 วินาที ต่อ 1 ฉาก</strong> (Flow / short-form)</li>
           <li>บทพูดหรือพากย์ <strong>ภาษาไทย 15-20 คำ ต่อ 1 ฉาก</strong> — นับ<strong>รวม</strong> dialogue ทั้งฉาก (รวมหลาย beat ในฉากเดียว = นับรวมเดียว ไม่ใช่ 15-20 ต่อ beat)</li>
@@ -1969,9 +2047,35 @@
           <li>โหมด ASMR (ถ้าเลือก): <strong>ไม่มี</strong> dialogue ตามกฎ system</li>
         </ul>
       </div>
+      <div
+        class="dialogue-rule-callout"
+        id="dialogue-rule-factory"
+        role="note"
+        aria-label="กฎบทพูดโหมดโรงงาน/โกดัง"
+      >
+        <strong>
+          <span class="d-title-pub">กฎบทพูด — โรงงาน/โกดัง (FACTORY DNA)</span>
+          <span class="d-title-dev">กฎบทพูด — โรงงาน/โกดัง (ไม่ใช้ล็อก 15–20 คำ · เพดาน 38 คำ/ฉาก)</span>
+        </strong>
+        <p class="dialogue-rule-scope-note">
+          <strong>ยกเว้น</strong>กฎบทพูดมาตรฐาน (15–20 คำ/ฉาก) — ใช้เพดาน <strong>ไม่เกิน 38 คำไทยต่อฉาก</strong> ใน Dialogue — โหมดนี้เปิดใช้เมื่อเลือกมู้ด Factory Warehouse DNA เท่านั้น
+        </p>
+        <ul>
+          <li>มาตรฐานคลิปสั้น: <strong>~8 วินาที ต่อ 1 ฉาก</strong> — ยังอ้างความยาววิดีโอเดิม</li>
+          <li><strong>บังคับพูดเร็ว + เพดานคำ:</strong> <strong>ยกเลิก</strong> ล็อก <strong>15–20 คำ/ฉาก</strong> แบบ Flow — บทไทยใน <code>Dialogue:</code> <strong>ไม่เกิน 38 คำต่อฉาก</strong> (นับคำ) — ใช้โทน <strong>พูดเร็วมาก / สปีดสูง / รัวประโยคสั้น</strong> แบบไลฟ์โกดัง–เคลียร์สต็อก; ใน prompt ภาษาอังกฤษ / บรรทัด EN ของ <code>TTS/voice</code> แนะนำผสมวลีอย่าง <em>fast-paced speech</em>, <em>rapid-fire dialogue</em>, <em>excited high-energy delivery</em> (ระบบส่งต่อใน Gemini)</li>
+          <li><strong>ฮีโร่/ผู้พูดหลักในเฟรม = พูดเร็วสูงสุดตาม DNA</strong> — on-camera hero lip-syncs ที่ maximum retail tempo; ตัวประกอบ/คนอื่นในเฟรมเงียบ (ไม่ lip-sync)</li>
+          <li><strong>ห้ามใส่การ์ด:</strong> ห้ามส่ง character card / การ์ดตัวละครแทนคำบรรยาย — <strong>ทุกฉากทุกรอบ</strong> เขียนบรรยายตัวละคร<strong>ใหม่ครบ</strong>ใน IMAGE / <code>hero_full_detail</code> และ <code>TTS/voice</code> (พิมพ์ซ้ำประโยคล็อกได้ ห้ามการ์ดหรือคำอ้างอย่างเดียว)</li>
+          <li>ใน <code>TTS/voice</code> ต้องระบุชัด <strong>เพศ · วัย · ใบหน้า/ร่าง/ชุด</strong> (ให้ตรงคนในรูป) + <strong>ความเร็วสูงมาก / รัวคำ / energy ขาย</strong> — ล็อกทั้ง<strong>หน้าตาและเสียง</strong>ทุกฉาก — <strong>ห้าม REF:</strong> เขียนประโยคล็อกตัวตน<strong>เต็มซ้ำทุกฉาก</strong> (ไม่ใช่แค่ “เหมือนฉากก่อนหน้า”)</li>
+          <li>ถ้าบทยาวเกินจะพูดจบใน ~8 วิ หรือเกิน 38 คำ — ตัดความคิดให้พอดีทั้งเวลาและเพดานคำ</li>
+        </ul>
+      </div>
       <div class="generate-row">
         <button type="button" class="btn btn-primary" id="btn-generate">เจนสคริปต์ฉาก</button>
         <span id="generate-status" class="hint"></span>
+      </div>
+      <div class="mall-save-actions" id="mall-save-actions" aria-label="บันทึกผลโหมดห้าง">
+        <button type="button" class="btn btn-ghost" id="btn-mall-download-json" disabled>บันทึก JSON</button>
+        <button type="button" class="btn btn-ghost" id="btn-mall-copy-json" disabled>คัดลอกผล</button>
       </div>
     </section>
 
@@ -1993,9 +2097,82 @@
   </div>
 
   <!-- path ขึ้นต้นด้วย / เพื่อให้โหลดถูกจาก root เสมอ (หน้า /cs หรือ /cs/ ไม่พัง) -->
-  <script src="/storymode-mock-enrich-bundle.js?v=2026-04-30h" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="/GEM_PACK_TIKTOK/factory-dna-prompt.snippet.js?v=20260428" onerror="console.warn('[FactoryDNA] snippet load failed — factory mode disabled')"></script>
-  <script src="/storymode-mock-gemini-core.js?v=2026-04-30g" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script>
+    /** Auto-cache-bust heartbeat — ผู้ใช้ไม่ต้องล้างแคชเอง
+     *  - HTML เป็น no-store + JS path มี ?v=<deploy version> → รีเฟรชครั้งหนึ่งได้ของใหม่
+     *  - heartbeat: ทุก 30 วิ ถ้า build-info.json เปลี่ยน version → reload หน้าเงียบ ๆ ครั้งเดียว
+     *    (กันกรณีผู้ใช้เปิดแท็บค้างไว้นานก่อน deploy ใหม่) */
+    (function () {
+      var KEY = "storymodeMockBuildVersion";
+      var current = null;
+      var pending = false;
+      function check() {
+        if (pending) return;
+        pending = true;
+        fetch("/build-info.json", { cache: "no-store" })
+          .then(function (r) {
+            if (!r.ok) return null;
+            return r.text().then(function (t) {
+              try {
+                return JSON.parse(t);
+              } catch (_) {
+                return null;
+              }
+            });
+          })
+          .then(function (j) {
+            if (!j || !j.version) return;
+            if (current == null) {
+              current = j.version;
+              try { sessionStorage.setItem(KEY, current); } catch (e) {}
+              return;
+            }
+            if (j.version !== current) {
+              try { sessionStorage.setItem(KEY, j.version); } catch (e) {}
+              try { console.info("[mock] new build detected — reloading", current, "->", j.version); } catch (e) {}
+              location.reload();
+            }
+          })
+          .catch(function () {})
+          .finally(function () { pending = false; });
+      }
+      check();
+      setInterval(check, 30000);
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) check();
+      });
+    })();
+  </script>
+  <script>
+    /** localhost → ยิง /api/gemini ที่โดเมน Vercel (ไม่มี trailing slash). ว่าง = ใช้เซิร์ฟเครื่อง (serve_story_mock.py)
+     *  override: ?geminiOrigin=https://xxx.vercel.app หรือ localStorage GEMINI_REMOTE_API_ORIGIN */
+    (function () {
+      var GEMINI_REMOTE_API_ORIGIN_DEFAULT = "";
+      function trimSlash(s) {
+        if (!s || typeof s !== "string") return "";
+        return s.replace(/\/+$/, "");
+      }
+      function resolveRemoteOrigin() {
+        try {
+          var q = new URLSearchParams(location.search).get("geminiOrigin");
+          if (q) return trimSlash(q);
+        } catch (e) {}
+        try {
+          var ls = localStorage.getItem("GEMINI_REMOTE_API_ORIGIN");
+          if (ls) return trimSlash(ls);
+        } catch (e) {}
+        return trimSlash(GEMINI_REMOTE_API_ORIGIN_DEFAULT);
+      }
+      var h = location.hostname;
+      var local = h === "localhost" || h === "127.0.0.1";
+      var remote = resolveRemoteOrigin();
+      window.__GEMINI_API_ORIGIN__ = local && remote ? remote : "";
+    })();
+  </script>
+  <script src="/storymode-safe-json-client.js?v=202604319-factory-max38"></script>
+  <script src="/storymode-mock-enrich-bundle.js?v=202604319-factory-max38" onerror="window.__mock1LoadErr='enrich'"></script>
+  <script src="/GEM_PACK_TIKTOK/factory-dna-prompt.snippet.js?v=202604319-factory-max38" onerror="console.warn('[FactoryDNA] snippet load failed — factory mode disabled')"></script>
+  <script src="/storymode-mock-gemini-core.js?v=202604319-factory-max38" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -2116,6 +2293,8 @@
       { key: "Viral Hook Opener",      thai: "เปิดตัวดึงคนดู 3 วิ",   icon: "🪝", group: "tiktok" },
       // 🏭 โรงงาน/โกดัง — มู้ดเดียว (ไม่แยกย่อย) ให้ AI วิเคราะห์จากรูปสินค้า + DNA
       { key: "Factory Warehouse DNA", thai: "วิเคราะห์จากรูปสินค้า", icon: "🏭", group: "factory" },
+      // 🏬 ห้าง Mall Mode — POV hero เดินห้าง (ไม่แยกย่อย สาย /api/mall-mode)
+      { key: "Mall Mode POV", thai: "เดินห้างหาของ", icon: "🏬", group: "mall" },
     ];
     const MOOD_GROUPS = [
       { key: "cinematic", icon: "🎬", title: "ภาพยนตร์ & ดราม่า"   },
@@ -2125,6 +2304,8 @@
       { key: "tiktok",    icon: "📱", title: "ฟอร์แมต TikTok"        },
       /* ลำดับที่ 6 = คอลัมน์ขวาแถวล่าง = ใต้การ์ดคอนเทนต์สินค้า (กริด 2 คอลัมน์) */
       { key: "factory",   icon: "🏭", title: "โรงงาน/โกดัง"          },
+      /* ลำดับที่ 7 = ห้าง Mall Mode */
+      { key: "mall",      icon: "🏬", title: "เดินห้าง (Mall)"        },
     ];
     /** backward-compat: derive flat array + map จาก DATA */
     const MOOD_KEYWORDS = MOOD_KEYWORDS_DATA.map(function(m) { return m.key; });
@@ -2187,9 +2368,10 @@
 
     function syncStoryModeToolbars() {
       const isStory = mode === "story";
+      var factoryOn = document.body.classList.contains("factory-warehouse-active");
       var hBar = document.querySelector(".hero-analysis-toolbar");
       if (hBar) {
-        var showHeroTools = isStory;
+        var showHeroTools = isStory && !factoryOn;
         hBar.style.display = showHeroTools ? "flex" : "none";
         hBar.setAttribute("aria-hidden", showHeroTools ? "false" : "true");
       }
@@ -2205,6 +2387,7 @@
     };
     /** ผลวิเคราะห์ Hero (JSON) — แนบใน payload ตอนเจนสคริปต์ */
     let heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+    let productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
     /** จับคู่กับ STORYMODE_PROMPT_ASSET_VERSION ใน storymode-mock-gemini-core.js — ใช้ localStorage ไม่ใช้คุกกี้ */
     var PROMPT_ASSET_VERSION_STORAGE_KEY = "storymodePromptAssetVersionV1";
     function syncPromptAssetVersionInvalidateCaches() {
@@ -2221,6 +2404,7 @@
         return;
       }
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       var ho = document.getElementById("hero-analysis-out");
       var hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -2516,11 +2700,6 @@
         btn.type = "button";
         btn.className = "narrative-group-card";
         btn.dataset.groupIndex = String(idx);
-        btn.setAttribute("aria-expanded", "false");
-        btn.title = g.title + " (" + items.length + " mood)";
-        if (g.key === "factory") {
-          btn.dataset.factoryGroup = "true";
-        }
         btn.innerHTML =
           '<span class="ng-icon" aria-hidden="true">' +
           g.icon +
@@ -2528,24 +2707,59 @@
           '<span class="ng-title">' +
           g.title +
           "</span>";
+
         if (g.key === "factory") {
+          wrap.hidden = true;
+          wrap.setAttribute("aria-hidden", "true");
+          btn.dataset.factoryGroup = "true";
           btn.id = "mood-group-factory-card";
-          btn.setAttribute("aria-label", "โรงงานหรือโกดัง — การ์ดสีเหลืองมุมขวาล่างของกริดบรรยากาศ");
-        }
-        btn.addEventListener("click", function() {
-          chipsRoot.querySelectorAll(".mood-group-chips").forEach(function(el) { el.classList.remove("is-active"); });
-          cardsEl.querySelectorAll(".narrative-group-card").forEach(function(c) {
-            c.classList.remove("is-active");
-            c.setAttribute("aria-expanded", "false");
+          btn.title = g.title + " — แตะเพื่อเปิด/ปิดโหมด";
+          btn.setAttribute("aria-label", "โรงงาน/โกดัง — สลับโหมดวิเคราะห์จากรูปสินค้า (ไอคอนหลักเดียว)");
+          btn.setAttribute("aria-expanded", "false");
+          btn.setAttribute("aria-pressed", "false");
+          btn.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            var inp = wrap.querySelector('input[value="Factory Warehouse DNA"]');
+            if (!inp) return;
+            inp.checked = !inp.checked;
+            inp.dispatchEvent(new Event("change", { bubbles: true }));
           });
-          wrap.classList.add("is-active");
-          btn.classList.add("is-active");
-          btn.setAttribute("aria-expanded", "true");
-          stepGroups.hidden = true;
-          stepDetail.hidden = false;
-          syncIconBack();
-          iconBack.focus();
-        });
+        } else if (g.key === "mall") {
+          wrap.hidden = true;
+          wrap.setAttribute("aria-hidden", "true");
+          btn.dataset.mallGroup = "true";
+          btn.id = "mood-group-mall-card";
+          btn.title = g.title + " — แตะเพื่อเปิด/ปิดโหมดห้าง";
+          btn.setAttribute("aria-label", "เดินห้าง Mall Mode — สร้างสคริปต์ POV ในห้างสรรพสินค้า");
+          btn.setAttribute("aria-expanded", "false");
+          btn.setAttribute("aria-pressed", "false");
+          btn.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            var inp = wrap.querySelector('input[value="Mall Mode POV"]');
+            if (!inp) return;
+            inp.checked = !inp.checked;
+            inp.dispatchEvent(new Event("change", { bubbles: true }));
+          });
+        } else {
+          btn.setAttribute("aria-expanded", "false");
+          btn.title = g.title + " (" + items.length + " mood)";
+          btn.addEventListener("click", function () {
+            chipsRoot.querySelectorAll(".mood-group-chips").forEach(function (el) {
+              el.classList.remove("is-active");
+            });
+            cardsEl.querySelectorAll(".narrative-group-card").forEach(function (c) {
+              c.classList.remove("is-active");
+              c.setAttribute("aria-expanded", "false");
+            });
+            wrap.classList.add("is-active");
+            btn.classList.add("is-active");
+            btn.setAttribute("aria-expanded", "true");
+            stepGroups.hidden = true;
+            stepDetail.hidden = false;
+            syncIconBack();
+            iconBack.focus();
+          });
+        }
         cardsEl.appendChild(btn);
       }
 
@@ -2563,22 +2777,6 @@
 
       chipsRoot.addEventListener("change", function () {
         updatePreview();
-        /* เลือกมู้ดโรงงาน → เปิดโหมด DNA อัตโนมัติ */
-        var factoryKeys = ["Factory Warehouse DNA"];
-        var selected = selectedValues("mood-chips");
-        var hasFactory = selected.some(function (v) {
-          return factoryKeys.indexOf(v) !== -1;
-        });
-        var toggle = document.getElementById("factory-mode-toggle");
-        var panel = document.getElementById("factory-dna-panel");
-        if (toggle && hasFactory && !toggle.checked) {
-          toggle.checked = true;
-          if (panel) panel.classList.add("is-active");
-          window.__FACTORY_MODE_ACTIVE__ = true;
-          try {
-            localStorage.setItem("factoryModeV1", "1");
-          } catch (_) {}
-        }
       });
 
       stepGroups.hidden = false;
@@ -3028,9 +3226,139 @@
       });
     }
 
+    function applyFactoryWarehouseExclusive() {
+      const factoryInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Factory Warehouse DNA"]'
+      );
+      if (!factoryInp || !factoryInp.checked) {
+        return;
+      }
+      salesFormulaId = null;
+      if (typeof renderSalesFormulas === "function") {
+        renderSalesFormulas();
+      }
+      setModeAndSync("story", {});
+      document.body.classList.add("factory-warehouse-active");
+      document.querySelectorAll("#mood-chips input[type=checkbox]").forEach(function (inp) {
+        if (inp.value !== "Factory Warehouse DNA") {
+          inp.checked = false;
+        }
+      });
+      document.querySelectorAll("#narrative-chips input[type=checkbox]").forEach(function (inp) {
+        inp.checked = false;
+      });
+      const v0 = VISUAL_STYLES[0];
+      if (v0 && v0.id) {
+        document.querySelectorAll('#visual-chips input[name="visual-style"]').forEach(function (inp) {
+          inp.checked = inp.value === v0.id;
+        });
+      }
+      if (typeof syncVisualSelectedBox === "function") {
+        syncVisualSelectedBox();
+      }
+      const autoHook = document.getElementById("hook-chips-0");
+      if (autoHook) {
+        autoHook.checked = true;
+      }
+      voiceTypeId = "ai_auto";
+      document.querySelectorAll('#voice-chips input[name="voice-type"]').forEach(function (inp) {
+        inp.checked = inp.value === "ai_auto";
+      });
+      if (typeof syncVoiceSelectedBox === "function") {
+        syncVoiceSelectedBox();
+      }
+      const domSel = document.getElementById("domain-knowledge-select");
+      if (domSel) {
+        domSel.value = "";
+      }
+      const pfSel = document.getElementById("product-facts-select");
+      if (pfSel) {
+        pfSel.value = "";
+      }
+      const h1h2 = document.getElementById("h1h2");
+      if (h1h2) {
+        h1h2.checked = false;
+      }
+      heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      const ho = document.getElementById("hero-analysis-out");
+      const hs = document.getElementById("hero-analyze-status");
+      if (ho) {
+        ho.textContent = "";
+        ho.style.display = "none";
+      }
+      if (hs) {
+        hs.textContent = "";
+      }
+      if (typeof syncDomainKnowledgeUI === "function") {
+        syncDomainKnowledgeUI();
+      }
+    }
+
+    function applyMallModeExclusive() {
+      const mallInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Mall Mode POV"]'
+      );
+      if (!mallInp || !mallInp.checked) {
+        return;
+      }
+      salesFormulaId = null;
+      if (typeof renderSalesFormulas === "function") {
+        renderSalesFormulas();
+      }
+      setModeAndSync("story", {});
+      // uncheck factory ถ้าเปิดอยู่
+      const factoryInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Factory Warehouse DNA"]'
+      );
+      if (factoryInp && factoryInp.checked) {
+        factoryInp.checked = false;
+        document.body.classList.remove("factory-warehouse-active");
+        const factoryCard = document.getElementById("mood-group-factory-card");
+        if (factoryCard) {
+          factoryCard.classList.remove("is-active");
+          factoryCard.setAttribute("aria-pressed", "false");
+        }
+      }
+      // uncheck อื่นทั้งหมด
+      document.querySelectorAll("#mood-chips input[type=checkbox]").forEach(function (inp) {
+        if (inp.value !== "Mall Mode POV") {
+          inp.checked = false;
+        }
+      });
+      document.querySelectorAll("#narrative-chips input[type=checkbox]").forEach(function (inp) {
+        inp.checked = false;
+      });
+      heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      const ho = document.getElementById("hero-analysis-out");
+      const hs = document.getElementById("hero-analyze-status");
+      if (ho) {
+        ho.textContent = "";
+        ho.style.display = "none";
+      }
+      if (hs) {
+        hs.textContent = "";
+      }
+      if (typeof syncDomainKnowledgeUI === "function") {
+        syncDomainKnowledgeUI();
+      }
+      // sync card state
+      const mallCard = document.getElementById("mood-group-mall-card");
+      if (mallCard) {
+        mallCard.classList.add("is-active");
+        mallCard.setAttribute("aria-pressed", "true");
+      }
+    }
+
     function getCurrentPayload() {
-      const hook = getSelectedHook();
-      const moodKeysRaw = selectedValues("mood-chips");
+      const moodKeysAll = selectedValues("mood-chips");
+      const factoryDnaSelected = moodKeysAll.indexOf("Factory Warehouse DNA") !== -1;
+      const mallModeSelected = moodKeysAll.indexOf("Mall Mode POV") !== -1;
+      const hook = factoryDnaSelected
+        ? { id: "auto", option: HOOK_OPTIONS.find(function (o) { return o.id === "auto"; }) || HOOK_OPTIONS[0] }
+        : getSelectedHook();
+      const moodKeysRaw = factoryDnaSelected ? ["Factory Warehouse DNA"] : mallModeSelected ? ["Mall Mode POV"] : moodKeysAll;
       const productStagedTop = Array.isArray(files.product) ? files.product.filter(function (f) { return f; }) : [];
       const productImageDimensions = productStagedTop.map(function (f) {
         if (!f) {
@@ -3043,7 +3371,7 @@
         };
       });
       return {
-        mode: mode === "story" ? "storymode" : "product_sell",
+        mode: factoryDnaSelected ? "storymode" : mode === "story" ? "storymode" : "product_sell",
         productImageDimensions: productImageDimensions,
         prompt: document.getElementById("prompt").value.trim(),
         images: (function () {
@@ -3103,13 +3431,19 @@
             imagesForGemini: imagesForGemini
           };
         })(),
-        heroAnalysis: heroAnalysisCache.parsed,
-        heroAnalysisText: (heroAnalysisCache.rawText && String(heroAnalysisCache.rawText).trim()) || null,
+        heroAnalysis: factoryDnaSelected ? null : heroAnalysisCache.parsed,
+        heroAnalysisText: factoryDnaSelected
+          ? null
+          : (heroAnalysisCache.rawText && String(heroAnalysisCache.rawText).trim()) || null,
         sceneCount: clampSceneValue(document.getElementById("scenes").value),
-        narrativeStyleIds: selectedValues("narrative-chips").map((v) => Number(v)),
-        narrativeStyles: selectedValues("narrative-chips")
-          .map((id) => STYLE_OPTIONS.find((o) => String(o.id) === id))
-          .filter(Boolean),
+        narrativeStyleIds: factoryDnaSelected
+          ? []
+          : selectedValues("narrative-chips").map((v) => Number(v)),
+        narrativeStyles: factoryDnaSelected
+          ? []
+          : selectedValues("narrative-chips")
+              .map((id) => STYLE_OPTIONS.find((o) => String(o.id) === id))
+              .filter(Boolean),
         moodKeywords: moodKeysRaw,
         moodKeywordsDetail: moodKeysRaw.map(function(m) {
           const mObj = MOOD_KEYWORDS_DATA.find(function(x) { return x.key === m; });
@@ -3120,39 +3454,50 @@
             labelDisplay: mObj ? mObj.thai : m
           };
         }),
-        visualStyleIds: selectedValues("visual-chips"),
-        visualStyles: selectedValues("visual-chips")
-          .map((id) => VISUAL_STYLES.find((v) => v.id === id))
-          .filter(Boolean),
+        visualStyleIds:
+          factoryDnaSelected && VISUAL_STYLES[0]
+            ? [VISUAL_STYLES[0].id]
+            : selectedValues("visual-chips"),
+        visualStyles:
+          factoryDnaSelected && VISUAL_STYLES[0]
+            ? [VISUAL_STYLES[0]]
+            : selectedValues("visual-chips")
+                .map((id) => VISUAL_STYLES.find((v) => v.id === id))
+                .filter(Boolean),
         hookCategory: hook.id,
         hook: hook.option,
-        textH1H2Enabled: document.getElementById("h1h2").checked,
-        salesFormulaId: (mode === "product") ? (salesFormulaId || null) : null,
-        salesFormula: (mode === "product" && salesFormulaId && typeof findSalesFormula === "function")
-          ? findSalesFormula(salesFormulaId)
-          : null,
-        voiceType: voiceTypeId || "ai_auto",
+        textH1H2Enabled: factoryDnaSelected ? false : document.getElementById("h1h2").checked,
+        salesFormulaId: factoryDnaSelected ? null : mode === "product" ? salesFormulaId || null : null,
+        salesFormula:
+          factoryDnaSelected
+            ? null
+            : mode === "product" && salesFormulaId && typeof findSalesFormula === "function"
+              ? findSalesFormula(salesFormulaId)
+              : null,
+        voiceType: factoryDnaSelected ? "ai_auto" : voiceTypeId || "ai_auto",
         voiceResolved: (typeof resolveVoiceDirective === "function")
           ? resolveVoiceDirective({
-              voiceType: voiceTypeId || "ai_auto",
+              voiceType: (factoryDnaSelected ? "ai_auto" : voiceTypeId) || "ai_auto",
               prompt: document.getElementById("prompt").value || ""
             })
           : null,
-        characterCard: (function () {
-          if (typeof buildCompactCharacterCard !== "function") return null;
-          if (typeof resolveVoiceDirective !== "function") return null;
-          const rv = resolveVoiceDirective({
-            voiceType: voiceTypeId || "ai_auto",
-            prompt: document.getElementById("prompt").value || ""
-          });
-          const r = buildCompactCharacterCard(
-            { prompt: document.getElementById("prompt").value || "" },
-            rv
-          );
-          return r ? { card: r.card, source: r.source, preview: r.cardTextThaiShort } : null;
-        })(),
+        characterCard: factoryDnaSelected
+          ? null
+          : (function () {
+              if (typeof buildCompactCharacterCard !== "function") return null;
+              if (typeof resolveVoiceDirective !== "function") return null;
+              const rv = resolveVoiceDirective({
+                voiceType: voiceTypeId || "ai_auto",
+                prompt: document.getElementById("prompt").value || ""
+              });
+              const r = buildCompactCharacterCard(
+                { prompt: document.getElementById("prompt").value || "" },
+                rv
+              );
+              return r ? { card: r.card, source: r.source, preview: r.cardTextThaiShort } : null;
+            })(),
         domainKnowledgeSelection: (function () {
-          if (mode === "product" || !hasNarrativeForDomainKnowledge()) {
+          if (factoryDnaSelected || mode === "product" || !hasNarrativeForDomainKnowledge()) {
             return null;
           }
           const sel = document.getElementById("domain-knowledge-select");
@@ -3166,6 +3511,9 @@
           };
         })(),
         productFactsSelection: (function () {
+          if (factoryDnaSelected) {
+            return null;
+          }
           const sel = document.getElementById("product-facts-select");
           const nEl = document.getElementById("product-facts-count");
           if (!sel || !String(sel.value || "").trim()) {
@@ -3175,7 +3523,9 @@
             productId: String(sel.value).trim(),
             maxFacts: Math.min(25, Math.max(1, parseInt(nEl && nEl.value, 10) || 8))
           };
-        })()
+        })(),
+        _factoryDnaIsolation: factoryDnaSelected,
+        _mallModeIsolation: mallModeSelected
       };
     }
 
@@ -3300,6 +3650,9 @@
     async function injectDomainKnowledgePayload(payload) {
       if (payload && payload.domainKnowledgeText !== undefined) delete payload.domainKnowledgeText;
       if (payload && payload.domainKnowledgeMeta !== undefined) delete payload.domainKnowledgeMeta;
+      if (payload && payload._factoryDnaIsolation) {
+        return;
+      }
       if (!isDomainKnowledgeInjectionAllowedFromPayload(payload)) {
         return;
       }
@@ -3318,7 +3671,17 @@
       if (!res.ok) {
         throw new Error("โหลด " + url + " ไม่ได้ (HTTP " + res.status + ") — รันเซิร์ฟเวอร์ที่ root โปรเจกต์");
       }
-      const data = await res.json();
+      const rawDom = await res.text();
+      var parsedDom;
+      try {
+        parsedDom = JSON.parse(rawDom);
+      } catch (_) {
+        throw new Error(
+          "โหลด " + url + " ได้ไฟล์ที่ไม่ใช่ JSON — " +
+            String(rawDom || "").replace(/\s+/g, " ").slice(0, 120)
+        );
+      }
+      const data = parsedDom;
       const rawFacts = Array.isArray(data.facts) ? data.facts : [];
       const facts = rawFacts.slice(0, maxN);
       const lines = facts.map(function (f, i) {
@@ -3349,6 +3712,9 @@
     async function injectProductFactsPayload(payload) {
       if (payload && payload.productFactsText !== undefined) delete payload.productFactsText;
       if (payload && payload.productFactsMeta !== undefined) delete payload.productFactsMeta;
+      if (payload && payload._factoryDnaIsolation) {
+        return;
+      }
       const sel = document.getElementById("product-facts-select");
       const nEl = document.getElementById("product-facts-count");
       if (!sel || !String(sel.value || "").trim()) {
@@ -3364,7 +3730,17 @@
       if (!res.ok) {
         throw new Error("โหลด " + url + " ไม่ได้ (HTTP " + res.status + ") — รันเซิร์ฟเวอร์ที่ root โปรเจกต์");
       }
-      const data = await res.json();
+      const rawPf = await res.text();
+      var parsedPf;
+      try {
+        parsedPf = JSON.parse(rawPf);
+      } catch (_) {
+        throw new Error(
+          "โหลด " + url + " ได้ไฟล์ที่ไม่ใช่ JSON — " +
+            String(rawPf || "").replace(/\s+/g, " ").slice(0, 120)
+        );
+      }
+      const data = parsedPf;
       const rawFacts = Array.isArray(data.facts) ? data.facts : [];
       const facts = rawFacts.slice(0, maxN);
       const lines = facts.map(function (f, i) {
@@ -3402,12 +3778,31 @@
       };
     }
 
+    function syncFactoryWarehouseUI() {
+      var inp = document.querySelector('#mood-chips input[value="Factory Warehouse DNA"]');
+      var card = document.getElementById("mood-group-factory-card");
+      if (inp && card) {
+        card.classList.toggle("is-active", inp.checked);
+        card.setAttribute("aria-pressed", inp.checked ? "true" : "false");
+      }
+      var factoryOn = document.body.classList.contains("factory-warehouse-active");
+      var imgTitle = document.getElementById("images-sec-title");
+      if (imgTitle && imgTitle.dataset.defaultTitle != null) {
+        imgTitle.textContent = factoryOn ? "2 · รูปสำหรับ AI (โรงงาน)" : imgTitle.dataset.defaultTitle;
+      }
+      var promptTitle = document.getElementById("prompt-sec-title");
+      if (promptTitle && promptTitle.dataset.defaultTitle != null) {
+        promptTitle.textContent = factoryOn ? "1 · Prompt (โรงงาน · DNA)" : promptTitle.dataset.defaultTitle;
+      }
+    }
+
     function updatePreview() {
       syncDomainKnowledgeUI();
       syncStoryModeToolbars();
       void getCurrentPayload();
       syncVisualSelectedBox();
       syncMoodSelectedBox();
+      syncFactoryWarehouseUI();
       syncSalesFormulaSelectedBox();
       syncVoiceSelectedBox();
     }
@@ -3599,6 +3994,10 @@
     }
 
     document.getElementById("mode-product").addEventListener("click", function () {
+      if (window.__CS_MALL_ONLY__) {
+        setModeAndSync("story", {});
+        return;
+      }
       setModeAndSync("product", {});
     });
     document.getElementById("mode-story").addEventListener("click", function () {
@@ -3642,6 +4041,7 @@
 
     (function restoreModeFromStorage() {
       try {
+        if (window.__CS_MALL_ONLY__) return;
         var s = localStorage.getItem(MODE_STORAGE_KEY);
         if (s === "factory") s = "story";
         if (s === "product" || s === "story") {
@@ -3650,12 +4050,327 @@
       } catch (_) {}
     })();
 
-    document.querySelectorAll("#narrative-chips input, #mood-chips input, #visual-chips input, #hook-chips input").forEach((inp) => {
+    document.querySelectorAll("#narrative-chips input, #visual-chips input, #hook-chips input").forEach((inp) => {
       inp.addEventListener("change", updatePreview);
     });
+    var moodChipsRoot = document.getElementById("mood-chips");
+    if (moodChipsRoot) {
+      moodChipsRoot.addEventListener("change", function (e) {
+        var t = e.target;
+        if (t.matches && t.matches('input[type="checkbox"]')) {
+          if (window.__CS_MALL_ONLY__) {
+            if (t.value !== "Mall Mode POV") {
+              t.checked = false;
+              return;
+            }
+            if (!t.checked) {
+              t.checked = true;
+              return;
+            }
+          }
+          if (t.value === "Factory Warehouse DNA" && t.checked) {
+            // factory เปิด → ปิด mall ก่อน
+            var mallInpF = moodChipsRoot.querySelector('input[value="Mall Mode POV"]');
+            if (mallInpF && mallInpF.checked) {
+              mallInpF.checked = false;
+              document.body.classList.remove("mall-mode-active");
+              var mallCard = document.getElementById("mood-group-mall-card");
+              if (mallCard) { mallCard.classList.remove("is-active"); mallCard.setAttribute("aria-pressed", "false"); }
+            }
+            applyFactoryWarehouseExclusive();
+          }
+          if (t.value === "Mall Mode POV" && t.checked) {
+            // mall เปิด → ปิด factory ก่อน (handled inside applyMallModeExclusive)
+            applyMallModeExclusive();
+          }
+          document.body.classList.toggle(
+            "factory-warehouse-active",
+            !!moodChipsRoot.querySelector('input[value="Factory Warehouse DNA"]:checked')
+          );
+          document.body.classList.toggle(
+            "mall-mode-active",
+            !!moodChipsRoot.querySelector('input[value="Mall Mode POV"]:checked')
+          );
+          // sync card aria-pressed for mall
+          var mallCard2 = document.getElementById("mood-group-mall-card");
+          if (mallCard2) {
+            var mallActive = !!moodChipsRoot.querySelector('input[value="Mall Mode POV"]:checked');
+            mallCard2.classList.toggle("is-active", mallActive);
+            mallCard2.setAttribute("aria-pressed", mallActive ? "true" : "false");
+          }
+          var factoryCard2 = document.getElementById("mood-group-factory-card");
+          if (factoryCard2) {
+            var factoryActive = !!moodChipsRoot.querySelector('input[value="Factory Warehouse DNA"]:checked');
+            factoryCard2.classList.toggle("is-active", factoryActive);
+            factoryCard2.setAttribute("aria-pressed", factoryActive ? "true" : "false");
+          }
+        }
+        updatePreview();
+      });
+      document.body.classList.toggle(
+        "factory-warehouse-active",
+        !!moodChipsRoot.querySelector('input[value="Factory Warehouse DNA"]:checked')
+      );
+      document.body.classList.toggle(
+        "mall-mode-active",
+        !!moodChipsRoot.querySelector('input[value="Mall Mode POV"]:checked')
+      );
+      if (moodChipsRoot.querySelector('input[value="Factory Warehouse DNA"]:checked')) {
+        applyFactoryWarehouseExclusive();
+      }
+      if (moodChipsRoot.querySelector('input[value="Mall Mode POV"]:checked')) {
+        applyMallModeExclusive();
+      }
+    }
+
+    (function initCsMallOnlyRoute() {
+      if (!window.__CS_MALL_ONLY__) return;
+      var mallInp = document.querySelector('#mood-chips input[type="checkbox"][value="Mall Mode POV"]');
+      if (mallInp) mallInp.checked = true;
+      applyMallModeExclusive();
+      document.body.classList.add("mall-mode-active");
+      document.body.classList.remove("factory-warehouse-active");
+      var mallCard = document.getElementById("mood-group-mall-card");
+      if (mallCard) {
+        mallCard.classList.add("is-active");
+        mallCard.setAttribute("aria-pressed", "true");
+      }
+      var factoryCard = document.getElementById("mood-group-factory-card");
+      if (factoryCard) {
+        factoryCard.classList.remove("is-active");
+        factoryCard.setAttribute("aria-pressed", "false");
+      }
+      if (typeof updatePreview === "function") updatePreview();
+    })();
+
     document.getElementById("prompt").addEventListener("input", updatePreview);
     document.getElementById("btn-clear-prompt-images").addEventListener("click", clearPromptAndImages);
     document.getElementById("h1h2").addEventListener("change", updatePreview);
+
+    // ──────────────────────────────────────────────────────────────────────
+    // TikTok Shop share link: fetch UI + IndexedDB cache
+    // ──────────────────────────────────────────────────────────────────────
+    (function () {
+      var IDB_DB = "storymock-tiktok-share-v1";
+      var IDB_STORE = "kv";
+
+      function openIdb() {
+        return new Promise(function (resolve, reject) {
+          if (!window.indexedDB) { reject(new Error("no IDB")); return; }
+          var req = indexedDB.open(IDB_DB, 1);
+          req.onupgradeneeded = function (e) {
+            e.target.result.createObjectStore(IDB_STORE);
+          };
+          req.onsuccess = function (e) { resolve(e.target.result); };
+          req.onerror = function (e) { reject(e.target.error); };
+        });
+      }
+
+      function idbGet(db, key) {
+        return new Promise(function (resolve, reject) {
+          var tx = db.transaction(IDB_STORE, "readonly");
+          var req = tx.objectStore(IDB_STORE).get(key);
+          req.onsuccess = function (e) { resolve(e.target.result); };
+          req.onerror = function (e) { reject(e.target.error); };
+        });
+      }
+
+      function idbPut(db, key, value) {
+        return new Promise(function (resolve, reject) {
+          var tx = db.transaction(IDB_STORE, "readwrite");
+          var req = tx.objectStore(IDB_STORE).put(value, key);
+          req.onsuccess = function () { resolve(); };
+          req.onerror = function (e) { reject(e.target.error); };
+        });
+      }
+
+      function normalizeUrl(u) { return (u || "").trim(); }
+
+      /** ดึงเฉพาะลิงก์ TikTok จากข้อความที่วางปน error / ข้อความยาว */
+      function normalizeValidateTikTokUrlClient(input) {
+        var s = String(input || "").trim();
+        var extracted = s.match(/https?:\/\/[^\s"'<>]+/gi);
+        if (extracted) {
+          for (var i = 0; i < extracted.length; i++) {
+            try {
+              var u = new URL(extracted[i]);
+              if (u.hostname.toLowerCase().endsWith("tiktok.com")) {
+                return u.href.split("#")[0];
+              }
+            } catch (_) {}
+          }
+        }
+        var candidate = s.indexOf("http") === 0 ? s : "https://" + s;
+        try {
+          var u2 = new URL(candidate);
+          if (!u2.hostname.toLowerCase().endsWith("tiktok.com")) return null;
+          return u2.href.split("#")[0];
+        } catch (_) {
+          return null;
+        }
+      }
+
+      function setFetchStatus(msg, cls) {
+        var el = document.getElementById("tiktok-fetch-status");
+        if (!el) return;
+        el.textContent = msg || "";
+        el.className = "tiktok-fetch-status" + (cls ? " " + cls : "");
+      }
+
+      function buildPromptBlock(d) {
+        var lines = [];
+        lines.push("--- สินค้าจากลิงก์ TikTok Shop ---");
+        if (d.title)               lines.push("ชื่อสินค้า: " + d.title);
+        if (d.product_id)          lines.push("Product ID: " + d.product_id);
+        if (d.canonical_product_url) lines.push("หน้าสินค้า: " + d.canonical_product_url);
+        if (d.share_region)        lines.push("ภูมิภาค: " + d.share_region);
+        if (d.seller_unique_id)    lines.push("ร้านค้า: @" + d.seller_unique_id);
+        else if (d.seller_user_id) lines.push("Seller ID: " + d.seller_user_id);
+        if (d.source_url && d.source_url !== d.canonical_product_url)
+          lines.push("ลิงก์ต้นทาง: " + d.source_url);
+        lines.push("---");
+        return lines.join("\n");
+      }
+
+      function injectPrompt(block) {
+        var el = document.getElementById("prompt");
+        if (!el) return;
+        var cur = el.value.trim();
+        el.value = cur ? cur + "\n\n" + block : block;
+        el.dispatchEvent(new Event("input"));
+      }
+
+      function applyProductCoverFromBase64(base64, mime) {
+        if (!base64) return;
+        try {
+          var byteStr = atob(base64);
+          var ab = new ArrayBuffer(byteStr.length);
+          var ia = new Uint8Array(ab);
+          for (var i = 0; i < byteStr.length; i++) ia[i] = byteStr.charCodeAt(i);
+          var ext = (mime || "image/webp").split("/")[1] || "webp";
+          var file = new File([ab], "tiktok-cover." + ext, { type: mime || "image/webp" });
+
+          var lab = document.getElementById("drop-product");
+          if (!lab) return;
+          productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          revokeDropThumb(lab);
+          files.product = [{ name: file.name, mimeType: file.type, data: null }];
+          lab.classList.add("has-file");
+
+          var stack = lab.querySelector(".multi-thumb-stack");
+          Promise.all([readFileAsBase64(file)]).then(function (results) {
+            if (files.product && files.product[0]) {
+              files.product[0].mimeType = results[0].mimeType;
+              files.product[0].data = results[0].data;
+            }
+            return Promise.all((files.product || []).map(function (rec) {
+              return attachImagePixelDimensions(rec);
+            }));
+          }).then(function () {
+            updatePreview();
+          }).catch(function (err) {
+            console.warn("[tiktok-fetch] applyProductCover error:", err);
+          });
+
+          if (stack) {
+            var url = URL.createObjectURL(file);
+            var img = document.createElement("img");
+            img.className = "thumb";
+            img.src = url;
+            img.alt = "";
+            stack.appendChild(img);
+          }
+          var inp = lab.querySelector("input");
+          if (inp) attachSingleDropClear(inp, "product", lab);
+          updatePreview();
+        } catch (e) {
+          console.warn("[tiktok-fetch] applyProductCoverFromBase64 error:", e);
+        }
+      }
+
+      function applyFetchResult(d) {
+        injectPrompt(buildPromptBlock(d));
+        if (d.cover_base64) applyProductCoverFromBase64(d.cover_base64, d.cover_mime);
+      }
+
+      document.getElementById("btn-tiktok-share-fetch").addEventListener("click", async function () {
+        var btn = document.getElementById("btn-tiktok-share-fetch");
+        var urlEl = document.getElementById("tiktok-share-url");
+        var rawUrl = normalizeValidateTikTokUrlClient(urlEl && urlEl.value);
+        if (urlEl && rawUrl) urlEl.value = rawUrl;
+        if (!rawUrl) {
+          setFetchStatus(
+            "ใส่ลิงก์ TikTok เท่านั้น (เช่น https://vt.tiktok.com/...) — ไม่พบ URL ที่ถูกต้อง (อย่าวางข้อความ error ลงในช่อง)",
+            "err"
+          );
+          return;
+        }
+
+        btn.disabled = true;
+        setFetchStatus("กำลังตรวจแคชในเครื่อง…");
+
+        var SJ = window.StorymodeSafeJson;
+        if (!SJ || typeof SJ.parseLenient !== "function" || typeof SJ.friendlyErrorMessage !== "function") {
+          setFetchStatus(
+            "โหลด storymode-safe-json-client.js ไม่สำเร็จ — รีเฟรชหน้า (Ctrl+Shift+R)",
+            "err"
+          );
+          btn.disabled = false;
+          return;
+        }
+
+        try {
+          var db = await openIdb();
+          var cached = await idbGet(db, rawUrl);
+          if (cached && cached.data) {
+            applyFetchResult(cached.data);
+            setFetchStatus("ใช้ข้อมูลจากแคชในเครื่อง", "ok");
+            btn.disabled = false;
+            return;
+          }
+
+          setFetchStatus("กำลังดึงจากเซิร์ฟเวอร์ (ผ่านแคช)…");
+          var apiBase =
+            (typeof __GEMINI_API_ORIGIN__ !== "undefined" && __GEMINI_API_ORIGIN__)
+              ? __GEMINI_API_ORIGIN__.replace(/\/+$/, "")
+              : (window.location.origin || "");
+          var resp = await fetch(apiBase + "/api/tiktok-share-fetch", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: rawUrl })
+          });
+          var bodyText = await resp.text();
+          var parsedRecord = SJ.parseLenient(bodyText);
+          if (!parsedRecord.ok) {
+            setFetchStatus(
+              "เซิร์ฟเวอร์ตอบไม่ใช่ JSON (HTTP " + resp.status + "): " + (parsedRecord.snippet || "(ว่าง)"),
+              "err"
+            );
+            btn.disabled = false;
+            return;
+          }
+          var json = parsedRecord.value;
+          if (!json || !json.ok) {
+            var errMsg = json && json.error ? String(json.error) : "HTTP " + resp.status;
+            var stageLabel = json && json.stage ? " [stage=" + json.stage + "]" : "";
+            setFetchStatus("ดึงไม่สำเร็จ: " + errMsg + stageLabel, "err");
+            btn.disabled = false;
+            return;
+          }
+          await idbPut(db, rawUrl, { data: json.data, savedAt: Date.now() });
+          applyFetchResult(json.data);
+          setFetchStatus("ดึงข้อมูลสำเร็จ ✓", "ok");
+        } catch (e) {
+          var rawMsg =
+            e && typeof e === "object" && typeof e.message === "string"
+              ? e.message
+              : String(e);
+          setFetchStatus("เกิดข้อผิดพลาด: " + SJ.friendlyErrorMessage(rawMsg), "err");
+        }
+        btn.disabled = false;
+      });
+    })();
+    // ──────────────────────────────────────────────────────────────────────
 
     function revokeDropThumb(lab) {
       lab.querySelectorAll("img.thumb").forEach(function (old) {
@@ -3686,6 +4401,7 @@
         }
       });
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       var ho = document.getElementById("hero-analysis-out");
       var hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -3693,6 +4409,8 @@
         ho.style.display = "none";
       }
       if (hs) hs.textContent = "";
+      var fetchStatusEl = document.getElementById("tiktok-fetch-status");
+      if (fetchStatusEl) { fetchStatusEl.textContent = ""; fetchStatusEl.className = "tiktok-fetch-status"; }
       updatePreview();
     }
 
@@ -3754,6 +4472,9 @@
           }
           if (hs) hs.textContent = "";
         }
+        if (key === "product") {
+          productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+        }
         lab.classList.remove("has-file");
         revokeDropThumb(lab);
         updatePreview();
@@ -3772,6 +4493,27 @@
         });
       });
       return out;
+    }
+
+    function collectProductRefImagesForAnalysis() {
+      var out = [];
+      var arr = files.product || [];
+      arr.forEach(function (f) {
+        if (f && f.data && f.mimeType) {
+          out.push({ mimeType: f.mimeType, data: f.data });
+        }
+      });
+      return out;
+    }
+
+    function buildProductImageOrderLegend() {
+      var arr = (files.product || []).filter(function (f) { return f && f.data; });
+      if (!arr.length) return "";
+      return arr
+        .map(function (f, i) {
+          return "- index " + i + " → product slot (file: " + (f.name || "(attached)") + ")";
+        })
+        .join("\n");
     }
 
     function buildHeroImageOrderLegend() {
@@ -3817,6 +4559,9 @@
             hox.style.display = "none";
           }
           if (hsz) hsz.textContent = "";
+        }
+        if (key === "product") {
+          productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
         }
         var raw = e.target.files ? Array.from(e.target.files) : [];
         var list = raw.slice(0, MULTI_IMAGE_MAX);
@@ -3981,7 +4726,7 @@
     }
 
     function syncGeminiSectionTitles() {
-      var useNeutral = isGeminiPublicCalm() || document.body.classList.contains("deployed-gemini-wait");
+      var useNeutral = isGeminiPublicCalm();
       ["sec-title-generate", "sec-title-gemini-result"].forEach(function (id) {
         var el = document.getElementById(id);
         if (!el) return;
@@ -4016,23 +4761,21 @@
       }
     }
 
-    /** โดเมน deploy จริง (ไม่นับ localhost / ไฟล์ตรง) — บังคับใช้ key ฝั่ง server ที่ทีมจ่าย */
+    /** โดเมน deploy จริง (ไม่นับ localhost / ไฟล์ตรง) */
     function isDeployedProjectHost() {
       if (location.protocol === "file:") return false;
       const h = location.hostname;
       return h !== "localhost" && h !== "127.0.0.1" && h !== "";
     }
 
+    /** เดิมบล็อกปุ่มบนเว็ปเมื่อไม่มี server key — ปรับให้เทียบเท่า local (ใช้ client key ได้) เหลือแค่แบนเนอร์เตือน */
     function applyDeployedOrgKeyPolicy() {
-      if (!isDeployedProjectHost() || window.__GEMINI_DEV_UI__) {
-        document.body.classList.remove("deployed-gemini-wait");
-        return;
-      }
-      if (window.__GEMINI_SERVER_MODE__) {
-        document.body.classList.remove("deployed-gemini-wait");
-      } else {
-        document.body.classList.add("deployed-gemini-wait");
-      }
+      document.body.classList.remove("deployed-gemini-wait");
+      var hint =
+        isDeployedProjectHost() &&
+        !window.__GEMINI_DEV_UI__ &&
+        !window.__GEMINI_SERVER_MODE__;
+      document.body.classList.toggle("deployed-gemini-backend-missing", !!hint);
       syncGeminiSectionTitles();
     }
 
@@ -4040,8 +4783,12 @@
     async function tryInitGeminiServerMode() {
       try {
         if (location.protocol === "file:") return;
-        /* localhost + serve_story_mock.py: รัน /api/gemini-verify บนเครื่อง = API คุณเป็น backend จริง */
-        const r = await fetch("/api/gemini-verify");
+        /* localhost + serve_story_mock.py หรือ __GEMINI_API_ORIGIN__ → /api/gemini-verify */
+        const apiBase =
+          typeof window.__GEMINI_API_ORIGIN__ === "string"
+            ? window.__GEMINI_API_ORIGIN__.replace(/\/+$/, "")
+            : "";
+        const r = await fetch(apiBase + "/api/gemini-verify");
         if (!r.ok) return;
         const j = await r.json().catch(() => ({}));
         if (!j.ok) return;
@@ -4163,9 +4910,6 @@
       if (window.__GEMINI_SERVER_MODE__) {
         return;
       }
-      if (isDeployedProjectHost() && !window.__GEMINI_DEV_UI__) {
-        return;
-      }
       try {
         const k = localStorage.getItem(GEMINI_API_STORAGE_KEY);
         const keyEl = document.getElementById("gemini-api-key");
@@ -4235,15 +4979,230 @@
       }
     }
 
+    /**
+     * วิเคราะห์รูปสินค้าแบบเดียวโกดัง — buildProductAnalysis* + mockFetchGeminiStorymode
+     * ใช้ผลไปประกอบ user_prompt ของ Mall Mode (สินค้าจริง + ราคา/ข้อความบนแพ็คจากรูปเท่านั้น)
+     */
+    async function runProductAnalysisForMall(apiKey) {
+      var G = window.MockStorymodeGemini;
+      if (!G || typeof G.buildProductAnalysisSystemPrompt !== "function") return false;
+      var imgs = collectProductRefImagesForAnalysis();
+      if (!imgs.length) return false;
+      if (!apiKey && !window.__GEMINI_SERVER_MODE__) return false;
+      try {
+        var legend = buildProductImageOrderLegend();
+        var sys = G.buildProductAnalysisSystemPrompt();
+        var usr = G.buildProductAnalysisUserMessage(legend);
+        var res = await G.mockFetchGeminiStorymode(apiKey, sys, usr, imgs, {
+          skipStorySafety: true,
+          temperature: 0.2,
+          maxOutputTokens: 4096
+        });
+        var raw = res && res.text ? String(res.text) : "";
+        var parsed = null;
+        try {
+          parsed = parseJsonFromGeminiText(raw);
+        } catch (_) {
+          parsed = null;
+        }
+        productAnalysisCache = {
+          rawText: raw,
+          parsed: parsed,
+          at: Date.now(),
+          error: parsed ? null : "parse"
+        };
+        return !!parsed;
+      } catch (e) {
+        try {
+          console.warn("[product/mall] analysis failed:", e && e.message ? e.message : e);
+        } catch (_) {}
+        productAnalysisCache = {
+          rawText: null,
+          parsed: null,
+          at: null,
+          error: e && e.message ? String(e.message) : "error"
+        };
+        return false;
+      }
+    }
+
+    /** ประกอบ prompt ส่ง /api/mall-mode — ผูกสินค้าจากวิเคราะห์รูป + คำสั่งผู้ใช้ */
+    function buildMallUserPromptWithProductAnalysis(userPrompt, parsedProduct) {
+      var G = window.MockStorymodeGemini;
+      var analysisLines =
+        G && typeof G.summarizeProductAnalysisForPrompt === "function"
+          ? G.summarizeProductAnalysisForPrompt(parsedProduct)
+          : "";
+      var lines = [];
+      lines.push(
+        "【กฎ】ทุกซีนต้องเป็นสินค้าเดียวกับที่วิเคราะห์จากรูปด้านล่าง — ห้ามเปลี่ยน SKU / แบรนด์ / สีแพ็คเป็นของอื่น"
+      );
+      lines.push(
+        "【กฎราคาและป้ายโปร】ห้ามแต่งราคา เปอร์เซ็นต์ลด หรือข้อความโปรที่ไม่ได้มาจากรูปหรือจากบล็อกวิเคราะห์ด้านล่าง — ถ้าไม่มีข้อมูลราคาในรูป ให้เล่าเป็นฉากเดินห้างโดยไม่ระบุตัวเลขโปรเทียม"
+      );
+      lines.push("");
+      lines.push("【ข้อมูลจากการวิเคราะห์รูปสินค้าจริง — อ้างอิงเท่านั้น】");
+      lines.push(analysisLines || "(ว่าง)");
+      lines.push("");
+      lines.push("【คำบรรยายจากผู้ใช้ — โจทย์ฉาก / ห้าง / โฟลว์】");
+      lines.push(String(userPrompt || "").trim());
+      return lines.join("\n").trim();
+    }
+
+    /** ไม่มีรูปสินค้า — อิงเฉพาะข้อความในช่องด้านบน (ส่วน 1) */
+    function buildMallUserPromptTextOnly(userPrompt) {
+      var lines = [];
+      lines.push(
+        "【กฎ】ไม่มีรูปสินค้าแนบ — ยึดคำบรรยายจากผู้ใช้ด้านล่างเป็นหลัก ห้ามสร้างแบรนด์/แพ็ก/ราคาเทียมที่ขัดกับบริบทที่ผู้ใช้ระบุ"
+      );
+      lines.push(
+        "【กฎราคาและป้ายโปร】ถ้าผู้ใช้ไม่ได้ระบุราคาหรือโปรชัดเจน ให้เล่าเป็นฉากเดินห้างโดยไม่แต่งตัวเลขโปรเทียม"
+      );
+      lines.push("");
+      lines.push("【คำบรรยายจากผู้ใช้ — โจทย์ฉาก / สินค้า / โฟลว์】");
+      lines.push(String(userPrompt || "").trim());
+      return lines.join("\n").trim();
+    }
+
+    /** รูปสินค้าใบแรกจาก pipeline เดียวกับโกดัง — เช็ค mime + base64 ก่อนส่ง API (ไม่มีรูป = ok, ref=null) */
+    function getValidatedProductImageForMall(payload) {
+      var imgs = (payload.images && payload.images.imagesForGemini) || [];
+      for (var i = 0; i < imgs.length; i++) {
+        var im = imgs[i];
+        if (!im || im.role !== "product" || !im.mimeType) continue;
+        if (!/^image\//i.test(String(im.mimeType))) {
+          return { ok: false, error: "รูปสินค้าต้องเป็นไฟล์ภาพ (JPEG/PNG/WebP ฯลฯ)" };
+        }
+        if (!im.data || String(im.data).length < 32) {
+          return {
+            ok: false,
+            error:
+              "รูปสินค้ายังโหลดไม่ครบ — รอให้เห็นภาพตัวอย่างในช่องแล้วลองใหม่ (เหมือนโหมดโกดัง)"
+          };
+        }
+        return { ok: true, ref: { mimeType: im.mimeType, data: im.data } };
+      }
+      return { ok: true, ref: null };
+    }
+
+    /** แปลงผล Mall API → ข้อความรูปแบบเดียวกับ storymode เพื่อให้หน้า result parseStoryboard ได้ */
+    function buildMallStoryboardText(mallJson) {
+      var lines = [];
+      var warns = mallJson && mallJson.warnings;
+      if (warns && warns.length) {
+        lines.push("=== WARNINGS (คำต้องห้าม / policy) ===");
+        warns.forEach(function (w) {
+          lines.push("- " + w);
+        });
+        lines.push("");
+      }
+      var vp = mallJson && mallJson.voice_profile_th;
+      if (vp && String(vp).trim()) {
+        lines.push("=== MALL MODE — Voice profile (Thai) ===");
+        lines.push(String(vp).trim());
+        lines.push("");
+      }
+      var scenes = (mallJson && mallJson.scenes) || [];
+      scenes.forEach(function (sc, idx) {
+        var num = sc.scene_number != null ? sc.scene_number : idx + 1;
+        var titleParts = [];
+        if (sc.hero_id) titleParts.push(sc.hero_id);
+        if (sc.name_on_sign) titleParts.push(sc.name_on_sign);
+        var title = titleParts.length ? titleParts.join(" · ") : "Mall scene";
+        lines.push("=== SCENE " + num + ": " + title + " ===");
+        lines.push("");
+        lines.push("🔴 IMAGE PROMPT");
+        lines.push((sc.image_prompt || "").trim());
+        lines.push("");
+        lines.push("🟢 VIDEO PROMPT");
+        lines.push((sc.video_prompt || "").trim());
+        var vs = (sc.voice_script_th || "").trim();
+        if (vs) {
+          lines.push("");
+          lines.push('Dialogue (Thai VO): "' + vs.replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"');
+        }
+        var cap = (sc.caption_th || "").trim();
+        if (cap) {
+          lines.push("");
+          lines.push("Thai caption (TikTok): " + cap);
+        }
+        lines.push("");
+      });
+      return lines.join("\n").trim();
+    }
+
+    function clampMallSceneCountFromUi() {
+      var raw = document.getElementById("scenes") && document.getElementById("scenes").value;
+      var n = clampSceneValue(raw);
+      return Math.min(20, Math.max(1, n));
+    }
+
+    function enableMallSaveButtons(enabled) {
+      var dl = document.getElementById("btn-mall-download-json");
+      var cp = document.getElementById("btn-mall-copy-json");
+      if (dl) dl.disabled = !enabled;
+      if (cp) cp.disabled = !enabled;
+    }
+
+    function getMallExportJsonString() {
+      try {
+        var G = window.MockStorymodeGemini;
+        var key = G && G.RESULT_STORAGE_KEY ? G.RESULT_STORAGE_KEY : "storymodeMockGeminiResultV1";
+        var raw = localStorage.getItem(key);
+        if (!raw) return null;
+        var o = JSON.parse(raw);
+        if (!o.mallMode || !o.mallResult || o.status !== "done") return null;
+        return JSON.stringify(
+          { exportedAt: new Date().toISOString(), ts: o.ts, mallResult: o.mallResult },
+          null,
+          2
+        );
+      } catch (_) {
+        return null;
+      }
+    }
+
+    (function wireMallSaveButtons() {
+      var btnDl = document.getElementById("btn-mall-download-json");
+      var btnCp = document.getElementById("btn-mall-copy-json");
+      if (!btnDl || !btnCp) return;
+      btnDl.addEventListener("click", function () {
+        var s = getMallExportJsonString();
+        if (!s) {
+          try {
+            alert("ยังไม่มีผลโหมดห้างที่สำเร็จ — เจนใหม่ก่อน");
+          } catch (_) {}
+          return;
+        }
+        var blob = new Blob([s], { type: "application/json;charset=utf-8" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "mall-mode-" + Date.now() + ".json";
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+      btnCp.addEventListener("click", function () {
+        var s = getMallExportJsonString();
+        if (!s) {
+          try {
+            alert("ยังไม่มีผลโหมดห้างที่สำเร็จ");
+          } catch (_) {}
+          return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(s).then(function () {
+            var t = btnCp.textContent;
+            btnCp.textContent = "คัดลอกแล้ว ✓";
+            setTimeout(function () {
+              btnCp.textContent = t;
+            }, 2000);
+          }).catch(function () {});
+        }
+      });
+    })();
+
     document.getElementById("btn-generate").addEventListener("click", async () => {
       const status = document.getElementById("generate-status");
-      if (document.body.classList.contains("deployed-gemini-wait")) {
-        if (status) {
-          status.textContent =
-            "ยังเชื่อมต่อ AI ฝั่งเซิร์ฟเวอร์ไม่สำเร็จ — ติดต่อผู้ดูแล หรือรีเฟรช; นักพัฒนา: ต่อ ?dev=1 ในที่อยู่";
-        }
-        return;
-      }
       const keyEl = document.getElementById("gemini-api-key");
       let apiKey = keyEl && keyEl.value ? keyEl.value.trim() : "";
       if (!apiKey) {
@@ -4336,6 +5295,149 @@
         resSec.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
+      // === MALL MODE — สาย /api/mall-mode (แยกจาก storymode pipeline) ===
+      // Prompt (ส่วน 1) + จำนวนซีน บังคับ · รูปสินค้า (drop-product) ถ้ามี — ไม่มีรูปก็ส่งข้อความอย่างเดียวได้
+      if (payload._mallModeIsolation) {
+        try {
+          enableMallSaveButtons(false);
+          status.textContent = "🏬 Mall Mode — กำลังส่งไป /api/mall-mode…";
+          const mallUserPrompt = String(payload.prompt || "").trim();
+          if (!mallUserPrompt) {
+            status.textContent = "ใส่ Prompt (ส่วน 1) ก่อน";
+            save({
+              status: "error",
+              text: "",
+              model: null,
+              truncated: false,
+              error: "กรุณาใส่ prompt",
+              mallMode: true,
+              ts: Date.now()
+            });
+            return;
+          }
+          const imgCheck = getValidatedProductImageForMall(payload);
+          if (!imgCheck.ok) {
+            status.textContent = imgCheck.error;
+            save({
+              status: "error",
+              text: "",
+              model: null,
+              truncated: false,
+              error: imgCheck.error,
+              mallMode: true,
+              ts: Date.now()
+            });
+            return;
+          }
+          var mallPromptFull;
+          if (imgCheck.ref) {
+            status.textContent = "🏬 วิเคราะห์รูปสินค้า (ผูกสินค้าจริง + ราคาจากรูป)…";
+            productAnalysisCache = { rawText: null, parsed: null, at: null, error: null };
+            var mallAnalysisOk = await runProductAnalysisForMall(apiKey);
+            if (!mallAnalysisOk || !productAnalysisCache.parsed) {
+              var paErr =
+                (productAnalysisCache && productAnalysisCache.error) ||
+                "วิเคราะห์รูปสินค้าไม่สำเร็จ — ตรวจรูปและ API Key แล้วลองใหม่";
+              status.textContent = paErr;
+              save({
+                status: "error",
+                text: "",
+                model: null,
+                truncated: false,
+                error: paErr,
+                mallMode: true,
+                ts: Date.now()
+              });
+              return;
+            }
+            mallPromptFull = buildMallUserPromptWithProductAnalysis(
+              mallUserPrompt,
+              productAnalysisCache.parsed
+            );
+          } else {
+            status.textContent = "🏬 Mall Mode — ไม่มีรูปสินค้า ใช้ข้อความด้านบนอย่างเดียว…";
+            productAnalysisCache = { rawText: null, parsed: null, at: null, error: null };
+            mallPromptFull = buildMallUserPromptTextOnly(mallUserPrompt);
+          }
+          const mallSceneCount = clampMallSceneCountFromUi();
+          const mallBody = {
+            user_prompt: mallPromptFull,
+            scene_count: mallSceneCount,
+            enforce_forbidden: true,
+            reference_image: imgCheck.ref ? imgCheck.ref.data : null,
+            image_mime_type: imgCheck.ref ? imgCheck.ref.mimeType : "image/jpeg"
+          };
+          const imagesForGemini = (payload.images && payload.images.imagesForGemini) || [];
+          const imageRefOrder = buildImageRefOrderList(imagesForGemini);
+          const apiBase =
+            typeof __GEMINI_API_ORIGIN__ !== "undefined" && __GEMINI_API_ORIGIN__
+              ? __GEMINI_API_ORIGIN__
+              : window.location.origin || "";
+          const mallResp = await fetch(apiBase + "/api/mall-mode", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "X-Gemini-Key": apiKey || "" },
+            body: JSON.stringify(mallBody)
+          });
+          var mallBodyText = await mallResp.text();
+          var mallJson;
+          try {
+            mallJson = JSON.parse(mallBodyText);
+          } catch (_) {
+            var snipMall = (mallBodyText || "").replace(/\s+/g, " ").slice(0, 160);
+            throw new Error(
+              "เซิร์ฟเวอร์ตอบไม่ใช่ JSON (HTTP " +
+                mallResp.status +
+                ") — มักเป็นหน้า error ของโฮสต์ ไม่ใช่ API Mall Mode: " +
+                (snipMall || "(ว่าง)")
+            );
+          }
+          if (!mallJson || typeof mallJson !== "object") {
+            throw new Error("Mall Mode API ตอบ JSON ว่างหรือไม่ถูกต้อง");
+          }
+          if (!mallJson.ok) {
+            throw new Error(mallJson.error || "Mall Mode API ตอบ error ไม่ทราบสาเหตุ");
+          }
+          const warnings = mallJson.warnings || [];
+          const storyboardText = buildMallStoryboardText(mallJson);
+          save({
+            status: "done",
+            text: storyboardText,
+            model: mallJson.model || null,
+            truncated: false,
+            error: null,
+            mallMode: true,
+            mallResult: mallJson,
+            imageRefOrder: imageRefOrder,
+            ts: Date.now(),
+            promptAssetVersion:
+              typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
+                ? STORYMODE_PROMPT_ASSET_VERSION
+                : null
+          });
+          if (warnings.length > 0) {
+            status.textContent = "🏬 Mall Mode สำเร็จ ⚠️ พบคำต้องห้าม " + warnings.length + " จุด → ดูผลด้านล่าง";
+          } else {
+            status.textContent = "🏬 Mall Mode สำเร็จ — ดูผลด้านล่าง";
+          }
+          enableMallSaveButtons(true);
+          var resMall = document.getElementById("section-gemini-result");
+          if (resMall && resMall.scrollIntoView) {
+            resMall.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        } catch (eMall) {
+          const msgMall = eMall && eMall.message ? eMall.message : String(eMall);
+          save({ status: "error", text: "", model: null, truncated: false, error: msgMall, mallMode: true, ts: Date.now() });
+          status.textContent = "🏬 Mall Mode ผิดพลาด: " + msgMall;
+          enableMallSaveButtons(false);
+        } finally {
+          generateInFlight = false;
+          const btnM = document.getElementById("btn-generate");
+          if (btnM) { btnM.disabled = false; btnM.title = ""; }
+        }
+        return;
+      }
+      // === END MALL MODE ===
+
       try {
         if (function () {
           const d = document.getElementById("domain-knowledge-select");
@@ -4359,6 +5461,7 @@
 
         try {
           var heroNeeded =
+            !payload._factoryDnaIsolation &&
             !heroAnalysisCache.parsed &&
             collectCharacterRefImagesForAnalysis().length > 0;
           if (heroNeeded) {
@@ -4375,11 +5478,17 @@
 
         let system = G.buildStorymodeSystemPromptFromPayload(payload);
         let user = G.buildStorymodeUserMessageFromPayload(payload);
-        // Factory DNA injection — เมื่อโหมดโรงงานเปิด ให้แทรก DNA block เข้า systemInstruction
-        if (window.__FACTORY_MODE_ACTIVE__ && window.FACTORY_DNA_SYSTEM_BLOCK) {
-          system = window.FACTORY_DNA_SYSTEM_BLOCK + "\n\n" + system;
-          const prefix = window.FACTORY_DNA_USER_PREFIX || "【โหมดโรงงาน/โกดัง】 ";
-          if (!user.startsWith(prefix)) user = prefix + user;
+        /* โหมดโรงงาน: เลือกมู้ด Factory Warehouse DNA เท่านั้น — แทรก DNA + ไม่ผสม blueprint/hook/mood อื่น (ดู _factoryDnaIsolation ใน core) */
+        if (payload._factoryDnaIsolation) {
+          if (!window.FACTORY_DNA_SYSTEM_BLOCK) {
+            try {
+              console.warn("[FactoryDNA] factory-dna-prompt.snippet.js ไม่ได้โหลด — prompt จะไม่มีแพ็ก DNA");
+            } catch (_) {}
+          } else {
+            system = window.FACTORY_DNA_SYSTEM_BLOCK + "\n\n" + system;
+            const prefix = window.FACTORY_DNA_USER_PREFIX || "【โหมดโรงงาน/โกดัง】 ";
+            if (!user.startsWith(prefix)) user = prefix + user;
+          }
         }
         if (!user) throw new Error("User message ว่าง");
         const imagesForGemini = (payload.images && payload.images.imagesForGemini) || [];
@@ -4405,17 +5514,17 @@
           error: null,
           imageRefOrder: imageRefOrder,
           safety: out.safety || null,
-          factoryMode: !!window.__FACTORY_MODE_ACTIVE__,
+          factoryMode: !!payload._factoryDnaIsolation,
           ts: Date.now(),
           promptAssetVersion:
             typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
               ? STORYMODE_PROMPT_ASSET_VERSION
               : null
         });
-        if (window.__FACTORY_MODE_ACTIVE__ && forbiddenHits.length > 0) {
+        if (payload._factoryDnaIsolation && forbiddenHits.length > 0) {
           status.textContent =
             "สำเร็จ (โหมดโรงงาน) ⚠️ พบคำต้องห้าม " + forbiddenHits.length + " จุด — ถูกลบ/แทนที่อัตโนมัติ → ดูผลด้านล่าง";
-        } else if (window.__FACTORY_MODE_ACTIVE__) {
+        } else if (payload._factoryDnaIsolation) {
           status.textContent = "สำเร็จ (โหมดโรงงาน) — ดูผลด้านล่าง";
         } else {
           status.textContent = "สำเร็จ — ดูผลด้านล่าง";
@@ -4425,7 +5534,11 @@
           resOk.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       } catch (e) {
-        const msg = e && e.message ? e.message : String(e);
+        var rawGen = e && e.message ? String(e.message) : String(e);
+        var msg =
+          window.StorymodeSafeJson && typeof window.StorymodeSafeJson.friendlyErrorMessage === "function"
+            ? window.StorymodeSafeJson.friendlyErrorMessage(rawGen)
+            : rawGen;
         var errRef = [];
         try {
           const imgsE = (payload && payload.images && payload.images.imagesForGemini) || [];
@@ -4547,7 +5660,7 @@
       var outBtn = document.getElementById("header-logout-btn");
 
       function finishUnlocked() {
-        document.body.classList.remove("auth-checking");
+        document.body.classList.remove("auth-checking", "auth-bypass");
         document.body.classList.add("auth-ok");
         if (menu) menu.hidden = false;
         if (outBtn) outBtn.addEventListener("click", doLogout);
@@ -4564,6 +5677,19 @@
         showGateError();
       }
 
+      /** เทียบเท่า local: serve_story_mock ส่ง 404 → bypass — ทำให้ Vercel เข้าโดยไม่บังคับ Google login เหมือน local
+       *  ปิด bypass ด้วย ?force_auth=1 หรือ localStorage STORY_MOCK_FORCE_AUTH=1 */
+      function authForceRequired() {
+        try {
+          var q = new URLSearchParams(location.search);
+          if (q.get("force_auth") === "1") return true;
+        } catch (e) {}
+        try {
+          if (localStorage.getItem("STORY_MOCK_FORCE_AUTH") === "1") return true;
+        } catch (e) {}
+        return false;
+      }
+
       fetch("/api/auth/session", { credentials: "include" })
         .then(function (r) {
           if (r.status === 404 || r.status === 500) {
@@ -4571,10 +5697,21 @@
             return;
           }
           if (r.status === 401) {
-            finishLocked();
+            if (authForceRequired()) {
+              finishLocked();
+            } else {
+              finishBypass();
+            }
             return;
           }
-          return r.json().then(function (d) {
+          return r.text().then(function (t) {
+            var d;
+            try {
+              d = t ? JSON.parse(t) : null;
+            } catch (_) {
+              finishBypass();
+              return;
+            }
             if (d && d.authenticated && d.user) {
               window.__gcsUser = d.user;
               window.__gcsIsAdmin = !!d.isAdmin;
@@ -4585,8 +5722,10 @@
                 adm.hidden = !d.isAdmin;
               }
               finishUnlocked();
-            } else {
+            } else if (authForceRequired()) {
               finishLocked();
+            } else {
+              finishBypass();
             }
           });
         })
@@ -4596,48 +5735,5 @@
     })();
   </script>
 
-  <script>
-    /* ── Factory Mode Toggle ── */
-    (function () {
-      var toggle = document.getElementById("factory-mode-toggle");
-      var panel = document.getElementById("factory-dna-panel");
-      var warnEl = document.getElementById("factory-dna-snippet-warn");
-      if (!toggle || !panel) return;
-
-      function applyFactoryMode(active) {
-        window.__FACTORY_MODE_ACTIVE__ = active;
-        panel.classList.toggle("is-active", active);
-        var dnaOk = !!window.FACTORY_DNA_SYSTEM_BLOCK;
-        if (warnEl) {
-          warnEl.classList.toggle("is-visible", active && !dnaOk);
-        }
-        if (active && !dnaOk) {
-          console.warn(
-            "[FactoryDNA] factory-dna-prompt.snippet.js ไม่ได้โหลด — ใช้ http จาก root โปรเจกต์ (ไม่ใช่ file://)"
-          );
-        }
-        try {
-          localStorage.setItem("factoryModeV1", active ? "1" : "0");
-        } catch (_) {}
-      }
-
-      /* แสดงคำเตือนถ้า snippet โหลดไม่ได้ */
-      if (warnEl) {
-        warnEl.classList.toggle("is-visible", !window.FACTORY_DNA_SYSTEM_BLOCK);
-      }
-
-      try {
-        var saved = localStorage.getItem("factoryModeV1");
-        if (saved === "1") {
-          toggle.checked = true;
-          applyFactoryMode(true);
-        }
-      } catch (_) {}
-
-      toggle.addEventListener("change", function () {
-        applyFactoryMode(toggle.checked);
-      });
-    })();
-  </script>
 </body>
 </html>

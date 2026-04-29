@@ -96,6 +96,7 @@ def _rewrite(pure_path: str) -> str:
         "/admin": "/admin.html",
         "/admin/approvals": "/admin-approvals.html",
         "/cs": f"/{MOCK_HTML}",
+        "/mall": f"/{MOCK_HTML}",
         "/story-config-mock": f"/{MOCK_HTML}",
         "/result": "/story-config-result.html",
         "/editor": "/editor/index.html",

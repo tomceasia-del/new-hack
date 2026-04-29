@@ -307,7 +307,7 @@ export const UI_MERGE_12 = {
   placeholder_video16_prompt:        'Prompt สำหรับวิดีโอ 16 วินาที...',
   placeholder_custom_speech:         'เช่น สวยปังมากแม่, ผิวเด้งมาก, ต้องลอง!',
   placeholder_caption:               'ใส่แคปชั่นสำหรับโพสต์...',
-  placeholder_cta:                   'เช่น: กดซื้อเลย!, ลิงก์ในไบโอ',
+  placeholder_cta:                   'เช่น: กดซื้อเลย!, กดตะกร้าได้เลย',
 
   // ─── MSG / INFO ──────────────────────────────────────────────────────────────
 

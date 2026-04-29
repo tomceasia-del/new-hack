@@ -1,9 +1,23 @@
 /**
  * GET /api/gemini-verify — ตรวจว่า GEMINI_API_KEY ตั้งบน Vercel แล้วและใช้งานได้
  */
+function applyGeminiApiCors(req, res) {
+  const origin = req.headers && req.headers.origin;
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+}
+
 module.exports = async function handler(req, res) {
+  applyGeminiApiCors(req, res);
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
   if (req.method !== 'GET' && req.method !== 'HEAD') {
-    res.setHeader('Allow', 'GET, HEAD');
+    res.setHeader('Allow', 'GET, HEAD, OPTIONS');
     return res.status(405).json({ ok: false, error: 'Method not allowed' });
   }
   if (req.method === 'HEAD') {

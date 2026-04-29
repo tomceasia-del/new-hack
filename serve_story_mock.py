@@ -9,6 +9,7 @@
 - เลือกพอร์ตแรกที่ว่างได้, อัพเดต story-mock-server.url
 - เปิดเบราว์เซอร์ (default) ไปหน้าแรก — ปิดได้ด้วย `--no-browser` หรือ `STORY_MOCK_NO_BROWSER=1`
 - `GET /` จะ 302 ไป `index.html` ถ้ามี ไม่งั้น `login.html` แล้วตาม `story-config-mock.html` (mock หลัก: `/cs` บน Vercel)
+- ตั้ง `GEMINI_REMOTE_API_ORIGIN=https://....vercel.app` ใน environment → banner แสดงคำสั่งใส่ localStorage ให้ mock ยิง `/api/gemini` ที่เว็ปแทนเครื่อง
 - Ctrl+C ปิดสะอาด
 """
 from __future__ import annotations
@@ -17,6 +18,7 @@ import argparse
 import http.server
 import json
 import os
+import re
 import platform
 import signal
 import socket
@@ -32,6 +34,62 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.realpath(__file__))
 PORT_LO, PORT_HI = 8777, 8799
+
+
+def _normalize_validate_tiktok_url(raw: str) -> str:
+    """ยอมรับข้อความที่วางปน error — ดึงเฉพาะ URL https://…tiktok.com…"""
+    s = raw.strip()
+    if not s:
+        raise ValueError("url ว่าง")
+    for m in re.finditer(r"https?://[^\s\"'<>]+", s, re.I):
+        cand = m.group(0).rstrip(").,;]")
+        try:
+            p = urllib.parse.urlparse(cand)
+            host = (p.hostname or "").lower()
+            if host.endswith("tiktok.com"):
+                return cand.split("#")[0]
+        except Exception:
+            continue
+    u = s if s.startswith(("http://", "https://")) else "https://" + s
+    parsed = urllib.parse.urlparse(u)
+    host = (parsed.hostname or "").lower()
+    if not host.endswith("tiktok.com"):
+        raise ValueError(
+            "โดเมนต้องเป็น TikTok เท่านั้น — วางลิงก์ vt.tiktok.com หรือ tiktok.com/view/product/..."
+        )
+    return urllib.parse.urlunparse(parsed)
+
+# Mall Mode pipeline (lazy import so server still starts if file missing)
+try:
+    import sys as _sys
+    _sys.path.insert(0, ROOT)
+    from mall_mode import run_mall_mode as _run_mall_mode  # type: ignore
+    _MALL_MODE_AVAILABLE = True
+except ImportError:
+    _MALL_MODE_AVAILABLE = False
+
+# TikTok share fetch (lazy import from scripts/)
+import base64 as _base64
+import importlib.util as _importlib_util
+
+def _load_tiktok_module():
+    spec = _importlib_util.spec_from_file_location(
+        "fetch_tiktok_share",
+        os.path.join(ROOT, "scripts", "fetch_tiktok_shop_share_link.py"),
+    )
+    if spec is None or spec.loader is None:
+        return None
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)  # type: ignore[union-attr]
+    return mod
+
+_TIKTOK_MODULE = None
+try:
+    import importlib.util
+    _TIKTOK_MODULE = _load_tiktok_module()
+except Exception:
+    pass
+_TIKTOK_AVAILABLE = _TIKTOK_MODULE is not None
 MOCK_HTML = "story-config-mock.html"
 LOGIN_HTML = "login.html"
 INDEX_HTML = "index.html"
@@ -204,7 +262,7 @@ class MockHandler(http.server.SimpleHTTPRequestHandler):
 
     def do_OPTIONS(self) -> None:
         p = urllib.parse.urlparse(self.path).path
-        if p in ("/api/gemini", "/api/gemini-verify"):
+        if p in ("/api/gemini", "/api/gemini-verify", "/api/mall-mode", "/api/tiktok-share-fetch"):
             self.send_response(204)
             _cors_api_headers(self)
             self.end_headers()
@@ -326,16 +384,99 @@ class MockHandler(http.server.SimpleHTTPRequestHandler):
                 return
         self._send_json(502, {"error": last_err or "Gemini: all models failed"})
 
+    def _handle_tiktok_share_fetch_post(self) -> None:
+        if not _TIKTOK_AVAILABLE or _TIKTOK_MODULE is None:
+            self._send_json(503, {"ok": False, "error": "tiktok fetch module ไม่พร้อม (scripts/fetch_tiktok_shop_share_link.py ไม่พบ)"})
+            return
+        try:
+            try:
+                n = int(self.headers.get("Content-Length", 0) or 0)
+                n = min(n, 1 * 1024 * 1024)
+                raw = self.rfile.read(n) if n else b""
+                body = json.loads(raw.decode("utf-8")) if raw else {}
+            except (json.JSONDecodeError, UnicodeDecodeError):
+                self._send_json(400, {"ok": False, "error": "Invalid JSON body"})
+                return
+
+            try:
+                url = _normalize_validate_tiktok_url(str(body.get("url") or ""))
+            except ValueError as e:
+                self._send_json(400, {"ok": False, "error": str(e)})
+                return
+
+            try:
+                meta = _TIKTOK_MODULE.fetch_from_share_link(url)
+            except Exception as e:
+                self._send_json(502, {"ok": False, "error": f"ดึงข้อมูลจาก TikTok ไม่สำเร็จ: {e}"})
+                return
+
+            cover_base64: str | None = None
+            cover_mime: str = "image/webp"
+            cover_url = meta.get("cover_image_url")
+            if cover_url:
+                try:
+                    img_bytes, cover_mime = _TIKTOK_MODULE.fetch_cover_bytes(cover_url)
+                    cover_base64 = _base64.b64encode(img_bytes).decode("ascii")
+                except Exception:
+                    cover_base64 = None
+
+            data = {
+                "product_id": meta.get("product_id"),
+                "title": meta.get("title"),
+                "cover_image_url": cover_url,
+                "canonical_product_url": meta.get("canonical_product_url"),
+                "share_region": meta.get("share_region"),
+                "seller_user_id": meta.get("seller_user_id"),
+                "seller_unique_id": meta.get("seller_unique_id"),
+                "source_url": meta.get("source_url"),
+                "cover_base64": cover_base64,
+                "cover_mime": cover_mime,
+            }
+            self._send_json(200, {"ok": True, "data": data})
+        except Exception as e:
+            self._send_json(500, {"ok": False, "error": str(e)})
+
+    def _handle_mall_mode_post(self) -> None:
+        if not _MALL_MODE_AVAILABLE:
+            self._send_json(503, {"ok": False, "error": "Mall Mode module ไม่พร้อม (mall_mode.py ไม่พบ)"})
+            return
+        k = _gemini_key()
+        if not k:
+            self._send_json(503, {"ok": False, "error": "GEMINI_API_KEY ยังไม่ได้ตั้งใน environment"})
+            return
+        try:
+            n = int(self.headers.get("Content-Length", 0) or 0)
+            n = min(n, 12 * 1024 * 1024)
+            raw = self.rfile.read(n) if n else b""
+            body = json.loads(raw.decode("utf-8")) if raw else {}
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            self._send_json(400, {"ok": False, "error": "Invalid JSON body"})
+            return
+        result = _run_mall_mode(body, k)
+        status = 200 if result.get("ok") else 400
+        self._send_json(status, result)
+
     def do_POST(self) -> None:
         p = urllib.parse.urlparse(self.path).path
         if p == "/api/gemini":
             self._handle_gemini_post()
+            return
+        if p == "/api/mall-mode":
+            self._handle_mall_mode_post()
+            return
+        if p == "/api/tiktok-share-fetch":
+            self._handle_tiktok_share_fetch_post()
             return
         self.send_error(404, "Not found")
 
     def do_GET(self) -> None:
         parsed = urllib.parse.urlparse(self.path)
         p = parsed.path
+        if p == "/mall" or p == "/mall/":
+            q = parsed.query
+            self.path = "/" + MOCK_HTML + ("?" + q if q else "")
+            parsed = urllib.parse.urlparse(self.path)
+            p = parsed.path
         if p == "/api/gemini-verify":
             self._handle_gemini_verify()
             return
@@ -377,7 +518,7 @@ def write_url_file(url: str) -> None:
 def banner(url: str, mock_abs: str, open_page: str) -> None:
     log("")
     log("  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    log("   Story Config Mock — เซิร์ฟเวอร์พร้อม (มี /api/gemini เป็น backend)")
+    log("   Story Config Mock — เซิร์ฟเวอร์พร้อม (/api/gemini + /api/mall-mode + /api/tiktok-share-fetch)")
     log("")
     log(f"   {url}  (หน้าเอนทรี: /{open_page} — mock: /{MOCK_HTML} หรือ /cs บน Vercel)")
     log(f"   ไฟล์ mock: {mock_abs}")
@@ -386,6 +527,14 @@ def banner(url: str, mock_abs: str, open_page: str) -> None:
         log("   ✓ GEMINI_API_KEY: ตั้งแล้ว — หน้า mock จะใช้ตัวนี้เป็น API backend (ไม่ต้องใส่ key ในบราวเซอร์)")
     else:
         log("   · ยังไม่มี GEMINI_API_KEY — export GEMINI_API_KEY=... ก่อนรัน หรือใส่ key ในช่องหน้าเว็บ")
+    _remote = os.environ.get("GEMINI_REMOTE_API_ORIGIN", "").strip()
+    if _remote:
+        log(
+            "   · ให้ localhost เรียก API ที่ Vercel: "
+            "localStorage.setItem('GEMINI_REMOTE_API_ORIGIN','"
+            + _remote.replace("'", "")
+            + "'); location.reload()"
+        )
     log("")
     log("   Ctrl+C เพื่อปิด · log 4xx/5xx จะพิมพ์ด้านล่าง")
     log("  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")

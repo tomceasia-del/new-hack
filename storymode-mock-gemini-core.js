@@ -15,7 +15,11 @@
    * Bump when story prompt schema or pipeline rules change.
    * story-config-mock.html compares this to localStorage (not cookies) to drop stale hero analysis cache.
    */
-  g.STORYMODE_PROMPT_ASSET_VERSION = 202604304;
+  g.STORYMODE_PROMPT_ASSET_VERSION = 202604319;
+
+  /** โหมดโรงงาน/โกดัง — เพดานคำไทยใน `Dialogue:` ต่อ 1 ฉาก (นับรวมทั้งบท lip-sync ในฉากนั้น) */
+  var FACTORY_DIALOGUE_MAX_WORDS_TH = 38;
+  g.FACTORY_DIALOGUE_MAX_WORDS_TH = FACTORY_DIALOGUE_MAX_WORDS_TH;
 
   if (typeof g.getMoodDirective !== 'function') {
     g.getMoodDirective = function (moodKeyword) {
@@ -88,6 +92,40 @@
     g.stripForbiddenMarketing = globalThis.stripForbiddenMarketing;
   }
 
+  /**
+   * Fallback: ถ้า enrich-bundle ไม่โหลด ใช้รายการจาก 01-forbidden-marketing-phrases.js แบบ inline
+   * (กรอง hard-match เท่านั้น ไม่มี soft-replace)
+   */
+  if (typeof g.stripForbiddenMarketing !== 'function') {
+    (function buildFallbackForbiddenFilter() {
+      var HARD_LIST = [
+        'รักษาโรค','หายขาด','ป้องกันมะเร็ง','ฆ่าเชื้อสิว','รักษาสิว','รักษาฝ้า','รักษากระ',
+        'ฟื้นฟูตับ','ฟื้นฟูไต','ล้างพิษตับ','ฟอกตับ','ล้างเลือด','ต้านมะเร็ง',
+        'ลดน้ำหนัก','ลดความอ้วน','เผาผลาญไขมัน','ละลายไขมัน','สลายไขมัน',
+        'ขาวไว','ขาวเร่งด่วน','ขาวทันทีที่ใช้','ขาวถาวร',
+        'หน้าใสทันที','หน้าใสถาวร','หน้าเด้ง','ยกกระชับหน้าทันที','หน้า V-Shape',
+        'ไม่มีผลข้างเคียง','ปลอดภัย 100%','การันตี','การันตีผล','รับรองผล',
+        'เห็นผลแน่นอน','ไม่เห็นผลยินดีคืนเงิน','ดีที่สุด','อันดับหนึ่ง',
+        'No.1','Number 1','Best Seller','Bestseller',
+        'แพทย์รับรอง','หมอรับรอง','อย.รับรอง','FDA Approved','Clinical Proven',
+        'แอดไลน์','Line ID','โอนนอกระบบ','สั่งนอกระบบ',
+        'รวยเร็ว','รายได้หลักแสน','กำไรชัวร์'
+      ].sort(function (a, b) { return b.length - a.length; });
+
+      g.stripForbiddenMarketing = function (text) {
+        if (!text || typeof text !== 'string') return { text: text || '', hits: [], softReplaces: [] };
+        var hits = [];
+        HARD_LIST.forEach(function (phrase) {
+          if (text.indexOf(phrase) !== -1) {
+            hits.push(phrase);
+            text = text.split(phrase).join('[…]');
+          }
+        });
+        return { text: text, hits: hits, softReplaces: [] };
+      };
+    })();
+  }
+
   const STORY_TYPE_TEMPLATES = [
     { id: 'custom', name: 'กำหนดเอง (Custom)', icon: '✏️', description: 'ใส่หัวข้อเอง AI สร้างเรื่องให้อิสระ' },
     { id: 'product_review', name: 'รีวิวสินค้า UGC', icon: '📦', description: 'สาวไทยรีวิวสินค้าในสถานการณ์สุดครีเอท เน้นขายของ' },
@@ -142,8 +180,10 @@
   /**
    * กฎจำนวนคำต่อฉากเทียบกับ ~8 วินาทีต่อ clip (Flow / short-form) — ใส่ทั้ง system และ user
    * เพื่อกัน model มองข้ามบล็อก ADAPTIVE_VIDEO_DIRECTOR ที่ยาว/ถูก format override
+   * `factoryWarehouse`: โหมดโรงงาน/โกดัง — **ไม่ใช้ล็อก 15–20 คำ**; มีเพดาน **ไม่เกิน FACTORY_DIALOGUE_MAX_WORDS_TH คำ/ฉาก**; พูดเร็ว + FACTORY DNA
    */
-  function buildDialogueWordBudgetThai(isASMR, where) {
+  function buildDialogueWordBudgetThai(isASMR, where, factoryWarehouse) {
+    factoryWarehouse = !!factoryWarehouse;
     if (isASMR) {
       if (where === 'user') {
         return (
@@ -155,6 +195,37 @@
       return (
         '═══ DIALOGUE (ASMR) ═══\n' +
         'โหมด ASMR: ห้ามบทพูด (Dialogue) — ตาม Adaptive Video Director / STRICT ASMR PROTOCOL\n' +
+        '\n'
+      );
+    }
+    if (factoryWarehouse) {
+      if (where === 'user') {
+        return (
+          '═══ จังหวะบทพูด — โหมดโรงงาน/โกดัง (FACTORY DNA) ═══\n' +
+          '• คลิปละ ~**8 วินาที** — **ยกเลิกล็อก 15–20 คำ/ฉาก** (ไม่ใช้กฎนับคำแบบ Flow ทั่วไป)\n' +
+          '• บทพูดไทยใน `Dialogue:` **ไม่เกิน ' +
+          FACTORY_DIALOGUE_MAX_WORDS_TH +
+          ' คำต่อฉาก** (นับคำภาษาไทยในบรรทัด Dialogue เท่านั้น) — นับก่อนส่ง\n' +
+          '• พูดให้ **เร็วมาก** แบบไลฟ์โกดัง/เคลียร์สต็อกตามไฟล์ต้นทางโรงงาน: ประโยคสั้น **รัวต่อกัน** โฟลว์ขายหนาแน่น — ตาม FACTORY DNA\n' +
+          '• **ห้ามใส่การ์ด:** ห้ามส่ง character card / การ์ดย่อ — บรรยายตัวละครเต็มในแต่ละฉาก\n' +
+          '• `TTS/voice:` ระบุชัด **เพศ วัย ใบหน้า/ร่าง/ชุด** (ให้ตรงคนในรูปฉากนั้น) + **ความเร็วสูงมาก / รัวคำ** + พลังขาย — ล็อกให้เหมือนทุกฉาก (ใบหน้า+เสียง) — **ห้ามย่อด้วย ref** (เขียนประโยคเต็มซ้ำทุกฉากที่เป็นคนเดียวกัน)\n' +
+          '• ถ้าบทยาวเกินจะพูดจบใน ~8 วิ หรือเกินเพดานคำ — **ตัดความคิด** ให้พอดีเวลาและไม่เกิน ' +
+          FACTORY_DIALOGUE_MAX_WORDS_TH +
+          ' คำ\n' +
+          '\n'
+        );
+      }
+      return (
+        '═══ DIALOGUE PACING — FACTORY / WAREHOUSE DNA (แทนที่ล็อก 15–20 คำของ Flow ทั่วไป) ═══\n' +
+        'โหมดโรงงาน/โกดัง **ไม่ใช้ล็อก 15–20 คำ/ฉาก** — แต่ **บทไทยใน `Dialogue:` ต่อฉากไม่เกิน ' +
+        FACTORY_DIALOGUE_MAX_WORDS_TH +
+        ' คำ** (นับคำ) — **ห้าม**เกินเพดานนี้\n' +
+        'แต่ละฉาก = วิดีโอสั้น ~**8 วินาที** — บทพูดไทยต้องเป็นโทน **พูดเร็วมาก ประโยคสั้นรัวต่อกัน** (โกดัง / เคลียร์สต็อก / ไลฟ์ขายจริง) ตาม FACTORY DNA และ corpus โรงงาน\n' +
+        '`Dialogue:` ใส่ความคิดขาย + ราคา/โปร (จากรูป / PRODUCT BIBLE) ให้ **หนาแน่นในเวลาจำกัดและภายในงบคำ** — ถ้าบทยาวเกิน ~8 วิ หรือเกิน ' +
+        FACTORY_DIALOGUE_MAX_WORDS_TH +
+        ' คำ ให้ **ตัด/บีบจังหวะ**\n' +
+        '**ห้ามการ์ด / ห้าม REF:** ห้ามบล็อก character card — **ทุกฉาก** เขียนบรรยายตัวละครใน IMAGE + `TTS/voice` ใหม่ครบ\n' +
+        '`TTS/voice:` (ไทย ≥2 ประโยค) ต้องล็อกว่าเสียง **เร็วมาก — energy สูง — ไม่ใช่โทนพากย์ช้าหรือสงบ**; ประโยค **EN** แนะนำผสมอย่างน้อยหนึ่งวลี เช่น `rapid-fire dialogue` / `fast-paced speech` / `excited, high-energy delivery` — **ห้าม REF:** เขียนประโยคล็อกตัวตนเต็มในทุกฉาก (ซ้ำได้ถ้าเป็นคนเดียวกัน แต่ห้าม "เหมือนฉาก 1" อย่างเดียว)\n' +
         '\n'
       );
     }
@@ -178,8 +249,56 @@
     );
   }
 
+  /**
+   * แทน ADAPTIVE_VIDEO_DIRECTOR_PROMPT ยาว (ที่ฝัง 15–20 คำ) เมื่อโหมดโรงงาน/โกดัง —
+   * ไม่ส่งกฎนับคำ Flow ไปที่โมเดล; เน้นพูดเร็ว + สปีดสูงสอดคล้องไฟล์ต้นทาง + เพดานคำต่อฉาก
+   */
+  const FACTORY_ADAPTIVE_VIDEO_DIRECTOR_STUB =
+    'คุณคือ "Adaptive Video Director" — **โหมดโรงงาน/โกดัง (FACTORY / WAREHOUSE DNA)**\n\n' +
+    '### ⛔ ตัดกับ Director เวอร์ชันทั่วไป\n' +
+    'กรณีนี้ **ห้ามใช้** กฎจำนวนคำ **15–20 คำต่อซีน**, **ห้ามเกิน 20 คำ**, หรือข้อบังคับนับคำแบบ Flow/Grok/Super Grok จาก prompt Director เต็มฉบับ — ถือว่า **ปลดล็อก** แล้ว\n' +
+    'ให้ยึดบล็อก **DIALOGUE PACING — FACTORY**, **FACTORY DNA**, และ **OUTPUT FORMAT** ใน system message ชุดนี้แทน — **ไม่ใช่ล็อก 15–20 คำของ Flow** แต่มี **เพดานไม่เกิน ' +
+    FACTORY_DIALOGUE_MAX_WORDS_TH +
+    ' คำไทยต่อฉาก** ในบรรทัด `Dialogue:`\n\n' +
+    '### 📏 เพดานคำไทย (โหมดโรงงาน — บังคับ)\n' +
+    '- บทภาษาไทยใน **`Dialogue:`** **ไม่เกิน ' +
+    FACTORY_DIALOGUE_MAX_WORDS_TH +
+    ' คำต่อฉาก** — นับรวมทั้งบท lip-sync / พูดในแถวเดียวกัน; **นับก่อน finalize** — **ห้ามเกิน ' +
+    FACTORY_DIALOGUE_MAX_WORDS_TH +
+    ' คำ** (ถ้าเกินให้ตัดความคิด / ย่อประโยค ยังคงโทนพูดเร็ว)\n' +
+    '- **ไม่ใช้กฎ 15–20 คำ** ของ TikTok Flow — เพดานโรงงานคือ **' +
+    FACTORY_DIALOGUE_MAX_WORDS_TH +
+    ' คำสูงสุดต่อฉาก**\n\n' +
+    '### 🎙️ ความเร็วการพูด (บังคับ)\n' +
+    '- แต่ละฉาก ~**8 วินาที** — บทพูดไทยต้องเป็นโทน **พูดเร็วมาก / รัวประโยคสั้น / สปีดสูง** (สปีดไลฟ์ขาย–เคลียร์สต็อก) ตาม corpus โรงงาน\n' +
+    '- **ฮีโร่/ผู้พูดหลักที่ lip-sync ในเฟรม** = **พูดที่ความเร็วสูงสุดตาม DNA** — จังหวะเสียงต้องสะท้อนบทไทยอย่างตรงไปตรงมา; ตัวประกอบหรือคนที่ไม่ใช่ Speaker = เงียบ (ไม่ lip-sync กับบทนี้) ห้ามโทนช้าหรือพากย์สงบ\n' +
+    '- ใน `TTS/voice:` (ไทย ≥2 ประโยค + EN 1 ประโยค) ต้องระบุชัดทั้งสองภาษา: **เพศ วัย ลักษณะใบหน้า/ร่างกาย/ชุด** (ให้ตรงกับคนที่บรรยายในภาพฉากนั้น) + **very fast Thai speech**, **rapid-fire dialogue**, **high tempo**, **no slow narrator** — ล็อก **ทั้งเสียงและตัวตนใบหน้า** เหมือนกันทุกฉากที่เป็นผู้พูดคนเดียวกัน\n' +
+    '- `Dialogue:` ยัด hook + ราคา/โปร + คุณสมบัติที่ทันพูด — **อยู่ภายใต้เพดาน ' +
+    FACTORY_DIALOGUE_MAX_WORDS_TH +
+    ' คำต่อฉาก** และ **พูดจบใน ~8 วิ** — ถ้าเกินทั้งสองเงื่อนไขให้ **ตัดความคิดก่อน** ให้เข้าเพดานและเวลา\n' +
+    '### EN — คำสั่งความเร็ว (แนะนำผสมใน VIDEO ภาษาอังกฤษ / ประโยค EN ใน `TTS/voice`)\n' +
+    '- **ระบุตรงๆ (direct):** `fast-paced speech` · `rapid-fire dialogue` · `speaks quickly and urgently` · `high-speed narration`\n' +
+    '- **ผ่านอารมณ์ (mood → เร็วขึ้น):** `anxious and breathless` · `excited, high-energy delivery` · `frantic explanation`\n' +
+    '- **เสียงแยก TTS:** ถ้าระบบรับ prefix ได้ ให้นำหน้าบทด้วย `[fast talking]` หรือ `[quick speech]` — **ไม่ใช่ข้อความบนจอ**\n' +
+    '- **บทยาวในเวลาสั้น:** ออกแบบให้ผู้พูด **บีบจังหวะให้เร็ว** เพื่อจบในคลิป ~8 วิ และ **ไม่เกิน ' +
+    FACTORY_DIALOGUE_MAX_WORDS_TH +
+    ' คำ** — ไม่ยืดความยาวฉาก\n\n' +
+    '### ยังบังคับ (สรุป)\n' +
+    '1. ห้ามสร้างภาพ/วิดีโอจริง — เขียน text prompt ใน code block ตาม OUTPUT FORMAT เท่านั้น\n' +
+    '2. FORBIDDEN marketing / OVERCLAIM ตามรายการมาตรฐาน — ยังใช้\n' +
+    '3. Product Truth Lock — ยึดรูปสินค้าที่แนบ\n' +
+    '4. Human Anatomy Lock — ยังใช้\n' +
+    '5. ท้าย 🟢 VIDEO ทุกฉาก: `Speaker:` + `TTS/voice:` + `Dialogue:` ตาม format ระบบ\n' +
+    '6. ห้าม subtitle/caption บนวิดีโอ — เสียงพูดอย่างเดียว\n\n' +
+    '### 📝 ห้ามใส่การ์ด + ห้าม REF — เขียนตัวละครใหม่ทุกฉาก (บังคับ)\n' +
+    '- **ห้ามใส่การ์ด:** ห้ามใช้บล็อก **character card / การ์ดตัวละครย่อ / `[Character Card]` / `[CHARACTER_CARD]`** แทนการบรรยาย — ห้ามบอกให้ผู้อ่าน "ไปดูการ์ด" — **ทุกอย่างต้องเป็นข้อความบรรยายเต็มใน IMAGE prompt และ `TTS/voice` ของฉากนั้น**\n' +
+    '- **ห้าม REF:** ห้ามย่อด้วยคำอ้างแทนการเขียน เช่น "same as Scene 1", "ditto", "see above", "ตามฉากก่อนหน้า", "[Character Ref]", "same HERO BIBLE as scene N"\n' +
+    '- **ทุกฉากทุกรอบ:** เขียน **ครบเต็มใหม่** ใน field ของฉากนั้น: **`hero_full_detail` / IMAGE prompt** และ **`TTS/voice:`** — ถ้าผู้พูดคนเดียวกัน **อนุญาตคัดลอกถ้อยคำไทยชุดเดียวกัน**ใน `TTS/voice` เพื่อล็อก consistency แต่ต้อง **พิมพ์ข้อความเต็มซ้ำในทุกฉาก** ห้ามเขียนแค่ "เหมือนฉาก 1" หรือคำอ้างอย่างเดียว\n';
+
   function buildStorymodeSystemPromptFromPayload(payload, opts) {
     opts = opts || {};
+    /** โหมดโรงงาน: ไม่ผสม blueprint / hook master / narrative / mood pack ทั่วไป — ยึด FACTORY DNA (แทรกจาก HTML ก่อนบล็อกนี้) */
+    const factoryIso = !!(payload && payload._factoryDnaIsolation);
     const smStoryType =
       opts.storyType || (payload.mode === 'product_sell' ? 'product_review' : 'custom');
     const smOutputType = opts.outputType || 'both';
@@ -194,11 +313,19 @@
       visualStyleEngMap.disney ||
       '3D animated CGI feature film look, expressive characters, soft cinematic lighting.';
 
-    const isProductAd =
+    let isProductAd =
       (visualId === 'real_cinematic' || visualId === 'cinematic') &&
       (smStoryType === 'product_review' ||
         smStoryType === 'comparison' ||
         smStoryType === 'tutorial');
+    if (
+      factoryIso &&
+      payload.images &&
+      payload.images.productAttached &&
+      smStoryType === 'product_review'
+    ) {
+      isProductAd = true;
+    }
     const isAnimated = visualId !== 'none' && !PHOTOREAL_VISUAL_IDS.has(visualId);
     const isFairytale = smStoryType === 'fairytale' || smStoryType === 'character_story';
     const isASMR = smStoryType === 'asmr';
@@ -216,18 +343,29 @@
     /* Phase A — deterministic character card (token-efficient, single-clip lock).
      * Built from payload.prompt via keyword → role → defaults. No AI pre-pass. */
     const characterCardResult =
-      (typeof buildCompactCharacterCard === 'function' && !isASMR)
+      (typeof buildCompactCharacterCard === 'function' && !isASMR && !factoryIso)
         ? buildCompactCharacterCard(payload, resolvedVoice)
         : null;
 
     var imageTemplate;
     var videoTemplate;
 
-    if (isProductAd) {
+    if (factoryIso) {
+      imageTemplate =
+        'FACTORY / WAREHOUSE DNA — REAL COMMERCIAL FOOTAGE LOOK ONLY. Forbidden in prompts: Pixar, Disney, 3D CGI, anime, cartoon, stylized 3D characters. Use smartphone / cinema-camera realism, natural lighting, true-to-reference product texture from attached PRODUCT images. Industrial, warehouse, packing line, or authentic retail when relevant. [CHARACTER_NAME] — [CHARACTER_DESCRIPTION]. [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. Follow FACTORY DNA pack (tone, palette, shot grammar). No fake cartoon glow.';
+      videoTemplate =
+        'FACTORY DNA — REAL-WORLD UGC / COMMERCIAL VIDEO: ACTION ONLY: [CHARACTER_ACTION]. On-camera hero/Speaker lip-syncs Thai at **maximum retail tempo — rapid-fire, high-energy, warehouse sell pace**: "[THAI_DIALOGUE]" — **พูดเร็วมาก** (ประโยคสั้นรัวต่อกัน; **บทไทยใน Dialogue ไม่เกิน ' +
+        FACTORY_DIALOGUE_MAX_WORDS_TH +
+        ' คำต่อฉาก** — ~8 วิ). Tone = direct-from-factory / warehouse sell — match FACTORY DNA pack. Other people in frame are silent (no lip-sync for this line). **End every 🟢 VIDEO block with THREE lines in this exact order** (parser + TTS depend on this — do not merge into one line): ' +
+        '(1) `Speaker:` one-line role label (who speaks — short; e.g. `ROLE_STAFF`, `พี่พนักงานโกดัง`; must match who lip-syncs). **Do not** map voice from the first ROLE_ in ACTION if it differs from `Speaker:`. ' +
+        '(2) `TTS/voice:` **mandatory** — Thai first: at least **two full sentences** locking **gender, approximate age band, brief face shape/skin tone, body build, outfit/uniform** (must **match** the on-camera hero/Speaker described in the IMAGE prompt / `hero_full_detail` for **this scene only** — no "pull from outside field"), plus **voice timbre, very fast speech pace (rapid-fire, maximum retail tempo), high sell energy, no slow narrator tone**. **Repeat the same Thai wording** for every scene where the **same** Speaker speaks (voice + face + wardrobe consistency) — **spell out full text each scene**; no REF shortcuts like "same as Scene 1". Then `EN:` one English sentence mirroring the **same person** (look + voice) for TTS routing. ' +
+        '(3) `Dialogue:` English quotes with Thai text inside as usual. ' +
+        'Do NOT output only `Speaker: พนักงานโกดัง` (label alone) without a rich `TTS/voice:` that includes **ผู้ชายหรือผู้หญิง อายุประมาณเท่าไหร่ หน้าตา/รูปร่าง/ชุด** — that fails format. Do NOT emit a **character card** block instead of full prose in IMAGE/`TTS/voice` — rewrite full appearance **every scene**. Do NOT describe Pixar/Disney/3D animation/anime aesthetics. NO subtitles or on-screen text. AUDIO ONLY. Stable form, no morphing. Other visible people silent for this line unless they are the Speaker.';
+    } else if (isProductAd) {
       imageTemplate =
         'สร้างภาพโฆษณาสินค้ามืออาชีพ สินค้า[PRODUCT_NAME] [PRODUCT_DESCRIPTION] ตามภาพที่แนบไป สไตล์[CREATIVE_SCENARIO] [SCENE_DESCRIPTION] REAL HUMAN PHOTO มีสาววัยรุ่นคนไทย อายุ 20-25 ปีใช้งานสินค้า ใส่ข้อความภาษาไทยบนภาพว่า"[THAI_BOLD_TEXT]" [SCENE_SETTING] [CAMERA_DISTANCE] single image, no collage, no multiple panels, no split screen Use the exact product appearance from the attached reference image (pd-product.png). The bold text overlay MUST be in Thai language (ภาษาไทย).';
       videoTemplate =
-        'สาวไทยพูดขายสินค้า ([SCENE_NUM]) [PRODUCT_NAME] [PRODUCT_DESCRIPTION] [ACTION_IN_SCENE] ถือสินค้าโชว์ บทพูดไทย "[THAI_DIALOGUE]" มุมกล้องตั้งนิ่งจนจบคลิป ใช้ฉากและการจัดวางตามภาพที่แนบ NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, All dialogue is AUDIO ONLY reduce contrast, natural skintone, soft highlights, no oversharpen, low contrast, soft colors, natural tone, film look, soft light. End with Speaker: (one voice) and Dialogue: line. If another person is visible, they are silent (no second voice) for this line.';
+        'สาวไทยพูดขายสินค้า ([SCENE_NUM]) [PRODUCT_NAME] [PRODUCT_DESCRIPTION] [ACTION_IN_SCENE] ถือสินค้าโชว์ บทพูดไทย "[THAI_DIALOGUE]" มุมกล้องตั้งนิ่งจนจบคลิป ใช้ฉากและการจัดวางตามภาพที่แนบ NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, All dialogue is AUDIO ONLY reduce contrast, natural skintone, soft highlights, no oversharpen, low contrast, soft colors, natural tone, film look, soft light. End each 🟢 VIDEO block with **Speaker:** + **TTS/voice:** (Thai ≥2 sentences: gender, age, voice timbre, pacing — lock same speaker across scenes) + **Dialogue:**. If another person is visible, they are silent (no second voice) for this line.';
     } else if (isASMR) {
       imageTemplate =
         visualDesc +
@@ -245,13 +383,13 @@
         visualDesc +
         '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION], [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Full in-scene appearance text per HERO BIBLE; repeat on every new shot if the same character appears.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], lip movement synced to Thai: "[THAI_DIALOGUE]". TTS/voice: match each Speaker in HERO BIBLE (age, gender, persona) — do NOT default every line to a single global voice if characters differ. One speaker per 8s clip/line; lock Thai dialogue text exactly. If other ROLE_ appear in action text, they are visual only for this line — no second voice, no lip-sync to this dialogue except the Speaker. NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with Speaker: and Dialogue: lines.';
+        'ACTION ONLY: [CHARACTER_ACTION], lip movement synced to Thai: "[THAI_DIALOGUE]". TTS/voice: match each Speaker in HERO BIBLE (age, gender, persona) — do NOT default every line to a single global voice if characters differ. One speaker per 8s clip/line; lock Thai dialogue text exactly. If other ROLE_ appear in action text, they are visual only for this line — no second voice, no lip-sync to this dialogue except the Speaker. NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with **Speaker:** + **TTS/voice:** (Thai ≥2 sentences gender/age/timbre/pacing + EN one sentence, locked per speaker across scenes) + **Dialogue:**.';
     } else {
       imageTemplate =
         visualDesc +
         '. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Describe characters at full HERO BIBLE detail when visible; no "[Character Ref]" one-liners only.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], lip-sync Thai: "[THAI_DIALOGUE]". Voice: match the speaking character from HERO BIBLE (Speaker line). Lock hero NAMES and this dialogue string exactly. Any other person on screen: silent, no lip-sync to this line. NO default voice trope; NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with Speaker: and Dialogue: — do not infer speaker from first ROLE_ in the action if it conflicts with Speaker.';
+        'ACTION ONLY: [CHARACTER_ACTION], lip-sync Thai: "[THAI_DIALOGUE]". Voice: match **TTS/voice** + HERO BIBLE (not ROLE_ order in ACTION). Lock hero NAMES and this dialogue string exactly. Any other person on screen: silent, no lip-sync to this line. NO default voice trope; NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with **Speaker:** + **TTS/voice:** (Thai ≥2 sentences gender/age/timbre/pacing + EN one sentence, locked per speaker across scenes) + **Dialogue:** — do not infer speaker from first ROLE_ in the action if it conflicts with Speaker.';
     }
 
     const outputTypeNote =
@@ -279,18 +417,28 @@
           .join(', ');
     }
 
-    const narrativeBlock = formatNarrativePromptsForMessage(payload.narrativeStyleIds || []);
+    const narrativeBlock = factoryIso
+      ? ''
+      : formatNarrativePromptsForMessage(payload.narrativeStyleIds || []);
 
-    var moodSection = '═══ MOOD / TONE ═══\n' + smMoodKeyword + '\n';
-    if (moodDirectiveEn) moodSection += 'English atmosphere: ' + moodDirectiveEn + '\n';
+    var moodSection;
+    if (factoryIso) {
+      moodSection =
+        '═══ MOOD / TONE (FACTORY DNA ONLY) ═══\n' +
+        'ห้ามผสมมู้ดภาพยนตร์/ธรรมชาติ/ไทยทั่วไป — โทน จังหวะ และภาษาขายให้ยึดแพ็ก FACTORY DNA ด้านบน + รูปสินค้าที่แนบเท่านั้น\n';
+    } else {
+      moodSection = '═══ MOOD / TONE ═══\n' + smMoodKeyword + '\n';
+      if (moodDirectiveEn) moodSection += 'English atmosphere: ' + moodDirectiveEn + '\n';
+    }
 
     var narrativeSection = '';
-    if (narrativeBlock) {
+    if (!factoryIso && narrativeBlock) {
       narrativeSection =
         '═══ NARRATIVE PERSONA (EN — follow strictly) ═══\n' + narrativeBlock + '\n';
     }
 
     const hasBlueprint =
+      !factoryIso &&
       payload.mode === 'product_sell' &&
       payload.salesFormulaId &&
       typeof findSalesFormula === 'function' &&
@@ -324,21 +472,39 @@
         )
       : '';
 
-    const directorBlock =
-      (typeof ADAPTIVE_VIDEO_DIRECTOR_PROMPT !== 'undefined' && ADAPTIVE_VIDEO_DIRECTOR_PROMPT)
-        ? (
-            ADAPTIVE_VIDEO_DIRECTOR_PROMPT +
-            '\n\n' +
-            '═══════════════════════════════════════════════════════════\n' +
-            '⚠️ FORMAT OVERRIDE (สำคัญมาก — ใช้แทน Output Format ของ Adaptive Video Director ด้านบน):\n' +
-            'โปรแกรมนี้มี parser ที่ต้องการ format แบบเฉพาะ ให้ข้าม Output Format ใน Director prompt\n' +
-            'แล้วใช้ format ที่กำหนดใน "═══ OUTPUT FORMAT ═══" ด้านล่างเท่านั้น\n' +
-            'กฎ Forbidden Words (OVERCLAIM), TTS-safe, Hook Master, Dialogue 15-20 คำ,\n' +
-            'Human Anatomy Lock, Product Truth Lock ใน Director prompt ยังบังคับใช้ทุกข้อ\n' +
-            '═══════════════════════════════════════════════════════════\n' +
-            blueprintOverride
-          )
-        : '';
+    const formatOverrideRulesLine = factoryIso
+      ? (
+          'กฎ Forbidden Words (OVERCLAIM), TTS-safe, Hook Master,\n' +
+          '**ไม่ใช้** ข้อบังคับ "Dialogue 15-20 คำ/ฉาก" จาก Director — โหมดโรงงานใช้บล็อก "DIALOGUE PACING — FACTORY" + **เพดานไม่เกิน ' +
+          FACTORY_DIALOGUE_MAX_WORDS_TH +
+          ' คำไทยต่อฉาก** ด้านล่างแทน,\n' +
+          'Human Anatomy Lock, Product Truth Lock ใน Director prompt ยังบังคับใช้ทุกข้อที่ไม่ขัดแย้งกับ FACTORY DNA\n'
+        )
+      : (
+          'กฎ Forbidden Words (OVERCLAIM), TTS-safe, Hook Master, Dialogue 15-20 คำ,\n' +
+          'Human Anatomy Lock, Product Truth Lock ใน Director prompt ยังบังคับใช้ทุกข้อ\n'
+        );
+
+    var directorCore = '';
+    if (factoryIso) {
+      directorCore = FACTORY_ADAPTIVE_VIDEO_DIRECTOR_STUB;
+    } else if (typeof ADAPTIVE_VIDEO_DIRECTOR_PROMPT !== 'undefined' && ADAPTIVE_VIDEO_DIRECTOR_PROMPT) {
+      directorCore = ADAPTIVE_VIDEO_DIRECTOR_PROMPT;
+    }
+
+    const directorBlock = directorCore
+      ? (
+          directorCore +
+          '\n\n' +
+          '═══════════════════════════════════════════════════════════\n' +
+          '⚠️ FORMAT OVERRIDE (สำคัญมาก — ใช้แทน Output Format ของ Adaptive Video Director ด้านบน):\n' +
+          'โปรแกรมนี้มี parser ที่ต้องการ format แบบเฉพาะ ให้ข้าม Output Format ใน Director prompt\n' +
+          'แล้วใช้ format ที่กำหนดใน "═══ OUTPUT FORMAT ═══" ด้านล่างเท่านั้น\n' +
+          formatOverrideRulesLine +
+          '═══════════════════════════════════════════════════════════\n' +
+          blueprintOverride
+        )
+      : '';
 
     const voiceOnlyNoMusicSfxBlock = isASMR
       ? (
@@ -352,17 +518,50 @@
           'ทุกฉากที่มี `Speaker` + `Dialogue` ให้จบท้าย 🟢 VIDEO ด้วยบรรทัดสรุป: **Audio: Thai voice-only. No music. No SFX.**\n\n'
         );
 
+    const visualStyleHeaderBlock = factoryIso
+      ? (
+          '═══ VISUAL (FACTORY DNA — ไม่ผูกสไตล์ตัวละครจาก UI) ═══\n' +
+          'ภาพและมุมกล้องให้สอดคล้องแพ็ก FACTORY DNA ด้านบน + รูปสินค้าที่แนบ — ห้ามบังคับสไตล์การ์ตูน/CGI จากการ์ด Style ตัวละคร — **ห้ามส่งออกหรืออ้าง character card / การ์ดตัวละคร** แทนคำบรรยายใน prompt\n\n'
+        )
+      : (
+          '═══ VISUAL STYLE ═══\n' +
+          'สไตล์ที่ผู้ใช้เลือก: ' +
+          smVisualStyleDisplay +
+          '\n' +
+          'English style directive: ' +
+          visualDesc +
+          '\n' +
+          'ทุก prompt ต้องใช้สไตล์นี้เท่านั้น ห้ามเปลี่ยนสไตล์ระหว่างฉาก\n\n'
+        );
+
+    var speakerTtsTail =
+      'HERO BIBLE: ฉลาก ROLE/ลักษณะฮีโร่ล็อกตลอด — รายละเอียดฝั่งรูปต่อฉากอยู่ใน **`hero_full_detail` ของ JSON ฉากนั้นเท่านั้น** ห้ามอ้างดึงนอก field; ฝั่งเสียงยึด **`Speaker:` + `Dialogue:`** ฉากนั้น — multi-character ใน `hero_full_detail` = คนอื่นในเฟรม **เงียบ/ไม่ lip-sync** กับบทนี้ — **ห้าม** map เสียงจาก ROLE_ ตัวแรกใน ACTION แทน `Speaker:`\n' +
+      '**ห้ามใส่การ์ด:** ห้ามบล็อก character card / การ์ดย่อ — บรรยายตัวละครเต็มใน IMAGE + `TTS/voice` **ทุกฉากเขียนใหม่ครบ** (พิมพ์ซ้ำได้ ห้ามคำอ้าง)\n' +
+      '**ห้าม REF:** ทุกฉากเขียน **`TTS/voice:` เต็ม** (ไม่ใช่ "เหมือนฉากก่อนหน้า"/ditto/see above)\n';
+
+    const speakerTtsDialogueSpec =
+      factoryIso && !isASMR
+        ? (
+            'ท้าย block 🟢 VIDEO ทุกฉาก บังคับ **3 บรรทัดสุดท้ายตามลำดับนี้** (parser/TTS อ่านแยกบรรทัด — ห้ามรวมเป็นบรรทัดเดียว):\n' +
+            'Speaker: <ฉลากหรือ ROLE หนึ่งบรรทัด — master ว่าใครออกเสียง (เช่น `ROLE_STAFF`); **รายละเอียดใบหน้า/ร่าง/ชุดต้องอยู่ใน `TTS/voice:` — ห้ามมีแค่ฉลากแล้วจบ**\n' +
+            'TTS/voice: Thai: <อย่างน้อย 2 ประโยคเต็ม — **บังคับครบ:** เพศ · ช่วงวัย · ลักษณะใบหน้า/ผิว/รูปร่างโดยย่อ · ชุดหรือยูนิฟอร์ม/ของแต่งกาย — **ต้องสอดคล้องกับผู้พูดที่บรรยายใน IMAGE prompt / `hero_full_detail` ของฉากนั้นเท่านั้น** (เขียนเต็มซ้ำทุกฉากที่เป็นคนเดียวกัน — ห้ามย่อเป็น ref); ต่อด้วยโทนเสียง · พูดเร็วมาก · พลังขาย> EN: <หนึ่งประโยค English — same on-camera person + voice + fast pace>\n' +
+            'Dialogue: "..." (บทไทย — **พูดเร็วมาก** ~8 วิ/ฉาก; **ไม่เกิน ' +
+            FACTORY_DIALOGUE_MAX_WORDS_TH +
+            ' คำต่อฉาก** ใน Dialogue — ยึด FACTORY DNA / โทนไฟล์โรงงาน)\n' +
+            speakerTtsTail
+          )
+        : (
+            'ท้าย block 🟢 VIDEO ทุกฉาก บังคับ **3 บรรทัดสุดท้ายตามลำดับนี้** (parser/TTS อ่านแยกบรรทัด — ห้ามรวมเป็นบรรทัดเดียว):\n' +
+            'Speaker: <ฉลากหรือ ROLE หนึ่งบรรทัด — master ว่าใครออกเสียง; อันดับสูงกว่า ROLE_ ตัวแรกใน ACTION ถ้าขัดกัน>\n' +
+            'TTS/voice: Thai: <อย่างน้อย 2 ประโยคเต็ม — ระบุ เพศ ช่วงวัย โทนเสียง ความเร็วการพูด พลังการขาย — **ล็อกให้เหมือนทุกฉาก**ที่ผู้พูดคนเดียวกัน> EN: <หนึ่งประโยค English — same gender/age/pacing for TTS>\n' +
+            'Dialogue: "..." (บทไทย 15-20 คำ — ล็อกคำต่อคำกับ lip-sync)\n' +
+            speakerTtsTail
+          );
+
     return (
       directorBlock +
       'คุณคือ Creative Director มืออาชีพสำหรับ TikTok / Google Veo สร้างสคริปต์วิดีโอสั้นที่มี prompt สำหรับสร้างภาพและวิดีโอ AI\n\n' +
-      '═══ VISUAL STYLE ═══\n' +
-      'สไตล์ที่ผู้ใช้เลือก: ' +
-      smVisualStyleDisplay +
-      '\n' +
-      'English style directive: ' +
-      visualDesc +
-      '\n' +
-      'ทุก prompt ต้องใช้สไตล์นี้เท่านั้น ห้ามเปลี่ยนสไตล์ระหว่างฉาก\n\n' +
+      visualStyleHeaderBlock +
       moodSection +
       '\n' +
       narrativeSection +
@@ -377,10 +576,7 @@
       '🟢 VIDEO PROMPT\n' +
       '```\n' +
       '[video prompt ภาษาอังกฤษ ตามเทมเพลตด้านล่าง — บทพูด/narration เป็นภาษาไทย]\n' +
-      'ท้าย block นี้ทุกฉาก (parser + TTS) บังคับ 2 บรรทัด — อันดับเสียง: Speaker นี้ก่อน ROLE_ อื่นในส่วน ACTION/ภาพ)\n' +
-      'Speaker: (ROLE_... หรือ ฉลากผู้พูด หนึ่งคน/ฉาก — คือ "ใครออกเสียง" หลัก)\n' +
-      'Dialogue: "..." (บทไทยเดียวต่อฉาก 15-20 คำ)\n' +
-      'ถ้า ACTION/ภาพอธิบายหลาย ROLE_ ให้ถือ Speaker/Dialogue นี้เป็นหลักเสียง; อีกคน/ตัว = เงียบ/ไม่ lip-sync กับบทนี้\n' +
+      speakerTtsDialogueSpec +
       '```\n\n' +
       'ท้ายสุดหลังฉากสุดท้าย:\n\n' +
       '📝 VIRAL CAPTION\n' +
@@ -392,19 +588,24 @@
       '═══ VIDEO PROMPT TEMPLATE ═══\n' +
       videoTemplate +
       '\n\n' +
-      buildDialogueWordBudgetThai(isASMR, 'system') +
+      buildDialogueWordBudgetThai(isASMR, 'system', factoryIso) +
       voiceOnlyNoMusicSfxBlock +
       '═══ CRITICAL RULES ═══\n' +
       '1. Image prompt ต้องเป็นภาษาอังกฤษ (ยกเว้นข้อความ Thai bold text บนภาพ ถ้ามี)\n' +
       '2. Video prompt ต้องเป็นภาษาอังกฤษ ยกเว้นบทพูด/narration ที่ต้องเป็นภาษาไทย\n' +
-      '3. บทพูดภาษาไทยต้องเป็นธรรมชาติ สนุก น่าสนใจ — และ **ยึด 15-20 คำ/ฉาก (~8 วิ)** ตามบล็อก "DIALOGUE WORD BUDGET" ทันทีก่อน/เหนือรายละเอียด style\n' +
-      '4. ทุกฉากต้องใช้สไตล์ภาพเดียวกัน: ' +
-      visualDesc +
-      '\n' +
+      (factoryIso && !isASMR
+        ? '3. บทพูดภาษาไทยต้องเป็นธรรมชาติ **เร็วรัดแบบโกดัง** — **ไม่ยึด** 15-20 คำ/ฉากของ Flow แต่ **ไม่เกิน ' +
+          FACTORY_DIALOGUE_MAX_WORDS_TH +
+          ' คำต่อฉาก** ใน Dialogue; แต่ละฉาก ~8 วิ — ถ้าบทยาวเกินเวลาหรือเพดานคำให้ **ตัดความคิด** — เหนือรายละเอียด style\n'
+        : '3. บทพูดภาษาไทยต้องเป็นธรรมชาติ สนุก น่าสนใจ — และ **ยึด 15-20 คำ/ฉาก (~8 วิ)** ตามบล็อก "DIALOGUE WORD BUDGET" ทันทีก่อน/เหนือรายละเอียด style\n') +
+      '4. ทุกฉากต้องใช้ภาพสอดคล้องกัน: ' +
+      (factoryIso
+        ? 'ตาม FACTORY DNA + reference สินค้า (ไม่ใช้สไตล์การ์ตูนจาก UI)\n'
+        : visualDesc + '\n') +
       '5. ห้ามใส่ subtitle, text overlay, captions ในวิดีโอ — dialogue เป็น AUDIO ONLY\n' +
       '6. Image ต้องเป็น single image, no collage, no multiple panels\n' +
-      '7. ตัวละครต้อง consistent ทุกฉาก — หน้า เสื้อผ้า สไตล์เดียวกัน; ย้ำรายละเอียดเต็มต่อฉาก ห้ามอ้าง "same as HERO BIBLE" แทนคำบรรยาย\n' +
-      '8. ห้ามแทนร่างตัวละครด้วยบรรทัด [Character Reference] อย่างเดียว — บรรยายตาม HERO BIBLE ในช่อง image prompt ของฉากนั้น\n' +
+      '7. ตัวละครต้อง consistent ทุกฉาก — หน้า เสื้อผ้า สไตล์เดียวกัน; **ย้ำรายละเอียดเต็มต่อฉาก** ห้ามอ้าง "same as HERO BIBLE" / "ditto" / "ตามฉากก่อนหน้า" แทนคำบรรยาย — **โหมดโรงงาน:** รายละเอียดภาพต่อฉากอยู่ใน **`hero_full_detail` ของฉากนั้นเท่านั้น** — **ห้ามใส่การ์ดตัวละคร** แทนคำบรรยายใน prompt\n' +
+      '8. ห้ามแทนร่างตัวละครด้วยบรรทัด [Character Reference] / character card / การ์ดย่อ อย่างเดียว — **ทุกฉาก** บรรยายลักษณะตัวละครใหม่ครบในช่อง image prompt ของฉากนั้น (ซ้ำประโยคเต็มได้ ห้ามคำอ้างอย่างเดียว)\n' +
       '9. ถ้ามีสินค้า ต้องเห็นสินค้าชัดเจนในทุกฉาก\n' +
       '10. Scene header ต้องใช้ === SCENE N: NAME === เท่านั้น (สำคัญสำหรับ parser)\n' +
       '11. Prompt ต้องอยู่ใน code block (```) เสมอ\n' +
@@ -416,15 +617,24 @@
       '" ทุกบท (hint) ' +
       voiceGenderBanTh +
       ' (ยกเว้น ASMR ไม่มีเสียงพูด)\n' +
-      '14. HERO BIBLE — ใช้ฉบับด้านล่าง: รายละเอียดเต็ม ห้าม card ย่อ; ทุกครั้งที่พูด/ออกฉาก ย้ำรายละเอียดเพียงพอเพื่อ consistency (ไม่บังคับ "มีชื่อเล่นเสมอ")\n' +
-      '15. SPEAKER + AUDIO (ยกเว้น ASMR ไม่มี speech): ท้าย block 🟢 VIDEO ทุกฉากต้องมี `Speaker:` (ROLE_ หรือ ฉลาก) กับ `Dialogue:` — บรรทัด Speaker คือ **master สำหรับเสียง**; แม้จะอธิบายหลาย ROLE_ ในส่วน ACTION/ภาพ ให้ **ตัวที่ไม่ใช่ Speaker เงียบ/ไม่ lip-sync กับบทนี้** — ห้ามให้ TTS/วีดีโอใช้ "ROLE_ ตัวแรก" แทน Speaker ถ้าขัดกัน\n' +
+      '14. HERO BIBLE — ใช้ฉบับด้านล่าง: รายละเอียดเต็ม **ห้ามใช้การ์ดย่อแทนคำบรรยาย**; ทุกครั้งที่พูด/ออกฉาก ย้ำรายละเอียดเพียงพอเพื่อ consistency — **ทุกฉากเขียนบรรยายตัวละครใน prompt ใหม่ครบ** (ไม่บังคับ "มีชื่อเล่นเสมอ")\n' +
+      (factoryIso && !isASMR
+        ? '15. SPEAKER + TTS/voice + DIALOGUE (โหมดโรงงาน): ท้าย 🟢 VIDEO **ทุกฉาก** ครบ **Speaker:** + **TTS/voice:** + **Dialogue:** — `Speaker:` = ฉลากสั้น (เช่น `ROLE_STAFF`, พี่พนักงานโกดัง); **`TTS/voice:` = master ทั้งตัวตนและเสียง** — ต้องมี **เพศ วัย ใบหน้า/ร่าง/ชุด** ให้ตรงกับคนใน IMAGE/`hero_full_detail` ฉากนั้น + โทนเสียง + พูดเร็วมาก (ไทย ≥2 ประโยค + EN 1 ประโยค) และ **ถ้อยคำไทยชุดเดียวกัน**ทุกฉากที่เป็นผู้พูดคนเดียวกัน — **เขียนข้อความเต็มซ้ำทุกฉาก** ห้ามย่อว่า "เหมือนฉากก่อนหน้า"; **ห้าม**มีแค่ Speaker โดยไม่บรรยายหน้าตา/ชุดใน TTS/voice; ROLE อื่นใน ACTION = เงียบ — **ห้าม** map เสียงจาก ROLE_ ตัวแรกแทน Speaker\n' +
+          '16. HERO BIBLE / hero_full_detail ↔ เสียง: ฝั่งภาพ = รายละเอียดใน IMAGE/`hero_full_detail` ต่อฉาก (field ฉากนั้นเท่านั้น); ฝั่งวิดีโอ = **ยึด Speaker + Dialogue** และ **`TTS/voice` ต้องสะท้อนคนเดียวกับภาพ** — ห้ามอ้างดึงนอก field แทนการเขียนครบใน `TTS/voice`; multi-character ใน `hero_full_detail` = คนอื่น **เงียบ/ไม่ lip-sync** กับบทนี้\n' +
+          '17. **ห้ามการ์ด / ห้าม REF:** ห้ามส่งออกบล็อก character card / การ์ดตัวละครย่อ / `[Character Card]` — **ทุกฉากทุกรอบ** เขียนบรรยายลักษณะตัวละคร **ใหม่ครบ** ใน 🔴 IMAGE / `hero_full_detail` และ `TTS/voice` (พิมพ์ซ้ำประโยคเต็มได้ถ้าล็อกคนเดียวกัน; ห้ามแทนด้วยการ์ดหรือคำอ้างอย่างเดียว)\n'
+        : '15. SPEAKER + TTS/voice + DIALOGUE (ยกเว้น ASMR ไม่มี speech): ท้าย block 🟢 VIDEO **ทุกฉาก** ต้องมีครบ **Speaker:** + **TTS/voice:** + **Dialogue:** — `Speaker:` = ฉลากสั้นใครพูด; **`TTS/voice:` = master สำหรับความสม่ำเสมอของเสียง** (เพศ วัย ลักษณะเสียง ความเร็ว) ต้องเขียน **ยาวพอ** (ไทย ≥2 ประโยค + EN 1 ประโยค) และ **เหมือนกันทุกฉาก**ที่เป็นผู้พูดคนเดียวกัน — ห้ามเขียนแค่ชื่อบทบาทใน Speaker โดยไม่มี TTS/voice; แม้ ACTION มีหลาย ROLE_ ให้ **ตัวที่ไม่ใช่ Speaker เงียบ/ไม่ lip-sync** — ห้าม map เสียงจาก ROLE_ ตัวแรกใน ACTION แทน Speaker/TTS/voice — **ทุกฉากเขียน `TTS/voice` เต็มใหม่ ห้าม REF**\n' +
+          '16. HERO BIBLE / hero_full_detail: รายละเอียดหน้าตา/เสื้อผ้า/กล้อง — **อยู่ใน field ภาพต่อฉาก (`hero_full_detail` หรือข้อความ IMAGE prompt)** เท่านั้น; ฝั่งเสียงยึด **TTS/voice** + **Dialogue** — ห้ามอ้าง "ดึงจากนอก field" แทนการเขียนเต็มใน field นั้น\n' +
+          '17. **ห้ามการ์ด / ห้าม REF:** ห้ามส่งออกบล็อก character card / การ์ดย่อ — **ทุกฉาก** เขียนบรรยายตัวละครใน IMAGE prompt และ `TTS/voice` **ใหม่ครบ** (ซ้ำประโยคเต็มได้; ห้าม "เหมือนฉากก่อนหน้า" / การ์ด แทนคำบรรยาย)\n') +
       '\n' +
       (
-        (characterCardResult && typeof buildCompactCardInjectionBlock === 'function')
+        !factoryIso &&
+        characterCardResult &&
+        typeof buildCompactCardInjectionBlock === 'function'
           ? '\n' + buildCompactCardInjectionBlock(characterCardResult, payload) + '\n'
           : ''
       ) +
       (
+        !factoryIso &&
         (payload.mode === 'product_sell' &&
           payload.hookCategory &&
           typeof HOOK_MASTER_SECTION !== 'undefined' &&
@@ -433,6 +643,16 @@
           : ''
       ) +
       (
+        factoryIso && payload.mode === 'product_sell'
+          ? (
+              '\n\n═══ PRODUCT SELL — FACTORY DNA MODE ═══\n' +
+              'โครงเรื่องและเทคนิคขายให้ยึด FACTORY DNA + user brief เท่านั้น — ห้ามดึง Sales Formula Blueprint / Hook Library / persona narrative จากชั้น UI อื่น\n' +
+              'OVERCLAIM / FORBIDDEN_MARKETING_PHRASES ยังบังคับตาม Director prompt\n'
+            )
+          : ''
+      ) +
+      (
+        !factoryIso &&
         payload.mode === 'product_sell'
           ? (
               '\n\n═══ PRODUCT SELL MODE — SALES RULES (บังคับเฉพาะโหมดขายสินค้า) ═══\n' +
@@ -468,8 +688,84 @@
     );
   }
 
+  /** User message เมื่อเลือกมู้ดโรงงาน — เฉพาะ prompt + จำนวนซีน + รายการรูป; ที่เหลือยึด FACTORY DNA ใน system + กฎคำต้องห้าม */
+  function buildStorymodeUserMessageFactoryDnaOnly(payload, opts) {
+    opts = opts || {};
+    const topic = sanitizeStorymodeUserPlainText((payload.prompt || '').trim());
+    const img = payload.images || {};
+    const hasAttachments = !!(img.productAttached || img.characterAttached);
+    if (!topic && !hasAttachments) return '';
+
+    const smSceneCount = Number(payload.sceneCount) || 5;
+    const smOutputType = opts.outputType || 'both';
+
+    var msg = topic
+      ? '═══ Prompt (FACTORY DNA) ═══\n' + topic + '\n'
+      : '═══ Prompt (FACTORY DNA) ═══\n(ไม่มีข้อความเพิ่ม — ใช้รูปที่แนบเป็นหลัก)\n';
+
+    msg += '\n═══ จำนวนฉาก ═══\n' + smSceneCount + ' ฉาก\n';
+
+    const charNames = (img.characterNames && img.characterNames.length)
+      ? img.characterNames
+      : (img.characterName ? [img.characterName] : []);
+    const productNames = (img.productNames && img.productNames.length)
+      ? img.productNames
+      : (img.productName ? [img.productName] : []);
+    if (img.productAttached || img.characterAttached) {
+      msg += '\n═══ รูปแนบ (ลำดับส่ง = inline image) ═══\n';
+      if (img.productAttached) {
+        msg += 'สินค้า (' + (img.productAttachedCount || productNames.length || 1) + ' รูป): ' + (productNames.join(', ') || '(attached)') + '\n';
+        if (img.productName) msg += 'รูปสินค้าหลัก: ' + img.productName + '\n';
+      }
+      if (img.characterAttached) {
+        msg += 'ตัวละคร ref: ' + (charNames.join(', ') || '(attached)') + '\n';
+      }
+    }
+
+    msg +=
+      '\nปฏิบัติตามบล็อก FACTORY DNA ใน system instruction เท่านั้น — โทน บทพูด มุมกล้อง สไตล์ภาพ ให้ DNA เป็นตัวกำหนด' +
+      '\nกฎความปลอดภัยโฆษณาและคำต้องห้าม (FORBIDDEN_MARKETING_PHRASES / OVERCLAIM) ยังใช้ตาม system เช่นเดิม' +
+      '\n**ห้ามใส่การ์ด / ห้าม REF:** อย่าใส่บล็อก character card / การ์ดตัวละครใน output — **ทุกฉาก** เขียนบรรยายตัวละครเต็มใน IMAGE / `hero_full_detail` และ `TTS/voice` ใหม่ครบ (พิมพ์ซ้ำประโยคล็อกได้ ห้ามคำอ้างหรือการ์ดแทน)' +
+      '\n**เพดานคำ:** บทไทยใน `Dialogue:` **ไม่เกิน ' +
+      FACTORY_DIALOGUE_MAX_WORDS_TH +
+      ' คำต่อฉาก** — นับก่อนส่งผล';
+
+    msg += buildDialogueWordBudgetThai(false, 'user', true);
+
+    /** Product analysis (จากรูปสินค้า) — บังคับให้สคริปต์โหมดโรงงานยึดตามนี้ ไม่แต่งราคา/เคลมที่ไม่มีในรูป */
+    var factoryProductBlock = '';
+    if (payload.productAnalysis && typeof summarizeProductAnalysisForPrompt === 'function') {
+      var ps = summarizeProductAnalysisForPrompt(payload.productAnalysis);
+      if (ps && ps.trim()) factoryProductBlock = ps.trim();
+    }
+    if (!factoryProductBlock && payload.productAnalysisSummary && String(payload.productAnalysisSummary).trim()) {
+      factoryProductBlock = String(payload.productAnalysisSummary).trim();
+    }
+    if (!factoryProductBlock && payload.productAnalysisText && String(payload.productAnalysisText).trim()) {
+      factoryProductBlock = String(payload.productAnalysisText).trim();
+    }
+    if (factoryProductBlock) {
+      msg +=
+        '\n\n══ PRODUCT BIBLE (วิเคราะห์จากรูปสินค้าที่แนบ — ห้ามขัด ห้ามแต่งเพิ่ม) ══\n' +
+        factoryProductBlock +
+        '\n══ END PRODUCT BIBLE ══';
+    }
+
+    if (smOutputType !== 'both') {
+      msg +=
+        '\n═══ ประเภท Output ═══\n' +
+        (smOutputType === 'image' ? 'สร้างเฉพาะรูปภาพ' : 'สร้างเฉพาะวิดีโอ') +
+        '\n';
+    }
+
+    return msg;
+  }
+
   function buildStorymodeUserMessageFromPayload(payload, opts) {
     opts = opts || {};
+    if (payload._factoryDnaIsolation) {
+      return buildStorymodeUserMessageFactoryDnaOnly(payload, opts);
+    }
     const topic = sanitizeStorymodeUserPlainText((payload.prompt || '').trim());
     if (!topic) return '';
 
@@ -551,6 +847,26 @@
         '\n';
     }
 
+    /** Product analysis (จากรูปสินค้า) — โครงสร้างเดียว ใช้เป็น Single Source of Truth สำหรับสคริปต์
+     *  รับมา 3 รูปแบบ: parsed object (.productAnalysis) → สรุปสั้น, summary string (.productAnalysisSummary), หรือ raw text (.productAnalysisText) */
+    var productBibleBlock = '';
+    if (payload.productAnalysis && typeof summarizeProductAnalysisForPrompt === 'function') {
+      var s = summarizeProductAnalysisForPrompt(payload.productAnalysis);
+      if (s && s.trim()) productBibleBlock = s.trim();
+    }
+    if (!productBibleBlock && payload.productAnalysisSummary && String(payload.productAnalysisSummary).trim()) {
+      productBibleBlock = String(payload.productAnalysisSummary).trim();
+    }
+    if (!productBibleBlock && payload.productAnalysisText && String(payload.productAnalysisText).trim()) {
+      productBibleBlock = String(payload.productAnalysisText).trim();
+    }
+    if (productBibleBlock) {
+      msg +=
+        '\n══ PRODUCT BIBLE (วิเคราะห์จากรูปสินค้าที่แนบ — ห้ามขัดกับนี้) ══\n' +
+        productBibleBlock +
+        '\n══ END PRODUCT BIBLE ══\n';
+    }
+
     /* Phase 4 — วาง Sales Formula Blueprint ไว้ "บนสุด" ก่อนกฎอื่นใดใน user message
      * เพื่อให้ Gemini อ่าน structure ก่อน แล้วค่อยนำไปปรับให้เข้ากับ inputs อื่น
      * Guard ด้วย mode + salesFormulaId เสมอ (storymode ข้ามทั้งก้อน) */
@@ -573,7 +889,7 @@
     msg += '\n═══ จำนวนฉาก ═══\n' + (Number(payload.sceneCount) || 5) + ' ฉาก\n';
     {
       const userIsASMR = smStoryType === 'asmr';
-      msg += buildDialogueWordBudgetThai(userIsASMR, 'user');
+      msg += buildDialogueWordBudgetThai(userIsASMR, 'user', false);
     }
 
     /* Phase A — short CHARACTER CARD reference in user message (token-efficient).
@@ -719,6 +1035,18 @@
     return { text: text, safety: safetyReport };
   }
 
+  /** โดเมน Vercel ที่รัน /api/gemini — ตั้งจาก story-config-mock (localhost → ยิงไปเว็ป) */
+  function geminiServerApiUrl(path) {
+    var p = path.indexOf('/') === 0 ? path : '/' + path;
+    var base = '';
+    try {
+      if (typeof g !== 'undefined' && g.__GEMINI_API_ORIGIN__) {
+        base = String(g.__GEMINI_API_ORIGIN__).replace(/\/+$/, '');
+      }
+    } catch (e) { /* ignore */ }
+    return base + p;
+  }
+
   /**
    * เมื่อ deploy บน Vercel + ตั้ง GEMINI_API_KEY — เรียก /api/gemini (ไม่ส่ง key ไป client)
    */
@@ -741,7 +1069,7 @@
         postBody.generationConfig.maxOutputTokens = opts.maxOutputTokens;
       }
     }
-    var r = await fetch('/api/gemini', {
+    var r = await fetch(geminiServerApiUrl('/api/gemini'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(postBody)
@@ -838,7 +1166,18 @@
           throw new Error(errMsg);
         }
 
-        var data = await response.json();
+        var okBodyText = await response.text();
+        var data;
+        try {
+          data = JSON.parse(okBodyText);
+        } catch (_) {
+          var snipOk = String(okBodyText || '')
+            .replace(/\s+/g, ' ')
+            .slice(0, 200);
+          throw new Error(
+            'Gemini API ตอบไม่ใช่ JSON (มักเป็น proxy/error page): ' + snipOk
+          );
+        }
         var blockReason =
           (data.promptFeedback && data.promptFeedback.blockReason) ||
           (data.candidates && data.candidates[0] && data.candidates[0].finishReason);
@@ -919,6 +1258,94 @@
     );
   }
 
+  /**
+   * Product analysis — อ่านรูปสินค้า (1+ รูป) คืน JSON โครงสร้างเดียว เพื่อใช้ต่อ
+   * เป็น context ตอนเจนสคริปต์ (เทียบเท่า Hero Analysis แต่สำหรับสินค้า)
+   */
+  function buildProductAnalysisSystemPrompt() {
+    return (
+      'You are a product analyst for short-form (TikTok / e-commerce / warehouse) video selling. ' +
+      'The user attaches 1+ reference image(s) of ONE physical product (multi-angle, packaging, or in-use shots). ' +
+      'Read every image, merge observations across views; ignore people, props, captions/UI overlays, and watermarks. ' +
+      'Output a single valid JSON object only — no markdown, no backticks, no commentary. ' +
+      'Schema (top-level keys; use null for unknown; confidence: number 0-1): ' +
+      'schema_version, ' +
+      'product (display_name_th, display_name_en, category, brand_visible, model_or_variant), ' +
+      'appearance (primary_color, secondary_colors: array, material_or_texture, shape_form_factor, size_hint, packaging_type), ' +
+      'visible_text: { thai: array of strings as printed on package/label, english: array, numbers_or_units: array, claims: array (e.g., "ของแท้", "ผลิต กทม.") }, ' +
+      'visible_price: { currency, amount_text, promo_text } | null, ' +
+      'usp: array of 3-6 short Thai bullet strings — actionable selling points grounded in what the image shows (e.g., "ขวดใหญ่ 500ml", "ฝากดล็อก กันรั่ว"), ' +
+      'use_cases: array of 2-4 concrete Thai usage scenarios (e.g., "ใช้ในครัว", "พกพาเดินทาง"), ' +
+      'target_user: short Thai phrase (e.g., "แม่บ้านวัย 30+ ในตจว."), ' +
+      'risk_flags: { regulated_category: bool, may_need_disclaimer: bool, notes_th: string|null }, ' +
+      'consistency_lock: { phrase_th: short Thai paragraph that re-states the exact visible product/packaging/colors so subsequent prompts keep visual identical, phrase_en: same in English }, ' +
+      'confidence: { overall: number }. ' +
+      'Rules: do NOT invent prices/claims that are not on the image. Do NOT include marketing exaggerations. ' +
+      'If multiple SKUs appear, focus on the most prominent; mention ambiguity in risk_flags.notes_th with lower confidence.'
+    );
+  }
+
+  function buildProductAnalysisUserMessage(orderLegend) {
+    return (
+      'Task: output ONLY the JSON object described in the system instruction. ' +
+      'Image order legend (0-based indices refer to attached images in this request):\n' +
+      String(orderLegend || '(no legend)') +
+      '\n\nWrite Thai strings in Thai script. Numbers and units (ml, g, kg, ฿) keep as-is. ' +
+      'Empty/unknown fields → null. Arrays may be empty []. ' +
+      'Keep usp/use_cases short and concrete — not slogans.'
+    );
+  }
+
+  /** สรุป product analysis เป็นบล็อกสั้นๆ พร้อมแนบใน user message ของ "เจนสคริปต์" */
+  function summarizeProductAnalysisForPrompt(parsed) {
+    if (!parsed || typeof parsed !== 'object') return '';
+    var lines = [];
+    var p = parsed.product || {};
+    var a = parsed.appearance || {};
+    var v = parsed.visible_text || {};
+    var price = parsed.visible_price || null;
+    var name = p.display_name_th || p.display_name_en || null;
+    if (name) lines.push('• ชื่อสินค้า (จากรูป): ' + name);
+    if (p.brand_visible) lines.push('• แบรนด์ที่เห็น: ' + p.brand_visible);
+    if (p.category) lines.push('• หมวด: ' + p.category);
+    if (a.primary_color || (a.secondary_colors && a.secondary_colors.length)) {
+      var colors = [a.primary_color].concat(Array.isArray(a.secondary_colors) ? a.secondary_colors : [])
+        .filter(Boolean).join(', ');
+      if (colors) lines.push('• สี: ' + colors);
+    }
+    if (a.material_or_texture) lines.push('• วัสดุ/พื้นผิว: ' + a.material_or_texture);
+    if (a.size_hint) lines.push('• ขนาดที่เห็น: ' + a.size_hint);
+    if (a.packaging_type) lines.push('• แพ็คเกจ: ' + a.packaging_type);
+    if (Array.isArray(v.thai) && v.thai.length) {
+      lines.push('• ข้อความบนแพ็ค (TH): ' + v.thai.slice(0, 6).join(' | '));
+    }
+    if (Array.isArray(v.english) && v.english.length) {
+      lines.push('• ข้อความบนแพ็ค (EN): ' + v.english.slice(0, 6).join(' | '));
+    }
+    if (Array.isArray(v.numbers_or_units) && v.numbers_or_units.length) {
+      lines.push('• ตัวเลข/หน่วย: ' + v.numbers_or_units.slice(0, 8).join(' | '));
+    }
+    if (Array.isArray(v.claims) && v.claims.length) {
+      lines.push('• เคลม/มาตรฐาน: ' + v.claims.slice(0, 6).join(' | '));
+    }
+    if (price && (price.amount_text || price.promo_text)) {
+      lines.push(
+        '• ราคา/โปรในรูป: ' +
+        [price.amount_text, price.promo_text].filter(Boolean).join(' / ')
+      );
+    }
+    if (Array.isArray(parsed.usp) && parsed.usp.length) {
+      lines.push('• USP: ' + parsed.usp.slice(0, 6).join(' / '));
+    }
+    if (Array.isArray(parsed.use_cases) && parsed.use_cases.length) {
+      lines.push('• Use cases: ' + parsed.use_cases.slice(0, 4).join(' / '));
+    }
+    if (parsed.target_user) lines.push('• กลุ่มเป้าหมาย: ' + parsed.target_user);
+    var lock = parsed.consistency_lock && parsed.consistency_lock.phrase_th;
+    if (lock) lines.push('• LOCK: ' + lock);
+    return lines.join('\n');
+  }
+
   window.MockStorymodeGemini = {
     STORYMODE_PROMPT_ASSET_VERSION: g.STORYMODE_PROMPT_ASSET_VERSION,
     STORY_TYPE_TEMPLATES: STORY_TYPE_TEMPLATES,
@@ -927,6 +1354,9 @@
     mockFetchGeminiStorymode: mockFetchGeminiStorymode,
     buildHeroAnalysisSystemPrompt: buildHeroAnalysisSystemPrompt,
     buildHeroAnalysisUserMessage: buildHeroAnalysisUserMessage,
+    buildProductAnalysisSystemPrompt: buildProductAnalysisSystemPrompt,
+    buildProductAnalysisUserMessage: buildProductAnalysisUserMessage,
+    summarizeProductAnalysisForPrompt: summarizeProductAnalysisForPrompt,
     RESULT_STORAGE_KEY: 'storymodeMockGeminiResultV1'
   };
 })();

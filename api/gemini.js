@@ -9,6 +9,16 @@ const GEMINI_MODEL_CHAIN = [
   'gemini-2.5-pro'
 ];
 
+function applyGeminiApiCors(req, res) {
+  const origin = req.headers && req.headers.origin;
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+}
+
 function parseBody(req) {
   return new Promise((resolve, reject) => {
     let raw = '';
@@ -30,10 +40,15 @@ function parseBody(req) {
 }
 
 module.exports = async function handler(req, res) {
+  applyGeminiApiCors(req, res);
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
+
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
 
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
+    res.setHeader('Allow', 'POST, OPTIONS');
     return res.status(405).json({ error: 'Method not allowed' });
   }
 

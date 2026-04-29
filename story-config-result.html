@@ -51,6 +51,147 @@
     }
     .safety-banner p { margin: 0 0 6px; color: var(--text); }
     .safety-banner p:last-child { margin-bottom: 0; }
+    .factory-dna-banner {
+      display: block;
+      margin: 0 0 14px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      background: rgba(245, 158, 11, 0.1);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .factory-dna-banner[hidden] { display: none !important; }
+    .factory-dna-banner strong {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fbbf24;
+      margin-bottom: 4px;
+    }
+    .mall-mode-banner {
+      display: block;
+      margin: 0 0 14px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(59, 130, 246, 0.45);
+      background: rgba(59, 130, 246, 0.1);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .mall-mode-banner[hidden] { display: none !important; }
+    .mall-mode-banner strong {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      margin-bottom: 4px;
+    }
+    .mall-scenes-root {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .mall-scene-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .mall-scene-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .mall-scene-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      background: rgba(59,130,246,0.15);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .mall-scene-hero-id {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .mall-scene-store-id {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .mall-scene-field {
+      margin: 6px 0;
+    }
+    .mall-scene-field-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      margin-bottom: 2px;
+    }
+    .mall-scene-field-val {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--text);
+      white-space: pre-wrap;
+    }
+    .mall-warnings-box {
+      margin: 10px 0;
+      padding: 10px 14px;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.35);
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: #fca5a5;
+    }
+    .mall-warnings-box strong { display: block; margin-bottom: 4px; }
+    .mall-warnings-box ul { margin: 0; padding-left: 16px; }
+    .mall-warnings-box li { margin: 2px 0; }
+    .mall-result-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .mall-result-toolbar button {
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(59,130,246,0.45);
+      background: rgba(59,130,246,0.12);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .mall-result-toolbar button:hover {
+      background: rgba(59,130,246,0.22);
+    }
+    .mall-voice-profile-box {
+      margin: 0 0 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(34,197,94,0.45);
+      background: rgba(34,197,94,0.08);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .mall-voice-profile-box strong {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: 6px;
+    }
     .safety-banner .safety-sub { color: var(--muted); font-size: 0.78rem; word-break: break-word; }
     .err { color: var(--err); white-space: pre-wrap; margin-bottom: 16px; }
 
@@ -124,14 +265,6 @@
     }
     .story-plain-block .story-dialogue { margin: 0 0 10px; }
     .story-plain-block .story-dialogue:last-child { margin-bottom: 0; }
-    .video-dlg-plain {
-      margin: 0 0 10px;
-      padding: 8px 0 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.88rem;
-      color: rgba(240, 242, 247, 0.95);
-      white-space: pre-wrap;
-    }
 
     .scene-card { padding: 18px; }
     .scene-head {
@@ -203,33 +336,6 @@
     .tab-panel { display: none; padding: 14px 16px 16px; }
     .tab-panel.is-active { display: block; }
 
-    /* Main tabs: JSON / Thai (ครอบ "2 · แต่ละฉาก") */
-    .mode-tabs {
-      display: flex;
-      gap: 6px;
-      margin: 10px 0 14px;
-    }
-    .mode-tab {
-      padding: calc(10px * var(--btn-scale)) calc(22px * var(--btn-scale));
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--tab-bg);
-      color: var(--muted);
-      font: inherit;
-      font-weight: 700;
-      font-size: calc(0.85rem * var(--btn-scale));
-      cursor: pointer;
-    }
-    .mode-tab:active { opacity: 0.75; transform: scale(0.97); }
-    .mode-tab:hover { color: var(--text); }
-    .mode-tab[aria-selected="true"] {
-      background: #000;
-      color: var(--text);
-      border-color: var(--border);
-    }
-    #structured-root.is-mode-json .view-thai { display: none; }
-    #structured-root.is-mode-thai .view-json { display: none; }
-
     pre.thai-pre {
       margin: 0;
       padding: 12px 14px;
@@ -283,12 +389,6 @@
       max-height: min(48vh, 520px);
       overflow: auto;
     }
-    pre.json-prompt {
-      font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
-      font-size: 0.76rem;
-      line-height: 1.5;
-    }
-
     .copy-row {
       display: flex;
       flex-wrap: wrap;
@@ -396,6 +496,16 @@
     <h1 id="page-title">ผลเจนสคริปต์ฉาก (Gemini)</h1>
     <p class="meta" id="meta"></p>
     <div id="safety-banner" class="safety-banner" role="status" hidden aria-live="polite"></div>
+    <div id="factory-dna-banner" class="factory-dna-banner" role="status" hidden aria-live="polite">
+      <strong>โหมดโรงงาน · FACTORY DNA</strong>
+      ผลลัพธ์นี้สร้างด้วยแพ็ก DNA โรงงาน/โกดัง + รูปสินค้า — ไม่ผสม blueprint/hook/มู้ดภาพยนตร์จากชั้น UI ทั่วไป
+    </div>
+    <div id="mall-mode-banner" class="mall-mode-banner" role="status" hidden aria-live="polite">
+      <strong>🏬 โหมดห้าง · Mall Mode POV</strong>
+      ผลลัพธ์นี้สร้างจากสาย /api/mall-mode — Hero เดินห้าง POV ค้นหาสินค้า ไม่ผสม storymode pipeline ทั่วไป
+    </div>
+    <!-- Mall scenes rendered here -->
+    <div id="mall-scenes-root" class="mall-scenes-root" hidden></div>
     <div class="processing-panel" id="processing" aria-live="polite">
       <div class="spinner" role="status" aria-label="กำลังโหลด"></div>
       <div class="processing-text">
@@ -418,7 +528,7 @@
     </div>
   </div>
   <!-- เวอร์ชันพรอมต์เดียวกับ mock — revalidate จากเซิร์ฟเวอร์ (ไม่ใช้คุกกี้) -->
-  <script src="storymode-mock-gemini-core.js?v=2026-04-30g"></script>
+  <script src="storymode-mock-gemini-core.js?v=20260429-003936-eaff387"></script>
   <script>
     (function () {
       var KEY = "storymodeMockGeminiResultV1";
@@ -445,6 +555,9 @@
       var resultBody = document.getElementById("result-body");
       var pageTitle = document.getElementById("page-title");
       var safetyBanner = document.getElementById("safety-banner");
+      var factoryBanner = document.getElementById("factory-dna-banner");
+      var mallBanner = document.getElementById("mall-mode-banner");
+      var mallScenesRoot = document.getElementById("mall-scenes-root");
       var pollTimer = null;
       var lastRawText = "";
 
@@ -656,7 +769,7 @@
 
       function extractSpeakerLabelFromVideo(vr) {
         if (!vr) return "";
-        var m = /Speaker:\s*([^\n.]+)/i.exec(String(vr));
+        var m = /Speaker:\s*([^\n]+)/i.exec(String(vr));
         return m ? m[1].trim() : "";
       }
 
@@ -823,7 +936,7 @@
           );
         } else {
           lines.push(
-            "ฝั่งวิดีโอ/เสียง: ยึด Speaker: + dialogue ฉากนั้น; รายละเอียด multi-character ใน hero_full_detail อธิบายภาพ — อีก ROLE ในภาพ: เงียบ/ไม่ลิปซิงค์ กับบทนี้ ห้ามใช้ 'ROLE_ ตัวแรก' แทน Speaker ในการ map เสียง"
+            "ฝั่งวิดีโอ/เสียง: ยึด Speaker: + **TTS/voice:** (เพศ วัย ลักษณะเสียง — ล็อกเหมือนกันทุกฉากที่คนเดียวกัน) + Dialogue: ของฉากนั้น; รายละเอียดหลายคนใน hero_full_detail = อธิบายภาพเท่านั้น — คนอื่นในภาพ: เงียบ/ไม่ลิปซิงค์กับบทนี้ — ห้ามใช้ ROLE_ ตัวแรกใน ACTION แทน Speaker/TTS/voice"
           );
         }
         var f0 = (parsed.character && parsed.character.fields) || {};
@@ -853,68 +966,6 @@
           }
         }
         return lines.join("\n\n");
-      }
-
-      /**
-       * ฉาก 1 เท่านั้น: นำ CHARACTER CARD เต็มมาไว้หน้า prompt ฉาก — ผู้รับ JSON ที่อ่านแค่ hero_full_detail ยังอ้างล็อคได้
-       */
-      function mergeCharacterLockScene1(sceneNum, sceneDetail, characterRaw, kind) {
-        if (Number(sceneNum) !== 1) return sceneDetail;
-        var raw = String(characterRaw || "").trim();
-        if (raw.length < 120) return sceneDetail;
-        var maxLock = 5000;
-        var lock = raw.length > maxLock ? raw.slice(0, maxLock) + "…" : raw;
-        var mid =
-          kind === "video"
-            ? "—— เนื้อ prompt ฉากนี้ (วิดีโอ/ภาพอ้างอิง) ——\n\n"
-            : "—— เนื้อ prompt ฉากนี้ (รูป) ——\n\n";
-        return (
-          "ล็อคตัวละคร (CHARACTER CARD; ใช้ทุกฉาก):\n" +
-          lock +
-          "\n\n" +
-          mid +
-          sceneDetail
-        );
-      }
-
-      function buildSceneImageJson(globalBible, s, fieldsImg, imgClean, characterRaw) {
-        var heroBase = buildHeroDescriptionThai(fieldsImg, s.imageRaw || imgClean);
-        return {
-          type: "storymode_image_prompt",
-          scene: Number(s.num),
-          scene_tag: sceneTag(s.num),
-          scene_title: s.title,
-          story_hero_bible: globalBible,
-          hero_full_detail_thai: mergeCharacterLockScene1(s.num, heroBase, characterRaw, "image"),
-          dialogue_lock_thai: null,
-          note_voice: "ไม่บังคับตั้งชื่อ — ล็อคฉลากบทบาท/รายละเอียด/บทสนทนา; เสียงตามเพศ/อายุของบทดังกล่าว ไม่ล็อค young Thai female ทุกเส้น",
-          prompt: prefixScenePrompt(imgClean, s.num)
-        };
-      }
-
-      function buildSceneVideoJson(globalBible, s, fieldsVdo, vdoClean, characterRaw) {
-        var fallImg = s.imageRaw || vdoClean;
-        var heroBase = buildHeroDescriptionThai(fieldsVdo, fallImg);
-        return {
-          type: "storymode_video_prompt",
-          scene: Number(s.num),
-          scene_tag: sceneTag(s.num),
-          scene_title: s.title,
-          story_hero_bible: globalBible,
-          hero_full_detail_thai: mergeCharacterLockScene1(s.num, heroBase, characterRaw, "video"),
-          dialogue_lock_thai: s.dialogue || "",
-          note_voice:
-            "TTS/วิดีโอ: ลำดับแรก = dialogue_lock_thai + บรรทัด Speaker; ROLE ฝั่ง audio ยึด Speaker/การ์ดนี้ ไม่ใช้ 'ROLE_ ตัวแรก' ในข้อความ ACTION แทน — เสียงสอดคล้องเพศ/อายุฉลาก",
-          prompt: prefixScenePrompt(appendVideoAudioSingleSpeakerGuard(vdoClean, s.videoRaw), s.num)
-        };
-      }
-
-      function stringifyJson(obj) {
-        try {
-          return JSON.stringify(obj, null, 2);
-        } catch (e) {
-          return "{}";
-        }
       }
 
       function extractPreamble(fullText, firstSceneIndex) {
@@ -1243,8 +1294,6 @@
 
       function renderStructured(parsed, rawText) {
         structuredRoot.innerHTML = "";
-        structuredRoot.classList.remove("is-mode-thai");
-        structuredRoot.classList.remove("is-mode-json");
         structuredRoot.hidden = false;
 
         var storyCard = document.createElement("section");
@@ -1292,8 +1341,6 @@
           sec2.appendChild(sec2t);
           structuredRoot.appendChild(sec2);
 
-          structuredRoot.classList.add("is-mode-thai");
-          structuredRoot.classList.remove("is-mode-json");
         }
 
         for (var j = 0; j < parsed.scenes.length; j++) {
@@ -1344,24 +1391,8 @@
             '<span class="prompt-label"><span class="dot" aria-hidden="true"></span>ข้อความสำหรับสร้างรูป</span>';
           pImg.appendChild(headImg);
           var fieldsImg = enrichFieldsFromPrompts(fields, s.imageRaw, s.videoRaw);
-          var imgPromptClean = stripPromptNoise(s.imageRaw || "");
-          var charRaw = (parsed.character && parsed.character.raw) || "";
-          var imageJsonObj = buildSceneImageJson(
-            globalHeroBibleImage,
-            s,
-            fieldsImg,
-            imgPromptClean,
-            charRaw
-          );
-          if (!s.imageRaw) {
-            imageJsonObj._note = "ไม่พบบล็อกหลัง IMAGE PROMPT";
-          }
-          var preImg = document.createElement("pre");
-          preImg.className = "prompt-pre json-prompt view-json";
-          preImg.textContent = stringifyJson(imageJsonObj);
-          pImg.appendChild(preImg);
           var preImgThai = document.createElement("pre");
-          preImgThai.className = "thai-pre view-thai";
+          preImgThai.className = "thai-pre";
           preImgThai.textContent = buildImageThaiBlock(globalHeroBibleImage, s, fieldsImg);
           pImg.appendChild(preImgThai);
           var rowImg = document.createElement("div");
@@ -1380,9 +1411,7 @@
           wireCopy(
             btnImg,
             function () {
-              return structuredRoot.classList.contains("is-mode-thai")
-                ? (preImgThai.textContent || "")
-                : (preImg.textContent || "");
+              return preImgThai.textContent || "";
             },
             fbImg
           );
@@ -1398,30 +1427,9 @@
           headVdo.innerHTML =
             '<span class="prompt-label"><span class="dot" aria-hidden="true"></span>ข้อความสำหรับสร้างวิดีโอ</span>';
           pVdo.appendChild(headVdo);
-          if (s.dialogue) {
-            var dlgPlain = document.createElement("p");
-            dlgPlain.className = "video-dlg-plain view-json";
-            dlgPlain.textContent = sceneTag(s.num) + "\n\nบทพูด: " + s.dialogue;
-            pVdo.appendChild(dlgPlain);
-          }
           var fieldsVdo = enrichFieldsFromPrompts(fields, s.imageRaw, s.videoRaw);
-          var vdoPromptClean = stripPromptNoise(s.videoRaw || "");
-          var videoJsonObj = buildSceneVideoJson(
-            globalHeroBibleVideo,
-            s,
-            fieldsVdo,
-            vdoPromptClean,
-            charRaw
-          );
-          if (!s.videoRaw) {
-            videoJsonObj._note = "ไม่พบบล็อกหลัง VIDEO PROMPT";
-          }
-          var preVdo = document.createElement("pre");
-          preVdo.className = "prompt-pre json-prompt view-json";
-          preVdo.textContent = stringifyJson(videoJsonObj);
-          pVdo.appendChild(preVdo);
           var preVdoThai = document.createElement("pre");
-          preVdoThai.className = "thai-pre view-thai";
+          preVdoThai.className = "thai-pre";
           preVdoThai.textContent = buildVideoThaiBlock(globalHeroBibleVideo, s, fieldsVdo);
           pVdo.appendChild(preVdoThai);
           var rowVdo = document.createElement("div");
@@ -1440,9 +1448,7 @@
           wireCopy(
             btnVdo,
             function () {
-              return structuredRoot.classList.contains("is-mode-thai")
-                ? (preVdoThai.textContent || "")
-                : (preVdo.textContent || "");
+              return preVdoThai.textContent || "";
             },
             fbVdo
           );
@@ -1487,12 +1493,9 @@
           refTitle.textContent = "อ้างอิงตัวละคร (ข้อความดิบ)";
           refCard.appendChild(refTitle);
           var refPre = document.createElement("pre");
-          refPre.className = "prompt-pre json-prompt";
+          refPre.className = "thai-pre";
           refPre.style.maxHeight = "min(70vh, 720px)";
-          refPre.textContent = stringifyJson({
-            type: "character_card_raw",
-            content: parsed.character.raw
-          });
+          refPre.textContent = parsed.character.raw;
           refCard.appendChild(refPre);
           structuredRoot.appendChild(refCard);
         }
@@ -1652,6 +1655,9 @@
           errEl.style.display = "none";
           document.title = "ผลเจน — Storymode mock";
           renderSafetyBanner(null);
+          if (factoryBanner) factoryBanner.hidden = true;
+          if (mallBanner) mallBanner.hidden = true;
+          if (mallScenesRoot) { mallScenesRoot.hidden = true; mallScenesRoot.innerHTML = ""; }
           return;
         }
 
@@ -1673,6 +1679,9 @@
           structuredRoot.hidden = true;
           outRaw.textContent = "";
           renderSafetyBanner(null);
+          if (factoryBanner) factoryBanner.hidden = true;
+          if (mallBanner) mallBanner.hidden = true;
+          if (mallScenesRoot) { mallScenesRoot.hidden = true; mallScenesRoot.innerHTML = ""; }
           return;
         }
 
@@ -1685,6 +1694,12 @@
         var extraMeta = "";
         if (!d.error && d.safety && d.safety.overclaimHits && d.safety.overclaimHits.length) {
           extraMeta += " · ปรับข้อความตามนโยบายโฆษณา";
+        }
+        if (!d.error && d.factoryMode === true) {
+          extraMeta += " · โหมด FACTORY DNA";
+        }
+        if (!d.error && d.mallMode === true) {
+          extraMeta += " · 🏬 Mall Mode";
         }
         var curV =
           typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
@@ -1725,6 +1740,158 @@
         }
         renderImageRefBlock(d);
         renderSafetyBanner(d);
+        if (factoryBanner) {
+          factoryBanner.hidden = !(d.factoryMode === true && !d.error);
+        }
+        renderMallResult(d);
+      }
+
+      function renderMallResult(d) {
+        if (!mallBanner || !mallScenesRoot) return;
+        var isMall = d && d.mallMode === true && !d.error;
+        mallScenesRoot.innerHTML = "";
+        mallScenesRoot.hidden = true;
+        mallBanner.hidden = true;
+        if (!isMall) return;
+        /* มี text สังเคราะห์แบบ storyboard — แสดงผลผ่าน structured เดิมเท่านั้น */
+        if (d.text && String(d.text).trim()) {
+          return;
+        }
+        mallBanner.hidden = false;
+        var res = d.mallResult || {};
+        var scenes = Array.isArray(res.scenes) ? res.scenes : [];
+        var warnings = Array.isArray(res.warnings) ? res.warnings : [];
+        var voiceProfile = res.voice_profile_th || "";
+
+        // Toolbar: save copy / download JSON
+        var toolbar = document.createElement("div");
+        toolbar.className = "mall-result-toolbar";
+        var btnCopy = document.createElement("button");
+        btnCopy.type = "button";
+        btnCopy.textContent = "คัดลอก JSON";
+        btnCopy.addEventListener("click", function () {
+          var payload = JSON.stringify({
+            exportedAt: new Date().toISOString(),
+            ts: d.ts,
+            mallResult: res
+          }, null, 2);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(payload).then(function () {
+              btnCopy.textContent = "คัดลอกแล้ว ✓";
+              setTimeout(function () { btnCopy.textContent = "คัดลอก JSON"; }, 2000);
+            }).catch(function () {});
+          }
+        });
+        var btnDl = document.createElement("button");
+        btnDl.type = "button";
+        btnDl.textContent = "บันทึก JSON";
+        btnDl.addEventListener("click", function () {
+          var payload = JSON.stringify({
+            exportedAt: new Date().toISOString(),
+            ts: d.ts,
+            mallResult: res
+          }, null, 2);
+          var blob = new Blob([payload], { type: "application/json;charset=utf-8" });
+          var a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = "mall-mode-" + (d.ts || Date.now()) + ".json";
+          a.click();
+          URL.revokeObjectURL(a.href);
+        });
+        toolbar.appendChild(btnCopy);
+        toolbar.appendChild(btnDl);
+        mallScenesRoot.appendChild(toolbar);
+
+        if (voiceProfile) {
+          var vpBox = document.createElement("div");
+          vpBox.className = "mall-voice-profile-box";
+          var vpStrong = document.createElement("strong");
+          vpStrong.textContent = "โปรไฟล์เสียงไทย (คงที่ทั้งชุด)";
+          vpBox.appendChild(vpStrong);
+          var vpText = document.createElement("div");
+          vpText.className = "mall-scene-field-val";
+          vpText.textContent = voiceProfile;
+          vpBox.appendChild(vpText);
+          mallScenesRoot.appendChild(vpBox);
+        }
+
+        // Warnings box
+        if (warnings.length > 0) {
+          var wb = document.createElement("div");
+          wb.className = "mall-warnings-box";
+          var ws = document.createElement("strong");
+          ws.textContent = "⚠️ คำต้องห้าม " + warnings.length + " รายการ";
+          wb.appendChild(ws);
+          var wul = document.createElement("ul");
+          warnings.forEach(function (w) {
+            var li = document.createElement("li");
+            li.textContent = w;
+            wul.appendChild(li);
+          });
+          wb.appendChild(wul);
+          mallScenesRoot.appendChild(wb);
+        }
+        // Scene cards
+        scenes.forEach(function (sc, idx) {
+          var card = document.createElement("div");
+          card.className = "mall-scene-card";
+          var header = document.createElement("div");
+          header.className = "mall-scene-card-header";
+          var num = document.createElement("span");
+          num.className = "mall-scene-num";
+          num.textContent = "ซีน " + (idx + 1);
+          header.appendChild(num);
+          if (sc.hero_id) {
+            var hi = document.createElement("span");
+            hi.className = "mall-scene-hero-id";
+            hi.textContent = "hero: " + sc.hero_id;
+            header.appendChild(hi);
+          }
+          if (sc.store_id) {
+            var si = document.createElement("span");
+            si.className = "mall-scene-store-id";
+            si.textContent = "ร้าน: " + sc.store_id;
+            header.appendChild(si);
+          }
+          card.appendChild(header);
+          var fields = [
+            { key: "voice_script_th",      label: "บทพูดไทย (พากย์/TTS)" },
+            { key: "hero_presentation_th", label: "พรีเซนต์ของ (Hero)" },
+            { key: "story_beat_th",        label: "เนื้อเรื่อง" },
+            { key: "image_prompt",         label: "Prompt รูป" },
+            { key: "video_prompt",         label: "Prompt วิดีโอ" },
+            { key: "caption_th",           label: "โพสต์" },
+            { key: "hashtags",             label: "#" }
+          ];
+          fields.forEach(function (f) {
+            var val = sc[f.key];
+            if (!val) return;
+            if (Array.isArray(val)) val = val.join(" ");
+            var row = document.createElement("div");
+            row.className = "mall-scene-field";
+            var lbl = document.createElement("div");
+            lbl.className = "mall-scene-field-label";
+            lbl.textContent = f.label;
+            var valEl = document.createElement("div");
+            valEl.className = "mall-scene-field-val";
+            valEl.textContent = String(val);
+            row.appendChild(lbl);
+            row.appendChild(valEl);
+            card.appendChild(row);
+          });
+          mallScenesRoot.appendChild(card);
+        });
+        if (scenes.length > 0 || warnings.length > 0) {
+          mallScenesRoot.hidden = false;
+        }
+        /* เฉพาะ fallback เมื่อไม่มี text — ซ่อน structured เดิม */
+        var rawWrap = document.getElementById("out-raw");
+        if (rawWrap && isMall) rawWrap.hidden = true;
+        var structuredRootLegacy = document.getElementById("structured-root");
+        if (structuredRootLegacy && isMall) {
+          structuredRootLegacy.hidden = true;
+          structuredRootLegacy.innerHTML = "";
+        }
       }
 
       function stopPoll() {

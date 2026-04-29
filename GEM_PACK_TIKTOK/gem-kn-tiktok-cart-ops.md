@@ -94,7 +94,6 @@ interface PlatformPostData {
 - ของดีราคาถูก
 - กดตะกร้าได้เลย
 - ดูในตะกร้า
-- ลิงก์ในไบโอ
 - Shop Now
 - Buy Now
 - Learn More
