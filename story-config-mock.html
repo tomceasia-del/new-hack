@@ -5501,6 +5501,12 @@
         });
         lines.push("");
       }
+      var hb = moralJson && moralJson.hero_bible_th;
+      if (hb && String(hb).trim()) {
+        lines.push("=== HERO BIBLE (ROLE ล็อกตลอดเรื่อง) ===");
+        lines.push(String(hb).trim());
+        lines.push("");
+      }
       var cp = moralJson && moralJson.character_profile_th;
       if (cp && String(cp).trim()) {
         lines.push("=== ละครคุณธรรม — ตัวละครหลัก ===");
@@ -5530,6 +5536,12 @@
         var mb = (sc.moral_beat_th || "").trim();
         if (mb) {
           lines.push("💡 " + mb);
+          lines.push("");
+        }
+        var hfd = (sc.hero_full_detail || "").trim();
+        if (hfd) {
+          lines.push("📌 hero_full_detail (ล็อกภาพฉากนี้ — อ่านจากฟิลด์นี้เท่านั้น)");
+          lines.push(hfd);
           lines.push("");
         }
         lines.push("🔴 IMAGE PROMPT");

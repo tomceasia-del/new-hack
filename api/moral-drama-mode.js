@@ -115,6 +115,7 @@ function parseMoralDramaGeminiJson(rawText) {
     if (data && typeof data === 'object' && !Array.isArray(data) && Array.isArray(data.scenes)) {
       return {
         scenes: data.scenes,
+        hero_bible_th: data.hero_bible_th || null,
         character_profile_th: data.character_profile_th || null,
         narrator_voice_th: data.narrator_voice_th || null,
         moral_summary_th: data.moral_summary_th || null,
@@ -122,7 +123,13 @@ function parseMoralDramaGeminiJson(rawText) {
     }
     // fallback: top-level array
     if (Array.isArray(data)) {
-      return { scenes: data, character_profile_th: null, narrator_voice_th: null, moral_summary_th: null };
+      return {
+        scenes: data,
+        hero_bible_th: null,
+        character_profile_th: null,
+        narrator_voice_th: null,
+        moral_summary_th: null,
+      };
     }
   } catch (_) {
     /* fall through */
@@ -132,6 +139,7 @@ function parseMoralDramaGeminiJson(rawText) {
   const scenes = JSON.parse(jsonStr);
   return {
     scenes: Array.isArray(scenes) ? scenes : [scenes],
+    hero_bible_th: null,
     character_profile_th: null,
     narrator_voice_th: null,
     moral_summary_th: null,
@@ -167,8 +175,12 @@ ${kn.schema}
 6. Every image_prompt and video_prompt MUST include: NO text overlays, NO kinetic typography, NO price graphics
 7. If a hero reference image is attached, describe the character's appearance consistently across ALL scenes (hair, clothing, build, facial features) matching the image exactly
 8. "moral_beat_th" must be present (non-null) in scenes with arc_point "twist" or "moral"
-9. Write in Thai for all Thai fields; English for image_prompt and video_prompt
+9. Write in Thai for all Thai fields; English for hero_full_detail, image_prompt, and video_prompt
 10. Do NOT use forbidden phrases in voice_script_th, caption_th, or moral_beat_th
+11. Include root field "hero_bible_th" — lock ROLE labels + full trait sentences for the whole story (Thai)
+12. EVERY scene MUST include non-empty English "hero_full_detail" — full on-camera appearance per scene (repeat prose each scene; NO shortcuts like "same as scene 1", NO "see character_profile", NO meta instructions to read another field)
+13. "image_prompt" is IMAGE-ONLY: camera/lighting/composition + locked visual traits taken FROM this scene's hero_full_detail woven into English prose — MUST NOT contain Speaker:/Dialogue:/Thai dialogue/voice_script text/speaker lists from the video track
+14. Do NOT use bare generic nouns alone ("a woman", "a man", "young woman", "janitor") without the same locked visual specifics already written in that scene's hero_full_detail
 `;
 }
 
@@ -301,10 +313,11 @@ async function runMoralDramaMode(body, apiKey) {
     return { ok: false, error: e && e.message ? e.message : String(e) };
   }
 
-  let scenes, characterProfileTh, narratorVoiceTh, moralSummaryTh;
+  let scenes, heroBibleTh, characterProfileTh, narratorVoiceTh, moralSummaryTh;
   try {
     const parsed = parseMoralDramaGeminiJson(rawText);
     scenes = parsed.scenes;
+    heroBibleTh = parsed.hero_bible_th;
     characterProfileTh = parsed.character_profile_th;
     narratorVoiceTh = parsed.narrator_voice_th;
     moralSummaryTh = parsed.moral_summary_th;
@@ -316,20 +329,40 @@ async function runMoralDramaMode(body, apiKey) {
     };
   }
 
+  if (enforce && (!heroBibleTh || !String(heroBibleTh).trim())) {
+    warnings.push('hero_bible_th: ว่าง — แนะนำให้ระบุฉลาก ROLE + ลักษณะล็อกตลอดเรื่อง');
+  }
+
   // forbidden check on output fields (warn only)
   if (enforce) {
     const phrases = loadForbiddenPhrases();
     for (const scene of scenes) {
+      const sn = scene.scene_number || '?';
+      const hfd = typeof scene.hero_full_detail === 'string' ? scene.hero_full_detail.trim() : '';
+      if (!hfd) {
+        warnings.push(`scene ${sn} [hero_full_detail]: ว่าง — ควรมีบรรยายภาพครบภาษาอังกฤษต่อซีน`);
+      }
+      if (/\bspeaker\s*:/i.test(scene.image_prompt || '') || /\bdialogue\s*:/i.test(scene.image_prompt || '')) {
+        warnings.push(`scene ${sn} [image_prompt]: พบ Speaker:/Dialogue: — โหมดภาพควรไม่ใส่บทพูดใน image_prompt`);
+      }
+      if (
+        hfd &&
+        /\b(a woman|a man|young woman|young man)\b/i.test(hfd) &&
+        hfd.length < 120
+      ) {
+        warnings.push(`scene ${sn} [hero_full_detail]: สั้นเกินไปหรือมีคำทั่วไปอย่างเดียว — ควรล็อกรายละเอียด ROLE เต็ม`);
+      }
       for (const field of ['voice_script_th', 'caption_th', 'moral_beat_th']) {
         const hits = checkForbidden(scene[field] || '', phrases);
         if (hits.length > 0) {
-          warnings.push(`scene ${scene.scene_number || '?'} [${field}]: ` + hits.join(', '));
+          warnings.push(`scene ${sn} [${field}]: ` + hits.join(', '));
         }
       }
     }
   }
 
   const result = { ok: true, scenes, scene_count: scenes.length, model: usedModel };
+  if (heroBibleTh) result.hero_bible_th = heroBibleTh;
   if (characterProfileTh) result.character_profile_th = characterProfileTh;
   if (narratorVoiceTh) result.narrator_voice_th = narratorVoiceTh;
   if (moralSummaryTh) result.moral_summary_th = moralSummaryTh;
