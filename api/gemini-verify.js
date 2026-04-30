@@ -1,6 +1,9 @@
 /**
- * GET /api/gemini-verify — ตรวจว่า GEMINI_API_KEY ตั้งบน Vercel แล้วและใช้งานได้
+ * GET /api/gemini-verify — ตรวจว่า Gemini API key ตั้งบน Vercel แล้วและใช้งานได้
  */
+const path = require('path');
+const { resolveGeminiApiKeyFromEnv } = require(path.join(__dirname, '_lib', 'gemini-env-key.js'));
+
 function applyGeminiApiCors(req, res) {
   const origin = req.headers && req.headers.origin;
   if (origin) {
@@ -24,11 +27,12 @@ module.exports = async function handler(req, res) {
     return res.status(204).end();
   }
 
-  const key = process.env.GEMINI_API_KEY;
-  if (!key || !String(key).trim()) {
+  const key = resolveGeminiApiKeyFromEnv();
+  if (!key) {
     return res.status(503).json({
       ok: false,
-      error: 'GEMINI_API_KEY ยังไม่ได้ตั้งใน Vercel Environment Variables'
+      error:
+        'ยังไม่มี Gemini API key — ตั้ง GEMINI_API_KEY หรือ GOOGLE_AI_API_KEY / GOOGLE_API_KEY ใน Vercel Environment Variables'
     });
   }
 

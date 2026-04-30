@@ -1,7 +1,10 @@
 /**
- * POST /api/gemini — เรียก Gemini ฝั่งเซิร์ฟเวอร์ (API key จาก GEMINI_API_KEY เท่านั้น)
+ * POST /api/gemini — เรียก Gemini ฝั่งเซิร์ฟเวอร์ (API key จาก env — ดู api/_lib/gemini-env-key.js)
  * Body: { systemPrompt?, userText, images? }
  */
+const path = require('path');
+const { resolveGeminiApiKeyFromEnv } = require(path.join(__dirname, '_lib', 'gemini-env-key.js'));
+
 const GEMINI_MODEL_CHAIN = [
   'gemini-3-flash-preview',
   'gemini-2.5-flash',
@@ -52,10 +55,11 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const key = process.env.GEMINI_API_KEY;
-  if (!key || !String(key).trim()) {
+  const key = resolveGeminiApiKeyFromEnv();
+  if (!key) {
     return res.status(503).json({
-      error: 'GEMINI_API_KEY ยังไม่ได้ตั้งใน Vercel Environment Variables'
+      error:
+        'ยังไม่มี Gemini API key — ตั้ง GEMINI_API_KEY หรือ GOOGLE_AI_API_KEY / GOOGLE_API_KEY ใน Vercel Environment Variables'
     });
   }
 

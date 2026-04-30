@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/factory.html", "destination": "/factory", "permanent": false },
+    { "source": "/mall.html", "destination": "/mall", "permanent": false },
+    { "source": "/moral.html", "destination": "/moral", "permanent": false },
+    { "source": "/moral-drama.html", "destination": "/moral-drama", "permanent": false }
+  ],
   "functions": {
     "api/gemini.js":             { "maxDuration": 60 },
     "api/gemini-verify.js":      { "maxDuration": 10 },
@@ -13,7 +19,8 @@
     "api/admin/admins.js":         { "maxDuration": 10 },
     "api/admin/access-requests.js": { "maxDuration": 10 },
     "api/tiktok-share-fetch.js":  { "maxDuration": 30 },
-    "api/mall-mode.js":             { "maxDuration": 60 }
+    "api/mall-mode.js":          { "maxDuration": 60 },
+    "api/moral-drama-mode.js":   { "maxDuration": 60 }
   },
   "rewrites": [
     { "source": "/start",  "destination": "/index.html" },
@@ -25,6 +32,12 @@
     { "source": "/cs",              "destination": "/story-config-mock.html" },
     { "source": "/mall",            "destination": "/story-config-mock.html" },
     { "source": "/mall/",           "destination": "/story-config-mock.html" },
+    { "source": "/factory",         "destination": "/story-config-mock.html" },
+    { "source": "/factory/",        "destination": "/story-config-mock.html" },
+    { "source": "/moral",            "destination": "/story-config-mock.html" },
+    { "source": "/moral/",           "destination": "/story-config-mock.html" },
+    { "source": "/moral-drama",      "destination": "/story-config-mock.html" },
+    { "source": "/moral-drama/",     "destination": "/story-config-mock.html" },
     { "source": "/story-config-mock", "destination": "/story-config-mock.html" },
     { "source": "/result",  "destination": "/story-config-result.html" },
     { "source": "/editor",  "destination": "/editor/index.html" },
@@ -119,6 +132,42 @@
     },
     {
       "source": "/mall/",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/factory",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/factory/",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/moral",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/moral/",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/moral-drama",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/moral-drama/",
       "headers": [
         { "key": "Cache-Control", "value": "no-store" }
       ]

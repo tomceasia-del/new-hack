@@ -18,6 +18,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const { resolveGeminiApiKeyFromEnv } = require(path.join(__dirname, '_lib', 'gemini-env-key.js'));
+
 const GEMINI_MODEL_CHAIN = [
   'gemini-3-flash-preview',
   'gemini-2.5-flash',
@@ -168,10 +170,10 @@ Shape:
       "scene_atmosphere": <"pharmacy_health"|"cosmetics_open"|"department_store"|"supermarket_aisle"|"electronics_floor"|"building_megastore">,
       "store_id":         <store_id from catalog, or null>,
       "name_on_sign":     <exact name_on_sign from catalog, or null>,
-      "image_prompt":     <English; first-person POV; realistic store clone; specific branding>,
-      "video_prompt":     <English POV walking; optional short Thai clause matching voice_profile_th + voice_script_th>,
+      "image_prompt":     <English; first-person POV; realistic store clone; specific branding; NO text overlays, NO price graphics, NO kinetic typography on screen; if product is large/heavy show it on shelf or in cart — do NOT show hero lifting heavy items overhead>,
+      "video_prompt":     <English POV walking; optional short Thai clause matching voice_profile_th + voice_script_th; NO text effects, NO animated captions, NO price overlays; AUDIO ONLY for all Thai dialogue>,
       "caption_th":       <Thai TikTok caption; hero_id §5b–5c; CTA buy on TikTok; no forbidden phrases>,
-      "voice_script_th":  <Thai; walking POV dialogue for THIS scene — NEVER empty; ~18–40 Thai words ok when repeating full product name + pack traits; MUST match voice_profile_th AND hero_id §5c>
+      "voice_script_th":  <Thai; walking POV dialogue for THIS scene — NEVER empty; HARD LIMIT ≤ 20 Thai words (count on whitespace before finalising); MUST match voice_profile_th AND hero_id §5c; THE LAST SENTENCE must invite action (try / pick up / add to cart / go see at shelf) — do NOT end on a feature description alone; move excess detail to image_prompt or caption_th>
     },
     ... exactly ${sceneCount} objects in "scenes"
   ]
@@ -190,6 +192,13 @@ Shape:
 9. **Price / promo / ป้ายลด:** Percent-off, baht prices, bundles, expiry — **only** if present in that analysis block or explicit user text. **Never** invent sale amounts or shelf wording from model memory. If none appear, omit fabricated prices/promo copy.
 10. **Names & spelling lock:** Mall name, store sign, and product brand (e.g. Q'Care White, yellow box, blue jar) must use the **same spelling and descriptors** in every scene where they appear — see PROMPT STAMP **§5e**.
 11. **Hero walking dialogue:** Every scene MUST include non-empty \`voice_script_th\` — natural monologue while walking/stopping in POV, tied to what the camera sees; no silent scenes.
+12. **CTA closing (mandatory):** The LAST sentence of every \`voice_script_th\` MUST be a natural purchase invitation — e.g. "ไปหยิบที่ชั้นเลยค่ะ" / "กดตะกร้าใน TikTok Shop ได้เลย" / "ไปดูที่เคาน์เตอร์ด้านในนะคะ" — tone must stay natural (ห้ามโทนตะโกนขายแบบไลฟ์สด); do NOT end on a product feature or an emotion sentence alone.
+13. **TTS pacing guide:** Write \`voice_script_th\` as spoken words, not written prose — use short clauses with natural pause particles (อ่ะ / นะ / เลยค่ะ) so TTS renders breathing between phrases. Avoid stringing more than 3 noun phrases without a pause particle. Every clause should be speakable in one breath.
+14. **Word budget — HARD CAP 20 words:** Before finalising each \`voice_script_th\`, silently count Thai words (split on whitespace). The count MUST be **≤ 20 words**. If over 20, trim product detail and move it to \`image_prompt\` or \`caption_th\`. Aim for 15–18 words so the final clause (CTA) still fits within the cap. Reference: "หยุดดูตรงนี้แป๊บ ลำโพงคู่ตัวนี้แถมไมค์ไร้สายมาด้วยนะ ไปดูที่ชั้นได้เลยค่ะ" ≈ 17 words — has detail + CTA within 20.
+15. **Heavy / bulky product realism:** If the product is clearly large or heavy (large speakers, appliances, bags of cement, furniture, bulk packs) — \`image_prompt\` and \`video_prompt\` MUST use viewpoints: product on shelf, hero touching or inspecting lightly, product in store cart, or standing-distance appreciation shot. **NEVER instruct the hero to lift, carry overhead, or physically hoist items that exceed a realistic one-hand carry weight.**
+16. **No text effects:** NEVER include kinetic typography, animated text, floating price banners, or stylised overlays in any prompt. Real-world shop signage existing in the scene is acceptable. Add the phrase \`NO text overlays, NO kinetic typography, NO price graphics\` in every \`image_prompt\` and \`video_prompt\` field.
+17. **No price numbers on screen:** Even when the analysis block contains a price — do NOT instruct rendering of price figures as on-screen text or overlay. Prices may be spoken in \`voice_script_th\` only if they originate from the analysis block or explicit user input (Rule 9). Never add a "฿…" or "XX บาท" label to image or video prompts.
+18. **Hook variety — no repeated openers:** The FIRST clause of \`voice_script_th\` in each scene MUST NOT repeat the same greeting used in any other scene of the same series. Forbidden openers across the same batch: "เห้ยทุกคน", "ทุกคนคะ", "สวัสดีค่ะทุกคน", "เฮ้ทุกคน", "อุ๊ยทุกคน", "เห็ยทุกคน". Open instead mid-action: noticing a sign, muttering while walking, stopping at a shelf, or reacting to a product — following §5b of the PROMPT STAMP.
 `;
 }
 
@@ -342,6 +351,13 @@ async function runMallMode(body, apiKey) {
           warnings.push(`scene ${scene.scene_number || '?'} [${field}]: ` + hits.join(', '));
         }
       }
+      const vs = (scene.voice_script_th || '').trim();
+      if (vs) {
+        const wordCount = vs.split(/\s+/).filter(Boolean).length;
+        if (wordCount > 20) {
+          warnings.push(`scene ${scene.scene_number || '?'} [voice_script_th]: บทพูดยาว ${wordCount} คำ (เกินเพดาน 20 คำ)`);
+        }
+      }
     }
   }
 
@@ -367,14 +383,15 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ ok: false, error: 'Method not allowed' });
   }
 
-  // API key — env var เท่านั้น (ถ้ามี X-Gemini-Key ส่งมาใช้ fallback สำหรับ local dev)
-  const envKey = (process.env.GEMINI_API_KEY || '').trim();
+  // API key — env (หลายชื่อที่ Google ใช้ได้) + X-Gemini-Key สำหรับ local dev
+  const envKey = resolveGeminiApiKeyFromEnv();
   const headerKey = (req.headers['x-gemini-key'] || '').trim();
   const apiKey = envKey || headerKey;
   if (!apiKey) {
     return res.status(503).json({
       ok: false,
-      error: 'GEMINI_API_KEY ยังไม่ได้ตั้งใน Vercel Environment Variables',
+      error:
+        'ยังไม่มี Gemini API key — ตั้ง GEMINI_API_KEY หรือ GOOGLE_AI_API_KEY / GOOGLE_API_KEY บน Vercel หรือส่ง X-Gemini-Key (local)',
     });
   }
 
