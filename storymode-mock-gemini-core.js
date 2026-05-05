@@ -15,11 +15,31 @@
    * Bump when story prompt schema or pipeline rules change.
    * story-config-mock.html compares this to localStorage (not cookies) to drop stale hero analysis cache.
    */
-  g.STORYMODE_PROMPT_ASSET_VERSION = 202605044;
+  g.STORYMODE_PROMPT_ASSET_VERSION = 202605045;
 
   /** โหมดโรงงาน/โกดัง — เพดานคำไทยใน `Dialogue:` ต่อ 1 ฉาก (นับรวมทั้งบท lip-sync ในฉากนั้น) */
   var FACTORY_DIALOGUE_MAX_WORDS_TH = 38;
   g.FACTORY_DIALOGUE_MAX_WORDS_TH = FACTORY_DIALOGUE_MAX_WORDS_TH;
+
+  /**
+   * โหมด factory ref no-hero เท่านั้น — คีย์อ่านง่ายสำหรับ pipeline / Google Flow + คำอธิบายไทย
+   * ให้โมเดลคัดลอกไปหัวทุก 🟢 VIDEO block
+   */
+  function buildFactoryNoHeroAudioContractBlock() {
+    return (
+      '══ AUDIO_CONTRACT (NO_HERO — paste verbatim at the **start** of each 🟢 VIDEO ``` block, before ACTION/prose) ══\n' +
+      'AUDIO_ROLE: off_camera_narrator\n' +
+      'NARRATION_STYLE: behind_the_scene_retail_voice_thai\n' +
+      'SPEAKER_MEANING: off_screen_voice_only_not_a_visible_character\n' +
+      'ON_CAMERA_SPEECH: false\n' +
+      'LIP_SYNC_TARGET: none\n' +
+      'VOICE_FACE_BINDING: not_mapped_to_any_visible_person\n' +
+      'EXTRAS_IN_FRAME_AUDIO: silent_no_dialogue_no_mouth_sync\n' +
+      '— TH — ผู้พูด = ผู้บรรยายหลังกล้อง / พากย์นอกจอ (คนหลังฉาก) เท่านั้น — ไม่มีตัวแทนบนจอที่ขยับปากตามบท\n' +
+      '— TH — ห้ามจับคู่เสียงหรือ TTS กับใบหน้า ปาก หรือตัวละครใดในเฟรม\n' +
+      '══ END AUDIO_CONTRACT ══\n'
+    );
+  }
 
   if (typeof g.getMoodDirective !== 'function') {
     g.getMoodDirective = function (moodKeyword) {
@@ -401,7 +421,9 @@
       imageTemplate =
         'FACTORY / WAREHOUSE DNA — REAL COMMERCIAL FOOTAGE LOOK ONLY. Forbidden in prompts: Pixar, Disney, 3D CGI, anime, cartoon, stylized 3D characters. Use smartphone / cinema-camera realism, natural lighting, true-to-reference product texture from attached PRODUCT images. Industrial, warehouse, packing line, or authentic retail as shown in REF SCENE LOCK. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. NO primary on-camera presenter or hero in this scene — any people in frame are INCIDENTAL BACKGROUND EXTRAS (blurred or at distance), NOT interacting directly with camera. Product is the visual hero of every shot. Follow FACTORY DNA pack (tone, palette, shot grammar). No fake cartoon glow.';
       videoTemplate =
-        'FACTORY DNA — NO-HERO MODE: ACTION ONLY showing product and warehouse/store environment: [CHARACTER_ACTION]. ' +
+        'FACTORY DNA — NO-HERO MODE:\n' +
+        buildFactoryNoHeroAudioContractBlock() +
+        '\nACTION ONLY showing product and warehouse/store environment: [CHARACTER_ACTION]. ' +
         '**NO lip-sync with any person in frame** — all dialogue is VOICE-OVER ONLY (audio only, not from any visible person). ' +
         'VO speaks Thai at **maximum retail tempo — rapid-fire, high-energy, warehouse sell pace**: "[THAI_DIALOGUE]" — **พูดเร็วมาก** (ประโยคสั้นรัวต่อกัน; **บทไทยใน Dialogue ไม่เกิน ' +
         FACTORY_DIALOGUE_MAX_WORDS_TH +
@@ -628,7 +650,7 @@
     const speakerTtsDialogueSpec =
       factoryIso && !isASMR && noHeroMode
         ? (
-            'ท้าย block 🟢 VIDEO ทุกฉาก บังคับ **3 บรรทัดสุดท้ายตามลำดับนี้** (NO-HERO / VO mode):\n' +
+            'ท้าย block 🟢 VIDEO ทุกฉาก: **หัว block** ต้องมีบล็อก AUDIO_CONTRACT จาก VIDEO PROMPT TEMPLATE (ข้างบน) ก่อนคำบรรยาย ACTION — แล้วค่อยบังคับ **3 บรรทัดสุดท้ายตามลำดับนี้** (NO-HERO / VO mode — ผู้พูด = ผู้บรรยายหลังกล้องเท่านั้น):\n' +
             'Speaker: VO\n' +
             'TTS/voice: Thai: <อย่างน้อย 2 ประโยคเต็ม — lock เสียง VO: **เพศ · ช่วงวัย · โทนเสียง · พูดเร็วมาก (rapid-fire, สปีดขายโกดัง) · พลังขาย** — เขียนเต็มซ้ำทุกฉาก ห้ามย่อ; ไม่ต้องบรรยายหน้าตา/ชุด (VO = off-camera)> EN: <หนึ่งประโยค English — same voice persona + fast pace>\n' +
             'Dialogue: "..." (บทไทย — **พูดเร็วมาก** ~8 วิ/ฉาก; **ไม่เกิน ' +
@@ -821,12 +843,13 @@
       /* FACTORY_NO_HERO_RUNTIME_SUPPLEMENT: override DNA lines ที่พูดถึง on-camera seller */
       (factoryIso && noHeroMode
         ? '\n\n══ FACTORY NO-HERO OVERRIDE (บังคับสูงกว่าบล็อก FACTORY DNA ด้านบน) ══\n' +
-          'โหมดนี้ไม่มี presenter/ผู้ขายหน้ากล้อง:\n' +
+          buildFactoryNoHeroAudioContractBlock() +
+          '\nโหมดนี้ไม่มี presenter/ผู้ขายหน้ากล้อง:\n' +
           '• ห้ามสร้าง on-camera hero หรือ presenter ที่ lip-sync กับบทพูด\n' +
           '• ห้ามบรรยายบุคคลใดจากรูป ref เป็น hero หลักในฉาก\n' +
           '• บุคคลที่ปรากฏในเฟรม = background extras เท่านั้น (เบลอ/ระยะไกล/ไม่มองกล้อง)\n' +
-          '• บทพูดทั้งหมดเป็น Voice-Over (VO) เท่านั้น — no lip-sync with anyone in frame\n' +
-          '• Speaker: VO ทุกฉาก — TTS/voice ต้อง lock เสียง VO ไม่ใช่ on-camera person\n' +
+          '• บทพูดทั้งหมดเป็น Voice-Over (VO) / ผู้บรรยายหลังกล้องเท่านั้น — no lip-sync with anyone in frame\n' +
+          '• Speaker: VO ทุกฉาก — TTS/voice = lock เสียงคนพูดหลังฉากเท่านั้น ไม่ผูกกับใบหน้าในเฟรม\n' +
           '══ END FACTORY NO-HERO OVERRIDE ══'
         : '')
     );
@@ -848,6 +871,12 @@
       : '═══ Prompt (FACTORY DNA) ═══\n(ไม่มีข้อความเพิ่ม — ใช้รูปที่แนบเป็นหลัก)\n';
 
     msg += '\n═══ จำนวนฉาก ═══\n' + smSceneCount + ' ฉาก\n';
+
+    if (payload.factoryRefNoHeroMode) {
+      msg +=
+        '\n═══ NO-HERO · เสียงพูด (คีย์ + ไทย — คัดลอกไปหัวทุก 🟢 VIDEO block) ═══\n' +
+        buildFactoryNoHeroAudioContractBlock();
+    }
 
     const charNames = (img.characterNames && img.characterNames.length)
       ? img.characterNames
@@ -883,7 +912,7 @@
       '\nปฏิบัติตามบล็อก FACTORY DNA ใน system instruction เท่านั้น — โทน บทพูด มุมกล้อง สไตล์ภาพ ให้ DNA เป็นตัวกำหนด' +
       '\nกฎความปลอดภัยโฆษณาและคำต้องห้าม (FORBIDDEN_MARKETING_PHRASES / OVERCLAIM) ยังใช้ตาม system เช่นเดิม' +
       (noHeroUserMsg
-        ? '\n**โหมด NO-HERO:** ไม่มีผู้นำเสนอ/presenter บนกล้อง — ห้ามสร้าง on-camera hero จาก ref; ทุกคนในเฟรม = ตัวประกอบเงียบ; บทพูดทั้งหมดเป็น VO เท่านั้น'
+        ? '\n**โหมด NO-HERO:** ไม่มีผู้นำเสนอบนกล้อง — ผู้พูด = **ผู้บรรยายหลังกล้อง (คนหลังฉาก / พากย์นอกจอ)** เท่านั้น — ห้ามสร้าง on-camera hero จาก ref; ทุกคนในเฟรม = ตัวประกอบเงียบ; **ห้ามจับคู่เสียงกับใบหน้าในเฟรม**; บทพูดทั้งหมดเป็น VO — ใช้บรรทัดคีย์ `AUDIO_ROLE: off_camera_narrator` ฯลฯ ตามบล็อก AUDIO_CONTRACT ด้านบนในทุก VIDEO block'
         : '\n**ห้ามใส่การ์ด / ห้าม REF:** อย่าใส่บล็อก character card / การ์ดตัวละครใน output — **ทุกฉาก** เขียนบรรยายตัวละครเต็มใน IMAGE / `hero_full_detail` และ `TTS/voice` ใหม่ครบ (พิมพ์ซ้ำประโยคล็อกได้ ห้ามคำอ้างหรือการ์ดแทน)' +
           '\n**ห้ามฉลากอย่างเดียวใน prompt ภาพ:** ห้าม `(Hero A)` / `(ROLE_…)` แทนคำบรรยาย — IMAGE / `hero_full_detail` ต้องมีประโยคครบ เพศ วัย รูปร่าง ผม ชุด (ฉลากสั้นใช้ได้เฉพาะ `Speaker:`)'
       ) +
