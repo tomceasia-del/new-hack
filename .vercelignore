@@ -12,6 +12,9 @@ docs
 .claude
 .cursor
 
+# Hobby plan: จำกัด 12 Serverless Functions — endpoint นี้ไม่ขึ้น prod (ใช้ local / script เท่านั้น)
+api/influencer-prompt-bank.js
+
 # Dev scripts / planning / reports (เก็บใน Git แต่ไม่ต้องแจก)
 1CLICK_AUTOMATIC_SYSTEM_SPEC.md
 CONTENT_EXTRACTION_QUEUE.md

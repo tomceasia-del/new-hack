@@ -2168,13 +2168,13 @@ function buildCompactCardInjectionBlock(cardResult, payload) {
   const hasBlueprint = isProductSell && payload.salesFormulaId;
 
   const lines = [
-    '═══ HERO BIBLE — seed (นำไปขยายเป็นย่อหน้าเต็ม ห้ามคงแค่ seed) ═══',
+    '═══ HERO BIBLE — LOCK (คัดลอกลงทุกฉาก ห้าม ref / ห้ามย่อ / ห้ามการ์ด) ═══',
     '',
-    'Starting point from system (expand into full HERO BIBLE; age, look, outfit — **personal names optional**; use **stable role labels** if the user does not want named characters):',
+    'CHARACTER LOCK — copy this verbatim into every 🔴 IMAGE/`hero_full_detail` and `TTS/voice` field for every scene this character appears. Spell out full text each scene; no REF shortcuts. Personal names optional; use **stable role labels** if the user does not want named characters:',
     cardResult.cardTextEN,
     '',
     'RULES:',
-    '  1. At output start, expand the seed above into a full **HERO BIBLE** in Thai+EN as needed: every speaking role + on-camera extras, full sentences — no "compact" tables.',
+    '  1. **Copy the character data above into IMAGE/`hero_full_detail` and `TTS/voice` every scene** — paste full appearance + voice text each scene (ห้ามเขียน "same as above", "ตามฉากก่อนหน้า", การ์ดย่อ, หรือคำอ้างใดๆ แทนคำบรรยายจริง).',
     '  2. **LOCK** either **stable Thai names** OR **stable role labels (ROLE_A, “เพื่อน”, ฯลฯ)** — same person must map to the same label every scene. **LOCK** the **exact Thai dialogue** in each `Dialogue:` line (no paraphrase).',
     '  3. **Voice (TTS)**: must match each speaker role age/gender/persona — not a one-line global default for everyone.',
     '  4. Face, hair, outfit: consistent across scenes' + (hasBlueprint
@@ -2195,7 +2195,13 @@ function buildCompactCardInjectionBlock(cardResult, payload) {
  */
 function buildCardUserReference(cardResult) {
   if (!cardResult || !cardResult.cardTextEN) return '';
-  return 'HERO: expand the HERO BIBLE in system prompt (full look + outfit per role). Personal names are optional—use stable role labels if you must not name anyone. Lock those labels and exact Thai DIALOGUE lines. Repeat full detail in each scene. Voice per role—not one default for all.';
+  return (
+    'HERO LOCK:\n' +
+    cardResult.cardTextEN + '\n' +
+    'LOCK — copy this character data verbatim into every scene IMAGE/`hero_full_detail` and `TTS/voice`. ' +
+    'Spell out full appearance + voice text each scene; no "same as above", no shortcuts, no character card block. ' +
+    'Personal names optional — use stable role labels if needed. Voice per role — not one default for all.'
+  );
 }
 
 /* ────────────────────────────────────────────────────────────────────────────

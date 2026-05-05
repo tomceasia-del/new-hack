@@ -4,8 +4,9 @@
   "scripts": {
     "dev": "python3 dev_server.py",
     "bump-cache": "python3 scripts/bump_asset_versions.py",
-    "predeploy": "python3 scripts/bump_asset_versions.py && cp story-config-mock.html mall.html && cp story-config-mock.html cs.html",
-    "deploy": "npx vercel deploy --prod --yes"
+    "predeploy": "python3 scripts/bump_asset_versions.py && cp story-config-mock.html mall.html && cp story-config-mock.html cs.html && cp story-config-mock.html factory.html",
+    "deploy": "npx vercel deploy --prod --yes",
+    "influencer-build": "node scripts/influencer-build-from-files.js"
   },
   "dependencies": {
     "@vercel/kv": "^2.0.0"

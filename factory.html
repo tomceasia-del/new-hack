@@ -4930,35 +4930,6 @@
         }
         if (key === "factoryRef") {
           factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
-          /* mutual exclusion: ล้าง no-hero ref ถ้ามีไฟล์ถูกเลือกใน factoryRef */
-          if (e.target.files && e.target.files.length > 0) {
-            files.factoryRefNoHero = [];
-            factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
-            var nhLab = document.getElementById("drop-factory-ref-nohero");
-            if (nhLab) {
-              nhLab.classList.remove("has-file");
-              var nhStack = nhLab.querySelector(".multi-thumb-stack");
-              if (nhStack) nhStack.innerHTML = "";
-              var nhInp = nhLab.querySelector("input");
-              if (nhInp) nhInp.value = "";
-            }
-          }
-        }
-        if (key === "factoryRefNoHero") {
-          factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
-          /* mutual exclusion: ล้าง factoryRef เดิมถ้ามีไฟล์ถูกเลือกใน no-hero */
-          if (e.target.files && e.target.files.length > 0) {
-            files.factoryRef = [];
-            factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
-            var frLab = document.getElementById("drop-factory-ref");
-            if (frLab) {
-              frLab.classList.remove("has-file");
-              var frStack = frLab.querySelector(".multi-thumb-stack");
-              if (frStack) frStack.innerHTML = "";
-              var frInp = frLab.querySelector("input");
-              if (frInp) frInp.value = "";
-            }
-          }
         }
         lab.classList.remove("has-file");
         revokeDropThumb(lab);

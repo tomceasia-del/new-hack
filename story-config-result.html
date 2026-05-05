@@ -528,7 +528,7 @@
     </div>
   </div>
   <!-- เวอร์ชันพรอมต์เดียวกับ mock — revalidate จากเซิร์ฟเวอร์ (ไม่ใช้คุกกี้) -->
-  <script src="storymode-mock-gemini-core.js?v=20260429-003936-eaff387"></script>
+  <script src="storymode-mock-gemini-core.js?v=20260501-001435-0517871"></script>
   <script>
     (function () {
       var KEY = "storymodeMockGeminiResultV1";
@@ -607,7 +607,7 @@
       }
 
       var HERO_DETAIL_PLACEHOLDER =
-        "ดูรายละเอียดตัวละครในช่อง prompt ด้านล่าง (ยัง parse จากโมเดลไม่ได้ครบ — แนะนำเจนใหม่ด้วย HERO BIBLE)";
+        "(ยังไม่มีการ์ดตัวละครครบ — ให้เขียนประโยคบรรยายเพศ วัย รูปร่าง ผม ชุดในพรอมต์ภาพเป็นภาษาอังกฤษเต็ม ห้ามเหลือแค่ชื่อคนเดียว)";
 
       /**
        * เนื้อ image prompt ที่ clean แล้ว — ไม่มีหัว【】ยาว ลด token ซ้ำกับ story_hero_bible
@@ -840,7 +840,7 @@
         var tts = extractTtsVoiceFromVideo(vr);
         if (!label && !role) return "";
         var a = "ใครพูด (วิดีโอฉากนี้): ";
-        a += label || "ฉลาก/ชื่อ: ยังไม่ตรงบรรทัด Speaker (ดู field วิดีโอ/แก้ Prompt)";
+        a += label || "ฉลาก/ชื่อ: ยังไม่ตรงบรรทัด Speaker (เปิดบล็อกวิดีโอแล้วใส่ Speaker: ให้ชัด)";
         if (role) a += " | บท/ตัว (ACTION, ROLE): " + role;
         if (tts) a += " | น้ำเสียง/สไตล์: " + tts;
         return a;
@@ -926,19 +926,7 @@
         opts = opts || {};
         var forImage = opts.forImage === true;
         var lines = [];
-        /** ย่อ: ฝั่ง image เต็มๆ อยู่ hero_full_detail ของ JSON ฉากนั้น ไม่ซ้ำ block ยาวกับ story_hero_bible ทุกฉาก */
-        lines.push(
-          "HERO BIBLE: ฉลาก ROLE/ลักษณะฮีโร่ล็อคตลอด; รายละเอียดฝั่งรูปต่อฉากดู field hero_full_detail ของ JSON ฉากนั้น (ไม่อ้างไปดึงนอก field)"
-        );
-        if (forImage) {
-          lines.push(
-            "โหมดรูป: ไม่รวมรายการผู้พูด/บทจากวิดีโอ — ล็อคภาพตาม hero_full_detail + prompt ของ JSON ฉากรูปนี้เท่านั้น"
-          );
-        } else {
-          lines.push(
-            "ฝั่งวิดีโอ/เสียง: ยึด Speaker: + **TTS/voice:** (เพศ วัย ลักษณะเสียง — ล็อกเหมือนกันทุกฉากที่คนเดียวกัน) + Dialogue: ของฉากนั้น; รายละเอียดหลายคนใน hero_full_detail = อธิบายภาพเท่านั้น — คนอื่นในภาพ: เงียบ/ไม่ลิปซิงค์กับบทนี้ — ห้ามใช้ ROLE_ ตัวแรกใน ACTION แทน Speaker/TTS/voice"
-          );
-        }
+        /** ไม่ใส่ข้อความอ้าง JSON field / “ดู hero_full_detail” — เฉพาะข้อความล็อกตัวละครที่คัดลอกไปใช้จริง */
         var f0 = (parsed.character && parsed.character.fields) || {};
         var img0 = (parsed.scenes[0] && parsed.scenes[0].imageRaw) || "";
         var vdo0 = (parsed.scenes[0] && parsed.scenes[0].videoRaw) || "";
@@ -952,7 +940,7 @@
             var maxRawBible = 10000;
             var rawClip = raw.length > maxRawBible ? raw.slice(0, maxRawBible) + "…" : raw;
             lines.push(
-              "ล็อคตัวละครจาก CHARACTER CARD (ฝังใน HERO BIBLE — ใช้คู่กับ hero_full_detail + prompt ฉาก; ไม่ตัดถ้าไม่เกิน " +
+              "ลักษณะตัวละคร (ล็อก — นำประโยคนี้ไปผสมในพรอมต์ภาพแต่ละฉาก เป็นภาษาอังกฤษ; ไม่ตัดถ้าไม่เกิน " +
                 maxRawBible +
                 " ตัวอักษร):\n" +
                 rawClip
@@ -1177,14 +1165,19 @@
       }
 
       /** เรนเดอร์บล็อก Thai ของ Image prompt (plain text, ไม่มีปีกกา) */
-      function buildImageThaiBlock(heroBible, s, fields) {
+      /**
+       * @param {number} sceneIdx0 - 0-based index ใน parsed.scenes (ฉากแรกเท่านั้นที่แนบบล็อกการ์ดยาว)
+       * @param {string} firstSceneImageRaw - imageRaw ฉาก 1 ใช้ดึงลักษณะล็อกซ้ำในฉากถัดไป
+       */
+      function buildImageThaiBlock(heroBible, s, fields, sceneIdx0, firstSceneImageRaw) {
+        if (sceneIdx0 == null) sceneIdx0 = 0;
         var lines = [];
-        if (heroBible) {
+        if (heroBible && sceneIdx0 === 0) {
           lines.push(heroBible);
           lines.push("");
-          lines.push("——— ฉาก " + s.num + " (รูป) ———");
-          lines.push("");
         }
+        lines.push("——— ฉาก " + s.num + " (รูป) ———");
+        lines.push("");
         lines.push(sceneTag(s.num));
         lines.push("");
         lines.push("ฉาก " + s.num + " — " + s.title);
@@ -1196,6 +1189,15 @@
         var rawVoiceImg = fields.voice || fields.voice_line || "";
         var voiceImg = cleanVoiceForHeroField(rawVoiceImg);
         if (voiceImg && !isGenericVoiceTh(rawVoiceImg)) lines.push("เสียง: " + voiceImg);
+        if (sceneIdx0 > 0) {
+          var lockSrc = firstSceneImageRaw || "";
+          var lockDesc = buildHeroDescriptionThai(fields, lockSrc || s.imageRaw || "");
+          if (lockDesc && lockDesc !== HERO_DETAIL_PLACEHOLDER) {
+            lines.push("");
+            lines.push("ลักษณะตัวละคร (ล็อกเดียวกับฉากแรก — ฝังเป็นประโยคภาษาอังกฤษในพรอมต์ภาพนี้ ห้ามเหลือแค่ชื่อ):");
+            lines.push(lockDesc);
+          }
+        }
         lines.push("");
         lines.push("ภาพ:");
         var imgClean = stripPromptNoise(s.imageRaw || "");
@@ -1204,14 +1206,15 @@
       }
 
       /** เรนเดอร์บล็อก Thai ของ Video prompt (plain text, ไม่มีปีกกา) */
-      function buildVideoThaiBlock(heroBible, s, fields) {
+      function buildVideoThaiBlock(heroBible, s, fields, sceneIdx0) {
+        if (sceneIdx0 == null) sceneIdx0 = 0;
         var lines = [];
-        if (heroBible) {
+        if (heroBible && sceneIdx0 === 0) {
           lines.push(heroBible);
           lines.push("");
-          lines.push("——— ฉาก " + s.num + " (วิดีโอ) ———");
-          lines.push("");
         }
+        lines.push("——— ฉาก " + s.num + " (วิดีโอ) ———");
+        lines.push("");
         lines.push(sceneTag(s.num));
         lines.push("");
         lines.push("ฉาก " + s.num + " — " + s.title);
@@ -1292,7 +1295,73 @@
         });
       }
 
-      function renderStructured(parsed, rawText) {
+      /**
+       * ตรวจว่า VIDEO PROMPT มีหางแบบโรงงาน (Speaker + TTS/voice + Dialogue) — ใช้เมื่อผลเก่าไม่มี factoryMode ใน localStorage
+       */
+      function videoLooksLikeFactoryClipboard(videoRaw) {
+        if (!videoRaw) return false;
+        var s = String(videoRaw);
+        return (
+          /\bSpeaker:\s*\S/i.test(s) &&
+          /\bTTS\/voice:\s*\S/i.test(s) &&
+          /\bDialogue:\s*\S/i.test(s)
+        );
+      }
+
+      /**
+       * โหมดโรงงาน: ประกอบข้อความสำหรับ clipboard เฉพาะ 3 บรรทัดที่ใช้จริงใน workflow
+       * ดึงจากบล็อกท้ายสุดที่ขึ้นต้นด้วย Speaker: (หลัง ACTION / Audio ยาวๆ) เพื่อไม่จับผิดตัวแรกในก้อนข้อความ
+       * fallback คืนสตริงว่างเพื่อให้ผู้เรียกใช้ preVdoThai.textContent แทน
+       */
+      function buildFactoryVideoClipboard(videoRaw) {
+        if (!videoRaw) return "";
+        var raw = String(videoRaw).replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+
+        var start = -1;
+        var reSp = /\nSpeaker:\s*\S/gi;
+        var mSp;
+        while ((mSp = reSp.exec(raw)) !== null) {
+          start = mSp.index + 1;
+        }
+        if (start < 0) {
+          var bolSp = /^Speaker:\s*\S/im.exec(raw);
+          if (bolSp && bolSp.index != null) start = bolSp.index;
+        }
+        if (start < 0) return "";
+
+        var tail = raw.slice(start).trim();
+        var blockRe =
+          /^Speaker:\s*([^\n]+?)\s*(?:\n\s*)+TTS\/voice:\s*([\s\S]*?)\s*(?:\n\s*)+Dialogue:\s*([\s\S]*)$/i;
+        var bm = blockRe.exec(tail);
+        if (bm) {
+          var speakerLine = "Speaker: " + bm[1].trim();
+          var ttsLine = "TTS/voice: " + bm[2].replace(/\s+$/, "").trim();
+          var dialogueLine = "Dialogue: " + bm[3].replace(/\s+$/, "").trim();
+          return [speakerLine, ttsLine, dialogueLine].join("\n");
+        }
+
+        var spMatch = /^Speaker:\s*([^\n]+)/im.exec(tail);
+        var speakerLine = spMatch ? "Speaker: " + spMatch[1].trim() : "";
+        var ttsMatch = /\n?\s*TTS\/voice:\s*([\s\S]*?)(?=\n\s*Dialogue:|\n\s*Audio:|\n\s*FACTORY DNA|$)/i.exec(tail);
+        var ttsLine = "";
+        if (ttsMatch) {
+          ttsLine = "TTS/voice: " + ttsMatch[1].replace(/\s+$/, "").trim();
+        }
+        var dlgMatch = /\n?\s*Dialogue:\s*([\s\S]*?)(?=\n[A-Z][a-z]{2,}:|\nSpeaker:|\n\s*TTS\/voice:|$)/i.exec(tail);
+        var dialogueLine = "";
+        if (dlgMatch) {
+          dialogueLine = "Dialogue: " + dlgMatch[1].replace(/\s+$/, "").trim();
+        } else {
+          var fbDlg = extractDialogueFromVideo(tail);
+          if (fbDlg) dialogueLine = 'Dialogue: "' + fbDlg + '"';
+        }
+
+        var parts = [speakerLine, ttsLine, dialogueLine].filter(Boolean);
+        return parts.join("\n");
+      }
+
+      function renderStructured(parsed, rawText, opts) {
+        opts = opts || {};
         structuredRoot.innerHTML = "";
         structuredRoot.hidden = false;
 
@@ -1330,6 +1399,8 @@
         var fields = parsed.character.fields || {};
         var globalHeroBibleImage = buildStoryHeroBible(parsed, { forImage: true });
         var globalHeroBibleVideo = buildStoryHeroBible(parsed);
+        var firstSceneImageRawForLock =
+          parsed.scenes[0] && parsed.scenes[0].imageRaw ? parsed.scenes[0].imageRaw : "";
 
         if (parsed.scenes.length) {
           var sec2 = document.createElement("div");
@@ -1393,7 +1464,13 @@
           var fieldsImg = enrichFieldsFromPrompts(fields, s.imageRaw, s.videoRaw);
           var preImgThai = document.createElement("pre");
           preImgThai.className = "thai-pre";
-          preImgThai.textContent = buildImageThaiBlock(globalHeroBibleImage, s, fieldsImg);
+          preImgThai.textContent = buildImageThaiBlock(
+            globalHeroBibleImage,
+            s,
+            fieldsImg,
+            j,
+            firstSceneImageRawForLock
+          );
           pImg.appendChild(preImgThai);
           var rowImg = document.createElement("div");
           rowImg.className = "copy-row";
@@ -1430,7 +1507,7 @@
           var fieldsVdo = enrichFieldsFromPrompts(fields, s.imageRaw, s.videoRaw);
           var preVdoThai = document.createElement("pre");
           preVdoThai.className = "thai-pre";
-          preVdoThai.textContent = buildVideoThaiBlock(globalHeroBibleVideo, s, fieldsVdo);
+          preVdoThai.textContent = buildVideoThaiBlock(globalHeroBibleVideo, s, fieldsVdo, j);
           pVdo.appendChild(preVdoThai);
           var rowVdo = document.createElement("div");
           rowVdo.className = "copy-row";
@@ -1447,9 +1524,19 @@
           pVdo.appendChild(rowVdo);
           wireCopy(
             btnVdo,
-            function () {
-              return preVdoThai.textContent || "";
-            },
+            (function (scene, preEl) {
+              return function () {
+                var vrClip = scene.videoRaw || "";
+                var allowCompact =
+                  opts.factoryMode ||
+                  (videoLooksLikeFactoryClipboard(vrClip) && /\bFACTORY\s+DNA\b/i.test(vrClip));
+                if (allowCompact) {
+                  var compact = buildFactoryVideoClipboard(vrClip);
+                  if (compact) return compact;
+                }
+                return preEl.textContent || "";
+              };
+            })(s, preVdoThai),
             fbVdo
           );
 
@@ -1733,7 +1820,7 @@
 
         if (lastRawText) {
           var parsed = parseStoryboard(lastRawText);
-          renderStructured(parsed, lastRawText);
+          renderStructured(parsed, lastRawText, { factoryMode: d.factoryMode === true });
         } else {
           structuredRoot.innerHTML = "";
           structuredRoot.hidden = true;

@@ -109,6 +109,15 @@ def _gemini_key() -> str | None:
     return k or None
 
 
+def _gemini_key_or_header(handler: http.server.BaseHTTPRequestHandler) -> str | None:
+    """ใช้ GEMINI_API_KEY จาก env หรือ header X-Gemini-Key (คีย์ในช่องหน้าเว็บ) — สำหรับ dev server ที่ไม่ได้ export key"""
+    k = _gemini_key()
+    if k:
+        return k
+    h = (handler.headers.get("X-Gemini-Key") or "").strip()
+    return h or None
+
+
 def _cors_api_headers(handler: http.server.BaseHTTPRequestHandler) -> None:
     """ให้ client อื่น (หรือ dev แยกพอร์ต) เรียก API คุณเป็น backend ได้"""
     handler.send_header("Access-Control-Allow-Origin", "*")
@@ -194,6 +203,14 @@ def pick_port() -> int | None:
     return None
 
 
+def normalize_http_path(raw_path: str) -> str:
+    """ตัด trailing slash ของ path (ยกเว้น `/`) — ให้ `/api/foo/` ตรงกับ `/api/foo`"""
+    p = urllib.parse.urlparse(raw_path).path
+    if len(p) > 1 and p.endswith("/"):
+        return p.rstrip("/")
+    return p
+
+
 def resolve_entry_page(root: str = ROOT) -> str:
     """ลำดับ: index.html → login.html → story-config-mock.html (ใช้ทั้งใน redirect `/` และเปิดเบราว์เซอร์ default)"""
     index_abs = os.path.join(root, INDEX_HTML)
@@ -261,8 +278,14 @@ class MockHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_OPTIONS(self) -> None:
-        p = urllib.parse.urlparse(self.path).path
-        if p in ("/api/gemini", "/api/gemini-verify", "/api/mall-mode", "/api/tiktok-share-fetch"):
+        p = normalize_http_path(self.path)
+        if p in (
+            "/api/gemini",
+            "/api/gemini-verify",
+            "/api/mall-mode",
+            "/api/moral-drama-mode",
+            "/api/tiktok-share-fetch",
+        ):
             self.send_response(204)
             _cors_api_headers(self)
             self.end_headers()
@@ -440,9 +463,15 @@ class MockHandler(http.server.SimpleHTTPRequestHandler):
         if not _MALL_MODE_AVAILABLE:
             self._send_json(503, {"ok": False, "error": "Mall Mode module ไม่พร้อม (mall_mode.py ไม่พบ)"})
             return
-        k = _gemini_key()
+        k = _gemini_key_or_header(self)
         if not k:
-            self._send_json(503, {"ok": False, "error": "GEMINI_API_KEY ยังไม่ได้ตั้งใน environment"})
+            self._send_json(
+                503,
+                {
+                    "ok": False,
+                    "error": "ยังไม่มี Gemini API key — export GEMINI_API_KEY หรือใส่ในช่องหน้าเว็บ (ส่งเป็น header X-Gemini-Key)",
+                },
+            )
             return
         try:
             n = int(self.headers.get("Content-Length", 0) or 0)
@@ -456,13 +485,82 @@ class MockHandler(http.server.SimpleHTTPRequestHandler):
         status = 200 if result.get("ok") else 400
         self._send_json(status, result)
 
+    def _handle_moral_drama_post(self) -> None:
+        """โหมดละครคุณธรรม — เรียก Node api/moral-drama-mode.js ผ่าน scripts/run-moral-drama-cli.js"""
+        k = _gemini_key_or_header(self)
+        if not k:
+            self._send_json(
+                503,
+                {
+                    "ok": False,
+                    "error": "ยังไม่มี Gemini API key — export GEMINI_API_KEY หรือใส่ในช่องหน้าเว็บ (ส่งเป็น header X-Gemini-Key)",
+                },
+            )
+            return
+        try:
+            n = int(self.headers.get("Content-Length", 0) or 0)
+            n = min(n, 24 * 1024 * 1024)
+            raw = self.rfile.read(n) if n else b""
+        except OSError:
+            self._send_json(400, {"ok": False, "error": "Bad request body"})
+            return
+        cli = os.path.join(ROOT, "scripts", "run-moral-drama-cli.js")
+        if not os.path.isfile(cli):
+            self._send_json(503, {"ok": False, "error": "scripts/run-moral-drama-cli.js ไม่พบ"})
+            return
+        env = os.environ.copy()
+        env["GEMINI_API_KEY"] = k
+        try:
+            proc = subprocess.run(
+                ["node", cli],
+                input=raw,
+                capture_output=True,
+                timeout=180,
+                cwd=ROOT,
+                env=env,
+            )
+        except subprocess.TimeoutExpired:
+            self._send_json(504, {"ok": False, "error": "moral-drama-mode timeout"})
+            return
+        except FileNotFoundError:
+            self._send_json(
+                503,
+                {"ok": False, "error": "ไม่พบคำสั่ง node — ติดตั้ง Node.js แล้วลองใหม่"},
+            )
+            return
+        out = (proc.stdout or b"").decode("utf-8", errors="replace").strip()
+        if proc.returncode != 0 and not out:
+            err = (proc.stderr or b"").decode("utf-8", errors="replace").strip()
+            self._send_json(
+                502,
+                {"ok": False, "error": err or f"moral-drama-cli exit {proc.returncode}"},
+            )
+            return
+        try:
+            result = json.loads(out.split("\n")[-1] if "\n" in out else out)
+        except json.JSONDecodeError:
+            self._send_json(
+                502,
+                {
+                    "ok": False,
+                    "error": "moral-drama-cli ตอบไม่ใช่ JSON",
+                    "raw": out[:500],
+                },
+            )
+            return
+        status = 200 if result.get("ok") else 400
+        self._send_json(status, result)
+
     def do_POST(self) -> None:
-        p = urllib.parse.urlparse(self.path).path
+        p = normalize_http_path(self.path)
         if p == "/api/gemini":
             self._handle_gemini_post()
             return
         if p == "/api/mall-mode":
             self._handle_mall_mode_post()
+            return
+        if p == "/api/moral-drama-mode":
+            self._handle_moral_drama_post()
             return
         if p == "/api/tiktok-share-fetch":
             self._handle_tiktok_share_fetch_post()
@@ -472,7 +570,20 @@ class MockHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self) -> None:
         parsed = urllib.parse.urlparse(self.path)
         p = parsed.path
-        if p == "/mall" or p == "/mall/":
+        if p in (
+            "/mall",
+            "/mall/",
+            "/mall.html",
+            "/factory",
+            "/factory/",
+            "/factory.html",
+            "/moral",
+            "/moral/",
+            "/moral.html",
+            "/moral-drama",
+            "/moral-drama/",
+            "/moral-drama.html",
+        ):
             q = parsed.query
             self.path = "/" + MOCK_HTML + ("?" + q if q else "")
             parsed = urllib.parse.urlparse(self.path)
@@ -518,7 +629,10 @@ def write_url_file(url: str) -> None:
 def banner(url: str, mock_abs: str, open_page: str) -> None:
     log("")
     log("  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    log("   Story Config Mock — เซิร์ฟเวอร์พร้อม (/api/gemini + /api/mall-mode + /api/tiktok-share-fetch)")
+    log(
+        "   Story Config Mock — เซิร์ฟเวอร์พร้อม (/api/gemini + /api/mall-mode + /api/moral-drama-mode + /api/tiktok-share-fetch)"
+    )
+    log("   หน้าเฉพาะทาง: /mall (ห้าง) · /factory (โรงงาน/โกดัง) · /moral (ละครคุณธรรม) · /cs (เต็ม)")
     log("")
     log(f"   {url}  (หน้าเอนทรี: /{open_page} — mock: /{MOCK_HTML} หรือ /cs บน Vercel)")
     log(f"   ไฟล์ mock: {mock_abs}")

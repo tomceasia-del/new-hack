@@ -15,7 +15,7 @@
    * Bump when story prompt schema or pipeline rules change.
    * story-config-mock.html compares this to localStorage (not cookies) to drop stale hero analysis cache.
    */
-  g.STORYMODE_PROMPT_ASSET_VERSION = 202604319;
+  g.STORYMODE_PROMPT_ASSET_VERSION = 202605044;
 
   /** โหมดโรงงาน/โกดัง — เพดานคำไทยใน `Dialogue:` ต่อ 1 ฉาก (นับรวมทั้งบท lip-sync ในฉากนั้น) */
   var FACTORY_DIALOGUE_MAX_WORDS_TH = 38;
@@ -289,11 +289,56 @@
     '3. Product Truth Lock — ยึดรูปสินค้าที่แนบ\n' +
     '4. Human Anatomy Lock — ยังใช้\n' +
     '5. ท้าย 🟢 VIDEO ทุกฉาก: `Speaker:` + `TTS/voice:` + `Dialogue:` ตาม format ระบบ\n' +
-    '6. ห้าม subtitle/caption บนวิดีโอ — เสียงพูดอย่างเดียว\n\n' +
+    '6. ห้าม subtitle/caption บนวิดีโอ — เสียงพูดอย่างเดียว\n' +
+    '7. TEXT LOCK — Any text visible in the attached reference / product image (labels, packaging copy, Thai/English text, numbers, logos) must be preserved verbatim: pixel-faithful, same position, same typography; no re-typesetting, no translation, no motion typography. Add NO new on-screen text overlay of any kind (no kinetic text, no captions, no banners, no stickers, no lower-thirds).\n\n' +
     '### 📝 ห้ามใส่การ์ด + ห้าม REF — เขียนตัวละครใหม่ทุกฉาก (บังคับ)\n' +
     '- **ห้ามใส่การ์ด:** ห้ามใช้บล็อก **character card / การ์ดตัวละครย่อ / `[Character Card]` / `[CHARACTER_CARD]`** แทนการบรรยาย — ห้ามบอกให้ผู้อ่าน "ไปดูการ์ด" — **ทุกอย่างต้องเป็นข้อความบรรยายเต็มใน IMAGE prompt และ `TTS/voice` ของฉากนั้น**\n' +
     '- **ห้าม REF:** ห้ามย่อด้วยคำอ้างแทนการเขียน เช่น "same as Scene 1", "ditto", "see above", "ตามฉากก่อนหน้า", "[Character Ref]", "same HERO BIBLE as scene N"\n' +
-    '- **ทุกฉากทุกรอบ:** เขียน **ครบเต็มใหม่** ใน field ของฉากนั้น: **`hero_full_detail` / IMAGE prompt** และ **`TTS/voice:`** — ถ้าผู้พูดคนเดียวกัน **อนุญาตคัดลอกถ้อยคำไทยชุดเดียวกัน**ใน `TTS/voice` เพื่อล็อก consistency แต่ต้อง **พิมพ์ข้อความเต็มซ้ำในทุกฉาก** ห้ามเขียนแค่ "เหมือนฉาก 1" หรือคำอ้างอย่างเดียว\n';
+    '- **ทุกฉากทุกรอบ:** เขียน **ครบเต็มใหม่** ใน field ของฉากนั้น: **`hero_full_detail` / IMAGE prompt** และ **`TTS/voice:`** — ถ้าผู้พูดคนเดียวกัน **อนุญาตคัดลอกถ้อยคำไทยชุดเดียวกัน**ใน `TTS/voice` เพื่อล็อก consistency แต่ต้อง **พิมพ์ข้อความเต็มซ้ำในทุกฉาก** ห้ามเขียนแค่ "เหมือนฉาก 1" หรือคำอ้างอย่างเดียว\n' +
+    '- **ฉลากสั้น vs คำบรรยายเต็ม (สำคัญ):** **อนุญาต** ฉลากสั้นเฉพาะบรรทัด **`Speaker:`** เท่านั้น (เช่น `ROLE_HERO_A`, `Hero A`) — **ห้าม** ใน **🔴 IMAGE prompt**, **`hero_full_detail`**, หรือประโยคบรรยายตัวละครหลักใน ACTION ใช้แค่ `(Hero A)`, `(hero a)`, `[ROLE_…]`, หรือชื่อย่ออย่างเดียวแทนประโยคลักษณะ — ต้องมี **ประโยคบรรยายครบทุกครั้ง** (เพศ · ช่วงวัย · สีผิว/รูปร่าง · สีผม/ทรงผม · ชุด/ยูนิฟอร์ม) เป็นภาษาที่โมเดลสร้างภาพอ่านได้โดยตรง; พิมพ์ซ้ำชุดเดียวกันทุกฉากได้\n' +
+    '- **ห้าม ROLE-only / วงเล็บอย่างเดียว:** ถือว่าผิดเทียบเท่า REF — ห้ามส่ง output ที่ตัวละครในภาพถูกแทนด้วยอย่างเดียว เช่น `(Hero A)`, `(ROLE_STAFF)` โดยไม่มีคำอธิบายลักษณะทางกายภาพใน **บล็อกภาพเดียวกัน** — ถ้ามีชื่อย่อ ให้ตามด้วยข้อความเต็มในประโยคเดียวกัน เช่น `Hero A: tall fair-skinned Thai man, ~40, heavy build, red hair, …`\n' +
+    '- **ครบหน้าตา-รูปร่างทุก IMAGE:** มีคนในเฟรม = ต้องบรรยาย **ทุกครั้ง** (ภาษาอังกฤษใน IMAGE): เพศ · ช่วงอายุปี · โทนผิว · ใบหน้า **อย่างน้อย 2 จุดชัดเจน** · สี/ความยาว/ทรงผม · รูปร่าง/ส่วนสูงโดยประมาณ · ชุดทีละชิ้น (สี+ผ้า) · รองเท้า/พร็อพในมือถ้ามี — **ห้าม** เหลือแค่ young woman/man / beautiful / manager / maid / ชื่อ ROLE อย่างเดียว\n';
+
+  /**
+   * Shared speaker-lock trailer for all story branches with Thai dialogue (non-factory, non-ASMR).
+   * Mirrors factory's explicit (1)/(2)/(3) line order without warehouse-speed DNA.
+   * Appended to videoTemplate for each speech branch so the model sees the rule
+   * at the same position as in the factory template — before the OUTPUT FORMAT block.
+   */
+  const STORYMODE_SPEAKER_LOCK_TRAILER_EN =
+    ' **End every 🟢 VIDEO block with THREE lines in this exact order** (parser + TTS depend on correct line separation — do not merge into one line): ' +
+    '(1) `Speaker:` one-line label for who delivers Thai audio this clip (short role or name, e.g. `ROLE_HERO_A`, `Hero A`, `Narrator`); ' +
+    '**do not** infer voice from the first `ROLE_` in ACTION if it conflicts with the intended speaker. ' +
+    '(2) `TTS/voice:` **mandatory** — Thai first: at least **two full sentences** stating ' +
+    '**gender, approximate age band, voice timbre, speaking pace, energy / delivery style** matching the scene mood; ' +
+    'include brief face / body build / outfit that **matches** the on-camera Speaker described in IMAGE / `hero_full_detail` for **this scene only** (no pulling from outside this scene\'s field). ' +
+    '**Repeat the same Thai wording** every scene the **same** Speaker appears — **spell out full text each scene**; ' +
+    'no REF shortcuts like "same as Scene 1", "ditto", or "see above". ' +
+    'Then `EN:` one English sentence mirroring the same person (look + voice + pacing) for TTS routing. ' +
+    '(3) `Dialogue:` Thai text, 15–20 words for ~8s clip. ' +
+    'Do NOT write `Speaker:` label alone without a full `TTS/voice:` block. ' +
+    'Do NOT replace `TTS/voice:` with a character card or reference shortcut. ' +
+    'Any other person visible in frame: silent, no lip-sync to this line. ' +
+    '**OBJECT / NON-HUMAN SPEAKER RULE** — if `Speaker:` is an inanimate object or non-human entity ' +
+    '(appliance, food, vehicle, furniture, machine, or any object given anthropomorphic expression ' +
+    'such as digital eyes, vibrating vents, blinking lights): ' +
+    '(a) DO NOT use "lip movement synced" — instead describe the object\'s own physical reaction mechanism ' +
+    'in ACTION (e.g. "vents vibrating in sync with Thai audio", "digital eyes widening", "body shaking rhythmically"); ' +
+    '(b) ANY human or animal visible in the same frame must be **COMPLETELY SILENT** — ' +
+    'no mouth movement, no lip-sync, frozen posture or exiting frame — for this line; ' +
+    '(c) In `TTS/voice:`, write TWO parts in this order — ' +
+    'Part 1: **object visual state** (describe the object\'s appearance + animated expression at this moment, ' +
+    'e.g. "White glossy AC unit, digital blue eyes wide and shocked, vents vibrating rapidly" — NO human face/gender/outfit here); ' +
+    'Part 2: **voice-actor persona** (the imagined voice that IS this object — state gender, age band, tone, pace, energy, ' +
+    'e.g. "เสียงผู้ชายไทยวัยกลางคน โทนเสียงบ่นแบบเหนื่อยล้า มีความแหบเล็กน้อย พูดความเร็วปานกลางแต่เน้นคำประชดประชัน ' +
+    'EN: Middle-aged Thai male voice, grumpy but relatable, slightly raspy, medium pace."); ' +
+    '**Repeat the full object visual state + voice persona every scene the same object appears — spell out full text each scene; ' +
+    'no REF shortcuts like "same as Scene 1", "ditto", or "see above".**';
+
+  /** Photoreal/live-action variant — adds ROLE_* label-match note when IMAGE uses stable role labels. */
+  const STORYMODE_SPEAKER_LOCK_TRAILER_PHOTOREAL_EN =
+    STORYMODE_SPEAKER_LOCK_TRAILER_EN +
+    ' When IMAGE uses stable `ROLE_*` labels (e.g. `ROLE_A:`, `ROLE_B:`), `Speaker:` must match one of those labels for the person delivering this line.';
 
   function buildStorymodeSystemPromptFromPayload(payload, opts) {
     opts = opts || {};
@@ -350,9 +395,25 @@
     var imageTemplate;
     var videoTemplate;
 
-    if (factoryIso) {
+    const noHeroMode = !!(payload.factoryRefNoHeroMode);
+    if (factoryIso && noHeroMode) {
+      /* โหมด no-hero: ฉากล็อกจาก ref แต่ไม่มี presenter บนกล้อง — VO เดียว ตัวประกอบเงียบ */
       imageTemplate =
-        'FACTORY / WAREHOUSE DNA — REAL COMMERCIAL FOOTAGE LOOK ONLY. Forbidden in prompts: Pixar, Disney, 3D CGI, anime, cartoon, stylized 3D characters. Use smartphone / cinema-camera realism, natural lighting, true-to-reference product texture from attached PRODUCT images. Industrial, warehouse, packing line, or authentic retail when relevant. [CHARACTER_NAME] — [CHARACTER_DESCRIPTION]. [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. Follow FACTORY DNA pack (tone, palette, shot grammar). No fake cartoon glow.';
+        'FACTORY / WAREHOUSE DNA — REAL COMMERCIAL FOOTAGE LOOK ONLY. Forbidden in prompts: Pixar, Disney, 3D CGI, anime, cartoon, stylized 3D characters. Use smartphone / cinema-camera realism, natural lighting, true-to-reference product texture from attached PRODUCT images. Industrial, warehouse, packing line, or authentic retail as shown in REF SCENE LOCK. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. NO primary on-camera presenter or hero in this scene — any people in frame are INCIDENTAL BACKGROUND EXTRAS (blurred or at distance), NOT interacting directly with camera. Product is the visual hero of every shot. Follow FACTORY DNA pack (tone, palette, shot grammar). No fake cartoon glow.';
+      videoTemplate =
+        'FACTORY DNA — NO-HERO MODE: ACTION ONLY showing product and warehouse/store environment: [CHARACTER_ACTION]. ' +
+        '**NO lip-sync with any person in frame** — all dialogue is VOICE-OVER ONLY (audio only, not from any visible person). ' +
+        'VO speaks Thai at **maximum retail tempo — rapid-fire, high-energy, warehouse sell pace**: "[THAI_DIALOGUE]" — **พูดเร็วมาก** (ประโยคสั้นรัวต่อกัน; **บทไทยใน Dialogue ไม่เกิน ' +
+        FACTORY_DIALOGUE_MAX_WORDS_TH +
+        ' คำต่อฉาก** — ~8 วิ). Background extras (if any) are completely silent — zero lip-sync. Tone = direct-from-factory / warehouse sell — match FACTORY DNA pack. ' +
+        '**End every 🟢 VIDEO block with THREE lines in this exact order** (parser + TTS depend on this): ' +
+        '(1) `Speaker: VO` (voice-over — no on-camera speaker). ' +
+        '(2) `TTS/voice:` **mandatory** — Thai first: at least **two full sentences** locking **gender, approximate age band, voice timbre, very fast speech pace (rapid-fire, maximum retail tempo), high sell energy, no slow narrator tone** — **repeat same Thai wording every scene** (spell out full text; no REF shortcuts). Then `EN:` one English sentence mirroring same voice for TTS routing. Do NOT describe face/outfit (VO has no on-camera identity). ' +
+        '(3) `Dialogue:` English quotes with Thai text inside as usual. ' +
+        'NO subtitles or on-screen text. AUDIO ONLY. **TEXT LOCK:** Preserve any pre-existing text from reference/product image EXACTLY as-is — no re-typesetting, no animation, no translation. Do NOT add any new text overlay, caption, kinetic typography, banner, sticker, or lower-third. Stable form, no morphing.';
+    } else if (factoryIso) {
+      imageTemplate =
+        'FACTORY / WAREHOUSE DNA — REAL COMMERCIAL FOOTAGE LOOK ONLY. Forbidden in prompts: Pixar, Disney, 3D CGI, anime, cartoon, stylized 3D characters. Use smartphone / cinema-camera realism, natural lighting, true-to-reference product texture from attached PRODUCT images. Industrial, warehouse, packing line, or authentic retail when relevant. [CHARACTER_NAME] — **[CHARACTER_DESCRIPTION] every scene, full English:** gender, age band, skin tone, face (+2 traits), hair, build, uniform/outfit piece-by-piece — no thin young woman/man or label-only; duplicate identical wording per hero each scene. [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. Follow FACTORY DNA pack (tone, palette, shot grammar). No fake cartoon glow.';
       videoTemplate =
         'FACTORY DNA — REAL-WORLD UGC / COMMERCIAL VIDEO: ACTION ONLY: [CHARACTER_ACTION]. On-camera hero/Speaker lip-syncs Thai at **maximum retail tempo — rapid-fire, high-energy, warehouse sell pace**: "[THAI_DIALOGUE]" — **พูดเร็วมาก** (ประโยคสั้นรัวต่อกัน; **บทไทยใน Dialogue ไม่เกิน ' +
         FACTORY_DIALOGUE_MAX_WORDS_TH +
@@ -360,37 +421,52 @@
         '(1) `Speaker:` one-line role label (who speaks — short; e.g. `ROLE_STAFF`, `พี่พนักงานโกดัง`; must match who lip-syncs). **Do not** map voice from the first ROLE_ in ACTION if it differs from `Speaker:`. ' +
         '(2) `TTS/voice:` **mandatory** — Thai first: at least **two full sentences** locking **gender, approximate age band, brief face shape/skin tone, body build, outfit/uniform** (must **match** the on-camera hero/Speaker described in the IMAGE prompt / `hero_full_detail` for **this scene only** — no "pull from outside field"), plus **voice timbre, very fast speech pace (rapid-fire, maximum retail tempo), high sell energy, no slow narrator tone**. **Repeat the same Thai wording** for every scene where the **same** Speaker speaks (voice + face + wardrobe consistency) — **spell out full text each scene**; no REF shortcuts like "same as Scene 1". Then `EN:` one English sentence mirroring the **same person** (look + voice) for TTS routing. ' +
         '(3) `Dialogue:` English quotes with Thai text inside as usual. ' +
-        'Do NOT output only `Speaker: พนักงานโกดัง` (label alone) without a rich `TTS/voice:` that includes **ผู้ชายหรือผู้หญิง อายุประมาณเท่าไหร่ หน้าตา/รูปร่าง/ชุด** — that fails format. Do NOT emit a **character card** block instead of full prose in IMAGE/`TTS/voice` — rewrite full appearance **every scene**. Do NOT describe Pixar/Disney/3D animation/anime aesthetics. NO subtitles or on-screen text. AUDIO ONLY. Stable form, no morphing. Other visible people silent for this line unless they are the Speaker.';
+        'Do NOT output only `Speaker: พนักงานโกดัง` (label alone) without a rich `TTS/voice:` that includes **ผู้ชายหรือผู้หญิง อายุประมาณเท่าไหร่ หน้าตา/รูปร่าง/ชุด** — that fails format. Do NOT emit a **character card** block instead of full prose in IMAGE/`TTS/voice` — rewrite full appearance **every scene**. Never use only a parenthetical role tag like `(Hero A)` or `(ROLE_X)` in the IMAGE prompt or `hero_full_detail` — always spell out full on-camera appearance in English (gender, age band, build, skin tone, hair, outfit) **in the same block**, repeatable every scene. Do NOT describe Pixar/Disney/3D animation/anime aesthetics. NO subtitles or on-screen text. AUDIO ONLY. **TEXT LOCK:** Preserve any pre-existing text from the reference / product image EXACTLY as-is (packaging/label/signs/numbers/logos) — no re-typesetting, no animation, no translation, no restyle, no repositioning. Do NOT add any new text overlay, caption, kinetic typography, banner, sticker, or lower-third. Stable form, no morphing. Other visible people silent for this line unless they are the Speaker.';
     } else if (isProductAd) {
       imageTemplate =
         'สร้างภาพโฆษณาสินค้ามืออาชีพ สินค้า[PRODUCT_NAME] [PRODUCT_DESCRIPTION] ตามภาพที่แนบไป สไตล์[CREATIVE_SCENARIO] [SCENE_DESCRIPTION] REAL HUMAN PHOTO มีสาววัยรุ่นคนไทย อายุ 20-25 ปีใช้งานสินค้า ใส่ข้อความภาษาไทยบนภาพว่า"[THAI_BOLD_TEXT]" [SCENE_SETTING] [CAMERA_DISTANCE] single image, no collage, no multiple panels, no split screen Use the exact product appearance from the attached reference image (pd-product.png). The bold text overlay MUST be in Thai language (ภาษาไทย).';
       videoTemplate =
-        'สาวไทยพูดขายสินค้า ([SCENE_NUM]) [PRODUCT_NAME] [PRODUCT_DESCRIPTION] [ACTION_IN_SCENE] ถือสินค้าโชว์ บทพูดไทย "[THAI_DIALOGUE]" มุมกล้องตั้งนิ่งจนจบคลิป ใช้ฉากและการจัดวางตามภาพที่แนบ NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, All dialogue is AUDIO ONLY reduce contrast, natural skintone, soft highlights, no oversharpen, low contrast, soft colors, natural tone, film look, soft light. End each 🟢 VIDEO block with **Speaker:** + **TTS/voice:** (Thai ≥2 sentences: gender, age, voice timbre, pacing — lock same speaker across scenes) + **Dialogue:**. If another person is visible, they are silent (no second voice) for this line.';
+        'สาวไทยพูดขายสินค้า ([SCENE_NUM]) [PRODUCT_NAME] [PRODUCT_DESCRIPTION] [ACTION_IN_SCENE] ถือสินค้าโชว์ บทพูดไทย "[THAI_DIALOGUE]" มุมกล้องตั้งนิ่งจนจบคลิป ใช้ฉากและการจัดวางตามภาพที่แนบ NO subtitles or text overlays, NO on-screen dialogue text, NO captions of any kind, All dialogue is AUDIO ONLY reduce contrast, natural skintone, soft highlights, no oversharpen, low contrast, soft colors, natural tone, film look, soft light.' +
+        STORYMODE_SPEAKER_LOCK_TRAILER_EN;
     } else if (isASMR) {
       imageTemplate =
         visualDesc +
-        '. FIXED overhead/top-down camera angle (45-60°). [SCENE_DESCRIPTION]. [DETAILED_OBJECTS_AND_PROPS]. The full scene is visible from above, brightly illuminated by natural light. Describe every visible person/object per HERO BIBLE — full in-scene text, not "see HERO BIBLE" shortcuts.';
+        '. FIXED overhead/top-down camera angle (45-60°). [SCENE_DESCRIPTION]. [DETAILED_OBJECTS_AND_PROPS]. The full scene is visible from above, brightly illuminated by natural light. **Every visible human:** English prose **every scene** with face (≥2 traits), skin tone, hair, body build, clothing item-by-item — no ROLE-only or "young woman/man" alone. Objects/props fully described; no "see HERO BIBLE" shortcuts.';
       videoTemplate =
         '[ACTION_DESCRIPTION], overhead static camera (45-60°), ASMR sounds of [AMBIENT_SOUNDS], realistic movement, natural motion. NO speech, NO text, stable form, no morphing, no extra limbs';
     } else if (isFairytale) {
       imageTemplate =
         visualDesc +
-        '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Paste full HERO BIBLE look for this character in this frame (not a "reference line" only).';
+        '. [CHARACTER_NAME] - **[CHARACTER_DESCRIPTION] must be one dense English paragraph including:** gender; age band; skin tone; face shape + **two** facial traits; hair color/length/style; height/build; outfit piece-by-piece with colors — repeat **full** text every scene for every visible hero (no thin "young woman/man" only). Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], Thai narration. Voice: match the narrator identity in the HERO BIBLE (age/gender/persona) — not a one-size-fits-all default. NO lip sync if narration-only. Thai voiceover says: "[THAI_NARRATION]" (exact wording lock). NO subtitles or on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with Speaker: (Narrator or role) and Dialogue: — only that voice; other visible characters silent for this line.';
+        'ACTION ONLY: [CHARACTER_ACTION], Thai narration. Voice: match the narrator identity in the HERO BIBLE (age/gender/persona) — not a one-size-fits-all default. NO lip sync if narration-only. Thai voiceover says: "[THAI_NARRATION]" (exact wording lock). NO subtitles or on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs.' +
+        STORYMODE_SPEAKER_LOCK_TRAILER_EN;
     } else if (isAnimated) {
       imageTemplate =
         visualDesc +
-        '. [CHARACTER_NAME] - [CHARACTER_DESCRIPTION], [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Full in-scene appearance text per HERO BIBLE; repeat on every new shot if the same character appears.';
+        '. [CHARACTER_NAME] - **[CHARACTER_DESCRIPTION]** = full English lock **every scene**: gender, age, skin tone, face (+2 traits), hair, build, outfit details — same wording repeated per role; [CHARACTER_POSE_AND_EXPRESSION]. Background: [BACKGROUND_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], lip movement synced to Thai: "[THAI_DIALOGUE]". TTS/voice: match each Speaker in HERO BIBLE (age, gender, persona) — do NOT default every line to a single global voice if characters differ. One speaker per 8s clip/line; lock Thai dialogue text exactly. If other ROLE_ appear in action text, they are visual only for this line — no second voice, no lip-sync to this dialogue except the Speaker. NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with **Speaker:** + **TTS/voice:** (Thai ≥2 sentences gender/age/timbre/pacing + EN one sentence, locked per speaker across scenes) + **Dialogue:**.';
+        'ACTION ONLY: [CHARACTER_ACTION], audio-synced reaction to Thai: "[THAI_DIALOGUE]" — ' +
+        'if Speaker is a human or animal character: lip movement synced to Thai; ' +
+        'if Speaker is an inanimate object / non-human entity (appliance, food, vehicle, object with animated eyes/vents/body): ' +
+        'object body-part reaction synced to Thai audio (NO lip-sync on any human in frame — humans completely silent and frozen/exiting). ' +
+        'TTS/voice: match each Speaker in HERO BIBLE (age, gender, persona) — do NOT default every line to a single global voice if characters differ. ' +
+        'One speaker per 8s clip/line; lock Thai dialogue text exactly. ' +
+        'If other ROLE_ appear in action text, they are visual only for this line — no second voice, no lip-sync to this dialogue except the Speaker. ' +
+        'NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs.' +
+        STORYMODE_SPEAKER_LOCK_TRAILER_EN;
     } else {
       imageTemplate =
         visualDesc +
-        '. [SCENE_DESCRIPTION]. [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK. Describe characters at full HERO BIBLE detail when visible; no "[Character Ref]" one-liners only.';
+        '. **CHARACTER LOCK — English, photoreal/live-action (mandatory every scene):** For **every** visible person, write **one separate dense paragraph** (minimum ~45 English words per person). Start with stable label (`ROLE_A:`, `ROLE_B:`, …) then **same paragraph** include ALL of: biological sex; approximate age (years); Thai ethnicity if applicable; skin tone; face shape + **two** concrete facial traits; hair color/length/style; height/build; clothing **item-by-item** with colors/fabrics; shoes/accessories/watch; handheld props. **Forbidden alone:** `ROLE_X - young Thai woman/man`, beautiful/handsome/manager/maid/businessman without full fields; generic young woman/man/attractive without specifics. Multi-character = **full** paragraph each, **identical wording** for same role every scene. **Then** interaction/pose: [SCENE_DESCRIPTION]. **Then** Background: [BACKGROUND_DESCRIPTION]. **Then** [CAMERA_SHOT]. No bold text overlay, no title text, no headline text on the image. Scene-decorative text like shop signs or labels is OK.';
       videoTemplate =
-        'ACTION ONLY: [CHARACTER_ACTION], lip-sync Thai: "[THAI_DIALOGUE]". Voice: match **TTS/voice** + HERO BIBLE (not ROLE_ order in ACTION). Lock hero NAMES and this dialogue string exactly. Any other person on screen: silent, no lip-sync to this line. NO default voice trope; NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs. End with **Speaker:** + **TTS/voice:** (Thai ≥2 sentences gender/age/timbre/pacing + EN one sentence, locked per speaker across scenes) + **Dialogue:** — do not infer speaker from first ROLE_ in the action if it conflicts with Speaker.';
+        'ACTION ONLY: [CHARACTER_ACTION], lip-sync Thai: "[THAI_DIALOGUE]". Voice: match **TTS/voice** + HERO BIBLE (not ROLE_ order in ACTION). Lock hero NAMES and this dialogue string exactly. Any other person on screen: silent, no lip-sync to this line. NO default voice trope; NO subtitles, NO on-screen text. AUDIO ONLY, stable form, no morphing, no extra limbs.' +
+        STORYMODE_SPEAKER_LOCK_TRAILER_PHOTOREAL_EN;
     }
+
+    /** Cinematic / photographic realism (English IMAGE template with CHARACTER LOCK paragraph) */
+    const isPhotorealLiveAction =
+      !factoryIso && !isProductAd && !isASMR && !isFairytale && !isAnimated;
 
     const outputTypeNote =
       smOutputType === 'image'
@@ -518,6 +594,15 @@
           'ทุกฉากที่มี `Speaker` + `Dialogue` ให้จบท้าย 🟢 VIDEO ด้วยบรรทัดสรุป: **Audio: Thai voice-only. No music. No SFX.**\n\n'
         );
 
+    const refTextOverlayLockBlock = factoryIso
+      ? (
+          '═══ REF TEXT & OVERLAY LOCK (FACTORY MODE — บังคับ) ═══\n' +
+          'ข้อความ/ตัวอักษรทุกชิ้นที่ปรากฏใน **รูป ref / product image** (ฉลาก แพ็คเกจจิ้ง ป้าย โลโก้ ตัวเลข Thai/EN) — **ห้ามแตะ ห้ามแก้ ห้ามแปล ห้ามพิมพ์ซ้ำในสไตล์ใหม่ ห้ามย้ายตำแหน่ง ห้าม blur/restyle/regenerate** — ต้องคงเหมือน ref **ทุกตัวอักษร ทุกตำแหน่ง ทุก typography**\n' +
+          'ห้าม **เล่น text overlay** ทุกชนิดในวิดีโอที่สร้างใหม่: kinetic typography, animated text, motion graphics, price banners, subtitle, caption, sticker, emoji overlay, lower-third, bullet list on screen — **ไม่มี on-screen text ใดๆ ที่ไม่ใช่ข้อความเดิมจากรูป ref**\n' +
+          'ทุกฉากให้จบท้าย 🟢 VIDEO ด้วยบรรทัดสรุปเพิ่ม: **Text: Preserve ref text as-is. No new text overlay. No kinetic typography.**\n\n'
+        )
+      : '';
+
     const visualStyleHeaderBlock = factoryIso
       ? (
           '═══ VISUAL (FACTORY DNA — ไม่ผูกสไตล์ตัวละครจาก UI) ═══\n' +
@@ -535,12 +620,23 @@
         );
 
     var speakerTtsTail =
-      'HERO BIBLE: ฉลาก ROLE/ลักษณะฮีโร่ล็อกตลอด — รายละเอียดฝั่งรูปต่อฉากอยู่ใน **`hero_full_detail` ของ JSON ฉากนั้นเท่านั้น** ห้ามอ้างดึงนอก field; ฝั่งเสียงยึด **`Speaker:` + `Dialogue:`** ฉากนั้น — multi-character ใน `hero_full_detail` = คนอื่นในเฟรม **เงียบ/ไม่ lip-sync** กับบทนี้ — **ห้าม** map เสียงจาก ROLE_ ตัวแรกใน ACTION แทน `Speaker:`\n' +
+      '**LABEL vs PROSE:** `Speaker:` = ฉลากสั้นได้ — **IMAGE / `hero_full_detail` = บรรยายลักษณะเต็มทุกฉากทุกครั้งที่มีคนในเฟรม:** หน้าตา (อย่างน้อย 2 จุด) · ผิว · ผม · **รูปร่าง** · ชุดทีละชิ้น — ห้ามแทนด้วย `(Hero A)` / `(ROLE_…)` / young woman/man อย่างเดียว\n' +
+      'HERO BIBLE: ฉลาก ROLE/ลักษณะฮีโร่ล็อกตลอด — **รายละเอียดรูปต่อฉากต้องเขียนเป็นประโยคบรรยายเต็มใน `hero_full_detail` + IMAGE prompt ของฉากนั้น** (ภาษาที่โมเดลสร้างภาพอ่านได้ — ห้ามแทนด้วยคำสั่งให้ไปดึงจาก field อื่น); ฝั่งเสียงยึด **`Speaker:` + `Dialogue:`** ฉากนั้น — หลายคนในเฟรม = คนอื่น **เงียบ/ไม่ lip-sync** กับบทนี้ — **ห้าม** map เสียงจาก ROLE_ ตัวแรกใน ACTION แทน `Speaker:`\n' +
       '**ห้ามใส่การ์ด:** ห้ามบล็อก character card / การ์ดย่อ — บรรยายตัวละครเต็มใน IMAGE + `TTS/voice` **ทุกฉากเขียนใหม่ครบ** (พิมพ์ซ้ำได้ ห้ามคำอ้าง)\n' +
       '**ห้าม REF:** ทุกฉากเขียน **`TTS/voice:` เต็ม** (ไม่ใช่ "เหมือนฉากก่อนหน้า"/ditto/see above)\n';
 
     const speakerTtsDialogueSpec =
-      factoryIso && !isASMR
+      factoryIso && !isASMR && noHeroMode
+        ? (
+            'ท้าย block 🟢 VIDEO ทุกฉาก บังคับ **3 บรรทัดสุดท้ายตามลำดับนี้** (NO-HERO / VO mode):\n' +
+            'Speaker: VO\n' +
+            'TTS/voice: Thai: <อย่างน้อย 2 ประโยคเต็ม — lock เสียง VO: **เพศ · ช่วงวัย · โทนเสียง · พูดเร็วมาก (rapid-fire, สปีดขายโกดัง) · พลังขาย** — เขียนเต็มซ้ำทุกฉาก ห้ามย่อ; ไม่ต้องบรรยายหน้าตา/ชุด (VO = off-camera)> EN: <หนึ่งประโยค English — same voice persona + fast pace>\n' +
+            'Dialogue: "..." (บทไทย — **พูดเร็วมาก** ~8 วิ/ฉาก; **ไม่เกิน ' +
+            FACTORY_DIALOGUE_MAX_WORDS_TH +
+            ' คำต่อฉาก** — ยึด FACTORY DNA)\n' +
+            '**บุคคลในเฟรมทั้งหมดเงียบ / ไม่ lip-sync** — audio comes from VO only\n'
+          )
+      : factoryIso && !isASMR
         ? (
             'ท้าย block 🟢 VIDEO ทุกฉาก บังคับ **3 บรรทัดสุดท้ายตามลำดับนี้** (parser/TTS อ่านแยกบรรทัด — ห้ามรวมเป็นบรรทัดเดียว):\n' +
             'Speaker: <ฉลากหรือ ROLE หนึ่งบรรทัด — master ว่าใครออกเสียง (เช่น `ROLE_STAFF`); **รายละเอียดใบหน้า/ร่าง/ชุดต้องอยู่ใน `TTS/voice:` — ห้ามมีแค่ฉลากแล้วจบ**\n' +
@@ -553,8 +649,8 @@
         : (
             'ท้าย block 🟢 VIDEO ทุกฉาก บังคับ **3 บรรทัดสุดท้ายตามลำดับนี้** (parser/TTS อ่านแยกบรรทัด — ห้ามรวมเป็นบรรทัดเดียว):\n' +
             'Speaker: <ฉลากหรือ ROLE หนึ่งบรรทัด — master ว่าใครออกเสียง; อันดับสูงกว่า ROLE_ ตัวแรกใน ACTION ถ้าขัดกัน>\n' +
-            'TTS/voice: Thai: <อย่างน้อย 2 ประโยคเต็ม — ระบุ เพศ ช่วงวัย โทนเสียง ความเร็วการพูด พลังการขาย — **ล็อกให้เหมือนทุกฉาก**ที่ผู้พูดคนเดียวกัน> EN: <หนึ่งประโยค English — same gender/age/pacing for TTS>\n' +
-            'Dialogue: "..." (บทไทย 15-20 คำ — ล็อกคำต่อคำกับ lip-sync)\n' +
+            'TTS/voice: Thai: <อย่างน้อย 2 ประโยคเต็ม — **บังคับครบ:** เพศ · ช่วงวัย · **ลักษณะใบหน้า/ผิว/รูปร่างโดยย่อ · ชุดหรือของแต่งกาย** — ต้องสอดคล้องกับผู้พูดที่บรรยายใน IMAGE/`hero_full_detail` ฉากนั้น (เขียนเต็มซ้ำทุกฉากที่เป็นคนเดียวกัน — ห้ามย่อเป็น ref); ต่อด้วย **โทนเสียง · ความเร็วการพูด · พลังการขาย** — เขียนเป็นภาษาพูดธรรมชาติเพื่อให้ TTS หายใจถูกจุด> EN: <หนึ่งประโยค English — same on-camera person (look + voice + pacing) for TTS routing>\n' +
+            'Dialogue: "..." (บทไทย **15-20 คำ** — นับรวมทั้งฉาก; เขียนเป็นคำพูดธรรมชาติ ไม่ใช่ประโยคร้อยแก้ว; แบ่งด้วยอนุภาคพัก เช่น นะ / อ่ะ / เลยค่ะ; **ประโยคสุดท้ายต้องชวนซื้อหรือกระตุ้นให้ไปที่ชั้นวาง/กดสั่ง** — ห้ามจบด้วยรีวิวคุณสมบัติเพียงอย่างเดียว)\n' +
             speakerTtsTail
           );
 
@@ -590,6 +686,7 @@
       '\n\n' +
       buildDialogueWordBudgetThai(isASMR, 'system', factoryIso) +
       voiceOnlyNoMusicSfxBlock +
+      refTextOverlayLockBlock +
       '═══ CRITICAL RULES ═══\n' +
       '1. Image prompt ต้องเป็นภาษาอังกฤษ (ยกเว้นข้อความ Thai bold text บนภาพ ถ้ามี)\n' +
       '2. Video prompt ต้องเป็นภาษาอังกฤษ ยกเว้นบทพูด/narration ที่ต้องเป็นภาษาไทย\n' +
@@ -602,11 +699,40 @@
       (factoryIso
         ? 'ตาม FACTORY DNA + reference สินค้า (ไม่ใช้สไตล์การ์ตูนจาก UI)\n'
         : visualDesc + '\n') +
-      '5. ห้ามใส่ subtitle, text overlay, captions ในวิดีโอ — dialogue เป็น AUDIO ONLY\n' +
+      '5. ห้ามใส่ subtitle, text overlay, captions ในวิดีโอ — dialogue เป็น AUDIO ONLY; ห้าม kinetic typography, animated text, price banners บนหน้าจอ; ห้ามแสดงตัวเลขราคา (เช่น ฿499, ลด 30%) เป็น on-screen text หรือ overlay ในทุก image/video prompt\n' +
+      (factoryIso
+        ? '5a. **FACTORY REF TEXT FREEZE** — ถ้ามีตัวอักษรใน รูป ref/product image (ฉลาก/แพ็คเกจจิ้ง/ป้าย/ตัวเลข/โลโก้): ต้องคงไว้ **ทุกตัวอักษร ทุกตำแหน่ง ทุก font** ใน IMAGE prompt และวิดีโอ — ห้ามแปล/พิมพ์ใหม่/ย้าย/animate/เปลี่ยนสี/เปลี่ยนฟอนต์/เพิ่ม outline/shadow ทับ; ห้ามใส่ **ข้อความใหม่ใดๆ** บนหน้าจอ (text overlay, caption, banner, sticker, kinetic typography, lower-third) — ไฟล์ output ต้อง "no added text" นอกเหนือจากที่มีในรูป ref เดิม\n'
+        : '') +
       '6. Image ต้องเป็น single image, no collage, no multiple panels\n' +
-      '7. ตัวละครต้อง consistent ทุกฉาก — หน้า เสื้อผ้า สไตล์เดียวกัน; **ย้ำรายละเอียดเต็มต่อฉาก** ห้ามอ้าง "same as HERO BIBLE" / "ditto" / "ตามฉากก่อนหน้า" แทนคำบรรยาย — **โหมดโรงงาน:** รายละเอียดภาพต่อฉากอยู่ใน **`hero_full_detail` ของฉากนั้นเท่านั้น** — **ห้ามใส่การ์ดตัวละคร** แทนคำบรรยายใน prompt\n' +
-      '8. ห้ามแทนร่างตัวละครด้วยบรรทัด [Character Reference] / character card / การ์ดย่อ อย่างเดียว — **ทุกฉาก** บรรยายลักษณะตัวละครใหม่ครบในช่อง image prompt ของฉากนั้น (ซ้ำประโยคเต็มได้ ห้ามคำอ้างอย่างเดียว)\n' +
+      (noHeroMode
+        ? '7. **NO-HERO MODE** — ไม่มี hero หลักในเฟรม: IMAGE prompt ต้องโฟกัส **สินค้า + สภาพแวดล้อมโกดัง/ร้าน** — ห้ามสร้างหรือบรรยายผู้นำเสนอหลัก/presenter ในฉาก; ถ้ามีคนในเฟรมให้บรรยายเป็น "background warehouse workers, out of focus, not interacting with camera" เท่านั้น\n' +
+          '8. **NO-HERO MODE — ห้ามล็อก hero จาก ref:** ห้ามนำข้อมูลบุคคลจากรูป ref (หน้า/มือ/ชุด) มากำหนดเป็น presenter — ref ใช้ได้เฉพาะกำหนดสภาพแวดล้อม/ฉาก/มุมกล้องเท่านั้น\n'
+        : '7. ตัวละครต้อง consistent ทุกฉาก — หน้า เสื้อผ้า สไตล์เดียวกัน; **ย้ำรายละเอียดเต็มต่อฉาก** ห้ามอ้าง "same as HERO BIBLE" / "ditto" / "ตามฉากก่อนหน้า" แทนคำบรรยาย — **โหมดโรงงาน:** รายละเอียดภาพต่อฉากอยู่ใน **`hero_full_detail` ของฉากนั้นเท่านั้น** — **ห้ามใส่การ์ดตัวละคร** แทนคำบรรยายใน prompt\n' +
+          '8. ห้ามแทนร่างตัวละครด้วยบรรทัด [Character Reference] / character card / การ์ดย่อ อย่างเดียว — **ทุกฉาก** บรรยายลักษณะตัวละครใหม่ครบในช่อง image prompt ของฉากนั้น (ซ้ำประโยคเต็มได้ ห้ามคำอ้างอย่างเดียว) — **ห้าม** `(Hero A)` / `(hero a)` / `(ROLE_…)` **อย่างเดียว**; ฉลากสั้นใช้ได้เฉพาะ `Speaker:`\n'
+      ) +
+      (!factoryIso
+        ? '8a. **บังคับลักษณะฮีโร่ใน 🔴 IMAGE ทุกครั้ง:** ทุกคนที่เห็นในเฟรมต้องมีใน prompt **ภาษาอังกฤษ** (ทุกฉาก — copy ชุดเดิมซ้ำได้): เพศ · ช่วงอายุปี · โทนผิว · **ใบหน้าอย่างน้อย 2 จุดชัดเจน** · สี/ความยาว/ทรงผม · **รูปร่าง/ส่วนสูงโดยประมาณ** · ชุด/ยูนิฟอร์ม **ทีละชิ้น** (สี+ผ้า) · รองเท้า/เครื่องประดับ/ของในมือถ้ามี — **ห้าม** จบที่ young woman/man / beautiful / handsome / manager / maid / businessman / ชื่อ ROLE อย่างเดียว\n'
+        : '') +
+      (isPhotorealLiveAction
+        ? '8b. **PHOTOREAL:** หลายคนในเฟรม = **ย่อหน้าอังกฤษแยกคน** ต่อคนตาม IMAGE TEMPLATE (CHARACTER LOCK) — ไม่รวมเป็นบรรทัดเดียวจางๆ\n'
+        : '') +
       '9. ถ้ามีสินค้า ต้องเห็นสินค้าชัดเจนในทุกฉาก\n' +
+      (factoryIso && noHeroMode && payload.factoryRefNoHeroAttached
+        ? '9a. **REF SCENE LOCK (NO-HERO) บังคับ** — มีรูป ref ฉาก (no-hero) แนบ: ทุกฉากต้องอยู่ใน **สภาพแวดล้อมเดียวกับ ref** (เปลี่ยนได้เฉพาะมุม/ระยะ/จังหวะ) — ห้ามย้ายโลเคชัน ห้ามสตูดิโอใหม่\n' +
+          '9b. **ห้ามสร้างบรรทัด «แนบรูป ref / Picture Ref / อัปโหลด reference»** ใน output — IMAGE prompt ต้องบรรยายฉากต่อยอดจาก ref โดยตรง\n' +
+          '9c. **ห้ามสร้าง presenter จาก ref:** คนในรูป ref = ตัวประกอบ (extras) เท่านั้น — ห้ามนำใบหน้า/ชุด/ท่าทางของบุคคลในรูป ref มาใช้เป็น hero/presenter ในฉาก\n'
+        : factoryIso && payload.factoryRefAttached
+          ? '9a. **REF SCENE LOCK บังคับ** — มีรูป ref ฉากแนบ: ทุกฉากต้องอยู่ใน **สภาพแวดล้อมเดียวกับ ref** (เปลี่ยนได้เฉพาะมุม/ระยะ/จังหวะ) — ห้ามย้ายโลเคชัน ห้ามสตูดิโอใหม่ ห้ามฉากที่ไม่ปรากฏใน ref\n' +
+            '9b. **ห้ามสร้างบรรทัด «แนบรูป ref / Picture Ref / อัปโหลด reference»** ใน output — user มีรูป ref อยู่แล้ว ไม่ต้องแนะนำขั้นตอนให้ user หารูปใหม่ — IMAGE prompt ต้องเป็นคำบรรยายฉากต่อยอดจาก ref โดยตรง\n' +
+            (
+              (function () {
+                var heroVis = payload.factoryRefAnalysis && payload.factoryRefAnalysis.hero_visibility;
+                return heroVis === 'hands_only';
+              })()
+                ? '9c. **HANDS ONLY MODE** — hero ในรูป ref แสดงเฉพาะมือ/แขนส่วนล่าง: IMAGE/VIDEO prompt ต้องบรรยายเฉพาะ **มือ/แขนที่มองเห็น + สินค้าที่ถือ** — ห้ามดึงใบหน้า ไหล่เต็ม หรือร่างเต็มตัวเข้าในเฟรม\n'
+                : ''
+            )
+          : '') +
       '10. Scene header ต้องใช้ === SCENE N: NAME === เท่านั้น (สำคัญสำหรับ parser)\n' +
       '11. Prompt ต้องอยู่ใน code block (```) เสมอ\n' +
       '12. จำนวนฉาก: ' +
@@ -618,13 +744,20 @@
       voiceGenderBanTh +
       ' (ยกเว้น ASMR ไม่มีเสียงพูด)\n' +
       '14. HERO BIBLE — ใช้ฉบับด้านล่าง: รายละเอียดเต็ม **ห้ามใช้การ์ดย่อแทนคำบรรยาย**; ทุกครั้งที่พูด/ออกฉาก ย้ำรายละเอียดเพียงพอเพื่อ consistency — **ทุกฉากเขียนบรรยายตัวละครใน prompt ใหม่ครบ** (ไม่บังคับ "มีชื่อเล่นเสมอ")\n' +
-      (factoryIso && !isASMR
-        ? '15. SPEAKER + TTS/voice + DIALOGUE (โหมดโรงงาน): ท้าย 🟢 VIDEO **ทุกฉาก** ครบ **Speaker:** + **TTS/voice:** + **Dialogue:** — `Speaker:` = ฉลากสั้น (เช่น `ROLE_STAFF`, พี่พนักงานโกดัง); **`TTS/voice:` = master ทั้งตัวตนและเสียง** — ต้องมี **เพศ วัย ใบหน้า/ร่าง/ชุด** ให้ตรงกับคนใน IMAGE/`hero_full_detail` ฉากนั้น + โทนเสียง + พูดเร็วมาก (ไทย ≥2 ประโยค + EN 1 ประโยค) และ **ถ้อยคำไทยชุดเดียวกัน**ทุกฉากที่เป็นผู้พูดคนเดียวกัน — **เขียนข้อความเต็มซ้ำทุกฉาก** ห้ามย่อว่า "เหมือนฉากก่อนหน้า"; **ห้าม**มีแค่ Speaker โดยไม่บรรยายหน้าตา/ชุดใน TTS/voice; ROLE อื่นใน ACTION = เงียบ — **ห้าม** map เสียงจาก ROLE_ ตัวแรกแทน Speaker\n' +
-          '16. HERO BIBLE / hero_full_detail ↔ เสียง: ฝั่งภาพ = รายละเอียดใน IMAGE/`hero_full_detail` ต่อฉาก (field ฉากนั้นเท่านั้น); ฝั่งวิดีโอ = **ยึด Speaker + Dialogue** และ **`TTS/voice` ต้องสะท้อนคนเดียวกับภาพ** — ห้ามอ้างดึงนอก field แทนการเขียนครบใน `TTS/voice`; multi-character ใน `hero_full_detail` = คนอื่น **เงียบ/ไม่ lip-sync** กับบทนี้\n' +
-          '17. **ห้ามการ์ด / ห้าม REF:** ห้ามส่งออกบล็อก character card / การ์ดตัวละครย่อ / `[Character Card]` — **ทุกฉากทุกรอบ** เขียนบรรยายลักษณะตัวละคร **ใหม่ครบ** ใน 🔴 IMAGE / `hero_full_detail` และ `TTS/voice` (พิมพ์ซ้ำประโยคเต็มได้ถ้าล็อกคนเดียวกัน; ห้ามแทนด้วยการ์ดหรือคำอ้างอย่างเดียว)\n'
-        : '15. SPEAKER + TTS/voice + DIALOGUE (ยกเว้น ASMR ไม่มี speech): ท้าย block 🟢 VIDEO **ทุกฉาก** ต้องมีครบ **Speaker:** + **TTS/voice:** + **Dialogue:** — `Speaker:` = ฉลากสั้นใครพูด; **`TTS/voice:` = master สำหรับความสม่ำเสมอของเสียง** (เพศ วัย ลักษณะเสียง ความเร็ว) ต้องเขียน **ยาวพอ** (ไทย ≥2 ประโยค + EN 1 ประโยค) และ **เหมือนกันทุกฉาก**ที่เป็นผู้พูดคนเดียวกัน — ห้ามเขียนแค่ชื่อบทบาทใน Speaker โดยไม่มี TTS/voice; แม้ ACTION มีหลาย ROLE_ ให้ **ตัวที่ไม่ใช่ Speaker เงียบ/ไม่ lip-sync** — ห้าม map เสียงจาก ROLE_ ตัวแรกใน ACTION แทน Speaker/TTS/voice — **ทุกฉากเขียน `TTS/voice` เต็มใหม่ ห้าม REF**\n' +
+      (factoryIso && !isASMR && noHeroMode
+        ? '15. SPEAKER + TTS/voice + DIALOGUE (โหมดโรงงาน / NO-HERO): ท้าย 🟢 VIDEO **ทุกฉาก** ครบ **Speaker:** + **TTS/voice:** + **Dialogue:** — `Speaker: VO` (voice-over; ไม่มีผู้พูดบนกล้อง); **`TTS/voice:` = lock เสียงของ VO** — ต้องมี **เพศ วัย โทนเสียง ความเร็วพูด (เร็วมาก rapid-fire)** + ถ้อยคำไทยชุดเดียวกันทุกฉาก — **เขียนข้อความเต็มซ้ำทุกฉาก** ห้ามย่อ; **ไม่ต้องบรรยายหน้าตา/ชุด** เพราะเป็น VO ไม่มี on-camera identity; ตัวประกอบในเฟรมทั้งหมด **เงียบ / ไม่ lip-sync** กับบทนี้\n' +
+          '16. NO-HERO — ไม่มี hero_full_detail สำหรับผู้นำเสนอ: IMAGE prompt โฟกัสสินค้า + สภาพแวดล้อม; ฝั่งวิดีโอยึด Speaker/TTS/voice/Dialogue ตามข้อ 15\n' +
+          '17. **ห้ามการ์ด / ห้าม REF:** ห้ามส่งออกบล็อก character card ในโหมด no-hero\n' +
+          '18. **ห้ามสร้าง presenter จาก ref:** ห้ามเขียน IMAGE prompt ที่บรรยายบุคคลจากรูป ref ว่าเป็นตัวหลักในเฟรม\n'
+        : factoryIso && !isASMR
+          ? '15. SPEAKER + TTS/voice + DIALOGUE (โหมดโรงงาน): ท้าย 🟢 VIDEO **ทุกฉาก** ครบ **Speaker:** + **TTS/voice:** + **Dialogue:** — `Speaker:` = ฉลากสั้น (เช่น `ROLE_STAFF`, พี่พนักงานโกดัง); **`TTS/voice:` = master ทั้งตัวตนและเสียง** — ต้องมี **เพศ วัย ใบหน้า/ร่าง/ชุด** ให้ตรงกับคนใน IMAGE/`hero_full_detail` ฉากนั้น + โทนเสียง + พูดเร็วมาก (ไทย ≥2 ประโยค + EN 1 ประโยค) และ **ถ้อยคำไทยชุดเดียวกัน**ทุกฉากที่เป็นผู้พูดคนเดียวกัน — **เขียนข้อความเต็มซ้ำทุกฉาก** ห้ามย่อว่า "เหมือนฉากก่อนหน้า"; **ห้าม**มีแค่ Speaker โดยไม่บรรยายหน้าตา/ชุดใน TTS/voice; ROLE อื่นใน ACTION = เงียบ — **ห้าม** map เสียงจาก ROLE_ ตัวแรกแทน Speaker\n' +
+            '16. HERO BIBLE / hero_full_detail ↔ เสียง: ฝั่งภาพ = รายละเอียดใน IMAGE/`hero_full_detail` ต่อฉาก (field ฉากนั้นเท่านั้น); ฝั่งวิดีโอ = **ยึด Speaker + Dialogue** และ **`TTS/voice` ต้องสะท้อนคนเดียวกับภาพ** — ห้ามอ้างดึงนอก field แทนการเขียนครบใน `TTS/voice`; multi-character ใน `hero_full_detail` = คนอื่น **เงียบ/ไม่ lip-sync** กับบทนี้\n' +
+            '17. **ห้ามการ์ด / ห้าม REF:** ห้ามส่งออกบล็อก character card / การ์ดตัวละครย่อ / `[Character Card]` — **ทุกฉากทุกรอบ** เขียนบรรยายลักษณะตัวละคร **ใหม่ครบ** ใน 🔴 IMAGE / `hero_full_detail` และ `TTS/voice` (พิมพ์ซ้ำประโยคเต็มได้ถ้าล็อกคนเดียวกัน; ห้ามแทนด้วยการ์ดหรือคำอ้างอย่างเดียว)\n' +
+            '18. **ห้ามฉลากอย่างเดียวใน output ที่ user copy ไป gen ภาพ:** prompt ภาพและ `hero_full_detail` ต้องเป็นประโยคบรรยายตัวละครจริง — ห้ามส่งแค่ `(Hero A)` / `(ROLE_STAFF)` / ชื่อย่อโดยไม่มีเพศ วัย รูปร่าง ผม ชุดในบล็อกเดียวกัน\n'
+        : '15. SPEAKER + TTS/voice + DIALOGUE (ยกเว้น ASMR ไม่มี speech): ท้าย block 🟢 VIDEO **ทุกฉาก** ต้องมีครบ **Speaker:** + **TTS/voice:** + **Dialogue:** — `Speaker:` = ฉลากสั้นใครพูด; **`TTS/voice:` = master ทั้งตัวตนและเสียง** — ต้องมี **เพศ · วัย · ลักษณะใบหน้า/ผิว/รูปร่างโดยย่อ · ชุดหรือของแต่งกาย** ให้ตรงกับผู้พูดใน IMAGE/`hero_full_detail` ฉากนั้น + โทนเสียง + ความเร็วการพูด; ต้องเขียน **ยาวพอ** (ไทย ≥2 ประโยค + EN 1 ประโยค) และ **ถ้อยคำไทยชุดเดียวกัน**ทุกฉากที่เป็นผู้พูดคนเดียวกัน — **เขียนข้อความเต็มซ้ำทุกฉาก ห้ามย่อเป็น ref** — ห้ามเขียนแค่ชื่อบทบาทใน Speaker โดยไม่มี TTS/voice; แม้ ACTION มีหลาย ROLE_ ให้ **ตัวที่ไม่ใช่ Speaker เงียบ/ไม่ lip-sync** — ห้าม map เสียงจาก ROLE_ ตัวแรกใน ACTION แทน Speaker/TTS/voice\n' +
           '16. HERO BIBLE / hero_full_detail: รายละเอียดหน้าตา/เสื้อผ้า/กล้อง — **อยู่ใน field ภาพต่อฉาก (`hero_full_detail` หรือข้อความ IMAGE prompt)** เท่านั้น; ฝั่งเสียงยึด **TTS/voice** + **Dialogue** — ห้ามอ้าง "ดึงจากนอก field" แทนการเขียนเต็มใน field นั้น\n' +
-          '17. **ห้ามการ์ด / ห้าม REF:** ห้ามส่งออกบล็อก character card / การ์ดย่อ — **ทุกฉาก** เขียนบรรยายตัวละครใน IMAGE prompt และ `TTS/voice` **ใหม่ครบ** (ซ้ำประโยคเต็มได้; ห้าม "เหมือนฉากก่อนหน้า" / การ์ด แทนคำบรรยาย)\n') +
+          '17. **ห้ามการ์ด / ห้าม REF:** ห้ามส่งออกบล็อก character card / การ์ดย่อ — **ทุกฉาก** เขียนบรรยายตัวละครใน IMAGE prompt และ `TTS/voice` **ใหม่ครบ** (ซ้ำประโยคเต็มได้; ห้าม "เหมือนฉากก่อนหน้า" / การ์ด แทนคำบรรยาย)\n' +
+          '18. **ห้ามฉลากอย่างเดียวใน output ที่ user copy ไป gen ภาพ:** 🔴 IMAGE / `hero_full_detail` ต้องมีประโยคบรรยายลักษณะครบ — ห้ามแค่ `(Hero A)` / `(ROLE_…)`; ฉลากสั้นใช้ได้เฉพาะบรรทัด `Speaker:`\n') +
       '\n' +
       (
         !factoryIso &&
@@ -684,7 +817,18 @@
               '   (ลดความอ้วน / หายขาด / ที่สุดในโลก / อย.รับรอง / ฯลฯ)'
             )
           : ''
-      )
+      ) +
+      /* FACTORY_NO_HERO_RUNTIME_SUPPLEMENT: override DNA lines ที่พูดถึง on-camera seller */
+      (factoryIso && noHeroMode
+        ? '\n\n══ FACTORY NO-HERO OVERRIDE (บังคับสูงกว่าบล็อก FACTORY DNA ด้านบน) ══\n' +
+          'โหมดนี้ไม่มี presenter/ผู้ขายหน้ากล้อง:\n' +
+          '• ห้ามสร้าง on-camera hero หรือ presenter ที่ lip-sync กับบทพูด\n' +
+          '• ห้ามบรรยายบุคคลใดจากรูป ref เป็น hero หลักในฉาก\n' +
+          '• บุคคลที่ปรากฏในเฟรม = background extras เท่านั้น (เบลอ/ระยะไกล/ไม่มองกล้อง)\n' +
+          '• บทพูดทั้งหมดเป็น Voice-Over (VO) เท่านั้น — no lip-sync with anyone in frame\n' +
+          '• Speaker: VO ทุกฉาก — TTS/voice ต้อง lock เสียง VO ไม่ใช่ on-camera person\n' +
+          '══ END FACTORY NO-HERO OVERRIDE ══'
+        : '')
     );
   }
 
@@ -711,7 +855,11 @@
     const productNames = (img.productNames && img.productNames.length)
       ? img.productNames
       : (img.productName ? [img.productName] : []);
-    if (img.productAttached || img.characterAttached) {
+    var refAttachedMeta = !!(payload.factoryRefAttached);
+    var noHeroRefAttached = !!(payload.factoryRefNoHeroAttached);
+    var refNames = (img.refNames && img.refNames.length) ? img.refNames : [];
+    var refNoHeroNames = (img.refNoHeroNames && img.refNoHeroNames.length) ? img.refNoHeroNames : [];
+    if (img.productAttached || img.characterAttached || refAttachedMeta || noHeroRefAttached) {
       msg += '\n═══ รูปแนบ (ลำดับส่ง = inline image) ═══\n';
       if (img.productAttached) {
         msg += 'สินค้า (' + (img.productAttachedCount || productNames.length || 1) + ' รูป): ' + (productNames.join(', ') || '(attached)') + '\n';
@@ -720,12 +868,25 @@
       if (img.characterAttached) {
         msg += 'ตัวละคร ref: ' + (charNames.join(', ') || '(attached)') + '\n';
       }
+      if (refAttachedMeta) {
+        msg += 'รูป ref ฉาก/Hero (' + (img.factoryRefCount || refNames.length || 1) + ' รูป): ' + (refNames.join(', ') || '(attached)') + '\n';
+        msg += '→ ภาพ ref = ต้นแบบฉาก + Hero — ทุกซีนต้องอยู่ในสภาพแวดล้อมเดียวกับ ref เท่านั้น\n';
+      }
+      if (noHeroRefAttached) {
+        msg += 'รูป ref ฉาก (NO-HERO) (' + (img.factoryRefNoHeroCount || refNoHeroNames.length || 1) + ' รูป): ' + (refNoHeroNames.join(', ') || '(attached)') + '\n';
+        msg += '→ ภาพ ref นี้ = ต้นแบบฉาก/บรรยากาศเท่านั้น — ไม่มี hero หลักจาก ref; คนในรูป = ตัวประกอบเงียบ ไม่มีบทพูด; เสียงพูดทั้งหมดเป็น VO ตาม voice lock เดิม\n';
+      }
     }
 
+    var noHeroUserMsg = !!(payload.factoryRefNoHeroMode);
     msg +=
       '\nปฏิบัติตามบล็อก FACTORY DNA ใน system instruction เท่านั้น — โทน บทพูด มุมกล้อง สไตล์ภาพ ให้ DNA เป็นตัวกำหนด' +
       '\nกฎความปลอดภัยโฆษณาและคำต้องห้าม (FORBIDDEN_MARKETING_PHRASES / OVERCLAIM) ยังใช้ตาม system เช่นเดิม' +
-      '\n**ห้ามใส่การ์ด / ห้าม REF:** อย่าใส่บล็อก character card / การ์ดตัวละครใน output — **ทุกฉาก** เขียนบรรยายตัวละครเต็มใน IMAGE / `hero_full_detail` และ `TTS/voice` ใหม่ครบ (พิมพ์ซ้ำประโยคล็อกได้ ห้ามคำอ้างหรือการ์ดแทน)' +
+      (noHeroUserMsg
+        ? '\n**โหมด NO-HERO:** ไม่มีผู้นำเสนอ/presenter บนกล้อง — ห้ามสร้าง on-camera hero จาก ref; ทุกคนในเฟรม = ตัวประกอบเงียบ; บทพูดทั้งหมดเป็น VO เท่านั้น'
+        : '\n**ห้ามใส่การ์ด / ห้าม REF:** อย่าใส่บล็อก character card / การ์ดตัวละครใน output — **ทุกฉาก** เขียนบรรยายตัวละครเต็มใน IMAGE / `hero_full_detail` และ `TTS/voice` ใหม่ครบ (พิมพ์ซ้ำประโยคล็อกได้ ห้ามคำอ้างหรือการ์ดแทน)' +
+          '\n**ห้ามฉลากอย่างเดียวใน prompt ภาพ:** ห้าม `(Hero A)` / `(ROLE_…)` แทนคำบรรยาย — IMAGE / `hero_full_detail` ต้องมีประโยคครบ เพศ วัย รูปร่าง ผม ชุด (ฉลากสั้นใช้ได้เฉพาะ `Speaker:`)'
+      ) +
       '\n**เพดานคำ:** บทไทยใน `Dialogue:` **ไม่เกิน ' +
       FACTORY_DIALOGUE_MAX_WORDS_TH +
       ' คำต่อฉาก** — นับก่อนส่งผล';
@@ -749,6 +910,41 @@
         '\n\n══ PRODUCT BIBLE (วิเคราะห์จากรูปสินค้าที่แนบ — ห้ามขัด ห้ามแต่งเพิ่ม) ══\n' +
         factoryProductBlock +
         '\n══ END PRODUCT BIBLE ══';
+    }
+
+    /* REF SCENE LOCK — แยกตาม mode: no-hero vs hero+scene */
+    var refLockBlock = '';
+    var noHeroModeUser = !!(payload.factoryRefNoHeroMode);
+    if (noHeroModeUser) {
+      /* กล่อง no-hero: ใช้ summarizer ที่ไม่มี hero_lock */
+      if (payload.factoryRefNoHeroAnalysis && typeof summarizeFactoryRefNoHeroAnalysisForPrompt === 'function') {
+        var rlsn = summarizeFactoryRefNoHeroAnalysisForPrompt(payload.factoryRefNoHeroAnalysis);
+        if (rlsn && rlsn.trim()) refLockBlock = rlsn.trim();
+      }
+      if (!refLockBlock && payload.factoryRefNoHeroAnalysisText && String(payload.factoryRefNoHeroAnalysisText).trim()) {
+        refLockBlock = String(payload.factoryRefNoHeroAnalysisText).trim();
+      }
+      if (refLockBlock) {
+        msg +=
+          '\n\n══ REF SCENE LOCK (NO-HERO — ฉากอ้างอิงเท่านั้น; ห้ามล็อก hero/presenter จาก ref นี้ — บังคับทุกฉาก) ══\n' +
+          refLockBlock +
+          '\n══ END REF SCENE LOCK ══';
+      }
+    } else {
+      /* กล่อง factoryRef เดิม: hero+scene lock */
+      if (payload.factoryRefAnalysis && typeof summarizeFactoryRefAnalysisForPrompt === 'function') {
+        var rls = summarizeFactoryRefAnalysisForPrompt(payload.factoryRefAnalysis);
+        if (rls && rls.trim()) refLockBlock = rls.trim();
+      }
+      if (!refLockBlock && payload.factoryRefAnalysisText && String(payload.factoryRefAnalysisText).trim()) {
+        refLockBlock = String(payload.factoryRefAnalysisText).trim();
+      }
+      if (refLockBlock) {
+        msg +=
+          '\n\n══ REF SCENE LOCK (จากรูป ref — บังคับทุกฉาก ห้ามขัด) ══\n' +
+          refLockBlock +
+          '\n══ END REF SCENE LOCK ══';
+      }
     }
 
     if (smOutputType !== 'both') {
@@ -1346,6 +1542,163 @@
     return lines.join('\n');
   }
 
+  /**
+   * REF SCENE ANALYSIS — อ่านรูป ref ฉากจริง (สินค้า + ฮีโร่ + โลเคชัน + ข้อความ)
+   * คืน JSON เพื่อสร้าง REF SCENE LOCK ในสคริปต์โรงงาน
+   */
+  function buildFactoryRefAnalysisSystemPrompt() {
+    return (
+      'You are a scene & hero analyst for factory/warehouse TikTok video production. ' +
+      'The user attaches 1+ reference image(s) showing a real commercial or warehouse scene — may include a person presenting a product. ' +
+      'Read every image carefully. Output a single valid JSON object only — no markdown, no backticks, no commentary outside JSON. ' +
+      'Schema (use null for unknown; confidence: number 0-1):\n' +
+      '{\n' +
+      '  "schema_version": "factory_ref_v1",\n' +
+      '  "hero_visibility": "full" | "partial_face" | "hands_only" | "no_person",\n' +
+      '  "hero_lock_en": "one dense English paragraph — gender, estimated age band, skin tone, face shape + 2 facial traits, hair color/length/style, body build, outfit item-by-item with colors; write null if no person visible",\n' +
+      '  "hero_lock_th": "same information in Thai — one paragraph; null if no person",\n' +
+      '  "hands_only_note": "describe the hands/arms visible if hero_visibility is hands_only, else null",\n' +
+      '  "product_in_scene": { "name_th": string|null, "name_en": string|null, "color": string|null, "packaging": string|null, "visible_text": [array of strings], "visible_price": string|null },\n' +
+      '  "scene_lock_en": "one English paragraph — location type (warehouse/store/street/home), background elements (shelves/boxes/signage/colors), lighting style, camera angle, atmosphere; this is the ONLY allowed scene for the generated clips",\n' +
+      '  "scene_lock_th": "same in Thai",\n' +
+      '  "promo_numbers_visible": [array of strings — prices, discount %, limited-time text visible in image],\n' +
+      '  "consistency_note": "short Thai note about key visual elements that must stay consistent across all scenes",\n' +
+      '  "confidence": { "overall": number }\n' +
+      '}\n' +
+      'Rules: do NOT invent details not visible in the image. ' +
+      'Extract visible_text / promo_numbers_visible verbatim for scene truth only — downstream video/image prompts must preserve that text exactly on the physical surfaces (packaging, signs, labels); no re-typesetting, no translation, no motion typography, no added text overlays. ' +
+      'If hero_visibility is "hands_only", hero_lock_en/th must describe ONLY the visible hands/arms/held object — do NOT describe or infer a face or full body. ' +
+      'Keep scene_lock_en concise but specific enough to reproduce the same environment in every scene.'
+    );
+  }
+
+  function buildFactoryRefAnalysisUserMessage(orderLegend) {
+    return (
+      'Task: output ONLY the JSON object described in the system instruction. ' +
+      'Image order legend (0-based indices refer to attached images):\n' +
+      String(orderLegend || '(no legend)') +
+      '\n\nIf multiple images, merge observations — use the clearest image for each field. ' +
+      'Write Thai strings in Thai script. Numbers/prices keep as-is.'
+    );
+  }
+
+  /** สรุป factory ref analysis เป็นบล็อก REF SCENE LOCK สำหรับแนบ user message */
+  function summarizeFactoryRefAnalysisForPrompt(parsed) {
+    if (!parsed || typeof parsed !== 'object') return '';
+    var lines = [];
+    var hv = parsed.hero_visibility || 'unknown';
+    lines.push('• Hero ที่เห็น: ' + hv);
+    if (parsed.hero_lock_th && String(parsed.hero_lock_th).trim()) {
+      lines.push('• Hero LOCK (TH): ' + String(parsed.hero_lock_th).trim());
+    }
+    if (parsed.hero_lock_en && String(parsed.hero_lock_en).trim()) {
+      lines.push('• Hero LOCK (EN): ' + String(parsed.hero_lock_en).trim());
+    }
+    if (hv === 'hands_only' && parsed.hands_only_note) {
+      lines.push('• มือ/แขน: ' + String(parsed.hands_only_note).trim());
+    }
+    var p = parsed.product_in_scene || {};
+    var pname = p.name_th || p.name_en;
+    if (pname) lines.push('• สินค้าในรูป: ' + pname);
+    if (p.packaging) lines.push('• แพ็ค: ' + p.packaging);
+    if (Array.isArray(p.visible_text) && p.visible_text.length) {
+      lines.push('• ข้อความบนรูป: ' + p.visible_text.slice(0, 6).join(' | '));
+    }
+    if (p.visible_price) lines.push('• ราคาในรูป: ' + p.visible_price);
+    if (parsed.scene_lock_th && String(parsed.scene_lock_th).trim()) {
+      lines.push('• ฉาก LOCK (TH): ' + String(parsed.scene_lock_th).trim());
+    }
+    if (parsed.scene_lock_en && String(parsed.scene_lock_en).trim()) {
+      lines.push('• Scene LOCK (EN): ' + String(parsed.scene_lock_en).trim());
+    }
+    if (Array.isArray(parsed.promo_numbers_visible) && parsed.promo_numbers_visible.length) {
+      lines.push('• โปร/ราคาในรูป: ' + parsed.promo_numbers_visible.slice(0, 6).join(' | '));
+    }
+    if (parsed.consistency_note) {
+      lines.push('• Consistency note: ' + String(parsed.consistency_note).trim());
+    }
+    var hasRefText =
+      (Array.isArray(p.visible_text) && p.visible_text.length) ||
+      !!p.visible_price ||
+      (Array.isArray(parsed.promo_numbers_visible) && parsed.promo_numbers_visible.length);
+    if (hasRefText) {
+      lines.unshift(
+        '• TEXT LOCK: ข้อความ/ราคาในรูปต้องคงบนพื้นผิวจริงเหมือนต้นทาง — ห้าม text overlay / kinetic typography / แปลหรือ animate'
+      );
+    }
+    return lines.join('\n');
+  }
+
+  /**
+   * NO-HERO REF ANALYSIS — อ่านรูป ref ฉากเท่านั้น (ไม่ล็อก hero/presenter หลัก)
+   * ใช้เมื่อผู้ใช้เลือกกล่อง "ref ฉาก (ไม่มี hero หลัก)"
+   */
+  function buildFactoryRefNoHeroAnalysisSystemPrompt() {
+    return (
+      'You are a scene & location analyst for factory/warehouse TikTok video production. ' +
+      'The user attaches 1+ reference image(s) showing a real commercial or warehouse scene. ' +
+      'Your ONLY job is to describe the ENVIRONMENT, LIGHTING, CAMERA ANGLE, SIGNAGE, and ATMOSPHERE. ' +
+      'Do NOT identify, lock, or describe any person as a main presenter or hero. ' +
+      'If people appear in the image, treat them as incidental background extras — describe their presence briefly under extras_note but do NOT create any hero_lock. ' +
+      'Output a single valid JSON object only — no markdown, no backticks, no commentary outside JSON. ' +
+      'Schema (use null for unknown; confidence: number 0-1):\n' +
+      '{\n' +
+      '  "schema_version": "factory_ref_no_hero_v1",\n' +
+      '  "primary_presenter": false,\n' +
+      '  "extras_note_en": "brief description of any people visible — treat as background extras, no face lock; null if no people",\n' +
+      '  "extras_note_th": "same in Thai; null if no people",\n' +
+      '  "scene_lock_en": "one English paragraph — location type (warehouse/store/street/home), background elements (shelves/boxes/signage/colors), lighting style, camera angle, atmosphere; this is the ONLY allowed scene environment for all generated clips",\n' +
+      '  "scene_lock_th": "same in Thai",\n' +
+      '  "product_context_en": "brief note on any product or merchandise visible in the scene — do NOT describe hands holding product as a hero action; null if no product visible",\n' +
+      '  "promo_numbers_visible": ["array of price/discount/text strings visible on signs or packaging in the background"],\n' +
+      '  "consistency_note": "short Thai note about key visual environment elements that must stay consistent across all scenes",\n' +
+      '  "confidence": { "overall": 0.9 }\n' +
+      '}\n' +
+      'CRITICAL RULES:\n' +
+      '1. hero_lock, hero_visibility, hands_only_note are NOT part of this schema — do NOT output them.\n' +
+      '2. Never describe any person as main presenter, hero, or on-camera seller.\n' +
+      '3. Product appearance comes from the PRODUCT slot images, not from this ref — do NOT lock product-hold gesture as a required action.\n' +
+      '4. Keep scene_lock_en specific enough to reproduce the same environment in every scene.'
+    );
+  }
+
+  function buildFactoryRefNoHeroAnalysisUserMessage(orderLegend) {
+    return (
+      'Task: output ONLY the JSON object described in the system instruction. ' +
+      'Image order legend (0-based indices refer to attached images):\n' +
+      String(orderLegend || '(no legend)') +
+      '\n\nIf multiple images, merge observations — use the clearest image for each field. ' +
+      'Focus on ENVIRONMENT only. Do NOT create any hero or presenter lock. Write Thai strings in Thai script. Numbers/prices keep as-is.'
+    );
+  }
+
+  /** สรุป factory ref no-hero analysis เป็นบล็อก REF SCENE LOCK (ไม่มี Hero LOCK) */
+  function summarizeFactoryRefNoHeroAnalysisForPrompt(parsed) {
+    if (!parsed || typeof parsed !== 'object') return '';
+    var lines = [];
+    lines.push('• โหมด: ฉากอ้างอิง (ไม่มี hero หลัก) — คนในเฟรม = ตัวประกอบเงียบ ไม่มีบทพูด');
+    if (parsed.extras_note_th && String(parsed.extras_note_th).trim()) {
+      lines.push('• ตัวประกอบในรูป: ' + String(parsed.extras_note_th).trim());
+    }
+    if (parsed.scene_lock_th && String(parsed.scene_lock_th).trim()) {
+      lines.push('• ฉาก LOCK (TH): ' + String(parsed.scene_lock_th).trim());
+    }
+    if (parsed.scene_lock_en && String(parsed.scene_lock_en).trim()) {
+      lines.push('• Scene LOCK (EN): ' + String(parsed.scene_lock_en).trim());
+    }
+    if (parsed.product_context_en && String(parsed.product_context_en).trim()) {
+      lines.push('• Context สินค้า: ' + String(parsed.product_context_en).trim());
+    }
+    if (Array.isArray(parsed.promo_numbers_visible) && parsed.promo_numbers_visible.length) {
+      lines.push('• ข้อความ/โปร/ราคาในรูป: ' + parsed.promo_numbers_visible.slice(0, 6).join(' | '));
+      lines.unshift('• TEXT LOCK: ข้อความ/ราคาในรูปต้องคงบนพื้นผิวจริงเหมือนต้นทาง — ห้าม text overlay / kinetic typography / แปลหรือ animate');
+    }
+    if (parsed.consistency_note) {
+      lines.push('• Consistency note: ' + String(parsed.consistency_note).trim());
+    }
+    return lines.join('\n');
+  }
+
   window.MockStorymodeGemini = {
     STORYMODE_PROMPT_ASSET_VERSION: g.STORYMODE_PROMPT_ASSET_VERSION,
     STORY_TYPE_TEMPLATES: STORY_TYPE_TEMPLATES,
@@ -1357,6 +1710,12 @@
     buildProductAnalysisSystemPrompt: buildProductAnalysisSystemPrompt,
     buildProductAnalysisUserMessage: buildProductAnalysisUserMessage,
     summarizeProductAnalysisForPrompt: summarizeProductAnalysisForPrompt,
+    buildFactoryRefAnalysisSystemPrompt: buildFactoryRefAnalysisSystemPrompt,
+    buildFactoryRefAnalysisUserMessage: buildFactoryRefAnalysisUserMessage,
+    summarizeFactoryRefAnalysisForPrompt: summarizeFactoryRefAnalysisForPrompt,
+    buildFactoryRefNoHeroAnalysisSystemPrompt: buildFactoryRefNoHeroAnalysisSystemPrompt,
+    buildFactoryRefNoHeroAnalysisUserMessage: buildFactoryRefNoHeroAnalysisUserMessage,
+    summarizeFactoryRefNoHeroAnalysisForPrompt: summarizeFactoryRefNoHeroAnalysisForPrompt,
     RESULT_STORAGE_KEY: 'storymodeMockGeminiResultV1'
   };
 })();

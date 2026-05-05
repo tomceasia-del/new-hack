@@ -22,7 +22,7 @@ Per-scene output schema:
   image_prompt     : str           — English, first-person POV
   video_prompt     : str           — English; include one short Thai clause that voice matches voice_profile_th + voice_script_th (for editing consistency)
   caption_th       : str           — Thai TikTok caption in hero's voice
-  voice_script_th  : str           — Thai spoken lines for VO/TTS this scene only (~15–20 words); must match voice_profile_th and hero_id tone
+  voice_script_th  : str           — Thai spoken lines for VO/TTS this scene only (HARD LIMIT ≤ 20 words, count on whitespace); must match voice_profile_th and hero_id tone
 
 Forbidden gate runs on:
   - user_prompt (input)  → warning attached, Gemini still called
@@ -130,7 +130,7 @@ Shape:
       "image_prompt":     <English; first-person POV; realistic store clone; specific branding>,
       "video_prompt":     <English POV walking + optionally one short Thai clause echoing voice_script_th mood — same narrator as voice_profile_th>,
       "caption_th":       <Thai; TikTok caption; match hero_id §5b–5c; CTA buy on TikTok; no forbidden phrases>,
-      "voice_script_th":  <Thai; walking POV dialogue for THIS scene — NEVER empty; ~18–40 Thai words ok when repeating full product name + pack traits; MUST match voice_profile_th AND hero_id §5c>
+      "voice_script_th":  <Thai; walking POV dialogue for THIS scene — NEVER empty; HARD LIMIT ≤ 20 Thai words (count on whitespace); aim 15–18 words to leave room for CTA; MUST match voice_profile_th AND hero_id §5c>
     }},
     ... exactly {scene_count} objects in `scenes`
   ]
@@ -389,6 +389,14 @@ def run_mall_mode(body: dict, gemini_key: str) -> dict:
                     warnings.append(
                         f"scene {scene.get('scene_number', '?')} [{field}]: "
                         + ", ".join(hits)
+                    )
+            vs = (scene.get("voice_script_th") or "").strip()
+            if vs:
+                word_count = len(vs.split())
+                if word_count > 20:
+                    warnings.append(
+                        f"scene {scene.get('scene_number', '?')} [voice_script_th]: "
+                        f"บทพูดยาว {word_count} คำ (เกินเพดาน 20 คำ)"
                     )
 
     result: dict = {

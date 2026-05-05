@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Local dev: static + เส้นทางเดียวกับ Vercel (rewrites) + /api แบบอ่านได้
-- URL: /, /login, /admin, /cs, /result, /editor … ใช้ได้ (ไม่ต้องใส่ .html ทุกที่)
+- URL: /, /login, /admin, /cs, /mall, /factory, /moral, /moral-drama, /result, /editor … ใช้ได้ (ไม่ต้องใส่ .html ทุกที่)
 - /api/gemini* ยัง forward ตาม serve_story_mock (ต้องมี GEMINI_API_KEY ถ้าใช้ mock)
 - /api/auth/* และ /api/admin/* สตับใน RAM — อ่าน/ปรับ state สำหรับทดสอบ UI บนเครื่อง
   ปิด session จำลอง: LOCAL_DEV_AUTH=0 python3 dev_server.py
@@ -97,6 +97,13 @@ def _rewrite(pure_path: str) -> str:
         "/admin/approvals": "/admin-approvals.html",
         "/cs": f"/{MOCK_HTML}",
         "/mall": f"/{MOCK_HTML}",
+        "/mall.html": f"/{MOCK_HTML}",
+        "/factory": f"/{MOCK_HTML}",
+        "/factory.html": f"/{MOCK_HTML}",
+        "/moral": f"/{MOCK_HTML}",
+        "/moral.html": f"/{MOCK_HTML}",
+        "/moral-drama": f"/{MOCK_HTML}",
+        "/moral-drama.html": f"/{MOCK_HTML}",
         "/story-config-mock": f"/{MOCK_HTML}",
         "/result": "/story-config-result.html",
         "/editor": "/editor/index.html",
@@ -108,7 +115,7 @@ class LocalDevHandler(serve_story_mock.MockHandler):
     server_version = "local-dev/1"
 
     def do_OPTIONS(self) -> None:  # noqa: N802
-        p = urllib.parse.urlparse(self.path).path
+        p = serve_story_mock.normalize_http_path(self.path)
         if p == "/api/gemini" or p == "/api/gemini-verify" or p.startswith("/api/"):
             self.send_response(HTTPStatus.NO_CONTENT)
             _cors(self)
@@ -204,7 +211,7 @@ class LocalDevHandler(serve_story_mock.MockHandler):
         return serve_story_mock.MockHandler.do_GET(self)
 
     def do_POST(self) -> None:  # noqa: N802
-        p = urllib.parse.urlparse(self.path).path
+        p = serve_story_mock.normalize_http_path(self.path)
         if p == "/api/gemini":
             return serve_story_mock.MockHandler.do_POST(self)
         if p == "/api/auth/session" or p == "/api/gemini-verify":
@@ -263,6 +270,10 @@ class LocalDevHandler(serve_story_mock.MockHandler):
                 _ST_ADMINS.append(email)
             return _send_json(self, 200, {"ok": True, "action": "added", "admins": list(_ST_ADMINS)})
 
+        # POST ที่เหลือทั้งหมดภายใต้ /api/ → MockHandler (mall-mode, moral-drama-mode, tiktok-share-fetch, …)
+        if p.startswith("/api/"):
+            return serve_story_mock.MockHandler.do_POST(self)
+
         return self.send_error(HTTPStatus.NOT_FOUND, "Not found")
 
 
@@ -307,7 +318,7 @@ def _banner(url: str) -> None:
     print("   Local dev — ทุก path ตาม Vercel + /api จำลอง (RAM)", flush=True)
     print(f"   {url}", flush=True)
     print("", flush=True)
-    print("   ทางลัด: /  /login  /cs  /result  /admin  /admin/approvals  /editor", flush=True)
+    print("   ทางลัด: /  /login  /cs  /mall  /factory  /moral  /moral-drama  /result  /admin  /admin/approvals  /editor", flush=True)
     if auth_on:
         print("   ✓ session จำลอง: login ดูแล้วจะเด้ง mock — ตั้ง LOCAL_DEV_AUTH=0 ถ้าจะเทสหน้า login", flush=True)
     else:

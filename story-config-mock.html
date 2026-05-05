@@ -495,6 +495,19 @@
     body.factory-warehouse-active #hero-analysis-out {
       display: none !important;
     }
+    /* โหมดโรงงาน: ซ่อนช่อง Character ทั้งหมด — เหลือแค่สินค้า + ref */
+    body.factory-warehouse-active #drop-char-1,
+    body.factory-warehouse-active #drop-char-2,
+    body.factory-warehouse-active #drop-char-3 {
+      display: none !important;
+    }
+    /* ช่อง ref — แสดงเฉพาะโหมดโรงงาน */
+    #drop-factory-ref {
+      display: none !important;
+    }
+    body.factory-warehouse-active #drop-factory-ref {
+      display: flex !important;
+    }
     body.factory-warehouse-active #mood-group-cards .narrative-group-card:not([data-factory-group="true"]) {
       display: none !important;
     }
@@ -1964,6 +1977,20 @@
           <div class="multi-thumb-stack" aria-hidden="true"></div>
           <span class="drop-hint" aria-hidden="true"></span>
         </label>
+        <label class="drop" id="drop-factory-ref" data-key="factoryRef">
+          <input type="file" accept="image/*" data-key="factoryRef" multiple />
+          <strong>รับรูป ref (ฉาก + ฮีโร่)</strong>
+          <span class="drop-multi-hint">สูงสุด 5 รูป — ภาพต้นแบบฉาก / Hero ที่ต้องการ</span>
+          <div class="multi-thumb-stack" aria-hidden="true"></div>
+          <span class="drop-hint" aria-hidden="true"></span>
+        </label>
+        <label class="drop" id="drop-factory-ref-nohero" data-key="factoryRefNoHero">
+          <input type="file" accept="image/*" data-key="factoryRefNoHero" multiple />
+          <strong>ref ฉาก (ไม่มี hero หลัก)</strong>
+          <span class="drop-multi-hint">สูงสุด 5 รูป — ล็อกฉาก/บรรยากาศ; คนในรูป = ตัวประกอบเงียบ ไม่มีบทพูด; เสียงยังมาจาก voice lock เดิม</span>
+          <div class="multi-thumb-stack" aria-hidden="true"></div>
+          <span class="drop-hint" aria-hidden="true"></span>
+        </label>
       </div>
       <div class="hero-analysis-toolbar" style="display:none" aria-hidden="true">
         <button
@@ -2317,10 +2344,10 @@
       window.__GEMINI_API_ORIGIN__ = local && remote ? remote : "";
     })();
   </script>
-  <script src="/storymode-safe-json-client.js?v=202604319-factory-max38"></script>
-  <script src="/storymode-mock-enrich-bundle.js?v=202604319-factory-max38" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="/GEM_PACK_TIKTOK/factory-dna-prompt.snippet.js?v=202604319-factory-max38" onerror="console.warn('[FactoryDNA] snippet load failed — factory mode disabled')"></script>
-  <script src="/storymode-mock-gemini-core.js?v=202604319-factory-max38" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script src="/storymode-safe-json-client.js?v=20260501-001435-0517871"></script>
+  <script src="/storymode-mock-enrich-bundle.js?v=20260501-001435-0517871" onerror="window.__mock1LoadErr='enrich'"></script>
+  <script src="/GEM_PACK_TIKTOK/factory-dna-prompt.snippet.js?v=20260501-001435-0517871" onerror="console.warn('[FactoryDNA] snippet load failed — factory mode disabled')"></script>
+  <script src="/storymode-mock-gemini-core.js?v=20260501-001435-0517871" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -2535,11 +2562,15 @@
       product: [],
       character1: [],
       character2: [],
-      character3: []
+      character3: [],
+      factoryRef: [],
+      factoryRefNoHero: []
     };
     /** ผลวิเคราะห์ Hero (JSON) — แนบใน payload ตอนเจนสคริปต์ */
     let heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
     let productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+    let factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+    let factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
     /** จับคู่กับ STORYMODE_PROMPT_ASSET_VERSION ใน storymode-mock-gemini-core.js — ใช้ localStorage ไม่ใช้คุกกี้ */
     var PROMPT_ASSET_VERSION_STORAGE_KEY = "storymodePromptAssetVersionV1";
     function syncPromptAssetVersionInvalidateCaches() {
@@ -2557,6 +2588,8 @@
       }
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       var ho = document.getElementById("hero-analysis-out");
       var hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -3449,6 +3482,8 @@
       }
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       const ho = document.getElementById("hero-analysis-out");
       const hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -3512,6 +3547,8 @@
       });
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       const ho = document.getElementById("hero-analysis-out");
       const hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -3581,6 +3618,8 @@
       });
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       if (typeof syncDomainKnowledgeUI === "function") {
         syncDomainKnowledgeUI();
       }
@@ -3641,11 +3680,37 @@
           var c1 = Array.isArray(files.character1) ? files.character1.filter(function (f) { return f; }) : [];
           var c2 = Array.isArray(files.character2) ? files.character2.filter(function (f) { return f; }) : [];
           var c3 = Array.isArray(files.character3) ? files.character3.filter(function (f) { return f; }) : [];
-          const slots = productSlots.concat(
-            expandCharacterSlot("character1"),
-            expandCharacterSlot("character2"),
-            expandCharacterSlot("character3")
-          );
+          var refStaged = Array.isArray(files.factoryRef) ? files.factoryRef.filter(function (f) { return f; }) : [];
+          var noHeroStaged = Array.isArray(files.factoryRefNoHero) ? files.factoryRefNoHero.filter(function (f) { return f; }) : [];
+
+          /* โหมด no-hero: ส่งเฉพาะ product + ref-no-hero (ตัดตัวละครและ factoryRef เดิมออก) */
+          var usingNoHeroMode = factoryDnaSelected && noHeroStaged.length > 0;
+
+          var refSlots = [];
+          if (usingNoHeroMode) {
+            for (var ni = 0; ni < noHeroStaged.length; ni++) {
+              refSlots.push({
+                key: ni === 0 ? "factoryRefNoHero" : "factoryRefNoHero_" + (ni + 1),
+                role: "ref_scene_no_hero",
+                file: noHeroStaged[ni]
+              });
+            }
+          } else {
+            for (var ri = 0; ri < refStaged.length; ri++) {
+              refSlots.push({
+                key: ri === 0 ? "factoryRef" : "factoryRef_" + (ri + 1),
+                role: "ref_scene",
+                file: refStaged[ri]
+              });
+            }
+          }
+          const slots = usingNoHeroMode
+            ? productSlots.concat(refSlots)
+            : productSlots.concat(
+                expandCharacterSlot("character1"),
+                expandCharacterSlot("character2"),
+                expandCharacterSlot("character3")
+              ).concat(refSlots);
           const imagesForGemini = slots
             .filter(function (s) { return s.file && s.file.data; })
             .map(function (s) {
@@ -3660,15 +3725,21 @@
           return {
             productAttached: !!primaryProductFile,
             productAttachedCount: productStaged.length,
-            characterAttached: !!(c1.length || c2.length || c3.length),
-            character1Attached: c1.length > 0,
-            character2Attached: c2.length > 0,
-            character3Attached: c3.length > 0,
-            characterImageCounts: [c1.length, c2.length, c3.length],
+            characterAttached: !usingNoHeroMode && !!(c1.length || c2.length || c3.length),
+            character1Attached: !usingNoHeroMode && c1.length > 0,
+            character2Attached: !usingNoHeroMode && c2.length > 0,
+            character3Attached: !usingNoHeroMode && c3.length > 0,
+            characterImageCounts: usingNoHeroMode ? [0, 0, 0] : [c1.length, c2.length, c3.length],
+            factoryRefAttached: !usingNoHeroMode && refStaged.length > 0,
+            factoryRefCount: usingNoHeroMode ? 0 : refStaged.length,
+            factoryRefNoHeroAttached: usingNoHeroMode,
+            factoryRefNoHeroCount: noHeroStaged.length,
             productName: primaryProductFile?.name || null,
             productNames: productStaged.map(function (f) { return f && f.name; }).filter(Boolean),
-            characterName: c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
-            characterNames: [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
+            characterName: usingNoHeroMode ? null : (c1[0]?.name || c2[0]?.name || c3[0]?.name || null),
+            characterNames: usingNoHeroMode ? [] : [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
+            refNames: usingNoHeroMode ? [] : refStaged.map(function (f) { return f && f.name; }).filter(Boolean),
+            refNoHeroNames: usingNoHeroMode ? noHeroStaged.map(function (f) { return f && f.name; }).filter(Boolean) : [],
             imagesForGemini: imagesForGemini
           };
         })(),
@@ -3767,7 +3838,14 @@
         })(),
         _factoryDnaIsolation: factoryDnaSelected,
         _mallModeIsolation: mallModeSelected,
-        _moralDramaIsolation: moralDramaSelected
+        _moralDramaIsolation: moralDramaSelected,
+        factoryRefAttached: !!(Array.isArray(files.factoryRef) && files.factoryRef.filter(function (f) { return f && f.data; }).length > 0 && !(Array.isArray(files.factoryRefNoHero) && files.factoryRefNoHero.filter(function (f) { return f && f.data; }).length > 0)),
+        factoryRefAnalysisText: (factoryRefAnalysisCache.rawText && String(factoryRefAnalysisCache.rawText).trim()) || null,
+        factoryRefAnalysis: factoryRefAnalysisCache.parsed || null,
+        factoryRefNoHeroMode: !!(Array.isArray(files.factoryRefNoHero) && files.factoryRefNoHero.filter(function (f) { return f && f.data; }).length > 0),
+        factoryRefNoHeroAttached: !!(Array.isArray(files.factoryRefNoHero) && files.factoryRefNoHero.filter(function (f) { return f && f.data; }).length > 0),
+        factoryRefNoHeroAnalysisText: (factoryRefNoHeroAnalysisCache.rawText && String(factoryRefNoHeroAnalysisCache.rawText).trim()) || null,
+        factoryRefNoHeroAnalysis: factoryRefNoHeroAnalysisCache.parsed || null
       };
     }
 
@@ -4755,7 +4833,7 @@
     }
 
     function isMultiFileKey(k) {
-      return k === "product" || k === "character1" || k === "character2" || k === "character3";
+      return k === "product" || k === "character1" || k === "character2" || k === "character3" || k === "factoryRef" || k === "factoryRefNoHero";
     }
 
     function clearPromptAndImages() {
@@ -4775,6 +4853,8 @@
       });
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       var ho = document.getElementById("hero-analysis-out");
       var hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -4848,6 +4928,38 @@
         if (key === "product") {
           productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
         }
+        if (key === "factoryRef") {
+          factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          /* mutual exclusion: ล้าง no-hero ref ถ้ามีไฟล์ถูกเลือกใน factoryRef */
+          if (e.target.files && e.target.files.length > 0) {
+            files.factoryRefNoHero = [];
+            factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+            var nhLab = document.getElementById("drop-factory-ref-nohero");
+            if (nhLab) {
+              nhLab.classList.remove("has-file");
+              var nhStack = nhLab.querySelector(".multi-thumb-stack");
+              if (nhStack) nhStack.innerHTML = "";
+              var nhInp = nhLab.querySelector("input");
+              if (nhInp) nhInp.value = "";
+            }
+          }
+        }
+        if (key === "factoryRefNoHero") {
+          factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          /* mutual exclusion: ล้าง factoryRef เดิมถ้ามีไฟล์ถูกเลือกใน no-hero */
+          if (e.target.files && e.target.files.length > 0) {
+            files.factoryRef = [];
+            factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+            var frLab = document.getElementById("drop-factory-ref");
+            if (frLab) {
+              frLab.classList.remove("has-file");
+              var frStack = frLab.querySelector(".multi-thumb-stack");
+              if (frStack) frStack.innerHTML = "";
+              var frInp = frLab.querySelector("input");
+              if (frInp) frInp.value = "";
+            }
+          }
+        }
         lab.classList.remove("has-file");
         revokeDropThumb(lab);
         updatePreview();
@@ -4915,7 +5027,103 @@
       return JSON.parse(s);
     }
 
-    ["product", "character1", "character2", "character3"].forEach(function (mkey) {
+    function collectFactoryRefImagesForAnalysis() {
+      var out = [];
+      (files.factoryRef || []).forEach(function (f) {
+        if (f && f.data && f.mimeType) out.push({ mimeType: f.mimeType, data: f.data });
+      });
+      return out;
+    }
+
+    function buildFactoryRefImageOrderLegend() {
+      var arr = (files.factoryRef || []).filter(function (f) { return f && f.data; });
+      if (!arr.length) return "";
+      return arr
+        .map(function (f, i) {
+          return "- index " + i + " → factoryRef slot (ref_scene) (file: " + (f.name || "(attached)") + ")";
+        })
+        .join("\n");
+    }
+
+    async function runFactoryRefAnalysis(apiKey) {
+      const G = window.MockStorymodeGemini;
+      if (!G || !G.buildFactoryRefAnalysisSystemPrompt) {
+        throw new Error("MockStorymodeGemini.buildFactoryRefAnalysisSystemPrompt not available");
+      }
+      var imgs = collectFactoryRefImagesForAnalysis();
+      if (!imgs.length) throw new Error("ไม่มีรูป ref ที่โหลดเสร็จ");
+      var legend = buildFactoryRefImageOrderLegend();
+      var sysP = G.buildFactoryRefAnalysisSystemPrompt();
+      var usrP = G.buildFactoryRefAnalysisUserMessage(legend);
+      var parts = [{ text: usrP }];
+      imgs.forEach(function (im) {
+        parts.push({ inlineData: { mimeType: im.mimeType, data: im.data } });
+      });
+      var body = JSON.stringify({
+        system_instruction: { parts: [{ text: sysP }] },
+        contents: [{ role: "user", parts: parts }],
+        generationConfig: { temperature: 0.1, maxOutputTokens: 1200 }
+      });
+      var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(apiKey);
+      var resp = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: body });
+      var json = await resp.json();
+      var raw = ((json.candidates || [])[0] || {});
+      var rawText = (((raw.content || {}).parts || [])[0] || {}).text || "";
+      if (!rawText) throw new Error("Gemini คืนข้อมูลว่าง (ref analysis)");
+      var parsed = null;
+      try { parsed = parseJsonFromGeminiText(rawText); } catch (_) {}
+      factoryRefAnalysisCache = { parsed: parsed, rawText: rawText, at: Date.now(), error: null };
+    }
+
+    function collectFactoryRefNoHeroImagesForAnalysis() {
+      var out = [];
+      (files.factoryRefNoHero || []).forEach(function (f) {
+        if (f && f.data && f.mimeType) out.push({ mimeType: f.mimeType, data: f.data });
+      });
+      return out;
+    }
+
+    function buildFactoryRefNoHeroImageOrderLegend() {
+      var arr = (files.factoryRefNoHero || []).filter(function (f) { return f && f.data; });
+      if (!arr.length) return "";
+      return arr
+        .map(function (f, i) {
+          return "- index " + i + " → factoryRefNoHero slot (ref_scene_no_hero) (file: " + (f.name || "(attached)") + ")";
+        })
+        .join("\n");
+    }
+
+    async function runFactoryRefNoHeroAnalysis(apiKey) {
+      const G = window.MockStorymodeGemini;
+      if (!G || !G.buildFactoryRefNoHeroAnalysisSystemPrompt) {
+        throw new Error("MockStorymodeGemini.buildFactoryRefNoHeroAnalysisSystemPrompt not available");
+      }
+      var imgs = collectFactoryRefNoHeroImagesForAnalysis();
+      if (!imgs.length) throw new Error("ไม่มีรูป ref (no hero) ที่โหลดเสร็จ");
+      var legend = buildFactoryRefNoHeroImageOrderLegend();
+      var sysP = G.buildFactoryRefNoHeroAnalysisSystemPrompt();
+      var usrP = G.buildFactoryRefNoHeroAnalysisUserMessage(legend);
+      var parts = [{ text: usrP }];
+      imgs.forEach(function (im) {
+        parts.push({ inlineData: { mimeType: im.mimeType, data: im.data } });
+      });
+      var body = JSON.stringify({
+        system_instruction: { parts: [{ text: sysP }] },
+        contents: [{ role: "user", parts: parts }],
+        generationConfig: { temperature: 0.1, maxOutputTokens: 1200 }
+      });
+      var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(apiKey);
+      var resp = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: body });
+      var json = await resp.json();
+      var raw = ((json.candidates || [])[0] || {});
+      var rawText = (((raw.content || {}).parts || [])[0] || {}).text || "";
+      if (!rawText) throw new Error("Gemini คืนข้อมูลว่าง (ref no-hero analysis)");
+      var parsed = null;
+      try { parsed = parseJsonFromGeminiText(rawText); } catch (_) {}
+      factoryRefNoHeroAnalysisCache = { parsed: parsed, rawText: rawText, at: Date.now(), error: null };
+    }
+
+    ["product", "character1", "character2", "character3", "factoryRef", "factoryRefNoHero"].forEach(function (mkey) {
       var inp = document.querySelector('.drop input[data-key="' + mkey + '"]');
       if (!inp) return;
       inp.setAttribute("multiple", "multiple");
@@ -4935,6 +5143,38 @@
         }
         if (key === "product") {
           productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+        }
+        if (key === "factoryRef") {
+          factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          /* mutual exclusion: ล้าง no-hero ref ถ้ามีไฟล์ถูกเลือกใน factoryRef */
+          if (e.target.files && e.target.files.length > 0) {
+            files.factoryRefNoHero = [];
+            factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+            var nhLab = document.getElementById("drop-factory-ref-nohero");
+            if (nhLab) {
+              nhLab.classList.remove("has-file");
+              var nhStack = nhLab.querySelector(".multi-thumb-stack");
+              if (nhStack) nhStack.innerHTML = "";
+              var nhInp = nhLab.querySelector("input");
+              if (nhInp) nhInp.value = "";
+            }
+          }
+        }
+        if (key === "factoryRefNoHero") {
+          factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          /* mutual exclusion: ล้าง factoryRef เดิมถ้ามีไฟล์ถูกเลือกใน no-hero */
+          if (e.target.files && e.target.files.length > 0) {
+            files.factoryRef = [];
+            factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+            var frLab = document.getElementById("drop-factory-ref");
+            if (frLab) {
+              frLab.classList.remove("has-file");
+              var frStack = frLab.querySelector(".multi-thumb-stack");
+              if (frStack) frStack.innerHTML = "";
+              var frInp = frLab.querySelector("input");
+              if (frInp) frInp.value = "";
+            }
+          }
         }
         var raw = e.target.files ? Array.from(e.target.files) : [];
         var list = raw.slice(0, MULTI_IMAGE_MAX);
@@ -5699,8 +5939,16 @@
       syncDomainKnowledgeUI();
       let payload = getCurrentPayload();
       if (!payload.prompt) {
-        status.textContent = "ใส่ Prompt (ส่วน 1) ก่อน";
-        return;
+        const hasImages = payload._factoryDnaIsolation && (
+          (payload.images && payload.images.productAttached) ||
+          payload.factoryRefAttached
+        );
+        if (!hasImages) {
+          status.textContent = payload._factoryDnaIsolation
+            ? "ใส่ Prompt หรือแนบรูปสินค้า / รูป ref ก่อน"
+            : "ใส่ Prompt (ส่วน 1) ก่อน";
+          return;
+        }
       }
       if (payload.mode === "product_sell" && !payload.salesFormulaId) {
         if (typeof renderSalesFormulas === "function") {
@@ -6050,6 +6298,27 @@
           }
         } catch (_) {
           /* hero analysis เบื้องหลัง — ผิดพลาดก็ไม่บล็อกการเจน */
+        }
+
+        /* โหมดโรงงาน + มีรูป ref → วิเคราะห์ฉากก่อนเจนสคริปต์หลัก */
+        if (payload._factoryDnaIsolation && payload.factoryRefNoHeroMode && !factoryRefNoHeroAnalysisCache.parsed) {
+          /* กล่อง no-hero: วิเคราะห์เฉพาะฉาก/บรรยากาศ ไม่ล็อก hero */
+          try {
+            status.textContent = "🏭 วิเคราะห์รูป ref (ฉาก — no hero)…";
+            await runFactoryRefNoHeroAnalysis(apiKey);
+            payload = getCurrentPayload();
+          } catch (_) {
+            /* ref no-hero analysis ผิดพลาด — เจนต่อโดยไม่มี ref lock */
+          }
+        } else if (payload._factoryDnaIsolation && payload.factoryRefAttached && !factoryRefAnalysisCache.parsed) {
+          /* กล่อง factoryRef เดิม: วิเคราะห์ฉาก + ฮีโร่ */
+          try {
+            status.textContent = "🏭 วิเคราะห์รูป ref (ฉาก + ฮีโร่)…";
+            await runFactoryRefAnalysis(apiKey);
+            payload = getCurrentPayload();
+          } catch (_) {
+            /* ref analysis ผิดพลาด — เจนต่อโดยไม่มี ref lock */
+          }
         }
 
         let system = G.buildStorymodeSystemPromptFromPayload(payload);

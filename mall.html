@@ -57,13 +57,45 @@
     }
     .page-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
       margin: 0 0 18px;
     }
+    .page-header-titles {
+      flex: 1;
+      min-width: 0;
+    }
     .page-header h1 {
       margin: 0;
+    }
+    .cs-route-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 10px;
+      margin-top: 8px;
+    }
+    .cs-route-link {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.12s, border-color 0.12s;
+    }
+    .cs-route-link:hover {
+      color: var(--text);
+      border-bottom-color: rgba(254, 44, 85, 0.45);
+    }
+    .cs-route-link.is-current-route {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .cs-route-sep {
+      color: rgba(255, 255, 255, 0.22);
+      user-select: none;
+      font-size: 0.65rem;
     }
     .header-right {
       display: flex;
@@ -463,6 +495,19 @@
     body.factory-warehouse-active #hero-analysis-out {
       display: none !important;
     }
+    /* โหมดโรงงาน: ซ่อนช่อง Character ทั้งหมด — เหลือแค่สินค้า + ref */
+    body.factory-warehouse-active #drop-char-1,
+    body.factory-warehouse-active #drop-char-2,
+    body.factory-warehouse-active #drop-char-3 {
+      display: none !important;
+    }
+    /* ช่อง ref — แสดงเฉพาะโหมดโรงงาน */
+    #drop-factory-ref {
+      display: none !important;
+    }
+    body.factory-warehouse-active #drop-factory-ref {
+      display: flex !important;
+    }
     body.factory-warehouse-active #mood-group-cards .narrative-group-card:not([data-factory-group="true"]) {
       display: none !important;
     }
@@ -487,6 +532,22 @@
       display: none !important;
     }
     body.mall-mode-active #section-mode {
+      display: none !important;
+    }
+    /* โหมดละครคุณธรรม: ซ่อนส่วนที่ไม่เกี่ยวข้อง */
+    body.moral-drama-mode-active section[data-section="voice"],
+    body.moral-drama-mode-active section[data-section="hook"],
+    body.moral-drama-mode-active section[data-section="narrative"],
+    body.moral-drama-mode-active section[data-section="overlay"],
+    body.moral-drama-mode-active section[data-section="domain"],
+    body.moral-drama-mode-active section[data-section="product-facts"],
+    body.moral-drama-mode-active #section-mood .sel-summary-box {
+      display: none !important;
+    }
+    body.moral-drama-mode-active #mood-group-cards .narrative-group-card:not([data-moral-group="true"]) {
+      display: none !important;
+    }
+    body.moral-drama-mode-active #section-mode {
       display: none !important;
     }
     /* รูปสินค้า (input เดียว สูงสุด 5) + ตัวละคร 3 ช่อง */
@@ -1124,6 +1185,30 @@
     #mood-group-mall-card {
       box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.45), inset 0 0 12px rgba(59, 130, 246, 0.08);
     }
+    /* ละครคุณธรรม (Moral Drama) — การ์ดในกริดบรรยากาศ */
+    .narrative-group-card[data-moral-group="true"] {
+      border-color: rgba(168, 85, 247, 0.5);
+      background: rgba(168, 85, 247, 0.08);
+    }
+    .narrative-group-card[data-moral-group="true"]:hover,
+    .narrative-group-card[data-moral-group="true"].is-active {
+      border-color: #a855f7;
+      background: rgba(168, 85, 247, 0.18);
+    }
+    .narrative-group-card[data-moral-group="true"] .ng-icon {
+      filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.65));
+    }
+    #mood-group-moral-card {
+      box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.45), inset 0 0 12px rgba(168, 85, 247, 0.08);
+    }
+    /* Moral Drama hint + save actions */
+    .moral-drama-hint {
+      display: none;
+      margin-top: 10px;
+    }
+    body.moral-drama-mode-active .moral-drama-hint {
+      display: block;
+    }
     /* Mall inputs panel */
     .mall-mode-hint {
       display: none;
@@ -1680,11 +1765,40 @@
       try {
         var path = (location.pathname || "").replace(/\/+$/, "") || "/";
         var q = new URLSearchParams(location.search || "");
-        window.__CS_MALL_ONLY__ = path === "/mall" || q.get("mall_only") === "1";
+        var wantFactory =
+          path === "/factory" ||
+          path === "/factory.html" ||
+          q.get("factory_only") === "1";
+        var wantMall =
+          path === "/mall" || path === "/mall.html" || q.get("mall_only") === "1";
+        var wantMoral =
+          path === "/moral" ||
+          path === "/moral-drama" ||
+          path === "/moral.html" ||
+          path === "/moral-drama.html" ||
+          q.get("moral_only") === "1";
+        if (wantFactory && wantMall) {
+          if (path === "/factory" || path === "/factory.html") wantMall = false;
+          else if (path === "/mall" || path === "/mall.html") wantFactory = false;
+          else wantMall = false;
+        }
+        if (wantMoral && wantFactory) {
+          if (path === "/factory" || path === "/factory.html") wantMoral = false;
+          else wantFactory = false;
+        }
+        if (wantMoral && wantMall) {
+          if (path === "/mall" || path === "/mall.html") wantMoral = false;
+          else wantMall = false;
+        }
+        window.__CS_FACTORY_ONLY__ = wantFactory;
+        window.__CS_MALL_ONLY__ = wantMall;
+        window.__CS_MORAL_ONLY__ = wantMoral;
       } catch (e) {
         window.__CS_MALL_ONLY__ = false;
+        window.__CS_FACTORY_ONLY__ = false;
+        window.__CS_MORAL_ONLY__ = false;
       }
-      if (!window.__CS_MALL_ONLY__) return;
+      if (!window.__CS_MALL_ONLY__ && !window.__CS_FACTORY_ONLY__ && !window.__CS_MORAL_ONLY__) return;
       try {
         var q = new URLSearchParams(location.search || "");
         if (q.get("force_auth") === "1") return;
@@ -1722,7 +1836,18 @@
 
   <div class="wrap">
     <header class="page-header">
-      <h1>Project CS</h1>
+      <div class="page-header-titles">
+        <h1>Project CS</h1>
+        <nav id="cs-route-nav" class="cs-route-nav" aria-label="สลับโหมดหน้า">
+          <a href="/cs" class="cs-route-link" data-cs-route="cs">CS</a>
+          <span class="cs-route-sep" aria-hidden="true">·</span>
+          <a href="/mall" class="cs-route-link" data-cs-route="mall">ห้าง</a>
+          <span class="cs-route-sep" aria-hidden="true">·</span>
+          <a href="/factory" class="cs-route-link" data-cs-route="factory">โรงงาน</a>
+          <span class="cs-route-sep" aria-hidden="true">·</span>
+          <a href="/moral-drama" class="cs-route-link" data-cs-route="moral">ละครคุณธรรม</a>
+        </nav>
+      </div>
       <div class="header-right">
         <div id="user-menu" class="user-menu" hidden>
           <span id="user-avatar-wrap" class="user-avatar-wrap"></span>
@@ -1732,6 +1857,38 @@
         </div>
       </div>
     </header>
+    <script>
+      (function () {
+        var nav = document.getElementById("cs-route-nav");
+        if (!nav) return;
+        var p = (location.pathname || "").replace(/\/+$/, "") || "/";
+        var links = nav.querySelectorAll("a[data-cs-route]");
+        links.forEach(function (a) {
+          var r = a.getAttribute("data-cs-route");
+          var cur = false;
+          if (r === "moral") {
+            cur =
+              p === "/moral" ||
+              p === "/moral-drama" ||
+              /\/moral\.html$/i.test(p) ||
+              /\/moral-drama\.html$/i.test(p);
+          } else if (r === "mall") {
+            cur = p === "/mall" || /\/mall\.html$/i.test(p);
+          } else if (r === "factory") {
+            cur = p === "/factory" || /\/factory\.html$/i.test(p);
+          } else if (r === "cs") {
+            cur =
+              p === "/cs" ||
+              /story-config-mock\.html$/i.test(p) ||
+              p === "/story-config-mock";
+          }
+          if (cur) {
+            a.classList.add("is-current-route");
+            a.setAttribute("aria-current", "page");
+          }
+        });
+      })();
+    </script>
 
     <!-- ── เนื้อหา Project CS + ผลเจน (ฝังในหน้าเดียว) ── -->
     <div id="main-panel-project" class="main-panel-body">
@@ -1817,6 +1974,20 @@
           <input type="file" accept="image/*" data-key="character3" multiple />
           <strong>ตัวละคร 3</strong>
           <span class="drop-multi-hint">สูงสุด 5 รูป / slot</span>
+          <div class="multi-thumb-stack" aria-hidden="true"></div>
+          <span class="drop-hint" aria-hidden="true"></span>
+        </label>
+        <label class="drop" id="drop-factory-ref" data-key="factoryRef">
+          <input type="file" accept="image/*" data-key="factoryRef" multiple />
+          <strong>รับรูป ref (ฉาก + ฮีโร่)</strong>
+          <span class="drop-multi-hint">สูงสุด 5 รูป — ภาพต้นแบบฉาก / Hero ที่ต้องการ</span>
+          <div class="multi-thumb-stack" aria-hidden="true"></div>
+          <span class="drop-hint" aria-hidden="true"></span>
+        </label>
+        <label class="drop" id="drop-factory-ref-nohero" data-key="factoryRefNoHero">
+          <input type="file" accept="image/*" data-key="factoryRefNoHero" multiple />
+          <strong>ref ฉาก (ไม่มี hero หลัก)</strong>
+          <span class="drop-multi-hint">สูงสุด 5 รูป — ล็อกฉาก/บรรยากาศ; คนในรูป = ตัวประกอบเงียบ ไม่มีบทพูด; เสียงยังมาจาก voice lock เดิม</span>
           <div class="multi-thumb-stack" aria-hidden="true"></div>
           <span class="drop-hint" aria-hidden="true"></span>
         </label>
@@ -1947,7 +2118,10 @@
         </div>
       </div>
       <p id="mall-mode-hint" class="hint mall-mode-hint">
-        🏬 โหมดห้าง: <strong>ข้อความด้านบน</strong> (ส่วน 1) เป็นคำสั่งหลัก · <strong>จำนวนซีน</strong> · <strong>รูปสินค้า</strong> ช่วยล็อก SKU/แพ็กจากภาพ — <strong>ไม่บังคับ</strong> (ไม่แนบก็เจนจากข้อความอย่างเดียวได้)
+        🏬 โหมดห้าง: <strong>ข้อความด้านบน</strong> (ส่วน 1) เป็นคำสั่งหลัก · <strong>จำนวนซีน</strong> · <strong>รูปสินค้า</strong> ช่วยล็อก SKU/แพ็กจากภาพ — <strong>ไม่บังคับ</strong> (ไม่แนบก็เจนจากข้อความอย่างเดียวได้) · บทพูดต่อซีน <strong>ไม่เกิน 20 คำ (ไทย)</strong>
+      </p>
+      <p id="moral-drama-hint" class="hint moral-drama-hint">
+        🎭 โหมดละครคุณธรรม: <strong>ข้อความด้านบน</strong> (ส่วน 1) เป็นเรื่องราวเริ่มต้น · <strong>จำนวนซีน</strong> · <strong>รูป Hero ตัวละครหลัก</strong> (ใส่ช่อง Character 1) ล็อกหน้าตาตัวละครทุกซีน — <strong>ไม่บังคับ</strong> · <strong>VISUAL STYLE</strong> กำหนดลุคภาพ
       </p>
     </section>
 
@@ -2065,6 +2239,7 @@
           <li><strong>บังคับพูดเร็ว + เพดานคำ:</strong> <strong>ยกเลิก</strong> ล็อก <strong>15–20 คำ/ฉาก</strong> แบบ Flow — บทไทยใน <code>Dialogue:</code> <strong>ไม่เกิน 38 คำต่อฉาก</strong> (นับคำ) — ใช้โทน <strong>พูดเร็วมาก / สปีดสูง / รัวประโยคสั้น</strong> แบบไลฟ์โกดัง–เคลียร์สต็อก; ใน prompt ภาษาอังกฤษ / บรรทัด EN ของ <code>TTS/voice</code> แนะนำผสมวลีอย่าง <em>fast-paced speech</em>, <em>rapid-fire dialogue</em>, <em>excited high-energy delivery</em> (ระบบส่งต่อใน Gemini)</li>
           <li><strong>ฮีโร่/ผู้พูดหลักในเฟรม = พูดเร็วสูงสุดตาม DNA</strong> — on-camera hero lip-syncs ที่ maximum retail tempo; ตัวประกอบ/คนอื่นในเฟรมเงียบ (ไม่ lip-sync)</li>
           <li><strong>ห้ามใส่การ์ด:</strong> ห้ามส่ง character card / การ์ดตัวละครแทนคำบรรยาย — <strong>ทุกฉากทุกรอบ</strong> เขียนบรรยายตัวละคร<strong>ใหม่ครบ</strong>ใน IMAGE / <code>hero_full_detail</code> และ <code>TTS/voice</code> (พิมพ์ซ้ำประโยคล็อกได้ ห้ามการ์ดหรือคำอ้างอย่างเดียว)</li>
+          <li><strong>ห้ามฉลากอย่างเดียวใน prompt ภาพ:</strong> ห้ามใช้แค่ <code>(Hero A)</code> / <code>(ROLE_…)</code> แทนคำบรรยาย — ใน IMAGE / <code>hero_full_detail</code> ต้องเขียนประโยคครบ เพศ วัย รูปร่าง ผม ชุด (ฉลากสั้นใช้ได้เฉพาะบรรทัด <code>Speaker:</code>)</li>
           <li>ใน <code>TTS/voice</code> ต้องระบุชัด <strong>เพศ · วัย · ใบหน้า/ร่าง/ชุด</strong> (ให้ตรงคนในรูป) + <strong>ความเร็วสูงมาก / รัวคำ / energy ขาย</strong> — ล็อกทั้ง<strong>หน้าตาและเสียง</strong>ทุกฉาก — <strong>ห้าม REF:</strong> เขียนประโยคล็อกตัวตน<strong>เต็มซ้ำทุกฉาก</strong> (ไม่ใช่แค่ “เหมือนฉากก่อนหน้า”)</li>
           <li>ถ้าบทยาวเกินจะพูดจบใน ~8 วิ หรือเกิน 38 คำ — ตัดความคิดให้พอดีทั้งเวลาและเพดานคำ</li>
         </ul>
@@ -2169,10 +2344,10 @@
       window.__GEMINI_API_ORIGIN__ = local && remote ? remote : "";
     })();
   </script>
-  <script src="/storymode-safe-json-client.js?v=202604319-factory-max38"></script>
-  <script src="/storymode-mock-enrich-bundle.js?v=202604319-factory-max38" onerror="window.__mock1LoadErr='enrich'"></script>
-  <script src="/GEM_PACK_TIKTOK/factory-dna-prompt.snippet.js?v=202604319-factory-max38" onerror="console.warn('[FactoryDNA] snippet load failed — factory mode disabled')"></script>
-  <script src="/storymode-mock-gemini-core.js?v=202604319-factory-max38" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
+  <script src="/storymode-safe-json-client.js?v=20260501-001435-0517871"></script>
+  <script src="/storymode-mock-enrich-bundle.js?v=20260501-001435-0517871" onerror="window.__mock1LoadErr='enrich'"></script>
+  <script src="/GEM_PACK_TIKTOK/factory-dna-prompt.snippet.js?v=20260501-001435-0517871" onerror="console.warn('[FactoryDNA] snippet load failed — factory mode disabled')"></script>
+  <script src="/storymode-mock-gemini-core.js?v=20260501-001435-0517871" onerror="window.__mock1LoadErr=(window.__mock1LoadErr||'')+' gemini-core'"></script>
   <script>
     /** Self-heal bundle load — ผู้ใช้ไม่ต้องกดอะไร
      *  1) ถ้าโหลด bundle ล้มเหลว หรือ sales-formula globals ไม่ติด → reinject script
@@ -2295,6 +2470,8 @@
       { key: "Factory Warehouse DNA", thai: "วิเคราะห์จากรูปสินค้า", icon: "🏭", group: "factory" },
       // 🏬 ห้าง Mall Mode — POV hero เดินห้าง (ไม่แยกย่อย สาย /api/mall-mode)
       { key: "Mall Mode POV", thai: "เดินห้างหาของ", icon: "🏬", group: "mall" },
+      // 🎭 ละครคุณธรรม — Moral Drama + Plot Twist (สาย /api/moral-drama-mode)
+      { key: "Moral Drama", thai: "ละครคุณธรรม", icon: "🎭", group: "moral" },
     ];
     const MOOD_GROUPS = [
       { key: "cinematic", icon: "🎬", title: "ภาพยนตร์ & ดราม่า"   },
@@ -2306,6 +2483,8 @@
       { key: "factory",   icon: "🏭", title: "โรงงาน/โกดัง"          },
       /* ลำดับที่ 7 = ห้าง Mall Mode */
       { key: "mall",      icon: "🏬", title: "เดินห้าง (Mall)"        },
+      /* ลำดับที่ 8 = ละครคุณธรรม */
+      { key: "moral",     icon: "🎭", title: "ละครคุณธรรม"            },
     ];
     /** backward-compat: derive flat array + map จาก DATA */
     const MOOD_KEYWORDS = MOOD_KEYWORDS_DATA.map(function(m) { return m.key; });
@@ -2383,11 +2562,15 @@
       product: [],
       character1: [],
       character2: [],
-      character3: []
+      character3: [],
+      factoryRef: [],
+      factoryRefNoHero: []
     };
     /** ผลวิเคราะห์ Hero (JSON) — แนบใน payload ตอนเจนสคริปต์ */
     let heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
     let productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+    let factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+    let factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
     /** จับคู่กับ STORYMODE_PROMPT_ASSET_VERSION ใน storymode-mock-gemini-core.js — ใช้ localStorage ไม่ใช้คุกกี้ */
     var PROMPT_ASSET_VERSION_STORAGE_KEY = "storymodePromptAssetVersionV1";
     function syncPromptAssetVersionInvalidateCaches() {
@@ -2405,6 +2588,8 @@
       }
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       var ho = document.getElementById("hero-analysis-out");
       var hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -2736,6 +2921,22 @@
           btn.addEventListener("click", function (ev) {
             ev.preventDefault();
             var inp = wrap.querySelector('input[value="Mall Mode POV"]');
+            if (!inp) return;
+            inp.checked = !inp.checked;
+            inp.dispatchEvent(new Event("change", { bubbles: true }));
+          });
+        } else if (g.key === "moral") {
+          wrap.hidden = true;
+          wrap.setAttribute("aria-hidden", "true");
+          btn.dataset.moralGroup = "true";
+          btn.id = "mood-group-moral-card";
+          btn.title = g.title + " — แตะเพื่อเปิด/ปิดโหมดละครคุณธรรม";
+          btn.setAttribute("aria-label", "ละครคุณธรรม — สร้างเรื่องเล่า Moral Drama + Plot Twist");
+          btn.setAttribute("aria-expanded", "false");
+          btn.setAttribute("aria-pressed", "false");
+          btn.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            var inp = wrap.querySelector('input[value="Moral Drama"]');
             if (!inp) return;
             inp.checked = !inp.checked;
             inp.dispatchEvent(new Event("change", { bubbles: true }));
@@ -3281,6 +3482,8 @@
       }
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       const ho = document.getElementById("hero-analysis-out");
       const hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -3307,7 +3510,7 @@
         renderSalesFormulas();
       }
       setModeAndSync("story", {});
-      // uncheck factory ถ้าเปิดอยู่
+      // uncheck factory
       const factoryInp = document.querySelector(
         '#mood-chips input[type="checkbox"][value="Factory Warehouse DNA"]'
       );
@@ -3318,6 +3521,19 @@
         if (factoryCard) {
           factoryCard.classList.remove("is-active");
           factoryCard.setAttribute("aria-pressed", "false");
+        }
+      }
+      // uncheck moral drama
+      const moralInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Moral Drama"]'
+      );
+      if (moralInp && moralInp.checked) {
+        moralInp.checked = false;
+        document.body.classList.remove("moral-drama-mode-active");
+        const moralCard = document.getElementById("mood-group-moral-card");
+        if (moralCard) {
+          moralCard.classList.remove("is-active");
+          moralCard.setAttribute("aria-pressed", "false");
         }
       }
       // uncheck อื่นทั้งหมด
@@ -3331,6 +3547,8 @@
       });
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       const ho = document.getElementById("hero-analysis-out");
       const hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -3351,14 +3569,76 @@
       }
     }
 
+    function applyMoralDramaModeExclusive() {
+      const moralInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Moral Drama"]'
+      );
+      if (!moralInp || !moralInp.checked) {
+        return;
+      }
+      salesFormulaId = null;
+      if (typeof renderSalesFormulas === "function") {
+        renderSalesFormulas();
+      }
+      setModeAndSync("story", {});
+      // uncheck factory
+      const factoryInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Factory Warehouse DNA"]'
+      );
+      if (factoryInp && factoryInp.checked) {
+        factoryInp.checked = false;
+        document.body.classList.remove("factory-warehouse-active");
+        const factoryCard = document.getElementById("mood-group-factory-card");
+        if (factoryCard) {
+          factoryCard.classList.remove("is-active");
+          factoryCard.setAttribute("aria-pressed", "false");
+        }
+      }
+      // uncheck mall
+      const mallInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Mall Mode POV"]'
+      );
+      if (mallInp && mallInp.checked) {
+        mallInp.checked = false;
+        document.body.classList.remove("mall-mode-active");
+        const mallCard = document.getElementById("mood-group-mall-card");
+        if (mallCard) {
+          mallCard.classList.remove("is-active");
+          mallCard.setAttribute("aria-pressed", "false");
+        }
+      }
+      // uncheck อื่นทั้งหมด
+      document.querySelectorAll("#mood-chips input[type=checkbox]").forEach(function (inp) {
+        if (inp.value !== "Moral Drama") {
+          inp.checked = false;
+        }
+      });
+      document.querySelectorAll("#narrative-chips input[type=checkbox]").forEach(function (inp) {
+        inp.checked = false;
+      });
+      heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      if (typeof syncDomainKnowledgeUI === "function") {
+        syncDomainKnowledgeUI();
+      }
+      const moralCard = document.getElementById("mood-group-moral-card");
+      if (moralCard) {
+        moralCard.classList.add("is-active");
+        moralCard.setAttribute("aria-pressed", "true");
+      }
+    }
+
     function getCurrentPayload() {
       const moodKeysAll = selectedValues("mood-chips");
       const factoryDnaSelected = moodKeysAll.indexOf("Factory Warehouse DNA") !== -1;
       const mallModeSelected = moodKeysAll.indexOf("Mall Mode POV") !== -1;
+      const moralDramaSelected = moodKeysAll.indexOf("Moral Drama") !== -1;
       const hook = factoryDnaSelected
         ? { id: "auto", option: HOOK_OPTIONS.find(function (o) { return o.id === "auto"; }) || HOOK_OPTIONS[0] }
         : getSelectedHook();
-      const moodKeysRaw = factoryDnaSelected ? ["Factory Warehouse DNA"] : mallModeSelected ? ["Mall Mode POV"] : moodKeysAll;
+      const moodKeysRaw = factoryDnaSelected ? ["Factory Warehouse DNA"] : mallModeSelected ? ["Mall Mode POV"] : moralDramaSelected ? ["Moral Drama"] : moodKeysAll;
       const productStagedTop = Array.isArray(files.product) ? files.product.filter(function (f) { return f; }) : [];
       const productImageDimensions = productStagedTop.map(function (f) {
         if (!f) {
@@ -3400,11 +3680,37 @@
           var c1 = Array.isArray(files.character1) ? files.character1.filter(function (f) { return f; }) : [];
           var c2 = Array.isArray(files.character2) ? files.character2.filter(function (f) { return f; }) : [];
           var c3 = Array.isArray(files.character3) ? files.character3.filter(function (f) { return f; }) : [];
-          const slots = productSlots.concat(
-            expandCharacterSlot("character1"),
-            expandCharacterSlot("character2"),
-            expandCharacterSlot("character3")
-          );
+          var refStaged = Array.isArray(files.factoryRef) ? files.factoryRef.filter(function (f) { return f; }) : [];
+          var noHeroStaged = Array.isArray(files.factoryRefNoHero) ? files.factoryRefNoHero.filter(function (f) { return f; }) : [];
+
+          /* โหมด no-hero: ส่งเฉพาะ product + ref-no-hero (ตัดตัวละครและ factoryRef เดิมออก) */
+          var usingNoHeroMode = factoryDnaSelected && noHeroStaged.length > 0;
+
+          var refSlots = [];
+          if (usingNoHeroMode) {
+            for (var ni = 0; ni < noHeroStaged.length; ni++) {
+              refSlots.push({
+                key: ni === 0 ? "factoryRefNoHero" : "factoryRefNoHero_" + (ni + 1),
+                role: "ref_scene_no_hero",
+                file: noHeroStaged[ni]
+              });
+            }
+          } else {
+            for (var ri = 0; ri < refStaged.length; ri++) {
+              refSlots.push({
+                key: ri === 0 ? "factoryRef" : "factoryRef_" + (ri + 1),
+                role: "ref_scene",
+                file: refStaged[ri]
+              });
+            }
+          }
+          const slots = usingNoHeroMode
+            ? productSlots.concat(refSlots)
+            : productSlots.concat(
+                expandCharacterSlot("character1"),
+                expandCharacterSlot("character2"),
+                expandCharacterSlot("character3")
+              ).concat(refSlots);
           const imagesForGemini = slots
             .filter(function (s) { return s.file && s.file.data; })
             .map(function (s) {
@@ -3419,15 +3725,21 @@
           return {
             productAttached: !!primaryProductFile,
             productAttachedCount: productStaged.length,
-            characterAttached: !!(c1.length || c2.length || c3.length),
-            character1Attached: c1.length > 0,
-            character2Attached: c2.length > 0,
-            character3Attached: c3.length > 0,
-            characterImageCounts: [c1.length, c2.length, c3.length],
+            characterAttached: !usingNoHeroMode && !!(c1.length || c2.length || c3.length),
+            character1Attached: !usingNoHeroMode && c1.length > 0,
+            character2Attached: !usingNoHeroMode && c2.length > 0,
+            character3Attached: !usingNoHeroMode && c3.length > 0,
+            characterImageCounts: usingNoHeroMode ? [0, 0, 0] : [c1.length, c2.length, c3.length],
+            factoryRefAttached: !usingNoHeroMode && refStaged.length > 0,
+            factoryRefCount: usingNoHeroMode ? 0 : refStaged.length,
+            factoryRefNoHeroAttached: usingNoHeroMode,
+            factoryRefNoHeroCount: noHeroStaged.length,
             productName: primaryProductFile?.name || null,
             productNames: productStaged.map(function (f) { return f && f.name; }).filter(Boolean),
-            characterName: c1[0]?.name || c2[0]?.name || c3[0]?.name || null,
-            characterNames: [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
+            characterName: usingNoHeroMode ? null : (c1[0]?.name || c2[0]?.name || c3[0]?.name || null),
+            characterNames: usingNoHeroMode ? [] : [c1[0]?.name, c2[0]?.name, c3[0]?.name].filter(Boolean),
+            refNames: usingNoHeroMode ? [] : refStaged.map(function (f) { return f && f.name; }).filter(Boolean),
+            refNoHeroNames: usingNoHeroMode ? noHeroStaged.map(function (f) { return f && f.name; }).filter(Boolean) : [],
             imagesForGemini: imagesForGemini
           };
         })(),
@@ -3525,7 +3837,15 @@
           };
         })(),
         _factoryDnaIsolation: factoryDnaSelected,
-        _mallModeIsolation: mallModeSelected
+        _mallModeIsolation: mallModeSelected,
+        _moralDramaIsolation: moralDramaSelected,
+        factoryRefAttached: !!(Array.isArray(files.factoryRef) && files.factoryRef.filter(function (f) { return f && f.data; }).length > 0 && !(Array.isArray(files.factoryRefNoHero) && files.factoryRefNoHero.filter(function (f) { return f && f.data; }).length > 0)),
+        factoryRefAnalysisText: (factoryRefAnalysisCache.rawText && String(factoryRefAnalysisCache.rawText).trim()) || null,
+        factoryRefAnalysis: factoryRefAnalysisCache.parsed || null,
+        factoryRefNoHeroMode: !!(Array.isArray(files.factoryRefNoHero) && files.factoryRefNoHero.filter(function (f) { return f && f.data; }).length > 0),
+        factoryRefNoHeroAttached: !!(Array.isArray(files.factoryRefNoHero) && files.factoryRefNoHero.filter(function (f) { return f && f.data; }).length > 0),
+        factoryRefNoHeroAnalysisText: (factoryRefNoHeroAnalysisCache.rawText && String(factoryRefNoHeroAnalysisCache.rawText).trim()) || null,
+        factoryRefNoHeroAnalysis: factoryRefNoHeroAnalysisCache.parsed || null
       };
     }
 
@@ -3994,7 +4314,7 @@
     }
 
     document.getElementById("mode-product").addEventListener("click", function () {
-      if (window.__CS_MALL_ONLY__) {
+      if (window.__CS_MALL_ONLY__ || window.__CS_FACTORY_ONLY__ || window.__CS_MORAL_ONLY__) {
         setModeAndSync("story", {});
         return;
       }
@@ -4041,7 +4361,7 @@
 
     (function restoreModeFromStorage() {
       try {
-        if (window.__CS_MALL_ONLY__) return;
+        if (window.__CS_MALL_ONLY__ || window.__CS_FACTORY_ONLY__ || window.__CS_MORAL_ONLY__) return;
         var s = localStorage.getItem(MODE_STORAGE_KEY);
         if (s === "factory") s = "story";
         if (s === "product" || s === "story") {
@@ -4058,6 +4378,16 @@
       moodChipsRoot.addEventListener("change", function (e) {
         var t = e.target;
         if (t.matches && t.matches('input[type="checkbox"]')) {
+          if (window.__CS_FACTORY_ONLY__) {
+            if (t.value !== "Factory Warehouse DNA") {
+              t.checked = false;
+              return;
+            }
+            if (!t.checked) {
+              t.checked = true;
+              return;
+            }
+          }
           if (window.__CS_MALL_ONLY__) {
             if (t.value !== "Mall Mode POV") {
               t.checked = false;
@@ -4068,8 +4398,18 @@
               return;
             }
           }
+          if (window.__CS_MORAL_ONLY__) {
+            if (t.value !== "Moral Drama") {
+              t.checked = false;
+              return;
+            }
+            if (!t.checked) {
+              t.checked = true;
+              return;
+            }
+          }
           if (t.value === "Factory Warehouse DNA" && t.checked) {
-            // factory เปิด → ปิด mall ก่อน
+            // factory เปิด → ปิด mall และ moral drama ก่อน
             var mallInpF = moodChipsRoot.querySelector('input[value="Mall Mode POV"]');
             if (mallInpF && mallInpF.checked) {
               mallInpF.checked = false;
@@ -4077,11 +4417,22 @@
               var mallCard = document.getElementById("mood-group-mall-card");
               if (mallCard) { mallCard.classList.remove("is-active"); mallCard.setAttribute("aria-pressed", "false"); }
             }
+            var moralInpF = moodChipsRoot.querySelector('input[value="Moral Drama"]');
+            if (moralInpF && moralInpF.checked) {
+              moralInpF.checked = false;
+              document.body.classList.remove("moral-drama-mode-active");
+              var moralCardF = document.getElementById("mood-group-moral-card");
+              if (moralCardF) { moralCardF.classList.remove("is-active"); moralCardF.setAttribute("aria-pressed", "false"); }
+            }
             applyFactoryWarehouseExclusive();
           }
           if (t.value === "Mall Mode POV" && t.checked) {
-            // mall เปิด → ปิด factory ก่อน (handled inside applyMallModeExclusive)
+            // mall เปิด → ปิด factory + moral (handled inside applyMallModeExclusive)
             applyMallModeExclusive();
+          }
+          if (t.value === "Moral Drama" && t.checked) {
+            // moral drama เปิด → ปิด factory + mall
+            applyMoralDramaModeExclusive();
           }
           document.body.classList.toggle(
             "factory-warehouse-active",
@@ -4090,6 +4441,10 @@
           document.body.classList.toggle(
             "mall-mode-active",
             !!moodChipsRoot.querySelector('input[value="Mall Mode POV"]:checked')
+          );
+          document.body.classList.toggle(
+            "moral-drama-mode-active",
+            !!moodChipsRoot.querySelector('input[value="Moral Drama"]:checked')
           );
           // sync card aria-pressed for mall
           var mallCard2 = document.getElementById("mood-group-mall-card");
@@ -4104,6 +4459,13 @@
             factoryCard2.classList.toggle("is-active", factoryActive);
             factoryCard2.setAttribute("aria-pressed", factoryActive ? "true" : "false");
           }
+          // sync card aria-pressed for moral drama
+          var moralCard2 = document.getElementById("mood-group-moral-card");
+          if (moralCard2) {
+            var moralActive = !!moodChipsRoot.querySelector('input[value="Moral Drama"]:checked');
+            moralCard2.classList.toggle("is-active", moralActive);
+            moralCard2.setAttribute("aria-pressed", moralActive ? "true" : "false");
+          }
         }
         updatePreview();
       });
@@ -4115,11 +4477,18 @@
         "mall-mode-active",
         !!moodChipsRoot.querySelector('input[value="Mall Mode POV"]:checked')
       );
+      document.body.classList.toggle(
+        "moral-drama-mode-active",
+        !!moodChipsRoot.querySelector('input[value="Moral Drama"]:checked')
+      );
       if (moodChipsRoot.querySelector('input[value="Factory Warehouse DNA"]:checked')) {
         applyFactoryWarehouseExclusive();
       }
       if (moodChipsRoot.querySelector('input[value="Mall Mode POV"]:checked')) {
         applyMallModeExclusive();
+      }
+      if (moodChipsRoot.querySelector('input[value="Moral Drama"]:checked')) {
+        applyMoralDramaModeExclusive();
       }
     }
 
@@ -4140,6 +4509,88 @@
         factoryCard.classList.remove("is-active");
         factoryCard.setAttribute("aria-pressed", "false");
       }
+      try {
+        document.title = "ห้าง Mall — Project CS";
+        document.documentElement.setAttribute("data-cs-route", "mall");
+        var ph = document.querySelector(".page-header h1");
+        if (ph) ph.textContent = "ห้าง Mall";
+        var ag = document.getElementById("auth-gate-title");
+        if (ag) ag.textContent = "ห้าง Mall";
+      } catch (_) {}
+      if (typeof updatePreview === "function") updatePreview();
+    })();
+
+    (function initCsMoralOnlyRoute() {
+      if (!window.__CS_MORAL_ONLY__) return;
+      var moralInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Moral Drama"]'
+      );
+      if (moralInp) moralInp.checked = true;
+      applyMoralDramaModeExclusive();
+      document.body.classList.add("moral-drama-mode-active");
+      document.body.classList.remove("mall-mode-active");
+      document.body.classList.remove("factory-warehouse-active");
+      var moralCard = document.getElementById("mood-group-moral-card");
+      if (moralCard) {
+        moralCard.classList.add("is-active");
+        moralCard.setAttribute("aria-pressed", "true");
+      }
+      var mallCardM = document.getElementById("mood-group-mall-card");
+      if (mallCardM) {
+        mallCardM.classList.remove("is-active");
+        mallCardM.setAttribute("aria-pressed", "false");
+      }
+      var factoryCardM = document.getElementById("mood-group-factory-card");
+      if (factoryCardM) {
+        factoryCardM.classList.remove("is-active");
+        factoryCardM.setAttribute("aria-pressed", "false");
+      }
+      var mallInpM = document.querySelector('#mood-chips input[type="checkbox"][value="Mall Mode POV"]');
+      if (mallInpM) mallInpM.checked = false;
+      var factoryInpM = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Factory Warehouse DNA"]'
+      );
+      if (factoryInpM) factoryInpM.checked = false;
+      try {
+        document.title = "ละครคุณธรรม — Project CS";
+        document.documentElement.setAttribute("data-cs-route", "moral");
+        var phm = document.querySelector(".page-header h1");
+        if (phm) phm.textContent = "ละครคุณธรรม";
+        var agm = document.getElementById("auth-gate-title");
+        if (agm) agm.textContent = "ละครคุณธรรม";
+      } catch (_) {}
+      if (typeof updatePreview === "function") updatePreview();
+    })();
+
+    (function initCsFactoryOnlyRoute() {
+      if (!window.__CS_FACTORY_ONLY__) return;
+      var factoryInp = document.querySelector(
+        '#mood-chips input[type="checkbox"][value="Factory Warehouse DNA"]'
+      );
+      if (factoryInp) factoryInp.checked = true;
+      applyFactoryWarehouseExclusive();
+      document.body.classList.add("factory-warehouse-active");
+      document.body.classList.remove("mall-mode-active");
+      var factoryCard = document.getElementById("mood-group-factory-card");
+      if (factoryCard) {
+        factoryCard.classList.add("is-active");
+        factoryCard.setAttribute("aria-pressed", "true");
+      }
+      var mallCard = document.getElementById("mood-group-mall-card");
+      if (mallCard) {
+        mallCard.classList.remove("is-active");
+        mallCard.setAttribute("aria-pressed", "false");
+      }
+      var mallInp = document.querySelector('#mood-chips input[type="checkbox"][value="Mall Mode POV"]');
+      if (mallInp) mallInp.checked = false;
+      try {
+        document.title = "โรงงาน/โกดัง — Project CS";
+        document.documentElement.setAttribute("data-cs-route", "factory");
+        var phf = document.querySelector(".page-header h1");
+        if (phf) phf.textContent = "โรงงาน/โกดัง";
+        var agf = document.getElementById("auth-gate-title");
+        if (agf) agf.textContent = "โรงงาน/โกดัง";
+      } catch (_) {}
       if (typeof updatePreview === "function") updatePreview();
     })();
 
@@ -4382,7 +4833,7 @@
     }
 
     function isMultiFileKey(k) {
-      return k === "product" || k === "character1" || k === "character2" || k === "character3";
+      return k === "product" || k === "character1" || k === "character2" || k === "character3" || k === "factoryRef" || k === "factoryRefNoHero";
     }
 
     function clearPromptAndImages() {
@@ -4402,6 +4853,8 @@
       });
       heroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+      factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
       var ho = document.getElementById("hero-analysis-out");
       var hs = document.getElementById("hero-analyze-status");
       if (ho) {
@@ -4475,6 +4928,38 @@
         if (key === "product") {
           productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
         }
+        if (key === "factoryRef") {
+          factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          /* mutual exclusion: ล้าง no-hero ref ถ้ามีไฟล์ถูกเลือกใน factoryRef */
+          if (e.target.files && e.target.files.length > 0) {
+            files.factoryRefNoHero = [];
+            factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+            var nhLab = document.getElementById("drop-factory-ref-nohero");
+            if (nhLab) {
+              nhLab.classList.remove("has-file");
+              var nhStack = nhLab.querySelector(".multi-thumb-stack");
+              if (nhStack) nhStack.innerHTML = "";
+              var nhInp = nhLab.querySelector("input");
+              if (nhInp) nhInp.value = "";
+            }
+          }
+        }
+        if (key === "factoryRefNoHero") {
+          factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          /* mutual exclusion: ล้าง factoryRef เดิมถ้ามีไฟล์ถูกเลือกใน no-hero */
+          if (e.target.files && e.target.files.length > 0) {
+            files.factoryRef = [];
+            factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+            var frLab = document.getElementById("drop-factory-ref");
+            if (frLab) {
+              frLab.classList.remove("has-file");
+              var frStack = frLab.querySelector(".multi-thumb-stack");
+              if (frStack) frStack.innerHTML = "";
+              var frInp = frLab.querySelector("input");
+              if (frInp) frInp.value = "";
+            }
+          }
+        }
         lab.classList.remove("has-file");
         revokeDropThumb(lab);
         updatePreview();
@@ -4542,7 +5027,103 @@
       return JSON.parse(s);
     }
 
-    ["product", "character1", "character2", "character3"].forEach(function (mkey) {
+    function collectFactoryRefImagesForAnalysis() {
+      var out = [];
+      (files.factoryRef || []).forEach(function (f) {
+        if (f && f.data && f.mimeType) out.push({ mimeType: f.mimeType, data: f.data });
+      });
+      return out;
+    }
+
+    function buildFactoryRefImageOrderLegend() {
+      var arr = (files.factoryRef || []).filter(function (f) { return f && f.data; });
+      if (!arr.length) return "";
+      return arr
+        .map(function (f, i) {
+          return "- index " + i + " → factoryRef slot (ref_scene) (file: " + (f.name || "(attached)") + ")";
+        })
+        .join("\n");
+    }
+
+    async function runFactoryRefAnalysis(apiKey) {
+      const G = window.MockStorymodeGemini;
+      if (!G || !G.buildFactoryRefAnalysisSystemPrompt) {
+        throw new Error("MockStorymodeGemini.buildFactoryRefAnalysisSystemPrompt not available");
+      }
+      var imgs = collectFactoryRefImagesForAnalysis();
+      if (!imgs.length) throw new Error("ไม่มีรูป ref ที่โหลดเสร็จ");
+      var legend = buildFactoryRefImageOrderLegend();
+      var sysP = G.buildFactoryRefAnalysisSystemPrompt();
+      var usrP = G.buildFactoryRefAnalysisUserMessage(legend);
+      var parts = [{ text: usrP }];
+      imgs.forEach(function (im) {
+        parts.push({ inlineData: { mimeType: im.mimeType, data: im.data } });
+      });
+      var body = JSON.stringify({
+        system_instruction: { parts: [{ text: sysP }] },
+        contents: [{ role: "user", parts: parts }],
+        generationConfig: { temperature: 0.1, maxOutputTokens: 1200 }
+      });
+      var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(apiKey);
+      var resp = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: body });
+      var json = await resp.json();
+      var raw = ((json.candidates || [])[0] || {});
+      var rawText = (((raw.content || {}).parts || [])[0] || {}).text || "";
+      if (!rawText) throw new Error("Gemini คืนข้อมูลว่าง (ref analysis)");
+      var parsed = null;
+      try { parsed = parseJsonFromGeminiText(rawText); } catch (_) {}
+      factoryRefAnalysisCache = { parsed: parsed, rawText: rawText, at: Date.now(), error: null };
+    }
+
+    function collectFactoryRefNoHeroImagesForAnalysis() {
+      var out = [];
+      (files.factoryRefNoHero || []).forEach(function (f) {
+        if (f && f.data && f.mimeType) out.push({ mimeType: f.mimeType, data: f.data });
+      });
+      return out;
+    }
+
+    function buildFactoryRefNoHeroImageOrderLegend() {
+      var arr = (files.factoryRefNoHero || []).filter(function (f) { return f && f.data; });
+      if (!arr.length) return "";
+      return arr
+        .map(function (f, i) {
+          return "- index " + i + " → factoryRefNoHero slot (ref_scene_no_hero) (file: " + (f.name || "(attached)") + ")";
+        })
+        .join("\n");
+    }
+
+    async function runFactoryRefNoHeroAnalysis(apiKey) {
+      const G = window.MockStorymodeGemini;
+      if (!G || !G.buildFactoryRefNoHeroAnalysisSystemPrompt) {
+        throw new Error("MockStorymodeGemini.buildFactoryRefNoHeroAnalysisSystemPrompt not available");
+      }
+      var imgs = collectFactoryRefNoHeroImagesForAnalysis();
+      if (!imgs.length) throw new Error("ไม่มีรูป ref (no hero) ที่โหลดเสร็จ");
+      var legend = buildFactoryRefNoHeroImageOrderLegend();
+      var sysP = G.buildFactoryRefNoHeroAnalysisSystemPrompt();
+      var usrP = G.buildFactoryRefNoHeroAnalysisUserMessage(legend);
+      var parts = [{ text: usrP }];
+      imgs.forEach(function (im) {
+        parts.push({ inlineData: { mimeType: im.mimeType, data: im.data } });
+      });
+      var body = JSON.stringify({
+        system_instruction: { parts: [{ text: sysP }] },
+        contents: [{ role: "user", parts: parts }],
+        generationConfig: { temperature: 0.1, maxOutputTokens: 1200 }
+      });
+      var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(apiKey);
+      var resp = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: body });
+      var json = await resp.json();
+      var raw = ((json.candidates || [])[0] || {});
+      var rawText = (((raw.content || {}).parts || [])[0] || {}).text || "";
+      if (!rawText) throw new Error("Gemini คืนข้อมูลว่าง (ref no-hero analysis)");
+      var parsed = null;
+      try { parsed = parseJsonFromGeminiText(rawText); } catch (_) {}
+      factoryRefNoHeroAnalysisCache = { parsed: parsed, rawText: rawText, at: Date.now(), error: null };
+    }
+
+    ["product", "character1", "character2", "character3", "factoryRef", "factoryRefNoHero"].forEach(function (mkey) {
       var inp = document.querySelector('.drop input[data-key="' + mkey + '"]');
       if (!inp) return;
       inp.setAttribute("multiple", "multiple");
@@ -4562,6 +5143,38 @@
         }
         if (key === "product") {
           productAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+        }
+        if (key === "factoryRef") {
+          factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          /* mutual exclusion: ล้าง no-hero ref ถ้ามีไฟล์ถูกเลือกใน factoryRef */
+          if (e.target.files && e.target.files.length > 0) {
+            files.factoryRefNoHero = [];
+            factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+            var nhLab = document.getElementById("drop-factory-ref-nohero");
+            if (nhLab) {
+              nhLab.classList.remove("has-file");
+              var nhStack = nhLab.querySelector(".multi-thumb-stack");
+              if (nhStack) nhStack.innerHTML = "";
+              var nhInp = nhLab.querySelector("input");
+              if (nhInp) nhInp.value = "";
+            }
+          }
+        }
+        if (key === "factoryRefNoHero") {
+          factoryRefNoHeroAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+          /* mutual exclusion: ล้าง factoryRef เดิมถ้ามีไฟล์ถูกเลือกใน no-hero */
+          if (e.target.files && e.target.files.length > 0) {
+            files.factoryRef = [];
+            factoryRefAnalysisCache = { parsed: null, rawText: null, at: null, error: null };
+            var frLab = document.getElementById("drop-factory-ref");
+            if (frLab) {
+              frLab.classList.remove("has-file");
+              var frStack = frLab.querySelector(".multi-thumb-stack");
+              if (frStack) frStack.innerHTML = "";
+              var frInp = frLab.querySelector("input");
+              if (frInp) frInp.value = "";
+            }
+          }
         }
         var raw = e.target.files ? Array.from(e.target.files) : [];
         var list = raw.slice(0, MULTI_IMAGE_MAX);
@@ -5085,6 +5698,112 @@
       return { ok: true, ref: null };
     }
 
+    /** Mall / Moral Drama ใช้ API บนเซิร์ฟเวอร์เดียวกับหน้า (dev_server / serve_story_mock / Vercel ที่ deploy api/)
+     *  ไม่ตาม __GEMINI_API_ORIGIN__ — ค่านั้นใช้กับ /api/gemini เท่านั้น; ถ้าชี้โดเมนเก่าจะได้ HTTP 404 HTML */
+    function getPipelineApiBase() {
+      try {
+        return typeof window !== "undefined" && window.location && window.location.origin
+          ? window.location.origin
+          : "";
+      } catch (e) {
+        return "";
+      }
+    }
+
+    /** รูป hero จาก character1 slot (role="character") — ไม่มี = ok, ref=null */
+    function getValidatedHeroImageForMoralDrama(payload) {
+      var imgs = (payload.images && payload.images.imagesForGemini) || [];
+      for (var i = 0; i < imgs.length; i++) {
+        var im = imgs[i];
+        if (!im || im.role !== "character" || !im.mimeType) continue;
+        if (!/^image\//i.test(String(im.mimeType))) {
+          return { ok: false, error: "รูป Hero ต้องเป็นไฟล์ภาพ (JPEG/PNG/WebP ฯลฯ)" };
+        }
+        if (!im.data || String(im.data).length < 32) {
+          return {
+            ok: false,
+            error: "รูป Hero ยังโหลดไม่ครบ — รอให้เห็นภาพตัวอย่างในช่อง Character แล้วลองใหม่"
+          };
+        }
+        return { ok: true, ref: { mimeType: im.mimeType, data: im.data } };
+      }
+      return { ok: true, ref: null };
+    }
+
+    /** แปลงผล Moral Drama API → storyboard text สำหรับ result panel */
+    function buildMoralDramaStoryboardText(moralJson) {
+      var lines = [];
+      var warns = moralJson && moralJson.warnings;
+      if (warns && warns.length) {
+        lines.push("=== WARNINGS (คำต้องห้าม / policy) ===");
+        warns.forEach(function (w) {
+          lines.push("- " + w);
+        });
+        lines.push("");
+      }
+      var hb = moralJson && moralJson.hero_bible_th;
+      if (hb && String(hb).trim()) {
+        lines.push("=== HERO BIBLE (ROLE ล็อกตลอดเรื่อง) ===");
+        lines.push(String(hb).trim());
+        lines.push("");
+      }
+      var cp = moralJson && moralJson.character_profile_th;
+      if (cp && String(cp).trim()) {
+        lines.push("=== ละครคุณธรรม — ตัวละครหลัก ===");
+        lines.push(String(cp).trim());
+        lines.push("");
+      }
+      var nv = moralJson && moralJson.narrator_voice_th;
+      if (nv && String(nv).trim()) {
+        lines.push("=== ผู้เล่า / น้ำเสียง ===");
+        lines.push(String(nv).trim());
+        lines.push("");
+      }
+      var ms = moralJson && moralJson.moral_summary_th;
+      if (ms && String(ms).trim()) {
+        lines.push("=== บทเรียนรวม ===");
+        lines.push(String(ms).trim());
+        lines.push("");
+      }
+      var scenes = (moralJson && moralJson.scenes) || [];
+      scenes.forEach(function (sc, idx) {
+        var num = sc.scene_number != null ? sc.scene_number : idx + 1;
+        var arcLabel = sc.arc_point ? sc.arc_point.toUpperCase() : "";
+        var twistMark = sc.twist_flag ? " 🔀 TWIST" : "";
+        var sceneTitle = sc.scene_title_th || ("ฉากที่ " + num);
+        lines.push("=== SCENE " + num + ": " + sceneTitle + (arcLabel ? " [" + arcLabel + twistMark + "]" : "") + " ===");
+        lines.push("");
+        var mb = (sc.moral_beat_th || "").trim();
+        if (mb) {
+          lines.push("💡 " + mb);
+          lines.push("");
+        }
+        var hfd = (sc.hero_full_detail || "").trim();
+        if (hfd) {
+          lines.push("📌 hero_full_detail (ล็อกภาพฉากนี้ — อ่านจากฟิลด์นี้เท่านั้น)");
+          lines.push(hfd);
+          lines.push("");
+        }
+        lines.push("🔴 IMAGE PROMPT");
+        lines.push((sc.image_prompt || "").trim());
+        lines.push("");
+        lines.push("🟢 VIDEO PROMPT");
+        lines.push((sc.video_prompt || "").trim());
+        var vs = (sc.voice_script_th || "").trim();
+        if (vs) {
+          lines.push("");
+          lines.push('Dialogue (Thai VO): "' + vs.replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"');
+        }
+        var cap = (sc.caption_th || "").trim();
+        if (cap) {
+          lines.push("");
+          lines.push("Thai caption (TikTok): " + cap);
+        }
+        lines.push("");
+      });
+      return lines.join("\n").trim();
+    }
+
     /** แปลงผล Mall API → ข้อความรูปแบบเดียวกับ storymode เพื่อให้หน้า result parseStoryboard ได้ */
     function buildMallStoryboardText(mallJson) {
       var lines = [];
@@ -5220,8 +5939,16 @@
       syncDomainKnowledgeUI();
       let payload = getCurrentPayload();
       if (!payload.prompt) {
-        status.textContent = "ใส่ Prompt (ส่วน 1) ก่อน";
-        return;
+        const hasImages = payload._factoryDnaIsolation && (
+          (payload.images && payload.images.productAttached) ||
+          payload.factoryRefAttached
+        );
+        if (!hasImages) {
+          status.textContent = payload._factoryDnaIsolation
+            ? "ใส่ Prompt หรือแนบรูปสินค้า / รูป ref ก่อน"
+            : "ใส่ Prompt (ส่วน 1) ก่อน";
+          return;
+        }
       }
       if (payload.mode === "product_sell" && !payload.salesFormulaId) {
         if (typeof renderSalesFormulas === "function") {
@@ -5369,10 +6096,7 @@
           };
           const imagesForGemini = (payload.images && payload.images.imagesForGemini) || [];
           const imageRefOrder = buildImageRefOrderList(imagesForGemini);
-          const apiBase =
-            typeof __GEMINI_API_ORIGIN__ !== "undefined" && __GEMINI_API_ORIGIN__
-              ? __GEMINI_API_ORIGIN__
-              : window.location.origin || "";
+          const apiBase = getPipelineApiBase();
           const mallResp = await fetch(apiBase + "/api/mall-mode", {
             method: "POST",
             headers: { "Content-Type": "application/json", "X-Gemini-Key": apiKey || "" },
@@ -5438,6 +6162,106 @@
       }
       // === END MALL MODE ===
 
+      // === MORAL DRAMA MODE — สาย /api/moral-drama-mode ===
+      if (payload._moralDramaIsolation) {
+        try {
+          status.textContent = "🎭 ละครคุณธรรม — กำลังส่งไป /api/moral-drama-mode…";
+          const moralUserPrompt = String(payload.prompt || "").trim();
+          if (!moralUserPrompt) {
+            status.textContent = "ใส่ Prompt (ส่วน 1) ก่อน — เป็นเรื่องราวเริ่มต้น";
+            save({
+              status: "error", text: "", model: null, truncated: false,
+              error: "กรุณาใส่ prompt", moralDramaMode: true, ts: Date.now()
+            });
+            return;
+          }
+          const heroImgCheck = getValidatedHeroImageForMoralDrama(payload);
+          if (!heroImgCheck.ok) {
+            status.textContent = heroImgCheck.error;
+            save({
+              status: "error", text: "", model: null, truncated: false,
+              error: heroImgCheck.error, moralDramaMode: true, ts: Date.now()
+            });
+            return;
+          }
+          // รวบรวม VISUAL_STYLES ที่เลือกไว้
+          var selectedVisualStyleIds = Array.from(
+            document.querySelectorAll('#visual-chips input[type=checkbox]:checked')
+          ).map(function (el) { return String(el.value); });
+          var selectedVisualStyleObjs = selectedVisualStyleIds
+            .map(function (sid) { return VISUAL_STYLES.find(function (v) { return v.id === sid; }); })
+            .filter(Boolean)
+            .map(function (v) { return { id: v.id, thai: v.thai, en: v.en, prompt: v.prompt }; });
+
+          const moralSceneCount = clampMallSceneCountFromUi();
+          const moralBody = {
+            user_prompt: moralUserPrompt,
+            scene_count: moralSceneCount,
+            character_visual_styles: selectedVisualStyleObjs,
+            enforce_forbidden: true,
+            reference_image: heroImgCheck.ref ? heroImgCheck.ref.data : null,
+            image_mime_type: heroImgCheck.ref ? heroImgCheck.ref.mimeType : "image/jpeg"
+          };
+          const moralResp = await fetch(getPipelineApiBase() + "/api/moral-drama-mode", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "X-Gemini-Key": apiKey || "" },
+            body: JSON.stringify(moralBody)
+          });
+          var moralBodyText = await moralResp.text();
+          var moralJson;
+          try {
+            moralJson = JSON.parse(moralBodyText);
+          } catch (_) {
+            var snipMoral = (moralBodyText || "").replace(/\s+/g, " ").slice(0, 160);
+            throw new Error(
+              "เซิร์ฟเวอร์ตอบไม่ใช่ JSON (HTTP " + moralResp.status + "): " + (snipMoral || "(ว่าง)")
+            );
+          }
+          if (!moralJson || typeof moralJson !== "object") {
+            throw new Error("Moral Drama API ตอบ JSON ว่างหรือไม่ถูกต้อง");
+          }
+          if (!moralJson.ok) {
+            throw new Error(moralJson.error || "Moral Drama API ตอบ error ไม่ทราบสาเหตุ");
+          }
+          const moralWarnings = moralJson.warnings || [];
+          const moralStoryboardText = buildMoralDramaStoryboardText(moralJson);
+          save({
+            status: "done",
+            text: moralStoryboardText,
+            model: moralJson.model || null,
+            truncated: false,
+            error: null,
+            moralDramaMode: true,
+            moralDramaResult: moralJson,
+            imageRefOrder: buildImageRefOrderList((payload.images && payload.images.imagesForGemini) || []),
+            ts: Date.now(),
+            promptAssetVersion:
+              typeof STORYMODE_PROMPT_ASSET_VERSION !== "undefined"
+                ? STORYMODE_PROMPT_ASSET_VERSION
+                : null
+          });
+          if (moralWarnings.length > 0) {
+            status.textContent = "🎭 ละครคุณธรรม สำเร็จ ⚠️ พบคำต้องห้าม " + moralWarnings.length + " จุด → ดูผลด้านล่าง";
+          } else {
+            status.textContent = "🎭 ละครคุณธรรม สำเร็จ — ดูผลด้านล่าง";
+          }
+          var resMoral = document.getElementById("section-gemini-result");
+          if (resMoral && resMoral.scrollIntoView) {
+            resMoral.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        } catch (eMoral) {
+          const msgMoral = eMoral && eMoral.message ? eMoral.message : String(eMoral);
+          save({ status: "error", text: "", model: null, truncated: false, error: msgMoral, moralDramaMode: true, ts: Date.now() });
+          status.textContent = "🎭 ละครคุณธรรม ผิดพลาด: " + msgMoral;
+        } finally {
+          generateInFlight = false;
+          const btnMoral = document.getElementById("btn-generate");
+          if (btnMoral) { btnMoral.disabled = false; btnMoral.title = ""; }
+        }
+        return;
+      }
+      // === END MORAL DRAMA MODE ===
+
       try {
         if (function () {
           const d = document.getElementById("domain-knowledge-select");
@@ -5474,6 +6298,27 @@
           }
         } catch (_) {
           /* hero analysis เบื้องหลัง — ผิดพลาดก็ไม่บล็อกการเจน */
+        }
+
+        /* โหมดโรงงาน + มีรูป ref → วิเคราะห์ฉากก่อนเจนสคริปต์หลัก */
+        if (payload._factoryDnaIsolation && payload.factoryRefNoHeroMode && !factoryRefNoHeroAnalysisCache.parsed) {
+          /* กล่อง no-hero: วิเคราะห์เฉพาะฉาก/บรรยากาศ ไม่ล็อก hero */
+          try {
+            status.textContent = "🏭 วิเคราะห์รูป ref (ฉาก — no hero)…";
+            await runFactoryRefNoHeroAnalysis(apiKey);
+            payload = getCurrentPayload();
+          } catch (_) {
+            /* ref no-hero analysis ผิดพลาด — เจนต่อโดยไม่มี ref lock */
+          }
+        } else if (payload._factoryDnaIsolation && payload.factoryRefAttached && !factoryRefAnalysisCache.parsed) {
+          /* กล่อง factoryRef เดิม: วิเคราะห์ฉาก + ฮีโร่ */
+          try {
+            status.textContent = "🏭 วิเคราะห์รูป ref (ฉาก + ฮีโร่)…";
+            await runFactoryRefAnalysis(apiKey);
+            payload = getCurrentPayload();
+          } catch (_) {
+            /* ref analysis ผิดพลาด — เจนต่อโดยไม่มี ref lock */
+          }
         }
 
         let system = G.buildStorymodeSystemPromptFromPayload(payload);
